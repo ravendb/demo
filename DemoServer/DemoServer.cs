@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DemoMethods;
+using System;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
 
@@ -8,7 +9,8 @@ namespace DemoServer
     {
         public void Start(string Url, int Port)
         {
-            var config = new HttpSelfHostConfiguration(string.Format("http://{0}:{1}", Url, Port));
+            DemoUtilities.ServerInfo = string.Format("http://{0}:{1}", Url, Port);
+            var config = new HttpSelfHostConfiguration(DemoUtilities.ServerInfo);
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{action}/{id}", // {*url}", 
@@ -18,11 +20,11 @@ namespace DemoServer
     
             using (HttpSelfHostServer server = new HttpSelfHostServer(config))
             {
-                server.OpenAsync().Wait();
+                server.OpenAsync().Wait();                
 
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine(@" __   ___        __      __   ___  __        ___  __  ");
-                Console.WriteLine(@"|  \ |__   |\/| /  \    /__` |__  |__) \  / |__  |__)");
+                Console.WriteLine(@"|  \ |__   |\/| /  \    /__` |__  |__) \  / |__  |__) ");
                 Console.WriteLine(@"|__/ |___  |  | \__/    .__/ |___ |  \  \/  |___ |  \ ");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.Green;

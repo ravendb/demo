@@ -51,31 +51,30 @@ namespace DemoMethods.Basic
         private const int HIGH_PRICE = 150;
         private const int DELAY_DAYS = 15;
 
-        private static IDocumentStore store = new DocumentStoreHolder().Store;
-        private static IDocumentSession Session = store.OpenSession();
-
         [HttpGet]
         public object Indexing()
         {
-            //GetImportantOrdersWithIssues
+            //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
 
-            // High Price Orders
-            List<Order> highPriceOrders = Session
+            using (var session = Store.OpenSession())
+            {
+                List<Order> highPriceOrders = session
                 .Query<Order>()
                 .Where(x => x.Lines.Any(l => l.PricePerUnit > HIGH_PRICE))
                 .ToList();
 
 
-            new Index_DelayedOrder().Execute(store.DatabaseCommands.ForDatabase("Northwind"), store.Conventions);
-            new Index_CostlyOrders().Execute(store.DatabaseCommands.ForDatabase("Northwind"), store.Conventions); 
-  
-            List<Order> delayingOrders = Session
-                .Query<Index_CostlyOrders.Result, Index_CostlyOrders>()
-                .Where(x => x.Delay > TimeSpan.FromDays(DELAY_DAYS) && x.Price > 10)
-                .OfType<Order>()
-                .ToList();
+                new Index_DelayedOrder().Execute(Store.DatabaseCommands.ForDatabase("Northwind"), Store.Conventions);
+                new Index_CostlyOrders().Execute(Store.DatabaseCommands.ForDatabase("Northwind"), Store.Conventions);
 
-            return DemoUtilities.ObjectToJson(delayingOrders);
+                List<Order> delayingOrders = session
+                    .Query<Index_CostlyOrders.Result, Index_CostlyOrders>()
+                    .Where(x => x.Delay > TimeSpan.FromDays(DELAY_DAYS) && x.Price > 10)
+                    .OfType<Order>()
+                    .ToList();
+
+                return DemoUtilities.ObjectToJson(delayingOrders);
+            }
         }
     }
 }

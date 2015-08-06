@@ -11,5 +11,7 @@ namespace DemoMethods
                 NullValueHandling = NullValueHandling.Ignore
             });;  // TODO :: Json(Obj)   
         }
+
+        public static string ServerInfo { get; set; }
     }
 }
