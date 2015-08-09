@@ -27,7 +27,7 @@ namespace DemoMethods.Basic
                                    {
                                        Company = company,
                                        Address = new[]
-                                       {                                           
+                                       {
                                            company.Address.Line1,
                                            company.Address.Line2,
                                            company.Address.City,
@@ -41,7 +41,7 @@ namespace DemoMethods.Basic
 
             }
         }
-        
+
 
         [HttpGet]
         public object HighLights()
@@ -58,40 +58,6 @@ namespace DemoMethods.Basic
                     .Highlight("Address", 128, 1, out highlightings)
                     .Search("Address", "USA")
                     .ToList();
-
-                StringBuilder builder = new StringBuilder()
-                    .AppendLine("<ul>");
-
-                foreach (Company result in results)
-                {
-                    string[] fragments = highlightings.GetFragments(result.Id);
-                    builder.AppendLine(string.Format("<li>{0}</li>", fragments.First()));
-                }
-
-                string ul = builder
-                    .AppendLine("</ul>")
-                    .ToString();
-
-                return ul;
-            }
-        }
-
-        [HttpGet]
-        public object HighLightsWithProjections()
-        {
-            Store.ExecuteIndex(new Index_CompaniesAndAddresses());
-
-            FieldHighlightings highlightings;
-
-            using (var session = Store.OpenSession())
-            {
-                var results = session
-                    .Advanced
-                    .DocumentQuery<Company, Index_CompaniesAndAddresses>()
-                    .Highlight("Address", 128, 1, out highlightings)                    
-                    .Search("Address", "USA")
-                    .SelectFields<Company>()
-                    .ToArray();
 
                 StringBuilder builder = new StringBuilder()
                     .AppendLine("<ul>");

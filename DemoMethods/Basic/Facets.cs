@@ -38,14 +38,14 @@ namespace DemoMethods.Basic
             {
                 Name = "Products"
             },
-            new Facet<Product>
+            new Facet<Index_ProductsAndPriceAndSuplier.Result>
             {
-                Name = x => x.PricePerUnit,
+                Name = x => x.Price,
                 Ranges =
                 {
-                    x => x.PricePerUnit < 10,
-                    x => x.PricePerUnit >= 10 && x.PricePerUnit < 20 ,
-                    x => x.PricePerUnit > 20,
+                    x => x.Price < 10,
+                    x => x.Price >= 10 && x.Price < 20 ,
+                    x => x.Price > 20,
                 }
             },
             //new Facet<Product>
@@ -67,11 +67,13 @@ namespace DemoMethods.Basic
             using (var session = Store.OpenSession())
             {
                 session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
-                
+                session.SaveChanges();
+
                 var facetResults = session
                     .Query<Product, Index_ProductsAndPriceAndSuplier>()
                     .ToFacets(facets);
                 return facetResults;
+                
             }
         }
     }

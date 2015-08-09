@@ -35,7 +35,7 @@ namespace DemoMethods
                                                      .Select(x => $"{x.DeclaringType.Name}/{x.Name}");
 
 
-            return DemoUtilities.ObjectToJson(FormattedMenuIndex.Format(allPublicMethods.ToList()));
+            return DemoUtilities.Instance.ObjectToJson(FormattedMenuIndex.Format(allPublicMethods.ToList()));
         }
     }
 }

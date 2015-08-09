@@ -73,7 +73,7 @@ namespace DemoMethods.Basic
                     .OfType<Order>()
                     .ToList();
 
-                return DemoUtilities.ObjectToJson(delayingOrders);
+                return DemoUtilities.Instance.ObjectToJson(delayingOrders);
             }
         }
     }
