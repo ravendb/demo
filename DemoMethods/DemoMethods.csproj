@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basic\DynamicAggrigation.cs" />
     <Compile Include="Basic\Highlights.cs" />
     <Compile Include="Basic\Boosting.cs" />
     <Compile Include="Basic\MapReduce.cs" />

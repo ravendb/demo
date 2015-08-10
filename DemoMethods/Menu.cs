@@ -12,14 +12,9 @@ namespace DemoMethods
         {
             public static object Format(List<string> list)
             {
-                List<string> resultList = new List<string>();
-                foreach (var i in list)
-                {
-                    string s = i.Replace("Controller", "");
-                    Console.WriteLine("{0}/{1}", DemoUtilities.ServerInfo, s);
-                    // TODO :: formated json
-                }
-                return list;
+                for (int i = 0; i < list.Count; i++)
+                    list[i] = string.Format("{0}/{1}", DemoUtilities.ServerInfo, list[i].Replace("Controller", ""));
+                return DemoUtilities.Instance.ObjectToJson(list);
             }
         }
 
@@ -35,7 +30,7 @@ namespace DemoMethods
                                                      .Select(x => $"{x.DeclaringType.Name}/{x.Name}");
 
 
-            return DemoUtilities.Instance.ObjectToJson(FormattedMenuIndex.Format(allPublicMethods.ToList()));
+            return FormattedMenuIndex.Format((allPublicMethods.ToList()));
         }
     }
 }
