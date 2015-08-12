@@ -17,9 +17,10 @@ namespace DemoMethods.Basic
                 Map = products => from product in products
                                   select new
                                   {
-                                      product.QuantityPerUnit
+                                      product.PricePerUnit,
+                                      product.UnitsInStock
                                   };
-                Sort(x => x.QuantityPerUnit, SortOptions.String);
+                Sort(x => x.UnitsInStock, SortOptions.Int);
             }   
         }
 
@@ -31,14 +32,17 @@ namespace DemoMethods.Basic
             using (var session = Store.OpenSession())
             {
                 var result = session.Query<Product, Index_Products>()
-                    .AggregateBy(x => x.QuantityPerUnit)
+                    .AggregateBy(x => x.PricePerUnit)
                     .AddRanges(
-                        x => x.QuantityPerUnit < 10,
-                        x => x.QuantityPerUnit >= 10 && x.QuantityPerUnit < 20,
-                        x => x.QuantityPerUnit >= 20
+                        x => x.UnitsInStock < 10,
+                        x => x.UnitsInStock >= 10 && x.UnitsInStock < 20,
+                        x => x.UnitsInStock >= 20
                     )
-                    .SumOn(x => x.QuantityPerUnit)
+                    .SumOn(x => x.UnitsInStock)
                     .ToList();
+                    
+                var result2 = session.Query<Product, Index_Products>().ToList();
+
                 return result;
             }
         }

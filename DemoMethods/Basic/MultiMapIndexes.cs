@@ -21,12 +21,12 @@ namespace DemoMethods.Basic
 
             public Index_NameAndCountry()
             {
-                //AddMap<Employee>(emploees => from e in emploees
-                //                             select new Result
-                //                             {
-                //                                 Name = e.FirstName + " " + e.LastName,
-                //                                 Country = e.Address.Country 
-                //                             });
+                AddMap<Employee>(emploees => from e in emploees
+                                             select new Result
+                                             {
+                                                 Name = e.FirstName + " " + e.LastName,
+                                                 Country = e.Address.Country
+                                             });
 
 
 
@@ -62,36 +62,12 @@ namespace DemoMethods.Basic
 
             using (var session = Store.OpenSession())
             {
-                /*
-                var result = session.Query<Index_NameAndCountry.Result>()
-                    .Search(x => x.Country, "USA").Customize(x=>x.WaitForNonStaleResults())
-                    .Select(x =>
-                        new
-                        {
-                            x.Name,
-                            x.Country
-                        })
-                        .ToList();
-            */
-                var namesList = new List<string>();
 
-                var query =
-                    session.Query<Index_NameAndCountry.Result, Index_NameAndCountry>()
-                    .ProjectFromIndexFieldsInto<Index_NameAndCountry.Result>()
-                    .Search(x => x.Country, "USA");
-
-                using (var enumerator = session.Advanced.Stream(query))
-                {
-                    while (enumerator.MoveNext())
-                    {
-                        var result = enumerator.Current.Document;
-                        namesList.Add(result.Name);
-                    }
-                }
-
-
-
-                return namesList;
+                return session.Query<Index_NameAndCountry.Result, Index_NameAndCountry>()
+                    .Customize(x => x.WaitForNonStaleResults())
+                    .Search(x => x.Country, "USA")
+                    .Select(x => x.Name)
+                    .ToList();
             }
         }
     }

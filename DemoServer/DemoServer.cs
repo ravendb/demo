@@ -14,7 +14,7 @@ namespace DemoServer
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "{controller}/{action}/{id}", // {*url}", 
-                defaults: new { id = RouteParameter.Optional } 
+                defaults: new { controller = "Menu", action = "Index", id = RouteParameter.Optional } 
                 );
             config.Formatters.Remove(config.Formatters.XmlFormatter);
     

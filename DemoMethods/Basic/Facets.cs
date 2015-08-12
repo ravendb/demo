@@ -15,8 +15,8 @@ namespace DemoMethods.Basic
             public class Result
             {
                 public string ProductId { get; set; }
-                public decimal Price { get; set; }
-                public string Supplier { get; set; }
+                public decimal PricePerUnit { get; set; }
+                public int UnitsInStock { get; set; }
             }
 
             public Index_ProductsAndPriceAndSuplier()
@@ -25,8 +25,8 @@ namespace DemoMethods.Basic
                                   select new Result
                                   {
                                       ProductId = product.Id,
-                                      Price = product.PricePerUnit,
-                                      Supplier = product.Supplier
+                                      PricePerUnit = product.PricePerUnit,
+                                      UnitsInStock = product.UnitsInStock
                                   };
             }
 
@@ -38,25 +38,25 @@ namespace DemoMethods.Basic
             {
                 Name = "Products"
             },
-            new Facet<Index_ProductsAndPriceAndSuplier.Result>
+            new Facet<Product>
             {
-                Name = x => x.Price,
+                Name = x => x.PricePerUnit,
                 Ranges =
                 {
-                    x => x.Price < 10,
-                    x => x.Price >= 10 && x.Price < 20 ,
-                    x => x.Price > 20,
+                    x => x.PricePerUnit < 10,
+                    x => x.PricePerUnit > 10 && x.PricePerUnit < 20,
+                    x => x.PricePerUnit > 20,
                 }
             },
-            //new Facet<Product>
-            //{
-            //    Name = x => x.Supplier,
-            //    Ranges =
-            //    {
-            //        x => x.Supplier.StartsWith("M") == true,
-            //        x => x.Supplier.StartsWith("M") == false
-            //    }
-            //}
+            new Facet<Product>
+            {
+                Name = x => x.UnitsInStock,
+                Ranges =
+                {
+                    x => x.UnitsInStock < 10,
+                    x => x.UnitsInStock > 10
+                }
+            }
         };
 
         [HttpGet]
@@ -71,7 +71,10 @@ namespace DemoMethods.Basic
 
                 var facetResults = session
                     .Query<Product, Index_ProductsAndPriceAndSuplier>()
-                    .ToFacets(facets);
+                    .Customize(x => x.WaitForNonStaleResults())
+                    .Where(x => x.UnitsInStock > 1)
+                    .ToFacets(facets);                    
+                    
                 return facetResults;
                 
             }

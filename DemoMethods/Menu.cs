@@ -27,10 +27,13 @@ namespace DemoMethods
 
             var allPublicMethods = allControllerTypes.SelectMany(x => x.GetMethods(BindingFlags.Public | BindingFlags.Instance))
                                                      .Where(x => x.CustomAttributes.Any(attr => attr.AttributeType == typeof(HttpGetAttribute)))
-                                                     .Select(x => $"{x.DeclaringType.Name}/{x.Name}");
+                                                     .Where(x => x.DeclaringType.Name.Contains(x.Name) == false)
+                                                     .Select(x => string.Format("{0}/{1}", x.DeclaringType.Name, x.Name)); // in VS2015 :  $"{x.DeclaringType.Name}/{x.Name}"
 
+            List<string> result = allPublicMethods.ToList();
+            result.Sort();
 
-            return FormattedMenuIndex.Format((allPublicMethods.ToList()));
+            return FormattedMenuIndex.Format((result));
         }
     }
 }

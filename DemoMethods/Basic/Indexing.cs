@@ -16,7 +16,7 @@ namespace DemoMethods.Basic
             {
                 public string OrderId;
                 public TimeSpan Delay;
-                public int Price;
+                public decimal Price;
             }
 
             public Index_CostlyOrders()
@@ -31,8 +31,8 @@ namespace DemoMethods.Basic
             }
         }
 
-        private const int HIGH_PRICE = 1;
-        private const int DELAY_DAYS = 1;
+        private const int HIGH_PRICE = 500;
+        private const int DELAY_DAYS = 35;
 
         [HttpGet]
         public object Indexing()
@@ -44,8 +44,8 @@ namespace DemoMethods.Basic
             {
                 var problemtaticOrders = session
                     .Query<Index_CostlyOrders.Result, Index_CostlyOrders>()                    
-                    .Where(x => x.Delay > TimeSpan.FromDays(DELAY_DAYS))// && x.Price > HIGH_PRICE)
-                    //.OfType<Order>()
+                    .Where(x =>  x.Price > HIGH_PRICE && x.Delay > TimeSpan.FromDays(DELAY_DAYS))
+                    .OfType<Order>()
                     .ToList();
 
                 return DemoUtilities.Instance.ObjectToJson(problemtaticOrders);
