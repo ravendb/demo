@@ -90,6 +90,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advanced\AdvancedController.cs" />
+    <Compile Include="Advanced\MoreLikeThis.cs" />
+    <Compile Include="Advanced\LazyFunctionality.cs" />
     <Compile Include="Basic\DynamicAggrigation.cs" />
     <Compile Include="Basic\Highlights.cs" />
     <Compile Include="Basic\Boosting.cs" />
