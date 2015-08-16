@@ -1,4 +1,5 @@
 ﻿using DemoMethods.Entities;
+using DemoMethods.Indexes;
 using Raven.Abstractions.Indexing;
 using Raven.Client;
 using Raven.Client.Indexes;
@@ -9,21 +10,7 @@ using System.Web.Http;
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
-    {
-        public class Index_Products : AbstractIndexCreationTask<Product>
-        {
-            public Index_Products()
-            {
-                Map = products => from product in products
-                                  select new
-                                  {
-                                      product.PricePerUnit,
-                                      product.UnitsInStock
-                                  };
-                Sort(x => x.UnitsInStock, SortOptions.Int);
-            }   
-        }
-
+    {       
         [HttpGet]
         public object DynamicAggrigation()
         {

@@ -1,4 +1,5 @@
-﻿using Raven.Client;
+﻿using DemoMethods.Indexes;
+using Raven.Client;
 using Raven.Client.Indexes;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,9 +8,7 @@ using System.Web.Http;
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
-    {
-        // Index_NameAndCountry implemented in MultiMapIndexes.cs
-
+    {        
         public class Transformer_NameAndCountry : AbstractTransformerCreationTask<Index_NameAndCountry.Result>
         {
             public Transformer_NameAndCountry()
@@ -20,10 +19,7 @@ namespace DemoMethods.Basic
                                                   result.Name
                                               };
             }
-
         }
-
-    
 
         [HttpGet]
         public object TransformerQuery()
@@ -51,9 +47,6 @@ namespace DemoMethods.Basic
                         namesList.Add(result.Name);
                     }
                 }
-
-
-
                 return namesList;
             }
         }

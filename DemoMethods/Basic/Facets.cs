@@ -1,4 +1,5 @@
 ﻿using DemoMethods.Entities;
+using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client;
 using Raven.Client.Indexes;
@@ -10,28 +11,6 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        public class Index_ProductsAndPriceAndSuplier : AbstractIndexCreationTask<Product>
-        {
-            public class Result
-            {
-                public string ProductId { get; set; }
-                public decimal PricePerUnit { get; set; }
-                public int UnitsInStock { get; set; }
-            }
-
-            public Index_ProductsAndPriceAndSuplier()
-            {
-                Map = products => from product in products
-                                  select new Result
-                                  {
-                                      ProductId = product.Id,
-                                      PricePerUnit = product.PricePerUnit,
-                                      UnitsInStock = product.UnitsInStock
-                                  };
-            }
-
-        }
-
         List<Facet> facets = new List<Facet>
         {
             new Facet

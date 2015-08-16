@@ -1,4 +1,5 @@
 ﻿using DemoMethods.Entities;
+using DemoMethods.Indexes;
 using Raven.Abstractions.Indexing;
 using Raven.Client;
 using Raven.Client.Indexes;
@@ -12,19 +13,6 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        public class Index_OrderByCompanyAndShipper : AbstractIndexCreationTask<Order>
-        {
-            public Index_OrderByCompanyAndShipper()
-            {
-                Map = orders => from order in orders
-                                select new
-                                {
-                                    CompanyId = order.Company.Boost(10),
-                                    ShipperId = order.ShipVia
-                                };
-            }
-        }
-        
         [HttpGet]
         public object Boosting()
         {
