@@ -55,8 +55,7 @@ namespace DemoMethods.Advanced
                     var bufferLength = size.Value<int>();
                     byte[] buffer = new byte[bufferLength];
                     stream.Read(buffer, 0, bufferLength);
-                    content = Encoding.UTF8.GetString(buffer);
-                    Console.WriteLine("DEBUG:{0}", content);
+                    content = Encoding.UTF8.GetString(buffer);.
                 }
 
                 var results = new
