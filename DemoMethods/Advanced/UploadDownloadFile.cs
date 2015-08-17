@@ -17,13 +17,14 @@ using Raven.Json.Linq;
 using System.Threading.Tasks;
 using Raven.Abstractions.Extensions;
 using System.Text;
+using Raven.Client.Linq.Indexing;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object UploadDownloadFile()
+        public async Task<object> UploadDownloadFile()
         {
             using (IFilesStore filesStore = new FilesStore()
             {
@@ -32,46 +33,40 @@ namespace DemoMethods.Advanced
             }.Initialize())
             {
                 string filename = Path.GetTempPath() + "DemoFs.txt";
+                string storeString = "Hello World";
 
-                File.WriteAllText(filename, "Hello World", Encoding.UTF8);
-                
+                File.WriteAllText(filename, storeString, Encoding.UTF8);
 
-                var taskUpload = Task.Factory.StartNew(new Func<Task>(async () =>
-                    {
-                        await filesStore.AsyncFilesCommands.UploadAsync(
-                            "/demofile.txt",
-                            File.OpenRead(filename),
-                            new RavenJObject 
+                await filesStore.AsyncFilesCommands.UploadAsync("/demofile.txt", File.OpenRead(filename),
+                   new RavenJObject 
                                 {
                                     {
                                         "AllowRead", "Everyone"
                                     } 
                                 });
-                    }));
-
-                taskUpload.Wait();
 
                 var metadata = new Reference<RavenJObject>();
 
-                var taskDownload = Task.Factory.StartNew(new Func<Task>(async () =>
-                    {
-                        Stream data = await filesStore
-                            .AsyncFilesCommands
-                            .DownloadAsync(
-                            "/demofile.txt",
-                            metadata);
 
-                        // VolatileStringResult = data.ReadString(Encoding.UTF8);
-                        byte[] res = new byte[11];
-                        data.Read(res, 0, 11);
-                        Console.WriteLine("DEBUG:{0}", res);
-                    }));
+                string content;
+                using (var stream = await filesStore.AsyncFilesCommands.DownloadAsync("/demofile.txt", metadata))
+                {
+                    var size = metadata.Value[Constants.FileSystem.RavenFsSize];
+                    var bufferLength = size.Value<int>();
+                    byte[] buffer = new byte[bufferLength];
+                    stream.Read(buffer, 0, bufferLength);
+                    content = Encoding.UTF8.GetString(buffer);
+                    Console.WriteLine("DEBUG:{0}", content);
+                }
 
-                taskDownload.Wait();
+                var results = new
+                {
+                    Read = content,
+                    MetaData = metadata
+                };
+
+                return DemoUtilities.Instance.ObjectToJson(results);
             }
-           
-            // return DemoUtilities.Instance.ObjectToJson(VolatileStringResult);
-            return null;
         }
     }
 }
