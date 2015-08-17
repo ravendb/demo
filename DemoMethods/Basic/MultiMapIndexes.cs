@@ -1,11 +1,7 @@
-﻿using DemoMethods.Entities;
-using DemoMethods.Indexes;
-using Raven.Abstractions.Indexing;
-using Raven.Client;
-using Raven.Client.Indexes;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
+using DemoMethods.Indexes;
+using Raven.Client;
 
 namespace DemoMethods.Basic
 {

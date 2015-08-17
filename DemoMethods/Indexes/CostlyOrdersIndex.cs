@@ -1,10 +1,7 @@
-﻿using DemoMethods.Entities;
-using Raven.Client.Indexes;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using DemoMethods.Entities;
+using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {

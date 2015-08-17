@@ -1,7 +1,7 @@
-﻿using DemoMethods;
-using System;
+﻿using System;
 using System.Web.Http;
 using System.Web.Http.SelfHost;
+using DemoMethods;
 
 namespace DemoServer
 {

@@ -1,16 +1,9 @@
-﻿using DemoMethods.Entities;
-using Raven.Client;
-using Raven.Client.Indexes;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using DemoMethods.Entities;
 using Raven.Abstractions.Data;
-using Raven.Client.Bundles.MoreLikeThis;
-using Raven.Client.Document;
-using Raven.Client.Listeners;
-using Raven.Abstractions.Indexing;
-using Raven.Database;
+using Raven.Client.Indexes;
 
 namespace DemoMethods.Advanced
 {

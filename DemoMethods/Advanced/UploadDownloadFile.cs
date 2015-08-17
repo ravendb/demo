@@ -1,23 +1,12 @@
-﻿using DemoMethods.Entities;
-using Raven.Client;
-using Raven.Client.Indexes;
-using Raven.Client.FileSystem;
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 using System.Web.Http;
 using Raven.Abstractions.Data;
-using Raven.Client.Bundles.MoreLikeThis;
-using Raven.Client.Document;
-using Raven.Abstractions.Indexing;
-using Raven.Database;
-using System.IO;
-using Raven.Json.Linq;
-using System.Threading.Tasks;
 using Raven.Abstractions.Extensions;
-using System.Text;
-using Raven.Client.Linq.Indexing;
+using Raven.Client.FileSystem;
+using Raven.Json.Linq;
 
 namespace DemoMethods.Advanced
 {
@@ -55,7 +44,7 @@ namespace DemoMethods.Advanced
                     var bufferLength = size.Value<int>();
                     byte[] buffer = new byte[bufferLength];
                     stream.Read(buffer, 0, bufferLength);
-                    content = Encoding.UTF8.GetString(buffer);.
+                    content = Encoding.UTF8.GetString(buffer);
                 }
 
                 var results = new

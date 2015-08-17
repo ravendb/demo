@@ -91,6 +91,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Advanced\AdvancedController.cs" />
+    <Compile Include="Advanced\SetBased.cs" />
     <Compile Include="Advanced\UploadDownloadFile.cs" />
     <Compile Include="Advanced\FullTextSearch.cs" />
     <Compile Include="Advanced\StreamingApi.cs" />
@@ -121,10 +122,12 @@
     <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
+    <Compile Include="Indexes\ProductIndex.cs" />
     <Compile Include="Indexes\CompaniesAndAddressesIndex.cs" />
     <Compile Include="Indexes\NameAndCountryIndex.cs" />
     <Compile Include="Indexes\OrderByCompanyAndShipperIndex.cs" />
     <Compile Include="Indexes\CostlyOrdersIndex.cs" />
+    <Compile Include="Indexes\ProductNewIndex.cs" />
     <Compile Include="Indexes\ProductSalesIndex.cs" />
     <Compile Include="Indexes\ProductsAndPriceAndSuplierIndex.cs" />
     <Compile Include="Indexes\ProductsIndex.cs" />

@@ -1,6 +1,6 @@
-﻿using Raven.Client;
+﻿using System;
+using Raven.Client;
 using Raven.Client.Document;
-using System;
 
 namespace DemoMethods
 {
