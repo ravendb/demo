@@ -3,6 +3,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Reflection;
 using System.Web.Http;
+using DemoMethods.Entities;
 using Raven.Client.Indexes;
 
 namespace DemoMethods
@@ -61,18 +62,12 @@ namespace DemoMethods
 
             return DemoUtilities.Instance.ObjectToJson(resObj);
         }
-
+      
         [HttpGet]
         public object CreateIndexesAndTransformers()
-        {
-            var container = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
-            var indexesList = container.GetExportedValues<AbstractIndexCreationTask>().ToList();
-            var multimapList = container.GetExportedValues<AbstractMultiMapIndexCreationTask>().ToList();
-            var transformersList = container.GetExportedValues<AbstractTransformerCreationTask>().ToList();
-
-            IndexCreation.CreateIndexes(container, DocumentStoreHolder.Store);
-
-            return DemoUtilities.Instance.ObjectToJson("Done");
+        {            
+            IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
+            return DemoUtilities.Instance.ObjectToJson("Indexes were created successfully");
         }
     }
 }
