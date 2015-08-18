@@ -122,6 +122,7 @@
     <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
+    <Compile Include="Indexes\CompanyAndCountryIndex.cs" />
     <Compile Include="Indexes\ProductIndex.cs" />
     <Compile Include="Indexes\CompaniesAndAddressesIndex.cs" />
     <Compile Include="Indexes\NameAndCountryIndex.cs" />
