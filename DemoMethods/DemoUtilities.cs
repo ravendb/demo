@@ -5,21 +5,19 @@ namespace DemoMethods
     public class DemoUtilities : Controller
     {
         private static volatile DemoUtilities instance = null;
-        private static object lockObj = new object();
+        private static readonly object LockObj = new object();
         private DemoUtilities() { }
 
         public static DemoUtilities Instance
         {
             get
             {
-                if (instance == null)
+                if (instance != null) return instance;
+                lock(LockObj)
                 {
-                    lock(lockObj)
+                    if (instance == null)
                     {
-                        if (instance == null)
-                        {
-                            instance = new DemoUtilities();
-                        }
+                        instance = new DemoUtilities();
                     }
                 }
                 return instance;
@@ -27,15 +25,9 @@ namespace DemoMethods
         }
 
 
-        public object ObjectToJson(object Obj)
+        public object ObjectToJson(object obj)
         {
-            /*
-            var s = JsonConvert.SerializeObject(Obj, Formatting.Indented, new JsonSerializerSettings
-            {
-                NullValueHandling = NullValueHandling.Ignore
-            }); ;  // TODO :: Json(Obj)   
-            */
-            return Json(Obj);
+            return Json(obj);
         }
 
         public static string ServerInfo { get; set; }

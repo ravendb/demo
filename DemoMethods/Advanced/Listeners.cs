@@ -22,13 +22,13 @@ namespace DemoMethods.Advanced
         public object Listeners()
         {
             // make sure we create new stale index
-            Store.DatabaseCommands.DeleteIndex("Index/NewIndex/Product");
+            DocumentStoreHolder.Store.DatabaseCommands.DeleteIndex("Index/NewIndex/Product");
 
-            Store.Listeners.RegisterListener(new QueryListener());
+            DocumentStoreHolder.Store.Listeners.RegisterListener(new QueryListener());
 
-            Store.ExecuteIndex(new IndexNewIndexProduct());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexNewIndexProduct());
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 
                 var result = session.Query<Product>("Index/NewIndex/Product");

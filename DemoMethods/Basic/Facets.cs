@@ -40,9 +40,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object Facets()
         {
-            Store.ExecuteIndex(new IndexProductsAndPriceAndSuplier());            
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexProductsAndPriceAndSuplier());
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
                 session.SaveChanges();

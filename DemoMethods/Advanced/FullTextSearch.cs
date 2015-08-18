@@ -10,7 +10,7 @@ namespace DemoMethods.Advanced
         {            
             // new Index_Category().Execute(Store);
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                
 

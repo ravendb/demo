@@ -10,9 +10,9 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object LazyFunctionality()
         {
-            new IndexProduct().Execute(Store);
+            new IndexProduct().Execute(DocumentStoreHolder.Store);
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 Lazy<Product> result = session.Advanced.Lazily.Load<Product>("products/1");
                 return DemoUtilities.Instance.ObjectToJson(result);

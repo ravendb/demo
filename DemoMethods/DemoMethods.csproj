@@ -90,8 +90,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Advanced\AdvancedController.cs" />
-    <Compile Include="Advanced\IndexManyProduct.cs" />
+    <Compile Include="Indexes\IndexCategory.cs" />
+    <Compile Include="Indexes\IndexManyProduct.cs" />
     <Compile Include="Advanced\SetBased.cs" />
     <Compile Include="Advanced\UploadDownloadFile.cs" />
     <Compile Include="Advanced\FullTextSearch.cs" />
@@ -105,7 +105,6 @@
     <Compile Include="Basic\MapReduce.cs" />
     <Compile Include="Basic\Transformers.cs" />
     <Compile Include="Basic\Facets.cs" />
-    <Compile Include="Basic\BasicController.cs" />
     <Compile Include="Basic\Indexing.cs" />
     <Compile Include="Basic\MultiMapIndexes.cs" />
     <Compile Include="Basic\StoreEditCreate.cs" />
@@ -133,6 +132,7 @@
     <Compile Include="Indexes\IndexProductSales.cs" />
     <Compile Include="Indexes\IndexProductsAndPriceAndSuplier.cs" />
     <Compile Include="Indexes\IndexProducts.cs" />
+    <Compile Include="Indexes\TransformerNameAndCountry.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -11,9 +11,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object DynamicAggrigation()
         {
-            new IndexProducts().Execute(Store);
+            new IndexProducts().Execute(DocumentStoreHolder.Store);
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var result = session.Query<Product, IndexProducts>()
                     .AggregateBy(x => x.PricePerUnit)

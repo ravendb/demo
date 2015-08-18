@@ -12,9 +12,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object HighLights()
         {
-            Store.ExecuteIndex(new IndexCompaniesAndAddresses());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexCompaniesAndAddresses());
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 FieldHighlightings highlightings;
 

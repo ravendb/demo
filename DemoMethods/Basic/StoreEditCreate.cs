@@ -32,7 +32,7 @@ namespace DemoMethods.Basic
                 Address = address
             };
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 // Store :
                 session.Store(newCompany);

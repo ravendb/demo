@@ -10,9 +10,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object MultiMapIndexingQuery()
         {
-            Store.ExecuteIndex(new IndexNameAndCountry());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexNameAndCountry());
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
 
                 return session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()

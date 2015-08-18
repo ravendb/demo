@@ -10,9 +10,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object Boosting()
         {
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                new IndexOrderByCompanyAndShipper().Execute(Store);
+                new IndexOrderByCompanyAndShipper().Execute(DocumentStoreHolder.Store);
 
                 var orders = session.Query<Order,IndexOrderByCompanyAndShipper>()
                 .ToList();

@@ -16,13 +16,13 @@ namespace DemoMethods.Indexes
 
         public IndexCompaniesAndCountry()
         {
-            Map = companies => from company in companies
-                               let a = company.Address
-                               select new
-                               {
-                                   Company = company,
-                                   Country = a.Country
-                               };
+            Map = companies =>
+                from company in companies
+                select new
+                {
+                    Company = company,
+                    company.Address.Country
+                };
 
             Index(x => x.Address, FieldIndexing.Analyzed);
             Store(x => x.Address, FieldStorage.Yes);

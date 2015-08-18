@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client.Indexes;
 
@@ -18,9 +19,9 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object StreamingApi_Page()
         {
-            Store.ExecuteIndex(new IndexManyProduct());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexManyProduct());
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var query = session.Query<Product>("Index/ManyProduct");
 

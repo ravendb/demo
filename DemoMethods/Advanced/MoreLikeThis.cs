@@ -1,36 +1,20 @@
 ﻿using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
-using Raven.Abstractions.Indexing;
 using Raven.Client.Bundles.MoreLikeThis;
-using Raven.Client.Indexes;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
-        public class Index_Category : AbstractIndexCreationTask<Category>
-        {
-            public Index_Category()
-            {
-                Map = categories => from category in categories
-                                  select new
-                                  {
-                                      category.Description
-                                  };
-
-                Stores.Add(x => x.Description, FieldStorage.Yes);
-                Analyzers.Add(x => x.Description, "Lucene.Net.Analysis.Standard.StandardAnalyzer");
-            }
-        }
-
         [HttpGet]
         public object MoreLikeThis()
-        {            
-            new Index_Category().Execute(Store);
+        {
+            new IndexCategory().Execute(DocumentStoreHolder.Store);
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 Category[] products = session
                 .Advanced

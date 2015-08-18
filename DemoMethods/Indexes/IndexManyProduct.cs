@@ -2,7 +2,7 @@
 using DemoMethods.Entities;
 using Raven.Client.Indexes;
 
-namespace DemoMethods.Advanced
+namespace DemoMethods.Indexes
 {
     public class IndexManyProduct : AbstractIndexCreationTask<Product>
     {

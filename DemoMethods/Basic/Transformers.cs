@@ -8,28 +8,16 @@ using Raven.Client.Indexes;
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
-    {        
-        public class TransformerNameAndCountry : AbstractTransformerCreationTask<IndexNameAndCountry.Result>
-        {
-            public TransformerNameAndCountry()
-            {
-                TransformResults = results => from result in results
-                                              select new
-                                              {
-                                                  result.Name
-                                              };
-            }
-        }
-
+    {                
         [HttpGet]
         public object TransformerQuery()
         {
-            Store.ExecuteIndex(new IndexNameAndCountry());
-            Store.ExecuteTransformer(new TransformerNameAndCountry());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexNameAndCountry());
+            DocumentStoreHolder.Store.ExecuteTransformer(new TransformerNameAndCountry());
 
             // TODO :: here and basiclly in all other places : staleness indexes .. need to verify
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
 
                 var namesList = new List<string>();

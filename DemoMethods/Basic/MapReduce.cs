@@ -10,7 +10,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object MapReduce()
         {
-            using (var session = Store.OpenSession())
+            new IndexProductSales().Execute(DocumentStoreHolder.Store);
+
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 IList<IndexProductSales.Result> results = session
                     .Advanced

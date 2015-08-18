@@ -14,10 +14,10 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object Indexing()
         {
-            new IndexCostlyOrders().Execute(Store);
+            new IndexCostlyOrders().Execute(DocumentStoreHolder.Store);
 
             //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var problemtaticOrders = session
                     .Query<IndexCostlyOrders.Result, IndexCostlyOrders>()                    

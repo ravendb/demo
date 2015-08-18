@@ -11,26 +11,34 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object SetBased()
         {
-            Store.ExecuteIndex(new IndexCompaniesAndCountry());
+            DocumentStoreHolder.Store.ExecuteIndex(new IndexCompaniesAndCountry());
 
-            Store.DatabaseCommands.UpdateByIndex("Index/CompaniesAndCountry",
+            DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex("Index/CompaniesAndCountry",
                 new IndexQuery {Query = "Country:USA"},
                 new[]
                 {
                     new PatchRequest
                     {
                         Type = PatchCommandType.Modify,
-                        Name = "Country",
-                        Value = "United States of America"
+                        Name = "Address",
+                        Nested = new[]
+                        {
+                            new PatchRequest
+                            {
+                                Type = PatchCommandType.Set,
+                                Name = "Country",
+                                Value = "United States of America"
+                            }, 
+                        }
                     }
-                });            
+                });
 
-            using (var session = Store.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var results = session
                     .Advanced
-                    .DocumentQuery<Company, IndexCompaniesAndAddresses>()
-                    .Search("Address", "USA")
+                    .DocumentQuery<Company, IndexCompaniesAndCountry>()
+                    .Search("Country", "USA")
                     .ToList();
                     
                 return DemoUtilities.Instance.ObjectToJson(results);
