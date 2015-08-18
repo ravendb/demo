@@ -10,7 +10,7 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        List<Facet> facets = new List<Facet>
+        private readonly List<Facet> facets = new List<Facet>
         {
             new Facet
             {
@@ -40,7 +40,7 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object Facets()
         {
-            Store.ExecuteIndex(new Index_ProductsAndPriceAndSuplier());            
+            Store.ExecuteIndex(new IndexProductsAndPriceAndSuplier());            
 
             using (var session = Store.OpenSession())
             {
@@ -48,7 +48,7 @@ namespace DemoMethods.Basic
                 session.SaveChanges();
 
                 var facetResults = session
-                    .Query<Product, Index_ProductsAndPriceAndSuplier>()
+                    .Query<Product, IndexProductsAndPriceAndSuplier>()
                     .Customize(x => x.WaitForNonStaleResults())
                     .Where(x => x.UnitsInStock > 1)
                     .ToFacets(facets);                    

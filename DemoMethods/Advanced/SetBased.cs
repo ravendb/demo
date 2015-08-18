@@ -11,7 +11,7 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object SetBased()
         {
-            Store.ExecuteIndex(new Index_CompaniesAndCountry());
+            Store.ExecuteIndex(new IndexCompaniesAndCountry());
 
             Store.DatabaseCommands.UpdateByIndex("Index/CompaniesAndCountry",
                 new IndexQuery {Query = "Country:USA"},
@@ -29,7 +29,7 @@ namespace DemoMethods.Advanced
             {
                 var results = session
                     .Advanced
-                    .DocumentQuery<Company, Index_CompaniesAndAddresses>()
+                    .DocumentQuery<Company, IndexCompaniesAndAddresses>()
                     .Search("Address", "USA")
                     .ToList();
                     

@@ -5,7 +5,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class Index_CompaniesAndCountry : AbstractIndexCreationTask<Company>
+    public class IndexCompaniesAndCountry : AbstractIndexCreationTask<Company>
     {
         public class Result
         {
@@ -14,7 +14,7 @@ namespace DemoMethods.Indexes
         }
 
 
-        public Index_CompaniesAndCountry()
+        public IndexCompaniesAndCountry()
         {
             Map = companies => from company in companies
                                let a = company.Address

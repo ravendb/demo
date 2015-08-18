@@ -4,7 +4,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class Index_ProductsAndPriceAndSuplier : AbstractIndexCreationTask<Product>
+    public class IndexProductsAndPriceAndSuplier : AbstractIndexCreationTask<Product>
     {
         public class Result
         {
@@ -13,7 +13,7 @@ namespace DemoMethods.Indexes
             public int UnitsInStock { get; set; }
         }
 
-        public Index_ProductsAndPriceAndSuplier()
+        public IndexProductsAndPriceAndSuplier()
         {
             Map = products => from product in products
                               select new Result

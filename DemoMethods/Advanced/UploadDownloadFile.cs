@@ -15,14 +15,14 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public async Task<object> UploadDownloadFile()
         {
-            using (IFilesStore filesStore = new FilesStore()
+            using (var filesStore = new FilesStore()
             {
                 Url = String.Format("http://{0}:{1}", DocumentStoreHolder.Address, DocumentStoreHolder.Port),
                 DefaultFileSystem = DocumentStoreHolder.DatabaseName + "FS"
             }.Initialize())
             {
-                string filename = Path.GetTempPath() + "DemoFs.txt";
-                string storeString = "Hello World";
+                var filename = Path.GetTempPath() + "DemoFs.txt";
+                const string storeString = "Hello World";
 
                 File.WriteAllText(filename, storeString, Encoding.UTF8);
 

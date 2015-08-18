@@ -5,7 +5,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class Index_NameAndCountry : AbstractMultiMapIndexCreationTask<Index_NameAndCountry.Result>
+    public class IndexNameAndCountry : AbstractMultiMapIndexCreationTask<IndexNameAndCountry.Result>
     {
         public class Result
         {
@@ -14,7 +14,7 @@ namespace DemoMethods.Indexes
         }
 
 
-        public Index_NameAndCountry()
+        public IndexNameAndCountry()
         {
             AddMap<Employee>(emploees => from e in emploees
                                          select new Result

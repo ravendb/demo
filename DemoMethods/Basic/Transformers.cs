@@ -9,9 +9,9 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {        
-        public class Transformer_NameAndCountry : AbstractTransformerCreationTask<Index_NameAndCountry.Result>
+        public class TransformerNameAndCountry : AbstractTransformerCreationTask<IndexNameAndCountry.Result>
         {
-            public Transformer_NameAndCountry()
+            public TransformerNameAndCountry()
             {
                 TransformResults = results => from result in results
                                               select new
@@ -24,8 +24,8 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object TransformerQuery()
         {
-            Store.ExecuteIndex(new Index_NameAndCountry());
-            Store.ExecuteTransformer(new Transformer_NameAndCountry());
+            Store.ExecuteIndex(new IndexNameAndCountry());
+            Store.ExecuteTransformer(new TransformerNameAndCountry());
 
             // TODO :: here and basiclly in all other places : staleness indexes .. need to verify
 
@@ -35,8 +35,8 @@ namespace DemoMethods.Basic
                 var namesList = new List<string>();
 
                 var query =
-                    session.Query<Index_NameAndCountry.Result, Index_NameAndCountry>()
-                    .TransformWith<Transformer_NameAndCountry, Index_NameAndCountry.Result>() //TypeOf - client side projection (serialization takes place in client side)
+                    session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
+                    .TransformWith<TransformerNameAndCountry, IndexNameAndCountry.Result>() //TypeOf - client side projection (serialization takes place in client side)
                     .Search(x => x.Country, "USA");
 
                 using (var enumerator = session.Advanced.Stream(query))

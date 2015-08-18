@@ -10,12 +10,12 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object MultiMapIndexingQuery()
         {
-            Store.ExecuteIndex(new Index_NameAndCountry());
+            Store.ExecuteIndex(new IndexNameAndCountry());
 
             using (var session = Store.OpenSession())
             {
 
-                return session.Query<Index_NameAndCountry.Result, Index_NameAndCountry>()
+                return session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
                     .Customize(x => x.WaitForNonStaleResults())
                     .Search(x => x.Country, "USA")
                     .Select(x => x.Name)

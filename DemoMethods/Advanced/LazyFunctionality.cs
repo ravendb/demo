@@ -10,7 +10,7 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object LazyFunctionality()
         {
-            new Index_Product().Execute(Store);
+            new IndexProduct().Execute(Store);
 
             using (var session = Store.OpenSession())
             {

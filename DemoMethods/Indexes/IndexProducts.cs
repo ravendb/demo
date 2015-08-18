@@ -5,9 +5,9 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class Index_Products : AbstractIndexCreationTask<Product>
+    public class IndexProducts : AbstractIndexCreationTask<Product>
     {
-        public Index_Products()
+        public IndexProducts()
         {
             Map = products => from product in products
                               select new

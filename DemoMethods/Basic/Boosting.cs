@@ -12,9 +12,9 @@ namespace DemoMethods.Basic
         {
             using (var session = Store.OpenSession())
             {
-                new Index_OrderByCompanyAndShipper().Execute(Store);
+                new IndexOrderByCompanyAndShipper().Execute(Store);
 
-                var orders = session.Query<Order,Index_OrderByCompanyAndShipper>()
+                var orders = session.Query<Order,IndexOrderByCompanyAndShipper>()
                 .ToList();
 
                 return DemoUtilities.Instance.ObjectToJson(orders);

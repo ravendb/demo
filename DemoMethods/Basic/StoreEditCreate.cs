@@ -9,29 +9,35 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object StoreEditDelete()
         {
-            var contact = new Contact();
-            contact.Name = "Demo";
-            contact.Title = "Mr.";
+            var contact = new Contact
+            {
+                Name = "Demo",
+                Title = "Mr."
+            };
 
-            var address = new Address();
-            address.Country = "IL";
-            address.City = "Hadera";
-            address.Line1 = "Kombe 10";
+            var address = new Address
+            {
+                Country = "IL",
+                City = "Hadera",
+                Line1 = "Kombe 10"
+            };
 
-            var newCompany = new Company();
-            newCompany.Name = "Hibernating Rhinos";
-            newCompany.ExternalId = "HR";
-            newCompany.Phone = "+972 4 622 7811";
-            newCompany.Fax = "+972 153 4 622 7811";
-            newCompany.Contact = contact;
-            newCompany.Address = address;
+            var newCompany = new Company
+            {
+                Name = "Hibernating Rhinos",
+                ExternalId = "HR",
+                Phone = "+972 4 622 7811",
+                Fax = "+972 153 4 622 7811",
+                Contact = contact,
+                Address = address
+            };
 
-            using (IDocumentSession session = Store.OpenSession())
+            using (var session = Store.OpenSession())
             {
                 // Store :
                 session.Store(newCompany);
                 session.SaveChanges();
-                string newId = session.Advanced.GetDocumentId(newCompany);
+                var newId = session.Advanced.GetDocumentId(newCompany);
 
                 // Edit :
                 var company = session.Load<Company>(newId);

@@ -11,11 +11,11 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object DynamicAggrigation()
         {
-            new Index_Products().Execute(Store);
+            new IndexProducts().Execute(Store);
 
             using (var session = Store.OpenSession())
             {
-                var result = session.Query<Product, Index_Products>()
+                var result = session.Query<Product, IndexProducts>()
                     .AggregateBy(x => x.PricePerUnit)
                     .AddRanges(
                         x => x.UnitsInStock < 10,
@@ -25,7 +25,7 @@ namespace DemoMethods.Basic
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
                     
-                var result2 = session.Query<Product, Index_Products>().ToList();
+                var result2 = session.Query<Product, IndexProducts>().ToList();
 
                 return result;
             }

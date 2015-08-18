@@ -5,7 +5,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class Index_CostlyOrders : AbstractIndexCreationTask<Order>
+    public class IndexCostlyOrders : AbstractIndexCreationTask<Order>
     {
         public class Result
         {
@@ -14,7 +14,7 @@ namespace DemoMethods.Indexes
             public decimal Price;
         }
 
-        public Index_CostlyOrders()
+        public IndexCostlyOrders()
         {
             Map = orders => from order in orders
                             select new

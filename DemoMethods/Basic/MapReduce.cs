@@ -12,9 +12,9 @@ namespace DemoMethods.Basic
         {
             using (var session = Store.OpenSession())
             {
-                IList<Product_Sales.Result> results = session
+                IList<IndexProductSales.Result> results = session
                     .Advanced
-                    .DocumentQuery<Product_Sales.Result, Product_Sales>()
+                    .DocumentQuery<IndexProductSales.Result, IndexProductSales>()
                     .ToList();
 
                 return results;

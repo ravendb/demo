@@ -8,20 +8,20 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        private const int HIGH_PRICE = 500;
-        private const int DELAY_DAYS = 35;
+        private const int HighPrice = 500;
+        private const int DelayDays = 35;
 
         [HttpGet]
         public object Indexing()
         {
-            new Index_CostlyOrders().Execute(Store);
+            new IndexCostlyOrders().Execute(Store);
 
             //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
             using (var session = Store.OpenSession())
             {
                 var problemtaticOrders = session
-                    .Query<Index_CostlyOrders.Result, Index_CostlyOrders>()                    
-                    .Where(x =>  x.Price > HIGH_PRICE && x.Delay > TimeSpan.FromDays(DELAY_DAYS))
+                    .Query<IndexCostlyOrders.Result, IndexCostlyOrders>()                    
+                    .Where(x =>  x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
                     .OfType<Order>()
                     .ToList();
 

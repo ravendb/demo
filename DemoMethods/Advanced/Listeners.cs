@@ -26,7 +26,7 @@ namespace DemoMethods.Advanced
 
             Store.Listeners.RegisterListener(new QueryListener());
 
-            Store.ExecuteIndex(new Index_NewIndex_Product());
+            Store.ExecuteIndex(new IndexNewIndexProduct());
 
             using (var session = Store.OpenSession())
             {

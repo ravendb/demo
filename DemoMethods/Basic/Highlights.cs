@@ -12,29 +12,28 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object HighLights()
         {
-            Store.ExecuteIndex(new Index_CompaniesAndAddresses());
-
-            FieldHighlightings highlightings;
+            Store.ExecuteIndex(new IndexCompaniesAndAddresses());
 
             using (var session = Store.OpenSession())
             {
+                FieldHighlightings highlightings;
+
                 var results = session
                     .Advanced
-                    .DocumentQuery<Company, Index_CompaniesAndAddresses>()
+                    .DocumentQuery<Company, IndexCompaniesAndAddresses>()
                     .Highlight("Address", 128, 1, out highlightings)
                     .Search("Address", "USA")
                     .ToList();
 
-                StringBuilder builder = new StringBuilder()
+                var builder = new StringBuilder()
                     .AppendLine("<ul>");
 
-                foreach (Company result in results)
+                foreach (var fragments in results.Select(result => highlightings.GetFragments(result.Id)))
                 {
-                    string[] fragments = highlightings.GetFragments(result.Id);
                     builder.AppendLine(string.Format("<li>{0}</li>", fragments.First()));
                 }
 
-                string ul = builder
+                var ul = builder
                     .AppendLine("</ul>")
                     .ToString();
 
