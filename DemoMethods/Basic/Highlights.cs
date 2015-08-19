@@ -9,11 +9,10 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {        
+        //TODO: Search by user string (in ui, suggest possible strings)
         [HttpGet]
         public object HighLights()
         {
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexCompaniesAndAddresses());
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 FieldHighlightings highlightings;

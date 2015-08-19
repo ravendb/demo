@@ -48,7 +48,7 @@ namespace DemoMethods.Basic
                 session.Delete(company);
                 session.SaveChanges();
 
-                return DemoUtilities.Instance.ObjectToJson(company);
+                return (company);
             }
         }
 

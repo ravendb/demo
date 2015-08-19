@@ -7,11 +7,12 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        [HttpGet]
-        public object MapReduce()
-        {
-            new IndexProductSales().Execute(DocumentStoreHolder.Store);
+        // TODO: Map reduce with linq API
+        // TODO: Map reduce that uses a query
 
+        [HttpGet]
+        public object MapReduceUsingDocumenTQuery()
+        {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 IList<IndexProductSales.Result> results = session

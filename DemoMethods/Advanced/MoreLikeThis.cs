@@ -14,6 +14,7 @@ namespace DemoMethods.Advanced
         {
             new IndexCategory().Execute(DocumentStoreHolder.Store);
 
+            //TODO: fix this
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 Category[] products = session
@@ -28,7 +29,7 @@ namespace DemoMethods.Advanced
                     Fields = new[] { "Description" }
                 });
 
-                return DemoUtilities.Instance.ObjectToJson(products.ToList());
+                return (products.ToList());
             }
            // TODO :: this is a bad example.. need article-body like example
         }

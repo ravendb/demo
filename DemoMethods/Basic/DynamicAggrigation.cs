@@ -11,8 +11,6 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object DynamicAggrigation()
         {
-            new IndexProducts().Execute(DocumentStoreHolder.Store);
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var result = session.Query<Product, IndexProducts>()
@@ -25,8 +23,6 @@ namespace DemoMethods.Basic
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
                     
-                var result2 = session.Query<Product, IndexProducts>().ToList();
-
                 return result;
             }
         }

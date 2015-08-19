@@ -12,11 +12,6 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object TransformerQuery()
         {
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexNameAndCountry());
-            DocumentStoreHolder.Store.ExecuteTransformer(new TransformerNameAndCountry());
-
-            // TODO :: here and basiclly in all other places : staleness indexes .. need to verify
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
 
@@ -24,8 +19,9 @@ namespace DemoMethods.Basic
 
                 var query =
                     session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
-                    .TransformWith<TransformerNameAndCountry, IndexNameAndCountry.Result>() //TypeOf - client side projection (serialization takes place in client side)
+                    .TransformWith<TransformerNameAndCountry, IndexNameAndCountry.Result>() 
                     .Search(x => x.Country, "USA");
+                // TODO: with to list, add another one for streaming
 
                 using (var enumerator = session.Advanced.Stream(query))
                 {

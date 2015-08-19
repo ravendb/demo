@@ -14,7 +14,7 @@ namespace DemoMethods.Advanced
             {
                
 
-                return DemoUtilities.Instance.ObjectToJson(null);
+                return (null);
             }
         }
     }

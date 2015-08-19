@@ -60,14 +60,14 @@ namespace DemoMethods
                 ListOfIndexes = allLists
             };
 
-            return DemoUtilities.Instance.ObjectToJson(resObj);
+            return (resObj);
         }
       
         [HttpGet]
         public object CreateIndexesAndTransformers()
         {            
             IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
-            return DemoUtilities.Instance.ObjectToJson("Indexes were created successfully");
+            return ("Indexes were created successfully");
         }
     }
 }

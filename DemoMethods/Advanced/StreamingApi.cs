@@ -19,15 +19,13 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object StreamingApi_Page()
         {
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexManyProduct());
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var query = session.Query<Product>("Index/ManyProduct");
 
                 var e = session
                     .Advanced                  
-                    .Stream<Product>(query);
+                    .Stream(query);
 
                 const int pageSize = 3;
                 
@@ -35,7 +33,7 @@ namespace DemoMethods.Advanced
                 results.Page1 = new Product[pageSize];
                 results.Page5 = new Product[pageSize];
 
-                // Extract page #1 and #5 for the example..
+                // TODO: Send as CSV 
                 for (var page = 1; page <= 10; page++)
                 {
                     for (var itemInPage = 0; itemInPage < pageSize; itemInPage++)
@@ -50,7 +48,7 @@ namespace DemoMethods.Advanced
                     }
                 }
 
-                return DemoUtilities.Instance.ObjectToJson(results);
+                return (results);
             }
         }        
     }

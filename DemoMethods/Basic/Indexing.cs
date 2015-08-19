@@ -11,11 +11,15 @@ namespace DemoMethods.Basic
         private const int HighPrice = 500;
         private const int DelayDays = 35;
 
-        [HttpGet]
-        public object Indexing()
-        {
-            new IndexCostlyOrders().Execute(DocumentStoreHolder.Store);
+        //TODO: Query with params
+        //TODO: Query with dynamic ordering
+        //TODO: Dynamically build query
 
+        //TODO: Paging
+
+        [HttpGet]
+        public object StaticQuery()
+        {
             //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -25,7 +29,7 @@ namespace DemoMethods.Basic
                     .OfType<Order>()
                     .ToList();
 
-                return DemoUtilities.Instance.ObjectToJson(problemtaticOrders);
+                return (problemtaticOrders);
             }
         }
     }

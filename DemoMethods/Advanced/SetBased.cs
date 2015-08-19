@@ -41,7 +41,7 @@ namespace DemoMethods.Advanced
                     .Search("Country", "USA")
                     .ToList();
                     
-                return DemoUtilities.Instance.ObjectToJson(results);
+                return (results);
             }
         }
     }

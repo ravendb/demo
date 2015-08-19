@@ -36,14 +36,13 @@ namespace DemoMethods.Basic
                 }
             }
         };
-
+        //TODO: Dynamic facets
         [HttpGet]
-        public object Facets()
+        public object FacetsWithDocuments()
         {
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexProductsAndPriceAndSuplier());
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
+                //TODO: Move to initialization
                 session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
                 session.SaveChanges();
 

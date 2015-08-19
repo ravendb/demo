@@ -128,7 +128,6 @@
     <Compile Include="Indexes\IndexNameAndCountry.cs" />
     <Compile Include="Indexes\IndexOrderByCompanyAndShipper.cs" />
     <Compile Include="Indexes\IndexCostlyOrders.cs" />
-    <Compile Include="Indexes\IndexNewIndexProduct.cs" />
     <Compile Include="Indexes\IndexProductSales.cs" />
     <Compile Include="Indexes\IndexProductsAndPriceAndSuplier.cs" />
     <Compile Include="Indexes\IndexProducts.cs" />

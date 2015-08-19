@@ -15,6 +15,9 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public async Task<object> UploadDownloadFile()
         {
+            //TODO: file store holder
+            //TODO: upload, download, rename
+            
             using (var filesStore = new FilesStore()
             {
                 Url = String.Format("http://{0}:{1}", DocumentStoreHolder.Address, DocumentStoreHolder.Port),
@@ -53,7 +56,7 @@ namespace DemoMethods.Advanced
                     MetaData = metadata
                 };
 
-                return DemoUtilities.Instance.ObjectToJson(results);
+                return (results);
             }
         }
     }

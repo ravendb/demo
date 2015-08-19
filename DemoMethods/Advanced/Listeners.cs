@@ -9,30 +9,29 @@ namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
-        public class QueryListener : IDocumentQueryListener
+        public class UsaOnlyQueryListener : IDocumentQueryListener
         {
             public void BeforeQueryExecuted(IDocumentQueryCustomization queryCustomization)
             {
-                queryCustomization.NoCaching();
-                queryCustomization.WaitForNonStaleResults();
+                var documentQuery = queryCustomization as IDocumentQuery<IndexNameAndCountry.Result>;
+                if (documentQuery != null)
+                    documentQuery.WhereEquals(x => x.Country, "USA");
             }
         }
 
         [HttpGet]
         public object Listeners()
         {
-            // make sure we create new stale index
-            DocumentStoreHolder.Store.DatabaseCommands.DeleteIndex("Index/NewIndex/Product");
+            //TODO: need to _remove_ this afterward, otherwise posions rests
+             DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
 
-            DocumentStoreHolder.Store.Listeners.RegisterListener(new QueryListener());
-
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexNewIndexProduct());
 
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                
-                var result = session.Query<Product>("Index/NewIndex/Product");
-                return DemoUtilities.Instance.ObjectToJson(result.ToList());
+
+                var result = session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>();
+                //TODO: add support for querying with something else here
+                return (result.ToList());
             }
         }
     }
