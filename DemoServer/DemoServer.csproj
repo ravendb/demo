@@ -101,6 +101,10 @@
       <Project>{c1466a47-60ea-4cba-be7b-89c219fb0d20}</Project>
       <Name>DemoMethods</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DemoStudio\DemoStudio.csproj">
+      <Project>{7a285a25-24c4-4bf8-b5e3-105a021d1207}</Project>
+      <Name>DemoStudio</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
