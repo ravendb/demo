@@ -23,7 +23,8 @@ namespace DemoMethods
             public static void FormatControllerString(List<string> list)
             {
                 for (int i = 0; i < list.Count; i++)
-                    list[i] = string.Format("{0}/{1}", DemoUtilities.ServerInfo, list[i].Replace("Controller", ""));
+                    // list[i] = string.Format("{0}/{1}", DemoUtilities.ServerInfo, list[i].Replace("Controller", ""));
+                    list[i] = string.Format("/{0}", list[i].Replace("Controller", ""));
                 // return DemoUtilities.Instance.ObjectToJson(list);
             }
         }
