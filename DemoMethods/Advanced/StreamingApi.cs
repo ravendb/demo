@@ -17,7 +17,7 @@ namespace DemoMethods.Advanced
         }
 
         [HttpGet]
-        public object StreamingApi_Page()
+        public object StreamingApi()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {

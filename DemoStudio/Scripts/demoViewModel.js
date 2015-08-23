@@ -1,52 +1,38 @@
-﻿// demoViewModel.js
-
-function DemoViewModel() {
-    var self = this;
-
-   // self.defdemo = ko.observable("BBB");
-
-    // alert("View model is a live!!");
-    // self.demoname = ko.observable(["Optimal"]);
-    // self.availableDemos = ko.observableArray(["Optimal", "Normal", "Slow", "Hiccups", "Dropping", "Down"]);
-    // self.availableDemos = [
-        // { demoname: "AAA" }
-    self.availableDemos = ko.observableArray( ["Choose Demo..."] );
-    self.values = ko.observable("");
-    self.defdemo = ko.observable();
-    self.optionsText = ko.observable();
-
-    self.getDemos = function () {
-        var newDataRequest = $.ajax({
-            url: "/Menu/Index",
-            timeout: 30000
-        });
-
-        newDataRequest.done(function (data) {
+// /// <reference path="knockout.d.ts" />
+// /// <reference path="require.d.ts" />
+var demoViewModel = (function () {
+    function demoViewModel() {
+        this.availableDemos = ko.observableArray(["Choose Demo..."]);
+        this.values = ko.observable("");
+        this.defdemo = ko.observable();
+        this.optionsText = ko.observable();
+        this.urlstring = ko.observable();
+        var selfAvailableDemos = this.availableDemos;
+        $.ajax("/Menu/Index", "GET").done(function (data) {
             var listOfControllers = data["ListOfControllers"];
-
             listOfControllers.forEach(function (entry) {
-                self.availableDemos.push(entry);
+                selfAvailableDemos.push(entry);
             });
-
+        }).fail(function () {
+            selfAvailableDemos.push("Failed to retreive demos");
         });
     }
-
-    self.getDemos();
-
-    self.runDemo = function() {
-        var newDataRequest = $.ajax({
-            url: self.defdemo(),
-            timeout: 30000,
-            data: self.values
-        });
-
-        newDataRequest.done(function (data) {
-            console.log(data);
-
-            });
+    return demoViewModel;
+})();
+function runDemo() {
+    var url = this.defdemo();
+    if (this.values() !== "") {
+        url += "?" + this.values();
     }
+    $.ajax(url, "GET").done(function (data) {
+        console.log(data);
+    });
 }
-
-ko.applyBindings(new DemoViewModel(), document.getElementById("demoViewModel"));
-
-
+function genUrl() {
+    var url = window.location.href.replace(/\/$/, "") + this.defdemo();
+    if (this.values() !== "") {
+        url += "?" + this.values();
+    }
+    this.urlstring(url);
+}
+//# sourceMappingURL=demoViewModel.js.map

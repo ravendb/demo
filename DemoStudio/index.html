@@ -16,23 +16,33 @@
 
     <table>
         <thead>
-        <tr>            
+        <tr>
             <th>Demo Name</th>
             <th>Values</th>
         </tr>
         </thead>
         <tbody>
-        <tr>            
+        <tr>
             <td><select data-bind="options: $root.availableDemos, value: defdemo"></select></td>
-            <!--<td><select data-bind="options: $root.availableDemos"></select></td>-->
-            <td><input width="40" data-bind="value: $root.values"/></td>            
+            <td><input width="40" data-bind="value: $root.values"/></td>
         </tr>
         </tbody>
     </table>
+    <br/>
+    <input style="width: 600px" data-bind="textInput: $root.urlstring"/>
+    <button data-bind="click: genUrl">Generate URL</button>
+    <br/>
+    <br/>
     <button data-bind="click: runDemo">Run Demo</button>
 </div>
     <script type="text/javascript" src="/studio/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
-    <script type="text/javascript" src="/studio/scripts/demoViewModel.js"></script>
+    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>    
+    <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
+    <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
+    <script>
+    $(function () {
+    });
+    </script>
+
 </body>
 </html>

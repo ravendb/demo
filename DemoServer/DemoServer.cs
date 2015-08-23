@@ -11,7 +11,7 @@ namespace DemoServer
     public class DemoServer
     {
         public void Start(string Url, int Port)
-        {
+        {            
             DemoUtilities.ServerInfo = string.Format("http://{0}:{1}", Url, Port);
             var config = new HttpSelfHostConfiguration(DemoUtilities.ServerInfo);        
             var init = new DemoStudioInit();
