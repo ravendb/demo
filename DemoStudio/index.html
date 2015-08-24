@@ -8,40 +8,64 @@
 <body>
 
 
-<div id="demoViewModel">
-    <img src="http://ravendb.net/content/images/ravenLogo.png" alt="RavenDB Logo" width="250"/>
-    <tt>
-        <h1>Client Demo</h1>
-    </tt>
+    <div id="demoViewModel">
+        <img src="http://ravendb.net/content/images/ravenLogo.png" alt="RavenDB Logo" width="250" />
+        <tt>
+            <h1>Client Demo</h1>
+        </tt>
 
-    <table>
-        <thead>
-        <tr>
-            <th>Demo Name</th>
-            <th>Values</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td><select data-bind="options: $root.availableDemos, value: defdemo"></select></td>
-            <td><input width="40" data-bind="value: $root.values"/></td>
-        </tr>
-        </tbody>
-    </table>
-    <br/>
-    <input style="width: 600px" data-bind="textInput: $root.urlstring"/>
-    <button data-bind="click: genUrl">Generate URL</button>
-    <br/>
-    <br/>
-    <button data-bind="click: runDemo">Run Demo</button>
-</div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Demo Name</th>
+                    <th>Values</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><select data-bind="options: $root.availableDemos, value: defdemo"></select></td>
+                    <td><input width="40" data-bind="value: $root.values" /></td>
+                </tr>
+            </tbody>
+        </table>
+        <br />
+        <input style="width: 600px" data-bind="textInput: $root.urlstring" />
+        <button data-bind="click: genUrl">Generate URL</button>
+        <br />
+        <br />
+        <button data-bind="click: runDemo">Run Demo</button>
+        <br />
+
+        <!--HTML-->
+        <div data-bind="visible: isHtml" style="color:#2F0000">HTML Result</div>
+        <div data-bind="visible: isHtml, html: htmlView" style="color:#00004F"></div>
+
+        <!--SIMPLE JSON-->
+        <div data-bind="visible: isSimpleJson" style="color:#2F0000">Simple JSON Result</div>
+        <div data-bind="visible: isSimpleJson" style="color: #00004F">
+            <table>
+                <thead>
+                    <tr data-bind="foreach: columns">
+                        <th data-bind="text: $data"></th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach: rows">
+                    <tr data-bind="foreach: $parent.columns">
+                        <td data-bind="text: $parent[$data]"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
     <script type="text/javascript" src="/studio/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>    
+    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
+    <script type="text/javascript" src="/studio/scripts/knockout.mapping-2.4.1.js"></script>
     <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
     <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     <script>
-    $(function () {
-    });
+        $(function () {
+        });
     </script>
 
 </body>
