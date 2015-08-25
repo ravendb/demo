@@ -10,7 +10,7 @@ namespace DemoMethods.Basic
         //TODO: Boosting from query
         //TODO: Show explain
         [HttpGet]
-        public object BoostingFromIndex()
+        public object Boosting()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {

@@ -59,6 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Scripts\demostyles.css" />
+    <Content Include="Scripts\ravenLogo.png" />
     <Content Include="Scripts\demoViewModel.js.map" />
     <Content Include="packages.config" />
     <None Include="Web.Debug.config">

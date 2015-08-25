@@ -3,70 +3,81 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="utf-8" />
-    <title>RavenDB-Demo</title>
+    <title>RavenDB Demo</title>
+    <link rel="stylesheet" href="studio/scripts/demostyles.css" />
 </head>
 <body>
 
 
     <div id="demoViewModel">
-        <img src="http://ravendb.net/content/images/ravenLogo.png" alt="RavenDB Logo" width="250" />
-        <tt>
-            <h1>Client Demo</h1>
-        </tt>
+        <div id="mainPane">
+            <tt>
+                <img src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250"/>
+                <h1>Client Demo</h1>
+            </tt>
 
-        <table>
-            <thead>
-                <tr>
-                    <th>Demo Name</th>
-                    <th>Values</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><select data-bind="options: $root.availableDemos, value: defdemo"></select></td>
-                    <td><input width="40" data-bind="value: $root.values" /></td>
-                </tr>
-            </tbody>
-        </table>
-        <br />
-        <input style="width: 600px" data-bind="textInput: $root.urlstring" />
-        <button data-bind="click: genUrl">Generate URL</button>
-        <br />
-        <br />
-        <button data-bind="click: runDemo">Run Demo</button>
-        <br />
-
-        <div data-bind="visible: inProgress" style="color: #FF5500">Processing, Please Wait...</div>
-
-        <!--HTML-->        
-        <div data-bind="visible: isHtml, html: htmlView" style="color:#00004F"></div>
-
-        <!--SIMPLE JSON-->
-        <div data-bind="visible: isSimpleJson" style="color: #00004F">
             <table>
                 <thead>
-                    <tr data-bind="foreach: columns"> 
-                        <th data-bind="text: $data"></th>
+                    <tr>
+                        <th>Demo Name</th>
+                        <th>Values</th>
                     </tr>
                 </thead>
-                <tbody data-bind="foreach: rows">
-                    <tr data-bind="foreach: $parent.columns">
-                        <td data-bind="text: $parent[$data]"></td>
+                <tbody>
+                    <tr>
+                        <td><select data-bind="options: $root.availableDemos, value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select></td>
+                        <td><input size="50" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" /></td>
                     </tr>
                 </tbody>
             </table>
+            <br />
+            <input style="width: 600px" data-bind="textInput: $root.urlstring" />
+            <button data-bind="click: openNewTab">Open in New Tab ...</button>
+            <br />
+            <br />
+            <button data-bind="click: runDemo">Run Demo</button>
+            <div style="color: #000080">
+                <br /><input type="checkbox" data-bind="checked: chkForceJson, click: clickForceJson" /> Force JSON output
+                <br /><input type="checkbox" data-bind="checked: chkForceString, click: clickForceString" /> Force STRING output
+                <br /><input type="checkbox" data-bind="checked: chkAllowFlatten" /> Allow FLATTEN results
+            </div>
+
+            <div data-bind="visible: inProgress" style="color: #AA4400">Processing, Please Wait...</div>
         </div>
+        <div id="codediv">
+            CODE
+            <div data-bind="html: htmlCode"></div>
+        </div>
+        <div id="resultsDiv">
+            <!--HTML-->
+            <div data-bind="visible: isHtml, html: htmlView" style="color: #003F3F; background-color: lightgrey"></div>
+
+            <!--SIMPLE JSON-->
+            <div data-bind="visible: isSimpleJson" style="color: #00004F; background-color: lightgrey">
+                <table border="1">
+                    <thead>
+                        <tr data-bind="foreach: columns">
+                            <th data-bind="text: $data"></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: rows">
+                        <tr data-bind="foreach: $parent.columns">
+                            <td data-bind="text: $parent[$data]"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="resultsDiv"></div>
+        <script type="text/javascript" src="/studio/scripts/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
+        <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
+        <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
+        <script>
+            $(function () {
+            });
+        </script>
     </div>
-
-    <script type="text/javascript" src="/studio/scripts/jquery-2.1.1.min.js"></script>
-    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
-    <script type="text/javascript" src="/studio/scripts/knockout.mapping-2.4.1.js"></script>
-    <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
-    <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
-    <script>
-        $(function () {
-        });
-    </script>
-
 </body>
 </html>

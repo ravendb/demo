@@ -17,7 +17,7 @@ namespace DemoMethods.Advanced
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 Lazy<Product> result = session.Advanced.Lazily.Load<Product>("products/1");
-                return result;
+                return result.Value;
             }
         }
     }

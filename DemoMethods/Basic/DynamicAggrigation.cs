@@ -23,7 +23,7 @@ namespace DemoMethods.Basic
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
                     
-                return result;
+                return result.Results;
             }
         }
     }

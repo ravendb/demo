@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using System.Text;
+using System.Web;
 using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
@@ -13,6 +14,9 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object HighLights()
         {
+            var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
+            var search = nvc["Id"] ?? "USA";            
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 FieldHighlightings highlightings;
@@ -21,7 +25,7 @@ namespace DemoMethods.Basic
                     .Advanced
                     .DocumentQuery<Company, IndexCompaniesAndAddresses>()
                     .Highlight("Address", 128, 1, out highlightings)
-                    .Search("Address", "USA")
+                    .Search("Address", search)
                     .ToList();
 
                 var builder = new StringBuilder()

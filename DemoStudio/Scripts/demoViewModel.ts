@@ -9,6 +9,7 @@ declare var availableDemos;
 class demoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
+    htmlCode = ko.observable("");
     availableDemos = ko.observableArray(["Choose Demo..."]);
     values = ko.observable("");
     defdemo = ko.observable();
@@ -18,90 +19,139 @@ class demoViewModel {
     columns = ko.observableArray([]);
     rows = ko.observableArray([]);
     inProgress = ko.observable(false);
-    
+    chkForceJson = ko.observable(false);
+    chkForceString = ko.observable(false);
+    chkAllowFlatten = ko.observable(false);
+
 
     constructor() {
         var selfAvailableDemos = this.availableDemos;
         $.ajax("/Menu/Index", "GET").done(data => {
             var listOfControllers = data["ListOfControllers"];
-            
-            listOfControllers.forEach(function(entry) {
+
+            listOfControllers.forEach(function (entry) {
                 selfAvailableDemos.push(entry);
             });
         }).fail(() => {
             selfAvailableDemos.push("Failed to retreive demos");
         });
     }
-}
 
-
-
-function runDemo(): void {
-    var url = this.defdemo();    
-
-    if (this.values() !== "") {
-        url += "?" + this.values();
+    clickForceJson() {
+        if (this.chkForceJson() === true) {
+            this.chkForceString(false);
+        }
+        return true;
     }
 
-    this.isHtml(false);
-    this.isSimpleJson(false);
-    this.inProgress(true);
-    $.ajax(url, "GET").done(data => {
-        this.inProgress(false);
-        console.log(data);
+    clickForceString() {
+        if (this.chkForceString() == true) {
+            this.chkForceJson(false);
+        }
+        return true;
+    }
 
-        var jsonObj = data;
 
-        if (typeof (data) === "string") {
-            this.htmlView(data);
+    runDemo(): void {
+        var url = this.defdemo();
+
+        if (this.values() !== "") {
+            url += "?" + this.values();
+        }
+
+        this.isHtml(false);
+        this.isSimpleJson(false);
+        this.inProgress(true);
+        $.ajax(url, "GET").done(data => {
             this.inProgress(false);
-            this.isHtml(true);
-            return;
-        }
+            console.log(data);
 
-        if (data instanceof Array === false) {
-            jsonObj = [data];
-        }
-        
-        this.columns([]);
-        this.rows([]);
+            var jsonObj = data;
 
-        for (var i = 0; i < jsonObj.length; i++) {
+            if (this.chkForceJson() === false && ( this.chkForceString() === true || typeof (data) === "string")) {
+                this.htmlView(data);
+                this.inProgress(false);
+                this.isHtml(true);
+                return;
+            }
 
-            var item = jsonObj[i];
-            var newItem = {};        
+            if (data instanceof Array === false) {
+                jsonObj = [data];
+            }
 
-            for (var key in item) {
-                if (i === 0)
-                    this.columns.push(key);
+            this.columns([]);
+            this.rows([]);
 
-                if (typeof item[key] !== "object") {
-                    newItem[key] = item[key]; // copy the new item
-                } else {
-                    for (var deeperKey in item[key]) {
-                        this.columns.push(deeperKey);
-                        newItem[deeperKey] = item[key][deeperKey];
+            for (var i = 0; i < jsonObj.length; i++) {
+
+                var item = jsonObj[i];
+                var newItem = {};
+
+                for (var key in item) {
+                    if (i === 0)
+                        this.columns.push(key);
+
+                    if (typeof item[key] !== "object") {
+                        newItem[key] = item[key];
+                    } else {
+                        if (this.chkAllowFlatten() === true) {
+                            for (var deeperKey in item[key]) {
+                                if (i === 0)
+                                    this.columns.push(deeperKey);
+                                if (typeof item[key][deeperKey] !== "object")
+                                    newItem[deeperKey] = item[key][deeperKey];
+                                else
+                                    newItem[deeperKey] = JSON.stringify(item[key][deeperKey]);
+                            }
+                        } else {
+                            newItem[key] = JSON.stringify(item[key]);
+                        }
                     }
                 }
+                this.rows.push(newItem);
             }
-            this.rows.push(newItem);
-        }
-        this.inProgress(false);
-        this.isSimpleJson(true);
-    });
-}
+            this.inProgress(false);
+            this.isSimpleJson(true);
+        });
 
-
-
-
-function genUrl(): void {
-    
-    var url = window.location.href.replace(/\/$/, "") + this.defdemo();
-    if (this.values() !== "") {
-        url += "?" + this.values();
     }
-    this.urlstring(url);
+
+    getCode(): void {
+        var selDemo = this.defdemo();
+        $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(data => {
+            console.log(data);
+            this.htmlCode(data);
+        });
+    }
+
+    genUrl(): void {
+        var url = window.location.href.replace(/\/$/, "") + this.defdemo();
+        if (this.values() !== "") {
+            url += "?" + this.values();
+        }
+        this.urlstring(url);
+    }
+
+    availableDemoChangeEvent(): void {
+        this.genUrl();
+        this.isHtml(false);
+        this.isSimpleJson(false);
+        this.getCode();
+    }
+
+    valuesKeyPressEvent(data, event) {
+        this.genUrl();
+        return true;
+    }
+
+
+    openNewTab() {
+        window.open(this.urlstring(), '_blank');
+    }
 }
+
+
+
 
 
 

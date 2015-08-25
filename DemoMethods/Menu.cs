@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition.Hosting;
+using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Web;
 using System.Web.Http;
 using DemoMethods.Entities;
 using Raven.Client.Indexes;
+using ColorCode;
 
 namespace DemoMethods
 {
@@ -29,7 +32,7 @@ namespace DemoMethods
             }
         }
 
-        [HttpGet]        
+        [HttpGet]
         public object Index()
         {
             var allControllerTypes = from type in GetType().Assembly.GetTypes()
@@ -39,6 +42,7 @@ namespace DemoMethods
             var allPublicMethods = allControllerTypes.SelectMany(x => x.GetMethods(BindingFlags.Public | BindingFlags.Instance))
                                                      .Where(x => x.CustomAttributes.Any(attr => attr.AttributeType == typeof(HttpGetAttribute)))
                                                      .Where(x => x.DeclaringType != null && x.DeclaringType.Name.Contains(x.Name) == false)
+                                                     .Where(x => x.DeclaringType != null && !x.DeclaringType.Name.Contains("DemoStudio"))
                                                      .Select(x => string.Format("{0}/{1}", x.DeclaringType.Name, x.Name)); // in VS2015 :  $"{x.DeclaringType.Name}/{x.Name}"
 
             var result = allPublicMethods.ToList();
@@ -64,12 +68,33 @@ namespace DemoMethods
 
             return (resObj);
         }
-      
+
         [HttpGet]
         public object CreateIndexesAndTransformers()
-        {            
+        {
             IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
             return ("Indexes were created successfully");
+        }
+
+        [HttpGet]
+        public object LoadCsFile()
+        {
+            try
+            {
+                var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
+                var file = nvc["FileName"];
+                if (file == null)
+                    return string.Format("No code found...");
+                var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");
+                var lines = File.ReadAllText(path);
+
+                string colorizedSourceCode = new CodeColorizer().Colorize(lines, Languages.CSharp);
+                return colorizedSourceCode;
+            }
+            catch (Exception)
+            {
+                return string.Format("No code available for this demo");
+            }
         }
     }
 }

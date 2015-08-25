@@ -25,7 +25,7 @@ namespace DemoServer
                         case "/?":
                             {
                                 Console.WriteLine(@"");
-                                Console.WriteLine(@"DemoServer Usage : demoserver [-h] [-ds address] [-rs address] [-dn databaseName");
+                                Console.WriteLine(@"DemoServer Usage : demoserver [-h] [-ds address] [-rs address] [-dn databaseName]");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"    -ds address : Demo Server's address.");
                                 Console.WriteLine(@"                  Default : 'localhost:9090'");

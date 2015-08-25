@@ -1,0 +1,22 @@
+﻿#page {
+    margin-left: 200px;
+}
+#mainPane {
+    float: left;
+    width: 40%;
+    border-radius: 15px 50px 30px;
+    background: #AAAAFF;
+    padding: 20px;
+}
+#codediv{
+    float: right;
+    width: 57%;    
+    margin-left: -200px;
+    background-color: #CCCCCC;
+    overflow: auto;
+}
+#resultsDiv {
+    border: thin;
+    clear: both;
+}
+

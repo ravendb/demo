@@ -50,10 +50,10 @@ namespace DemoMethods.Basic
                     .Query<Product, IndexProductsAndPriceAndSuplier>()
                     .Customize(x => x.WaitForNonStaleResults())
                     .Where(x => x.UnitsInStock > 1)
-                    .ToFacets(facets);                    
-                    
-                return facetResults;
-                
+                    .ToFacets(facets);
+
+                return facetResults.Results;
+
             }
         }
     }
