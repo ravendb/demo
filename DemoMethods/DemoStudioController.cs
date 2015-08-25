@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Diagnostics;
 using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
-using Raven.Client;
 using Raven.Client.Connection;
 
-namespace DemoStudio
+namespace DemoMethods
 {
     // TODO:: remove this and load dll forcibly on server startup
     public class DemoStudioInit
@@ -33,22 +31,18 @@ namespace DemoStudio
         {
             try
             {
+                // Console.WriteLine("DEBUG::{0}", docPath);
+                var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../DemoStudio", docPath);
+                if (File.Exists(filePath))
+                    return WriteFile(filePath);
 
-            
-            Console.WriteLine("DEBUG::{0}", docPath);
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../DemoStudio", docPath);
-            if (File.Exists(filePath))
-                return WriteFile(filePath);
-
-            filePath = Path.Combine("../../../DemoStudio", docPath);
-            if (File.Exists(filePath))
-                return WriteFile(filePath);
-
-
+                filePath = Path.Combine("../../../DemoStudio", docPath);
+                if (File.Exists(filePath))
+                    return WriteFile(filePath);
             }
             catch (Exception)
             {
-                Debugger.Break();
+                // Debugger.Break();
                 throw;
             }
             return null;

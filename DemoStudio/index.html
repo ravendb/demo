@@ -36,16 +36,16 @@
         <button data-bind="click: runDemo">Run Demo</button>
         <br />
 
-        <!--HTML-->
-        <div data-bind="visible: isHtml" style="color:#2F0000">HTML Result</div>
+        <div data-bind="visible: inProgress" style="color: #FF5500">Processing, Please Wait...</div>
+
+        <!--HTML-->        
         <div data-bind="visible: isHtml, html: htmlView" style="color:#00004F"></div>
 
         <!--SIMPLE JSON-->
-        <div data-bind="visible: isSimpleJson" style="color:#2F0000">Simple JSON Result</div>
         <div data-bind="visible: isSimpleJson" style="color: #00004F">
             <table>
                 <thead>
-                    <tr data-bind="foreach: columns">
+                    <tr data-bind="foreach: columns"> 
                         <th data-bind="text: $data"></th>
                     </tr>
                 </thead>

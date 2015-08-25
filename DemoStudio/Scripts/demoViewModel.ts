@@ -7,21 +7,17 @@ declare var ko;
 declare var availableDemos;
 
 class demoViewModel {
-    isHtml = ko.observable(true);
-    htmlView = ko.observable("x");
+    isHtml = ko.observable(false);
+    htmlView = ko.observable("");
     availableDemos = ko.observableArray(["Choose Demo..."]);
     values = ko.observable("");
     defdemo = ko.observable();
     optionsText = ko.observable();
     urlstring = ko.observable();
-
-    
-    isSimpleJson = ko.observable(true);
-
-    /*columns = ko.observableArray([{ header: "A", dataMember: "B" }, { header: "C", dataMember: "D" }]);
-    rows = ko.observableArray([{ header: "A", dataMember: "B" }, { header: "C", dataMember: "D" }]);*/
+    isSimpleJson = ko.observable(false);
     columns = ko.observableArray([]);
     rows = ko.observableArray([]);
+    inProgress = ko.observable(false);
     
 
     constructor() {
@@ -47,31 +43,33 @@ function runDemo(): void {
         url += "?" + this.values();
     }
 
-    
+    this.isHtml(false);
+    this.isSimpleJson(false);
+    this.inProgress(true);
     $.ajax(url, "GET").done(data => {
+        this.inProgress(false);
         console.log(data);
 
         var jsonObj = data;
 
         if (typeof (data) === "string") {
             this.htmlView(data);
+            this.inProgress(false);
+            this.isHtml(true);
             return;
         }
-
 
         if (data instanceof Array === false) {
             jsonObj = [data];
         }
         
-
-        //var newArr = [];
         this.columns([]);
         this.rows([]);
-        for (var i = 0; i < jsonObj.length; i++) {
-            var item = jsonObj[i];
 
-            var newItem = {};
-            // var itemsToBeCreated = []; // holds new items that need to be created
+        for (var i = 0; i < jsonObj.length; i++) {
+
+            var item = jsonObj[i];
+            var newItem = {};        
 
             for (var key in item) {
                 if (i === 0)
@@ -82,28 +80,15 @@ function runDemo(): void {
                 } else {
                     for (var deeperKey in item[key]) {
                         this.columns.push(deeperKey);
-                        // var obj = {};
-                        // obj[deeperKey] = item[key][deeperKey];
-                        // itemsToBeCreated.push(obj);
                         newItem[deeperKey] = item[key][deeperKey];
                     }
                 }
             }
-
             this.rows.push(newItem);
-
-            //for (var y = 0; y < itemsToBeCreated.length; y++) {
-            //    this.rows.push(jQuery.extend(itemsToBeCreated[y], newItem));
-            //}
         }
-
-
-
-
-
+        this.inProgress(false);
+        this.isSimpleJson(true);
     });
-
-
 }
 
 
