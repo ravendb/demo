@@ -7,16 +7,20 @@
     border-radius: 15px 50px 30px;
     background: #AAAAFF;
     padding: 20px;
+}.ui-resizable-helper {
+    border: 1px dotted gray;
 }
-#codediv{
-    float: right;
+#codediv{    
     width: 57%;    
     margin-left: -200px;
-    background-color: #CCCCCC;
     overflow: auto;
+    border: 1px dotted gray;
 }
-#resultsDiv {
-    border: thin;
+#resultsDiv {    
     clear: both;
 }
+
+
+
+
 

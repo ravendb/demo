@@ -4,15 +4,16 @@
 <head>
     <meta charset="utf-8" />
     <title>RavenDB Demo</title>
-    <link rel="stylesheet" href="studio/scripts/demostyles.css" />
-</head>
+    <link rel="stylesheet" href="studio/scripts/demostyles.css"/>
+    <link rel="stylesheet" href="studio/scripts/jquery-ui.css">
+    <script src="studio/scripts/jquery-1.10.2.js"></script>
+    <script src="studio/scripts/jquery-ui.js"></script>
+    </head>
 <body>
-
-
     <div id="demoViewModel">
         <div id="mainPane">
             <tt>
-                <img src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250"/>
+                <img src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250" />
                 <h1>Client Demo</h1>
             </tt>
 
@@ -44,11 +45,20 @@
 
             <div data-bind="visible: inProgress" style="color: #AA4400">Processing, Please Wait...</div>
         </div>
-        <div id="codediv">
-            CODE
+
+
+
+        <div id="codediv" class="demo ui-draggable ui-resizable">
+            CODE:
             <div data-bind="html: htmlCode"></div>
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
+            <div unselectable="on" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>
         </div>
-        <div id="resultsDiv">
+
+
+        <div id="resultsDiv" class="demo ui-draggable ui-resizable">
+            <div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon ui-icon-gripsmall-diagonal-nw"></div>
             <!--HTML-->
             <div data-bind="visible: isHtml, html: htmlView" style="color: #003F3F; background-color: lightgrey"></div>
 
@@ -56,28 +66,28 @@
             <div data-bind="visible: isSimpleJson" style="color: #00004F; background-color: lightgrey">
                 <table border="1">
                     <thead>
-                        <tr data-bind="foreach: columns">
-                            <th data-bind="text: $data"></th>
-                        </tr>
+                    <tr data-bind="foreach: columns">
+                        <th data-bind="text: $data"></th>
+                    </tr>
                     </thead>
                     <tbody data-bind="foreach: rows">
-                        <tr data-bind="foreach: $parent.columns">
-                            <td data-bind="text: $parent[$data]"></td>
-                        </tr>
+                    <tr data-bind="foreach: $parent.columns">
+                        <td data-bind="text: $parent[$data]"></td>
+                    </tr>
                     </tbody>
                 </table>
             </div>
         </div>
 
         <div id="resultsDiv"></div>
-        <script type="text/javascript" src="/studio/scripts/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
         <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
-        <script>
-            $(function () {
-            });
-        </script>
     </div>
+<script>
+    $(function() {
+         $('.demo').draggable().resizable();
+    });
+</script>
 </body>
 </html>

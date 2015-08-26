@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\demostyles.css" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-ui.css" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\ravenLogo.png" />
     <Content Include="Scripts\demoViewModel.js.map" />
-    <Content Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -73,7 +75,6 @@
   <ItemGroup>
     <Content Include="index.html" />
     <Content Include="Scripts\demoViewModel.js" />
-    <Content Include="Scripts\jquery-2.1.1.min.js" />
     <Content Include="Scripts\knockout-3.3.0.js" />
     <Content Include="Scripts\main.js" />
     <Content Include="Scripts\require.js" />
@@ -84,7 +85,6 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\demoViewModel.ts" />
-    <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

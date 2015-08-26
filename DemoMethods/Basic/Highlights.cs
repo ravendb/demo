@@ -10,7 +10,6 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {        
-        //TODO: Search by user string (in ui, suggest possible strings)
         [HttpGet]
         public object HighLights()
         {

@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Web;
 using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
@@ -36,10 +39,31 @@ namespace DemoMethods.Basic
                 }
             }
         };
+
+
+        public class FacetsRangesResults
+        {
+            public string Key;
+            public string Value;
+            public int Count;
+        }
+
         //TODO: Dynamic facets
         [HttpGet]
         public object FacetsWithDocuments()
         {
+            /*
+            var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
+            var setR1 = nvc["R1"] ?? "[NULL TO Dx10]";
+            var pricePerUnitRange = new Facet<Product>();
+            pricePerUnitRange.Name = Product.PricePerUnit.;
+            foreach (var key in nvc)
+            {
+                if ( nvc[key] != null)
+
+            }
+             */
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 //TODO: Move to initialization
@@ -52,8 +76,22 @@ namespace DemoMethods.Basic
                     .Where(x => x.UnitsInStock > 1)
                     .ToFacets(facets);
 
-                return facetResults.Results;
+                var result = facetResults.Results;
 
+                
+                List<FacetsRangesResults> lst = new List<FacetsRangesResults>();
+                foreach (var key in result.Keys)
+                {
+                    for (int i = 0; i < result[key].Values.Count; i++)
+                    {
+                        var item = new FacetsRangesResults();
+                        item.Key = key;
+                        item.Value = result[key].Values[i].Range;
+                        item.Count = result[key].Values[i].Count ?? 0;
+                        lst.Add(item);
+                    }
+                }
+                return lst;
             }
         }
     }
