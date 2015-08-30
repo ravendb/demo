@@ -5,6 +5,7 @@ var demoViewModel = (function () {
     function demoViewModel() {
         this.isHtml = ko.observable(false);
         this.htmlView = ko.observable("");
+        this.htmlExpl = ko.observable("");
         this.htmlCode = ko.observable("");
         this.availableDemos = ko.observableArray(["Choose Demo..."]);
         this.values = ko.observable("");
@@ -101,6 +102,11 @@ var demoViewModel = (function () {
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(function (data) {
             console.log(data);
             _this.htmlCode(data);
+        });
+        $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(function (data) {
+            console.log(data);
+            _this.htmlExpl(data);
+            (data);
         });
     };
     demoViewModel.prototype.genUrl = function () {

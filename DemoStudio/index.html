@@ -4,57 +4,63 @@
 <head>
     <meta charset="utf-8" />
     <title>RavenDB Demo</title>
-    <link rel="stylesheet" href="studio/scripts/demostyles.css"/>
+    <link rel="stylesheet" href="studio/scripts/demostyles.css" />
     <link rel="stylesheet" href="studio/scripts/jquery-ui.css">
     <script src="studio/scripts/jquery-1.10.2.js"></script>
+
     <script src="studio/scripts/jquery-ui.js"></script>
-    </head>
+</head>
 <body>
     <div id="demoViewModel">
         <div id="mainPane">
             <tt>
-                <img src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250" />
-                <h1>Client Demo</h1>
+                <img id="logoImageId" src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250" />
+                <br /><br />
+                <h1 id="clientDemoLabelId">&nbsp;Client Demo</h1>
             </tt>
 
             <table>
                 <thead>
                     <tr>
-                        <th>Demo Name</th>
-                        <th>Values</th>
+                        <th style="color: #0000FF">Demo Name</th>
+                        <th style="color: #0000FF">Values</thstyle>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td><select data-bind="options: $root.availableDemos, value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select></td>
-                        <td><input size="50" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" /></td>
+                        <td><input size="35" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" /></td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <input style="width: 600px" data-bind="textInput: $root.urlstring" />
-            <button data-bind="click: openNewTab">Open in New Tab ...</button>
+
+            <input style="width: 500px" data-bind="textInput: $root.urlstring" />
+            <a data-bind="click: openNewTab" href="#" class="runInNewButton">Run in New Tab...</a>
+            <!--<button data-bind="click: openNewTab">Open in New Tab ...</button>-->
             <br />
             <br />
-            <button data-bind="click: runDemo">Run Demo</button>
+            <a data-bind="click: runDemo" href="#" class="runButton">Run Demo</a>
+            <!--<button data-bind="click: runDemo">Run Demo</button>-->
             <div style="color: #000080">
                 <br /><input type="checkbox" data-bind="checked: chkForceJson, click: clickForceJson" /> Force JSON output
                 <br /><input type="checkbox" data-bind="checked: chkForceString, click: clickForceString" /> Force STRING output
                 <br /><input type="checkbox" data-bind="checked: chkAllowFlatten" /> Allow FLATTEN results
             </div>
 
-            <div data-bind="visible: inProgress" style="color: #AA4400">Processing, Please Wait...</div>
+            <div data-bind="visible: inProgress" style="color: #FF3366">Processing, Please Wait...</div>
         </div>
 
-
-
-        <div id="codediv" class="demo ui-draggable ui-resizable">
-            CODE:
+        <div id="codediv" class="demo ui-draggable ui-resizable">            
+            <div id="htmlExplDiv" data-bind="html: htmlExpl"></div>
             <div data-bind="html: htmlCode"></div>
-            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
-            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
-            <div unselectable="on" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>
-        </div>
+
+        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
+        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
+            </div>
+        <!--<div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>-->
+
+
 
 
         <div id="resultsDiv" class="demo ui-draggable ui-resizable">
@@ -66,14 +72,14 @@
             <div data-bind="visible: isSimpleJson" style="color: #00004F; background-color: lightgrey">
                 <table border="1">
                     <thead>
-                    <tr data-bind="foreach: columns">
-                        <th data-bind="text: $data"></th>
-                    </tr>
+                        <tr data-bind="foreach: columns">
+                            <th data-bind="text: $data"></th>
+                        </tr>
                     </thead>
                     <tbody data-bind="foreach: rows">
-                    <tr data-bind="foreach: $parent.columns">
-                        <td data-bind="text: $parent[$data]"></td>
-                    </tr>
+                        <tr data-bind="foreach: $parent.columns">
+                            <td data-bind="text: $parent[$data]"></td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
@@ -84,10 +90,52 @@
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
         <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     </div>
-<script>
-    $(function() {
-         $('.demo').draggable().resizable();
-    });
-</script>
+    <script>
+        $(function () {
+            $('.demo').draggable().resizable();
+        });
+        $(document).ready(function() {
+            $('#dialog_window_1').dialog();
+        });
+            var _init = $.ui.dialog.prototype._init;
+            $.ui.dialog.prototype._init = function () {
+                //Run the original initialization code
+                _init.apply(this, arguments);
+
+                //set some variables for use later
+                var dialog_element = this;
+                var dialog_id = this.uiDialogTitlebar.next().attr('id');
+
+                //append our minimize icon
+                this.uiDialogTitlebar.append('<a href="#" id="' + dialog_id +
+                '-minbutton" class="ui-dialog-titlebar-minimize ui-corner-all">' +
+                '<span class="ui-icon ui-icon-minusthick"></span></a>');
+
+                //append our minimized state
+                $('#dialog_window_minimized_container').append(
+                    '<div class="dialog_window_minimized ui-widget ui-state-default ui-corner-all" id="' +
+                    dialog_id + '_minimized">' + this.uiDialogTitlebar.find('.ui-dialog-title').text() +
+                    '<span class="ui-icon ui-icon-newwin"></div>');
+
+                //create a hover event for the minimize button so that it looks good
+                $('#' + dialog_id + '-minbutton').hover(function () {
+                    $(this).addClass('ui-state-hover');
+                }, function () {
+                    $(this).removeClass('ui-state-hover');
+                }).click(function () {
+                    //add a click event as well to do our "minimalization" of the window
+                    dialog_element.close();
+                    $('#' + dialog_id + '_minimized').show();
+                });
+
+                //create another click event that maximizes our minimized window
+                $('#' + dialog_id + '_minimized').click(function () {
+                    $(this).hide();
+                    dialog_element.open();
+                });
+            };
+        
+    </script>
+   
 </body>
 </html>

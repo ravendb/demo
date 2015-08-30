@@ -9,7 +9,8 @@ declare var availableDemos;
 class demoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
-    htmlCode = ko.observable("");
+    htmlExpl = ko.observable("");
+    htmlCode = ko.observable("");    
     availableDemos = ko.observableArray(["Choose Demo..."]);
     values = ko.observable("");
     defdemo = ko.observable();
@@ -68,7 +69,7 @@ class demoViewModel {
 
             var jsonObj = data;
 
-            if (this.chkForceJson() === false && ( this.chkForceString() === true || typeof (data) === "string")) {
+            if (this.chkForceJson() === false && (this.chkForceString() === true || typeof (data) === "string")) {
                 this.htmlView(data);
                 this.inProgress(false);
                 this.isHtml(true);
@@ -121,6 +122,11 @@ class demoViewModel {
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(data => {
             console.log(data);
             this.htmlCode(data);
+        });
+        $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(data => {
+            console.log(data);
+            this.htmlExpl(data);
+(data);
         });
     }
 

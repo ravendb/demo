@@ -77,7 +77,7 @@
     <Compile Include="Advanced\StreamingApi.cs" />
     <Compile Include="Advanced\UploadDownloadFile.cs" />
     <Compile Include="Basic\Boosting.cs" />
-    <Compile Include="Basic\DynamicAggrigation.cs" />
+    <Compile Include="Basic\DynamicAggregation.cs" />
     <Compile Include="Basic\FacetsWithDocuments.cs" />
     <Compile Include="Basic\Highlights.cs" />
     <Compile Include="Basic\Indexing.cs" />
@@ -117,6 +117,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Basic\Boosting.html" />
+    <Content Include="Basic\DynamicAggregation.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

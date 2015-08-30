@@ -32,6 +32,19 @@ namespace DemoMethods
             }
         }
 
+        public int CustomCompare(string l, string r)
+        {
+            string[] wl = l.Split('/');
+            string[] wr = l.Split('/');
+            if (wl.Length > 1 && wr.Length > 1)
+            {
+
+            }
+
+
+            return 42;
+        }
+
         [HttpGet]
         public object Index()
         {
@@ -43,10 +56,22 @@ namespace DemoMethods
                                                      .Where(x => x.CustomAttributes.Any(attr => attr.AttributeType == typeof(HttpGetAttribute)))
                                                      .Where(x => x.DeclaringType != null && x.DeclaringType.Name.Contains(x.Name) == false)
                                                      .Where(x => x.DeclaringType != null && !x.DeclaringType.Name.Contains("DemoStudio"))
+                                                     .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes")))
                                                      .Select(x => string.Format("{0}/{1}", x.DeclaringType.Name, x.Name)); // in VS2015 :  $"{x.DeclaringType.Name}/{x.Name}"
 
             var result = allPublicMethods.ToList();
-            result.Sort();
+
+            result.Sort(
+                delegate(string s1, string s2)
+                {
+                    if (s1.Contains("Basic") && s2.Contains("Advanced"))
+                        return -1;
+                    if (s2.Contains("Basic") && s1.Contains("Advanced"))
+                        return 1;
+                    return string.Compare(s1, s2, StringComparison.Ordinal);
+                }
+                );
+
             FormattedMenuIndex.FormatControllerString(result);
 
             var container = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
@@ -83,6 +108,20 @@ namespace DemoMethods
             {
                 var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
                 var file = nvc["FileName"];
+                var explanation = nvc["Docname"];
+                if (explanation != null)
+                {
+                    try
+                    {
+                        var docpath = Path.GetFullPath("../../../DemoMethods/" + explanation + ".html");
+                        var doclines = File.ReadAllText(docpath);
+                        return doclines;
+                    }
+                    catch (Exception)
+                    {
+                        return string.Format("-Doc N/A-");
+                    }
+                }
                 if (file == null)
                     return string.Format("No code found...");
                 var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");

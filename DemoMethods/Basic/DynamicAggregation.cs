@@ -9,7 +9,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {       
         [HttpGet]
-        public object DynamicAggrigation()
+        public object DynamicAggregation()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
