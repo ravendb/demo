@@ -72,7 +72,6 @@ namespace DemoMethods.Basic
 
                 var facetResults = session
                     .Query<Product, IndexProductsAndPriceAndSuplier>()
-                    .Customize(x => x.WaitForNonStaleResults())
                     .Where(x => x.UnitsInStock > 1)
                     .ToFacets(facets);
 

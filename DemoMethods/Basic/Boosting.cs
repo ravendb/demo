@@ -17,8 +17,9 @@ namespace DemoMethods.Basic
                 //TODO: have something here, actually do search, for multipel results
                 // show the Temp-Index-Score that means something
 
-                var orders = session.Query<Order,IndexOrderByCompanyAndShipper>()
-                .ToList();
+                var orders = session.Query<Order, IndexOrderByCompanyAndShipper>()
+                    .Where(x => x.ShipTo.City == "London" || x.ShipTo.Country == "Denmark")
+                    .ToList();
 
                 return orders;
             }

@@ -12,8 +12,8 @@ namespace DemoMethods.Indexes
             Map = orders => from order in orders
                             select new
                             {
-                                CompanyId = order.Company.Boost(10),
-                                ShipperId = order.ShipVia
+                                ShipTo_City = order.ShipTo.City.Boost(10),
+                                ShipTo_Country = order.ShipTo.Country
                             };
         }
     }

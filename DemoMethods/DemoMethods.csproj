@@ -87,6 +87,7 @@
     <Compile Include="Basic\Transformers.cs" />
     <Compile Include="DemoStudioController.cs" />
     <Compile Include="DemoUtilities.cs" />
+    <Compile Include="FileStoreHolder.cs" />
     <Compile Include="DocumentStoreHolder.cs" />
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Category.cs" />
