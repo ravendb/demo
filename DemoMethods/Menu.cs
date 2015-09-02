@@ -6,7 +6,6 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
-using DemoMethods.Entities;
 using Raven.Client.Indexes;
 using ColorCode;
 

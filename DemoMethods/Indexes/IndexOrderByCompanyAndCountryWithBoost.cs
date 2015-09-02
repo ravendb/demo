@@ -5,9 +5,9 @@ using Raven.Client.Linq.Indexing;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexOrderByCompanyAndShipper : AbstractIndexCreationTask<Order>
+    public class IndexOrderByCompanyAndCountryWithBoost : AbstractIndexCreationTask<Order>
     {
-        public IndexOrderByCompanyAndShipper()
+        public IndexOrderByCompanyAndCountryWithBoost()
         {
             Map = orders => from order in orders
                             select new

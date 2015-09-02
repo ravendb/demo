@@ -117,10 +117,14 @@ var demoViewModel = (function () {
         this.urlstring(url);
     };
     demoViewModel.prototype.availableDemoChangeEvent = function () {
+        this.values("");
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
+        this.chkForceString(false);
+        this.chkForceJson(false);
+        this.chkAllowFlatten(false);
     };
     demoViewModel.prototype.valuesKeyPressEvent = function (data, event) {
         this.genUrl();

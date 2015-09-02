@@ -76,7 +76,8 @@
     <Compile Include="Advanced\SetBased.cs" />
     <Compile Include="Advanced\StreamingApi.cs" />
     <Compile Include="Advanced\UploadDownloadFile.cs" />
-    <Compile Include="Basic\Boosting.cs" />
+    <Compile Include="Basic\BoostingDisabled.cs" />
+    <Compile Include="Basic\BoostingEnabled.cs" />
     <Compile Include="Basic\DynamicAggregation.cs" />
     <Compile Include="Basic\FacetsWithDocuments.cs" />
     <Compile Include="Basic\Highlights.cs" />
@@ -107,7 +108,8 @@
     <Compile Include="Indexes\IndexCostlyOrders.cs" />
     <Compile Include="Indexes\IndexManyProduct.cs" />
     <Compile Include="Indexes\IndexNameAndCountry.cs" />
-    <Compile Include="Indexes\IndexOrderByCompanyAndShipper.cs" />
+    <Compile Include="Indexes\IndexOrderByCompanyAndCountryWithBoost.cs" />
+    <Compile Include="Indexes\IndexOrderByCompanyAndCountry.cs" />
     <Compile Include="Indexes\IndexProduct.cs" />
     <Compile Include="Indexes\IndexProducts.cs" />
     <Compile Include="Indexes\IndexProductSales.cs" />
@@ -120,7 +122,8 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Basic\Boosting.html" />
+    <Content Include="Basic\BoostingDisabled.html" />
+    <Content Include="Basic\BoostingEnabled.html" />
     <Content Include="Basic\DynamicAggregation.html" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

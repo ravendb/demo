@@ -139,10 +139,14 @@ class demoViewModel {
     }
 
     availableDemoChangeEvent(): void {
+        this.values("");
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
+        this.chkForceString(false);
+        this.chkForceJson(false);
+        this.chkAllowFlatten(false);
     }
 
     valuesKeyPressEvent(data, event) {
