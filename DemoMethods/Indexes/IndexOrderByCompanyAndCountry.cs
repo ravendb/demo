@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using DemoMethods.Entities;
 using Raven.Client.Indexes;
-using Raven.Client.Linq.Indexing;
 
 namespace DemoMethods.Indexes
 {

@@ -81,11 +81,11 @@
     <Compile Include="Basic\DynamicAggregation.cs" />
     <Compile Include="Basic\FacetsWithDocuments.cs" />
     <Compile Include="Basic\Highlights.cs" />
-    <Compile Include="Basic\Indexing.cs" />
-    <Compile Include="Basic\MapReduce.cs" />
-    <Compile Include="Basic\MultiMapIndexes.cs" />
-    <Compile Include="Basic\StoreEditCreate.cs" />
-    <Compile Include="Basic\Transformers.cs" />
+    <Compile Include="Basic\StaticQuery.cs" />
+    <Compile Include="Basic\MapReduceUsingDocumentQuery.cs" />
+    <Compile Include="Basic\MultiMapIndexingQuery.cs" />
+    <Compile Include="Basic\StoreEditDelete.cs" />
+    <Compile Include="Basic\TransformerQuery.cs" />
     <Compile Include="DemoStudioController.cs" />
     <Compile Include="DemoUtilities.cs" />
     <Compile Include="FileStoreHolder.cs" />
@@ -116,12 +116,20 @@
     <Compile Include="Indexes\IndexProductsAndPriceAndSuplier.cs" />
     <Compile Include="Indexes\TransformerNameAndCountry.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Menu\CreateIndexesAndTransformers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Menu\CreateIndexesAndTransformers.html" />
+    <Content Include="Basic\FacetsWithDocuments.html" />
+    <Content Include="Basic\TransformerQuery.html" />
+    <Content Include="Basic\StoreEditDelete.html" />
+    <Content Include="Basic\MultiMapIndexingQuery.html" />
+    <Content Include="Basic\MapReduceUsingDocumentQuery.html" />
+    <Content Include="Basic\Highlights.html" />
     <Content Include="Basic\BoostingDisabled.html" />
     <Content Include="Basic\BoostingEnabled.html" />
     <Content Include="Basic\DynamicAggregation.html" />

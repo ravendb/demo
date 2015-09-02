@@ -1,10 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 using DemoMethods.Entities;
-using DemoMethods.Indexes;
-using Raven.Abstractions.Data;
-using Raven.Client.Indexes;
 
 namespace DemoMethods.Advanced
 {

@@ -1,6 +1,5 @@
 ﻿using System.Web.Http;
 using DemoMethods.Entities;
-using Raven.Client;
 
 namespace DemoMethods.Basic
 {

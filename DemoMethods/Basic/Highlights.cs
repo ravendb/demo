@@ -14,7 +14,7 @@ namespace DemoMethods.Basic
         public object HighLights()
         {
             var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
-            var search = nvc["Id"] ?? "USA";            
+            var search = nvc["Address"] ?? "USA";            
 
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {

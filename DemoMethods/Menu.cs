@@ -11,7 +11,7 @@ using ColorCode;
 
 namespace DemoMethods
 {
-    public class MenuController : ApiController
+    public partial class MenuController : ApiController
     {
         private class MenuResults
         {
@@ -91,13 +91,6 @@ namespace DemoMethods
             };
 
             return (resObj);
-        }
-
-        [HttpGet]
-        public object CreateIndexesAndTransformers()
-        {
-            IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
-            return ("Indexes were created successfully");
         }
 
         [HttpGet]

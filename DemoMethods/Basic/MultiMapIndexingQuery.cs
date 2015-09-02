@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Web;
 using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Client;
@@ -12,10 +13,12 @@ namespace DemoMethods.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
+                var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
+                var country = nvc["Country"] ?? "USA";
 
                 return session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
                     .Customize(x => x.WaitForNonStaleResults())
-                    .Search(x => x.Country, "USA")
+                    .Search(x => x.Country, country)
                     .Select(x => x.Name)
                     .ToList();
             }

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Web.Http;
 using DemoMethods.Entities;
-using DemoMethods.Indexes;
 
 namespace DemoMethods.Advanced
 {

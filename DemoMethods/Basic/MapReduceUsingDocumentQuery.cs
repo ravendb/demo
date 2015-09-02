@@ -11,7 +11,7 @@ namespace DemoMethods.Basic
         // TODO: Map reduce that uses a query
 
         [HttpGet]
-        public object MapReduceUsingDocumenTQuery()
+        public object MapReduceUsingDocumentQuery()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
