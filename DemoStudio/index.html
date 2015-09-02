@@ -51,13 +51,13 @@
             <div data-bind="visible: inProgress" style="color: #FF3366">Processing, Please Wait...</div>
         </div>
 
-        <div id="codediv" class="demo ui-draggable ui-resizable">            
+        <div id="codediv" class="demo ui-draggable ui-resizable">
             <div id="htmlExplDiv" data-bind="html: htmlExpl"></div>
             <div data-bind="html: htmlCode"></div>
 
-        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
-        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
-            </div>
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
+        </div>
         <!--<div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>-->
 
 
@@ -90,5 +90,11 @@
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
         <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     </div>
+    <script>
+        $(function () {
+            $('.demo').draggable().resizable();
+        });
+    </script>
+
 </body>
 </html>
