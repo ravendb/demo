@@ -9,8 +9,14 @@ namespace DemoMethods
         [HttpGet]
         public object CreateIndexesAndTransformers()
         {
+            // Side By Side Index Creation:
+            // IndexCreation.SideBySideCreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
+            
             IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
-            return ("Indexes were created successfully");
+
+
+
+            return ("Indexes, Transformers and Facets were created successfully");
         }
     }
 }

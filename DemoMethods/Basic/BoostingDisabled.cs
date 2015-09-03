@@ -1,5 +1,5 @@
-﻿using System.Linq;
-using System.Web;
+﻿using System.Collections.Specialized;
+using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
@@ -13,12 +13,15 @@ namespace DemoMethods.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
-                var city = nvc["City"] ?? "London";
-                var country = nvc["Country"] ?? "Denmark"; 
+                var userParams = new NameValueCollection
+                {
+                    {"City", "London"},
+                    {"Country", "Denmark"}
+                };
+                DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
 
                 var orders = session.Query<Order, IndexOrderByCompanyAndCountry>()
-                    .Where(x => x.ShipTo.City == city || x.ShipTo.Country == country)
+                    .Where(x => x.ShipTo.City == userParams["City"] || x.ShipTo.Country == userParams["Country"])
                     .ToList();
 
                 return orders;

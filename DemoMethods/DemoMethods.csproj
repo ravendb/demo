@@ -102,6 +102,7 @@
     <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
+    <Compile Include="Indexes\FacetRangeCreation.cs" />
     <Compile Include="Indexes\IndexCategory.cs" />
     <Compile Include="Indexes\IndexCompaniesAndAddresses.cs" />
     <Compile Include="Indexes\IndexCompaniesAndCountry.cs" />
@@ -134,6 +135,7 @@
     <Content Include="Basic\BoostingDisabled.html" />
     <Content Include="Basic\BoostingEnabled.html" />
     <Content Include="Basic\DynamicAggregation.html" />
+    <Content Include="TextFile1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

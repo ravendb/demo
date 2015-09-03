@@ -1,4 +1,5 @@
-﻿using System.Web.Http;
+﻿using System.Collections.Specialized;
+using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
 using Raven.Client;
@@ -10,19 +11,29 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object DynamicAggregation()
         {
+            var userParams = new NameValueCollection
+            {
+                {"From", "10"},
+                {"To", "20"}
+            };
+            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+
+            var from = int.Parse(userParams["From"]);
+            var to = int.Parse(userParams["To"]);
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var result = session.Query<Product, IndexProducts>()
-                    .AggregateBy(x => x.PricePerUnit)
+                    .AggregateBy(x => x.UnitsInStock)
                     .AddRanges(
-                        x => x.UnitsInStock < 10,
-                        x => x.UnitsInStock >= 10 && x.UnitsInStock < 20,
-                        x => x.UnitsInStock >= 20
+                        x => x.UnitsInStock < from,
+                        x => x.UnitsInStock >= from && x.UnitsInStock < to,
+                        x => x.UnitsInStock >= to
                     )
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
-                    
-                return result.Results;
+                
+                return DemoUtilities.FormatRangeResults(result.Results);
             }
         }
     }
