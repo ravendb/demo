@@ -12,10 +12,7 @@ namespace DemoMethods.Advanced
     {
         [HttpGet]
         public async Task<object> UploadDownloadFile()
-        {
-            //TODO: file store holder
-            //TODO: upload, download, rename
-
+        {           
             // Create File DemoFs.txt 
             var filename = Path.GetTempPath() + "DemoFs.txt";
             const string storeString = "Hello World";

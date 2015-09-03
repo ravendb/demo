@@ -14,7 +14,7 @@
     float: left;
     white-space: nowrap;
     width: 65%;
-    margin-left: +25px;
+    margin-left: +15px;
     overflow: auto;
     border: 25px gray;
     word-wrap: break-word;
@@ -26,6 +26,7 @@
 
 #htmlExplDiv {
     color: #3366FF;
+    margin-left: +15px;
     word-wrap: break-word;
 }
 

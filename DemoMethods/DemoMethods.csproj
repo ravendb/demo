@@ -124,6 +124,12 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Advanced\StreamingApi.html" />
+    <Content Include="Advanced\MoreLikeThis.html" />
+    <Content Include="Advanced\Listeners.html" />
+    <Content Include="Advanced\LazyFunctionality.html" />
+    <Content Include="Advanced\FullTextSearch.html" />
+    <Content Include="Advanced\UploadDownloadFile.html" />
     <Content Include="Advanced\SetBased.html" />
     <Content Include="Basic\StaticQuery.html" />
     <Content Include="Menu\CreateIndexesAndTransformers.html" />

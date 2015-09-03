@@ -11,6 +11,11 @@ FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve
         //TODO: Dynamically build query
         //TODO: Paging
 
+		FS:
+		 //TODO: file store holder
+            //TODO: upload, download, rename
+
+
 //eol
 //eol
 
