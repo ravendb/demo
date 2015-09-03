@@ -1,7 +1,16 @@
 ﻿TODO:
 FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve dynamic facet parameters)
 
+//mapreduce
 		// TODO: Map reduce with linq API
         // TODO: Map reduce that uses a query
 
+// StaticQuery:
+		 //TODO: Query with params
+        //TODO: Query with dynamic ordering
+        //TODO: Dynamically build query
+        //TODO: Paging
+
+//eol
+//eol
 

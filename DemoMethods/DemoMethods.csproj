@@ -125,6 +125,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Advanced\SetBased.html" />
+    <Content Include="Basic\StaticQuery.html" />
     <Content Include="Menu\CreateIndexesAndTransformers.html" />
     <Content Include="Basic\FacetsWithDocuments.html" />
     <Content Include="Basic\TransformerQuery.html" />

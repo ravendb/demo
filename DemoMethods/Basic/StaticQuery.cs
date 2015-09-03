@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
@@ -8,18 +9,19 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        private const int HighPrice = 500;
-        private const int DelayDays = 35;
-
-        //TODO: Query with params
-        //TODO: Query with dynamic ordering
-        //TODO: Dynamically build query
-
-        //TODO: Paging
-
         [HttpGet]
         public object StaticQuery()
         {
+            var userParams = new NameValueCollection
+            {
+                {"HighPrice", "500"},
+                {"DelayDays", "35"}
+            };
+            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+
+            var HighPrice = int.Parse(userParams["HighPrice"]);
+            var DelayDays = int.Parse(userParams["DelayDays"]);
+
             //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
