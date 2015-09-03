@@ -1,2 +1,0 @@
-﻿TODO:
-FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve dynamic facet parameters)

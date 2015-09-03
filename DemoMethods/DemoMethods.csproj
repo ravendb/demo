@@ -135,7 +135,7 @@
     <Content Include="Basic\BoostingDisabled.html" />
     <Content Include="Basic\BoostingEnabled.html" />
     <Content Include="Basic\DynamicAggregation.html" />
-    <Content Include="TextFile1.txt" />
+    <Content Include="Notes.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

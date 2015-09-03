@@ -7,9 +7,6 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
-        // TODO: Map reduce with linq API
-        // TODO: Map reduce that uses a query
-
         [HttpGet]
         public object MapReduceUsingDocumentQuery()
         {
