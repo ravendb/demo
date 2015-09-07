@@ -1,5 +1,8 @@
 ﻿TODO:
 FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve dynamic facet parameters)
+- move creation
+- create another facet with "new facet" in the api without the need to store facet
+
 
 //mapreduce
 		// TODO: Map reduce with linq API
@@ -15,6 +18,8 @@ FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve
 		 //TODO: file store holder
             //TODO: upload, download, rename
 
+// last.fm for fulltext search
+	
 
 //eol
 //eol

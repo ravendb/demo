@@ -55,7 +55,7 @@ namespace DemoMethods
                                                      .Where(x => x.CustomAttributes.Any(attr => attr.AttributeType == typeof(HttpGetAttribute)))
                                                      .Where(x => x.DeclaringType != null && x.DeclaringType.Name.Contains(x.Name) == false)
                                                      .Where(x => x.DeclaringType != null && !x.DeclaringType.Name.Contains("DemoStudio"))
-                                                     .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes")))
+                                                     .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes") && !x.Name.Contains("CreateLastFmDataset")))                                                     
                                                      .Select(x => string.Format("{0}/{1}", x.DeclaringType.Name, x.Name)); // in VS2015 :  $"{x.DeclaringType.Name}/{x.Name}"
 
             var result = allPublicMethods.ToList();
