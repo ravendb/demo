@@ -104,6 +104,7 @@
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
     <Compile Include="Indexes\FacetRangeCreation.cs" />
+    <Compile Include="Indexes\IndexFullTextSearch.cs" />
     <Compile Include="Indexes\IndexCategory.cs" />
     <Compile Include="Indexes\IndexCompaniesAndAddresses.cs" />
     <Compile Include="Indexes\IndexCompaniesAndCountry.cs" />
@@ -116,6 +117,7 @@
     <Compile Include="Indexes\IndexProducts.cs" />
     <Compile Include="Indexes\IndexProductSales.cs" />
     <Compile Include="Indexes\IndexProductsAndPriceAndSuplier.cs" />
+    <Compile Include="Indexes\TransformerLastFm.cs" />
     <Compile Include="Indexes\TransformerNameAndCountry.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Menu\CreateLastFmDataset.cs" />
