@@ -14,24 +14,22 @@ namespace DemoMethods.Advanced
         {
             new IndexCategory().Execute(DocumentStoreHolder.Store);
 
-            //TODO: fix this
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 Category[] products = session
                 .Advanced
                 .MoreLikeThis<Category>(
-                "Index/Category",
+                "IndexCategory",
                 null,
                 new MoreLikeThisQuery
                 {
-                    IndexName = "Index/Category",
+                    IndexName = "IndexCategory",
                     DocumentId = "categories/3",
                     Fields = new[] { "Description" }
                 });
 
                 return (products.ToList());
             }
-           // TODO :: this is a bad example.. need article-body like example
         }
     }
 }

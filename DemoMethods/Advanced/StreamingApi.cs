@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using DemoMethods.Entities;
+using Newtonsoft.Json;
 
 namespace DemoMethods.Advanced
 {
@@ -16,7 +17,7 @@ namespace DemoMethods.Advanced
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var query = session.Query<Product>("Index/ManyProduct");
+                var query = session.Query<Product>("IndexManyProduct");
 
                 var e = session
                     .Advanced                  
@@ -28,7 +29,6 @@ namespace DemoMethods.Advanced
                 results.Page1 = new Product[pageSize];
                 results.Page5 = new Product[pageSize];
 
-                // TODO: Send as CSV 
                 for (var page = 1; page <= 10; page++)
                 {
                     for (var itemInPage = 0; itemInPage < pageSize; itemInPage++)
@@ -43,7 +43,10 @@ namespace DemoMethods.Advanced
                     }
                 }
 
-                return (results);
+                var json = JsonConvert.SerializeObject(results);
+                var s = DemoUtilities.Json2Csv(json);
+
+                return (s);
             }
         }        
     }

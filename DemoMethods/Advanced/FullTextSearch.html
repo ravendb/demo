@@ -6,12 +6,23 @@
     <title></title>
 </head>
 <body>
-<div>
-    <h1>Full Text Search</h1>
-    <br/>
-    (<b>Allow FLATTEN results</b> is recommended)
-    <br/>
-    <br/><a href="http://ravendb.net/docs/article-page/3.0/csharp/indexes/using-analyzers" target="_blank">Visit RavenDB Documantation on <b><i>Full Text Search and Analayzers</i></b></a>
-</div>
+    <div>
+        <h1>Full Text Search</h1>
+        <br />
+        Query indexed text.
+        <br />
+        For a Document Query you may use:<br />
+        var usingDocumentQuery = session.Advanced.DocumentQuery<lastfm>
+            (new IndexFullTextSearch().IndexName)
+            .Search("Query", userParams["Search"])
+            .ToList();
+            <br />
+            (<b>Allow FLATTEN results</b> is recommended)
+            <br />
+            <br /><a href="http://ravendb.net/docs/article-page/3.0/csharp/indexes/using-analyzers" target="_blank">Visit RavenDB Documantation on <b><i>Full Text Search and Analayzers</i></b></a>
+            <br />
+            <br />
+            <b style="color: #11AF11">Optional Parameters : Search</b>
+    </div>
 </body>
 </html>

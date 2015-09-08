@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Specialized;
+using System.Linq;
 using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
@@ -11,10 +12,17 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object SetBased()
         {
+            var userParams = new NameValueCollection
+                {
+                    {"Original", "USA"},
+                    {"New", "United States of America"}
+                };
+            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+
             DocumentStoreHolder.Store.ExecuteIndex(new IndexCompaniesAndCountry());
 
             DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex("Index/CompaniesAndCountry",
-                new IndexQuery {Query = "Country:USA"},
+                new IndexQuery {Query = "Country:" + userParams["Origianl"]},
                 new[]
                 {
                     new PatchRequest
@@ -27,7 +35,7 @@ namespace DemoMethods.Advanced
                             {
                                 Type = PatchCommandType.Set,
                                 Name = "Country",
-                                Value = "United States of America"
+                                Value = userParams["New"]
                             }, 
                         }
                     }
@@ -38,7 +46,7 @@ namespace DemoMethods.Advanced
                 var results = session
                     .Advanced
                     .DocumentQuery<Company, IndexCompaniesAndCountry>()
-                    .Search("Country", "USA")
+                    .Search("Country", userParams["New"])
                     .ToList();
                     
                 return (results);

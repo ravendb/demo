@@ -26,11 +26,6 @@ namespace DemoMethods.Advanced
                                .TransformWith<TransformerLastFm, LastFm>()
                                .ToList();
 
-                    var query2 = session.Advanced.DocumentQuery<LastFm>(new IndexFullTextSearch().IndexName)
-                        .Search("Query", userParams["Search"])
-                        .ToList();
-                            
-
                     return query;
                 }
                 catch (System.Exception e)

@@ -1,26 +1,37 @@
 ﻿TODO:
-FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve dynamic facet parameters)
-- move creation
-- create another facet with "new facet" in the api without the need to store facet
+====
+* FacetsWithDocuments.cs - Move facet creation to initialization (need to preserve dynamic facet parameters)
+	- move creation
+	- create another facet with "new facet" in the api without the need to store facet
 
 
-//mapreduce
-		// TODO: Map reduce with linq API
-        // TODO: Map reduce that uses a query
+* MapReduce
+	- Map reduce with linq API
+	- Map reduce that uses a query
 
-// StaticQuery:
-		 //TODO: Query with params
-        //TODO: Query with dynamic ordering
-        //TODO: Dynamically build query
-        //TODO: Paging
+* StaticQuery:
+	- Query with params
+	- Query with dynamic ordering
+	- Dynamically build query
+	- Paging
 
-		FS:
-		 //TODO: file store holder
-            //TODO: upload, download, rename
+* FileSystem
+	- rename
 
-// last.fm for fulltext search
-	
+* StreamingApi
+	- Json2Csv
 
-//eol
-//eol
+* MoreLikeThis
+	- Work on last.fm - something meaningful
+
+* Lazy
+	- Query and facets using lazy
+
+* Patches (SetBased)
+	- Written but Not Working
+
+* TransfoemerQuery.cs - 
+	- with to list, add another query for streaming
+
+//eof
 

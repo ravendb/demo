@@ -22,7 +22,7 @@ namespace DemoMethods.Basic
                     session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
                     .TransformWith<TransformerNameAndCountry, IndexNameAndCountry.Result>() 
                     .Search(x => x.Country, country);
-                // TODO: with to list, add another one for streaming
+               
 
                 using (var enumerator = session.Advanced.Stream(query))
                 {

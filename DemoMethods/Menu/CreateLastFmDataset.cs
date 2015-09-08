@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Specialized;
+using System.IO;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
@@ -13,8 +14,15 @@ namespace DemoMethods
         [HttpGet]
         public object CreateLastFmDataset()
         {
+            var userParams = new NameValueCollection
+                {
+                    {"Path", @"../../../DemoMethods/lastfm_subset"},
+                };
+            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+
             // var path = Path.GetFullPath("../../../DemoMethods/lastfm_subset");
-            var path = Path.GetFullPath("../../../../lastfm_train");
+            var path = userParams["Path"];
+            
             var di = new DirectoryInfo(path);
 
             LastFMKey = 1;
