@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Linq;
 using DemoMethods.Entities;
+using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexFullTextSearch : AbstractIndexCreationTask<LastFm>
+    public class IndexFullTextSearch : AbstractIndexCreationTask<LastFm, IndexFullTextSearch.Result>
     {
         public class Result
         {
@@ -17,10 +18,17 @@ namespace DemoMethods.Indexes
             Map = songs => from song in songs
                 select new
                 {
-                    Query = String.Join(" ",song.Artist, song.TimeStamp, song.Tags.SelectMany(y => y), song.Title, song.Track_Id)
+                    Query = new object[]
+                    {
+                        song.Artist, 
+                        song.TimeStamp, 
+                        song.Tags, 
+                        song.Title, 
+                        song.TrackId
+                    }
                 };
-                          
-            Analyze("Query", "Lucene.Net.Analysis.Standard.StandardAnalyzer");            
+
+            Index(x => x.Query, FieldIndexing.Analyzed);
         }
     }
 }

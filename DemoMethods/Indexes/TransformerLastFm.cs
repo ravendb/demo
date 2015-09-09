@@ -14,7 +14,7 @@ namespace DemoMethods.Indexes
                                               result.Artist,
                                               result.TimeStamp,
                                               result.Tags,
-                                              result.Track_Id
+                                              result.TrackId
                                           };
         }
     }

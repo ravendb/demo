@@ -41,6 +41,7 @@ namespace DemoMethods.Advanced
                 results = query.ToList();
 
             }
+            // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
             DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
 
             return results;

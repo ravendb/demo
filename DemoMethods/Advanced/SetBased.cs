@@ -4,25 +4,17 @@ using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using DemoMethods.Entities;
+using Raven.Client.Connection;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object SetBased()
+        public object SetBased(string original = "USA", string newVal = "United States of America")
         {
-            var userParams = new NameValueCollection
-                {
-                    {"Original", "USA"},
-                    {"New", "United States of America"}
-                };
-            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
-
-            DocumentStoreHolder.Store.ExecuteIndex(new IndexCompaniesAndCountry());
-
-            DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex("Index/CompaniesAndCountry",
-                new IndexQuery {Query = "Country:" + userParams["Origianl"]},
+            var updateByIndex = DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new IndexCompaniesAndCountry().IndexName,
+                new IndexQuery { Query = "Address_Country:" + original },
                 new[]
                 {
                     new PatchRequest
@@ -35,20 +27,24 @@ namespace DemoMethods.Advanced
                             {
                                 Type = PatchCommandType.Set,
                                 Name = "Country",
-                                Value = userParams["New"]
+                                Value = newVal
                             }, 
                         }
                     }
                 });
 
+            updateByIndex.WaitForCompletion();
+
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var results = session
-                    .Advanced
-                    .DocumentQuery<Company, IndexCompaniesAndCountry>()
-                    .Search("Country", userParams["New"])
+                    .Query<IndexCompaniesAndCountry.Result, IndexCompaniesAndCountry>()
+                    .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                    .Where(x => x.Address_Country == newVal)
+                    .OfType<Company>()
                     .ToList();
-                    
+
                 return (results);
             }
         }

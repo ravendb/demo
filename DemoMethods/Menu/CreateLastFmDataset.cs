@@ -1,65 +1,56 @@
-﻿using System.Collections.Specialized;
+﻿using System;
+using System.Collections.Specialized;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
 using Raven.Abstractions.Data;
 using Raven.Imports.Newtonsoft.Json;
+using Raven.Json.Linq;
 
 namespace DemoMethods
 {
     public partial class MenuController : ApiController
     {
-        public static int LastFMKey;
         [HttpGet]
-        public object CreateLastFmDataset()
+        public object CreateLastFmDataset(string path = @"C:\Users\adi\Downloads\lastfm_train.zip")
         {
-            var userParams = new NameValueCollection
-                {
-                    {"Path", @"../../../DemoMethods/lastfm_subset"},
-                };
-            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+         
+            AddDocumentsToDb(path);
 
-            // var path = Path.GetFullPath("../../../DemoMethods/lastfm_subset");
-            var path = userParams["Path"];
-            
-            var di = new DirectoryInfo(path);
-
-            LastFMKey = 1;
-
-            return AddDocumentsToDb(di) ? (string.Format("Last FM Dataset was added to {0} database", DocumentStoreHolder.DatabaseName)) 
-                : (string.Format("ERROR : Unable to add Last FM Dataset to {0} database", DocumentStoreHolder.DatabaseName));
+            return string.Format("Last FM Dataset was added to {0} database", DocumentStoreHolder.DatabaseName);
         }
 
-        public bool AddDocumentsToDb(DirectoryInfo root)
+        public void AddDocumentsToDb(string path)
         {
-            FileInfo[] files;
-
-            try
+            int count = 1;
+            using (var stream = File.OpenRead(path))
+            using (var zip = new ZipArchive(stream, ZipArchiveMode.Read))
+            using (var bulkInsert = DocumentStoreHolder.Store.BulkInsert(options: new BulkInsertOptions { OverwriteExisting = true, BatchSize = 256 }))
             {
-                files = root.GetFiles("*.*");
-            }
-            catch 
-            {
-                return false;
-            }
-            
-            using (var bulkInsert = DocumentStoreHolder.Store.BulkInsert(options: new BulkInsertOptions {OverwriteExisting = true, BatchSize = 256}))
-            {
-                foreach (var fi in files)
+                foreach (var entry in zip.Entries)
                 {
-                    var key = string.Format("LastFM/{0}", LastFMKey++);
-                    var jsonString = File.ReadAllText(fi.FullName);
-                    var deserializedObject = JsonConvert.DeserializeObject<LastFm>(jsonString);
-
-                    // Instead of : DocumentStoreHolder.Store.DatabaseCommands.Put(key, null, jsonObj, null);
-                    // Perform Bulk Insert :
-                    bulkInsert.Store(deserializedObject, key);                    
+                    if(entry.Length==0)
+                        continue;
+                    using (var entryStream = entry.Open())
+                    {
+                        var docAsJson = RavenJObject.Load(new JsonTextReader(new StreamReader(entryStream)));
+                        var doc = new LastFm
+                        {
+                            Artist = docAsJson.Value<string>("artist"),
+                            TimeStamp = DateTime.Parse(docAsJson.Value<string>("timestamp")),
+                            Title = docAsJson.Value<string>("title"),
+                            TrackId = docAsJson.Value<string>("track_id"),
+                            Tags =
+                                docAsJson.Value<RavenJArray>("tags")
+                                    .Select(x => ((RavenJArray) x)[0].Value<string>())
+                                    .ToList()
+                        };
+                        bulkInsert.Store(doc, "lastfm/" + (count++));
+                    }
                 }
             }
-
-            var subDirs = root.GetDirectories();
-            return subDirs.All(dirInfo => AddDocumentsToDb(dirInfo));
-        }        
+        }
     }
 }

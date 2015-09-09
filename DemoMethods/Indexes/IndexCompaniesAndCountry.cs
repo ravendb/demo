@@ -10,7 +10,7 @@ namespace DemoMethods.Indexes
         public class Result
         {
             public Company Company { get; set; }
-            public string Country { get; set; }
+            public string Address_Country { get; set; }
         }
 
         public IndexCompaniesAndCountry()
@@ -20,12 +20,8 @@ namespace DemoMethods.Indexes
                 select new
                 {
                     Company = company,
-                    company.Address.Country
+                    Address_Country = company.Address.Country
                 };
-
-            Index(x => x.Address, FieldIndexing.Analyzed);
-            Store(x => x.Address, FieldStorage.Yes);
-            TermVector(x => x.Address, FieldTermVector.WithPositionsAndOffsets);
         }
     }
 }

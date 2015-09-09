@@ -43,8 +43,11 @@ namespace DemoMethods
 
         public static string Json2Csv(string JsonString)
         {
+            //****
+                ///////
+                /// problem here with deserialize xmlnode - maybe need to do it myself.  have a json with internal array - just convert it to csv
             
-            XmlNode xml = JsonConvert.DeserializeXmlNode("{records:{record:" + JsonString + "}}");
+            XmlNode xml = JsonConvert.DeserializeXmlNode("{records:[{record:" + JsonString + "}]}");
 
 
             XmlDocument xmldoc = new XmlDocument();
