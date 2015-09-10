@@ -9,7 +9,7 @@ namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
-        [HttpGet]
+        // [HttpGet]
         public object MoreLikeThis(string documentId = "lastfm/9295")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

@@ -80,6 +80,7 @@
     <Compile Include="Basic\BoostingDisabled.cs" />
     <Compile Include="Basic\BoostingEnabled.cs" />
     <Compile Include="Basic\DynamicAggregation.cs" />
+    <Compile Include="Basic\FacetsDynamicRange.cs" />
     <Compile Include="Basic\FacetsWithDocuments.cs" />
     <Compile Include="Basic\Highlights.cs" />
     <Compile Include="Basic\StaticQuery.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Indexes\TransformerLastFm.cs" />
     <Compile Include="Indexes\TransformerNameAndCountry.cs" />
     <Compile Include="Menu.cs" />
+    <Compile Include="Menu\CreateFixedFacet.cs" />
     <Compile Include="Menu\CreateLastFmDataset.cs" />
     <Compile Include="Menu\CreateIndexesAndTransformers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,6 +138,7 @@
     <Content Include="Advanced\FullTextSearch.html" />
     <Content Include="Advanced\UploadDownloadFile.html" />
     <Content Include="Advanced\SetBased.html" />
+    <Content Include="Basic\FacetsDynamicRange.html" />
     <Content Include="Basic\StaticQuery.html" />
     <Content Include="Menu\CreateLastFmDataset.html" />
     <Content Include="Menu\CreateIndexesAndTransformers.html" />

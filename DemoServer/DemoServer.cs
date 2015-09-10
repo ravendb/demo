@@ -41,12 +41,14 @@ namespace DemoServer
                 Console.WriteLine(@" __   ___        __      __   ___  __        ___  __  ");
                 Console.WriteLine(@"|  \ |__   |\/| /  \    /__` |__  |__) \  / |__  |__) ");
                 Console.WriteLine(@"|__/ |___  |  | \__/    .__/ |___ |  \  \/  |___ |  \ ");
+                Console.ForegroundColor = ConsoleColor.Gray;
+                Console.WriteLine(@"                                             Rel: 0.1");
                 Console.WriteLine("");
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("      Demo Serving  @ http://{0}:{1}", Url, Port);
                 Console.WriteLine("      Using RavenDB @ http://{0}:{1}", DocumentStoreHolder.Address, DocumentStoreHolder.Port);
                 Console.WriteLine("      For Database  : {0}", DocumentStoreHolder.DatabaseName);
-                Console.WriteLine("");
+                Console.WriteLine("");                
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("              Press any key to stop ...");
                 Console.ResetColor();

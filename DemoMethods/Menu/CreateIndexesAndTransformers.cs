@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Reflection;
 using System.Web.Http;
+using DemoMethods.Indexes;
+using Raven.Abstractions.Data;
 using Raven.Client.Indexes;
 
 namespace DemoMethods
@@ -16,6 +18,8 @@ namespace DemoMethods
             try
             {
                 IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
+
+                CreateFixedFacet();
             }
             catch (Exception e)
             {
@@ -24,5 +28,8 @@ namespace DemoMethods
 
             return ("Indexes, Transformers and Facets were created successfully");
         }
+
+
+       
     }
 }

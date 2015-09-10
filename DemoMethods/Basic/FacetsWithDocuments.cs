@@ -11,22 +11,14 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        public object FacetsWithDocuments(string fromVal = "10", string toVal = "20")
+        public object FacetsWithDocuments()
         {
-            var from = decimal.Parse(fromVal);
-            var to = decimal.Parse(toVal);
-
-            var facets = FacetRangeCreation.CreateFacets(from, to);
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
-                session.SaveChanges();
-
                 var facetResults = session
                     .Query<Product, ProductsAndPriceAndSuplier>()
                     .Where(x => x.UnitsInStock > 1)
-                    .ToFacets(facets);
+                    .ToFacets(MenuController.FixedFacet);
 
                 return DemoUtilities.FormatRangeResults(facetResults.Results);
             }

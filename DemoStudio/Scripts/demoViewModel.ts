@@ -30,7 +30,7 @@ class demoViewModel {
         $.ajax("/Menu/Index", "GET").done(data => {
             var listOfControllers = data["ListOfControllers"];
 
-            listOfControllers.forEach(function (entry) {
+            listOfControllers.forEach(entry => {
                 selfAvailableDemos.push(entry);
             });
         }).fail(() => {
