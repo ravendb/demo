@@ -11,21 +11,14 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object MapReduceUsingDocumentQuery()
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    IList<ProductSales.Result> results = session
-                        .Advanced
-                        .DocumentQuery<ProductSales.Result, ProductSales>()
-                        .ToList();
+                IList<ProductSales.Result> results = session
+                    .Advanced
+                    .DocumentQuery<ProductSales.Result, ProductSales>()
+                    .ToList();
 
-                    return results;
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return results;
             }
         }
     }

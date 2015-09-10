@@ -14,57 +14,50 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public async Task<object> UploadDownloadFile(string storeString = "Hello World")
         {
+            // Create File DemoFs.txt 
+            var filename = Path.GetTempPath() + "DemoFs.txt";
+            File.WriteAllText(filename, storeString, Encoding.UTF8);
+
+            // Upload
+
+            var fs = File.OpenRead(filename);
             try
             {
-                // Create File DemoFs.txt 
-                var filename = Path.GetTempPath() + "DemoFs.txt";
-                File.WriteAllText(filename, storeString, Encoding.UTF8);
-
-                // Upload
-
-                var fs = File.OpenRead(filename);
-                try
-                {
-                    await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.UploadAsync("/demofile.txt", fs,
-                        new RavenJObject
+                await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.UploadAsync("/demofile.txt", fs,
+                    new RavenJObject
                         {
                             {
                                 "AllowRead", "Everyone"
                             }
                         });
-                    fs.Close();
-                }
-                catch (IOException ex)
-                {
-                    fs.Close();
-                    return ex.Message;
-                }
-
-                // Download
-                var metadata = new Reference<RavenJObject>();
-                string content;
-
-                using (var stream = await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.DownloadAsync("/demofile.txt", metadata))
-                {
-                    var size = metadata.Value[Constants.FileSystem.RavenFsSize];
-                    var bufferLength = size.Value<int>();
-                    byte[] buffer = new byte[bufferLength];
-                    stream.Read(buffer, 0, bufferLength);
-                    content = Encoding.UTF8.GetString(buffer);
-                }
-
-                var results = new
-                {
-                    Read = content,
-                    MetaData = metadata
-                };
-
-                return (results);
+                fs.Close();
             }
-            catch (Exception e)
+            catch (IOException ex)
             {
-                return e.Message;
+                fs.Close();
+                return ex.Message;
             }
+
+            // Download
+            var metadata = new Reference<RavenJObject>();
+            string content;
+
+            using (var stream = await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.DownloadAsync("/demofile.txt", metadata))
+            {
+                var size = metadata.Value[Constants.FileSystem.RavenFsSize];
+                var bufferLength = size.Value<int>();
+                byte[] buffer = new byte[bufferLength];
+                stream.Read(buffer, 0, bufferLength);
+                content = Encoding.UTF8.GetString(buffer);
+            }
+
+            var results = new
+            {
+                Read = content,
+                MetaData = metadata
+            };
+
+            return (results);
         }
     }
 }

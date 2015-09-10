@@ -11,32 +11,25 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object TransformerQuery(string country = "USA")
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
+                var namesList = new List<string>();
+
+                var query =
+                    session.Query<NameAndCountry.Result, NameAndCountry>()
+                        .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
+                        .Search(x => x.Country, country);
+
+
+                using (var enumerator = session.Advanced.Stream(query))
                 {
-                    var namesList = new List<string>();
-
-                    var query =
-                        session.Query<NameAndCountry.Result, NameAndCountry>()
-                            .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
-                            .Search(x => x.Country, country);
-
-
-                    using (var enumerator = session.Advanced.Stream(query))
+                    while (enumerator.MoveNext())
                     {
-                        while (enumerator.MoveNext())
-                        {
-                            var result = enumerator.Current.Document;
-                            namesList.Add(result.Name);
-                        }
+                        var result = enumerator.Current.Document;
+                        namesList.Add(result.Name);
                     }
-                    return namesList;
                 }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return namesList;
             }
         }
     }

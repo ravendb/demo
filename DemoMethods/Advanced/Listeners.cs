@@ -23,34 +23,26 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object Listeners(string name = null)
         {
-            try
-            {
-                DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
+            DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
 
-                List<NameAndCountry.Result> results;
-                using (var session = DocumentStoreHolder.Store.OpenSession())
+            List<NameAndCountry.Result> results;
+            using (var session = DocumentStoreHolder.Store.OpenSession())
+            {
+                var query =
+                    session.Query<NameAndCountry.Result, NameAndCountry>() as
+                        IQueryable<NameAndCountry.Result>;
+
+                if (string.IsNullOrEmpty(name) == false)
                 {
-                    var query =
-                        session.Query<NameAndCountry.Result, NameAndCountry>() as
-                            IQueryable<NameAndCountry.Result>;
-
-                    if (string.IsNullOrEmpty(name) == false)
-                    {
-                        query = query.Where(x => x.Name.StartsWith(name));
-                    }
-
-                    results = query.ToList();
+                    query = query.Where(x => x.Name.StartsWith(name));
                 }
-                // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
-                DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
 
-                return results;
+                results = query.ToList();
             }
+            // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
+            DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
 
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+            return results;
         }
     }
 }

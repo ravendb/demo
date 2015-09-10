@@ -4,7 +4,7 @@ using DemoMethods.Entities;
 
 namespace DemoMethods.Basic
 {
-    public partial class BasicController : ApiController 
+    public partial class BasicController : ApiController
     {
         [HttpGet]
         public object StoreEditDelete()
@@ -32,33 +32,25 @@ namespace DemoMethods.Basic
                 Address = address
             };
 
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    // Store :
-                    session.Store(newCompany);
-                    session.SaveChanges();
-                    var newId = session.Advanced.GetDocumentId(newCompany);
+                // Store :
+                session.Store(newCompany);
+                session.SaveChanges();
+                var newId = session.Advanced.GetDocumentId(newCompany);
 
-                    // Edit :
-                    var company = session.Load<Company>(newId);
-                    company.Address.Line2 = "Zip 12345";
-                    session.Store(company);
+                // Edit :
+                var company = session.Load<Company>(newId);
+                company.Address.Line2 = "Zip 12345";
+                session.Store(company);
 
-                    // Delete :
-                    session.Delete(company);
-                    session.SaveChanges();
+                // Delete :
+                session.Delete(company);
+                session.SaveChanges();
 
-                    return (company);
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return (company);
             }
         }
     }
 }
 
-         

@@ -12,28 +12,21 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object MoreLikeThis(string documentId = "lastfm/9295")
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    LastFm[] mltByArtist = session
-                        .Advanced
-                        .MoreLikeThis<LastFm>(
-                            "IndexFullTextSearch",
-                            null,
-                            new MoreLikeThisQuery
-                            {
-                                IndexName = "IndexFullTextSearch",
-                                DocumentId = documentId,
-                                Fields = new[] {"Artist"}
-                            });
+                LastFm[] mltByArtist = session
+                    .Advanced
+                    .MoreLikeThis<LastFm>(
+                        "IndexFullTextSearch",
+                        null,
+                        new MoreLikeThisQuery
+                        {
+                            IndexName = "IndexFullTextSearch",
+                            DocumentId = documentId,
+                            Fields = new[] { "Artist" }
+                        });
 
-                    return (mltByArtist.ToList());
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return (mltByArtist.ToList());
             }
         }
     }

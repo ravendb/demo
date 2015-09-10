@@ -113,6 +113,10 @@ class demoViewModel {
             }
             this.inProgress(false);
             this.isSimpleJson(true);
+        }).fail((jqXHR, textStatus, errorThrown) => {
+            this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
+            this.inProgress(false);
+            this.isHtml(true);
         });
 
     }
@@ -126,7 +130,6 @@ class demoViewModel {
         $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(data => {
             console.log(data);
             this.htmlExpl(data);
-(data);
         });
     }
 

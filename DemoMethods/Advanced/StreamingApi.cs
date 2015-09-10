@@ -10,29 +10,22 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object StreamingApi()
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
+                var query = session.Query<Product>("IndexManyProduct");
+
+                var e = session
+                    .Advanced
+                    .Stream(query);
+
+                var results = new List<Product>();
+
+                while (e.MoveNext())
                 {
-                    var query = session.Query<Product>("IndexManyProduct");
-
-                    var e = session
-                        .Advanced
-                        .Stream(query);
-
-                    var results = new List<Product>();
-
-                    while (e.MoveNext())
-                    {
-                        results.Add(e.Current.Document);
-                    }
-
-                    return (results);
+                    results.Add(e.Current.Document);
                 }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+
+                return (results);
             }
         }
     }

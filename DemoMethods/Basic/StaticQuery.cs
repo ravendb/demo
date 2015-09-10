@@ -11,26 +11,19 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object StaticQuery(string highPrice = "500", string delayDays = "35")
         {
-            try
-            {
-                var HighPrice = int.Parse(highPrice);
-                var DelayDays = int.Parse(delayDays);
+            var HighPrice = int.Parse(highPrice);
+            var DelayDays = int.Parse(delayDays);
 
-                //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    var problemtaticOrders = session
-                        .Query<CostlyOrders.Result, CostlyOrders>()
-                        .Where(x => x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
-                        .OfType<Order>()
-                        .ToList();
-
-                    return (problemtaticOrders);
-                }
-            }
-            catch (Exception e)
+            //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                return e.Message;
+                var problemtaticOrders = session
+                    .Query<CostlyOrders.Result, CostlyOrders>()
+                    .Where(x => x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
+                    .OfType<Order>()
+                    .ToList();
+
+                return (problemtaticOrders);
             }
         }
     }

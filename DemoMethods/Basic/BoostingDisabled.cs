@@ -11,20 +11,13 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object BoostingDisabled(string city = "London", string country = "Denmark")
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    var orders = session.Query<Order, OrderByCompanyAndCountry>()
-                        .Where(x => x.ShipTo.City == city || x.ShipTo.Country == country)
-                        .ToList();
+                var orders = session.Query<Order, OrderByCompanyAndCountry>()
+                    .Where(x => x.ShipTo.City == city || x.ShipTo.Country == country)
+                    .ToList();
 
-                    return orders;
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return orders;
             }
         }
     }

@@ -13,29 +13,22 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object FacetsWithDocuments(string fromVal = "10", string toVal = "20")
         {
-            try
+            var from = decimal.Parse(fromVal);
+            var to = decimal.Parse(toVal);
+
+            var facets = FacetRangeCreation.CreateFacets(from, to);
+
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var from = decimal.Parse(fromVal);
-                var to = decimal.Parse(toVal);
+                session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
+                session.SaveChanges();
 
-                var facets = FacetRangeCreation.CreateFacets(from, to);
+                var facetResults = session
+                    .Query<Product, ProductsAndPriceAndSuplier>()
+                    .Where(x => x.UnitsInStock > 1)
+                    .ToFacets(facets);
 
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
-                    session.SaveChanges();
-
-                    var facetResults = session
-                        .Query<Product, ProductsAndPriceAndSuplier>()
-                        .Where(x => x.UnitsInStock > 1)
-                        .ToFacets(facets);
-
-                    return DemoUtilities.FormatRangeResults(facetResults.Results);
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return DemoUtilities.FormatRangeResults(facetResults.Results);
             }
         }
     }

@@ -94,6 +94,10 @@ var demoViewModel = (function () {
             }
             _this.inProgress(false);
             _this.isSimpleJson(true);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            _this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
+            _this.inProgress(false);
+            _this.isHtml(true);
         });
     };
     demoViewModel.prototype.getCode = function () {
@@ -106,7 +110,6 @@ var demoViewModel = (function () {
         $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(function (data) {
             console.log(data);
             _this.htmlExpl(data);
-            (data);
         });
     };
     demoViewModel.prototype.genUrl = function () {

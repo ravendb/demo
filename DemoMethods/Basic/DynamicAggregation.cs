@@ -11,29 +11,22 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object DynamicAggregation(string fromVal = "10", string toVal = "20")
         {
-            try
-            {
-                var from = int.Parse(fromVal);
-                var to = int.Parse(toVal);
+            var from = int.Parse(fromVal);
+            var to = int.Parse(toVal);
 
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    var result = session.Query<Product, Products>()
-                        .AggregateBy(x => x.UnitsInStock)
-                        .AddRanges(
-                            x => x.UnitsInStock < from,
-                            x => x.UnitsInStock >= from && x.UnitsInStock < to,
-                            x => x.UnitsInStock >= to
-                        )
-                        .SumOn(x => x.UnitsInStock)
-                        .ToList();
-
-                    return DemoUtilities.FormatRangeResults(result.Results);
-                }
-            }
-            catch (Exception e)
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                return e.Message;
+                var result = session.Query<Product, Products>()
+                    .AggregateBy(x => x.UnitsInStock)
+                    .AddRanges(
+                        x => x.UnitsInStock < from,
+                        x => x.UnitsInStock >= from && x.UnitsInStock < to,
+                        x => x.UnitsInStock >= to
+                    )
+                    .SumOn(x => x.UnitsInStock)
+                    .ToList();
+
+                return DemoUtilities.FormatRangeResults(result.Results);
             }
         }
     }

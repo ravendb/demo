@@ -12,19 +12,12 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object FullTextSearch(string searchTerm = "Jazz")
         {
-            try
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                using (var session = DocumentStoreHolder.Store.OpenSession())
-                {
-                    return session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
-                        .Search(x => x.Query, searchTerm)
-                        .TransformWith<TransformerLastFm, LastFm>()
-                        .ToList();
-                }
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                return session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
+                    .Search(x => x.Query, searchTerm)
+                    .TransformWith<TransformerLastFm, LastFm>()
+                    .ToList();
             }
         }
     }

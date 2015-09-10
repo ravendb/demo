@@ -3,100 +3,102 @@
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <title>RavenDB Demo</title>
-    <link rel="stylesheet" href="studio/scripts/demostyles.css"/>
+    <link rel="stylesheet" href="studio/scripts/demostyles.css" />
     <link rel="stylesheet" href="studio/scripts/jquery-ui.css">
     <script src="studio/scripts/jquery-1.10.2.js"></script>
     <link rel="shortcut icon" type='image/x-icon' href="studio/scripts/favicon.ico" />
     <script src="studio/scripts/jquery-ui.js"></script>
 </head>
 <body>
-<div id="demoViewModel">
-    <div id="mainPane">
-        <tt>
-            <img id="logoImageId" src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250"/>
-            <br/><br/>
-            <h1 id="clientDemoLabelId">&nbsp;Client Demo</h1>
-        </tt>
+    <div id="demoViewModel">
+        <div id="mainPane">
+            <tt>
+                <img id="logoImageId" src="studio/scripts/ravenLogo.png" alt="RavenDB Logo" width="250" />
+                <br /><br />
+                <h1 id="clientDemoLabelId">&nbsp;Client Demo</h1>
+            </tt>
 
-        <tt><select class="textInput" style="width: 100%" data-bind="options: $root.availableDemos, value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select></tt>
-        <br/><br/>
-        <tt style="color: #0000FF">&nbsp;Values</tt>
-        <br/>
-        <input class="textInput" style="width: 90%" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }"/>
-        <br/><br/>
-        <input class="textInput" style="width: 90%" data-bind="textInput: $root.urlstring"/>
-        <br/><br/>
-        <a data-bind="click: runDemo" href="#" class="runInNewButton">Run Demo</a>
-        <a data-bind="click: openNewTab" href="#" class="runInNewButton">Run in New Tab...</a>
+            <tt><select class="textInput" style="width: 100%" data-bind="options: $root.availableDemos, value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select></tt>
+            <br /><br />
+            <tt style="color: #0000FF">&nbsp;Values</tt>
+            <br />
+            <input class="textInput" style="width: 90%" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" />
+            <br /><br />
+            <input class="textInput" style="width: 90%" data-bind="textInput: $root.urlstring" />
+            <br /><br />
+            <a data-bind="click: runDemo" href="#" class="runInNewButton">Run Demo</a>
+            <a data-bind="click: openNewTab" href="#" class="runInNewButton">Run in New Tab...</a>
 
-        <div style="color: #000080">
-            <br/><input type="checkbox" data-bind="checked: chkForceJson, click: clickForceJson"/> Force JSON output
-            <br/><input type="checkbox" data-bind="checked: chkForceString, click: clickForceString"/> Force STRING output
-            <br/><input type="checkbox" data-bind="checked: chkAllowFlatten"/> Allow FLATTEN results
+            <div style="color: #000080">
+                <br/><input type="checkbox" data-bind="checked: chkForceJson, click: clickForceJson"/> Force JSON output
+                <br /><input type="checkbox" data-bind="checked: chkForceString, click: clickForceString" /> Force STRING output
+                <br /><input type="checkbox" data-bind="checked: chkAllowFlatten" /> Allow FLATTEN results
+            </div>
+
+            <div data-bind="visible: inProgress" style="color: #FF3366">
+                <div id="ajaxloader"></div>
+                Processing, Please Wait...
+            </div>
+        </div>
+        <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
+        <button class="btn-minimize">Minimize/Maximize</button>
+        <br />
+        <div id="codediv" class="demo ui-draggable ui-resizable">
+
+            <div id="codepane" class="codetext" data-bind="html: htmlCode"></div>
+
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
+            <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
+        </div>
+        <!--<div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>-->
+
+
+
+
+        <div id="resultsDiv" class="demo ui-draggable ui-resizable">
+            <div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon ui-icon-gripsmall-diagonal-nw"></div>
+            <!--HTML-->
+            <div data-bind="visible: isHtml, html: htmlView" style="color: #003F3F; background-color: lightgrey"></div>
+
+            <!--SIMPLE JSON-->
+            <div data-bind="visible: isSimpleJson" style="color: #00004F; background-color: lightgrey">
+                <table border="1">
+                    <thead>
+                        <tr data-bind="foreach: columns">
+                            <th data-bind="text: $data"></th>
+                        </tr>
+                    </thead>
+                    <tbody data-bind="foreach: rows">
+                        <tr data-bind="foreach: $parent.columns">
+                            <td data-bind="text: $parent[$data]"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
 
-        <div data-bind="visible: inProgress" style="color: #FF3366">Processing, Please Wait...</div>
+        <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
+        <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
+        <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     </div>
-    <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
-    <button class="btn-minimize">Minimize/Maximize</button>
-    <br/>
-    <div id="codediv" class="demo ui-draggable ui-resizable">
+    <script>
+        $(function () {
+            var draggableDiv = $('.demo').draggable().resizable();
+            $('.codetext', draggableDiv).mousedown(function (ev) {
+                if (ev.ctrlKey === false)
+                    draggableDiv.draggable('disable');
+            }).mouseup(function (ev) {
+                draggableDiv.draggable('enable');
+            });
 
-        <div id="codepane" class="codetext" data-bind="html: htmlCode"></div>
-
-        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
-        <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
-    </div>
-    <!--<div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>-->
-
-
-
-
-    <div id="resultsDiv" class="demo ui-draggable ui-resizable">
-        <div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon ui-icon-gripsmall-diagonal-nw"></div>
-        <!--HTML-->
-        <div data-bind="visible: isHtml, html: htmlView" style="color: #003F3F; background-color: lightgrey"></div>
-
-        <!--SIMPLE JSON-->
-        <div data-bind="visible: isSimpleJson" style="color: #00004F; background-color: lightgrey">
-            <table border="1">
-                <thead>
-                <tr data-bind="foreach: columns">
-                    <th data-bind="text: $data"></th>
-                </tr>
-                </thead>
-                <tbody data-bind="foreach: rows">
-                <tr data-bind="foreach: $parent.columns">
-                    <td data-bind="text: $parent[$data]"></td>
-                </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-    
-    <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
-    <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
-    <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
-</div>
-<script>
-    $(function() {
-        var draggableDiv = $('.demo').draggable().resizable();
-        $('.codetext', draggableDiv).mousedown(function(ev) {
-            if (ev.ctrlKey === false)
-                draggableDiv.draggable('disable');
-        }).mouseup(function(ev) {
-            draggableDiv.draggable('enable');
+            $(".btn-minimize").click(function () {
+                $(this).toggleClass('btn-plus');
+                $(".demo").slideToggle();
+            });
         });
 
-        $(".btn-minimize").click(function () {
-            $(this).toggleClass('btn-plus');
-            $(".demo").slideToggle();
-        });
-    });
-
-</script>
-
+    </script>    
 </body>
 </html>
