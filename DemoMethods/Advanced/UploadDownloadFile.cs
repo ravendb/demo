@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
@@ -11,44 +12,59 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public async Task<object> UploadDownloadFile()
-        {           
-            // Create File DemoFs.txt 
-            var filename = Path.GetTempPath() + "DemoFs.txt";
-            const string storeString = "Hello World";
-            File.WriteAllText(filename, storeString, Encoding.UTF8);
-
-            // Upload
-            var fs = File.OpenRead(filename);
-            await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.UploadAsync("/demofile.txt", fs,
-               new RavenJObject 
-                                {
-                                    {
-                                        "AllowRead", "Everyone"
-                                    } 
-                                });
-            fs.Close();
-
-            // Download
-            var metadata = new Reference<RavenJObject>();
-            string content;
-
-            using (var stream = await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.DownloadAsync("/demofile.txt", metadata))
+        public async Task<object> UploadDownloadFile(string storeString = "Hello World")
+        {
+            try
             {
-                var size = metadata.Value[Constants.FileSystem.RavenFsSize];
-                var bufferLength = size.Value<int>();
-                byte[] buffer = new byte[bufferLength];
-                stream.Read(buffer, 0, bufferLength);
-                content = Encoding.UTF8.GetString(buffer);
+                // Create File DemoFs.txt 
+                var filename = Path.GetTempPath() + "DemoFs.txt";
+                File.WriteAllText(filename, storeString, Encoding.UTF8);
+
+                // Upload
+
+                var fs = File.OpenRead(filename);
+                try
+                {
+                    await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.UploadAsync("/demofile.txt", fs,
+                        new RavenJObject
+                        {
+                            {
+                                "AllowRead", "Everyone"
+                            }
+                        });
+                    fs.Close();
+                }
+                catch (IOException ex)
+                {
+                    fs.Close();
+                    return ex.Message;
+                }
+
+                // Download
+                var metadata = new Reference<RavenJObject>();
+                string content;
+
+                using (var stream = await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.DownloadAsync("/demofile.txt", metadata))
+                {
+                    var size = metadata.Value[Constants.FileSystem.RavenFsSize];
+                    var bufferLength = size.Value<int>();
+                    byte[] buffer = new byte[bufferLength];
+                    stream.Read(buffer, 0, bufferLength);
+                    content = Encoding.UTF8.GetString(buffer);
+                }
+
+                var results = new
+                {
+                    Read = content,
+                    MetaData = metadata
+                };
+
+                return (results);
             }
-
-            var results = new
+            catch (Exception e)
             {
-                Read = content,
-                MetaData = metadata
-            };
-
-            return (results);
+                return e.Message;
+            }
         }
     }
 }

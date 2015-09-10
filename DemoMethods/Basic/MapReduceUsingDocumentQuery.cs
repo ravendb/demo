@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Indexes;
@@ -10,14 +11,21 @@ namespace DemoMethods.Basic
         [HttpGet]
         public object MapReduceUsingDocumentQuery()
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                IList<IndexProductSales.Result> results = session
-                    .Advanced
-                    .DocumentQuery<IndexProductSales.Result, IndexProductSales>()
-                    .ToList();
+                using (var session = DocumentStoreHolder.Store.OpenSession())
+                {
+                    IList<ProductSales.Result> results = session
+                        .Advanced
+                        .DocumentQuery<ProductSales.Result, ProductSales>()
+                        .ToList();
 
-                return results;
+                    return results;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }

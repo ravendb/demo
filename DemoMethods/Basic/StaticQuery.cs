@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
@@ -10,28 +9,28 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        public object StaticQuery()
+        public object StaticQuery(string highPrice = "500", string delayDays = "35")
         {
-            var userParams = new NameValueCollection
+            try
             {
-                {"HighPrice", "500"},
-                {"DelayDays", "35"}
-            };
-            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+                var HighPrice = int.Parse(highPrice);
+                var DelayDays = int.Parse(delayDays);
 
-            var HighPrice = int.Parse(userParams["HighPrice"]);
-            var DelayDays = int.Parse(userParams["DelayDays"]);
+                //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
+                using (var session = DocumentStoreHolder.Store.OpenSession())
+                {
+                    var problemtaticOrders = session
+                        .Query<CostlyOrders.Result, CostlyOrders>()
+                        .Where(x => x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
+                        .OfType<Order>()
+                        .ToList();
 
-            //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+                    return (problemtaticOrders);
+                }
+            }
+            catch (Exception e)
             {
-                var problemtaticOrders = session
-                    .Query<IndexCostlyOrders.Result, IndexCostlyOrders>()                    
-                    .Where(x =>  x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
-                    .OfType<Order>()
-                    .ToList();
-
-                return (problemtaticOrders);
+                return e.Message;
             }
         }
     }

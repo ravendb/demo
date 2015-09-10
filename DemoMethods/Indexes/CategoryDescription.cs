@@ -5,9 +5,9 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexCategory : AbstractIndexCreationTask<Category>
+    public class CategoryDescription : AbstractIndexCreationTask<Category>
     {
-        public IndexCategory()
+        public CategoryDescription()
         {
             Map = categories => from category in categories
                                 select new

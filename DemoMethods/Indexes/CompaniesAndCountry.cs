@@ -1,11 +1,10 @@
 ﻿using System.Linq;
 using DemoMethods.Entities;
-using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexCompaniesAndCountry : AbstractIndexCreationTask<Company>
+    public class CompaniesAndCountry : AbstractIndexCreationTask<Company>
     {
         public class Result
         {
@@ -13,7 +12,7 @@ namespace DemoMethods.Indexes
             public string Address_Country { get; set; }
         }
 
-        public IndexCompaniesAndCountry()
+        public CompaniesAndCountry()
         {
             Map = companies =>
                 from company in companies

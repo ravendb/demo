@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Specialized;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
@@ -14,11 +13,17 @@ namespace DemoMethods
     public partial class MenuController : ApiController
     {
         [HttpGet]
-        public object CreateLastFmDataset(string path = @"C:\Users\adi\Downloads\lastfm_train.zip")
+        public object CreateLastFmDataset(string path = @"C:\Users\adi\Downloads\lastfm_subset.zip")
         {
-         
-            AddDocumentsToDb(path);
-
+            // path = @"C:\Users\adi\Downloads\lastfm_train.zip";
+            try
+            {
+                AddDocumentsToDb(path);
+            }
+            catch (Exception e)
+            {
+                return e.Message;
+            }
             return string.Format("Last FM Dataset was added to {0} database", DocumentStoreHolder.DatabaseName);
         }
 
@@ -31,7 +36,7 @@ namespace DemoMethods
             {
                 foreach (var entry in zip.Entries)
                 {
-                    if(entry.Length==0)
+                    if (entry.Length == 0)
                         continue;
                     using (var entryStream = entry.Open())
                     {
@@ -44,7 +49,7 @@ namespace DemoMethods
                             TrackId = docAsJson.Value<string>("track_id"),
                             Tags =
                                 docAsJson.Value<RavenJArray>("tags")
-                                    .Select(x => ((RavenJArray) x)[0].Value<string>())
+                                    .Select(x => ((RavenJArray)x)[0].Value<string>())
                                     .ToList()
                         };
                         bulkInsert.Store(doc, "lastfm/" + (count++));

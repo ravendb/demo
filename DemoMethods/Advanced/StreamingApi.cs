@@ -1,53 +1,39 @@
-﻿using System.Web.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Http;
 using DemoMethods.Entities;
-using Newtonsoft.Json;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
-        public class ResultsType
-        {
-            public Product[] Page1;
-            public Product[] Page5;
-        }
-
         [HttpGet]
         public object StreamingApi()
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                var query = session.Query<Product>("IndexManyProduct");
-
-                var e = session
-                    .Advanced                  
-                    .Stream(query);
-
-                const int pageSize = 3;
-                
-                ResultsType results = new ResultsType();
-                results.Page1 = new Product[pageSize];
-                results.Page5 = new Product[pageSize];
-
-                for (var page = 1; page <= 10; page++)
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    for (var itemInPage = 0; itemInPage < pageSize; itemInPage++)
+                    var query = session.Query<Product>("IndexManyProduct");
+
+                    var e = session
+                        .Advanced
+                        .Stream(query);
+
+                    var results = new List<Product>();
+
+                    while (e.MoveNext())
                     {
-                        e.MoveNext();
-                        var product = e.Current;
-
-                        if (page == 1)
-                            results.Page1[itemInPage] = product.Document;
-                        if (page == 5)
-                            results.Page5[itemInPage] = product.Document;
+                        results.Add(e.Current.Document);
                     }
+
+                    return (results);
                 }
-
-                var json = JsonConvert.SerializeObject(results);
-                var s = DemoUtilities.Json2Csv(json);
-
-                return (s);
             }
-        }        
+            catch (Exception e)
+            {
+                return e.Message;
+            }
+        }
     }
 }

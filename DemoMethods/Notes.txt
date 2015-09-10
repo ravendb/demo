@@ -4,7 +4,13 @@
 	- move creation
 	- create another facet with "new facet" in the api without the need to store facet
 
+* MoreLikeThis
+	- Make it work on last.fm - something meaningful
 
+* deoStudioController.cs : // TODO:: remove this and load dll forcibly on server startup
+
+NICE TO HAVE:
+============
 * MapReduce
 	- Map reduce with linq API
 	- Map reduce that uses a query
@@ -18,20 +24,15 @@
 * FileSystem
 	- rename
 
-* StreamingApi
-	- Json2Csv
-
-* MoreLikeThis
-	- Work on last.fm - something meaningful
-
 * Lazy
 	- Query and facets using lazy
 
-* Patches (SetBased)
-	- Written but Not Working
-
 * TransfoemerQuery.cs - 
 	- with to list, add another query for streaming
+	
+* StreamingApi
+	- Json2Csv
+
 
 //eof
 

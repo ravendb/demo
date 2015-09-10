@@ -1,4 +1,4 @@
-﻿using System.Collections.Specialized;
+﻿using System;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
@@ -10,29 +10,21 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object FullTextSearch()
+        public object FullTextSearch(string searchTerm = "Jazz")
         {
-            var userParams = new NameValueCollection
-                {
-                    {"Search", "+Jazz +Love"},
-                };
-            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                try
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    var query = session.Query<IndexFullTextSearch.Result,IndexFullTextSearch>()
-                               .Search(x => x.Query, userParams["Search"])
-                               .TransformWith<TransformerLastFm, LastFm>()
-                               .ToList();
-
-                    return query;
+                    return session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
+                        .Search(x => x.Query, searchTerm)
+                        .TransformWith<TransformerLastFm, LastFm>()
+                        .ToList();
                 }
-                catch (System.Exception e)
-                {
-                    
-                    throw;
-                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }

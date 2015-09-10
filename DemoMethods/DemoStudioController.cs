@@ -29,22 +29,13 @@ namespace DemoMethods
 
         public HttpResponseMessage WriteEmbeddedFile(string docPath)
         {
-            try
-            {
-                // Console.WriteLine("DEBUG::{0}", docPath);
-                var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../DemoStudio", docPath);
-                if (File.Exists(filePath))
-                    return WriteFile(filePath);
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../DemoStudio", docPath);
+            if (File.Exists(filePath))
+                return WriteFile(filePath);
 
-                filePath = Path.Combine("../../../DemoStudio", docPath);
-                if (File.Exists(filePath))
-                    return WriteFile(filePath);
-            }
-            catch (Exception)
-            {
-                // Debugger.Break();
-                throw;
-            }
+            filePath = Path.Combine("../../../DemoStudio", docPath);
+            if (File.Exists(filePath))
+                return WriteFile(filePath);
             return null;
         }
 
@@ -57,8 +48,6 @@ namespace DemoMethods
                     new CompressedStreamContent(
                         new FileStream(filePath, FileMode.Open, FileAccess.Read, FileShare.ReadWrite), false)
             };
-
-            // WriteETag(fileEtag, msg);
 
             var type = GetContentType(filePath);
             msg.Content.Headers.ContentType = new MediaTypeHeaderValue(type);

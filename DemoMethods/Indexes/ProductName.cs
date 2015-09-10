@@ -4,14 +4,14 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexManyProduct : AbstractIndexCreationTask<Product>
+    public class ProductName : AbstractIndexCreationTask<Product>
     {
-        public IndexManyProduct()
+        public ProductName()
         {
             Map = products => from product in products
                               select new
                               {
-                                  product
+                                  product.Name
                               };
         }
     }

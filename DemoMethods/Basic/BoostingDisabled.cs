@@ -1,4 +1,4 @@
-﻿using System.Collections.Specialized;
+﻿using System;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
@@ -9,22 +9,22 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        public object BoostingDisabled()
+        public object BoostingDisabled(string city = "London", string country = "Denmark")
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                var userParams = new NameValueCollection
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    {"City", "London"},
-                    {"Country", "Denmark"}
-                };
-                DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+                    var orders = session.Query<Order, OrderByCompanyAndCountry>()
+                        .Where(x => x.ShipTo.City == city || x.ShipTo.Country == country)
+                        .ToList();
 
-                var orders = session.Query<Order, IndexOrderByCompanyAndCountry>()
-                    .Where(x => x.ShipTo.City == userParams["City"] || x.ShipTo.Country == userParams["Country"])
-                    .ToList();
-
-                return orders;
+                    return orders;
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }

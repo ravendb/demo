@@ -3,7 +3,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class TransformerNameAndCountry : AbstractTransformerCreationTask<IndexNameAndCountry.Result>
+    public class TransformerNameAndCountry : AbstractTransformerCreationTask<NameAndCountry.Result>
     {
         public TransformerNameAndCountry()
         {

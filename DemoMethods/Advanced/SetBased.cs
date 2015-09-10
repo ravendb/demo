@@ -1,10 +1,9 @@
-﻿using System.Collections.Specialized;
+﻿using System;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using DemoMethods.Entities;
-using Raven.Client.Connection;
 
 namespace DemoMethods.Advanced
 {
@@ -13,9 +12,11 @@ namespace DemoMethods.Advanced
         [HttpGet]
         public object SetBased(string original = "USA", string newVal = "United States of America")
         {
-            var updateByIndex = DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new IndexCompaniesAndCountry().IndexName,
-                new IndexQuery { Query = "Address_Country:" + original },
-                new[]
+            try
+            {
+                var updateByIndex = DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new CompaniesAndCountry().IndexName,
+                    new IndexQuery { Query = "Address_Country:" + original },
+                    new[]
                 {
                     new PatchRequest
                     {
@@ -33,19 +34,24 @@ namespace DemoMethods.Advanced
                     }
                 });
 
-            updateByIndex.WaitForCompletion();
+                updateByIndex.WaitForCompletion();
 
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+                using (var session = DocumentStoreHolder.Store.OpenSession())
+                {
+                    var results = session
+                        .Query<CompaniesAndCountry.Result, CompaniesAndCountry>()
+                        .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                        .Where(x => x.Address_Country == newVal)
+                        .OfType<Company>()
+                        .ToList();
+
+                    return (results);
+                }
+            }
+            catch (Exception e)
             {
-                var results = session
-                    .Query<IndexCompaniesAndCountry.Result, IndexCompaniesAndCountry>()
-                    .Customize(x => x.WaitForNonStaleResultsAsOfNow())
-                    .Where(x => x.Address_Country == newVal)
-                    .OfType<Company>()
-                    .ToList();
-
-                return (results);
+                return e.Message;
             }
         }
     }

@@ -5,7 +5,7 @@ using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexCompaniesAndAddresses : AbstractIndexCreationTask<Company>
+    public class CompaniesAndAddresses : AbstractIndexCreationTask<Company>
     {
         public class Result
         {
@@ -14,7 +14,7 @@ namespace DemoMethods.Indexes
         }
 
 
-        public IndexCompaniesAndAddresses()
+        public CompaniesAndAddresses()
         {
             Map = companies => from company in companies
                                select new

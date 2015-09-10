@@ -1,18 +1,22 @@
 ﻿using System.Linq;
 using DemoMethods.Entities;
+using Raven.Abstractions.Indexing;
 using Raven.Client.Indexes;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexProduct : AbstractIndexCreationTask<Product>
+    public class Products : AbstractIndexCreationTask<Product>
     {
-        public IndexProduct()
+        public Products()
         {
             Map = products => from product in products
                               select new
                               {
-                                  product.Name
+                                  product.PricePerUnit,
+                                  product.UnitsInStock
                               };
+            Sort(x => x.UnitsInStock, SortOptions.Int);
         }
     }
+
 }

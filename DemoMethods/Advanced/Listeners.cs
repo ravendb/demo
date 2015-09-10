@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Client;
@@ -14,37 +14,43 @@ namespace DemoMethods.Advanced
         {
             public void BeforeQueryExecuted(IDocumentQueryCustomization queryCustomization)
             {
-                var documentQuery = queryCustomization as IDocumentQuery<IndexNameAndCountry.Result>;
+                var documentQuery = queryCustomization as IDocumentQuery<NameAndCountry.Result>;
                 if (documentQuery != null)
                     documentQuery.WhereEquals(x => x.Country, "USA");
             }
         }
 
         [HttpGet]
-        public object Listeners()
+        public object Listeners(string name = null)
         {
-            DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
-
-            List<IndexNameAndCountry.Result> results;
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
+                DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
 
-                var query = session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>() as IQueryable<IndexNameAndCountry.Result>;
-
-                var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
-                var name = nvc["name"];
-                if (string.IsNullOrEmpty(name) == false)
+                List<NameAndCountry.Result> results;
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    query = query.Where(x => x.Name.StartsWith(name));
+                    var query =
+                        session.Query<NameAndCountry.Result, NameAndCountry>() as
+                            IQueryable<NameAndCountry.Result>;
+
+                    if (string.IsNullOrEmpty(name) == false)
+                    {
+                        query = query.Where(x => x.Name.StartsWith(name));
+                    }
+
+                    results = query.ToList();
                 }
+                // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
+                DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
 
-                results = query.ToList();
-
+                return results;
             }
-            // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
-            DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
 
-            return results;
+            catch (Exception e)
+            {
+                return e.Message;
+            }
         }
     }
 }

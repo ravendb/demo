@@ -1,5 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Web;
+﻿using System;
+using System.Collections.Generic;
 using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Client;
@@ -7,32 +7,36 @@ using Raven.Client;
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
-    {                
+    {
         [HttpGet]
-        public object TransformerQuery()
+        public object TransformerQuery(string country = "USA")
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
-                var country = nvc["Country"] ?? "USA";
-
-                var namesList = new List<string>();
-
-                var query =
-                    session.Query<IndexNameAndCountry.Result, IndexNameAndCountry>()
-                    .TransformWith<TransformerNameAndCountry, IndexNameAndCountry.Result>() 
-                    .Search(x => x.Country, country);
-               
-
-                using (var enumerator = session.Advanced.Stream(query))
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    while (enumerator.MoveNext())
+                    var namesList = new List<string>();
+
+                    var query =
+                        session.Query<NameAndCountry.Result, NameAndCountry>()
+                            .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
+                            .Search(x => x.Country, country);
+
+
+                    using (var enumerator = session.Advanced.Stream(query))
                     {
-                        var result = enumerator.Current.Document;
-                        namesList.Add(result.Name);
+                        while (enumerator.MoveNext())
+                        {
+                            var result = enumerator.Current.Document;
+                            namesList.Add(result.Name);
+                        }
                     }
+                    return namesList;
                 }
-                return namesList;
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }

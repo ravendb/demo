@@ -1,4 +1,4 @@
-﻿using System.Collections.Specialized;
+﻿using System;
 using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
@@ -7,33 +7,33 @@ using Raven.Client;
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
-    {       
+    {
         [HttpGet]
-        public object DynamicAggregation()
+        public object DynamicAggregation(string fromVal = "10", string toVal = "20")
         {
-            var userParams = new NameValueCollection
+            try
             {
-                {"From", "10"},
-                {"To", "20"}
-            };
-            DemoUtilities.GetUserParameters(Request.RequestUri.Query, userParams);
+                var from = int.Parse(fromVal);
+                var to = int.Parse(toVal);
 
-            var from = int.Parse(userParams["From"]);
-            var to = int.Parse(userParams["To"]);
+                using (var session = DocumentStoreHolder.Store.OpenSession())
+                {
+                    var result = session.Query<Product, Products>()
+                        .AggregateBy(x => x.UnitsInStock)
+                        .AddRanges(
+                            x => x.UnitsInStock < from,
+                            x => x.UnitsInStock >= from && x.UnitsInStock < to,
+                            x => x.UnitsInStock >= to
+                        )
+                        .SumOn(x => x.UnitsInStock)
+                        .ToList();
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+                    return DemoUtilities.FormatRangeResults(result.Results);
+                }
+            }
+            catch (Exception e)
             {
-                var result = session.Query<Product, IndexProducts>()
-                    .AggregateBy(x => x.UnitsInStock)
-                    .AddRanges(
-                        x => x.UnitsInStock < from,
-                        x => x.UnitsInStock >= from && x.UnitsInStock < to,
-                        x => x.UnitsInStock >= to
-                    )
-                    .SumOn(x => x.UnitsInStock)
-                    .ToList();
-                
-                return DemoUtilities.FormatRangeResults(result.Results);
+                return e.Message;
             }
         }
     }

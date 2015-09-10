@@ -38,11 +38,13 @@
         </div>
 
         <div data-bind="visible: inProgress" style="color: #FF3366">Processing, Please Wait...</div>
-    </div>    
+    </div>
     <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
+    <button class="btn-minimize">Minimize/Maximize</button>
+    <br/>
     <div id="codediv" class="demo ui-draggable ui-resizable">
 
-        <div data-bind="html: htmlCode"></div>
+        <div id="codepane" class="codetext" data-bind="html: htmlCode"></div>
 
         <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-e"></div>
         <div style="-moz-user-select: none;" unselectable="off" class="ui-resizable-handle ui-resizable-s"></div>
@@ -73,16 +75,27 @@
             </table>
         </div>
     </div>
-
-    <div id="resultsDiv"></div>
+    
     <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
     <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
     <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
 </div>
 <script>
     $(function() {
-        $('.demo').draggable().resizable();
+        var draggableDiv = $('.demo').draggable().resizable();
+        $('.codetext', draggableDiv).mousedown(function(ev) {
+            if (ev.ctrlKey === false)
+                draggableDiv.draggable('disable');
+        }).mouseup(function(ev) {
+            draggableDiv.draggable('enable');
+        });
+
+        $(".btn-minimize").click(function () {
+            $(this).toggleClass('btn-plus');
+            $(".demo").slideToggle();
+        });
     });
+
 </script>
 
 </body>

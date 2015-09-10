@@ -1,18 +1,17 @@
 ﻿using System.Linq;
 using DemoMethods.Entities;
 using Raven.Client.Indexes;
-using Raven.Client.Linq.Indexing;
 
 namespace DemoMethods.Indexes
 {
-    public class IndexOrderByCompanyAndCountryWithBoost : AbstractIndexCreationTask<Order>
+    public class OrderByCompanyAndCountry : AbstractIndexCreationTask<Order>
     {
-        public IndexOrderByCompanyAndCountryWithBoost()
+        public OrderByCompanyAndCountry()
         {
             Map = orders => from order in orders
                             select new
                             {
-                                ShipTo_City = order.ShipTo.City.Boost(10),
+                                ShipTo_City = order.ShipTo.City,
                                 ShipTo_Country = order.ShipTo.Country
                             };
         }

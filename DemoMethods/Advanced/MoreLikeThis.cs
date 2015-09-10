@@ -1,7 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
-using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client.Bundles.MoreLikeThis;
 
@@ -10,25 +10,30 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object MoreLikeThis()
+        public object MoreLikeThis(string documentId = "lastfm/9295")
         {
-            new IndexCategory().Execute(DocumentStoreHolder.Store);
-
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                Category[] products = session
-                .Advanced
-                .MoreLikeThis<Category>(
-                "IndexCategory",
-                null,
-                new MoreLikeThisQuery
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    IndexName = "IndexCategory",
-                    DocumentId = "categories/3",
-                    Fields = new[] { "Description" }
-                });
+                    LastFm[] mltByArtist = session
+                        .Advanced
+                        .MoreLikeThis<LastFm>(
+                            "IndexFullTextSearch",
+                            null,
+                            new MoreLikeThisQuery
+                            {
+                                IndexName = "IndexFullTextSearch",
+                                DocumentId = documentId,
+                                Fields = new[] {"Artist"}
+                            });
 
-                return (products.ToList());
+                    return (mltByArtist.ToList());
+                }
+            }
+            catch (Exception e)
+            {
+                return e.Message;
             }
         }
     }
