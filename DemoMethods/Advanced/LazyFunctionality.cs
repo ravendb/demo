@@ -11,48 +11,21 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object LazyFunctionality(string highPriceVal = "500", string delayDaysVal = "35",
-                                        string fromVal = "10", string toVal = "20")
+        public object LazyFunctionality(string c = "companies/1")
         {
-            var highPrice = int.Parse(highPriceVal);
-            var delayDays = int.Parse(delayDaysVal);
-            var from = decimal.Parse(fromVal);
-            var to = decimal.Parse(toVal);
-
-            var facets = FacetRangeCreation.CreateFacets(from, to);
-
-            //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var problematicOrders = session
-                    .Query<CostlyOrders.Result, CostlyOrders>()
-                    .Where(x => x.Price > highPrice && x.Delay > TimeSpan.FromDays(delayDays))
-                    .OfType<Order>()
-                    .Lazily();
-
-                session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = facets });
-                session.SaveChanges();
-
-                var facetResults = session
-                    .Query<Product, ProductsAndPriceAndSuplier>()
-                    .Where(x => x.UnitsInStock > 1)
-                    .ToFacetsLazy(facets);
-
-                Lazy<Company> company = session.Advanced.Lazily.Load<Company>("companies/1");
-                Lazy<Product> product = session.Advanced.Lazily.Load<Product>("products/1");
+                Lazy<Company> company = session.Advanced.Lazily.Load<Company>(c);
+                Lazy<int> countOfOrders = session.Query<Order>().Where(x => x.Company == c).CountLazily();
 
                 session.Advanced.Eagerly.ExecuteAllPendingLazyOperations();
 
-                var fResults = DemoUtilities.FormatRangeResults(facetResults.Value.Results);
-
-                var results = new
+                return new
                 {
-                    problematicOrders,
-                    company,
-                    product,
-                    fResults
+                    CompanyName = company.Value.Name,
+                    NumberOfOrders = countOfOrders.Value,
+                    session.Advanced.NumberOfRequests
                 };
-                return results;
             }
         }
     }

@@ -74,6 +74,7 @@
     <Compile Include="Advanced\LazyFunctionality.cs" />
     <Compile Include="Advanced\Listeners.cs" />
     <Compile Include="Advanced\MoreLikeThis.cs" />
+    <Compile Include="Advanced\SetBasedScripted.cs" />
     <Compile Include="Advanced\SetBased.cs" />
     <Compile Include="Advanced\StreamingApi.cs" />
     <Compile Include="Advanced\UploadDownloadFile.cs" />

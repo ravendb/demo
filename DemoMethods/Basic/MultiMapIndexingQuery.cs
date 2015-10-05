@@ -16,7 +16,7 @@ namespace DemoMethods.Basic
                 return session.Query<NameAndCountry.Result, NameAndCountry>()
                     .Customize(x => x.WaitForNonStaleResults())
                     .Search(x => x.Country, country)
-                    .Select(x => x.Name)
+                    .Select(x => new {x.Name, x.Id})
                     .ToList();
             }
         }

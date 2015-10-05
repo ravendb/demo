@@ -12,20 +12,24 @@ namespace DemoMethods.Advanced
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var query = session.Query<Product>("IndexManyProduct");
+                // session.Query<Product>().ToList();
+                // session.Query<Product>().Take(int.MaxValue).ToList();
+
+                var query = session.Query<Order>("OrderByCompanyAndCountry");
 
                 var e = session
                     .Advanced
                     .Stream(query);
 
-                var results = new List<Product>();
-
+                int count = 0;
                 while (e.MoveNext())
                 {
-                    results.Add(e.Current.Document);
+                    // do something with this
+                    Order order = e.Current.Document;
+                    count++;
                 }
 
-                return (results);
+                return new { count };
             }
         }
     }

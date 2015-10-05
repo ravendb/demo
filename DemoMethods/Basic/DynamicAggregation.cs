@@ -18,11 +18,6 @@ namespace DemoMethods.Basic
             {
                 var result = session.Query<Product, Products>()
                     .AggregateBy(x => x.UnitsInStock)
-                    .AddRanges(
-                        x => x.UnitsInStock < from,
-                        x => x.UnitsInStock >= from && x.UnitsInStock < to,
-                        x => x.UnitsInStock >= to
-                    )
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
 

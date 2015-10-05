@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using DemoMethods.Entities;
 using DemoMethods.Indexes;
 using Raven.Client;
 using Raven.Client.Listeners;
@@ -14,35 +15,38 @@ namespace DemoMethods.Advanced
         {
             public void BeforeQueryExecuted(IDocumentQueryCustomization queryCustomization)
             {
-                var documentQuery = queryCustomization as IDocumentQuery<NameAndCountry.Result>;
+                var documentQuery = queryCustomization as IDocumentQuery<Company>;
                 if (documentQuery != null)
-                    documentQuery.WhereEquals(x => x.Country, "USA");
+                    documentQuery.WhereEquals(x => x.Address.Country, "USA");
             }
         }
 
         [HttpGet]
-        public object Listeners(string name = null)
+        public object Listeners(string eid = null)
         {
+            // Register Listener : (This is only for demo purpose. Listener shouldn't be registered in this manner)
             DocumentStoreHolder.Store.Listeners.RegisterListener(new UsaOnlyQueryListener());
-
-            List<NameAndCountry.Result> results;
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            try
             {
-                var query =
-                    session.Query<NameAndCountry.Result, NameAndCountry>() as
-                        IQueryable<NameAndCountry.Result>;
-
-                if (string.IsNullOrEmpty(name) == false)
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    query = query.Where(x => x.Name.StartsWith(name));
+                    var query = session.Query<Company>();
+
+                    if (string.IsNullOrEmpty(eid) == false)
+                    {
+                        return query.Where(x => x.ExternalId == eid).ToList();
+                    }
+
+                    return query.ToList();
                 }
-
-                results = query.ToList();
             }
-            // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
-            DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
-
-            return results;
+            finally
+            {
+                // Unregister Listener : (This is only for demo purpose. Listener shouldn't be unregister)
+                DocumentStoreHolder.Store.Listeners.QueryListeners = new IDocumentQueryListener[0];
+                  
+            }
+           
         }
     }
 }
