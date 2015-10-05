@@ -7,7 +7,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        public object StoreEditDelete()
+        public object Store()
         {
             var contact = new Contact
             {
@@ -34,23 +34,12 @@ namespace DemoMethods.Basic
 
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                // Store :
                 session.Store(newCompany);
                 session.SaveChanges();
-                var newId = session.Advanced.GetDocumentId(newCompany);
-
-                // Edit :
-                var company = session.Load<Company>(newId);
-                company.Address.Line2 = "Zip 12345";
-                session.Store(company);
-
-                // Delete :
-                session.Delete(company);
-                session.SaveChanges();
-
-                return (company);
+                return newCompany.Id;
             }
         }
+
     }
 }
 

@@ -11,7 +11,7 @@ namespace DemoServer
             // string ravenServerUrl = "localhost.fiddler:8080";
             string demoServerUrl = "localhost:9090";
             string ravenServerUrl = "localhost:8080";
-            string databaseName = "Northwind";
+            string databaseName = "Demo";
             if (args.Length > 0)
             {
                 if (args[0] != null)

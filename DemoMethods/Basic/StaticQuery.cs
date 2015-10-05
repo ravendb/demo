@@ -8,6 +8,19 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
+        /*
+        
+         from order in orders
+         select new
+         {
+             OrderId = order.Id,
+             Delay = order.ShippedAt - order.OrderedAt,
+             Price = order.Lines.Sum(x => (x.Quantity * x.PricePerUnit) * (1 - x.Discount))
+         }; 
+          
+         
+         */
+
         [HttpGet]
         public object StaticQuery(string highPrice = "500", string delayDays = "35")
         {

@@ -8,12 +8,16 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
+        public class Result
+        {
+            public string Name;
+        }
         [HttpGet]
         public object TransformerQuery(string country = "USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var namesList = new List<string>();
+                var namesList = new List<object>();
 
                 var query =
                     session.Query<NameAndCountry.Result, NameAndCountry>()
@@ -26,7 +30,7 @@ namespace DemoMethods.Basic
                     while (enumerator.MoveNext())
                     {
                         var result = enumerator.Current.Document;
-                        namesList.Add(result.Name);
+                        namesList.Add(new { result.Name });
                     }
                 }
                 return namesList;

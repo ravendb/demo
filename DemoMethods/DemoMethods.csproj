@@ -79,6 +79,9 @@
     <Compile Include="Advanced\UploadDownloadFile.cs" />
     <Compile Include="Basic\BoostingDisabled.cs" />
     <Compile Include="Basic\BoostingEnabled.cs" />
+    <Compile Include="Basic\Query3.cs" />
+    <Compile Include="Basic\Query1.cs" />
+    <Compile Include="Basic\Query2.cs" />
     <Compile Include="Basic\DynamicAggregation.cs" />
     <Compile Include="Basic\FacetsDynamicRange.cs" />
     <Compile Include="Basic\FacetsWithDocuments.cs" />
@@ -86,7 +89,9 @@
     <Compile Include="Basic\StaticQuery.cs" />
     <Compile Include="Basic\MapReduceUsingDocumentQuery.cs" />
     <Compile Include="Basic\MultiMapIndexingQuery.cs" />
-    <Compile Include="Basic\StoreEditDelete.cs" />
+    <Compile Include="Basic\Edit.cs" />
+    <Compile Include="Basic\Delete.cs" />
+    <Compile Include="Basic\Store.cs" />
     <Compile Include="Basic\TransformerQuery.cs" />
     <Compile Include="DemoStudioController.cs" />
     <Compile Include="DemoUtilities.cs" />
@@ -140,11 +145,13 @@
     <Content Include="Advanced\SetBased.html" />
     <Content Include="Basic\FacetsDynamicRange.html" />
     <Content Include="Basic\StaticQuery.html" />
+    <Content Include="Basic\Edit.html" />
+    <Content Include="Basic\Delete.html" />
     <Content Include="Menu\CreateLastFmDataset.html" />
     <Content Include="Menu\CreateIndexesAndTransformers.html" />
     <Content Include="Basic\FacetsWithDocuments.html" />
     <Content Include="Basic\TransformerQuery.html" />
-    <Content Include="Basic\StoreEditDelete.html" />
+    <Content Include="Basic\Store.html" />
     <Content Include="Basic\MultiMapIndexingQuery.html" />
     <Content Include="Basic\MapReduceUsingDocumentQuery.html" />
     <Content Include="Basic\Highlights.html" />
