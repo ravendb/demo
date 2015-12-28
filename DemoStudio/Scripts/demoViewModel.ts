@@ -5,12 +5,45 @@
 
 declare var ko;
 declare var availableDemos;
+declare var Prism;
+
+$("#leftCollapse").click(function () {
+    if ($('body').hasClass('collapse-left')) {
+        $('body').removeClass('collapse-left');
+    } else {
+        $('body').addClass('collapse-left');
+    }
+});
+
+$("#moreCode").click(function () {
+    if ($('body').hasClass('showResult')) {
+        $('body').removeClass('showResult');
+    } else {
+        $('body').addClass('showResult');
+    }
+});
+
+$("#moreResult").click(function () {
+    if ($('body').hasClass('showResult')) {
+        $('body').removeClass('showResult');
+    } else {
+        $('body').addClass('showResult');
+    }
+});
+
+$("#fullResult").click(function () {
+    if ($('#resultsDiv').hasClass('showFull')) {
+        $('#resultsDiv').removeClass('showFull');
+    } else {
+        $('#resultsDiv').addClass('showFull');
+    }
+});
 
 class demoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
-    htmlCode = ko.observable("");    
+    htmlCode = ko.observable("");
     availableDemos = ko.observableArray(["Choose Demo..."]);
     values = ko.observable("");
     defdemo = ko.observable();
@@ -126,6 +159,7 @@ class demoViewModel {
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(data => {
             console.log(data);
             this.htmlCode(data);
+            Prism.highlightAll();
         });
         $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(data => {
             console.log(data);

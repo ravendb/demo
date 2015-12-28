@@ -1,6 +1,38 @@
 // /// <reference path="knockout.d.ts" />
 // /// <reference path="knockout.mapping.d.ts" />
 // /// <reference path="require.d.ts" />
+$("#leftCollapse").click(function () {
+    if ($('body').hasClass('collapse-left')) {
+        $('body').removeClass('collapse-left');
+    }
+    else {
+        $('body').addClass('collapse-left');
+    }
+});
+$("#moreCode").click(function () {
+    if ($('body').hasClass('showResult')) {
+        $('body').removeClass('showResult');
+    }
+    else {
+        $('body').addClass('showResult');
+    }
+});
+$("#moreResult").click(function () {
+    if ($('body').hasClass('showResult')) {
+        $('body').removeClass('showResult');
+    }
+    else {
+        $('body').addClass('showResult');
+    }
+});
+$("#fullResult").click(function () {
+    if ($('#resultsDiv').hasClass('showFull')) {
+        $('#resultsDiv').removeClass('showFull');
+    }
+    else {
+        $('#resultsDiv').addClass('showFull');
+    }
+});
 var demoViewModel = (function () {
     function demoViewModel() {
         this.isHtml = ko.observable(false);
@@ -106,6 +138,7 @@ var demoViewModel = (function () {
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(function (data) {
             console.log(data);
             _this.htmlCode(data);
+            Prism.highlightAll();
         });
         $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(function (data) {
             console.log(data);
