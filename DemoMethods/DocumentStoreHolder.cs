@@ -13,22 +13,26 @@ namespace DemoMethods
             get { return DocStore.Value; }
         }
 
-        public static string Address { get; set; }
-        public static int Port { get; set; }
         public static string DatabaseName { get; set; }
 
-        public static void SetDbInfo(string dbUrl, int dbPort, string dbName)
+        public static string ConnectionStringName { get; set; }
+
+        public static string ServerUrl
         {
-            Address = dbUrl;
-            Port = dbPort;
+            get { return Store.Url; }
+        }
+
+        public static void SetDbInfo(string connectionStringName, string dbName)
+        {
+            ConnectionStringName = connectionStringName;
             DatabaseName = dbName;
         }
 
         private static IDocumentStore CreateStore()
         {
-            var docStoreInit = new DocumentStore()
+            var docStoreInit = new DocumentStore
             {
-                Url = string.Format("http://{0}:{1}", Address, Port),
+                ConnectionStringName = ConnectionStringName,
                 DefaultDatabase = DatabaseName
             }.Initialize();
 

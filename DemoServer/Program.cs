@@ -7,10 +7,7 @@ namespace DemoServer
     {
         static void Main(string[] args)
         {
-            // string demoServerUrl = "localhost.fiddler:9090";
-            // string ravenServerUrl = "localhost.fiddler:8080";
             string demoServerUrl = "localhost:9090";
-            string ravenServerUrl = "localhost:8080";
             string databaseName = "Demo";
             if (args.Length > 0)
             {
@@ -25,25 +22,21 @@ namespace DemoServer
                         case "/?":
                             {
                                 Console.WriteLine(@"");
-                                Console.WriteLine(@"DemoServer Usage : demoserver [-h] [-ds address] [-rs address] [-dn databaseName]");
+                                Console.WriteLine(@"DemoServer Usage : demoserver [-h] [-ds address] [-dn databaseName]");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"    -ds address : Demo Server's address.");
                                 Console.WriteLine(@"                  Default : 'localhost:9090'");
-                                Console.WriteLine(@"");
-                                Console.WriteLine(@"    -rs address : RavenDB Server's address.");
-                                Console.WriteLine(@"                  Default : 'localhost:8080'");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"    -dn address : Database Name");
                                 Console.WriteLine(@"                  Default : 'Northwind'");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"Note : Do not add 'http://' prefix to addresses.");
-                                Console.WriteLine(@"");                                
+                                Console.WriteLine(@"");
                             }
                             return;
                         default:
                             {
                                 bool readDs = false;
-                                bool readRs = false;
                                 bool readDn = false;
                                 for (int i = 0; i < args.Length; i++)
                                 {
@@ -55,12 +48,6 @@ namespace DemoServer
                                             readDs = false;
                                             continue;
                                         }
-                                        if (readRs == true)
-                                        {
-                                            ravenServerUrl = args[i];
-                                            readRs = false;
-                                            continue;
-                                        }
                                         if (readDn == true)
                                         {
                                             databaseName = args[i];
@@ -70,8 +57,6 @@ namespace DemoServer
 
                                         if (args[i].Equals("-ds"))
                                             readDs = true;
-                                        else if (args[i].Equals("-rs"))
-                                            readRs = true;
                                         else if (args[i].Equals("-dn"))
                                             readDn = true;
                                         else
@@ -89,10 +74,8 @@ namespace DemoServer
                 }
             }
             demoServerUrl = string.Format("Http://{0}", demoServerUrl);
-            ravenServerUrl = string.Format("Http://{0}", ravenServerUrl);
             var dsUri = new Uri(demoServerUrl);
-            var rsUri = new Uri(ravenServerUrl);
-            DocumentStoreHolder.SetDbInfo(rsUri.Host, rsUri.Port, databaseName);
+            DocumentStoreHolder.SetDbInfo("DemoServer", databaseName);
             var server = new DemoServer();
             server.Start(dsUri.Host, dsUri.Port);
         }
