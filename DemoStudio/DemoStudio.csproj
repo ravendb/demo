@@ -87,12 +87,24 @@
     <Content Include="Scripts\demostyles.css" />
     <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Scripts\fonts\lato-black-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-blackitalic-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-bold-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-bolditalic-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-hairline-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-hairlineitalic-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-italic-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-light-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-lightita-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-lightitalic-webfont.svg" />
+    <Content Include="Scripts\fonts\lato-regular-webfont.svg" />
     <Content Include="Scripts\img\ico_collapse.png" />
     <Content Include="Scripts\img\ico_expand.png" />
     <Content Include="Scripts\img\ico_link.png" />
     <Content Include="Scripts\img\ico_more.png" />
     <Content Include="Scripts\img\ico_run.png" />
     <Content Include="Scripts\img\ico_runTab.png" />
+    <Content Include="Scripts\img\loading.gif" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-ui.css" />
@@ -219,6 +231,34 @@
     <None Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </None>
+    <Content Include="Scripts\fonts\lato-ligita-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-ligita-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-ligita-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-ligita-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-black-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-black-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-black-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-black-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-blackitalic-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-blackitalic-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-blackitalic-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-blackitalic-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-hairline-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-hairline-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-hairline-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-hairline-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-hairlineitalic-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-hairlineitalic-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-hairlineitalic-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-hairlineitalic-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-lightita-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-lightita-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-lightita-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-lightita-webfont.woff2" />
+    <Content Include="Scripts\fonts\lato-lightitalic-webfont.eot" />
+    <Content Include="Scripts\fonts\lato-lightitalic-webfont.ttf" />
+    <Content Include="Scripts\fonts\lato-lightitalic-webfont.woff" />
+    <Content Include="Scripts\fonts\lato-lightitalic-webfont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -256,7 +296,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>53289</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>

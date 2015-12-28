@@ -87,6 +87,7 @@ class demoViewModel {
 
 
     runDemo(): void {
+        $('body').addClass('showResult');
         var url = this.defdemo();
 
         if (this.values() !== "") {
@@ -155,6 +156,7 @@ class demoViewModel {
     }
 
     getCode(): void {
+        $('body').removeClass('showResult');
         var selDemo = this.defdemo();
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(data => {
             console.log(data);

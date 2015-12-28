@@ -75,6 +75,7 @@ var demoViewModel = (function () {
     };
     demoViewModel.prototype.runDemo = function () {
         var _this = this;
+        $('body').addClass('showResult');
         var url = this.defdemo();
         if (this.values() !== "") {
             url += "?" + this.values();
@@ -134,6 +135,7 @@ var demoViewModel = (function () {
     };
     demoViewModel.prototype.getCode = function () {
         var _this = this;
+        $('body').removeClass('showResult');
         var selDemo = this.defdemo();
         $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(function (data) {
             console.log(data);
