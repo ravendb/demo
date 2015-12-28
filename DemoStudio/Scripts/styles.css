@@ -28,8 +28,8 @@
 }
 @font-face {
   font-family: 'lato';
-  src: url('fonts/lato-ligita-webfont.eot');
-  src: url('fonts/lato-ligita-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/lato-ligita-webfont.woff2') format('woff2'), url('fonts/lato-ligita-webfont.woff') format('woff'), url('fonts/lato-ligita-webfont.ttf') format('truetype');
+  src: url('fonts/lato-lightitalic-webfont.eot');
+  src: url('fonts/lato-lightitalic-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/lato-lightitalic-webfont.woff2') format('woff2'), url('fonts/lato-lightitalic-webfont.woff') format('woff'), url('fonts/lato-lightitalic-webfont.ttf') format('truetype');
   font-weight: 300;
   font-style: italic;
 }
@@ -40,24 +40,31 @@
   font-weight: normal;
   font-style: normal;
 }
+@font-face {
+  font-family: 'lato';
+  src: url('fonts/lato-black-webfont.eot');
+  src: url('fonts/lato-black-webfont.eot?#iefix') format('embedded-opentype'), url('fonts/lato-black-webfont.woff2') format('woff2'), url('fonts/lato-black-webfont.woff') format('woff'), url('fonts/lato-black-webfont.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
 .checkbox label::before {
   border-radius: 0;
-  outline-color: #FBAF3F;
+  outline-color: #fbaf3f;
   background-color: transparent;
 }
 .checkbox-primary input[type="checkbox"]:checked + label::before,
 .checkbox-primary input[type="radio"]:checked + label::before {
-  background-color: #9E033B;
-  border-color: #9E033B;
+  background-color: #9e033b;
+  border-color: #9e033b;
 }
 .radio-primary input[type="radio"] + label::before {
-  outline-color: #FBAF3F;
+  outline-color: #fbaf3f;
 }
 .radio-primary input[type="radio"]:checked + label::before {
-  border-color: #9E033B;
+  border-color: #9e033b;
 }
 .radio-primary input[type="radio"] + label::after {
-  background-color: #9E033B;
+  background-color: #9e033b;
 }
 html,
 body {
@@ -66,13 +73,13 @@ body {
   overflow-x: hidden;
 }
 hr {
-  border-color: #9E033B;
+  border-color: #9e033b;
   border-width: 2px;
 }
 #mainPane {
   position: fixed;
   z-index: 20;
-  background-color: #F4F2F2;
+  background-color: #f4f2f2;
   padding: 30px;
   height: 100%;
   overflow-y: auto;
@@ -81,7 +88,7 @@ hr {
 #mainPane .form-control {
   height: 48px;
   font-size: 22px;
-  color: #1E242A;
+  color: #1e242a;
 }
 #mainPane .form-control:not(select) {
   font-size: 16px;
@@ -162,7 +169,7 @@ hr {
 }
 #codeContainer .btn-default .glyphicon-plus,
 #resultContainer .btn-default .glyphicon-plus {
-  color: #CCCCCC;
+  color: #cccccc;
 }
 #codeContainer {
   background-color: #2B2727;
@@ -171,10 +178,10 @@ hr {
   position: absolute;
 }
 #codeContainer .btn-default .glyphicon-plus {
-  color: #787C7F;
+  color: #787c7f;
 }
 #codeContainer h1 {
-  color: #FBAF3F;
+  color: #fbaf3f;
 }
 #codeContainer #codediv {
   -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -206,7 +213,7 @@ hr {
 #resultContainer #resultsDiv table,
 #resultContainer #resultsDiv tr,
 #resultContainer #resultsDiv td {
-  border-color: #787C7F;
+  border-color: #787c7f;
 }
 #resultContainer #resultsDiv th,
 #resultContainer #resultsDiv td {
@@ -304,7 +311,7 @@ hr {
   content: '';
   display: block;
   border-radius: 100px;
-  background: url(img/loading.gif) #9E033B center no-repeat;
+  background: url(img/loading.gif) #9e033b center no-repeat;
   height: 50px;
   width: 50px;
   margin: auto;
@@ -380,8 +387,8 @@ hr {
   padding-left: 100px !important;
 }
 .input-group-addon {
-  background-color: #CCCCCC;
-  color: #1E242A;
+  background-color: #cccccc;
+  color: #1e242a;
 }
 .options .checkbox {
   width: 49%;
@@ -397,25 +404,26 @@ hr {
   margin: 35px 0 25px;
 }
 .btn-link {
-  color: #1E242A;
+  color: #1e242a;
   padding-left: 40px;
   background-image: url(img/ico_link.png);
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #FBAF3F;
+  background-color: #fbaf3f;
 }
 .btn-link:hover {
   background-color: #faa526;
   white-space: normal;
 }
 .optional {
-  color: #9E033B;
+  color: #9e033b;
 }
 .optional:before {
   content: 'Optional Parameters:';
-  color: #787C7F;
+  color: #787c7f;
   font-weight: normal;
 }
 pre {
   margin: 0;
 }
+/*# sourceMappingURL=styles.css.map */
