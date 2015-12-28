@@ -5,18 +5,15 @@
 <head>
     <meta charset="utf-8" />
     <title>RavenDB Demo</title>
-    <!--<link rel="stylesheet" href="studio/scripts/demostyles.css" />-->
-    <!--<link rel="stylesheet" href="studio/scripts/jquery-ui.css">-->
     <script src="studio/scripts/jquery-1.10.2.js"></script>
     <link rel="shortcut icon" type='image/x-icon' href="studio/scripts/favicon.ico" />
 
-    <!--<script src="studio/scripts/jquery-ui.js"></script>-->
     <link href="studio/scripts/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="studio/scripts/awesome-bootstrap-checkbox.css" rel="stylesheet" />
     <link href="studio/scripts/prism.css" rel="stylesheet" />
     <link rel="stylesheet" href="studio/scripts/styles.css" />
 </head>
-    <body>
+<body>
     <div id="demoViewModel">
         <div id="mainPane">
             <header id="brandHeader">
@@ -57,31 +54,29 @@
                 <button id="leftCollapse" class="btn btn-default">collapse</button>
             </div>
 
-            
+
         </div>
 
-        <!--<button class="btn-minimize">Minimize/Maximize</button>-->
         <div id="codeContainer">
             <div class="overflow">
-                <header><h1><button class="btn btn-default" id="moreCode"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Code:</h1></header>
+                <header>
+                    <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Code</h1>
+                </header>
                 <div id="codediv" class="demo">
                     <div id="codepane">
                         <pre>
-                            <code class="language-csharp" data-bind="html: htmlCode"></code>
+                        <code class="language-csharp" data-bind="html: htmlCode"></code>
                         </pre>
                     </div>
                 </div>
             </div>
         </div>
-        <!--<div unselectable="off" style="z-index: 1001; -moz-user-select: none;" class="ui-resizable-handle ui-resizable-se ui-icon ui-icon-gripsmall-diagonal-se ui-resizable-nw ui-icon-gripsmall-diagonal-nw"></div>-->
-
-
 
         <div id="resultContainer">
             <div class="overflow">
                 <button class="btn btn-default" id="fullResult">full result</button>
                 <header>
-                    <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Output:</h1>
+                    <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Output</h1>
                 </header>
                 <div id="resultsDiv" class="demo">
                     <!--HTML-->
@@ -105,32 +100,15 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="processing" data-bind="visible: inProgress">
             <div id="ajaxloader"></div>
-            Processing, Please Wait...
+            Please Wait...
         </div>
         <script src="studio/scripts/prism.js"></script>
         <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
         <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     </div>
-    <script>
-        /*$(function () {
-            var draggableDiv = $('.demo').draggable().resizable();
-            $('.codetext', draggableDiv).mousedown(function (ev) {
-                if (ev.ctrlKey === false)
-                    draggableDiv.draggable('disable');
-            }).mouseup(function (ev) {
-                draggableDiv.draggable('enable');
-            });
-
-            $(".btn-minimize").click(function () {
-                $(this).toggleClass('btn-plus');
-                $(".demo").slideToggle();
-            });
-        });*/
-
-    </script>
 </body>
 </html>
