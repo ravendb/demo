@@ -104,10 +104,8 @@ namespace DemoMethods
                 if (file == null)
                     return string.Format("No code found...");
                 var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");
-                var lines = File.ReadAllText(path);
 
-                string colorizedSourceCode = new CodeColorizer().Colorize(lines, Languages.CSharp);
-                return colorizedSourceCode;
+                return HttpUtility.HtmlEncode(File.ReadAllText(path));
             }
             catch (Exception)
             {
