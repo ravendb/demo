@@ -2,6 +2,7 @@
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Reflection;
 using System.Web.Http;
 using DemoMethods.Entities;
 using Raven.Abstractions.Data;
@@ -13,8 +14,9 @@ namespace DemoMethods
     public partial class MenuController : ApiController
     {
         [HttpGet]
-        public object CreateLastFmDataset(string path = @"C:\Users\adi\Downloads\lastfm_subset.zip")
+        public object CreateLastFmDataset(string path = null)
         {
+            // path = @"C:\Users\adi\Downloads\lastfm_subset.zip";
             // path = @"C:\Users\adi\Downloads\lastfm_train.zip";
             try
             {
@@ -30,7 +32,7 @@ namespace DemoMethods
         public void AddDocumentsToDb(string path)
         {
             int count = 1;
-            using (var stream = File.OpenRead(path))
+            using (var stream = string.IsNullOrWhiteSpace(path) ? GetEmbeddedLastFmSubset() : File.OpenRead(path))
             using (var zip = new ZipArchive(stream, ZipArchiveMode.Read))
             using (var bulkInsert = DocumentStoreHolder.Store.BulkInsert(options: new BulkInsertOptions { OverwriteExisting = true, BatchSize = 256 }))
             {
@@ -56,6 +58,12 @@ namespace DemoMethods
                     }
                 }
             }
+        }
+
+        private static Stream GetEmbeddedLastFmSubset()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            return assembly.GetManifestResourceStream("DemoMethods.Data.lastfm_subset.zip");
         }
     }
 }
