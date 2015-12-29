@@ -2,44 +2,11 @@
 // /// <reference path="knockout.mapping.d.ts" />
 // /// <reference path="require.d.ts" />
 
-
 declare var ko;
 declare var availableDemos;
 declare var Prism;
 
-$("#leftCollapse").click(function () {
-    if ($('body').hasClass('collapse-left')) {
-        $('body').removeClass('collapse-left');
-    } else {
-        $('body').addClass('collapse-left');
-    }
-});
-
-$("#moreCode").click(function () {
-    if ($('body').hasClass('showResult')) {
-        $('body').removeClass('showResult');
-    } else {
-        $('body').addClass('showResult');
-    }
-});
-
-$("#moreResult").click(function () {
-    if ($('body').hasClass('showResult')) {
-        $('body').removeClass('showResult');
-    } else {
-        $('body').addClass('showResult');
-    }
-});
-
-$("#fullResult").click(function () {
-    if ($('#resultsDiv').hasClass('showFull')) {
-        $('#resultsDiv').removeClass('showFull');
-    } else {
-        $('#resultsDiv').addClass('showFull');
-    }
-});
-
-class demoViewModel {
+class DemoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
@@ -69,6 +36,8 @@ class demoViewModel {
         }).fail(() => {
             selfAvailableDemos.push("Failed to retreive demos");
         });
+
+        var presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
     }
 
     clickForceJson() {

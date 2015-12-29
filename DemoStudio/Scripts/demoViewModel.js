@@ -1,40 +1,8 @@
 // /// <reference path="knockout.d.ts" />
 // /// <reference path="knockout.mapping.d.ts" />
 // /// <reference path="require.d.ts" />
-$("#leftCollapse").click(function () {
-    if ($('body').hasClass('collapse-left')) {
-        $('body').removeClass('collapse-left');
-    }
-    else {
-        $('body').addClass('collapse-left');
-    }
-});
-$("#moreCode").click(function () {
-    if ($('body').hasClass('showResult')) {
-        $('body').removeClass('showResult');
-    }
-    else {
-        $('body').addClass('showResult');
-    }
-});
-$("#moreResult").click(function () {
-    if ($('body').hasClass('showResult')) {
-        $('body').removeClass('showResult');
-    }
-    else {
-        $('body').addClass('showResult');
-    }
-});
-$("#fullResult").click(function () {
-    if ($('#resultsDiv').hasClass('showFull')) {
-        $('#resultsDiv').removeClass('showFull');
-    }
-    else {
-        $('#resultsDiv').addClass('showFull');
-    }
-});
-var demoViewModel = (function () {
-    function demoViewModel() {
+var DemoViewModel = (function () {
+    function DemoViewModel() {
         this.isHtml = ko.observable(false);
         this.htmlView = ko.observable("");
         this.htmlExpl = ko.observable("");
@@ -60,20 +28,21 @@ var demoViewModel = (function () {
         }).fail(function () {
             selfAvailableDemos.push("Failed to retreive demos");
         });
+        var presenter = new DemoViewModelPresenter();
     }
-    demoViewModel.prototype.clickForceJson = function () {
+    DemoViewModel.prototype.clickForceJson = function () {
         if (this.chkForceJson() === true) {
             this.chkForceString(false);
         }
         return true;
     };
-    demoViewModel.prototype.clickForceString = function () {
+    DemoViewModel.prototype.clickForceString = function () {
         if (this.chkForceString() == true) {
             this.chkForceJson(false);
         }
         return true;
     };
-    demoViewModel.prototype.runDemo = function () {
+    DemoViewModel.prototype.runDemo = function () {
         var _this = this;
         $('body').addClass('showResult');
         var url = this.defdemo();
@@ -133,7 +102,7 @@ var demoViewModel = (function () {
             _this.isHtml(true);
         });
     };
-    demoViewModel.prototype.getCode = function () {
+    DemoViewModel.prototype.getCode = function () {
         var _this = this;
         $('body').removeClass('showResult');
         var selDemo = this.defdemo();
@@ -147,14 +116,14 @@ var demoViewModel = (function () {
             _this.htmlExpl(data);
         });
     };
-    demoViewModel.prototype.genUrl = function () {
+    DemoViewModel.prototype.genUrl = function () {
         var url = window.location.href.replace(/\/$/, "") + this.defdemo();
         if (this.values() !== "") {
             url += "?" + this.values();
         }
         this.urlstring(url);
     };
-    demoViewModel.prototype.availableDemoChangeEvent = function () {
+    DemoViewModel.prototype.availableDemoChangeEvent = function () {
         this.values("");
         this.genUrl();
         this.isHtml(false);
@@ -164,13 +133,12 @@ var demoViewModel = (function () {
         this.chkForceJson(false);
         this.chkAllowFlatten(false);
     };
-    demoViewModel.prototype.valuesKeyPressEvent = function (data, event) {
+    DemoViewModel.prototype.valuesKeyPressEvent = function (data, event) {
         this.genUrl();
         return true;
     };
-    demoViewModel.prototype.openNewTab = function () {
+    DemoViewModel.prototype.openNewTab = function () {
         window.open(this.urlstring(), '_blank');
     };
-    return demoViewModel;
+    return DemoViewModel;
 })();
-//# sourceMappingURL=demoViewModel.js.map

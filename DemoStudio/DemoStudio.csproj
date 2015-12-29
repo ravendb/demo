@@ -85,6 +85,7 @@
       <DependentUpon>variables.css</DependentUpon>
     </Content>
     <Content Include="Scripts\demostyles.css" />
+    <Content Include="Scripts\demoViewModel.presenter.js" />
     <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\lato-black-webfont.svg" />
@@ -281,6 +282,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\demoViewModel.presenter.ts" />
     <TypeScriptCompile Include="Scripts\demoViewModel.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
