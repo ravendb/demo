@@ -25,41 +25,44 @@
                 <select class="form-control" data-bind="options: $root.demoCategories, value: currentDemoCategory"></select>
             </div>
 
-            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
-                <select class="form-control" data-bind="options: $root.currentDemos, optionsText: 'DemoName', value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select>
-            </div>
+            <div data-bind="visible: $root.isDemoCategorySelected">
+                <div class="form-group">
+                    <select class="form-control" data-bind="options: $root.currentDemos, optionsText: 'DemoName', value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select>
+                </div>
 
-            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
-                <input class="form-control" data-bind="textInput: $root.urlstring"/>
-            </div>
+                <div class="form-group">
+                    <input class="form-control" data-bind="textInput: $root.urlstring" />
+                </div>
 
-            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
-                <div class="input-group">
-                    <div class="input-group-addon">Values</div>
-                    <input class="form-control" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" />
+                <div class="form-group">
+                    <div data-bind="foreach: $root.currentDemoParameters">
+                        <div class="input-group">
+                            <div class="input-group-addon" data-bind="text: ParameterName"></div>
+                            <input class="form-control" data-bind="visible: ParameterType === 'String', value: ParameterValue, valueUpdate: 'afterkeydown'" type="text" />
+                            <input class="form-control" data-bind="visible: ParameterType === 'Number', value: ParameterValue, valueUpdate: 'afterkeydown'" type="number" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="options">
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" id="forceJson" data-bind="checked: chkForceJson, click: clickForceJson" /><label for="forceJson">JSON output</label>
+                    </div>
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" id="forceString" data-bind="checked: chkForceString, click: clickForceString" /> <label for="forceString"> STRING output</label>
+                    </div>
+                    <div class="checkbox checkbox-primary">
+                        <input type="checkbox" id="allowFlatten" data-bind="checked: chkAllowFlatten" /> <label for="allowFlatten"> FLATTEN results</label>
+                    </div>
+                </div>
+                <hr />
+                <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
+                <div class="vbottom">
+                    <a data-bind="click: runDemo" href="#" class="runButton btn btn-primary">Run Demo</a>
+                    <a data-bind="click: openNewTab" href="#" class="runInNewButton btn btn-primary">Run in New Tab...</a>
+                    <button id="leftCollapse" class="btn btn-default">collapse</button>
                 </div>
             </div>
-
-            <div class="options" data-bind="visible: $root.isDemoCategorySelected">
-                <div class="checkbox checkbox-primary">
-                    <input type="checkbox" id="forceJson" data-bind="checked: chkForceJson, click: clickForceJson" /><label for="forceJson">JSON output</label>
-                </div>
-                <div class="checkbox checkbox-primary">
-                    <input type="checkbox" id="forceString" data-bind="checked: chkForceString, click: clickForceString" /> <label for="forceString"> STRING output</label>
-                </div>
-                <div class="checkbox checkbox-primary">
-                    <input type="checkbox" id="allowFlatten" data-bind="checked: chkAllowFlatten" /> <label for="allowFlatten"> FLATTEN results</label>
-                </div>
-            </div>
-            <hr />
-            <div id="htmlExplDiv" data-bind="html: htmlExpl, visible: $root.isDemoCategorySelected" style="word-wrap: break-word"></div>
-            <div class="vbottom" data-bind="visible: $root.isDemoCategorySelected">
-                <a data-bind="click: runDemo" href="#" class="runButton btn btn-primary">Run Demo</a>
-                <a data-bind="click: openNewTab" href="#" class="runInNewButton btn btn-primary">Run in New Tab...</a>
-                <button id="leftCollapse" class="btn btn-default">collapse</button>
-            </div>
-
-
         </div>
 
         <div id="codeContainer">

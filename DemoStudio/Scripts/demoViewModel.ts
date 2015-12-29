@@ -11,7 +11,6 @@ class DemoViewModel {
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
     htmlCode = ko.observable("");
-    values = ko.observable("");
     defdemo = ko.observable();
     optionsText = ko.observable();
     urlstring = ko.observable();
@@ -37,7 +36,28 @@ class DemoViewModel {
         return _.filter(this.availableDemos(), demo => demo.ControllerName === category);
     });
 
+    currentDemoParameters = ko.observableArray();
+
     constructor() {
+        this.defdemo.subscribe(value => {
+            this.currentDemoParameters([]);
+            var parameters = value.DemoParameters;
+            parameters.forEach(parameter => {
+                var demoParameter = {
+                    ParameterName: parameter.ParameterName,
+                    ParameterType: parameter.ParameterType,
+                    ParameterIsRequired: parameter.IsRequired,
+                    ParameterValue: ko.observable()
+                };
+
+                demoParameter.ParameterValue.subscribe(() => {
+                    this.genUrl();
+                });
+
+                this.currentDemoParameters.push(demoParameter);
+            });
+        });
+
         $.ajax("/Menu/Index", "GET").done(data => {
             var demos = data["Demos"];
 
@@ -69,14 +89,10 @@ class DemoViewModel {
         return true;
     }
 
-
     runDemo(): void {
         $('body').addClass('showResult');
         var url = this.getDemoUrl();
-
-        if (this.values() !== "") {
-            url += "?" + this.values();
-        }
+        url += this.getQueryString();
 
         this.isHtml(false);
         this.isSimpleJson(false);
@@ -154,10 +170,31 @@ class DemoViewModel {
 
     genUrl(): void {
         var url = window.location.href.replace(/\/$/, "") + this.getDemoUrl();
-        if (this.values() !== "") {
-            url += "?" + this.values();
-        }
+        url += this.getQueryString();
+
         this.urlstring(url);
+    }
+
+    getQueryString(): string {
+        var queryString = '';
+        var parameters = this.currentDemoParameters();
+        var firstParameter = true;
+
+        parameters.forEach(parameter => {
+            var value = parameter.ParameterValue();
+            if (value) {
+                var parameterQueryString = parameter.ParameterName + "=" + value;
+
+                if (firstParameter) {
+                    firstParameter = false;
+                    queryString += "?" + parameterQueryString;
+                } else {
+                    queryString += "&" + parameterQueryString;
+                }
+            }
+        });
+
+        return queryString;
     }
 
     getDemoUrl(): string {
@@ -166,7 +203,6 @@ class DemoViewModel {
     }
 
     availableDemoChangeEvent(): void {
-        this.values("");
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);

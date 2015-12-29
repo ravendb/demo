@@ -41,7 +41,8 @@ namespace DemoMethods
                                                      .Select(x => new DemoInformation
                                                      {
                                                          ControllerName = x.DeclaringType.Name,
-                                                         DemoName = x.Name
+                                                         DemoName = x.Name,
+                                                         DemoParameters = DemoUtilities.ExtractDemoParameters(x)
                                                      });
 
             var result = allPublicMethods.ToList();
@@ -87,26 +88,44 @@ namespace DemoMethods
                     }
                     catch (Exception)
                     {
-                        return string.Format("-Doc N/A-");
+                        return string.Empty;
                     }
                 }
+
                 if (file == null)
-                    return string.Format("No code found...");
+                    return "No code found...";
+
                 var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");
 
                 return File.ReadAllText(path);
             }
             catch (Exception)
             {
-                return string.Format("No code available for this demo");
+                return "No code available for this demo";
             }
         }
     }
 
     public class DemoInformation
     {
+        public DemoInformation()
+        {
+            DemoParameters = new List<DemoParameterInformation>();
+        }
+
         public string ControllerName { get; set; }
 
         public string DemoName { get; set; }
+
+        public List<DemoParameterInformation> DemoParameters { get; set; }
+    }
+
+    public class DemoParameterInformation
+    {
+        public string ParameterName { get; set; }
+
+        public string ParameterType { get; set; }
+
+        public bool IsRequired { get; set; }
     }
 }

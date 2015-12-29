@@ -8,7 +8,6 @@ var DemoViewModel = (function () {
         this.htmlView = ko.observable("");
         this.htmlExpl = ko.observable("");
         this.htmlCode = ko.observable("");
-        this.values = ko.observable("");
         this.defdemo = ko.observable();
         this.optionsText = ko.observable();
         this.urlstring = ko.observable();
@@ -29,6 +28,23 @@ var DemoViewModel = (function () {
         this.currentDemos = ko.computed(function () {
             var category = _this.currentDemoCategory();
             return _.filter(_this.availableDemos(), function (demo) { return demo.ControllerName === category; });
+        });
+        this.currentDemoParameters = ko.observableArray();
+        this.defdemo.subscribe(function (value) {
+            _this.currentDemoParameters([]);
+            var parameters = value.DemoParameters;
+            parameters.forEach(function (parameter) {
+                var demoParameter = {
+                    ParameterName: parameter.ParameterName,
+                    ParameterType: parameter.ParameterType,
+                    ParameterIsRequired: parameter.IsRequired,
+                    ParameterValue: ko.observable()
+                };
+                demoParameter.ParameterValue.subscribe(function () {
+                    _this.genUrl();
+                });
+                _this.currentDemoParameters.push(demoParameter);
+            });
         });
         $.ajax("/Menu/Index", "GET").done(function (data) {
             var demos = data["Demos"];
@@ -59,9 +75,7 @@ var DemoViewModel = (function () {
         var _this = this;
         $('body').addClass('showResult');
         var url = this.getDemoUrl();
-        if (this.values() !== "") {
-            url += "?" + this.values();
-        }
+        url += this.getQueryString();
         this.isHtml(false);
         this.isSimpleJson(false);
         this.inProgress(true);
@@ -131,17 +145,33 @@ var DemoViewModel = (function () {
     };
     DemoViewModel.prototype.genUrl = function () {
         var url = window.location.href.replace(/\/$/, "") + this.getDemoUrl();
-        if (this.values() !== "") {
-            url += "?" + this.values();
-        }
+        url += this.getQueryString();
         this.urlstring(url);
+    };
+    DemoViewModel.prototype.getQueryString = function () {
+        var queryString = '';
+        var parameters = this.currentDemoParameters();
+        var firstParameter = true;
+        parameters.forEach(function (parameter) {
+            var value = parameter.ParameterValue();
+            if (value) {
+                var parameterQueryString = parameter.ParameterName + "=" + value;
+                if (firstParameter) {
+                    firstParameter = false;
+                    queryString += "?" + parameterQueryString;
+                }
+                else {
+                    queryString += "&" + parameterQueryString;
+                }
+            }
+        });
+        return queryString;
     };
     DemoViewModel.prototype.getDemoUrl = function () {
         var demo = this.defdemo();
         return "/" + demo.ControllerName + "/" + demo.DemoName;
     };
     DemoViewModel.prototype.availableDemoChangeEvent = function () {
-        this.values("");
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);
