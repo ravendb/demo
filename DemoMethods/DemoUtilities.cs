@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.Specialized;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -49,7 +50,7 @@ namespace DemoMethods
                 var parameterType = GetParameterType(parameter.ParameterType);
                 var parameterName = parameter.Name;
                 var parameterIsRequired = GetParameterIsRequired(parameter);
-                
+
                 results.Add(new DemoParameterInformation
                 {
                     ParameterType = parameterType,
@@ -83,6 +84,15 @@ namespace DemoMethods
             return numericalTypes.Any(numericalType => numericalType == type)
                 ? "Number"
                 : "String";
+        }
+
+        public static string ExtractDemoDisplayName(MethodInfo demoMethod)
+        {
+            var displayAttribute = demoMethod.GetCustomAttribute<DisplayNameAttribute>();
+            if (displayAttribute == null)
+                return demoMethod.Name;
+
+            return displayAttribute.DisplayName;
         }
     }
 }

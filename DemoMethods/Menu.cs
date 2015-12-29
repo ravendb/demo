@@ -42,6 +42,7 @@ namespace DemoMethods
                                                      {
                                                          ControllerName = x.DeclaringType.Name,
                                                          DemoName = x.Name,
+                                                         DemoDisplayName = DemoUtilities.ExtractDemoDisplayName(x),
                                                          DemoParameters = DemoUtilities.ExtractDemoParameters(x)
                                                      });
 
@@ -116,6 +117,8 @@ namespace DemoMethods
         public string ControllerName { get; set; }
 
         public string DemoName { get; set; }
+
+        public string DemoDisplayName { get; set; }
 
         public List<DemoParameterInformation> DemoParameters { get; set; }
     }
