@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Web;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 
@@ -88,11 +89,20 @@ namespace DemoMethods
 
         public static string ExtractDemoDisplayName(MethodInfo demoMethod)
         {
-            var displayAttribute = demoMethod.GetCustomAttribute<DisplayNameAttribute>();
-            if (displayAttribute == null)
+            var demoAttribute = demoMethod.GetCustomAttribute<DemoAttribute>();
+            if (demoAttribute == null || string.IsNullOrWhiteSpace(demoAttribute.DisplayName))
                 return demoMethod.Name;
 
-            return displayAttribute.DisplayName;
+            return demoAttribute.DisplayName;
+        }
+
+        public static DemoOutputType ExtractDemoOutputType(MethodInfo demoMethod)
+        {
+            var demoAttribute = demoMethod.GetCustomAttribute<DemoAttribute>();
+            if (demoAttribute == null)
+                return DemoOutputType.Standard;
+
+            return demoAttribute.DemoOutputType;
         }
     }
 }

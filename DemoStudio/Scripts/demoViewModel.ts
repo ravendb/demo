@@ -11,7 +11,7 @@ class DemoViewModel {
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
     htmlCode = ko.observable("");
-    defdemo = ko.observable();
+    currentDemo = ko.observable();
     optionsText = ko.observable();
     urlstring = ko.observable();
     isSimpleJson = ko.observable(false);
@@ -39,23 +39,11 @@ class DemoViewModel {
     currentDemoParameters = ko.observableArray();
 
     constructor() {
-        this.defdemo.subscribe(value => {
-            this.currentDemoParameters([]);
-            var parameters = value.DemoParameters;
-            parameters.forEach(parameter => {
-                var demoParameter = {
-                    ParameterName: parameter.ParameterName,
-                    ParameterType: parameter.ParameterType,
-                    ParameterIsRequired: parameter.IsRequired,
-                    ParameterValue: ko.observable()
-                };
+        this.currentDemo.subscribe(value => {
+            this.reset();
 
-                demoParameter.ParameterValue.subscribe(() => {
-                    this.genUrl();
-                });
-
-                this.currentDemoParameters.push(demoParameter);
-            });
+            this.setDemoOptions(value);
+            this.setDemoParameters(value);
         });
 
         $.ajax("/Menu/Index", "GET").done(data => {
@@ -198,11 +186,15 @@ class DemoViewModel {
     }
 
     getDemoUrl(): string {
-        var demo = this.defdemo();
+        var demo = this.currentDemo();
         return "/" + demo.ControllerName + "/" + demo.DemoName;
     }
 
-    availableDemoChangeEvent(): void {
+    openNewTab(): void {
+        window.open(this.urlstring(), '_blank');
+    }
+
+    reset(): void {
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);
@@ -212,13 +204,39 @@ class DemoViewModel {
         this.chkAllowFlatten(false);
     }
 
-    valuesKeyPressEvent(data, event) {
-        this.genUrl();
-        return true;
+    setDemoOptions(demo): void {
+        switch (demo.DemoOutputType) {
+            case 'Standard':
+                break;
+            case 'Flatten':
+                this.chkAllowFlatten(true);
+                break;
+            case 'Json':
+                this.chkForceJson(true);
+                break;
+            case 'String':
+                this.chkForceString(true);
+                break;
+        }
     }
 
-    openNewTab() {
-        window.open(this.urlstring(), '_blank');
+    setDemoParameters(demo) {
+        this.currentDemoParameters([]);
+        var parameters = demo.DemoParameters;
+        parameters.forEach(parameter => {
+            var demoParameter = {
+                ParameterName: parameter.ParameterName,
+                ParameterType: parameter.ParameterType,
+                ParameterIsRequired: parameter.IsRequired,
+                ParameterValue: ko.observable()
+            };
+
+            demoParameter.ParameterValue.subscribe(() => {
+                this.genUrl();
+            });
+
+            this.currentDemoParameters.push(demoParameter);
+        });
     }
 }
 

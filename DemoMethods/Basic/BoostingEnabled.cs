@@ -1,8 +1,7 @@
-﻿using System;
-using System.ComponentModel;
-using System.Linq;
+﻿using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 
 namespace DemoMethods.Basic
@@ -10,7 +9,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        [DisplayName("Boosting Enabled")]
+        [Demo("Boosting Enabled", DemoOutputType.Flatten)]
         public object BoostingEnabled(string city = "London", string country = "Denmark")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

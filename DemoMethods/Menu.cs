@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
+using DemoMethods.Helpers;
 
 namespace DemoMethods
 {
@@ -43,7 +44,8 @@ namespace DemoMethods
                                                          ControllerName = x.DeclaringType.Name,
                                                          DemoName = x.Name,
                                                          DemoDisplayName = DemoUtilities.ExtractDemoDisplayName(x),
-                                                         DemoParameters = DemoUtilities.ExtractDemoParameters(x)
+                                                         DemoParameters = DemoUtilities.ExtractDemoParameters(x),
+                                                         DemoOutputType = DemoUtilities.ExtractDemoOutputType(x).ToString()
                                                      });
 
             var result = allPublicMethods.ToList();
@@ -119,6 +121,8 @@ namespace DemoMethods
         public string DemoName { get; set; }
 
         public string DemoDisplayName { get; set; }
+
+        public string DemoOutputType { get; set; }
 
         public List<DemoParameterInformation> DemoParameters { get; set; }
     }

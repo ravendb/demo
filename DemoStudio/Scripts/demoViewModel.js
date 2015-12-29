@@ -8,7 +8,7 @@ var DemoViewModel = (function () {
         this.htmlView = ko.observable("");
         this.htmlExpl = ko.observable("");
         this.htmlCode = ko.observable("");
-        this.defdemo = ko.observable();
+        this.currentDemo = ko.observable();
         this.optionsText = ko.observable();
         this.urlstring = ko.observable();
         this.isSimpleJson = ko.observable(false);
@@ -30,21 +30,10 @@ var DemoViewModel = (function () {
             return _.filter(_this.availableDemos(), function (demo) { return demo.ControllerName === category; });
         });
         this.currentDemoParameters = ko.observableArray();
-        this.defdemo.subscribe(function (value) {
-            _this.currentDemoParameters([]);
-            var parameters = value.DemoParameters;
-            parameters.forEach(function (parameter) {
-                var demoParameter = {
-                    ParameterName: parameter.ParameterName,
-                    ParameterType: parameter.ParameterType,
-                    ParameterIsRequired: parameter.IsRequired,
-                    ParameterValue: ko.observable()
-                };
-                demoParameter.ParameterValue.subscribe(function () {
-                    _this.genUrl();
-                });
-                _this.currentDemoParameters.push(demoParameter);
-            });
+        this.currentDemo.subscribe(function (value) {
+            _this.reset();
+            _this.setDemoOptions(value);
+            _this.setDemoParameters(value);
         });
         $.ajax("/Menu/Index", "GET").done(function (data) {
             var demos = data["Demos"];
@@ -168,10 +157,13 @@ var DemoViewModel = (function () {
         return queryString;
     };
     DemoViewModel.prototype.getDemoUrl = function () {
-        var demo = this.defdemo();
+        var demo = this.currentDemo();
         return "/" + demo.ControllerName + "/" + demo.DemoName;
     };
-    DemoViewModel.prototype.availableDemoChangeEvent = function () {
+    DemoViewModel.prototype.openNewTab = function () {
+        window.open(this.urlstring(), '_blank');
+    };
+    DemoViewModel.prototype.reset = function () {
         this.genUrl();
         this.isHtml(false);
         this.isSimpleJson(false);
@@ -180,13 +172,37 @@ var DemoViewModel = (function () {
         this.chkForceJson(false);
         this.chkAllowFlatten(false);
     };
-    DemoViewModel.prototype.valuesKeyPressEvent = function (data, event) {
-        this.genUrl();
-        return true;
+    DemoViewModel.prototype.setDemoOptions = function (demo) {
+        switch (demo.DemoOutputType) {
+            case 'Standard':
+                break;
+            case 'Flatten':
+                this.chkAllowFlatten(true);
+                break;
+            case 'Json':
+                this.chkForceJson(true);
+                break;
+            case 'String':
+                this.chkForceString(true);
+                break;
+        }
     };
-    DemoViewModel.prototype.openNewTab = function () {
-        window.open(this.urlstring(), '_blank');
+    DemoViewModel.prototype.setDemoParameters = function (demo) {
+        var _this = this;
+        this.currentDemoParameters([]);
+        var parameters = demo.DemoParameters;
+        parameters.forEach(function (parameter) {
+            var demoParameter = {
+                ParameterName: parameter.ParameterName,
+                ParameterType: parameter.ParameterType,
+                ParameterIsRequired: parameter.IsRequired,
+                ParameterValue: ko.observable()
+            };
+            demoParameter.ParameterValue.subscribe(function () {
+                _this.genUrl();
+            });
+            _this.currentDemoParameters.push(demoParameter);
+        });
     };
     return DemoViewModel;
 })();
-//# sourceMappingURL=demoViewModel.js.map

@@ -108,6 +108,7 @@
     <Compile Include="Entities\Shipper.cs" />
     <Compile Include="Entities\Supplier.cs" />
     <Compile Include="Entities\Territory.cs" />
+    <Compile Include="Helpers\DemoAttribute.cs" />
     <Compile Include="Indexes\FacetRangeCreation.cs" />
     <Compile Include="Indexes\LastFmAnalyzed.cs" />
     <Compile Include="Indexes\CategoryDescription.cs" />
