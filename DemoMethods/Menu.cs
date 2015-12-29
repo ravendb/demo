@@ -105,7 +105,7 @@ namespace DemoMethods
                     return string.Format("No code found...");
                 var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");
 
-                return HttpUtility.HtmlEncode(File.ReadAllText(path));
+                return File.ReadAllText(path);
             }
             catch (Exception)
             {
