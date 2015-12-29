@@ -3,15 +3,14 @@
 // /// <reference path="require.d.ts" />
 
 declare var ko;
-declare var availableDemos;
 declare var Prism;
+declare var _;
 
 class DemoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
     htmlCode = ko.observable("");
-    availableDemos = ko.observableArray(["Choose Demo..."]);
     values = ko.observable("");
     defdemo = ko.observable();
     optionsText = ko.observable();
@@ -24,17 +23,33 @@ class DemoViewModel {
     chkForceString = ko.observable(false);
     chkAllowFlatten = ko.observable(false);
 
+    currentDemoCategory = ko.observable();
+    demoCategories = ko.observableArray(['']);
+    isDemoCategorySelected = ko.computed(() => {
+        var category = this.currentDemoCategory();
+        return category;
+    });
+
+    availableDemos = ko.observableArray();
+    currentDemos = ko.computed(() => {
+        var category = this.currentDemoCategory();
+
+        return _.filter(this.availableDemos(), demo => demo.ControllerName === category);
+    });
 
     constructor() {
-        var selfAvailableDemos = this.availableDemos;
         $.ajax("/Menu/Index", "GET").done(data => {
-            var listOfControllers = data["ListOfControllers"];
+            var demos = data["Demos"];
 
-            listOfControllers.forEach(entry => {
-                selfAvailableDemos.push(entry);
+            demos.forEach(demo => {
+                if (_.indexOf(this.demoCategories(), demo.ControllerName) === -1) {
+                    this.demoCategories.push(demo.ControllerName);
+                }
+
+                this.availableDemos.push(demo);
             });
         }).fail(() => {
-            selfAvailableDemos.push("Failed to retreive demos");
+            this.availableDemos.push("Failed to retreive demos");
         });
 
         var presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
@@ -57,7 +72,7 @@ class DemoViewModel {
 
     runDemo(): void {
         $('body').addClass('showResult');
-        var url = this.defdemo();
+        var url = this.getDemoUrl();
 
         if (this.values() !== "") {
             url += "?" + this.values();
@@ -121,29 +136,33 @@ class DemoViewModel {
             this.inProgress(false);
             this.isHtml(true);
         });
-
     }
 
     getCode(): void {
         $('body').removeClass('showResult');
-        var selDemo = this.defdemo();
-        $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(data => {
+        var demoUrl = this.getDemoUrl();
+        $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(data => {
             console.log(data);
             this.htmlCode(data);
             Prism.highlightAll();
         });
-        $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(data => {
+        $.ajax("/Menu/LoadCsFile?Docname=" + demoUrl, "GET").done(data => {
             console.log(data);
             this.htmlExpl(data);
         });
     }
 
     genUrl(): void {
-        var url = window.location.href.replace(/\/$/, "") + this.defdemo();
+        var url = window.location.href.replace(/\/$/, "") + this.getDemoUrl();
         if (this.values() !== "") {
             url += "?" + this.values();
         }
         this.urlstring(url);
+    }
+
+    getDemoUrl(): string {
+        var demo = this.defdemo();
+        return "/" + demo.ControllerName + "/" + demo.DemoName;
     }
 
     availableDemoChangeEvent(): void {
@@ -161,7 +180,6 @@ class DemoViewModel {
         this.genUrl();
         return true;
     }
-
 
     openNewTab() {
         window.open(this.urlstring(), '_blank');

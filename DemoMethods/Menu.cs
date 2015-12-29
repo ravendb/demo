@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition.Hosting;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Web;
 using System.Web.Http;
-using Raven.Client.Indexes;
-using ColorCode;
 
 namespace DemoMethods
 {
@@ -15,19 +12,17 @@ namespace DemoMethods
     {
         private class MenuResults
         {
-            public List<string> ListOfControllers { get; set; }
-            public List<string> ListOfIndexes { get; set; }
+            public List<DemoInformation> Demos { get; set; }
         }
 
         public class FormattedMenuIndex
         {
-            // public static object Format(List<string> list)
-            public static void FormatControllerString(List<string> list)
+            public static void NormalizeDemos(List<DemoInformation> demos)
             {
-                for (int i = 0; i < list.Count; i++)
-                    // list[i] = string.Format("{0}/{1}", DemoUtilities.ServerInfo, list[i].Replace("Controller", ""));
-                    list[i] = string.Format("/{0}", list[i].Replace("Controller", ""));
-                // return DemoUtilities.Instance.ObjectToJson(list);
+                foreach (var demo in demos)
+                {
+                    demo.ControllerName = demo.ControllerName.Replace("Controller", string.Empty);
+                }
             }
         }
 
@@ -43,41 +38,35 @@ namespace DemoMethods
                                                      .Where(x => x.DeclaringType != null && x.DeclaringType.Name.Contains(x.Name) == false)
                                                      .Where(x => x.DeclaringType != null && !x.DeclaringType.Name.Contains("DemoStudio"))
                                                      .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes") && !x.Name.Contains("CreateLastFmDataset")))
-                                                     .Select(x => string.Format("{0}/{1}", x.DeclaringType.Name, x.Name)); // in VS2015 :  $"{x.DeclaringType.Name}/{x.Name}"
+                                                     .Select(x => new DemoInformation
+                                                     {
+                                                         ControllerName = x.DeclaringType.Name,
+                                                         DemoName = x.Name
+                                                     });
 
             var result = allPublicMethods.ToList();
 
+            FormattedMenuIndex.NormalizeDemos(result);
+
             result.Sort(
-                delegate(string s1, string s2)
+                delegate (DemoInformation s1, DemoInformation s2)
                 {
-                    if (s1.Contains("Basic") && s2.Contains("Advanced"))
+                    if (s1.ControllerName == "Basic" && s2.ControllerName == "Advanced")
                         return -1;
-                    if (s2.Contains("Basic") && s1.Contains("Advanced"))
+
+                    if (s2.ControllerName == "Basic" && s1.ControllerName == "Advanced")
                         return 1;
-                    return string.Compare(s1, s2, StringComparison.Ordinal);
+
+                    return string.Compare(s1.ControllerName, s2.ControllerName, StringComparison.Ordinal);
                 }
-                );
+            );
 
-            FormattedMenuIndex.FormatControllerString(result);
-
-            var container = new CompositionContainer(new AssemblyCatalog(Assembly.GetExecutingAssembly()));
-            var indexesList = container.GetExportedValues<AbstractIndexCreationTask>().ToList();
-            var multimapList = container.GetExportedValues<AbstractMultiMapIndexCreationTask>().ToList();
-            var transformersList = container.GetExportedValues<AbstractTransformerCreationTask>().ToList();
-
-            var allLists = new List<string>();
-            allLists.AddRange(indexesList.Select(x => x.IndexName));
-            allLists.AddRange(multimapList.Select(x => x.IndexName));
-            allLists.AddRange(transformersList.Select(x => x.TransformerName));
-
-
-            var resObj = new MenuResults()
+            var resObj = new MenuResults
             {
-                ListOfControllers = result,
-                ListOfIndexes = allLists
+                Demos = result
             };
 
-            return (resObj);
+            return resObj;
         }
 
         [HttpGet]
@@ -112,5 +101,12 @@ namespace DemoMethods
                 return string.Format("No code available for this demo");
             }
         }
+    }
+
+    public class DemoInformation
+    {
+        public string ControllerName { get; set; }
+
+        public string DemoName { get; set; }
     }
 }

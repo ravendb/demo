@@ -20,22 +20,27 @@
                 <div id="logoImageId"></div>
                 <h1 id="clientDemoLabelId">&nbsp;Client Demo</h1>
             </header>
-            <div class="form-group">
-                <select class="form-control" style="width: 100%" data-bind="options: $root.availableDemos, value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select>
-            </div>
 
             <div class="form-group">
-                <input class="form-control" data-bind="textInput: $root.urlstring" />
+                <select class="form-control" data-bind="options: $root.demoCategories, value: currentDemoCategory"></select>
             </div>
 
-            <div class="form-group">
+            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
+                <select class="form-control" data-bind="options: $root.currentDemos, optionsText: 'DemoName', value: defdemo, event: { change: $root.availableDemoChangeEvent }"></select>
+            </div>
+
+            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
+                <input class="form-control" data-bind="textInput: $root.urlstring"/>
+            </div>
+
+            <div class="form-group" data-bind="visible: $root.isDemoCategorySelected">
                 <div class="input-group">
                     <div class="input-group-addon">Values</div>
                     <input class="form-control" data-bind="value: $root.values, valueUpdate: 'afterkeydown', event: { keyup: $root.valuesKeyPressEvent }" />
                 </div>
             </div>
 
-            <div class="options">
+            <div class="options" data-bind="visible: $root.isDemoCategorySelected">
                 <div class="checkbox checkbox-primary">
                     <input type="checkbox" id="forceJson" data-bind="checked: chkForceJson, click: clickForceJson" /><label for="forceJson">JSON output</label>
                 </div>
@@ -47,8 +52,8 @@
                 </div>
             </div>
             <hr />
-            <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
-            <div class="vbottom">
+            <div id="htmlExplDiv" data-bind="html: htmlExpl, visible: $root.isDemoCategorySelected" style="word-wrap: break-word"></div>
+            <div class="vbottom" data-bind="visible: $root.isDemoCategorySelected">
                 <a data-bind="click: runDemo" href="#" class="runButton btn btn-primary">Run Demo</a>
                 <a data-bind="click: openNewTab" href="#" class="runInNewButton btn btn-primary">Run in New Tab...</a>
                 <button id="leftCollapse" class="btn btn-default">collapse</button>
@@ -105,6 +110,7 @@
         </div>
         <script src="studio/scripts/prism.js"></script>
         <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
+        <script type="text/javascript" src="/studio/scripts/lodash.min.js"></script>
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>
         <script type="text/typescript" src="/studio/scripts/demoViewModel.js"></script>
     </div>

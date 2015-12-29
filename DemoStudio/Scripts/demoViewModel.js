@@ -3,11 +3,11 @@
 // /// <reference path="require.d.ts" />
 var DemoViewModel = (function () {
     function DemoViewModel() {
+        var _this = this;
         this.isHtml = ko.observable(false);
         this.htmlView = ko.observable("");
         this.htmlExpl = ko.observable("");
         this.htmlCode = ko.observable("");
-        this.availableDemos = ko.observableArray(["Choose Demo..."]);
         this.values = ko.observable("");
         this.defdemo = ko.observable();
         this.optionsText = ko.observable();
@@ -19,14 +19,27 @@ var DemoViewModel = (function () {
         this.chkForceJson = ko.observable(false);
         this.chkForceString = ko.observable(false);
         this.chkAllowFlatten = ko.observable(false);
-        var selfAvailableDemos = this.availableDemos;
+        this.currentDemoCategory = ko.observable();
+        this.demoCategories = ko.observableArray(['']);
+        this.isDemoCategorySelected = ko.computed(function () {
+            var category = _this.currentDemoCategory();
+            return category;
+        });
+        this.availableDemos = ko.observableArray();
+        this.currentDemos = ko.computed(function () {
+            var category = _this.currentDemoCategory();
+            return _.filter(_this.availableDemos(), function (demo) { return demo.ControllerName === category; });
+        });
         $.ajax("/Menu/Index", "GET").done(function (data) {
-            var listOfControllers = data["ListOfControllers"];
-            listOfControllers.forEach(function (entry) {
-                selfAvailableDemos.push(entry);
+            var demos = data["Demos"];
+            demos.forEach(function (demo) {
+                if (_.indexOf(_this.demoCategories(), demo.ControllerName) === -1) {
+                    _this.demoCategories.push(demo.ControllerName);
+                }
+                _this.availableDemos.push(demo);
             });
         }).fail(function () {
-            selfAvailableDemos.push("Failed to retreive demos");
+            _this.availableDemos.push("Failed to retreive demos");
         });
         var presenter = new DemoViewModelPresenter();
     }
@@ -45,7 +58,7 @@ var DemoViewModel = (function () {
     DemoViewModel.prototype.runDemo = function () {
         var _this = this;
         $('body').addClass('showResult');
-        var url = this.defdemo();
+        var url = this.getDemoUrl();
         if (this.values() !== "") {
             url += "?" + this.values();
         }
@@ -105,23 +118,27 @@ var DemoViewModel = (function () {
     DemoViewModel.prototype.getCode = function () {
         var _this = this;
         $('body').removeClass('showResult');
-        var selDemo = this.defdemo();
-        $.ajax("/Menu/LoadCsFile?Filename=" + this.defdemo(), "GET").done(function (data) {
+        var demoUrl = this.getDemoUrl();
+        $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(function (data) {
             console.log(data);
             _this.htmlCode(data);
             Prism.highlightAll();
         });
-        $.ajax("/Menu/LoadCsFile?Docname=" + this.defdemo(), "GET").done(function (data) {
+        $.ajax("/Menu/LoadCsFile?Docname=" + demoUrl, "GET").done(function (data) {
             console.log(data);
             _this.htmlExpl(data);
         });
     };
     DemoViewModel.prototype.genUrl = function () {
-        var url = window.location.href.replace(/\/$/, "") + this.defdemo();
+        var url = window.location.href.replace(/\/$/, "") + this.getDemoUrl();
         if (this.values() !== "") {
             url += "?" + this.values();
         }
         this.urlstring(url);
+    };
+    DemoViewModel.prototype.getDemoUrl = function () {
+        var demo = this.defdemo();
+        return "/" + demo.ControllerName + "/" + demo.DemoName;
     };
     DemoViewModel.prototype.availableDemoChangeEvent = function () {
         this.values("");
