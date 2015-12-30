@@ -12,7 +12,7 @@ namespace DemoMethods.Indexes
             Map = products => from product in products
                               select new
                               {
-                                  product.PricePerUnit,
+                                  product.Category,
                                   product.UnitsInStock
                               };
             Sort(x => x.UnitsInStock, SortOptions.Int);

@@ -3,13 +3,14 @@ using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Indexes;
 using Raven.Client;
+using Raven.Client.Linq;
 
 namespace DemoMethods.Basic
 {
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        public object DynamicAggregation(string fromVal = "10", string toVal = "20")
+        public object DynamicAggregation(string fromVal = "0", string toVal = "999")
         {
             var from = int.Parse(fromVal);
             var to = int.Parse(toVal);
@@ -17,7 +18,8 @@ namespace DemoMethods.Basic
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 var result = session.Query<Product, Products>()
-                    .AggregateBy(x => x.UnitsInStock)
+                    .Where(x => x.UnitsInStock >= from && x.UnitsInStock <= to)
+                    .AggregateBy(x => x.Category)
                     .SumOn(x => x.UnitsInStock)
                     .ToList();
 

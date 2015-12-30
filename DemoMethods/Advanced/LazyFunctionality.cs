@@ -11,7 +11,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
-        public object LazyFunctionality(string c = "companies/1")
+        public object LazyFunctionality(string c = "companies/20")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
