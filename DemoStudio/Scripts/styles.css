@@ -167,6 +167,10 @@ hr {
   -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
 }
+#codeContainer header small,
+#resultContainer header small {
+  display: none;
+}
 #codeContainer .overflow,
 #resultContainer .overflow {
   overflow: auto;
@@ -247,26 +251,6 @@ hr {
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-  /*&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
-                display: table-cell;
-            }*/
-}
-#resultContainer #resultsDiv tr {
-  display: none;
-}
-#resultContainer #resultsDiv tr:nth-of-type(1),
-#resultContainer #resultsDiv tr:nth-of-type(2),
-#resultContainer #resultsDiv tr:nth-of-type(3),
-#resultContainer #resultsDiv tr:nth-of-type(4),
-#resultContainer #resultsDiv tr:nth-of-type(5),
-#resultContainer #resultsDiv tr:nth-of-type(6),
-#resultContainer #resultsDiv tr:nth-of-type(7),
-#resultContainer #resultsDiv tr:nth-of-type(8),
-#resultContainer #resultsDiv tr:nth-of-type(9),
-#resultContainer #resultsDiv tr:nth-of-type(10),
-#resultContainer #resultsDiv tr:nth-of-type(11),
-#resultContainer #resultsDiv tr:nth-of-type(12) {
-  display: table-row;
 }
 #resultContainer #resultsDiv.showFull th,
 #resultContainer #resultsDiv.showFull td {
@@ -275,14 +259,19 @@ hr {
 #resultContainer #resultsDiv.showFull tr {
   display: table-row;
 }
-#fullResult {
-  display: none;
+.trim-container {
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: 80px;
+  font-size: 18px;
 }
-#fullResult:before {
-  content: 'show ';
+.trim-container label:before {
+  top: 4px;
+  cursor: pointer;
 }
-#fullResult.active:before {
-  content: 'hide ';
+.trim-container label:after {
+  top: 4px;
 }
 .showResult #resultContainer {
   height: 100%;
@@ -293,15 +282,15 @@ hr {
 .showResult #resultContainer header {
   top: 85px;
 }
+.showResult #resultContainer header small {
+  display: inline;
+}
 .showResult #resultContainer #resultsDiv {
   display: block;
   height: auto;
 }
-.showResult #resultContainer #fullResult {
+.showResult #resultContainer .trim-container {
   display: block;
-  position: absolute;
-  right: 15px;
-  top: 95px;
 }
 .showResult #resultContainer .glyphicon:before {
   content: "\e252";

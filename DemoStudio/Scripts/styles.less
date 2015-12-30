@@ -158,18 +158,19 @@ hr {
 
 #adContainer {
     width: 100%;
-    height:100%;
+    height: 100%;
     padding: 15px;
     padding-left: 535px;
-    z-index:1;
+    z-index: 1;
     background: #1F252B;
-    text-align:center;
+    text-align: center;
+
     img {
-        position:relative;
-        top:10%;
-        max-height:80%;
-        max-width:80%;
-        margin:auto;
+        position: relative;
+        top: 10%;
+        max-height: 80%;
+        max-width: 80%;
+        margin: auto;
     }
 }
 
@@ -194,6 +195,10 @@ hr {
         -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
+
+        small {
+            display:none;
+        }
     }
 
     .overflow {
@@ -210,9 +215,9 @@ hr {
     .btn-default {
         background-color: transparent;
         margin-top: -8px;
-        width:35px;
-        height:35px;
-        padding:6px;
+        width: 35px;
+        height: 35px;
+        padding: 6px;
 
 
         .glyphicon {
@@ -286,29 +291,19 @@ hr {
 
         th, td {
             padding: 5px 10px;
-            //display: none;
             white-space: nowrap;
             max-width: 600px;
             min-width: 100px;
             word-break: break-word;
             overflow: hidden;
             text-overflow: ellipsis;
-            /*&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
-                display: table-cell;
-            }*/
         }
 
         tr {
-            display: none;
-
-            &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7), &:nth-of-type(8), &:nth-of-type(9), &:nth-of-type(10), &:nth-of-type(11), &:nth-of-type(12) {
-                display: table-row;
-            }
         }
 
         &.showFull {
             th, td {
-                //    display: table-cell;
                 white-space: normal;
             }
 
@@ -319,16 +314,21 @@ hr {
     }
 }
 
-#fullResult {
-    display: none;
+.trim-container {
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 80px;
+    font-size: 18px;
 
-    &:before {
-        content: 'show ';
-    }
-
-    &.active {
+    label {
         &:before {
-            content: 'hide ';
+            top: 4px;
+            cursor: pointer;
+        }
+
+        &:after {
+            top: 4px;
         }
     }
 }
@@ -342,6 +342,10 @@ hr {
 
         header {
             top: 85px;
+
+            small {
+                display:inline;
+            }
         }
 
         #resultsDiv {
@@ -349,11 +353,8 @@ hr {
             height: auto;
         }
 
-        #fullResult {
+        .trim-container {
             display: block;
-            position: absolute;
-            right: 15px;
-            top: 95px;
         }
 
         .glyphicon:before {
@@ -477,7 +478,7 @@ hr {
     #mainPane {
         width: 86px;
         padding: 30px 10px;
-        overflow:auto;
+        overflow: auto;
     }
 
     #resultContainer, #codeContainer, #adContainer {

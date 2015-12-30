@@ -4,7 +4,8 @@ var DemoViewModelPresenter = (function () {
         $("#leftCollapse").click(this.leftCollapse.bind(this));
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
-        $("#fullResult").click(this.expandResults.bind(this));
+        //$("#fullResult").click(this.expandResults.bind(this));
+        $("#trimResults").change(this.expandResults.bind(this));
     }
     DemoViewModelPresenter.prototype.leftCollapse = function () {
         if (this.$body.hasClass('collapse-left')) {

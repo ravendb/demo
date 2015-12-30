@@ -5,7 +5,7 @@
         $("#leftCollapse").click(this.leftCollapse.bind(this));
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
-        $("#fullResult").click(this.expandResults.bind(this));
+        $("#trimResults").change(this.expandResults.bind(this));
     }
 
     leftCollapse(): void {
@@ -33,8 +33,10 @@
     }
 
     expandResults(): void {
-        if ($('#resultsDiv').hasClass('showFull')) {
+
+        if ($("#trimResults").val($(this).is(':checked'))) {
             $('#resultsDiv').removeClass('showFull');
+            
         } else {
             $('#resultsDiv').addClass('showFull');
         }
