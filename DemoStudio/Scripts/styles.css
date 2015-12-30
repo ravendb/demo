@@ -386,9 +386,13 @@ hr {
 .collapse-left #codeContainer {
   padding-left: 100px !important;
 }
+.input-group {
+  width: 100%;
+}
 .input-group-addon {
-  background-color: #cccccc;
+  background-color: #f4f2f2;
   color: #1e242a;
+  width: 100px;
 }
 .options .checkbox {
   width: 49%;
