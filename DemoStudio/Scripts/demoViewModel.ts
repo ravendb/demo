@@ -22,6 +22,8 @@ class DemoViewModel {
     chkForceString = ko.observable(false);
     chkAllowFlatten = ko.observable(false);
 
+    presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
+
     currentDemoCategory = ko.observable();
     demoCategories = ko.observableArray(['']);
     isDemoCategorySelected = ko.computed(() => {
@@ -59,8 +61,6 @@ class DemoViewModel {
         }).fail(() => {
             this.availableDemos.push("Failed to retreive demos");
         });
-
-        var presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
     }
 
     clickForceJson() {
@@ -78,7 +78,7 @@ class DemoViewModel {
     }
 
     runDemo(): void {
-        $('body').addClass('showResult');
+        this.presenter.showResults();
         var url = this.getDemoUrl();
         url += this.getQueryString();
 
@@ -143,7 +143,7 @@ class DemoViewModel {
     }
 
     getCode(): void {
-        $('body').removeClass('showResult');
+        this.presenter.showCode();
         var demoUrl = this.getDemoUrl();
         $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(data => {
             console.log(data);
