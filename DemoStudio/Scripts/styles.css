@@ -166,9 +166,12 @@ hr {
 #resultContainer .btn-default {
   background-color: transparent;
   margin-top: -8px;
+  width: 35px;
+  height: 35px;
+  padding: 6px;
 }
-#codeContainer .btn-default .glyphicon-plus,
-#resultContainer .btn-default .glyphicon-plus {
+#codeContainer .btn-default .glyphicon,
+#resultContainer .btn-default .glyphicon {
   color: #cccccc;
 }
 #codeContainer {
@@ -177,8 +180,11 @@ hr {
   padding-bottom: 85px;
   position: absolute;
 }
-#codeContainer .btn-default .glyphicon-plus {
+#codeContainer .btn-default .glyphicon {
   color: #787c7f;
+}
+#codeContainer .btn-default .glyphicon:before {
+  content: "\e252";
 }
 #codeContainer h1 {
   color: #fbaf3f;
@@ -197,6 +203,9 @@ hr {
   bottom: 0;
   background-color: #FFF;
   overflow: hidden;
+}
+#resultContainer .glyphicon:before {
+  content: "\e250";
 }
 #resultContainer #resultsDiv {
   height: 0;
@@ -281,6 +290,9 @@ hr {
   right: 15px;
   top: 95px;
 }
+.showResult #resultContainer .glyphicon:before {
+  content: "\e252";
+}
 .showResult #codeContainer {
   height: 70px;
   padding-bottom: 0px;
@@ -289,6 +301,9 @@ hr {
   /*#codediv {
             display: none;
         }*/
+}
+.showResult #codeContainer .glyphicon:before {
+  content: "\e250";
 }
 .processing {
   position: absolute;

@@ -195,8 +195,12 @@ hr {
     .btn-default {
         background-color: transparent;
         margin-top: -8px;
+        width:35px;
+        height:35px;
+        padding:6px;
 
-        .glyphicon-plus {
+
+        .glyphicon {
             color: @gray-light;
         }
     }
@@ -210,9 +214,15 @@ hr {
     padding-bottom: 85px;
     position: absolute;
 
+
+
     .btn-default {
-        .glyphicon-plus {
+        .glyphicon {
             color: @gray;
+
+            &:before {
+                content: "\e252";
+            }
         }
     }
 
@@ -237,6 +247,11 @@ hr {
     background-color: #FFF;
     overflow: hidden;
 
+    .glyphicon {
+        &:before {
+            content: "\e250";
+        }
+    }
 
     #resultsDiv {
         height: 0;
@@ -327,6 +342,10 @@ hr {
             right: 15px;
             top: 95px;
         }
+
+        .glyphicon:before {
+            content: "\e252";
+        }
     }
 
     #codeContainer {
@@ -337,6 +356,10 @@ hr {
         /*#codediv {
             display: none;
         }*/
+
+        .glyphicon:before {
+            content: "\e250";
+        }
     }
 }
 
@@ -450,13 +473,15 @@ hr {
         padding-left: 100px !important;
     }
 }
+
 .input-group {
-    width:100%;
+    width: 100%;
 }
+
 .input-group-addon {
     background-color: @gray-lighter;
     color: @gray-darker;
-    width:100px;
+    width: 100px;
 }
 
 .options {
