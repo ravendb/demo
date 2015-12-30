@@ -57,11 +57,11 @@
                 </div>
                 <hr />
                 <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
-                <div class="vbottom">
-                    <a data-bind="click: runDemo" href="#" class="runButton btn btn-primary">Run Demo</a>
-                    <a data-bind="click: openNewTab" href="#" class="runInNewButton btn btn-primary">Run in New Tab...</a>
-                    <button id="leftCollapse" class="btn btn-default">collapse</button>
-                </div>
+            </div>
+            <div class="vbottom">
+                <button data-bind="click: runDemo, enable: $root.isDemoCategorySelected" href="#" class="runButton btn btn-primary">Run Demo</button>
+                <button data-bind="click: openNewTab, enable: $root.isDemoCategorySelected" href="#" class="runInNewButton btn btn-primary">Run in New Tab...</button>
+                <button id="leftCollapse" class="btn btn-default">collapse</button>
             </div>
         </div>
 
