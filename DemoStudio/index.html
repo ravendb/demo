@@ -34,8 +34,9 @@
                     <input class="form-control" data-bind="textInput: $root.urlstring" />
                 </div>
 
-                <div class="form-group">
-                    <div data-bind="foreach: $root.currentDemoParameters">
+
+                <div data-bind="foreach: $root.currentDemoParameters">
+                    <div class="form-group">
                         <div class="input-group">
                             <div class="input-group-addon" data-bind="text: ParameterName"></div>
                             <input class="form-control" data-bind="visible: ParameterType === 'String', value: ParameterValue, valueUpdate: 'afterkeydown'" type="text" />
@@ -55,8 +56,8 @@
                         <input type="checkbox" id="allowFlatten" data-bind="checked: chkAllowFlatten" /> <label for="allowFlatten"> FLATTEN results</label>
                     </div>
                 </div>
-                <hr />
-                <div id="htmlExplDiv" data-bind="html: htmlExpl" style="word-wrap: break-word"></div>
+                
+                <div id="htmlExplDiv" data-bind="html: htmlExpl"></div>
             </div>
             <div class="vbottom">
                 <button data-bind="click: runDemo, enable: $root.isDemoCategorySelected" href="#" class="runButton btn btn-primary">Run Demo</button>
@@ -65,46 +66,54 @@
             </div>
         </div>
 
-        <div id="codeContainer">
-            <div class="overflow">
-                <header>
-                    <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Code</h1>
-                </header>
-                <div id="codediv" class="demo">
-                    <div id="codepane">
-                        <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+        <div data-bind="visible: $root.isDemoCategorySelected">
+            <div id="codeContainer">
+                <div class="overflow">
+                    <header>
+                        <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon" aria-hidden="true"></span></button> Code</h1>
+                    </header>
+                    <div id="codediv" class="demo">
+                        <div id="codepane">
+                            <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultContainer">
+                <div class="overflow">
+                    <div class="checkbox checkbox-primary trim-container">
+                        <input type="checkbox" id="trimResults" /><label for="trimResults">trim results</label>
+                    </div>
+                    <header>
+                        <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon" aria-hidden="true"></span></button> Output <small>(1.23s)</small></h1>
+                    </header>
+                    <div id="resultsDiv" class="demo">
+                        <!--HTML-->
+                        <div data-bind="visible: isHtml, html: htmlView"></div>
+
+                        <!--SIMPLE JSON-->
+                        <div data-bind="visible: isSimpleJson">
+                            <table border="1">
+                                <thead>
+                                    <tr data-bind="foreach: columns">
+                                        <th data-bind="text: $data"></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: rows">
+                                    <tr data-bind="foreach: $parent.columns">
+                                        <td data-bind="text: $parent[$data]"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="resultContainer">
-            <div class="overflow">
-                <button class="btn btn-default" id="fullResult">full result</button>
-                <header>
-                    <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button> Output</h1>
-                </header>
-                <div id="resultsDiv" class="demo">
-                    <!--HTML-->
-                    <div data-bind="visible: isHtml, html: htmlView"></div>
-
-                    <!--SIMPLE JSON-->
-                    <div data-bind="visible: isSimpleJson">
-                        <table border="1">
-                            <thead>
-                                <tr data-bind="foreach: columns">
-                                    <th data-bind="text: $data"></th>
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: rows">
-                                <tr data-bind="foreach: $parent.columns">
-                                    <td data-bind="text: $parent[$data]"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div id="adContainer" data-bind="visible: $root.isDemoCategorySelected() == false">
+            <img src="studio/scripts/img/advantages.png">
         </div>
 
         <div class="processing" data-bind="visible: inProgress">

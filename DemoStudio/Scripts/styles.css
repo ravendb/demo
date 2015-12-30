@@ -86,7 +86,7 @@ hr {
   width: 520px;
 }
 #mainPane .form-control {
-  height: 48px;
+  height: 42px;
   font-size: 22px;
   color: #1e242a;
 }
@@ -128,11 +128,27 @@ hr {
 #demoViewModel {
   height: 100%;
 }
+#adContainer {
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  padding-left: 545px;
+  z-index: 1;
+  background: #1F252B;
+  text-align: center;
+}
+#adContainer img {
+  position: relative;
+  top: 10%;
+  max-height: 80%;
+  max-width: 80%;
+  margin: auto;
+}
 #codeContainer,
 #resultContainer {
   width: 100%;
-  padding: 70px 15px 0;
-  padding-left: 535px;
+  padding: 74px 15px 0;
+  padding-left: 545px;
   position: relative;
   z-index: 5;
   -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -151,6 +167,10 @@ hr {
   -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
 }
+#codeContainer header small,
+#resultContainer header small {
+  display: none;
+}
 #codeContainer .overflow,
 #resultContainer .overflow {
   overflow: auto;
@@ -166,9 +186,12 @@ hr {
 #resultContainer .btn-default {
   background-color: transparent;
   margin-top: -8px;
+  width: 35px;
+  height: 35px;
+  padding: 6px;
 }
-#codeContainer .btn-default .glyphicon-plus,
-#resultContainer .btn-default .glyphicon-plus {
+#codeContainer .btn-default .glyphicon,
+#resultContainer .btn-default .glyphicon {
   color: #cccccc;
 }
 #codeContainer {
@@ -177,8 +200,11 @@ hr {
   padding-bottom: 85px;
   position: absolute;
 }
-#codeContainer .btn-default .glyphicon-plus {
+#codeContainer .btn-default .glyphicon {
   color: #787c7f;
+}
+#codeContainer .btn-default .glyphicon:before {
+  content: "\e252";
 }
 #codeContainer h1 {
   color: #fbaf3f;
@@ -196,11 +222,12 @@ hr {
   z-index: 10;
   bottom: 0;
   background-color: #FFF;
-  overflow: hidden;
+}
+#resultContainer .glyphicon:before {
+  content: "\e250";
 }
 #resultContainer #resultsDiv {
   height: 0;
-  overflow: hidden;
   -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   -moz-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -224,26 +251,6 @@ hr {
   word-break: break-word;
   overflow: hidden;
   text-overflow: ellipsis;
-  /*&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
-                display: table-cell;
-            }*/
-}
-#resultContainer #resultsDiv tr {
-  display: none;
-}
-#resultContainer #resultsDiv tr:nth-of-type(1),
-#resultContainer #resultsDiv tr:nth-of-type(2),
-#resultContainer #resultsDiv tr:nth-of-type(3),
-#resultContainer #resultsDiv tr:nth-of-type(4),
-#resultContainer #resultsDiv tr:nth-of-type(5),
-#resultContainer #resultsDiv tr:nth-of-type(6),
-#resultContainer #resultsDiv tr:nth-of-type(7),
-#resultContainer #resultsDiv tr:nth-of-type(8),
-#resultContainer #resultsDiv tr:nth-of-type(9),
-#resultContainer #resultsDiv tr:nth-of-type(10),
-#resultContainer #resultsDiv tr:nth-of-type(11),
-#resultContainer #resultsDiv tr:nth-of-type(12) {
-  display: table-row;
 }
 #resultContainer #resultsDiv.showFull th,
 #resultContainer #resultsDiv.showFull td {
@@ -252,14 +259,19 @@ hr {
 #resultContainer #resultsDiv.showFull tr {
   display: table-row;
 }
-#fullResult {
-  display: none;
+.trim-container {
+  display: block;
+  position: absolute;
+  right: 25px;
+  top: 80px;
+  font-size: 18px;
 }
-#fullResult:before {
-  content: 'show ';
+.trim-container label:before {
+  top: 4px;
+  cursor: pointer;
 }
-#fullResult.active:before {
-  content: 'hide ';
+.trim-container label:after {
+  top: 4px;
 }
 .showResult #resultContainer {
   height: 100%;
@@ -270,25 +282,27 @@ hr {
 .showResult #resultContainer header {
   top: 85px;
 }
+.showResult #resultContainer header small {
+  display: inline;
+}
 .showResult #resultContainer #resultsDiv {
   display: block;
   height: auto;
-  overflow: auto;
 }
-.showResult #resultContainer #fullResult {
+.showResult #resultContainer .trim-container {
   display: block;
-  position: absolute;
-  right: 15px;
-  top: 95px;
+}
+.showResult #resultContainer .glyphicon:before {
+  content: "\e252";
 }
 .showResult #codeContainer {
   height: 70px;
   padding-bottom: 0px;
   z-index: 10;
   overflow: hidden;
-  /*#codediv {
-            display: none;
-        }*/
+}
+.showResult #codeContainer .glyphicon:before {
+  content: "\e250";
 }
 .processing {
   position: absolute;
@@ -381,27 +395,40 @@ hr {
 .collapse-left #mainPane {
   width: 86px;
   padding: 30px 10px;
+  overflow: auto;
 }
 .collapse-left #resultContainer,
-.collapse-left #codeContainer {
-  padding-left: 100px !important;
+.collapse-left #codeContainer,
+.collapse-left #adContainer {
+  padding-left: 110px !important;
+}
+.input-group {
+  width: 100%;
 }
 .input-group-addon {
-  background-color: #cccccc;
+  background-color: #f4f2f2;
   color: #1e242a;
+  width: 100px;
+}
+.options {
+  display: none;
 }
 .options .checkbox {
   width: 49%;
   display: inline-block;
 }
 #htmlExplDiv {
-  font-size: 16px;
+  font-size: 14px;
 }
 #htmlExplDiv h1 {
-  font-style: italic;
-  font-size: 36px;
+  text-align: center;
+  font-size: 26px;
   font-weight: 300;
   margin: 35px 0 25px;
+}
+#htmlExplDiv .btn {
+  display: inline-block;
+  margin: auto;
 }
 .btn-link {
   color: #1e242a;
