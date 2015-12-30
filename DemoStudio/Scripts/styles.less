@@ -505,12 +505,15 @@ hr {
 }
 
 #htmlExplDiv {
-
+    border: 1px #FFF solid;
+    padding:20px;
+    margin-top:40px;
+    background-color:lighten(@gray-lighter,3%);
     h1 {
         text-align:center;
         font-size: 26px;
-        font-weight: 300;
-        margin: 35px 0 25px;
+        font-weight: 600;
+        margin: 5px 0 25px;
     }
 
     font-size: 14px;
@@ -524,14 +527,16 @@ hr {
 .btn-link {
     color: @gray-darker;
     padding-left: 40px;
-    background-image: url(img/ico_link.png);
+    background-image: url(img/ico_link.png) !important;
     background-size: contain;
     background-repeat: no-repeat;
-    background-color: @brand-info;
+    border:1px solid @brand-info !important;
+    white-space: normal;
+    //background-color: @brand-info;
 
     &:hover {
         background-color: darken(@brand-info,5%);
-        white-space: normal;
+        text-decoration:none !important;
     }
 }
 
@@ -539,9 +544,15 @@ hr {
     color: @brand-primary;
 
     &:before {
-        content: 'Optional Parameters:';
-        color: @gray;
-        font-weight: normal;
+      content: "\e019";
+          position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
     }
 }
 

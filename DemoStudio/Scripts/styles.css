@@ -418,13 +418,17 @@ hr {
   display: inline-block;
 }
 #htmlExplDiv {
+  border: 1px #FFF solid;
+  padding: 20px;
+  margin-top: 40px;
+  background-color: #fbfafa;
   font-size: 14px;
 }
 #htmlExplDiv h1 {
   text-align: center;
   font-size: 26px;
-  font-weight: 300;
-  margin: 35px 0 25px;
+  font-weight: 600;
+  margin: 5px 0 25px;
 }
 #htmlExplDiv .btn {
   display: inline-block;
@@ -433,22 +437,29 @@ hr {
 .btn-link {
   color: #1e242a;
   padding-left: 40px;
-  background-image: url(img/ico_link.png);
+  background-image: url(img/ico_link.png) !important;
   background-size: contain;
   background-repeat: no-repeat;
-  background-color: #fbaf3f;
+  border: 1px solid #fbaf3f !important;
+  white-space: normal;
 }
 .btn-link:hover {
   background-color: #faa526;
-  white-space: normal;
+  text-decoration: none !important;
 }
 .optional {
   color: #9e033b;
 }
 .optional:before {
-  content: 'Optional Parameters:';
-  color: #787c7f;
-  font-weight: normal;
+  content: "\e019";
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  font-family: 'Glyphicons Halflings';
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
 }
 pre {
   margin: 0;
