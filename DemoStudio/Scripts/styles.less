@@ -102,7 +102,7 @@ hr {
     width: 520px;
 
     .form-control {
-        height: 48px;
+        height: 42px;
         font-size: 22px;
         color: @gray-darker;
 
@@ -156,12 +156,28 @@ hr {
     height: 100%;
 }
 
+#adContainer {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    padding-left: 545px;
+    z-index: 1;
+    background: #1F252B;
+    text-align: center;
 
+    img {
+        position: relative;
+        top: 10%;
+        max-height: 80%;
+        max-width: 80%;
+        margin: auto;
+    }
+}
 
 #codeContainer, #resultContainer {
     width: 100%;
-    padding: 70px 15px 0;
-    padding-left: 535px;
+    padding: 74px 15px 0;
+    padding-left: 545px;
     position: relative;
     z-index: 5;
     -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -179,6 +195,10 @@ hr {
         -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
+
+        small {
+            display:none;
+        }
     }
 
     .overflow {
@@ -195,8 +215,12 @@ hr {
     .btn-default {
         background-color: transparent;
         margin-top: -8px;
+        width: 35px;
+        height: 35px;
+        padding: 6px;
 
-        .glyphicon-plus {
+
+        .glyphicon {
             color: @gray-light;
         }
     }
@@ -210,9 +234,15 @@ hr {
     padding-bottom: 85px;
     position: absolute;
 
+
+
     .btn-default {
-        .glyphicon-plus {
+        .glyphicon {
             color: @gray;
+
+            &:before {
+                content: "\e252";
+            }
         }
     }
 
@@ -235,12 +265,16 @@ hr {
     z-index: 10;
     bottom: 0;
     background-color: #FFF;
-    overflow: hidden;
 
+
+    .glyphicon {
+        &:before {
+            content: "\e250";
+        }
+    }
 
     #resultsDiv {
         height: 0;
-        overflow: hidden;
         -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -moz-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -257,29 +291,19 @@ hr {
 
         th, td {
             padding: 5px 10px;
-            //display: none;
             white-space: nowrap;
             max-width: 600px;
             min-width: 100px;
             word-break: break-word;
             overflow: hidden;
             text-overflow: ellipsis;
-            /*&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5) {
-                display: table-cell;
-            }*/
         }
 
         tr {
-            display: none;
-
-            &:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3), &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(7), &:nth-of-type(8), &:nth-of-type(9), &:nth-of-type(10), &:nth-of-type(11), &:nth-of-type(12) {
-                display: table-row;
-            }
         }
 
         &.showFull {
             th, td {
-                //    display: table-cell;
                 white-space: normal;
             }
 
@@ -290,16 +314,21 @@ hr {
     }
 }
 
-#fullResult {
-    display: none;
+.trim-container {
+    display: block;
+    position: absolute;
+    right: 25px;
+    top: 80px;
+    font-size: 18px;
 
-    &:before {
-        content: 'show ';
-    }
-
-    &.active {
+    label {
         &:before {
-            content: 'hide ';
+            top: 4px;
+            cursor: pointer;
+        }
+
+        &:after {
+            top: 4px;
         }
     }
 }
@@ -313,19 +342,23 @@ hr {
 
         header {
             top: 85px;
+
+            small {
+                display:inline;
+            }
         }
 
         #resultsDiv {
             display: block;
             height: auto;
-            overflow: auto;
         }
 
-        #fullResult {
+        .trim-container {
             display: block;
-            position: absolute;
-            right: 15px;
-            top: 95px;
+        }
+
+        .glyphicon:before {
+            content: "\e252";
         }
     }
 
@@ -334,9 +367,10 @@ hr {
         padding-bottom: 0px;
         z-index: 10;
         overflow: hidden;
-        /*#codediv {
-            display: none;
-        }*/
+
+        .glyphicon:before {
+            content: "\e250";
+        }
     }
 }
 
@@ -444,19 +478,26 @@ hr {
     #mainPane {
         width: 86px;
         padding: 30px 10px;
+        overflow: auto;
     }
 
-    #resultContainer, #codeContainer {
-        padding-left: 100px !important;
+    #resultContainer, #codeContainer, #adContainer {
+        padding-left: 110px !important;
     }
+}
+
+.input-group {
+    width: 100%;
 }
 
 .input-group-addon {
-    background-color: @gray-light;
+    background-color: @gray-lighter;
     color: @gray-darker;
+    width: 100px;
 }
 
 .options {
+    display:none;
     .checkbox {
         width: 49%;
         display: inline-block;
@@ -466,13 +507,18 @@ hr {
 #htmlExplDiv {
 
     h1 {
-        font-style: italic;
-        font-size: 36px;
+        text-align:center;
+        font-size: 26px;
         font-weight: 300;
         margin: 35px 0 25px;
     }
 
-    font-size: 16px;
+    font-size: 14px;
+
+    .btn {
+        display:inline-block;
+        margin:auto;
+    }
 }
 
 .btn-link {

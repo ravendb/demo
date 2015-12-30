@@ -18,6 +18,7 @@ var DemoViewModel = (function () {
         this.chkForceJson = ko.observable(false);
         this.chkForceString = ko.observable(false);
         this.chkAllowFlatten = ko.observable(false);
+        this.presenter = new DemoViewModelPresenter();
         this.currentDemoCategory = ko.observable();
         this.demoCategories = ko.observableArray(['']);
         this.isDemoCategorySelected = ko.computed(function () {
@@ -46,7 +47,6 @@ var DemoViewModel = (function () {
         }).fail(function () {
             _this.availableDemos.push("Failed to retreive demos");
         });
-        var presenter = new DemoViewModelPresenter();
     }
     DemoViewModel.prototype.clickForceJson = function () {
         if (this.chkForceJson() === true) {
@@ -62,7 +62,7 @@ var DemoViewModel = (function () {
     };
     DemoViewModel.prototype.runDemo = function () {
         var _this = this;
-        $('body').addClass('showResult');
+        this.presenter.showResults();
         var url = this.getDemoUrl();
         url += this.getQueryString();
         this.isHtml(false);
@@ -120,7 +120,7 @@ var DemoViewModel = (function () {
     };
     DemoViewModel.prototype.getCode = function () {
         var _this = this;
-        $('body').removeClass('showResult');
+        this.presenter.showCode();
         var demoUrl = this.getDemoUrl();
         $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(function (data) {
             console.log(data);
@@ -206,3 +206,4 @@ var DemoViewModel = (function () {
     };
     return DemoViewModel;
 })();
+//# sourceMappingURL=demoViewModel.js.map
