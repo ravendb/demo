@@ -102,7 +102,7 @@ hr {
     width: 520px;
 
     .form-control {
-        height: 48px;
+        height: 42px;
         font-size: 22px;
         color: @gray-darker;
 
@@ -156,7 +156,22 @@ hr {
     height: 100%;
 }
 
-
+#adContainer {
+    width: 100%;
+    height:100%;
+    padding: 15px;
+    padding-left: 535px;
+    z-index:1;
+    background: #1F252B;
+    text-align:center;
+    img {
+        position:relative;
+        top:10%;
+        max-height:80%;
+        max-width:80%;
+        margin:auto;
+    }
+}
 
 #codeContainer, #resultContainer {
     width: 100%;
@@ -353,9 +368,6 @@ hr {
         padding-bottom: 0px;
         z-index: 10;
         overflow: hidden;
-        /*#codediv {
-            display: none;
-        }*/
 
         .glyphicon:before {
             content: "\e250";
@@ -467,9 +479,10 @@ hr {
     #mainPane {
         width: 86px;
         padding: 30px 10px;
+        overflow:auto;
     }
 
-    #resultContainer, #codeContainer {
+    #resultContainer, #codeContainer, #adContainer {
         padding-left: 100px !important;
     }
 }

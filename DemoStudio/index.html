@@ -34,7 +34,7 @@
                     <input class="form-control" data-bind="textInput: $root.urlstring" />
                 </div>
 
-                
+
                 <div data-bind="foreach: $root.currentDemoParameters">
                     <div class="form-group">
                         <div class="input-group">
@@ -66,46 +66,52 @@
             </div>
         </div>
 
-        <div id="codeContainer">
-            <div class="overflow">
-                <header>
-                    <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon" aria-hidden="true"></span></button> Code</h1>
-                </header>
-                <div id="codediv" class="demo">
-                    <div id="codepane">
-                        <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+        <div data-bind="visible: $root.isDemoCategorySelected">
+            <div id="codeContainer">
+                <div class="overflow">
+                    <header>
+                        <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon" aria-hidden="true"></span></button> Code</h1>
+                    </header>
+                    <div id="codediv" class="demo">
+                        <div id="codepane">
+                            <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="resultContainer">
+                <div class="overflow">
+                    <button class="btn" id="fullResult">full result</button>
+                    <header>
+                        <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon" aria-hidden="true"></span></button> Output</h1>
+                    </header>
+                    <div id="resultsDiv" class="demo">
+                        <!--HTML-->
+                        <div data-bind="visible: isHtml, html: htmlView"></div>
+
+                        <!--SIMPLE JSON-->
+                        <div data-bind="visible: isSimpleJson">
+                            <table border="1">
+                                <thead>
+                                    <tr data-bind="foreach: columns">
+                                        <th data-bind="text: $data"></th>
+                                    </tr>
+                                </thead>
+                                <tbody data-bind="foreach: rows">
+                                    <tr data-bind="foreach: $parent.columns">
+                                        <td data-bind="text: $parent[$data]"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div id="resultContainer">
-            <div class="overflow">
-                <button class="btn btn-default" id="fullResult">full result</button>
-                <header>
-                    <h1><button id="moreResult" class="btn btn-default"><span class="glyphicon" aria-hidden="true"></span></button> Output</h1>
-                </header>
-                <div id="resultsDiv" class="demo">
-                    <!--HTML-->
-                    <div data-bind="visible: isHtml, html: htmlView"></div>
-
-                    <!--SIMPLE JSON-->
-                    <div data-bind="visible: isSimpleJson">
-                        <table border="1">
-                            <thead>
-                                <tr data-bind="foreach: columns">
-                                    <th data-bind="text: $data"></th>
-                                </tr>
-                            </thead>
-                            <tbody data-bind="foreach: rows">
-                                <tr data-bind="foreach: $parent.columns">
-                                    <td data-bind="text: $parent[$data]"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+        <div id="adContainer" data-bind="visible: $root.isDemoCategorySelected() == false">
+            <img src="studio/scripts/img/advantages.png">
         </div>
 
         <div class="processing" data-bind="visible: inProgress">

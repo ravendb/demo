@@ -89,6 +89,7 @@
     <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\lato-black-webfont.svg" />
+    <Content Include="Scripts\img\advantages.png" />
     <Content Include="Scripts\img\ico_collapse.png" />
     <Content Include="Scripts\img\ico_expand.png" />
     <Content Include="Scripts\img\ico_link.png" />
