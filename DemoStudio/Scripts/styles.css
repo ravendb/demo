@@ -108,6 +108,7 @@ hr {
   background-position: left 14px center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-size: 26px;
 }
 .vbottom .runInNewButton {
   padding-left: 65px;
@@ -115,6 +116,7 @@ hr {
   background-position: left 14px center;
   background-size: contain;
   background-repeat: no-repeat;
+  background-size: 26px;
 }
 .vbottom #leftCollapse {
   text-indent: -9999px;
@@ -260,7 +262,7 @@ hr {
   display: table-row;
 }
 .trim-container {
-  display: block;
+  display: none;
   position: absolute;
   right: 25px;
   top: 80px;
