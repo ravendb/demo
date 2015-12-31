@@ -16,12 +16,25 @@ namespace DemoMethods
     {
         [HttpGet]
         [Demo("Deploy Last.fm", DemoOutputType.String)]
-        public object CreateLastFmDataset(string path = null)
+        public object CreateLastFmDataset(string path = null, bool deleteDatabase = false)
         {
             // path = @"C:\Users\adi\Downloads\lastfm_subset.zip";
             // path = @"C:\Users\adi\Downloads\lastfm_train.zip";
             try
             {
+                if (deleteDatabase)
+                {
+                    DocumentStoreHolder.Store
+                        .DatabaseCommands
+                        .GlobalAdmin
+                        .DeleteDatabase(DocumentStoreHolder.DatabaseName, hardDelete: true);
+                }
+
+                DocumentStoreHolder.Store
+                    .DatabaseCommands
+                    .GlobalAdmin
+                    .EnsureDatabaseExists(DocumentStoreHolder.DatabaseName);
+
                 AddDocumentsToDb(path);
             }
             catch (Exception e)

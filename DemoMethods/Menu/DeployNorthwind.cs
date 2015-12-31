@@ -10,10 +10,18 @@ namespace DemoMethods
     {
         [HttpGet]
         [Demo("Deploy Northwind", DemoOutputType.String)]
-        public object DeployNorthwind()
+        public object DeployNorthwind(bool deleteDatabase = false)
         {
             try
             {
+                if (deleteDatabase)
+                {
+                    DocumentStoreHolder.Store
+                        .DatabaseCommands
+                        .GlobalAdmin
+                        .DeleteDatabase(DocumentStoreHolder.DatabaseName, hardDelete: true);
+                }
+
                 DocumentStoreHolder.Store
                     .DatabaseCommands
                     .GlobalAdmin
