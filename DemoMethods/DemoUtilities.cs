@@ -104,5 +104,14 @@ namespace DemoMethods
 
             return demoAttribute.DemoOutputType;
         }
+
+        public static int ExtractDemoOrder(MethodInfo demoMethod)
+        {
+            var demoAttribute = demoMethod.GetCustomAttribute<DemoAttribute>();
+            if (demoAttribute == null)
+                return DemoAttribute.DefaultDemoOrder;
+
+            return demoAttribute.DemoOrder;
+        }
     }
 }

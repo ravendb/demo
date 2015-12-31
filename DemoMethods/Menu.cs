@@ -16,17 +16,6 @@ namespace DemoMethods
             public List<DemoInformation> Demos { get; set; }
         }
 
-        public class FormattedMenuIndex
-        {
-            public static void NormalizeDemos(List<DemoInformation> demos)
-            {
-                foreach (var demo in demos)
-                {
-                    demo.ControllerName = demo.ControllerName.Replace("Controller", string.Empty);
-                }
-            }
-        }
-
         [HttpGet]
         public object Index()
         {
@@ -41,29 +30,18 @@ namespace DemoMethods
                                                      .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes") && !x.Name.Contains("CreateLastFmDataset")))
                                                      .Select(x => new DemoInformation
                                                      {
-                                                         ControllerName = x.DeclaringType.Name,
+                                                         ControllerName = x.DeclaringType.Name.Replace("Controller", string.Empty),
                                                          DemoName = x.Name,
                                                          DemoDisplayName = DemoUtilities.ExtractDemoDisplayName(x),
                                                          DemoParameters = DemoUtilities.ExtractDemoParameters(x),
+                                                         DemoOrder = DemoUtilities.ExtractDemoOrder(x),
                                                          DemoOutputType = DemoUtilities.ExtractDemoOutputType(x).ToString()
                                                      });
 
-            var result = allPublicMethods.ToList();
-
-            FormattedMenuIndex.NormalizeDemos(result);
-
-            result.Sort(
-                delegate (DemoInformation s1, DemoInformation s2)
-                {
-                    if (s1.ControllerName == "Basic" && s2.ControllerName == "Advanced")
-                        return -1;
-
-                    if (s2.ControllerName == "Basic" && s1.ControllerName == "Advanced")
-                        return 1;
-
-                    return string.Compare(s1.ControllerName, s2.ControllerName, StringComparison.Ordinal);
-                }
-            );
+            var result = allPublicMethods
+                .OrderBy(x => x.ControllerName, new ControllerNameComparer())
+                .ThenBy(x => x.DemoOrder)
+                .ToList();
 
             var resObj = new MenuResults
             {
@@ -109,6 +87,20 @@ namespace DemoMethods
         }
     }
 
+    public class ControllerNameComparer : IComparer<string>
+    {
+        public int Compare(string x, string y)
+        {
+            if (x == "Basic" && y == "Advanced")
+                return -1;
+
+            if (y == "Basic" && x == "Advanced")
+                return 1;
+
+            return string.Compare(x, y, StringComparison.Ordinal);
+        }
+    }
+
     public class DemoInformation
     {
         public DemoInformation()
@@ -125,6 +117,8 @@ namespace DemoMethods
         public string DemoOutputType { get; set; }
 
         public List<DemoParameterInformation> DemoParameters { get; set; }
+
+        public int DemoOrder { get; set; }
     }
 
     public class DemoParameterInformation

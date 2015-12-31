@@ -9,7 +9,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : ApiController
     {
         [HttpGet]
-        [Demo("Boosting Enabled", DemoOutputType.Flatten)]
+        [Demo("Boosting Enabled", DemoOutputType.Flatten, demoOrder: 10)]
         public object BoostingEnabled(string city = "London", string country = "Denmark")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

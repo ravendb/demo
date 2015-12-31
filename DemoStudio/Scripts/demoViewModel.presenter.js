@@ -43,3 +43,4 @@ var DemoViewModelPresenter = (function () {
     };
     return DemoViewModelPresenter;
 })();
+//# sourceMappingURL=demoViewModel.presenter.js.map

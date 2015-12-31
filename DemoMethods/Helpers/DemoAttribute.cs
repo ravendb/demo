@@ -4,19 +4,18 @@ namespace DemoMethods.Helpers
 {
     public class DemoAttribute : DisplayNameAttribute
     {
-        public DemoAttribute(DemoOutputType demoOutputType)
-            : base(null)
-        {
-            DemoOutputType = demoOutputType;
-        }
+        public const int DefaultDemoOrder = 999;
 
-        public DemoAttribute(string demoName, DemoOutputType demoOutputType = DemoOutputType.Standard)
+        public DemoAttribute(string demoName = null, DemoOutputType demoOutputType = DemoOutputType.Standard, int demoOrder = DefaultDemoOrder)
             : base(demoName)
         {
             DemoOutputType = demoOutputType;
+            DemoOrder = demoOrder;
         }
 
         public DemoOutputType DemoOutputType { get; private set; }
+
+        public int DemoOrder { get; private set; }
     }
 
     public enum DemoOutputType
