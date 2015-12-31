@@ -7,7 +7,7 @@ using DemoMethods.Indexes;
 
 namespace DemoMethods.Basic
 {
-    public partial class BasicController : ApiController
+    public partial class BasicController : DemoApiController
     {
         [HttpGet]
         [Demo("Boosting Disabled", DemoOutputType.Flatten, demoOrder: 11)]

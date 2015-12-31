@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Web.Http;
+using DemoMethods.Helpers;
 using Raven.Client.Connection;
 
 namespace DemoMethods
@@ -13,7 +14,7 @@ namespace DemoMethods
         public string UrlString { get; set; }
     }
 
-    public class DemoStudioController : ApiController
+    public class DemoStudioController : DemoApiController
     {
         [HttpGet]
         public HttpResponseMessage LoadScript(string path)

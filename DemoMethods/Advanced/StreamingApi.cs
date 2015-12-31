@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
         public object StreamingApi()

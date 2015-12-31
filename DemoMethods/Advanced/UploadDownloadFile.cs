@@ -3,13 +3,14 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using DemoMethods.Helpers;
 using Raven.Abstractions.Data;
 using Raven.Abstractions.Extensions;
 using Raven.Json.Linq;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
         public async Task<object> UploadDownloadFile(string storeString = "Hello World")

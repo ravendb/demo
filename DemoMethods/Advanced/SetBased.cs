@@ -8,7 +8,7 @@ using DemoMethods.Helpers;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
         [Demo("Set Based", DemoOutputType.Flatten)]

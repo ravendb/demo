@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Linq;
 using System.Web.Http;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Client;
 
 namespace DemoMethods.Basic
 {
-    public partial class BasicController : ApiController
+    public partial class BasicController : DemoApiController
     {
         [HttpGet]
         public object MultiMapIndexingQuery(string country = "USA")

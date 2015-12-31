@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Helpers;
@@ -7,7 +8,7 @@ using Raven.Client;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
         [Demo("Full Text Search", DemoOutputType.Flatten)]
@@ -22,17 +23,10 @@ namespace DemoMethods.Advanced
                     .Statistics(out stats)
                     .ToList();
 
-                AddStatisticsToResults(stats, results);
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
 
                 return results;
             }
-        }
-
-        private static void AddStatisticsToResults(RavenQueryStatistics stats, System.Collections.Generic.List<LastFm> results)
-        {
-            LastFm item = new LastFm();
-            item.Artist = $"Query Time={stats.DurationMilliseconds}mSec";
-            results.Add(item);
         }
     }
 }

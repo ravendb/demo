@@ -2,13 +2,14 @@
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
         public object LazyFunctionality(string c = "companies/20")

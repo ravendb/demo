@@ -9,7 +9,7 @@ using DemoMethods.Helpers;
 
 namespace DemoMethods
 {
-    public partial class MenuController : ApiController
+    public partial class MenuController : DemoApiController
     {
         private class MenuResults
         {

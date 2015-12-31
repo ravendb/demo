@@ -10,7 +10,7 @@ using Raven.Client.Listeners;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         public class UsaOnlyQueryListener : IDocumentQueryListener
         {

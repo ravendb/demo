@@ -15,6 +15,8 @@ var DemoViewModel = (function () {
         this.columns = ko.observableArray([]);
         this.rows = ko.observableArray([]);
         this.inProgress = ko.observable(false);
+        this.currentDemoTime = ko.observable("0ms");
+        this.currentServerTime = ko.observable("N/A");
         this.presenter = new DemoViewModelPresenter();
         this.currentDemoCategory = ko.observable();
         this.demoCategories = ko.observableArray(['']);
@@ -53,7 +55,8 @@ var DemoViewModel = (function () {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.inProgress(true);
-        $.ajax(url, "GET").done(function (data) {
+        $.ajax(url, "GET")
+            .done(function (data) {
             _this.inProgress(false);
             console.log(data);
             var jsonObj = data;
@@ -97,10 +100,20 @@ var DemoViewModel = (function () {
             }
             _this.inProgress(false);
             _this.isSimpleJson(true);
-        }).fail(function (jqXHR, textStatus, errorThrown) {
+        })
+            .fail(function (jqXHR, textStatus, errorThrown) {
             _this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
             _this.inProgress(false);
             _this.isHtml(true);
+        })
+            .always(function (a, b, request) {
+            var demoTime = request.getResponseHeader('Demo-Time');
+            var serverTime = request.getResponseHeader('Server-Time');
+            _this.currentDemoTime(demoTime + "ms");
+            if (serverTime)
+                _this.currentServerTime(serverTime + "ms");
+            else
+                _this.currentServerTime("N/A");
         });
     };
     DemoViewModel.prototype.getCode = function () {
@@ -173,4 +186,3 @@ var DemoViewModel = (function () {
     };
     return DemoViewModel;
 })();
-//# sourceMappingURL=demoViewModel.js.map

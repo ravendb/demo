@@ -5,13 +5,14 @@ using System.Linq;
 using System.Reflection;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using Raven.Abstractions.Data;
 using Raven.Imports.Newtonsoft.Json;
 using Raven.Json.Linq;
 
 namespace DemoMethods
 {
-    public partial class MenuController : ApiController
+    public partial class MenuController : DemoApiController
     {
         [HttpGet]
         public object CreateLastFmDataset(string path = null)

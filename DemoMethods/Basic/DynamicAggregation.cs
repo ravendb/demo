@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Client;
 using Raven.Client.Linq;
 
 namespace DemoMethods.Basic
 {
-    public partial class BasicController : ApiController
+    public partial class BasicController : DemoApiController
     {
         [HttpGet]
         public object DynamicAggregation(string fromVal = "0", string toVal = "999")

@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Http;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 
 namespace DemoMethods
 {
-    public partial class MenuController : ApiController
+    public partial class MenuController : DemoApiController
     {
         public static List<Facet> FixedFacet { get; set; }
         public void CreateFixedFacet()

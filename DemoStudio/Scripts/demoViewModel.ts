@@ -19,6 +19,9 @@ class DemoViewModel {
     rows = ko.observableArray([]);
     inProgress = ko.observable(false);
 
+    currentDemoTime = ko.observable("0ms");
+    currentServerTime = ko.observable("N/A");
+
     presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
 
     currentDemoCategory = ko.observable();
@@ -70,61 +73,74 @@ class DemoViewModel {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.inProgress(true);
-        $.ajax(url, "GET").done(data => {
-            this.inProgress(false);
-            console.log(data);
-
-            var jsonObj = data;
-
-            if (currentDemo.DemoOutputType === 'String') {
-                this.htmlView(data);
+        $.ajax(url, "GET")
+            .done(data => {
                 this.inProgress(false);
-                this.isHtml(true);
-                return;
-            }
+                console.log(data);
 
-            if (data instanceof Array === false) {
-                jsonObj = [data];
-            }
+                var jsonObj = data;
 
-            this.columns([]);
-            this.rows([]);
+                if (currentDemo.DemoOutputType === 'String') {
+                    this.htmlView(data);
+                    this.inProgress(false);
+                    this.isHtml(true);
+                    return;
+                }
 
-            for (var i = 0; i < jsonObj.length; i++) {
+                if (data instanceof Array === false) {
+                    jsonObj = [data];
+                }
 
-                var item = jsonObj[i];
-                var newItem = {};
+                this.columns([]);
+                this.rows([]);
 
-                for (var key in item) {
-                    if (i === 0)
-                        this.columns.push(key);
+                for (var i = 0; i < jsonObj.length; i++) {
 
-                    if (typeof item[key] !== "object") {
-                        newItem[key] = item[key];
-                    } else {
-                        if (currentDemo.DemoOutputType === 'Flatten') {
-                            for (var deeperKey in item[key]) {
-                                if (i === 0)
-                                    this.columns.push(deeperKey);
-                                if (typeof item[key][deeperKey] !== "object")
-                                    newItem[deeperKey] = item[key][deeperKey];
-                                else
-                                    newItem[deeperKey] = JSON.stringify(item[key][deeperKey]);
-                            }
+                    var item = jsonObj[i];
+                    var newItem = {};
+
+                    for (var key in item) {
+                        if (i === 0)
+                            this.columns.push(key);
+
+                        if (typeof item[key] !== "object") {
+                            newItem[key] = item[key];
                         } else {
-                            newItem[key] = JSON.stringify(item[key]);
+                            if (currentDemo.DemoOutputType === 'Flatten') {
+                                for (var deeperKey in item[key]) {
+                                    if (i === 0)
+                                        this.columns.push(deeperKey);
+                                    if (typeof item[key][deeperKey] !== "object")
+                                        newItem[deeperKey] = item[key][deeperKey];
+                                    else
+                                        newItem[deeperKey] = JSON.stringify(item[key][deeperKey]);
+                                }
+                            } else {
+                                newItem[key] = JSON.stringify(item[key]);
+                            }
                         }
                     }
+                    this.rows.push(newItem);
                 }
-                this.rows.push(newItem);
-            }
-            this.inProgress(false);
-            this.isSimpleJson(true);
-        }).fail((jqXHR, textStatus, errorThrown) => {
-            this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
-            this.inProgress(false);
-            this.isHtml(true);
-        });
+                this.inProgress(false);
+                this.isSimpleJson(true);
+            })
+            .fail((jqXHR, textStatus, errorThrown) => {
+                this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
+                this.inProgress(false);
+                this.isHtml(true);
+            })
+            .always((a, b, request) => {
+                var demoTime = request.getResponseHeader('Demo-Time');
+                var serverTime = request.getResponseHeader('Server-Time');
+
+                this.currentDemoTime(demoTime + "ms");
+
+                if (serverTime)
+                    this.currentServerTime(serverTime + "ms");
+                else
+                    this.currentServerTime("N/A");
+            });
     }
 
     getCode(): void {

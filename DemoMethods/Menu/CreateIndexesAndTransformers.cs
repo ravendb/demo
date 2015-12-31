@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Reflection;
 using System.Web.Http;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client.Indexes;
 
 namespace DemoMethods
 {
-    public partial class MenuController : ApiController
+    public partial class MenuController : DemoApiController
     {
         [HttpGet]
         public object CreateIndexesAndTransformers()

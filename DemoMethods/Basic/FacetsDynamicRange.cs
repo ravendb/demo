@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using Raven.Client;
 
 namespace DemoMethods.Basic
 {
-    public partial class BasicController : ApiController
+    public partial class BasicController : DemoApiController
     {
         [HttpGet]
         public object FacetsDynamicRange(string fromVal = "10", string toVal = "20")

@@ -2,12 +2,13 @@
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using Raven.Abstractions.Data;
 using Raven.Client.Bundles.MoreLikeThis;
 
 namespace DemoMethods.Advanced
 {
-    public partial class AdvancedController : ApiController
+    public partial class AdvancedController : DemoApiController
     {
         // [HttpGet]
         public object MoreLikeThis(string documentId = "lastfm/9295")
