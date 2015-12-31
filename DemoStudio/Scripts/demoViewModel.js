@@ -15,7 +15,7 @@ var DemoViewModel = (function () {
         this.columns = ko.observableArray([]);
         this.rows = ko.observableArray([]);
         this.inProgress = ko.observable(false);
-        this.currentDemoTime = ko.observable("0ms");
+        this.currentClientTime = ko.observable("N/A");
         this.currentServerTime = ko.observable("N/A");
         this.presenter = new DemoViewModelPresenter();
         this.currentDemoCategory = ko.observable();
@@ -107,11 +107,26 @@ var DemoViewModel = (function () {
             _this.isHtml(true);
         })
             .always(function (a, b, request) {
-            var demoTime = request.getResponseHeader('Demo-Time');
+            var clientTime = request.getResponseHeader('Client-Time');
             var serverTime = request.getResponseHeader('Server-Time');
-            _this.currentDemoTime(demoTime + "ms");
-            if (serverTime)
-                _this.currentServerTime(serverTime + "ms");
+            if (clientTime) {
+                var clientTimeAsNumber = parseFloat(clientTime);
+                var clientTimeString = clientTimeAsNumber.toString();
+                if (clientTimeAsNumber <= 0) {
+                    clientTimeString = "< 0.01";
+                }
+                _this.currentClientTime(clientTimeString + " seconds");
+            }
+            else
+                _this.currentClientTime("N/A");
+            if (serverTime) {
+                var serverTimeAsNumber = parseFloat(serverTime);
+                var serverTimeString = serverTimeAsNumber.toString();
+                if (serverTimeAsNumber <= 0) {
+                    serverTimeString = "< 0.01";
+                }
+                _this.currentServerTime(serverTimeString + " seconds");
+            }
             else
                 _this.currentServerTime("N/A");
         });
@@ -166,6 +181,8 @@ var DemoViewModel = (function () {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
+        this.currentClientTime("N/A");
+        this.currentServerTime("N/A");
     };
     DemoViewModel.prototype.setDemoParameters = function (demo) {
         var _this = this;

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Globalization;
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace DemoMethods.Helpers
             var watch = Stopwatch.StartNew();
             var message = await base.ExecuteAsync(controllerContext, cancellationToken).ConfigureAwait(false);
 
-            AddTime("Demo-Time", message, watch.Elapsed);
+            AddTime("Client-Time", message, watch.Elapsed);
 
             if (ServerTime.HasValue)
                 AddTime("Server-Time", message, ServerTime.Value);
@@ -27,7 +28,9 @@ namespace DemoMethods.Helpers
 
         private static void AddTime(string name, HttpResponseMessage message, TimeSpan time)
         {
-            message.Headers.TryAddWithoutValidation(name, ((int)time.TotalMilliseconds).ToString());
+            var timeRounded = Math.Round(time.TotalSeconds, 2, MidpointRounding.ToEven);
+
+            message.Headers.TryAddWithoutValidation(name, timeRounded.ToString(CultureInfo.InvariantCulture));
         }
     }
 }

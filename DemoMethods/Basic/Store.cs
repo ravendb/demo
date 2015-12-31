@@ -1,5 +1,4 @@
-﻿using System;
-using System.Web.Http;
+﻿using System.Web.Http;
 using DemoMethods.Entities;
 using DemoMethods.Helpers;
 
@@ -8,6 +7,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
+        [Demo("Store", DemoOutputType.String)]
         public object Store()
         {
             var contact = new Contact

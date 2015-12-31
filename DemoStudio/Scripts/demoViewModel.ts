@@ -19,7 +19,7 @@ class DemoViewModel {
     rows = ko.observableArray([]);
     inProgress = ko.observable(false);
 
-    currentDemoTime = ko.observable("0ms");
+    currentClientTime = ko.observable("N/A");
     currentServerTime = ko.observable("N/A");
 
     presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
@@ -131,13 +131,30 @@ class DemoViewModel {
                 this.isHtml(true);
             })
             .always((a, b, request) => {
-                var demoTime = request.getResponseHeader('Demo-Time');
+                var clientTime = request.getResponseHeader('Client-Time');
                 var serverTime = request.getResponseHeader('Server-Time');
 
-                this.currentDemoTime(demoTime + "ms");
+                if (clientTime) {
+                    var clientTimeAsNumber = parseFloat(clientTime);
+                    var clientTimeString = clientTimeAsNumber.toString();
+                    if (clientTimeAsNumber <= 0) {
+                        clientTimeString = "< 0.01";
+                    }
 
-                if (serverTime)
-                    this.currentServerTime(serverTime + "ms");
+                    this.currentClientTime(clientTimeString + " seconds");
+                }
+                else
+                    this.currentClientTime("N/A");
+
+                if (serverTime) {
+                    var serverTimeAsNumber = parseFloat(serverTime);
+                    var serverTimeString = serverTimeAsNumber.toString();
+                    if (serverTimeAsNumber <= 0) {
+                        serverTimeString = "< 0.01";
+                    }
+
+                    this.currentServerTime(serverTimeString + " seconds");
+                }
                 else
                     this.currentServerTime("N/A");
             });
@@ -200,6 +217,8 @@ class DemoViewModel {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
+        this.currentClientTime("N/A");
+        this.currentServerTime("N/A");
     }
 
     setDemoParameters(demo) {
