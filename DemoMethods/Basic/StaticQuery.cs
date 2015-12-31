@@ -9,20 +9,8 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : DemoApiController
     {
-        /*
-        
-         from order in orders
-         select new
-         {
-             OrderId = order.Id,
-             Delay = order.ShippedAt - order.OrderedAt,
-             Price = order.Lines.Sum(x => (x.Quantity * x.PricePerUnit) * (1 - x.Discount))
-         }; 
-          
-         
-         */
-
         [HttpGet]
+        [Demo("Static Query", DemoOutputType.Flatten, demoOrder: 70)]
         public object StaticQuery(string highPrice = "500", string delayDays = "35")
         {
             var HighPrice = int.Parse(highPrice);

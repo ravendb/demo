@@ -4,17 +4,14 @@
     <p>
         Query indexed text.
     </p>
-    <p>
+    <strong class="optional">
         For a Document Query you may use:<br />
-        var usingDocumentQuery = session.Advanced.DocumentQuery<lastfm>
+        var usingDocumentQuery = session.Advanced.DocumentQuery&lt;lastfm&gt;
             <br />
             (new IndexFullTextSearch().IndexName)<br />
             .Search("Query", userParams["Search"])<br />
             .ToList();
-    </p>
-    <p>
-        (<b>Allow FLATTEN results</b> is recommended)
-    </p>
+    </strong>
     <p>
         <a class="btn btn-link" href="http://ravendb.net/docs/article-page/3.0/csharp/indexes/using-analyzers" target="_blank">Visit RavenDB Documantation on <b><i>Full Text Search and Analayzers</i></b></a>
     </p>

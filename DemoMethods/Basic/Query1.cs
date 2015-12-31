@@ -12,23 +12,23 @@ namespace DemoMethods.Basic
     {
 
         [HttpGet]
-        [Demo("Query I", DemoOutputType.Flatten)]
+        [Demo("Query I", DemoOutputType.Flatten, demoOrder: 40)]
         public object Query1(string country = "UK")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 RavenQueryStatistics stats;
-                var q = 
+
+                var query = 
                     from company in session.Query<Company>().Statistics(out stats)
                     where company.Address.Country == country
                     select company;
 
-                var result = q.FirstOrDefault();
-                return new
-                {
-                    stats.IndexName,
-                    Result = result
-                };
+                var result = query.FirstOrDefault();
+
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+
+                return result;
             }
         }
     }

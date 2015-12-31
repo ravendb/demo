@@ -12,6 +12,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
+        [Demo("Facets With Documents", DemoOutputType.Flatten, demoOrder: 125)]
         public object FacetsWithDocuments()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

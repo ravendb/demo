@@ -138,7 +138,7 @@ class DemoViewModel {
                     var clientTimeAsNumber = parseFloat(clientTime);
                     var clientTimeString = clientTimeAsNumber.toString();
                     if (clientTimeAsNumber <= 0) {
-                        clientTimeString = "< 0.01";
+                        clientTimeString = " time<0.01";
                     }
 
                     this.currentClientTime(clientTimeString + " seconds");
@@ -150,7 +150,7 @@ class DemoViewModel {
                     var serverTimeAsNumber = parseFloat(serverTime);
                     var serverTimeString = serverTimeAsNumber.toString();
                     if (serverTimeAsNumber <= 0) {
-                        serverTimeString = "< 0.01";
+                        serverTimeString = " time<0.01";
                     }
 
                     this.currentServerTime(serverTimeString + " seconds");

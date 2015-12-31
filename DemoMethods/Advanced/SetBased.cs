@@ -11,7 +11,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
-        [Demo("Set Based", DemoOutputType.Flatten)]
+        [Demo("Set Based", DemoOutputType.Flatten, demoOrder: 230)]
         public object SetBased(string original = "USA", string newVal = "United States of America")
         {
             var updateByIndex = DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new CompaniesAndCountry().IndexName,

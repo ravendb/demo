@@ -13,6 +13,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
+        [Demo("Upload Download File", DemoOutputType.Flatten, demoOrder: 260)]
         public async Task<object> UploadDownloadFile(string storeString = "Hello World")
         {
             // Create File DemoFs.txt 

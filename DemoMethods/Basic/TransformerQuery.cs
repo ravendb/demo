@@ -13,7 +13,9 @@ namespace DemoMethods.Basic
         {
             public string Name;
         }
+
         [HttpGet]
+        [Demo("Transformer Query", DemoOutputType.Flatten, demoOrder: 80)]
         public object TransformerQuery(string country = "USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
@@ -25,7 +27,7 @@ namespace DemoMethods.Basic
                         .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
                         .Search(x => x.Country, country);
 
-
+                // Stream the results:
                 using (var enumerator = session.Advanced.Stream(query))
                 {
                     while (enumerator.MoveNext())

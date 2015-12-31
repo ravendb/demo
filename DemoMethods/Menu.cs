@@ -27,7 +27,7 @@ namespace DemoMethods
                                                      .Where(x => x.CustomAttributes.Any(attr => attr.AttributeType == typeof(HttpGetAttribute)))
                                                      .Where(x => x.DeclaringType != null && x.DeclaringType.Name.Contains(x.Name) == false)
                                                      .Where(x => x.DeclaringType != null && !x.DeclaringType.Name.Contains("DemoStudio"))
-                                                     .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes") && !x.Name.Contains("CreateLastFmDataset") && !x.Name.Contains("DeployNorthwind")))
+                                                     .Where(x => x.DeclaringType != null && !(x.DeclaringType.Name.Contains("Menu") && !x.Name.Contains("CreateIndexes") && !x.Name.Contains("CreateLastFmDataset") && !x.Name.Contains("DeployNorthwind") && !x.Name.Contains("CreateImdbDataset")))
                                                      .Select(x => new DemoInformation
                                                      {
                                                          ControllerName = x.DeclaringType.Name.Replace("Controller", string.Empty),

@@ -11,7 +11,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
-        [Demo("Full Text Search", DemoOutputType.Flatten)]
+        [Demo("Full Text Search", DemoOutputType.Flatten, demoOrder: 200)]
         public object FullTextSearch(string searchTerm = "Jazz")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

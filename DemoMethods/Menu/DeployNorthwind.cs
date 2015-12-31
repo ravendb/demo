@@ -9,7 +9,7 @@ namespace DemoMethods
     public partial class MenuController : DemoApiController
     {
         [HttpGet]
-        [Demo("Deploy Northwind", DemoOutputType.String)]
+        [Demo("Deploy Northwind", DemoOutputType.String, demoOrder: 305)]
         public object DeployNorthwind(bool deleteDatabase = false)
         {
             try

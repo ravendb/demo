@@ -9,7 +9,7 @@ namespace DemoMethods
     public partial class MenuController : DemoApiController
     {
         [HttpGet]
-        [Demo("Deploy Indexes and Transformers", DemoOutputType.String)]
+        [Demo("Deploy Indexes and Transformers", DemoOutputType.String, demoOrder: 300)]
         public object CreateIndexesAndTransformers()
         {
             // Side By Side Index Creation:

@@ -12,7 +12,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
-        [Demo("Set Based Scripted", DemoOutputType.Flatten)]
+        [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
         public object SetBasedScripted(string original = "USA", string newVal = "United States of America")
         {
             var updateByIndex =

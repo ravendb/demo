@@ -10,12 +10,12 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
+        [Demo("MultiMap Indexing Query", DemoOutputType.Flatten, demoOrder: 100)]
         public object MultiMapIndexingQuery(string country = "USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 return session.Query<NameAndCountry.Result, NameAndCountry>()
-                    .Customize(x => x.WaitForNonStaleResults())
                     .Search(x => x.Country, country)
                     .Select(x => new {x.Name, x.Id})
                     .ToList();

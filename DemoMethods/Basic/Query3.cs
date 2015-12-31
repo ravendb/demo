@@ -10,25 +10,23 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : DemoApiController
     {
-
         [HttpGet]
-        [Demo("Query III")]
+        [Demo("Query III", DemoOutputType.Flatten, demoOrder: 60)]
         public object Query3(string city = "Berlin")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 RavenQueryStatistics stats;
-                var q =
+                var query =
                     from company in session.Query<Company>().Statistics(out stats)
                     where company.Address.City == city
                     select company;
 
-                var result = q.FirstOrDefault();
-                return new
-                {
-                    stats.IndexName,
-                    Result = result
-                };
+                var result = query.FirstOrDefault();
+
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+
+                return result;
             }
         }
     }

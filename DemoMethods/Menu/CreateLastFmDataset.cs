@@ -15,7 +15,7 @@ namespace DemoMethods
     public partial class MenuController : DemoApiController
     {
         [HttpGet]
-        [Demo("Deploy Last.fm", DemoOutputType.String)]
+        [Demo("Deploy Last.fm", DemoOutputType.String, demoOrder: 310)]
         public object CreateLastFmDataset(string path = null, bool deleteDatabase = false)
         {
             // path = @"C:\Users\adi\Downloads\lastfm_subset.zip";

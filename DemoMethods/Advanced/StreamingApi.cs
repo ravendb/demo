@@ -9,13 +9,11 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
+        [Demo("Streaming Api", DemoOutputType.Flatten, demoOrder: 210)]
         public object StreamingApi()
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                // session.Query<Product>().ToList();
-                // session.Query<Product>().Take(int.MaxValue).ToList();
-
                 var query = session.Query<Order>("OrderByCompanyAndCountry");
 
                 var e = session
@@ -31,6 +29,12 @@ namespace DemoMethods.Advanced
                 }
 
                 return new { count };
+
+
+                // Alternatively:
+
+                // session.Query<Product>().ToList();
+                // session.Query<Product>().Take(int.MaxValue).ToList();
             }
         }
     }

@@ -7,15 +7,9 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
-        [Demo("Store", DemoOutputType.String)]
+        [Demo("Store", DemoOutputType.String, demoOrder: 10)]
         public object Store()
         {
-            var contact = new Contact
-            {
-                Name = "Demo",
-                Title = "Mr."
-            };
-
             var address = new Address
             {
                 Country = "IL",
@@ -29,7 +23,6 @@ namespace DemoMethods.Basic
                 ExternalId = "HR",
                 Phone = "+972 4 622 7811",
                 Fax = "+972 153 4 622 7811",
-                Contact = contact,
                 Address = address
             };
 
@@ -37,7 +30,8 @@ namespace DemoMethods.Basic
             {
                 session.Store(newCompany);
                 session.SaveChanges();
-                return newCompany.Id;
+
+                return $"{newCompany.Id} Created Successfully";
             }
         }
 

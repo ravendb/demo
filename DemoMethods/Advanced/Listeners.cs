@@ -23,7 +23,7 @@ namespace DemoMethods.Advanced
         }
 
         [HttpGet]
-        [Demo("Listeners", DemoOutputType.Flatten)]
+        [Demo("Listeners", DemoOutputType.Flatten, demoOrder: 250)]
         public object Listeners(string eid = null)
         {
             // Register Listener : (This is only for demo purpose. Listener shouldn't be registered in this manner)

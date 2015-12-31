@@ -13,6 +13,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
+        [Demo("Facets Dynamic Range", DemoOutputType.Flatten, demoOrder: 130)]
         public object FacetsDynamicRange(string fromVal = "10", string toVal = "20")
         {
             var from = decimal.Parse(fromVal);

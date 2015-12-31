@@ -7,19 +7,20 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : DemoApiController
     {
-      
+
         [HttpGet]
-        public object Edit(int c)
+        [Demo("Edit", DemoOutputType.String, demoOrder: 20)]
+        public object Edit(int companyId = 1)
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                // Edit :
-                var company = session.Load<Company>(c);
+                var company = session.Load<Company>(companyId);
+
                 company.Address.Line2 = "Zip 12345";
-             
+
                 session.SaveChanges();
 
-                return (company.Id);
+                return $"CompanyId {companyId} Edited Successfully";
             }
         }
 

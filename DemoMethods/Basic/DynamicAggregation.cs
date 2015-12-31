@@ -11,6 +11,7 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
+        [Demo("Dynamic Aggregation", DemoOutputType.Flatten, demoOrder: 90)]
         public object DynamicAggregation(string fromVal = "0", string toVal = "999")
         {
             var from = int.Parse(fromVal);

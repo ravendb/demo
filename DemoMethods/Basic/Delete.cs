@@ -7,17 +7,17 @@ namespace DemoMethods.Basic
 {
     public partial class BasicController : DemoApiController
     {
-
         [HttpGet]
-        public object Delete(int c)
+        [Demo("Delete", DemoOutputType.String, demoOrder: 30)]
+        public object Delete(int companyId = 2)
         {
-        
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Delete(session.Load<Company>(c));
+                session.Delete(session.Load<Company>(companyId));
+
                 session.SaveChanges();
 
-                return "deleted";
+                return $"CompanyId {companyId} Deleted Successfully";
             }
         }
     }

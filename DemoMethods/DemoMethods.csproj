@@ -128,6 +128,7 @@
     <Compile Include="Indexes\TransformerNameAndCountry.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Menu\CreateFixedFacet.cs" />
+    <Compile Include="Menu\CreateImdbDataset.cs" />
     <Compile Include="Menu\CreateLastFmDataset.cs" />
     <Compile Include="Menu\CreateIndexesAndTransformers.cs" />
     <Compile Include="Menu\DeployNorthwind.cs" />
@@ -138,6 +139,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Advanced\SetBasedScripted.html" />
     <Content Include="Advanced\StreamingApi.html" />
     <Content Include="Advanced\MoreLikeThis.html" />
     <Content Include="Advanced\Listeners.html" />
@@ -145,10 +147,14 @@
     <Content Include="Advanced\FullTextSearch.html" />
     <Content Include="Advanced\UploadDownloadFile.html" />
     <Content Include="Advanced\SetBased.html" />
+    <Content Include="Basic\Query2.html" />
+    <Content Include="Basic\Query3.html" />
+    <Content Include="Basic\Query1.html" />
     <Content Include="Basic\FacetsDynamicRange.html" />
     <Content Include="Basic\StaticQuery.html" />
     <Content Include="Basic\Edit.html" />
     <Content Include="Basic\Delete.html" />
+    <Content Include="Menu\CreateImdbDataset.html" />
     <Content Include="Menu\CreateLastFmDataset.html" />
     <Content Include="Menu\CreateIndexesAndTransformers.html" />
     <Content Include="Basic\FacetsWithDocuments.html" />

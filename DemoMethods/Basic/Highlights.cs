@@ -12,7 +12,8 @@ namespace DemoMethods.Basic
     public partial class BasicController : DemoApiController
     {
         [HttpGet]
-        public object HighLights(string address = "USA")
+        [Demo("HighLights", DemoOutputType.String, demoOrder: 120)]
+        public object HighLights(string address = "UK USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
