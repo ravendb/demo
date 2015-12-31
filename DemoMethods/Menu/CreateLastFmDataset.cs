@@ -15,6 +15,7 @@ namespace DemoMethods
     public partial class MenuController : DemoApiController
     {
         [HttpGet]
+        [Demo("Deploy Last.fm", DemoOutputType.String)]
         public object CreateLastFmDataset(string path = null)
         {
             // path = @"C:\Users\adi\Downloads\lastfm_subset.zip";
@@ -27,7 +28,8 @@ namespace DemoMethods
             {
                 return e.Message;
             }
-            return string.Format("Last FM Dataset was added to {0} database", DocumentStoreHolder.DatabaseName);
+
+            return string.Format("Last.fm was deployed to {0} database.", DocumentStoreHolder.DatabaseName);
         }
 
         public void AddDocumentsToDb(string path)

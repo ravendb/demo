@@ -2,8 +2,6 @@
 using System.Reflection;
 using System.Web.Http;
 using DemoMethods.Helpers;
-using DemoMethods.Indexes;
-using Raven.Abstractions.Data;
 using Raven.Client.Indexes;
 
 namespace DemoMethods
@@ -11,6 +9,7 @@ namespace DemoMethods
     public partial class MenuController : DemoApiController
     {
         [HttpGet]
+        [Demo("Deploy Indexes and Transformers", DemoOutputType.String)]
         public object CreateIndexesAndTransformers()
         {
             // Side By Side Index Creation:
@@ -24,13 +23,10 @@ namespace DemoMethods
             }
             catch (Exception e)
             {
-                return e;
+                return e.Message;
             }
 
-            return ("Indexes, Transformers and Facets were created successfully");
+            return "Indexes, Transformers and Facets were created successfully";
         }
-
-
-       
     }
 }

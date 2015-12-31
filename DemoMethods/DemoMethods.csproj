@@ -130,6 +130,7 @@
     <Compile Include="Menu\CreateFixedFacet.cs" />
     <Compile Include="Menu\CreateLastFmDataset.cs" />
     <Compile Include="Menu\CreateIndexesAndTransformers.cs" />
+    <Compile Include="Menu\DeployNorthwind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
