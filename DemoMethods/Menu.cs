@@ -41,6 +41,7 @@ namespace DemoMethods
             var result = allPublicMethods
                 .OrderBy(x => x.ControllerName, new ControllerNameComparer())
                 .ThenBy(x => x.DemoOrder)
+                .ThenBy(x => x.DemoDisplayName)
                 .ToList();
 
             var resObj = new MenuResults

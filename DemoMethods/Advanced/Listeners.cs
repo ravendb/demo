@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using DemoMethods.Indexes;
 using Raven.Client;
 using Raven.Client.Listeners;
@@ -22,6 +23,7 @@ namespace DemoMethods.Advanced
         }
 
         [HttpGet]
+        [Demo("Listeners", DemoOutputType.Flatten)]
         public object Listeners(string eid = null)
         {
             // Register Listener : (This is only for demo purpose. Listener shouldn't be registered in this manner)

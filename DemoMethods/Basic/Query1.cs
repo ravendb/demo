@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Web.Http;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 using Raven.Client;
 using Raven.Client.Linq;
 
@@ -11,6 +12,7 @@ namespace DemoMethods.Basic
     {
 
         [HttpGet]
+        [Demo("Query I", DemoOutputType.Flatten)]
         public object Query1(string country = "UK")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())

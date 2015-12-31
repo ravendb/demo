@@ -4,12 +4,14 @@ using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
+        [Demo("Set Based", DemoOutputType.Flatten)]
         public object SetBased(string original = "USA", string newVal = "United States of America")
         {
             var updateByIndex = DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new CompaniesAndCountry().IndexName,

@@ -15,9 +15,6 @@ var DemoViewModel = (function () {
         this.columns = ko.observableArray([]);
         this.rows = ko.observableArray([]);
         this.inProgress = ko.observable(false);
-        this.chkForceJson = ko.observable(false);
-        this.chkForceString = ko.observable(false);
-        this.chkAllowFlatten = ko.observable(false);
         this.presenter = new DemoViewModelPresenter();
         this.currentDemoCategory = ko.observable();
         this.demoCategories = ko.observableArray(['']);
@@ -33,7 +30,6 @@ var DemoViewModel = (function () {
         this.currentDemoParameters = ko.observableArray();
         this.currentDemo.subscribe(function (value) {
             _this.reset();
-            _this.setDemoOptions(value);
             _this.setDemoParameters(value);
         });
         $.ajax("/Menu/Index", "GET").done(function (data) {
@@ -48,21 +44,10 @@ var DemoViewModel = (function () {
             _this.availableDemos.push("Failed to retreive demos");
         });
     }
-    DemoViewModel.prototype.clickForceJson = function () {
-        if (this.chkForceJson() === true) {
-            this.chkForceString(false);
-        }
-        return true;
-    };
-    DemoViewModel.prototype.clickForceString = function () {
-        if (this.chkForceString() == true) {
-            this.chkForceJson(false);
-        }
-        return true;
-    };
     DemoViewModel.prototype.runDemo = function () {
         var _this = this;
         this.presenter.showResults();
+        var currentDemo = this.currentDemo();
         var url = this.getDemoUrl();
         url += this.getQueryString();
         this.isHtml(false);
@@ -72,7 +57,7 @@ var DemoViewModel = (function () {
             _this.inProgress(false);
             console.log(data);
             var jsonObj = data;
-            if (_this.chkForceJson() === false && (_this.chkForceString() === true || typeof (data) === "string")) {
+            if (currentDemo.DemoOutputType === 'String') {
                 _this.htmlView(data);
                 _this.inProgress(false);
                 _this.isHtml(true);
@@ -93,7 +78,7 @@ var DemoViewModel = (function () {
                         newItem[key] = item[key];
                     }
                     else {
-                        if (_this.chkAllowFlatten() === true) {
+                        if (currentDemo.DemoOutputType === 'Flatten') {
                             for (var deeperKey in item[key]) {
                                 if (i === 0)
                                     _this.columns.push(deeperKey);
@@ -168,24 +153,6 @@ var DemoViewModel = (function () {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
-        this.chkForceString(false);
-        this.chkForceJson(false);
-        this.chkAllowFlatten(false);
-    };
-    DemoViewModel.prototype.setDemoOptions = function (demo) {
-        switch (demo.DemoOutputType) {
-            case 'Standard':
-                break;
-            case 'Flatten':
-                this.chkAllowFlatten(true);
-                break;
-            case 'Json':
-                this.chkForceJson(true);
-                break;
-            case 'String':
-                this.chkForceString(true);
-                break;
-        }
     };
     DemoViewModel.prototype.setDemoParameters = function (demo) {
         var _this = this;

@@ -412,13 +412,6 @@ hr {
   color: #1E242A;
   width: 100px;
 }
-.options {
-  display: none;
-}
-.options .checkbox {
-  width: 49%;
-  display: inline-block;
-}
 #htmlExplDiv {
   border: 1px #FFF solid;
   padding: 20px;

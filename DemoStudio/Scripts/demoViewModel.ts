@@ -18,9 +18,6 @@ class DemoViewModel {
     columns = ko.observableArray([]);
     rows = ko.observableArray([]);
     inProgress = ko.observable(false);
-    chkForceJson = ko.observable(false);
-    chkForceString = ko.observable(false);
-    chkAllowFlatten = ko.observable(false);
 
     presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
 
@@ -44,7 +41,6 @@ class DemoViewModel {
         this.currentDemo.subscribe(value => {
             this.reset();
 
-            this.setDemoOptions(value);
             this.setDemoParameters(value);
         });
 
@@ -63,22 +59,11 @@ class DemoViewModel {
         });
     }
 
-    clickForceJson() {
-        if (this.chkForceJson() === true) {
-            this.chkForceString(false);
-        }
-        return true;
-    }
-
-    clickForceString() {
-        if (this.chkForceString() == true) {
-            this.chkForceJson(false);
-        }
-        return true;
-    }
-
     runDemo(): void {
         this.presenter.showResults();
+
+        var currentDemo = this.currentDemo();
+
         var url = this.getDemoUrl();
         url += this.getQueryString();
 
@@ -91,7 +76,7 @@ class DemoViewModel {
 
             var jsonObj = data;
 
-            if (this.chkForceJson() === false && (this.chkForceString() === true || typeof (data) === "string")) {
+            if (currentDemo.DemoOutputType === 'String') {
                 this.htmlView(data);
                 this.inProgress(false);
                 this.isHtml(true);
@@ -117,7 +102,7 @@ class DemoViewModel {
                     if (typeof item[key] !== "object") {
                         newItem[key] = item[key];
                     } else {
-                        if (this.chkAllowFlatten() === true) {
+                        if (currentDemo.DemoOutputType === 'Flatten') {
                             for (var deeperKey in item[key]) {
                                 if (i === 0)
                                     this.columns.push(deeperKey);
@@ -199,25 +184,6 @@ class DemoViewModel {
         this.isHtml(false);
         this.isSimpleJson(false);
         this.getCode();
-        this.chkForceString(false);
-        this.chkForceJson(false);
-        this.chkAllowFlatten(false);
-    }
-
-    setDemoOptions(demo): void {
-        switch (demo.DemoOutputType) {
-            case 'Standard':
-                break;
-            case 'Flatten':
-                this.chkAllowFlatten(true);
-                break;
-            case 'Json':
-                this.chkForceJson(true);
-                break;
-            case 'String':
-                this.chkForceString(true);
-                break;
-        }
     }
 
     setDemoParameters(demo) {

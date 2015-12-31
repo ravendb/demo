@@ -5,12 +5,14 @@ using System.Web.Http;
 using DemoMethods.Indexes;
 using Raven.Abstractions.Data;
 using DemoMethods.Entities;
+using DemoMethods.Helpers;
 
 namespace DemoMethods.Advanced
 {
     public partial class AdvancedController : ApiController
     {
         [HttpGet]
+        [Demo("Set Based Scripted", DemoOutputType.Flatten)]
         public object SetBasedScripted(string original = "USA", string newVal = "United States of America")
         {
             var updateByIndex =
