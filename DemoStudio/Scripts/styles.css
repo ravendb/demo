@@ -49,22 +49,22 @@
 }
 .checkbox label::before {
   border-radius: 0;
-  outline-color: #fbaf3f;
+  outline-color: #FBAF3F;
   background-color: transparent;
 }
 .checkbox-primary input[type="checkbox"]:checked + label::before,
 .checkbox-primary input[type="radio"]:checked + label::before {
-  background-color: #9e033b;
-  border-color: #9e033b;
+  background-color: #9E033B;
+  border-color: #9E033B;
 }
 .radio-primary input[type="radio"] + label::before {
-  outline-color: #fbaf3f;
+  outline-color: #FBAF3F;
 }
 .radio-primary input[type="radio"]:checked + label::before {
-  border-color: #9e033b;
+  border-color: #9E033B;
 }
 .radio-primary input[type="radio"] + label::after {
-  background-color: #9e033b;
+  background-color: #9E033B;
 }
 html,
 body {
@@ -73,13 +73,13 @@ body {
   overflow-x: hidden;
 }
 hr {
-  border-color: #9e033b;
+  border-color: #9E033B;
   border-width: 2px;
 }
 #mainPane {
   position: fixed;
   z-index: 20;
-  background-color: #f4f2f2;
+  background-color: #F4F2F2;
   padding: 30px;
   height: 100%;
   overflow-y: auto;
@@ -88,7 +88,7 @@ hr {
 #mainPane .form-control {
   height: 42px;
   font-size: 22px;
-  color: #1e242a;
+  color: #1E242A;
 }
 #mainPane .form-control:not(select) {
   font-size: 16px;
@@ -194,7 +194,7 @@ hr {
 }
 #codeContainer .btn-default .glyphicon,
 #resultContainer .btn-default .glyphicon {
-  color: #cccccc;
+  color: #CCCCCC;
 }
 #codeContainer {
   background-color: #2B2727;
@@ -203,13 +203,13 @@ hr {
   position: absolute;
 }
 #codeContainer .btn-default .glyphicon {
-  color: #787c7f;
+  color: #787C7F;
 }
 #codeContainer .btn-default .glyphicon:before {
   content: "\e252";
 }
 #codeContainer h1 {
-  color: #fbaf3f;
+  color: #FBAF3F;
 }
 #codeContainer #codediv {
   -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
@@ -242,7 +242,7 @@ hr {
 #resultContainer #resultsDiv table,
 #resultContainer #resultsDiv tr,
 #resultContainer #resultsDiv td {
-  border-color: #787c7f;
+  border-color: #787C7F;
 }
 #resultContainer #resultsDiv th,
 #resultContainer #resultsDiv td {
@@ -261,18 +261,18 @@ hr {
 #resultContainer #resultsDiv.showFull tr {
   display: table-row;
 }
-.trim-container {
+.compact-container {
   display: none;
   position: absolute;
   right: 25px;
   top: 80px;
   font-size: 18px;
 }
-.trim-container label:before {
+.compact-container label:before {
   top: 4px;
   cursor: pointer;
 }
-.trim-container label:after {
+.compact-container label:after {
   top: 4px;
 }
 .showResult #resultContainer {
@@ -291,7 +291,7 @@ hr {
   display: block;
   height: auto;
 }
-.showResult #resultContainer .trim-container {
+.showResult #resultContainer .compact-container {
   display: block;
 }
 .showResult #resultContainer .glyphicon:before {
@@ -327,7 +327,7 @@ hr {
   content: '';
   display: block;
   border-radius: 100px;
-  background: url(img/loading.gif) #9e033b center no-repeat;
+  background: url(img/loading.gif) #9E033B center no-repeat;
   height: 50px;
   width: 50px;
   margin: auto;
@@ -408,8 +408,8 @@ hr {
   width: 100%;
 }
 .input-group-addon {
-  background-color: #f4f2f2;
-  color: #1e242a;
+  background-color: #F4F2F2;
+  color: #1E242A;
   width: 100px;
 }
 .options {
@@ -437,12 +437,12 @@ hr {
   margin: auto;
 }
 .btn-link {
-  color: #1e242a;
+  color: #1E242A;
   padding-left: 40px;
   background-image: url(img/ico_link.png) !important;
   background-size: contain;
   background-repeat: no-repeat;
-  border: 1px solid #fbaf3f !important;
+  border: 1px solid #FBAF3F !important;
   white-space: normal;
 }
 .btn-link:hover {
@@ -450,7 +450,7 @@ hr {
   text-decoration: none !important;
 }
 .optional {
-  color: #9e033b;
+  color: #9E033B;
 }
 .optional:before {
   content: "\e019";
@@ -466,4 +466,3 @@ hr {
 pre {
   margin: 0;
 }
-/*# sourceMappingURL=styles.css.map */

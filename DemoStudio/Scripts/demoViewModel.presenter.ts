@@ -5,7 +5,7 @@
         $("#leftCollapse").click(this.leftCollapse.bind(this));
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
-        $("#trimResults").change(this.expandResults.bind(this));
+        $("#compactResults").change(this.expandResults.bind(this));
     }
 
     leftCollapse(): void {
@@ -33,12 +33,15 @@
     }
 
     expandResults(): void {
-
-        if ($("#trimResults").val($(this).is(':checked'))) {
-            $('#resultsDiv').removeClass('showFull');
-            
+        var $compactResults = $("#compactResults");
+        var isChecked = $compactResults.is(':checked');
+        var $resultsDiv = $('#resultsDiv');
+        if (isChecked) {
+            $compactResults.prop('checked', true);
+            $resultsDiv.removeClass('showFull');
         } else {
-            $('#resultsDiv').addClass('showFull');
+            $compactResults.prop('checked', false);
+            $resultsDiv.addClass('showFull');
         }
     }
 }

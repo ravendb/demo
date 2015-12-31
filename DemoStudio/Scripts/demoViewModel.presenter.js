@@ -4,8 +4,7 @@ var DemoViewModelPresenter = (function () {
         $("#leftCollapse").click(this.leftCollapse.bind(this));
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
-        //$("#fullResult").click(this.expandResults.bind(this));
-        $("#trimResults").change(this.expandResults.bind(this));
+        $("#compactResults").change(this.expandResults.bind(this));
     }
     DemoViewModelPresenter.prototype.leftCollapse = function () {
         if (this.$body.hasClass('collapse-left')) {
@@ -30,13 +29,17 @@ var DemoViewModelPresenter = (function () {
         this.$body.addClass('showResult');
     };
     DemoViewModelPresenter.prototype.expandResults = function () {
-        if ($('#resultsDiv').hasClass('showFull')) {
-            $('#resultsDiv').removeClass('showFull');
+        var $compactResults = $("#compactResults");
+        var isChecked = $compactResults.is(':checked');
+        var $resultsDiv = $('#resultsDiv');
+        if (isChecked) {
+            $compactResults.prop('checked', true);
+            $resultsDiv.removeClass('showFull');
         }
         else {
-            $('#resultsDiv').addClass('showFull');
+            $compactResults.prop('checked', false);
+            $resultsDiv.addClass('showFull');
         }
     };
     return DemoViewModelPresenter;
 })();
-//# sourceMappingURL=demoViewModel.presenter.js.map
