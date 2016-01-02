@@ -16,7 +16,8 @@ namespace DemoMethods
         {
             var filesStore = new FilesStore()
             {
-                Url = DocumentStoreHolder.ConnectionStringName,
+                // Url = DocumentStoreHolder.ConnectionStringName,
+                Url = DemoUtilities.ServerInfo,
                 DefaultFileSystem = DocumentStoreHolder.DatabaseName + "FS"
             }.Initialize();
 

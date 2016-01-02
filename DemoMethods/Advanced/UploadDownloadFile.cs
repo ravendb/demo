@@ -13,7 +13,7 @@ namespace DemoMethods.Advanced
     public partial class AdvancedController : DemoApiController
     {
         [HttpGet]
-        [Demo("Upload Download File", DemoOutputType.Flatten, demoOrder: 260)]
+        [Demo("Upload Download File", DemoOutputType.String, demoOrder: 260)]
         public async Task<object> UploadDownloadFile(string storeString = "Hello World")
         {
             // Create File DemoFs.txt 
@@ -27,17 +27,26 @@ namespace DemoMethods.Advanced
             {
                 await FileStoreHolder.FilesSystemStore.AsyncFilesCommands.UploadAsync("/demofile.txt", fs,
                     new RavenJObject
+                    {
                         {
-                            {
-                                "AllowRead", "Everyone"
-                            }
-                        });
-                fs.Close();
+                            "AllowRead", "Everyone"
+                        }
+                    });
             }
             catch (IOException ex)
             {
-                fs.Close();
                 return ex.Message;
+            }
+            finally
+            {
+                try
+                {
+                    fs.Close();
+                }
+                catch (Exception e)
+                {
+                    // ignored
+                }
             }
 
             // Download
