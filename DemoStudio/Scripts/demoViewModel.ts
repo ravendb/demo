@@ -91,8 +91,11 @@ class DemoViewModel {
                     jsonObj = [data];
                 }
 
-                this.columns([]);
-                this.rows([]);
+		        this.columns([]);
+				this.rows([]);
+
+				var newColumns = [];
+				var newRows = [];
 
                 for (var i = 0; i < jsonObj.length; i++) {
 
@@ -101,7 +104,7 @@ class DemoViewModel {
 
                     for (var key in item) {
                         if (i === 0)
-                            this.columns.push(key);
+                            newColumns.push(key);
 
                         if (typeof item[key] !== "object") {
                             newItem[key] = item[key];
@@ -120,8 +123,12 @@ class DemoViewModel {
                             }
                         }
                     }
-                    this.rows.push(newItem);
+                    newRows.push(newItem);
                 }
+
+				this.columns(newColumns);
+                this.rows(newRows);
+
                 this.inProgress(false);
                 this.isSimpleJson(true);
             })
