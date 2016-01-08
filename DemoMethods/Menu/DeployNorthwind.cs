@@ -19,15 +19,15 @@ namespace DemoMethods
                     DocumentStoreHolder.Store
                         .DatabaseCommands
                         .GlobalAdmin
-                        .DeleteDatabase(DocumentStoreHolder.DatabaseName, hardDelete: true);
+                        .DeleteDatabase(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true);
                 }
 
                 DocumentStoreHolder.Store
                     .DatabaseCommands
                     .GlobalAdmin
-                    .EnsureDatabaseExists(DocumentStoreHolder.DatabaseName);
+                    .EnsureDatabaseExists(DocumentStoreHolder.NorthwindDatabaseName);
 
-                var url = string.Format("{0}/studio-tasks/createSampleData", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.DatabaseName));
+                var url = string.Format("{0}/studio-tasks/createSampleData", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.NorthwindDatabaseName));
                 var requestFactory = DocumentStoreHolder.Store.JsonRequestFactory;
 
                 var request = requestFactory.CreateHttpJsonRequest(new CreateHttpJsonRequestParams(null, url, "POST", DocumentStoreHolder.Store.DatabaseCommands.PrimaryCredentials, DocumentStoreHolder.Store.Conventions));
@@ -38,7 +38,7 @@ namespace DemoMethods
                 return e.Message;
             }
 
-            return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.DatabaseName);
+            return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);
         }
     }
 }

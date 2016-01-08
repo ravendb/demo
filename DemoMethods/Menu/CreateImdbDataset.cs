@@ -28,14 +28,14 @@ namespace DemoMethods
                 DocumentStoreHolder.Store
                     .DatabaseCommands
                     .GlobalAdmin
-                    .EnsureDatabaseExists(DocumentStoreHolder.DatabaseName);
+                    .EnsureDatabaseExists(DocumentStoreHolder.MediaDatabaseName);
 
-                var url = string.Format("{0}/studio-tasks/loadCsvFile", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.DatabaseName));
+                var url = string.Format("{0}/studio-tasks/loadCsvFile", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.MediaDatabaseName));
 
                 var fs = File.OpenRead(path);
                 Upload(url, fs);
 
-                return $"Northwind was deployed to '{DocumentStoreHolder.DatabaseName}' database.";
+                return $"Northwind was deployed to '{DocumentStoreHolder.MediaDatabaseName}' database.";
             }
             catch (Exception e)
             {
@@ -49,7 +49,7 @@ namespace DemoMethods
             using (var client = new HttpClient())
             using (var formData = new MultipartFormDataContent())
             {
-                formData.Add(fileStreamContent, "file1", "file1");
+                formData.Add(fileStreamContent, "DVD", "DVD");
                 var response = client.PostAsync(actionUrl, formData).Result;
                 if (!response.IsSuccessStatusCode)
                 {

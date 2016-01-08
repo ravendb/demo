@@ -14,7 +14,7 @@ namespace DemoMethods.Advanced
         [Demo("Full Text Search", DemoOutputType.Flatten, demoOrder: 200)]
         public object FullTextSearch(string searchTerm = "Jazz")
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (var session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 RavenQueryStatistics stats;
                 var results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()

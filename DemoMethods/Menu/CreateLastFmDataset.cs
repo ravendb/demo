@@ -24,16 +24,16 @@ namespace DemoMethods
             {
                 if (deleteDatabase)
                 {
-                    DocumentStoreHolder.Store
+                    DocumentStoreHolder.MediaStore
                         .DatabaseCommands
                         .GlobalAdmin
-                        .DeleteDatabase(DocumentStoreHolder.DatabaseName, hardDelete: true);
+                        .DeleteDatabase(DocumentStoreHolder.MediaDatabaseName, hardDelete: true);
                 }
 
-                DocumentStoreHolder.Store
+                DocumentStoreHolder.MediaStore
                     .DatabaseCommands
                     .GlobalAdmin
-                    .EnsureDatabaseExists(DocumentStoreHolder.DatabaseName);
+                    .EnsureDatabaseExists(DocumentStoreHolder.MediaDatabaseName);
 
                 AddDocumentsToDb(path);
             }
@@ -42,7 +42,7 @@ namespace DemoMethods
                 return e.Message;
             }
 
-            return string.Format("Last.fm was deployed to {0} database.", DocumentStoreHolder.DatabaseName);
+            return string.Format("Last.fm was deployed to {0} database.", DocumentStoreHolder.MediaDatabaseName);
         }
 
         public void AddDocumentsToDb(string path)
@@ -50,7 +50,7 @@ namespace DemoMethods
             int count = 1;
             using (var stream = string.IsNullOrWhiteSpace(path) ? GetEmbeddedLastFmSubset() : File.OpenRead(path))
             using (var zip = new ZipArchive(stream, ZipArchiveMode.Read))
-            using (var bulkInsert = DocumentStoreHolder.Store.BulkInsert(options: new BulkInsertOptions { OverwriteExisting = true, BatchSize = 256 }))
+            using (var bulkInsert = DocumentStoreHolder.MediaStore.BulkInsert(options: new BulkInsertOptions { OverwriteExisting = true, BatchSize = 256 }))
             {
                 foreach (var entry in zip.Entries)
                 {

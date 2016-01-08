@@ -2,6 +2,7 @@
 using System.Reflection;
 using System.Web.Http;
 using DemoMethods.Helpers;
+using DemoMethods.Indexes;
 using Raven.Client.Indexes;
 
 namespace DemoMethods
@@ -18,8 +19,10 @@ namespace DemoMethods
             try
             {
                 IndexCreation.CreateIndexes(Assembly.GetExecutingAssembly(), DocumentStoreHolder.Store);
-
                 CreateFixedFacet();
+
+                DocumentStoreHolder.MediaStore.ExecuteIndex(new LastFmAnalyzed());
+                DocumentStoreHolder.MediaStore.ExecuteTransformer(new TransformerLastFm());
             }
             catch (Exception e)
             {

@@ -28,7 +28,7 @@ namespace DemoServer
                                 Console.WriteLine(@"                  Default : 'localhost:9090'");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"    -dn address : Database Name");
-                                Console.WriteLine(@"                  Default : 'Northwind'");
+                                Console.WriteLine(@"                  Default : 'Demo'");
                                 Console.WriteLine(@"");
                                 Console.WriteLine(@"Note : Do not add 'http://' prefix to addresses.");
                                 Console.WriteLine(@"");
@@ -75,7 +75,7 @@ namespace DemoServer
             }
             demoServerUrl = string.Format("Http://{0}", demoServerUrl);
             var dsUri = new Uri(demoServerUrl);
-            DocumentStoreHolder.SetDbInfo("DemoServer", databaseName);
+            DocumentStoreHolder.SetDbInfo("DemoServer", databaseName, "Media");
             var server = new DemoServer();
             server.Start(dsUri.Host, dsUri.Port);
         }

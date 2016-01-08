@@ -47,7 +47,9 @@ namespace DemoServer
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.WriteLine("      Demo Serving  @ http://{0}:{1}", Url, Port);
                 Console.WriteLine("      Using RavenDB @ {0}", DocumentStoreHolder.ServerUrl);
-                Console.WriteLine("      For Database  : {0}", DocumentStoreHolder.DatabaseName);
+                Console.WriteLine("      For Database    : {0}", DocumentStoreHolder.NorthwindDatabaseName);
+                Console.WriteLine("      RavenFS DB Name : {0}FS", DocumentStoreHolder.NorthwindDatabaseName);
+                Console.WriteLine("      Media Database  : {0}", DocumentStoreHolder.MediaDatabaseName);
                 Console.WriteLine("");                
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("              Press any key to stop ...");

@@ -18,7 +18,7 @@ namespace DemoMethods
             {
                 // Url = DocumentStoreHolder.ConnectionStringName,
                 Url = DemoUtilities.ServerInfo,
-                DefaultFileSystem = DocumentStoreHolder.DatabaseName + "FS"
+                DefaultFileSystem = DocumentStoreHolder.NorthwindDatabaseName + "FS"
             }.Initialize();
 
             return filesStore;

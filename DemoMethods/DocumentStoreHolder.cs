@@ -6,38 +6,47 @@ namespace DemoMethods
 {
     public static class DocumentStoreHolder
     {
-        private static readonly Lazy<IDocumentStore> DocStore = new Lazy<IDocumentStore>(CreateStore);
+        private static readonly Lazy<IDocumentStore> DocStore = new Lazy<IDocumentStore>(CreateNorthwindStore);
+        private static readonly Lazy<IDocumentStore> MediaDocStore = new Lazy<IDocumentStore>(CreateMediaStore);
 
-        public static IDocumentStore Store
-        {
-            get { return DocStore.Value; }
-        }
+        public static IDocumentStore Store => DocStore.Value;
 
-        public static string DatabaseName { get; set; }
+        public static IDocumentStore MediaStore => MediaDocStore.Value;
+
+        public static string NorthwindDatabaseName { get; set; }
+        public static string MediaDatabaseName { get; set; }
 
         public static string ConnectionStringName { get; set; }
 
-        public static string ServerUrl
-        {
-            get { return Store.Url; }
-        }
+        public static string ServerUrl => Store.Url;
 
-        public static void SetDbInfo(string connectionStringName, string dbName)
+        public static void SetDbInfo(string connectionStringName, string dbNameNorthwind, string dbNameMedia)
         {
             ConnectionStringName = connectionStringName;
-            DatabaseName = dbName;
+            NorthwindDatabaseName = dbNameNorthwind;
+            MediaDatabaseName = dbNameMedia;
         }
 
-        private static IDocumentStore CreateStore()
+        private static IDocumentStore CreateNorthwindStore()
         {
             var docStoreInit = new DocumentStore
             {
                 ConnectionStringName = ConnectionStringName,
-                DefaultDatabase = DatabaseName
+                DefaultDatabase = NorthwindDatabaseName
             }.Initialize();
 
             return docStoreInit;
         }
 
+        private static IDocumentStore CreateMediaStore()
+        {
+            var docStoreInit = new DocumentStore
+            {
+                ConnectionStringName = ConnectionStringName,
+                DefaultDatabase = MediaDatabaseName
+            }.Initialize();
+
+            return docStoreInit;
+        }
     }
 }
