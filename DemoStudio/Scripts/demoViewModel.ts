@@ -112,7 +112,7 @@ class DemoViewModel {
                             if (currentDemo.DemoOutputType === 'Flatten') {
                                 for (var deeperKey in item[key]) {
                                     if (i === 0)
-                                        this.columns.push(deeperKey);
+                                        newColumns.push(deeperKey);
                                     if (typeof item[key][deeperKey] !== "object")
                                         newItem[deeperKey] = item[key][deeperKey];
                                     else
@@ -126,11 +126,11 @@ class DemoViewModel {
                     newRows.push(newItem);
                 }
 
+				this.inProgress(false);
+                this.isSimpleJson(true);
+
 				this.columns(newColumns);
                 this.rows(newRows);
-
-                this.inProgress(false);
-                this.isSimpleJson(true);
             })
             .fail((jqXHR, textStatus, errorThrown) => {
                 this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
