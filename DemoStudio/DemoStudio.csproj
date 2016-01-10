@@ -84,25 +84,34 @@
     <Content Include="Scripts\bootstrap\variables.min.css">
       <DependentUpon>variables.css</DependentUpon>
     </Content>
+    <Content Include="Scripts\cbpQTRotator.css">
+      <DependentUpon>cbpQTRotator.less</DependentUpon>
+    </Content>
+    <Content Include="Scripts\cbpQTRotator.min.css">
+      <DependentUpon>cbpQTRotator.css</DependentUpon>
+    </Content>
     <Content Include="Scripts\demostyles.css" />
     <Content Include="Scripts\demoViewModel.presenter.js" />
     <Content Include="Scripts\favicon.ico" />
     <Content Include="Scripts\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Scripts\fonts\lato-black-webfont.svg" />
-    <Content Include="Scripts\img\advantages.png" />
     <Content Include="Scripts\img\ico_collapse.png" />
     <Content Include="Scripts\img\ico_expand.png" />
     <Content Include="Scripts\img\ico_link.png" />
     <Content Include="Scripts\img\ico_more.png" />
     <Content Include="Scripts\img\ico_run.png" />
     <Content Include="Scripts\img\ico_runTab.png" />
+    <Content Include="Scripts\img\jetbrains.png" />
     <Content Include="Scripts\img\loading.gif" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-2.1.4.min.js" />
     <Content Include="Scripts\jquery-ui.css" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\jquery.cbpQTRotator.js" />
+    <Content Include="Scripts\jquery.cbpQTRotator.min.js" />
     <Content Include="Scripts\lodash.js" />
     <Content Include="Scripts\lodash.min.js" />
+    <Content Include="Scripts\modernizr.custom.js" />
     <Content Include="Scripts\npm.js" />
     <Content Include="Scripts\prism.css" />
     <Content Include="Scripts\prism.js" />
@@ -230,6 +239,7 @@
     <Content Include="Scripts\fonts\lato-black-webfont.woff" />
     <Content Include="Scripts\fonts\lato-black-webfont.woff2" />
     <Content Include="Scripts\demoViewModel.presenter.js.map" />
+    <Content Include="Scripts\cbpQTRotator.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -254,6 +264,7 @@
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\demoViewModel.presenter.ts" />
     <TypeScriptCompile Include="Scripts\demoViewModel.ts" />
+    <TypeScriptCompile Include="Scripts\typings\cbpQTRotator\cbpQTRotator.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\jquery\jquery.d.ts" />
   </ItemGroup>
   <PropertyGroup>

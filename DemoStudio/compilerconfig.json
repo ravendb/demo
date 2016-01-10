@@ -2,5 +2,9 @@
   {
     "outputFile": "Scripts/styles.css",
     "inputFile": "Scripts/styles.less"
+  },
+  {
+    "outputFile": "Scripts/cbpQTRotator.css",
+    "inputFile": "Scripts/cbpQTRotator.less"
   }
 ]

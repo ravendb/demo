@@ -5,13 +5,13 @@
 <head>
     <meta charset="utf-8" />
     <title>RavenDB Demo</title>
-    <script src="studio/scripts/jquery-1.10.2.js"></script>
     <link rel="shortcut icon" type='image/x-icon' href="studio/scripts/favicon.ico" />
 
     <link href="studio/scripts/bootstrap/bootstrap.min.css" rel="stylesheet" />
     <link href="studio/scripts/awesome-bootstrap-checkbox.css" rel="stylesheet" />
     <link href="studio/scripts/prism.css" rel="stylesheet" />
-    <link rel="stylesheet" href="studio/scripts/styles.css" />
+    <link href="studio/scripts/styles.css" rel="stylesheet" />
+    <link href="studio/scripts/cbpQTRotator.css" rel="stylesheet" />
 </head>
 <body>
     <div id="demoViewModel">
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div id="htmlExplDiv" data-bind="html: htmlExpl, visible: htmlExpl"></div>
             </div>
             <div class="vbottom">
@@ -105,14 +105,36 @@
             </div>
         </div>
 
-        <div id="adContainer" data-bind="visible: $root.isDemoCategorySelected() == false">
-            <img src="studio/scripts/img/advantages.png">
+        <div id="adContainer" class="container" data-bind="visible: $root.isDemoCategorySelected() == false">
+            <div id="cbp-qtrotator" class="cbp-qtrotator">
+                <div class="cbp-qtcontent">
+                    <blockquote>
+                        <p>As a document database it remains true to the core principles of these type of storage mechanisms. Somehow it managed to combine the best of relational databases with that of document databases.</p>
+                        <footer>Hadi Hariri <img src="studio/scripts/img/jetbrains.png" /></footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <blockquote>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent accumsan quis dui sit amet pulvinar. Quisque quis turpis sed nunc commodo consequat nec id velit.</p>
+                        <footer>Lorem Ipsum</footer>
+                    </blockquote>
+                </div>
+                <div class="cbp-qtcontent">
+                    <blockquote>
+                        <p>Vestibulum pulvinar scelerisque ornare. Vestibulum at nunc magna. Cras egestas finibus suscipit. In hac habitasse platea dictumst.</p>
+                        <footer>Vestibulum Pulvinar</footer>
+                    </blockquote>
+                </div>
+            </div>
         </div>
 
         <div class="processing" data-bind="visible: inProgress">
             <div id="ajaxloader"></div>
             Please Wait...
         </div>
+        <script src="studio/scripts/modernizr.custom.js"></script>
+        <script src="studio/scripts/jquery-1.10.2.js"></script>
+        <script src="studio/scripts/jquery.cbpQTRotator.min.js"></script>
         <script src="studio/scripts/prism.js"></script>
         <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
         <script type="text/javascript" src="/studio/scripts/lodash.min.js"></script>
