@@ -454,3 +454,8 @@ hr {
 pre {
   margin: 0;
 }
+.relative {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
