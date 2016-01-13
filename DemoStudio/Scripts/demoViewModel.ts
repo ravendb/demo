@@ -76,7 +76,7 @@ class DemoViewModel {
         $.ajax(url, "GET")
             .done(data => {
                 this.inProgress(false);
-                console.log(data);
+                //console.log(data);
 
                 var jsonObj = data;
 
@@ -129,7 +129,7 @@ class DemoViewModel {
 				this.inProgress(false);
                 this.isSimpleJson(true);
 
-				this.columns(newColumns);
+                this.columns(newColumns);
                 this.rows(newRows);
             })
             .fail((jqXHR, textStatus, errorThrown) => {

@@ -18,6 +18,7 @@ namespace DemoMethods.Advanced
             {
                 RavenQueryStatistics stats;
                 var results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
+                    .Take(20)
                     .Search(x => x.Query, searchTerm)
                     .TransformWith<TransformerLastFm, LastFm>()
                     .Statistics(out stats)
