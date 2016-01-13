@@ -67,6 +67,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Advanced\ReplicationFailover.cs" />
     <Compile Include="Advanced\FullTextSearch.cs" />
     <Compile Include="Advanced\LazyFunctionality.cs" />
     <Compile Include="Advanced\Listeners.cs" />
@@ -139,6 +140,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Advanced\ReplicationFailover.html" />
     <Content Include="Advanced\SetBasedScripted.html" />
     <Content Include="Advanced\StreamingApi.html" />
     <Content Include="Advanced\MoreLikeThis.html" />
