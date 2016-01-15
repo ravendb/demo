@@ -13,7 +13,7 @@ namespace DemoMethods.Basic
     {
         [HttpGet]
         [Demo("HighLights", DemoOutputType.String, demoOrder: 120)]
-        public object HighLights(string address = "UK USA")
+        public object HighLights(string searchTerm = "UK USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -23,7 +23,7 @@ namespace DemoMethods.Basic
                     .Advanced
                     .DocumentQuery<Company, CompaniesAndAddresses>()
                     .Highlight("Address", 128, 1, out highlightings)
-                    .Search("Address", address)
+                    .Search("Address", searchTerm)
                     .ToList();
 
                 var builder = new StringBuilder()
