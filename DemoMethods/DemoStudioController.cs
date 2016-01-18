@@ -28,19 +28,19 @@ namespace DemoMethods
             return WriteEmbeddedFile(path);
         }
 
-        public HttpResponseMessage WriteEmbeddedFile(string docPath)
+        private HttpResponseMessage WriteEmbeddedFile(string docPath)
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "../DemoStudio", docPath);
+            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\DemoStudio", docPath);
             if (File.Exists(filePath))
                 return WriteFile(filePath);
 
-            filePath = Path.Combine("../../../DemoStudio", docPath);
+            filePath = Path.Combine("..\\..\\..\\DemoStudio", docPath);
             if (File.Exists(filePath))
                 return WriteFile(filePath);
             return null;
         }
 
-        public HttpResponseMessage WriteFile(string filePath)
+        private HttpResponseMessage WriteFile(string filePath)
         {
 
             var msg = new HttpResponseMessage
