@@ -64,8 +64,8 @@ namespace DemoMethods
                 {
                     try
                     {
-                        var docpath = Path.GetFullPath("../../../DemoMethods/" + explanation + ".html");
-                        var doclines = File.ReadAllText(docpath);
+                        var docPath = Path.GetFullPath(BasePath + "DemoMethods" + explanation + ".html");
+                        var doclines = File.ReadAllText(docPath);
                         return doclines;
                     }
                     catch (Exception)
@@ -77,7 +77,7 @@ namespace DemoMethods
                 if (file == null)
                     return "No code found...";
 
-                var path = Path.GetFullPath("../../../DemoMethods/" + file + ".cs");
+                var path = Path.GetFullPath(BasePath + "DemoMethods" + file + ".cs");
 
                 return File.ReadAllText(path);
             }

@@ -9,8 +9,33 @@ using System.Web.Http.Controllers;
 
 namespace DemoMethods.Helpers
 {
+    using System.IO;
+    using System.Web.Hosting;
+
     public class DemoApiController : ApiController
     {
+        private string basePath;
+        protected string BasePath
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(basePath))
+                {
+                    basePath = HostingEnvironment.MapPath("~/");
+                    if (string.IsNullOrEmpty(basePath) == false)
+                    {
+                        basePath = Path.GetFullPath(basePath + "..\\");
+                    }
+                    else
+                    {
+                        basePath = Path.GetFullPath("..\\..\\..\\");
+                    }
+                }
+
+                return basePath;
+            }
+        }
+
         protected TimeSpan? ServerTime { get; set; }
 
         public override async Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)

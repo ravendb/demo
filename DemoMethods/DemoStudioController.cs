@@ -30,13 +30,10 @@ namespace DemoMethods
 
         private HttpResponseMessage WriteEmbeddedFile(string docPath)
         {
-            var filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "..\\DemoStudio", docPath);
+            var filePath = Path.GetFullPath(BasePath + "DemoStudio\\" + docPath);
             if (File.Exists(filePath))
                 return WriteFile(filePath);
 
-            filePath = Path.Combine("..\\..\\..\\DemoStudio", docPath);
-            if (File.Exists(filePath))
-                return WriteFile(filePath);
             return null;
         }
 
