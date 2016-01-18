@@ -58,7 +58,7 @@ var DemoViewModel = (function () {
         $.ajax(url, "GET")
             .done(function (data) {
             _this.inProgress(false);
-            console.log(data);
+            //console.log(data);
             var jsonObj = data;
             if (currentDemo.DemoOutputType === 'String') {
                 _this.htmlView(data);
@@ -71,12 +71,14 @@ var DemoViewModel = (function () {
             }
             _this.columns([]);
             _this.rows([]);
+            var newColumns = [];
+            var newRows = [];
             for (var i = 0; i < jsonObj.length; i++) {
                 var item = jsonObj[i];
                 var newItem = {};
                 for (var key in item) {
                     if (i === 0)
-                        _this.columns.push(key);
+                        newColumns.push(key);
                     if (typeof item[key] !== "object") {
                         newItem[key] = item[key];
                     }
@@ -84,7 +86,7 @@ var DemoViewModel = (function () {
                         if (currentDemo.DemoOutputType === 'Flatten') {
                             for (var deeperKey in item[key]) {
                                 if (i === 0)
-                                    _this.columns.push(deeperKey);
+                                    newColumns.push(deeperKey);
                                 if (typeof item[key][deeperKey] !== "object")
                                     newItem[deeperKey] = item[key][deeperKey];
                                 else
@@ -96,10 +98,12 @@ var DemoViewModel = (function () {
                         }
                     }
                 }
-                _this.rows.push(newItem);
+                newRows.push(newItem);
             }
             _this.inProgress(false);
             _this.isSimpleJson(true);
+            _this.columns(newColumns);
+            _this.rows(newRows);
         })
             .fail(function (jqXHR, textStatus, errorThrown) {
             _this.htmlView('Error Status : ' + jqXHR.status + '<br>' + jqXHR.responseText);
@@ -113,7 +117,7 @@ var DemoViewModel = (function () {
                 var clientTimeAsNumber = parseFloat(clientTime);
                 var clientTimeString = clientTimeAsNumber.toString();
                 if (clientTimeAsNumber <= 0) {
-                    clientTimeString = "< 0.01";
+                    clientTimeString = " time<0.01";
                 }
                 _this.currentClientTime(clientTimeString + " seconds");
             }
@@ -123,7 +127,7 @@ var DemoViewModel = (function () {
                 var serverTimeAsNumber = parseFloat(serverTime);
                 var serverTimeString = serverTimeAsNumber.toString();
                 if (serverTimeAsNumber <= 0) {
-                    serverTimeString = "< 0.01";
+                    serverTimeString = " time<0.01";
                 }
                 _this.currentServerTime(serverTimeString + " seconds");
             }
