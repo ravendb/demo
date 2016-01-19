@@ -6,7 +6,7 @@
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
         $("#compactResults").change(this.expandResults.bind(this));
-        $('#cbp-qtrotator').cbpQTRotator();
+        $('#cbp-qtrotator').cbpQTRotator({ interval : 10000 });
     }
 
     leftCollapse(): void {

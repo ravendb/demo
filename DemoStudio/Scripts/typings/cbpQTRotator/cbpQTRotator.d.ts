@@ -1,3 +1,3 @@
 interface JQuery {
-    cbpQTRotator(): void;
+    cbpQTRotator(options : any): void;
 }

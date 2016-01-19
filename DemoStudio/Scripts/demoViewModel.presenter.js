@@ -5,7 +5,7 @@ var DemoViewModelPresenter = (function () {
         $("#moreCode").click(this.toggleCode.bind(this));
         $("#moreResult").click(this.toggleCode.bind(this));
         $("#compactResults").change(this.expandResults.bind(this));
-        $('#cbp-qtrotator').cbpQTRotator();
+        $('#cbp-qtrotator').cbpQTRotator({ interval: 10000 });
     }
     DemoViewModelPresenter.prototype.leftCollapse = function () {
         if (this.$body.hasClass('collapse-left')) {
@@ -44,4 +44,3 @@ var DemoViewModelPresenter = (function () {
     };
     return DemoViewModelPresenter;
 })();
-//# sourceMappingURL=demoViewModel.presenter.js.map
