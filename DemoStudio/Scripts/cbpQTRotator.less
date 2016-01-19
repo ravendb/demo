@@ -1,24 +1,4 @@
-﻿.cbp-qtrotator {
-    position: relative;
-    margin: 3em auto 5em auto;
-    max-width: 1000px;
-    width: 100%;
-    min-height: 400px;
-}
-
-.cbp-qtrotator .cbp-qtcontent {
-    position: absolute;
-    min-height: 200px;
-    border-top: 1px solid #f4f4f4;
-    border-bottom: 1px solid #f4f4f4;
-    padding: 2em 0;
-    top: 0;
-    z-index: 0;
-    opacity: 0;
-    width: 100%;
-}
-
-.no-js .cbp-qtrotator .cbp-qtcontent {
+﻿.no-js .cbp-qtrotator .cbp-qtcontent {
     border-bottom: none;
 }
 
@@ -28,16 +8,6 @@
     z-index: 100;
     pointer-events: auto;
     opacity: 1;
-}
-
-.cbp-qtrotator .cbp-qtcontent:before,
-.cbp-qtrotator .cbp-qtcontent:after {
-    content: " ";
-    display: table;
-}
-
-.cbp-qtrotator .cbp-qtcontent:after {
-    clear: both;
 }
 
 .cbp-qtprogress {
@@ -50,33 +20,70 @@
     z-index: 1000;
 }
 
-.cbp-qtrotator blockquote {
-    margin: 0;
-    padding: 0;
-    border: 0;
-}
+.cbp-qtrotator {
+    position: relative;
+    margin: 3em auto 5em auto;
+    max-width: 1000px;
+    width: 100%;
+    min-height: 400px;
 
-.cbp-qtrotator blockquote p {
-    font-size: 1.75em;
-    color: #FFF;
-    font-weight: 300;
-    margin: 0.4em 0 1em;
-}
+    .cbp-qtcontent {
+        position: absolute;
+        min-height: 200px;
+        border-top: 1px solid #f4f4f4;
+        border-bottom: 1px solid #f4f4f4;
+        padding: 2em 0;
+        top: 0;
+        z-index: 0;
+        opacity: 0;
+        width: 100%;
 
-.cbp-qtrotator blockquote footer {
-    font-size: 1.2em;
-    text-align: right;
-}
+        &:before, &:after {
+            content: " ";
+            display: table;
+        }
 
-.cbp-qtrotator blockquote footer:before {
-    content: '― ';
-}
+        &:after {
+            clear: both;
+        }
+    }
 
-.cbp-qtrotator .cbp-qtcontent img {
-    display: inline-block;
-    height: 50px;
-    //margin-bottom: -15px;
-    margin-left: 3em;
+    blockquote {
+        margin: 0;
+        padding: 0;
+        border: 0;
+
+        footer {
+            font-size: 1.2em;
+            text-align: right;
+
+            &:before {
+                content:'';
+            }
+
+            span {
+                display: inline-block;
+
+                strong {
+                    font-size: 14px;
+                    color:#fbaf3f;
+                }
+            }
+        }
+
+        p {
+            font-size: 1.75em;
+            color: #FFF;
+            font-weight: 300;
+            margin: 0.4em 0 1em;
+        }
+    }
+
+    .cbp-qtcontent img {
+        float:right;
+        //margin-bottom: -15px;
+        margin: 0 3em;
+    }
 }
 
 #cbp-qtrotator {
