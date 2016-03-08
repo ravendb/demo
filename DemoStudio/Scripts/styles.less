@@ -83,7 +83,7 @@
 html, body {
     width: 100%;
     height: 100%;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 hr {
@@ -131,7 +131,7 @@ hr {
         background-position: left 14px center;
         background-size: contain;
         background-repeat: no-repeat;
-        background-size:26px;
+        background-size: 26px;
     }
 
     .runInNewButton {
@@ -140,7 +140,7 @@ hr {
         background-position: left 14px center;
         background-size: contain;
         background-repeat: no-repeat;
-        background-size:26px;
+        background-size: 26px;
     }
 
     #leftCollapse {
@@ -165,9 +165,9 @@ hr {
     padding-left: 545px;
     z-index: 1;
     text-align: center;
-    background-color:#6e0b2b;
-	color:#fff;
-	font-family: 'Lato', sans-serif;
+    background-color: #6e0b2b;
+    color: #fff;
+    font-family: 'Lato', sans-serif;
 }
 
 #codeContainer, #resultContainer {
@@ -193,7 +193,7 @@ hr {
         transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
 
         small {
-            display:none;
+            display: none;
         }
     }
 
@@ -246,12 +246,45 @@ hr {
         color: @brand-info;
     }
 
+    #codeTabs {
+        display: inline-block;
+        position: absolute;
+        right: 20px;
+        top: 20px;
+        border-bottom: none;
+
+        a {
+            padding: 6px 15px;
+            color: #787C7F;
+
+            &:hover {
+                background-color: #787C7F;
+                border-color: #787C7F;
+                color: #FFF;
+            }
+        }
+
+        .active > a, .active > a:hover, .active > a:focus {
+            border-color: #adadad !important;
+            background-color: transparent !important;
+            color: @brand-info;
+        }
+    }
+
     #codediv {
         -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -moz-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
         transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
+    }
+
+    pre {
+        background-color: transparent !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        border-radius: 0 !important;
     }
 }
 
@@ -330,6 +363,10 @@ hr {
 }
 
 .showResult {
+    #codeTabs  {
+        display:none !important;
+    }
+
     #resultContainer {
         height: 100%;
         padding-top: 140px;
@@ -340,7 +377,7 @@ hr {
             top: 85px;
 
             small {
-                display:inline;
+                display: inline;
             }
         }
 
@@ -494,11 +531,12 @@ hr {
 
 #htmlExplDiv {
     border: 1px #FFF solid;
-    padding:20px;
-    margin-top:40px;
-    background-color:lighten(@gray-lighter,3%);
+    padding: 20px;
+    margin-top: 40px;
+    background-color: lighten(@gray-lighter,3%);
+
     h1 {
-        text-align:center;
+        text-align: center;
         font-size: 26px;
         font-weight: 600;
         margin: 5px 0 25px;
@@ -507,8 +545,8 @@ hr {
     font-size: 14px;
 
     .btn {
-        display:inline-block;
-        margin:auto;
+        display: inline-block;
+        margin: auto;
     }
 }
 
@@ -518,13 +556,12 @@ hr {
     background-image: url(img/ico_link.png) !important;
     background-size: contain;
     background-repeat: no-repeat;
-    border:1px solid @brand-info !important;
+    border: 1px solid @brand-info !important;
     white-space: normal;
     //background-color: @brand-info;
-
     &:hover {
         background-color: darken(@brand-info,5%);
-        text-decoration:none !important;
+        text-decoration: none !important;
     }
 }
 
@@ -532,15 +569,15 @@ hr {
     color: @brand-primary;
 
     &:before {
-      content: "\e019";
-          position: relative;
-    top: 1px;
-    display: inline-block;
-    font-family: 'Glyphicons Halflings';
-    font-style: normal;
-    font-weight: 400;
-    line-height: 1;
-    -webkit-font-smoothing: antialiased;
+        content: "\e019";
+        position: relative;
+        top: 1px;
+        display: inline-block;
+        font-family: 'Glyphicons Halflings';
+        font-style: normal;
+        font-weight: 400;
+        line-height: 1;
+        -webkit-font-smoothing: antialiased;
     }
 }
 
@@ -549,7 +586,7 @@ pre {
 }
 
 .relative {
-    position:relative;
-    height:100%;
-    width:100%;
+    position: relative;
+    height: 100%;
+    width: 100%;
 }

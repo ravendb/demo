@@ -60,9 +60,108 @@
                     <header>
                         <h1><button class="btn btn-default" id="moreCode"><span class="glyphicon" aria-hidden="true"></span></button> Code</h1>
                     </header>
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" id="codeTabs" role="tablist" data-bind="visible: $root.isDemoCategorySelected">
+                        <li role="presentation" class="active"><a href="#csharp" aria-controls="csharp" role="tab" data-toggle="tab">C#</a></li>
+                        <li role="presentation"><a href="#python" aria-controls="python" role="tab" data-toggle="tab">Python</a></li>
+                        <li role="presentation"><a href="#nodejs" aria-controls="nodejs" role="tab" data-toggle="tab">NodeJS</a></li>
+                        <li role="presentation"><a href="#java" aria-controls="java" role="tab" data-toggle="tab">JAVA</a></li>
+                    </ul>
+
+                    <div>
+
+                        
+
+                        <!-- Tab panes -->
+
+
+                    </div>
+
                     <div id="codediv" class="demo">
                         <div id="codepane">
-                            <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="csharp">
+                                    <pre><code class="language-csharp" data-bind="text: htmlCode"></code></pre>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="python">
+                                    <pre><code class="language-python">
+class BankAccount(object):
+    def __init__(self, initial_balance=0):
+        self.balance = initial_balance
+    def deposit(self, amount):
+        self.balance += amount
+    def withdraw(self, amount):
+        self.balance -= amount
+    def overdrawn(self):
+        return self.balance0
+my_account = BankAccount(15)
+my_account.withdraw(5)
+print my_account.balance</code>   
+                                    </pre>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="nodejs">
+                                    <pre>
+<code class="language-javascript">
+// Include http module,
+var http = require("http"),
+// And mysql module you've just installed.
+	fs = require("fs");
+// Create the http server.
+http.createServer(function (request, response) {
+	// Attach listener on end event.
+	request.on('end', function () {
+		// Check if user requests /
+		if (request.url == '/') {
+			// Read the file.
+			fs.readFile('test.txt', 'utf-8', function (error, data) {
+				// Write headers.
+				response.writeHead(200, {
+					'Content-Type': 'text/plain'
+				});
+				// Increment the number obtained from file.
+				data = parseInt(data) + 1;
+				// Write incremented number to file.
+				fs.writeFile('test.txt', data);
+				// End response with some nice message.
+				response.end('This page was refreshed ' + data + ' times!');
+			});
+		} else {
+			// Indicate that requested file was not found.
+			response.writeHead(404);
+			// And end request without sending any data.
+			response.end();
+		}
+	});
+// Listen on the 8080 port.
+}).listen(8080);
+</code>
+</pre>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="java">
+                                    <pre>
+<code class="language-java">
+public int countA(String str) {
+  // Base case -- return simple answer
+  if (str.length() == 0) {
+    return 0;
+  }
+  // Deal with the very front of the string (index 0) -- count "A" there.
+  int count = 0;
+  if (str.substring(0, 1).equals("A")) {
+    count = 1;
+  }
+  // Make a recursive call to deal with the rest of string (the part beyond the front).
+  // Add count to whatever the recursive call returns to make the final answer.
+  // Note that str.substring(1) starts with char 1 and goes to the
+  // end of the string.
+  return count + countA(str.substring(1));
+}
+</code>
+</pre>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -134,10 +233,12 @@
             <div id="ajaxloader"></div>
             Please Wait...
         </div>
+
         <script src="studio/scripts/modernizr.custom.js"></script>
         <script src="studio/scripts/jquery-1.10.2.js"></script>
         <script src="studio/scripts/jquery.cbpQTRotator.min.js"></script>
         <script src="studio/scripts/prism.js"></script>
+        <script type="text/javascript" src="studio/scripts/bootstrap.min.js"></script>
         <script type="text/javascript" src="/studio/scripts/knockout-3.3.0.js"></script>
         <script type="text/javascript" src="/studio/scripts/lodash.min.js"></script>
         <script type="text/javascript" src="/studio/scripts/require.js" data-main="/studio/scripts/main"></script>

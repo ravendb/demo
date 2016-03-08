@@ -70,7 +70,7 @@ html,
 body {
   width: 100%;
   height: 100%;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 hr {
   border-color: #9E033B;
@@ -206,12 +206,42 @@ hr {
 #codeContainer h1 {
   color: #FBAF3F;
 }
+#codeContainer #codeTabs {
+  display: inline-block;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  border-bottom: none;
+}
+#codeContainer #codeTabs a {
+  padding: 6px 15px;
+  color: #787C7F;
+}
+#codeContainer #codeTabs a:hover {
+  background-color: #787C7F;
+  border-color: #787C7F;
+  color: #FFF;
+}
+#codeContainer #codeTabs .active > a,
+#codeContainer #codeTabs .active > a:hover,
+#codeContainer #codeTabs .active > a:focus {
+  border-color: #adadad !important;
+  background-color: transparent !important;
+  color: #FBAF3F;
+}
 #codeContainer #codediv {
   -webkit-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   -moz-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   -ms-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   -o-transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
   transition: all 0.4s cubic-bezier(0.93, 0, 0, 0.97);
+}
+#codeContainer pre {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  border-radius: 0 !important;
 }
 #resultContainer {
   height: 70px;
@@ -269,6 +299,9 @@ hr {
 }
 .compact-container label:after {
   top: 4px;
+}
+.showResult #codeTabs {
+  display: none !important;
 }
 .showResult #resultContainer {
   height: 100%;
