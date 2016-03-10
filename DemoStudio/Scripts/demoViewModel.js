@@ -7,7 +7,8 @@ var DemoViewModel = (function () {
         this.isHtml = ko.observable(false);
         this.htmlView = ko.observable("");
         this.htmlExpl = ko.observable("");
-        this.htmlCode = ko.observable("");
+        this.csharpCode = ko.observable("");
+        this.javaCode = ko.observable("");
         this.currentDemo = ko.observable();
         this.optionsText = ko.observable();
         this.urlstring = ko.observable();
@@ -139,14 +140,12 @@ var DemoViewModel = (function () {
         var _this = this;
         this.presenter.showCode();
         var demoUrl = this.getDemoUrl();
-        $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(function (data) {
+        $.ajax("/Menu/LoadData?url=" + demoUrl, "GET").done(function (data) {
             console.log(data);
-            _this.htmlCode(data);
+            _this.htmlExpl(data.HtmlExp);
+            _this.javaCode(data.JavaCode);
+            _this.csharpCode(data.CsharpCode);
             Prism.highlightAll();
-        });
-        $.ajax("/Menu/LoadCsFile?Docname=" + demoUrl, "GET").done(function (data) {
-            console.log(data);
-            _this.htmlExpl(data);
         });
     };
     DemoViewModel.prototype.genUrl = function () {
@@ -207,4 +206,3 @@ var DemoViewModel = (function () {
     };
     return DemoViewModel;
 })();
-//# sourceMappingURL=demoViewModel.js.map

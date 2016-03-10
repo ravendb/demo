@@ -10,7 +10,8 @@ class DemoViewModel {
     isHtml = ko.observable(false);
     htmlView = ko.observable("");
     htmlExpl = ko.observable("");
-    htmlCode = ko.observable("");
+    csharpCode = ko.observable("");
+    javaCode = ko.observable("");
     currentDemo = ko.observable();
     optionsText = ko.observable();
     urlstring = ko.observable();
@@ -170,14 +171,12 @@ class DemoViewModel {
     getCode(): void {
         this.presenter.showCode();
         var demoUrl = this.getDemoUrl();
-        $.ajax("/Menu/LoadCsFile?Filename=" + demoUrl, "GET").done(data => {
+        $.ajax("/Menu/LoadData?url=" + demoUrl, "GET").done(data => {
             console.log(data);
-            this.htmlCode(data);
+            this.htmlExpl(data.HtmlExp);
+            this.javaCode(data.JavaCode);
+            this.csharpCode(data.CsharpCode);
             Prism.highlightAll();
-        });
-        $.ajax("/Menu/LoadCsFile?Docname=" + demoUrl, "GET").done(data => {
-            console.log(data);
-            this.htmlExpl(data);
         });
     }
 
@@ -247,14 +246,3 @@ class DemoViewModel {
         });
     }
 }
-
-
-
-
-
-
-
-
-
-
-

@@ -53,37 +53,59 @@ namespace DemoMethods
         }
 
         [HttpGet]
-        public object LoadCsFile()
+        public object LoadData()
         {
             try
             {
                 var nvc = HttpUtility.ParseQueryString(Request.RequestUri.Query);
-                var file = nvc["FileName"];
-                var explanation = nvc["Docname"];
-                if (explanation != null)
+                var url = nvc["url"];
+
+                return new
                 {
-                    try
-                    {
-                        var docPath = Path.GetFullPath(BasePath + "DemoMethods" + explanation + ".html");
-                        var doclines = File.ReadAllText(docPath);
-                        return doclines;
-                    }
-                    catch (Exception)
-                    {
-                        return string.Empty;
-                    }
-                }
-
-                if (file == null)
-                    return "No code found...";
-
-                var path = Path.GetFullPath(BasePath + "DemoMethods" + file + ".cs");
-
-                return File.ReadAllText(path);
+                    HtmlExp = FindExplanation(url),
+                    JavaCode = FindJavaCode(url),
+                    CsharpCode = FindCSharpCode(url)
+                };
             }
             catch (Exception)
             {
                 return "No code available for this demo";
+            }
+        }
+
+        private string FindJavaCode(string url)
+        {
+            var path = Path.GetFullPath("../../../DemoMethods/src/main/java/net/ravendb/demo/" + url + ".java");
+
+            if (File.Exists(path))
+            {
+                return File.ReadAllText(path);
+            }
+            return "No code available for this demo";
+        }
+
+        private string FindCSharpCode(string url)
+        {
+            var path = Path.GetFullPath("../../../DemoMethods/" + url + ".cs");
+
+            if (File.Exists(path))
+            {
+                return File.ReadAllText(path);
+            }
+            return "No code available for this demo";
+        }
+
+        private string FindExplanation(string url)
+        {
+            try
+            {
+                var docpath = Path.GetFullPath("../../../DemoMethods/" + url + ".html");
+                var doclines = File.ReadAllText(docpath);
+                return doclines;
+            }
+            catch (Exception)
+            {
+                return string.Empty;
             }
         }
     }
