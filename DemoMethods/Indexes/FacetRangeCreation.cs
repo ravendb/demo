@@ -20,8 +20,8 @@ namespace DemoMethods.Indexes
                     Ranges =
                     {
                         x => x.PricePerUnit < from,
-                        x => x.PricePerUnit > from && x.PricePerUnit < to,
-                        x => x.PricePerUnit > to,
+                        x => x.PricePerUnit >= from && x.PricePerUnit < to,
+                        x => x.PricePerUnit >= to,
                     }
                 },
                 new Facet<Product>
@@ -30,7 +30,7 @@ namespace DemoMethods.Indexes
                     Ranges =
                     {
                         x => x.UnitsInStock < 10,
-                        x => x.UnitsInStock > 10
+                        x => x.UnitsInStock >= 10
                     }
                 }
             };

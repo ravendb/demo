@@ -7,6 +7,7 @@ namespace DemoMethods.Indexes
 {
     public class LastFmAnalyzed : AbstractIndexCreationTask<LastFm, LastFmAnalyzed.Result>
     {
+
         public class Result
         {
             public string Query;
