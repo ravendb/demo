@@ -81,7 +81,7 @@ namespace DemoMethods
             {
                 return File.ReadAllText(path);
             }
-            return "No code available for this demo";
+            return "No Java code available for this demo";
         }
 
         private string FindCSharpCode(string url)
@@ -92,7 +92,7 @@ namespace DemoMethods
             {
                 return File.ReadAllText(path);
             }
-            return "No code available for this demo";
+            return "No C# code available for this demo";
         }
 
         private string FindExplanation(string url)
