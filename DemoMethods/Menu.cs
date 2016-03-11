@@ -75,7 +75,7 @@ namespace DemoMethods
 
         private string FindJavaCode(string url)
         {
-            var path = Path.GetFullPath("../../../DemoMethods/src/main/java/net/ravendb/demo/" + url + ".java");
+            var path = Path.GetFullPath(BasePath + "DemoMethods/src/main/java/net/ravendb/demo/" + url + ".java");
 
             if (File.Exists(path))
             {
@@ -86,7 +86,7 @@ namespace DemoMethods
 
         private string FindCSharpCode(string url)
         {
-            var path = Path.GetFullPath("../../../DemoMethods/" + url + ".cs");
+            var path = Path.GetFullPath(BasePath + "DemoMethods/" + url + ".cs");
 
             if (File.Exists(path))
             {
@@ -99,7 +99,7 @@ namespace DemoMethods
         {
             try
             {
-                var docpath = Path.GetFullPath("../../../DemoMethods/" + url + ".html");
+                var docpath = Path.GetFullPath(BasePath + "DemoMethods/" + url + ".html");
                 var doclines = File.ReadAllText(docpath);
                 return doclines;
             }
