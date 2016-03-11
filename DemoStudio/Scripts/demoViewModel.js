@@ -206,3 +206,4 @@ var DemoViewModel = (function () {
     };
     return DemoViewModel;
 })();
+//# sourceMappingURL=demoViewModel.js.map
