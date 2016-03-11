@@ -15,7 +15,9 @@ import java.util.List;
 @Controller
 public class Query3 {
     @RequestMapping("/Basic/Query3")
-    public Company query3(@RequestParam(value = "city", defaultValue = "Berlin") String city) {
+    public Company query3(
+            @RequestParam(value = "city", defaultValue = "Berlin") String city) {
+
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             Reference<RavenQueryStatistics> statsRef = new Reference<>();
 

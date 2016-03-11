@@ -11,6 +11,9 @@ public class MenuController {
     private static List<Facet> fixedFacet;
 
     public static List<Facet> getFixedFacet() {
+        if (fixedFacet == null) {
+            fixedFacet = FacetRangeCreation.createFacets(10, 20);
+        }
         return fixedFacet;
     }
 
@@ -19,11 +22,6 @@ public class MenuController {
     }
 
     public void createFixedFacet() {
-        double fromVal = 10;
-        double toVal = 20;
-
-        setFixedFacet(FacetRangeCreation.createFacets(fromVal, toVal));
-
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             session.store(new FacetSetup("facets/ProductFacet", getFixedFacet()));
             session.saveChanges();

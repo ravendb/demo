@@ -19,6 +19,33 @@ import java.util.List;
 @Controller
 public class TransformerQuery {
 
+    @RequestMapping("/Basic/TransformerQuery")
+    public List<String> transformerQuery(
+            @RequestParam(value = "country", defaultValue = "USA") String country) {
+
+        try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
+
+            List<String> namesList = new ArrayList<>();
+
+            QNameAndCountry_Result r = QNameAndCountry_Result.result;
+            IRavenQueryable<NameAndCountry.Result> query = session
+                    .query(NameAndCountry.Result.class, NameAndCountry.class)
+                    .transformWith(TransformerNameAndCountry.class, NameAndCountry.Result.class)
+                    .search(r.country, country);
+
+            // stream the results:
+            try (CloseableIterator<StreamResult<NameAndCountry.Result>> iterator =
+                         session.advanced().stream(query)) {
+                while (iterator.hasNext()) {
+                    NameAndCountry.Result result = iterator.next().getDocument();
+                    namesList.add(result.getName());
+                }
+            }
+
+            return namesList;
+        }
+    }
+
     @QueryEntity
     public class Result {
         private String name;
@@ -29,29 +56,6 @@ public class TransformerQuery {
 
         public void setName(String name) {
             this.name = name;
-        }
-    }
-
-    @RequestMapping("/Basic/TransformerQuery")
-    public List<String> transformerQuery(@RequestParam(value = "country", defaultValue = "USA") String country) {
-        try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
-
-            List<String> namesList = new ArrayList<>();
-
-            QNameAndCountry_Result r = QNameAndCountry_Result.result;
-            IRavenQueryable<NameAndCountry.Result> query = session.query(NameAndCountry.Result.class, NameAndCountry.class)
-                    .transformWith(TransformerNameAndCountry.class, NameAndCountry.Result.class)
-                    .search(r.country, country);
-
-            // stream the results:
-            try (CloseableIterator<StreamResult<NameAndCountry.Result>> iterator = session.advanced().stream(query)) {
-                while (iterator.hasNext()) {
-                    NameAndCountry.Result result = iterator.next().getDocument();
-                    namesList.add(result.getName());
-                }
-            }
-
-            return namesList;
         }
     }
 }

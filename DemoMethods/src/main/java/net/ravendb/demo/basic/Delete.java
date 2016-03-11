@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Delete {
 
     @RequestMapping("/Basic/Delete")
-    public String delete(@RequestParam (value = "companyId", defaultValue = "2") int companyId) {
+    public String delete(
+            @RequestParam (value = "companyId", defaultValue = "2") int companyId) {
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             session.delete(session.load(Company.class, companyId));
             session.saveChanges();

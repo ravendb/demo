@@ -16,7 +16,9 @@ import java.util.List;
 public class Highlights {
 
     @RequestMapping("/Basic/HighLights")
-    public String highLights(@RequestParam(value = "address", defaultValue = "UK USA") String address) {
+    public String highLights(
+            @RequestParam(value = "address", defaultValue = "UK USA") String address) {
+
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
 
             Reference<FieldHighlightings> highlightingsRef = new Reference<>();

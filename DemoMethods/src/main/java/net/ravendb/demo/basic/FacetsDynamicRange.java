@@ -20,8 +20,9 @@ import java.util.List;
 public class FacetsDynamicRange {
 
     @RequestMapping("/Basic/FacetsDynamicRange")
-    public List<FacetRangeCreation.FacetsRangesResults> facetsDynamicRange(@RequestParam (value = "fromVal", defaultValue = "10") int from,
-                                                                           @RequestParam(value = "toVal", defaultValue = "20") int to) {
+    public List<FacetRangeCreation.FacetsRangesResults> facetsDynamicRange(
+            @RequestParam (value = "fromVal", defaultValue = "10") int from,
+            @RequestParam(value = "toVal", defaultValue = "20") int to) {
 
         QProduct p = QProduct.product;
 

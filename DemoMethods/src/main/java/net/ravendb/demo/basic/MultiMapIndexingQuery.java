@@ -16,6 +16,22 @@ import static java.util.stream.Collectors.toList;
 @Controller
 public class MultiMapIndexingQuery {
 
+    @RequestMapping("/Basic/MultiMapIndexingQuery")
+    public List<IdAndName> multiMapIndexingQuery(
+            @RequestParam(value = "country", defaultValue = "USA") String country) {
+        try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
+
+            QNameAndCountry_Result n = QNameAndCountry_Result.result;
+
+            return StreamSupport.stream(
+                    session.query(NameAndCountry.Result.class, NameAndCountry.class)
+                    .search(n.country, country)
+                    .spliterator(), false)
+                    .map(x -> new IdAndName(x.getId(), x.getName()))
+                    .collect(toList());
+        }
+    }
+
     public static class IdAndName {
         private String id;
         private String name;
@@ -39,20 +55,6 @@ public class MultiMapIndexingQuery {
 
         public void setId(String id) {
             this.id = id;
-        }
-    }
-
-    @RequestMapping("/Basic/MultiMapIndexingQuery")
-    public List<IdAndName> multiMapIndexingQuery(@RequestParam(value = "country", defaultValue = "USA") String country) {
-        try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
-
-            QNameAndCountry_Result n = QNameAndCountry_Result.result;
-
-            return StreamSupport.stream(session.query(NameAndCountry.Result.class, NameAndCountry.class)
-                    .search(n.country, country)
-                    .spliterator(), false)
-                    .map(x -> new IdAndName(x.getId(), x.getName()))
-                    .collect(toList());
         }
     }
 }

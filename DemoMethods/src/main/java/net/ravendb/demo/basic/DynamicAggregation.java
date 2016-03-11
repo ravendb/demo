@@ -18,8 +18,9 @@ import java.util.List;
 public class DynamicAggregation {
 
     @RequestMapping("/Basic/DynamicAggregation")
-    public List<FacetRangeCreation.FacetsRangesResults> dynamicAggregation(@RequestParam(value = "fromVal", defaultValue = "0") int fromVal,
-                                                                           @RequestParam(value = "toVal", defaultValue = "999") int toVal) {
+    public List<FacetRangeCreation.FacetsRangesResults> dynamicAggregation(
+            @RequestParam(value = "fromVal", defaultValue = "0") int fromVal,
+            @RequestParam(value = "toVal", defaultValue = "999") int toVal) {
 
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             QProduct p = QProduct.product;

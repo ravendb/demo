@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class Edit {
 
     @RequestMapping("/Basic/Edit")
-    public String edit(@RequestParam (value = "companyId", defaultValue = "1") int companyId) {
+    public String edit(
+            @RequestParam (value = "companyId", defaultValue = "1") int companyId) {
+
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
 
             Company company = session.load(Company.class, companyId);

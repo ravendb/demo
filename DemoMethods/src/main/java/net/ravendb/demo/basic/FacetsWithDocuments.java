@@ -19,6 +19,7 @@ public class FacetsWithDocuments {
 
     @RequestMapping("/Basic/FacetsWithDocuments")
     public List<FacetRangeCreation.FacetsRangesResults> facetsWithDocuments() {
+
         QProduct p = QProduct.product;
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             FacetResults facetResults = session.query(Product.class, ProductsAndPriceAndSuplier.class)

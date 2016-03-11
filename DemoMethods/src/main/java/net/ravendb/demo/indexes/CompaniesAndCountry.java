@@ -1,20 +1,22 @@
 package net.ravendb.demo.indexes;
 
+import com.mysema.query.annotations.QueryEntity;
 import net.ravendb.client.indexes.AbstractIndexCreationTask;
 import net.ravendb.demo.entities.Company;
 
 public class CompaniesAndCountry extends AbstractIndexCreationTask {
 
+    @QueryEntity
     public static class Result {
         private Company company;
-        private String address_country;
+        private String address_Country;
 
-        public String getAddress_country() {
-            return address_country;
+        public String getAddress_Country() {
+            return address_Country;
         }
 
-        public void setAddress_country(String address_country) {
-            this.address_country = address_country;
+        public void setAddress_Country(String address_Country) {
+            this.address_Country = address_Country;
         }
 
         public Company getCompany() {

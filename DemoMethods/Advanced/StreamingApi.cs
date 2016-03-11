@@ -16,25 +16,19 @@ namespace DemoMethods.Advanced
             {
                 var query = session.Query<Order>("OrderByCompanyAndCountry");
 
-                var e = session
-                    .Advanced
-                    .Stream(query);
-
                 int count = 0;
-                while (e.MoveNext())
+
+                using (var e = session.Advanced.Stream(query))
                 {
-                    // do something with this
-                    Order order = e.Current.Document;
-                    count++;
+                    while (e.MoveNext())
+                    {
+                        // do something with this
+                        Order order = e.Current.Document;
+                        count++;
+                    }
                 }
 
                 return new { count };
-
-
-                // Alternatively:
-
-                // session.Query<Product>().ToList();
-                // session.Query<Product>().Take(int.MaxValue).ToList();
             }
         }
     }

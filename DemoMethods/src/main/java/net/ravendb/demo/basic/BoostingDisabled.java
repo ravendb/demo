@@ -15,8 +15,9 @@ import java.util.List;
 public class BoostingDisabled {
 
     @RequestMapping("/Basic/BoostingDisabled")
-    public List<Order> boostingDisabled(@RequestParam(value = "city", defaultValue = "London") String city,
-                                          @RequestParam(value = "country", defaultValue = "Denmark") String country) {
+    public List<Order> boostingDisabled(
+            @RequestParam(value = "city", defaultValue = "London") String city,
+            @RequestParam(value = "country", defaultValue = "Denmark") String country) {
 
         try (IDocumentSession session = DocumentStoreHolder.getStore().openSession()) {
             QOrder order = QOrder.order;

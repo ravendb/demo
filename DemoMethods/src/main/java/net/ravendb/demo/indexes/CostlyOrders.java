@@ -8,7 +8,7 @@ public class CostlyOrders extends AbstractIndexCreationTask {
     @QueryEntity
     public static class Result {
         private String orderId;
-        private String delay;
+        private long delay;
         private double price;
 
         public String getOrderId() {
@@ -19,11 +19,11 @@ public class CostlyOrders extends AbstractIndexCreationTask {
             this.orderId = orderId;
         }
 
-        public String getDelay() {
+        public long getDelay() {
             return delay;
         }
 
-        public void setDelay(String delay) {
+        public void setDelay(long delay) {
             this.delay = delay;
         }
 
