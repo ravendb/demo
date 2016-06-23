@@ -64,13 +64,25 @@ namespace DemoMethods
                 {
                     HtmlExp = FindExplanation(url),
                     JavaCode = FindJavaCode(url),
-                    CsharpCode = FindCSharpCode(url)
+                    CsharpCode = FindCSharpCode(url),
+                    PythonCode = FindPythonCode(url)
                 };
             }
             catch (Exception)
             {
                 return "No code available for this demo";
             }
+        }
+
+        private string FindPythonCode(string url)
+        {
+            var path = Path.GetFullPath(BasePath + "DemoMethods/PythonDemo/demo_methods" + url + ".py");
+
+            if (File.Exists(path))
+            {
+                return File.ReadAllText(path);
+            }
+            return "No Python code available for this demo";
         }
 
         private string FindJavaCode(string url)
