@@ -10,6 +10,7 @@ class BoostingDisabled(object):
                                         wait_for_non_stale_results=True,
                                         nested_object_types={"OrderedAt": datetime, "RequireAt": datetime,
                                                              "ShippedAt": datetime, "ShipTo": AddressC,
-                                                             "Lines": OrderLine}).where(ShipTo_City=city,
-                                                                                        ShipTo_Country=country))
+                                                             "Lines": OrderLine}).
+                          where(ShipTo_City=city, ShipTo_Country=country))
+            
             return orders

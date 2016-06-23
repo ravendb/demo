@@ -8,7 +8,7 @@ class Query3(object):
         with DocumentStoreHolder.get_store().open_session() as session:
             query, stats = list(session.query(object_type=Company, with_statistics=True,
                                               nested_object_types={"Address": AddressC,
-                                                                   "Contact": ContactC}).where_equals("Address.City",
-                                                                                                      city))
+                                                                   "Contact": ContactC}).
+                                where_equals("Address.City", city))
 
             return query[0] if query else None
