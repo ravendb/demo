@@ -11,4 +11,5 @@ class StaticQuery(object):
                 session.query(index_name="CostlyOrders").where_greater_than(
                     "Price", high_price).and_also().where_greater_than("Delay", Utils.timedelta_tick(
                         timedelta(days=delay_days))))
+
             return query[0] if query else None

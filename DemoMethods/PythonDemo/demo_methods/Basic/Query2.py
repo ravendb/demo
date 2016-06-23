@@ -7,7 +7,7 @@ class Query2(object):
     def query2(externalId="ALFKI"):
         with DocumentStoreHolder.get_store().open_session() as session:
             query, stats = list(session.query(object_type=Company, with_statistics=True,
-                                              nested_object_types={"Address": AddressC, "Contact": ContactC}).where(
-                ExternalId=externalId))
+                                              nested_object_types={"Address": AddressC, "Contact": ContactC}).
+                                where(ExternalId=externalId))
 
             return query[0] if query else None
