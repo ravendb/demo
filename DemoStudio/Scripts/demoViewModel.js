@@ -9,6 +9,7 @@ var DemoViewModel = (function () {
         this.htmlExpl = ko.observable("");
         this.csharpCode = ko.observable("");
         this.javaCode = ko.observable("");
+        this.pythonCode = ko.observable("");
         this.currentDemo = ko.observable();
         this.optionsText = ko.observable();
         this.urlstring = ko.observable();
@@ -145,6 +146,7 @@ var DemoViewModel = (function () {
             _this.htmlExpl(data.HtmlExp);
             _this.javaCode(data.JavaCode);
             _this.csharpCode(data.CsharpCode);
+            _this.pythonCode(data.PythonCode);
             Prism.highlightAll();
         });
     };
@@ -205,5 +207,4 @@ var DemoViewModel = (function () {
         });
     };
     return DemoViewModel;
-})();
-//# sourceMappingURL=demoViewModel.js.map
+}());

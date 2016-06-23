@@ -12,6 +12,7 @@ class DemoViewModel {
     htmlExpl = ko.observable("");
     csharpCode = ko.observable("");
     javaCode = ko.observable("");
+    pythonCode = ko.observable("");
     currentDemo = ko.observable();
     optionsText = ko.observable();
     urlstring = ko.observable();
@@ -176,6 +177,7 @@ class DemoViewModel {
             this.htmlExpl(data.HtmlExp);
             this.javaCode(data.JavaCode);
             this.csharpCode(data.CsharpCode);
+            this.pythonCode(data.PythonCode);
             Prism.highlightAll();
         });
     }
