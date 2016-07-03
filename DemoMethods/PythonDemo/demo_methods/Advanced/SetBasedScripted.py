@@ -16,6 +16,7 @@ class SetBasedScripted(object):
 
         with DocumentStoreHolder.get_store().open_session() as session:
             results = list(
-                session.query(object_type=Company, wait_for_non_stale_results=True).where(Address_Country=newVal))
+                session.query(object_type=Company,
+                              wait_for_non_stale_results=True).where(Address_Country=newVal))
 
             return results
