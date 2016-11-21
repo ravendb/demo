@@ -1,4 +1,4 @@
 dotnet restore
 dotnet build "./DemoServer" -c Debug
-cd ./DemoServer/bin/Debug/netcoreapp1.1/
-dotnet "DemoServer.dll"
+cd "./DemoServer"
+dotnet "bin/Debug/netcoreapp1.1/DemoServer.dll"

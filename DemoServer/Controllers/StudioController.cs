@@ -21,7 +21,7 @@ namespace DemoServer.Controllers
 
         private FileStreamResult WriteEmbeddedFile(string docPath)
         {
-            var filePath = Path.GetFullPath(BasePath + docPath);
+            var filePath = Path.GetFullPath(Path.Combine(BasePath, docPath));
             if (System.IO.File.Exists(filePath))
                 return WriteFile(filePath);
 

@@ -2,6 +2,8 @@
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Internal;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoServer.Controllers
@@ -15,8 +17,11 @@ namespace DemoServer.Controllers
             {
                 if (string.IsNullOrEmpty(_basePath))
                 {
-                    //basePath = HostingEnvironment.MapPath("~/");
-                    _basePath = string.IsNullOrEmpty(_basePath) == false ? Path.GetFullPath(_basePath + "..\\") : Path.GetFullPath("..\\..\\..\\");
+                    var env = (IHostingEnvironment)HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
+                    _basePath = env.ContentRootPath;
+                    _basePath = string.IsNullOrEmpty(_basePath) == false 
+                        ? _basePath 
+                        : Path.GetFullPath("..\\..\\..\\");
                 }
 
                 return _basePath;

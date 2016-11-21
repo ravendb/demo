@@ -10,7 +10,7 @@ namespace DemoServer
     {
         public static void Main(string[] args)
         {
-            var demoServerUrl = "localhost:9090";
+            var demoServerUrl = "localhost:9191";
             if (args.Length > 0)
             {
                 if (args[0] != null)

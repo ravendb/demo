@@ -85,18 +85,18 @@ namespace DemoServer.Demos.Menu
 
         private string FindCSharpCode(string url)
         {
-            var path = Path.GetFullPath(BasePath + "Demos/" + url + ".cs");
+            var path = Path.GetFullPath(Path.Combine(BasePath, "Demos/" + url + ".cs"));
 
-            return System.IO.File.Exists(path) 
-                ? System.IO.File.ReadAllText(path) 
+            return System.IO.File.Exists(path)
+                ? System.IO.File.ReadAllText(path)
                 : "No C# code available for this demo";
         }
 
-        private static string FindExplanation(string url)
+        private string FindExplanation(string url)
         {
             try
             {
-                var docpath = Path.GetFullPath("Demos/" + url + ".html");
+                var docpath = Path.GetFullPath(Path.Combine(BasePath, "Demos/" + url + ".html"));
                 var doclines = System.IO.File.ReadAllText(docpath);
                 return doclines;
             }
