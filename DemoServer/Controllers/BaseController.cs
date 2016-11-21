@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Globalization;
 using System.IO;
 using System.Net.Http;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Hosting.Internal;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DemoServer.Controllers
 {
@@ -19,8 +22,8 @@ namespace DemoServer.Controllers
                 {
                     var env = (IHostingEnvironment)HttpContext.RequestServices.GetService(typeof(IHostingEnvironment));
                     _basePath = env.ContentRootPath;
-                    _basePath = string.IsNullOrEmpty(_basePath) == false 
-                        ? _basePath 
+                    _basePath = string.IsNullOrEmpty(_basePath) == false
+                        ? _basePath
                         : Path.GetFullPath("..\\..\\..\\");
                 }
 
@@ -30,24 +33,29 @@ namespace DemoServer.Controllers
 
         protected TimeSpan? ServerTime { get; set; }
 
-        //public override async Task<HttpResponseMessage> ExecuteAsync(HttpControllerContext controllerContext, CancellationToken cancellationToken)
-        //{
-        //    var watch = Stopwatch.StartNew();
-        //    var message = await base.ExecuteAsync(controllerContext, cancellationToken).ConfigureAwait(false);
+        private Stopwatch _watch;
 
-        //    AddTime("Client-Time", message, watch.Elapsed);
+        public override void OnActionExecuting(ActionExecutingContext context)
+        {
+            _watch = Stopwatch.StartNew();
+            base.OnActionExecuting(context);
+        }
 
-        //    if (ServerTime.HasValue)
-        //        AddTime("Server-Time", message, ServerTime.Value);
+        public override void OnActionExecuted(ActionExecutedContext context)
+        {
+            base.OnActionExecuted(context);
 
-        //    return message;
-        //}
+            AddTime("Client-Time", Response, _watch.Elapsed);
 
-        private static void AddTime(string name, HttpResponseMessage message, TimeSpan time)
+            if (ServerTime.HasValue)
+                AddTime("Server-Time", Response, ServerTime.Value);
+        }
+
+        private static void AddTime(string name, HttpResponse response, TimeSpan time)
         {
             var timeRounded = Math.Round(time.TotalSeconds, 2, MidpointRounding.ToEven);
 
-            message.Headers.TryAddWithoutValidation(name, timeRounded.ToString(CultureInfo.InvariantCulture));
+            response.Headers.Add(name, timeRounded.ToString(CultureInfo.InvariantCulture));
         }
     }
 }
