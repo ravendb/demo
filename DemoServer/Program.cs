@@ -1,14 +1,16 @@
 ﻿using System;
-using DemoMethods;
+using System.IO;
+using System.Threading.Tasks;
+using DemoServer.Helpers;
+using Microsoft.AspNetCore.Hosting;
 
 namespace DemoServer
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            string demoServerUrl = "localhost:9090";
-            string databaseName = "Demo";
+            var demoServerUrl = "localhost:9090";
             if (args.Length > 0)
             {
                 if (args[0] != null)
@@ -27,38 +29,26 @@ namespace DemoServer
                                 Console.WriteLine(@"    -ds address : Demo Server's address.");
                                 Console.WriteLine(@"                  Default : 'localhost:9090'");
                                 Console.WriteLine(@"");
-                                Console.WriteLine(@"    -dn address : Database Name");
-                                Console.WriteLine(@"                  Default : 'Demo'");
-                                Console.WriteLine(@"");
                                 Console.WriteLine(@"Note : Do not add 'http://' prefix to addresses.");
                                 Console.WriteLine(@"");
                             }
                             return;
                         default:
                             {
-                                bool readDs = false;
-                                bool readDn = false;
+                                var readDs = false;
                                 for (int i = 0; i < args.Length; i++)
                                 {
                                     if (args[i] != null)
                                     {
-                                        if (readDs == true)
+                                        if (readDs)
                                         {
                                             demoServerUrl = args[i];
                                             readDs = false;
                                             continue;
                                         }
-                                        if (readDn == true)
-                                        {
-                                            databaseName = args[i];
-                                            readDn = false;
-                                            continue;
-                                        }
 
                                         if (args[i].Equals("-ds"))
                                             readDs = true;
-                                        else if (args[i].Equals("-dn"))
-                                            readDn = true;
                                         else
                                         {
                                             Console.WriteLine("");
@@ -73,11 +63,35 @@ namespace DemoServer
                     }
                 }
             }
-            demoServerUrl = string.Format("Http://{0}", demoServerUrl);
+
+            demoServerUrl = string.Format("http://{0}", demoServerUrl);
             var dsUri = new Uri(demoServerUrl);
-            DocumentStoreHolder.SetDbInfo("DemoServer", databaseName, "Media");
-            var server = new DemoServer();
-            server.Start(dsUri.Host, dsUri.Port);
+
+            var host = new WebHostBuilder()
+                .UseKestrel()
+                .UseUrls(demoServerUrl)
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseIISIntegration()
+                .UseStartup<Startup>()
+                .Build();
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine(@" __   ___        __      __   ___  __        ___  __  ");
+            Console.WriteLine(@"|  \ |__   |\/| /  \    /__` |__  |__) \  / |__  |__) ");
+            Console.WriteLine(@"|__/ |___  |  | \__/    .__/ |___ |  \  \/  |___ |  \ ");
+            Console.ForegroundColor = ConsoleColor.Gray;
+            Console.WriteLine(@"                                             Rel: 0.1");
+            Console.WriteLine(string.Empty);
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("      Demo Serving  @ http://{0}:{1}", dsUri.Host, dsUri.Port);
+            Console.WriteLine("      Using RavenDB @ {0}", DocumentStoreHolder.ServerUrl);
+            Console.WriteLine("      Demo Database   : {0}", DocumentStoreHolder.NorthwindDatabaseName);
+            Console.WriteLine("      Media Database  : {0}", DocumentStoreHolder.MediaDatabaseName);
+            Console.WriteLine(string.Empty);
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.ResetColor();
+
+            host.Run();
         }
     }
 }
