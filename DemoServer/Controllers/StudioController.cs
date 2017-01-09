@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Net;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoServer.Controllers
@@ -25,6 +26,7 @@ namespace DemoServer.Controllers
             if (System.IO.File.Exists(filePath))
                 return WriteFile(filePath);
 
+            Response.StatusCode = (int)HttpStatusCode.NotFound;
             return null;
         }
 

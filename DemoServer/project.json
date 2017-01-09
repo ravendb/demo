@@ -19,9 +19,6 @@
     "Raven.Client": "4.0.0-alpha-40005"
   },
 
-  "tools": {
-  },
-
   "frameworks": {
     "netcoreapp1.1": {
       "imports": [
@@ -51,13 +48,19 @@
   "publishOptions": {
     "include": [
       "wwwroot",
-      "**/*.cshtml",
+      "index.html",
       "appsettings.json",
-      "web.config"
+      "web.config",
+      "Demos",
+      "Scripts"
     ]
   },
 
+  "tools": {
+    "Microsoft.AspNetCore.Server.IISIntegration.Tools": "1.1.0-preview4-final"
+  },
+
   "scripts": {
-    "postpublish": [ "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%" ]
+    "postpublish": "dotnet publish-iis --publish-folder %publish:OutputPath% --framework %publish:FullTargetFramework%"
   }
 }
