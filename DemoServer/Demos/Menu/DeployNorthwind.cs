@@ -37,7 +37,7 @@ namespace DemoServer.Demos.Menu
                         }
                     });
 
-                var url = string.Format("{0}/studio/sampleData", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.NorthwindDatabaseName));
+                var url = string.Format("{0}/studio/sample-data", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.NorthwindDatabaseName));
                 var requestFactory = DocumentStoreHolder.Store.JsonRequestFactory;
 
                 var request = requestFactory.CreateHttpJsonRequest(new CreateHttpJsonRequestParams(null, url, HttpMethod.Post, DocumentStoreHolder.Store.DatabaseCommands.PrimaryCredentials, DocumentStoreHolder.Store.Conventions));
