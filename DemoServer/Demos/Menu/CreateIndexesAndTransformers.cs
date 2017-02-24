@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Data;
-using Raven.Client.Indexes;
+using Raven.Client.Documents.Indexes;
+using Raven.Client.Documents.Queries.Facets;
 
 namespace DemoServer.Demos.Menu
 {
@@ -38,7 +39,7 @@ namespace DemoServer.Demos.Menu
             return "Indexes, Transformers and Facets were created successfully";
         }
 
-        private void CreateFixedFacet()
+        private static void CreateFixedFacet()
         {
             const decimal fromVal = 10;
             const decimal toVal = 20;

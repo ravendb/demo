@@ -1,11 +1,11 @@
 ﻿using System.Linq;
 using DemoServer.Controllers;
+using DemoServer.Demos.Menu;
 using DemoServer.Entities;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
-using MenuController = DemoServer.Demos.Menu.MenuController;
+using Raven.Client.Documents;
 
 namespace DemoServer.Demos.Basic
 {

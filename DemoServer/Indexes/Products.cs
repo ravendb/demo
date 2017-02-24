@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using DemoServer.Entities;
-using Raven.Abstractions.Indexing;
-using Raven.Client.Indexes;
+using Raven.Client.Documents.Indexes;
 
 namespace DemoServer.Indexes
 {
@@ -16,7 +15,7 @@ namespace DemoServer.Indexes
                                   product.UnitsInStock
                               };
 
-            Sort(x => x.UnitsInStock, SortOptions.NumericLong);
+            Sort(x => x.UnitsInStock, SortOptions.Numeric);
         }
     }
 

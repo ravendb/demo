@@ -14,7 +14,7 @@ namespace DemoServer.Demos.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Delete(session.Load<Company>(companyId));
+                session.Delete(session.Load<Company>($"companies/{companyId}"));
 
                 session.SaveChanges();
 

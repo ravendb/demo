@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using DemoServer.Entities;
-using Raven.Client.Data;
+using Raven.Client.Documents.Queries.Facets;
 
 namespace DemoServer.Indexes
 {

@@ -14,7 +14,7 @@ namespace DemoServer.Demos.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var company = session.Load<Company>(companyId);
+                var company = session.Load<Company>($"companies/{companyId}");
 
                 company.Address.Line2 = "Zip 12345";
 

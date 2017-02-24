@@ -3,7 +3,7 @@ using DemoServer.Controllers;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
+using Raven.Client.Documents;
 
 namespace DemoServer.Demos.Basic
 {

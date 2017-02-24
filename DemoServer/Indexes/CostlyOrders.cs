@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using DemoServer.Entities;
-using Raven.Client.Indexes;
+using Raven.Client.Documents.Indexes;
 
 namespace DemoServer.Indexes
 {

@@ -1,10 +1,10 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using DemoServer.Controllers;
 using DemoServer.Entities;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Bundles.MoreLikeThis;
-using Raven.Client.Data.Queries;
+using Raven.Client.Documents.Queries.MoreLikeThis;
 
 namespace DemoServer.Demos.Advanced
 {
@@ -16,12 +16,10 @@ namespace DemoServer.Demos.Advanced
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                LastFm[] mltByArtist = session
+                List<LastFm> mltByArtist = session
                     .Advanced
                     .MoreLikeThis<LastFm>(
-                        "IndexFullTextSearch",
-                        null,
-                        new MoreLikeThisQuery
+                        new MoreLikeThisQuery(DocumentStoreHolder.Store.Conventions)
                         {
                             IndexName = "IndexFullTextSearch",
                             DocumentId = documentId,

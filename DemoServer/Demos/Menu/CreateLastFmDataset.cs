@@ -7,9 +7,10 @@ using DemoServer.Controllers;
 using DemoServer.Entities;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Abstractions.Data;
-using Raven.Imports.Newtonsoft.Json;
-using Raven.Json.Linq;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Raven.Client.Server;
+using Raven.Client.Server.Operations;
 
 namespace DemoServer.Demos.Menu
 {
@@ -25,22 +26,18 @@ namespace DemoServer.Demos.Menu
                 if (deleteDatabase)
                 {
                     DocumentStoreHolder.MediaStore
-                        .DatabaseCommands
-                        .GlobalAdmin
-                        .DeleteDatabase(DocumentStoreHolder.MediaDatabaseName, hardDelete: true);
+                        .Admin
+                        .Server
+                        .Send(new DeleteDatabaseOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
                 }
 
                 DocumentStoreHolder.MediaStore
-                    .DatabaseCommands
-                    .GlobalAdmin
-                    .CreateDatabase(new DatabaseDocument
+                    .Admin
+                    .Server
+                    .Send(new CreateDatabaseOperation(new DatabaseDocument
                     {
-                        Id = DocumentStoreHolder.MediaDatabaseName,
-                        Settings =
-                        {
-                            {"Raven/DataDir", $"~/{DocumentStoreHolder.MediaDatabaseName}"}
-                        }
-                    });
+                        Id = DocumentStoreHolder.MediaDatabaseName
+                    }));
 
                 AddDocumentsToDb(path);
             }
@@ -64,16 +61,15 @@ namespace DemoServer.Demos.Menu
                         continue;
                     using (var entryStream = entry.Open())
                     {
-                        var docAsJson = RavenJObject.Load(new JsonTextReader(new StreamReader(entryStream)));
+                        var docAsJson = JObject.Load(new JsonTextReader(new StreamReader(entryStream)));
                         var doc = new LastFm
                         {
                             Artist = docAsJson.Value<string>("artist"),
                             TimeStamp = DateTime.Parse(docAsJson.Value<string>("timestamp")),
                             Title = docAsJson.Value<string>("title"),
                             TrackId = docAsJson.Value<string>("track_id"),
-                            Tags =
-                                docAsJson.Value<RavenJArray>("tags")
-                                    .Select(x => ((RavenJArray)x)[0].Value<string>())
+                            Tags = docAsJson.Value<JArray>("tags")
+                                    .Select(x => ((JArray)x)[0].Value<string>())
                                     .ToList()
                         };
                         bulkInsert.Store(doc);

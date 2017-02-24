@@ -4,7 +4,7 @@ using DemoServer.Controllers;
 using DemoServer.Entities;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
+using Raven.Client.Documents;
 
 namespace DemoServer.Demos.Advanced
 {

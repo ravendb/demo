@@ -5,7 +5,8 @@ using DemoServer.Entities;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Data;
+using Raven.Client.Documents.Operations;
+using Raven.Client.Documents.Queries;
 
 namespace DemoServer.Demos.Advanced
 {
@@ -16,14 +17,14 @@ namespace DemoServer.Demos.Advanced
         [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
         public object SetBasedScripted(string original = "USA", string newVal = "United States of America")
         {
-            var updateByIndex =
-                DocumentStoreHolder.Store.DatabaseCommands.UpdateByIndex(new CompaniesAndCountry().IndexName,
-                    new IndexQuery { Query = "Address_Country:" + original },
-                    new PatchRequest
-                    {
-                        Script = "this.Address.Country = newVal;",
-                        Values = new Dictionary<string, object> { { "newVal", newVal } }
-                    });
+            var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
+                new CompaniesAndCountry().IndexName,
+                new IndexQuery(DocumentStoreHolder.Store.Conventions) { Query = "Address_Country:" + original },
+                new PatchRequest
+                {
+                    Script = "this.Address.Country = newVal;",
+                    Values = new Dictionary<string, object> { { "newVal", newVal } }
+                }));
 
             updateByIndex.WaitForCompletion();
 

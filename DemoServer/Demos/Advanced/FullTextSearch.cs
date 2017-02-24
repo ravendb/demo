@@ -5,7 +5,8 @@ using DemoServer.Entities;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
+using Raven.Client.Documents;
+using Raven.Client.Documents.Session;
 
 namespace DemoServer.Demos.Advanced
 {
@@ -18,7 +19,7 @@ namespace DemoServer.Demos.Advanced
         {
             using (var session = DocumentStoreHolder.MediaStore.OpenSession())
             {
-                RavenQueryStatistics stats;
+                QueryStatistics stats;
                 var results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
                     .Take(20)
                     .Search(x => x.Query, searchTerm)

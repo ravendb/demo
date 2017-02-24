@@ -5,7 +5,7 @@ using DemoServer.Controllers;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
+using Raven.Client.Documents.Session;
 
 namespace DemoServer.Demos.Basic
 {
@@ -18,7 +18,7 @@ namespace DemoServer.Demos.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                RavenQueryStatistics stats;
+                QueryStatistics stats;
                 IList<ProductSales.Result> results = session
                     .Advanced
                     .DocumentQuery<ProductSales.Result, ProductSales>().Statistics(out stats)

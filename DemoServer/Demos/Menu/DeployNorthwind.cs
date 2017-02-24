@@ -3,8 +3,10 @@ using System.Net.Http;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Abstractions.Data;
-using Raven.Client.Connection;
+using Raven.Client.Http;
+using Raven.Client.Server;
+using Raven.Client.Server.Operations;
+using Sparrow.Json;
 
 namespace DemoServer.Demos.Menu
 {
@@ -20,28 +22,26 @@ namespace DemoServer.Demos.Menu
                 if (deleteDatabase)
                 {
                     DocumentStoreHolder.Store
-                        .DatabaseCommands
-                        .GlobalAdmin
-                        .DeleteDatabase(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true);
+                        .Admin
+                        .Server
+                        .Send(new DeleteDatabaseOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
                 }
 
                 DocumentStoreHolder.Store
-                    .DatabaseCommands
-                    .GlobalAdmin
-                    .CreateDatabase(new DatabaseDocument
+                    .Admin
+                    .Server
+                    .Send(new CreateDatabaseOperation(new DatabaseDocument
                     {
-                        Id = DocumentStoreHolder.NorthwindDatabaseName,
-                        Settings =
-                        {
-                            {"Raven/DataDir", $"~/{DocumentStoreHolder.NorthwindDatabaseName}" }
-                        }
-                    });
+                        Id = DocumentStoreHolder.NorthwindDatabaseName
+                    }));
 
-                var url = string.Format("{0}/studio/sample-data", DocumentStoreHolder.Store.Url.ForDatabase(DocumentStoreHolder.NorthwindDatabaseName));
-                var requestFactory = DocumentStoreHolder.Store.JsonRequestFactory;
-
-                var request = requestFactory.CreateHttpJsonRequest(new CreateHttpJsonRequestParams(null, url, HttpMethod.Post, DocumentStoreHolder.Store.DatabaseCommands.PrimaryCredentials, DocumentStoreHolder.Store.Conventions));
-                request.ExecuteRequest();
+                var requestExecuter = DocumentStoreHolder.Store.GetRequestExecuter();
+                JsonOperationContext context;
+                using (requestExecuter.ContextPool.AllocateOperationContext(out context))
+                {
+                    var command = new CreateSampleDataCommand();
+                    requestExecuter.Execute(command, context);
+                }
             }
             catch (Exception e)
             {
@@ -49,6 +49,25 @@ namespace DemoServer.Demos.Menu
             }
 
             return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);
+        }
+
+        private class CreateSampleDataCommand : RavenCommand<object>
+        {
+            public override HttpRequestMessage CreateRequest(ServerNode node, out string url)
+            {
+                url = $"{node.Url}/databases/{node.Database}/studio/sample-data";
+
+                return new HttpRequestMessage
+                {
+                    Method = HttpMethod.Post
+                };
+            }
+
+            public override void SetResponse(BlittableJsonReaderObject response, bool fromCache)
+            {
+            }
+
+            public override bool IsReadRequest => false;
         }
     }
 }

@@ -1,8 +1,7 @@
 ﻿using DemoServer.Controllers;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
-using Raven.Client.Document;
+using Raven.Client.Documents;
 
 namespace DemoServer.Demos.Advanced
 {
@@ -21,7 +20,6 @@ namespace DemoServer.Demos.Advanced
             {
                 using (var session = store.OpenSession())
                 {
-                    RavenQueryStatistics stats;
                     var results = session.Load<dynamic>(id);
 
                     return results;

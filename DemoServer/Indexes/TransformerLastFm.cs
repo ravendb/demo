@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 using DemoServer.Entities;
-using Raven.Client.Indexes;
+using Raven.Client.Documents.Transformers;
 
 namespace DemoServer.Indexes
 {

@@ -5,8 +5,8 @@ using DemoServer.Entities;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client;
-using Raven.Client.Data;
+using Raven.Client.Documents;
+using Raven.Client.Documents.Queries.Facets;
 
 namespace DemoServer.Demos.Basic
 {
@@ -20,7 +20,7 @@ namespace DemoServer.Demos.Basic
             var from = decimal.Parse(fromVal);
             var to = decimal.Parse(toVal);
 
-            List<Facet> newFacet = new List<Facet>()
+            List<Facet> newFacet = new List<Facet>
             {
                 new Facet
                 {
