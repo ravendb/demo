@@ -19,7 +19,7 @@ namespace DemoServer.Demos.Advanced
         {
             var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
                 new CompaniesAndCountry().IndexName,
-                new IndexQuery(DocumentStoreHolder.Store.Conventions) { Query = "Address_Country:" + original },
+                new IndexQuery { Query = "Address_Country:" + original },
                 new PatchRequest
                 {
                     Script = "this.Address.Country = newVal;",

@@ -19,7 +19,7 @@ namespace DemoServer.Demos.Advanced
                 List<LastFm> mltByArtist = session
                     .Advanced
                     .MoreLikeThis<LastFm>(
-                        new MoreLikeThisQuery(DocumentStoreHolder.Store.Conventions)
+                        new MoreLikeThisQuery
                         {
                             IndexName = "IndexFullTextSearch",
                             DocumentId = documentId,
