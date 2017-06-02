@@ -17,7 +17,7 @@ namespace DemoServer.Helpers
 
         public static string Url { get; set; }
 
-        public static string ServerUrl => Store.Url;
+        public static string ServerUrl => Store.Urls[0];
 
         public static void SetDbInfo(string url, string dbNameNorthwind, string dbNameMedia)
         {
@@ -30,8 +30,8 @@ namespace DemoServer.Helpers
         {
             var docStoreInit = new DocumentStore
             {
-                Url = Url,
-                DefaultDatabase = NorthwindDatabaseName
+                Urls = new[] { Url },
+                Database = NorthwindDatabaseName
             }.Initialize();
 
             return docStoreInit;
@@ -41,8 +41,8 @@ namespace DemoServer.Helpers
         {
             var docStoreInit = new DocumentStore
             {
-                Url = Url,
-                DefaultDatabase = MediaDatabaseName
+                Urls = new[] { Url },
+                Database = MediaDatabaseName
             }.Initialize();
 
             return docStoreInit;

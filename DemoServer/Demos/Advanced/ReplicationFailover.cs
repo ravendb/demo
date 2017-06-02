@@ -14,8 +14,8 @@ namespace DemoServer.Demos.Advanced
         {
             using (var store = new DocumentStore
             {
-                Url = "http://localhost:8080",
-                DefaultDatabase = "Rep1"
+                Urls = new[] { "http://localhost:8080" },
+                Database = "Rep1"
             }.Initialize())
             {
                 using (var session = store.OpenSession())

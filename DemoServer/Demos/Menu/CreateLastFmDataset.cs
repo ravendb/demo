@@ -34,10 +34,7 @@ namespace DemoServer.Demos.Menu
                 DocumentStoreHolder.MediaStore
                     .Admin
                     .Server
-                    .Send(new CreateDatabaseOperation(new DatabaseDocument
-                    {
-                        Id = DocumentStoreHolder.MediaDatabaseName
-                    }));
+                    .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.MediaDatabaseName)));
 
                 AddDocumentsToDb(path);
             }

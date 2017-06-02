@@ -3,6 +3,8 @@ using System.Net.Http;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Raven.Client.Documents.Conventions;
+using Raven.Client.Documents.Operations;
 using Raven.Client.Http;
 using Raven.Client.Server;
 using Raven.Client.Server.Operations;
@@ -30,18 +32,11 @@ namespace DemoServer.Demos.Menu
                 DocumentStoreHolder.Store
                     .Admin
                     .Server
-                    .Send(new CreateDatabaseOperation(new DatabaseDocument
-                    {
-                        Id = DocumentStoreHolder.NorthwindDatabaseName
-                    }));
+                    .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
 
-                var requestExecuter = DocumentStoreHolder.Store.GetRequestExecuter();
-                JsonOperationContext context;
-                using (requestExecuter.ContextPool.AllocateOperationContext(out context))
-                {
-                    var command = new CreateSampleDataCommand();
-                    requestExecuter.Execute(command, context);
-                }
+                DocumentStoreHolder.Store
+                    .Admin
+                    .Send(new CreateSampleDataOperation());
             }
             catch (Exception e)
             {
@@ -51,23 +46,27 @@ namespace DemoServer.Demos.Menu
             return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);
         }
 
-        private class CreateSampleDataCommand : RavenCommand<object>
+        public class CreateSampleDataOperation : IAdminOperation
         {
-            public override HttpRequestMessage CreateRequest(ServerNode node, out string url)
+            public RavenCommand GetCommand(DocumentConventions conventions, JsonOperationContext context)
             {
-                url = $"{node.Url}/databases/{node.Database}/studio/sample-data";
+                return new CreateSampleDataCommand();
+            }
 
-                return new HttpRequestMessage
+            private class CreateSampleDataCommand : RavenCommand
+            {
+                public override bool IsReadRequest => false;
+
+                public override HttpRequestMessage CreateRequest(ServerNode node, out string url)
                 {
-                    Method = HttpMethod.Post
-                };
-            }
+                    url = $"{node.Url}/databases/{node.Database}/studio/sample-data";
 
-            public override void SetResponse(BlittableJsonReaderObject response, bool fromCache)
-            {
+                    return new HttpRequestMessage
+                    {
+                        Method = HttpMethod.Post
+                    };
+                }
             }
-
-            public override bool IsReadRequest => false;
         }
     }
 }
