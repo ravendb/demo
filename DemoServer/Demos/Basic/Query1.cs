@@ -4,6 +4,8 @@ using DemoServer.Controllers;
 using DemoServer.Entities;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
+using Newtonsoft.Json;
 using Raven.Client.Documents.Session;
 
 namespace DemoServer.Demos.Basic
@@ -26,9 +28,34 @@ namespace DemoServer.Demos.Basic
 
                 var result = query.FirstOrDefault();
 
-                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationInMs);
+
+                RecordQuery(query);
 
                 return result;
+            }
+        }
+
+
+        private void RecordQuery(object q)
+        {
+            try
+            {
+                var ravenQueryInspector = q as IRavenQueryInspector;
+                if (ravenQueryInspector == null)
+                    return;
+
+                var indexQuery = ravenQueryInspector.GetIndexQuery(false);
+
+                Response.Headers["Query"] = JsonConvert.SerializeObject(new
+                {
+                    indexQuery.Query,
+                    indexQuery.QueryParameters
+                });
+            }
+            catch (Exception)
+            {
+                // invalid header value, etc
             }
         }
     }

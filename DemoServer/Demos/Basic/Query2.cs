@@ -26,7 +26,8 @@ namespace DemoServer.Demos.Basic
 
                 var result = query.FirstOrDefault();
 
-                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationInMs);
+                RecordQuery(query);
 
                 return result;
             }

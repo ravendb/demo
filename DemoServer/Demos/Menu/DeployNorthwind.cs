@@ -19,29 +19,27 @@ namespace DemoServer.Demos.Menu
         [Demo("Deploy Northwind", DemoOutputType.String, demoOrder: 305)]
         public object DeployNorthwind(bool deleteDatabase = false)
         {
-            try
+            if (deleteDatabase)
             {
-                if (deleteDatabase)
-                {
-                    DocumentStoreHolder.Store
-                        .Admin
-                        .Server
-                        .Send(new DeleteDatabaseOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
-                }
+                DocumentStoreHolder.Store
+                    .Admin
+                    .Server
+                    .Send(new DeleteDatabaseOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
+
+                WaitForDeleteToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
 
                 DocumentStoreHolder.Store
                     .Admin
                     .Server
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
 
-                DocumentStoreHolder.Store
-                    .Admin
-                    .Send(new CreateSampleDataOperation());
+                WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
+
             }
-            catch (Exception e)
-            {
-                return e.Message;
-            }
+
+            DocumentStoreHolder.Store
+              .Admin
+                .Send(new CreateSampleDataOperation());
 
             return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);
         }
@@ -56,7 +54,6 @@ namespace DemoServer.Demos.Menu
             private class CreateSampleDataCommand : RavenCommand
             {
                 public override bool IsReadRequest => false;
-
                 public override HttpRequestMessage CreateRequest(ServerNode node, out string url)
                 {
                     url = $"{node.Url}/databases/{node.Database}/studio/sample-data";

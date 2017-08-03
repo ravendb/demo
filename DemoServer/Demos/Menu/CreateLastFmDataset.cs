@@ -11,6 +11,9 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using Raven.Client.Server;
 using Raven.Client.Server.Operations;
+using Raven.Client.Documents;
+using Raven.Client.Documents.Smuggler;
+using Raven.Client.Util;
 
 namespace DemoServer.Demos.Menu
 {
@@ -19,59 +22,63 @@ namespace DemoServer.Demos.Menu
         [HttpGet]
         [Route("/menu/createLastFmDataset")]
         [Demo("Deploy Last.fm", DemoOutputType.String, demoOrder: 310)]
-        public object CreateLastFmDataset(string path = null, bool deleteDatabase = false)
+        public object CreateLastFmDataset(string path = "C:\\work\\media.ravendbdump", bool deleteDatabase = false)
         {
-            try
+            if (deleteDatabase)
             {
-                if (deleteDatabase)
-                {
-                    DocumentStoreHolder.MediaStore
-                        .Admin
-                        .Server
-                        .Send(new DeleteDatabaseOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
-                }
+                DocumentStoreHolder.MediaStore
+                    .Admin
+                    .Server
+                    .Send(new DeleteDatabaseOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
+
+                WaitForDeleteToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
 
                 DocumentStoreHolder.MediaStore
                     .Admin
                     .Server
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.MediaDatabaseName)));
 
-                AddDocumentsToDb(path);
-            }
-            catch (Exception e)
-            {
-                return e.Message;
+                WaitForOperationToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
             }
 
+            AddDocumentsToDb(path);
+          
             return string.Format("Last.fm was deployed to {0} database.", DocumentStoreHolder.MediaDatabaseName);
+        }
+
+        public static void WaitForOperationToComplete(IDocumentStore store, string dbName)
+        {
+            DatabaseTopology topology;
+            do
+            {
+                topology = store
+                .Admin
+                .Server
+                .Send(new GetDatabaseTopologyOperation(dbName));
+            } while (topology.Members.Count < 1);
+        }
+
+        public static void WaitForDeleteToComplete(IDocumentStore store, string dbName)
+        {
+            DatabaseTopology topology;
+            do
+            {
+                topology = store
+                .Admin
+                .Server
+                .Send(new GetDatabaseTopologyOperation(dbName));
+            } while (topology != null);
         }
 
         public void AddDocumentsToDb(string path)
         {
             using (var stream = string.IsNullOrWhiteSpace(path) ? GetEmbeddedLastFmSubset() : System.IO.File.OpenRead(path))
-            using (var zip = new ZipArchive(stream, ZipArchiveMode.Read))
-            using (var bulkInsert = DocumentStoreHolder.MediaStore.BulkInsert())
             {
-                foreach (var entry in zip.Entries)
+                var options = new DatabaseSmugglerOptions()
                 {
-                    if (entry.Length == 0)
-                        continue;
-                    using (var entryStream = entry.Open())
-                    {
-                        var docAsJson = JObject.Load(new JsonTextReader(new StreamReader(entryStream)));
-                        var doc = new LastFm
-                        {
-                            Artist = docAsJson.Value<string>("artist"),
-                            TimeStamp = DateTime.Parse(docAsJson.Value<string>("timestamp")),
-                            Title = docAsJson.Value<string>("title"),
-                            TrackId = docAsJson.Value<string>("track_id"),
-                            Tags = docAsJson.Value<JArray>("tags")
-                                    .Select(x => ((JArray)x)[0].Value<string>())
-                                    .ToList()
-                        };
-                        bulkInsert.Store(doc);
-                    }
-                }
+                    Database = DocumentStoreHolder.MediaDatabaseName
+                };
+                AsyncHelpers.RunSync(() => ((DocumentStore)DocumentStoreHolder.MediaStore).Smuggler.ImportAsync(options, stream));               
             }
         }
 

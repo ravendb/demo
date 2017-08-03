@@ -23,6 +23,7 @@ class DemoViewModel {
 
     currentClientTime = ko.observable("N/A");
     currentServerTime = ko.observable("N/A");
+    query = ko.observable("");
 
     presenter: DemoViewModelPresenter = new DemoViewModelPresenter();
 
@@ -142,6 +143,7 @@ class DemoViewModel {
             .always((a, b, request) => {
                 var clientTime = request.getResponseHeader('Client-Time');
                 var serverTime = request.getResponseHeader('Server-Time');
+                var query = request.getResponseHeader('Query');
 
                 if (clientTime) {
                     var clientTimeAsNumber = parseFloat(clientTime);
@@ -166,6 +168,16 @@ class DemoViewModel {
                 }
                 else
                     this.currentServerTime("N/A");
+                if (query) {
+
+                    try {
+                        this.query(JSON.stringify(JSON.parse(query), null, 2));
+                    } catch (e) {
+                        this.query(e);
+                    } 
+                }
+                else
+                    this.query("");
             });
     }
 
@@ -227,6 +239,7 @@ class DemoViewModel {
         this.getCode();
         this.currentClientTime("N/A");
         this.currentServerTime("N/A");
+        this.query("");
     }
 
     setDemoParameters(demo) {

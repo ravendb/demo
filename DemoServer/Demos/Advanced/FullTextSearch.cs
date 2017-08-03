@@ -27,7 +27,7 @@ namespace DemoServer.Demos.Advanced
                     .Statistics(out stats)
                     .ToList();
 
-                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationInMs);
 
                 return results;
             }

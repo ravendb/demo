@@ -28,6 +28,8 @@ namespace DemoServer.Demos.Basic
                         .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
                         .Search(x => x.Country, country);
 
+                RecordQuery(query);
+
                 // Stream the results:
                 using (var enumerator = session.Advanced.Stream(query))
                 {

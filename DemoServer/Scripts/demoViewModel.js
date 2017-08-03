@@ -19,6 +19,7 @@ var DemoViewModel = (function () {
         this.inProgress = ko.observable(false);
         this.currentClientTime = ko.observable("N/A");
         this.currentServerTime = ko.observable("N/A");
+        this.query = ko.observable("");
         this.presenter = new DemoViewModelPresenter();
         this.currentDemoCategory = ko.observable();
         this.demoCategories = ko.observableArray(['']);
@@ -115,6 +116,7 @@ var DemoViewModel = (function () {
             .always(function (a, b, request) {
             var clientTime = request.getResponseHeader('Client-Time');
             var serverTime = request.getResponseHeader('Server-Time');
+            var query = request.getResponseHeader('Query');
             if (clientTime) {
                 var clientTimeAsNumber = parseFloat(clientTime);
                 var clientTimeString = clientTimeAsNumber.toString();
@@ -135,6 +137,15 @@ var DemoViewModel = (function () {
             }
             else
                 _this.currentServerTime("N/A");
+            if (query) {
+                try {
+                    _this.query(JSON.stringify(JSON.parse(query), null, 2));
+                } catch (e) {
+                    _this.query(e);
+                } 
+            }
+            else
+                _this.query("");
         });
     };
     DemoViewModel.prototype.getCode = function () {
@@ -188,6 +199,7 @@ var DemoViewModel = (function () {
         this.getCode();
         this.currentClientTime("N/A");
         this.currentServerTime("N/A");
+        this.query("");
     };
     DemoViewModel.prototype.setDemoParameters = function (demo) {
         var _this = this;

@@ -15,7 +15,6 @@ namespace DemoServer.Indexes
                                   product.UnitsInStock
                               };
 
-            Sort(x => x.UnitsInStock, SortOptions.Numeric);
         }
     }
 

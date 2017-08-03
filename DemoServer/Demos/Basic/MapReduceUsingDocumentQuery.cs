@@ -24,7 +24,7 @@ namespace DemoServer.Demos.Basic
                     .DocumentQuery<ProductSales.Result, ProductSales>().Statistics(out stats)
                     .ToList();
 
-                ServerTime = TimeSpan.FromMilliseconds(stats.DurationMilliseconds);
+                ServerTime = TimeSpan.FromMilliseconds(stats.DurationInMs);
 
                 return results;
             }

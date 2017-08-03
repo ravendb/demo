@@ -47,6 +47,12 @@ namespace DemoServer.Controllers
 
             if (ServerTime.HasValue)
                 AddTime("Server-Time", Response, ServerTime.Value);
+
+            if(context.Exception != null && context.Result == null)
+            {
+                context.Result = this.StatusCode(500, context.Exception.ToString());
+                context.ExceptionHandled = true;
+            }
         }
 
         private static void AddTime(string name, HttpResponse response, TimeSpan time)

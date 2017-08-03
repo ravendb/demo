@@ -21,7 +21,7 @@ namespace DemoServer.Demos.Advanced
                     .MoreLikeThis<LastFm>(
                         new MoreLikeThisQuery
                         {
-                            IndexName = "IndexFullTextSearch",
+                            Query = "FROM INDEX IndexFullTextSearch",
                             DocumentId = documentId,
                             Fields = new[] { "Artist" }
                         });

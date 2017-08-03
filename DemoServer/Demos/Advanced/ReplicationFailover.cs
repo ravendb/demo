@@ -2,9 +2,36 @@
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
+using System;
 
 namespace DemoServer.Demos.Advanced
 {
+    public class FailoverStoreHolder
+    {
+        private readonly static Lazy<IDocumentStore> _store =
+            new Lazy<IDocumentStore>(CreateDocumentStore);
+
+        private static IDocumentStore CreateDocumentStore()
+        {
+            var documentStore = new DocumentStore
+            {
+                Urls = new[] // urls of the nodes in the RavenDB Cluster
+			{
+                "http://Raven-Tablet-1:8080"
+            },
+                Database = "Demo",
+            };
+
+            documentStore.Initialize();
+            return documentStore;
+        }
+
+        public static IDocumentStore Store
+        {
+            get { return _store.Value; }
+        }
+    }
+
     public partial class AdvancedController : BaseController
     {
         [HttpGet]
@@ -12,18 +39,11 @@ namespace DemoServer.Demos.Advanced
         [Demo("ReplicationFailover", DemoOutputType.Flatten, demoOrder: 200)]
         public object ReplicationFailover(string id = "Users/1")
         {
-            using (var store = new DocumentStore
+            using (var session = FailoverStoreHolder.Store.OpenSession())
             {
-                Urls = new[] { "http://localhost:8080" },
-                Database = "Rep1"
-            }.Initialize())
-            {
-                using (var session = store.OpenSession())
-                {
-                    var results = session.Load<dynamic>(id);
+                var results = session.Load<dynamic>(id);
 
-                    return results;
-                }
+                return results;
             }
         }
     }

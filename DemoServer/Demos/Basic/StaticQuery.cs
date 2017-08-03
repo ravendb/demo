@@ -21,11 +21,14 @@ namespace DemoServer.Demos.Basic
             //GetImportantOrdersWithIssues - High Price Orders and Delayed Orders
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var problemtaticOrders = session
+                var query = session
                     .Query<CostlyOrders.Result, CostlyOrders>()
                     .Where(x => x.Price > HighPrice && x.Delay > TimeSpan.FromDays(DelayDays))
-                    .OfType<Order>()
+                    .OfType<Order>();
+                var problemtaticOrders = query
                     .ToList();
+
+                RecordQuery(query);
 
                 return problemtaticOrders;
             }

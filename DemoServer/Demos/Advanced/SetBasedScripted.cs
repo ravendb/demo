@@ -7,6 +7,7 @@ using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Queries;
+using System;
 
 namespace DemoServer.Demos.Advanced
 {
@@ -17,28 +18,35 @@ namespace DemoServer.Demos.Advanced
         [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
         public object SetBasedScripted(string original = "USA", string newVal = "United States of America")
         {
-            var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
-                new CompaniesAndCountry().IndexName,
-                new IndexQuery { Query = "Address_Country:" + original },
-                new PatchRequest
+            
+                var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
+                   new IndexQuery
+                   {
+                       Query = "FROM Companies WHERE Address.Country = :country",
+                       QueryParameters = new Raven.Client.Parameters()
+                       {
+                           ["country"] = original
+                       }
+                   },
+                   new PatchRequest
+                   {
+                       Script = "this.Address.Country = newVal;",
+                       Values = new Dictionary<string, object> { { "newVal", newVal } }
+                   }));
+
+                updateByIndex.WaitForCompletion();
+
+                using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
-                    Script = "this.Address.Country = newVal;",
-                    Values = new Dictionary<string, object> { { "newVal", newVal } }
-                }));
+                    var results = session
+                        .Query<Company>()
+                        .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                        .Where(x => x.Address.Country == newVal)
+                        .ToList();
 
-            updateByIndex.WaitForCompletion();
-
-            using (var session = DocumentStoreHolder.Store.OpenSession())
-            {
-                var results = session
-                    .Query<CompaniesAndCountry.Result, CompaniesAndCountry>()
-                    .Customize(x => x.WaitForNonStaleResultsAsOfNow())
-                    .Where(x => x.Address_Country == newVal)
-                    .OfType<Company>()
-                    .ToList();
-
-                return (results);
-            }
+                    return (results);
+                }
+            
         }
     }
 }
