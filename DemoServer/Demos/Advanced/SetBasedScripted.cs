@@ -16,22 +16,27 @@ namespace DemoServer.Demos.Advanced
         [HttpGet]
         [Route("/advanced/setBasedScripted")]
         [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
-        public object SetBasedScripted(string original = "USA", string newVal = "United States of America")
+        public object SetBasedScripted(string employee = "employees/1", int discount = 5)
         {
             
                 var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
                    new IndexQuery
                    {
-                       Query = "FROM Companies WHERE Address.Country = :country",
+                       Query = "FROM INDEX 'Orders/Totals' WHERE Employee = :emp",
                        QueryParameters = new Raven.Client.Parameters()
                        {
-                           ["country"] = original
+                           ["emp"] = employee
                        }
                    },
                    new PatchRequest
                    {
-                       Script = "this.Address.Country = newVal;",
-                       Values = new Dictionary<string, object> { { "newVal", newVal } }
+                       Script = @"
+for(var i = 0; i < this.Lines.length; i++)
+{
+    this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, discount);
+}
+",
+                       Values = new Dictionary<string, object> { { "discount", discount } }
                    }));
 
                 updateByIndex.WaitForCompletion();
@@ -39,9 +44,9 @@ namespace DemoServer.Demos.Advanced
                 using (var session = DocumentStoreHolder.Store.OpenSession())
                 {
                     var results = session
-                        .Query<Company>()
+                        .Query<Order>()
                         .Customize(x => x.WaitForNonStaleResultsAsOfNow())
-                        .Where(x => x.Address.Country == newVal)
+                        .Where(x => x.Employee == employee)
                         .ToList();
 
                     return (results);

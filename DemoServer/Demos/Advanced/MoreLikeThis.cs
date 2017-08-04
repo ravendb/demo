@@ -14,16 +14,16 @@ namespace DemoServer.Demos.Advanced
         [Route("/advanced/moreLikeThis")]
         public object MoreLikeThis(string documentId = "lastfm/9295")
         {
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (var session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 List<LastFm> mltByArtist = session
                     .Advanced
                     .MoreLikeThis<LastFm>(
                         new MoreLikeThisQuery
                         {
-                            Query = "FROM INDEX IndexFullTextSearch",
+                            Query = "FROM INDEX LastFmAnalyzed",
                             DocumentId = documentId,
-                            Fields = new[] { "Artist" }
+                            Fields = new[] { "Query" }
                         });
 
                 return mltByArtist.ToList();

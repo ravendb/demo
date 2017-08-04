@@ -15,10 +15,7 @@ namespace DemoServer.Demos.Advanced
         {
             var documentStore = new DocumentStore
             {
-                Urls = new[] // urls of the nodes in the RavenDB Cluster
-			{
-                "http://Raven-Tablet-1:8080"
-            },
+                Urls = new[] { "http://" + Environment.MachineName + ":8080" },
                 Database = "Demo",
             };
 
