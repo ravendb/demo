@@ -19,7 +19,10 @@ namespace DemoServer.Demos.Advanced
                 Database = "Demo",
             };
 
+
             documentStore.Initialize();
+            documentStore.SetRequestsTimeout(TimeSpan.FromSeconds(1));
+
             return documentStore;
         }
 
