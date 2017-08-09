@@ -1,5 +1,4 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
     <PreserveCompilationContext>true</PreserveCompilationContext>
@@ -15,6 +14,9 @@
     <None Update="index.html;Demos\**\*;Scripts\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
+    <Compile Update="Demos\**\*.cs">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -30,7 +32,15 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="1.1.1" />
-    <PackageReference Include="RavenDB.Client" Version="4.0.0-custom-40" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.0-beta-40018" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dumps\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="..\Dumps\small-media.ravendbdump" Link="Dumps\small-media.ravendbdump" />
   </ItemGroup>
 
 </Project>

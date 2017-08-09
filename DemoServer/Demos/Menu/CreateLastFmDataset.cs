@@ -1,19 +1,13 @@
-﻿using System;
-using System.IO;
-using System.IO.Compression;
-using System.Linq;
+﻿using System.IO;
 using System.Reflection;
+using System.Threading.Tasks;
 using DemoServer.Controllers;
-using DemoServer.Entities;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using Raven.Client.Server;
-using Raven.Client.Server.Operations;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Smuggler;
-using Raven.Client.Util;
+using Raven.Client.ServerWide;
+using Raven.Client.ServerWide.Operations;
 
 namespace DemoServer.Demos.Menu
 {
@@ -22,7 +16,7 @@ namespace DemoServer.Demos.Menu
         [HttpGet]
         [Route("/menu/createLastFmDataset")]
         [Demo("Deploy Last.fm", DemoOutputType.String, demoOrder: 310)]
-        public object CreateLastFmDataset(string path = "C:\\work\\media.ravendbdump", bool deleteDatabase = false)
+        public async Task<string> CreateLastFmDataset(string path = null, bool deleteDatabase = false)
         {
             if (deleteDatabase)
             {
@@ -41,8 +35,8 @@ namespace DemoServer.Demos.Menu
                 WaitForOperationToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
             }
 
-            AddDocumentsToDb(path);
-          
+            await AddDocumentsToDbAsync(path).ConfigureAwait(false);
+
             return string.Format("Last.fm was deployed to {0} database.", DocumentStoreHolder.MediaDatabaseName);
         }
 
@@ -70,22 +64,24 @@ namespace DemoServer.Demos.Menu
             } while (topology != null);
         }
 
-        public void AddDocumentsToDb(string path)
+        public async Task AddDocumentsToDbAsync(string path)
         {
             using (var stream = string.IsNullOrWhiteSpace(path) ? GetEmbeddedLastFmSubset() : System.IO.File.OpenRead(path))
             {
-                var options = new DatabaseSmugglerOptions()
+                var options = new DatabaseSmugglerOptions
                 {
                     Database = DocumentStoreHolder.MediaDatabaseName
                 };
-                AsyncHelpers.RunSync(() => ((DocumentStore)DocumentStoreHolder.MediaStore).Smuggler.ImportAsync(options, stream));               
+
+                await ((DocumentStore)DocumentStoreHolder.MediaStore).Smuggler.ImportAsync(options, stream)
+                    .ConfigureAwait(false);
             }
         }
 
         private Stream GetEmbeddedLastFmSubset()
         {
             var assembly = GetType().GetTypeInfo().Assembly;
-            return assembly.GetManifestResourceStream($"{typeof(Program).Namespace}.Data.lastfm_subset.zip");
+            return assembly.GetManifestResourceStream($"{typeof(Program).Namespace}.Dumps.small-media.ravendbdump");
         }
     }
 }

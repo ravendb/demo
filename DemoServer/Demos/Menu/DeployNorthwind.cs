@@ -1,13 +1,12 @@
-﻿using System;
-using System.Net.Http;
+﻿using System.Net.Http;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Conventions;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Http;
-using Raven.Client.Server;
-using Raven.Client.Server.Operations;
+using Raven.Client.ServerWide;
+using Raven.Client.ServerWide.Operations;
 using Sparrow.Json;
 
 namespace DemoServer.Demos.Menu
@@ -34,11 +33,10 @@ namespace DemoServer.Demos.Menu
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
 
                 WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
-
             }
 
             DocumentStoreHolder.Store
-              .Admin
+                .Admin
                 .Send(new CreateSampleDataOperation());
 
             return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);

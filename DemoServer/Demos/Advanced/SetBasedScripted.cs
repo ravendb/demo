@@ -3,11 +3,9 @@ using System.Linq;
 using DemoServer.Controllers;
 using DemoServer.Entities;
 using DemoServer.Helpers;
-using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Queries;
-using System;
 
 namespace DemoServer.Demos.Advanced
 {

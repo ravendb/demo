@@ -30,11 +30,11 @@ namespace DemoServer.Helpers
         {
             var docStoreInit = new DocumentStore
             {
-                Urls = new[] { "http://" + Environment.MachineName + ":8080" },
+                Urls = new[] { Url },
                 Database = NorthwindDatabaseName,
             }.Initialize();
 
-            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(5));
+            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(30));
 
             return docStoreInit;
         }
@@ -43,11 +43,11 @@ namespace DemoServer.Helpers
         {
             var docStoreInit = new DocumentStore
             {
-                Urls = new[] { "http://" + Environment.MachineName + ":8080" },
+                Urls = new[] { Url },
                 Database = MediaDatabaseName
             }.Initialize();
 
-            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(5));
+            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(30));
 
             return docStoreInit;
         }
