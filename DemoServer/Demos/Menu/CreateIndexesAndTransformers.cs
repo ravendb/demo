@@ -15,9 +15,9 @@ namespace DemoServer.Demos.Menu
         public static List<Facet> FixedFacet { get; set; }
 
         [HttpGet]
-        [Route("/menu/CreateIndexesAndTransformers")]
-        [Demo("Deploy Indexes and Transformers", DemoOutputType.String, demoOrder: 300)]
-        public object CreateIndexesAndTransformers()
+        [Route("/menu/CreateIndexes")]
+        [Demo("Deploy Indexes", DemoOutputType.String, demoOrder: 300)]
+        public object CreateIndexes()
         {
             // Side By Side Index Creation:
             // IndexCreation.SideBySideCreateIndexes(GetType().GetTypeInfo().Assembly, DocumentStoreHolder.Store);
@@ -28,7 +28,6 @@ namespace DemoServer.Demos.Menu
                 CreateFixedFacet();
 
                 DocumentStoreHolder.MediaStore.ExecuteIndex(new LastFmAnalyzed());
-                DocumentStoreHolder.MediaStore.ExecuteTransformer(new TransformerLastFm());
             }
             catch (Exception e)
             {

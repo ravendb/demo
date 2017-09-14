@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
@@ -15,9 +16,9 @@ namespace DemoServer.Demos.Basic
         }
 
         [HttpGet]
-        [Route("/basic/transformerQuery")]
-        [Demo("Transformer Query", DemoOutputType.Flatten, demoOrder: 80)]
-        public object TransformerQuery(string country = "USA")
+        [Route("/basic/projectionQuery")]
+        [Demo("Projection Query", DemoOutputType.Flatten, demoOrder: 80)]
+        public object ProjectionQuery(string country = "USA")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -25,8 +26,13 @@ namespace DemoServer.Demos.Basic
 
                 var query =
                     session.Query<NameAndCountry.Result, NameAndCountry>()
-                        .TransformWith<TransformerNameAndCountry, NameAndCountry.Result>()
-                        .Search(x => x.Country, country);
+                        .Search(x => x.Country, country)
+                        .Select(x => new NameAndCountry.Result
+                        {
+                            Country = x.Country,
+                            Id = x.Id,
+                            Name = x.Name
+                        });
 
                 RecordQuery(query);
 

@@ -23,7 +23,7 @@ namespace DemoServer.Demos.Menu
                 DocumentStoreHolder.MediaStore
                     .Admin
                     .Server
-                    .Send(new DeleteDatabaseOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
+                    .Send(new DeleteDatabasesOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
 
                 WaitForDeleteToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
 
@@ -48,7 +48,7 @@ namespace DemoServer.Demos.Menu
                 topology = store
                 .Admin
                 .Server
-                .Send(new GetDatabaseTopologyOperation(dbName));
+                .Send(new GetDatabaseRecordOperation(dbName)).Topology;
             } while (topology.Members.Count < 1);
         }
 
@@ -60,7 +60,7 @@ namespace DemoServer.Demos.Menu
                 topology = store
                 .Admin
                 .Server
-                .Send(new GetDatabaseTopologyOperation(dbName));
+                .Send(new GetDatabaseRecordOperation(dbName)).Topology;
             } while (topology != null);
         }
 

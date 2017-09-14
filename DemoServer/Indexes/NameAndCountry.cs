@@ -40,7 +40,7 @@ namespace DemoServer.Indexes
                                           });
 
 
-            Index(x => x.Country, FieldIndexing.Analyzed);
+            Index(x => x.Country, FieldIndexing.Search);
 
             Store(x => x.Name, FieldStorage.Yes);
             Store(x => x.Country, FieldStorage.Yes);

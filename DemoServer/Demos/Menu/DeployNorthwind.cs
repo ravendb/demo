@@ -23,7 +23,7 @@ namespace DemoServer.Demos.Menu
                 DocumentStoreHolder.Store
                     .Admin
                     .Server
-                    .Send(new DeleteDatabaseOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
+                    .Send(new DeleteDatabasesOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
 
                 WaitForDeleteToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
 
@@ -52,7 +52,8 @@ namespace DemoServer.Demos.Menu
             private class CreateSampleDataCommand : RavenCommand
             {
                 public override bool IsReadRequest => false;
-                public override HttpRequestMessage CreateRequest(ServerNode node, out string url)
+
+                public override HttpRequestMessage CreateRequest(JsonOperationContext ctx, ServerNode node, out string url)
                 {
                     url = $"{node.Url}/databases/{node.Database}/studio/sample-data";
 

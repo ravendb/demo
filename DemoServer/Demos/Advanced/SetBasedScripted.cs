@@ -16,40 +16,37 @@ namespace DemoServer.Demos.Advanced
         [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
         public object SetBasedScripted(string employee = "employees/1", int discount = 5)
         {
-            
-                var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByIndexOperation(
-                   new IndexQuery
-                   {
-                       Query = "FROM INDEX 'Orders/Totals' WHERE Employee = :emp",
-                       QueryParameters = new Raven.Client.Parameters()
-                       {
-                           ["emp"] = employee
-                       }
-                   },
-                   new PatchRequest
-                   {
-                       Script = @"
-for(var i = 0; i < this.Lines.length; i++)
-{
-    this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, discount);
-}
-",
-                       Values = new Dictionary<string, object> { { "discount", discount } }
-                   }));
-
-                updateByIndex.WaitForCompletion();
-
-                using (var session = DocumentStoreHolder.Store.OpenSession())
+            var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByQueryOperation(
+                new IndexQuery
                 {
-                    var results = session
-                        .Query<Order>()
-                        .Customize(x => x.WaitForNonStaleResultsAsOfNow())
-                        .Where(x => x.Employee == employee)
-                        .ToList();
+                    Query = @"
+FROM INDEX 'Orders/Totals' 
+WHERE Employee = :emp UPDATE { }
+UPDATE {
+    for(var i = 0; i < this.Lines.length; i++)
+    {
+        this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, discount);
+    }
+}",
+                    QueryParameters = new Raven.Client.Parameters()
+                    {
+                        ["emp"] = employee,
+                        ["discount"] = discount
+                    }
+                }));
 
-                    return (results);
-                }
-            
+            updateByIndex.WaitForCompletion();
+
+            using (var session = DocumentStoreHolder.Store.OpenSession())
+            {
+                var results = session
+                    .Query<Order>()
+                    .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                    .Where(x => x.Employee == employee)
+                    .ToList();
+
+                return (results);
+            }
         }
     }
 }

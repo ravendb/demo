@@ -28,7 +28,7 @@ namespace DemoServer.Indexes
                                        }
                                };
 
-            Index(x => x.Address, FieldIndexing.Analyzed);
+            Index(x => x.Address, FieldIndexing.Search);
             Store(x => x.Address, FieldStorage.Yes);
             TermVector(x => x.Address, FieldTermVector.WithPositionsAndOffsets);
 

@@ -26,7 +26,7 @@ namespace DemoServer.Indexes
                     }
                 };
 
-            Index(x => x.Query, FieldIndexing.Analyzed);
+            Index(x => x.Query, FieldIndexing.Search);
         }
     }
 }

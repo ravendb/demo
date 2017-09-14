@@ -21,10 +21,18 @@ namespace DemoServer.Demos.Advanced
             {
                 QueryStatistics stats;
                 var results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
-                    .Take(20)
-                    .Search(x => x.Query, searchTerm)
-                    .TransformWith<TransformerLastFm, LastFm>()
                     .Statistics(out stats)
+                    .Search(x => x.Query, searchTerm)
+                    .OfType<LastFm>()
+                    .Select(x => new LastFm
+                    {
+                        Artist = x.Artist,
+                        Tags = x.Tags,
+                        TimeStamp = x.TimeStamp,
+                        Title = x.Title,
+                        TrackId = x.TrackId
+                    })
+                    .Take(20)
                     .ToList();
 
                 ServerTime = TimeSpan.FromMilliseconds(stats.DurationInMs);
