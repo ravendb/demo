@@ -34,7 +34,7 @@ namespace DemoServer.Demos.Menu
                 return e.Message;
             }
 
-            return "Indexes, Transformers and Facets were created successfully";
+            return "Indexes and Facets were created successfully";
         }
 
         private static void CreateFixedFacet()

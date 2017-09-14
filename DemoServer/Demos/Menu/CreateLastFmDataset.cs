@@ -6,6 +6,7 @@ using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Smuggler;
+using Raven.Client.Http;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
@@ -57,10 +58,11 @@ namespace DemoServer.Demos.Menu
             DatabaseTopology topology;
             do
             {
-                topology = store
-                .Admin
-                .Server
-                .Send(new GetDatabaseRecordOperation(dbName)).Topology;
+                var databaseRecord = store
+                    .Admin
+                    .Server
+                    .Send(new GetDatabaseRecordOperation(dbName));
+                topology = databaseRecord?.Topology;
             } while (topology != null);
         }
 

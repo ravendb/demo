@@ -21,7 +21,7 @@ namespace DemoServer.Demos.Advanced
                 {
                     Query = @"
 FROM INDEX 'Orders/Totals' 
-WHERE Employee = :emp UPDATE { }
+WHERE Employee = :emp 
 UPDATE {
     for(var i = 0; i < this.Lines.length; i++)
     {
