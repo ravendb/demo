@@ -27,14 +27,15 @@ namespace DemoServer.Demos.Menu
                     .Send(new DeleteDatabasesOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
 
                 WaitForDeleteToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
+            }
 
-                DocumentStoreHolder.MediaStore
+            DocumentStoreHolder.MediaStore
                     .Admin
                     .Server
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.MediaDatabaseName)));
 
-                WaitForOperationToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
-            }
+            WaitForOperationToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
+            
 
             await AddDocumentsToDbAsync(path).ConfigureAwait(false);
 

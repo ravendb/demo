@@ -21,7 +21,7 @@ namespace DemoServer.Demos.Advanced
                 {
                     Query = @"
 FROM INDEX 'Orders/Totals' 
-WHERE Employee = :emp 
+WHERE Employee = $emp 
 UPDATE {
     for(var i = 0; i < this.Lines.length; i++)
     {
@@ -41,7 +41,7 @@ UPDATE {
             {
                 var results = session
                     .Query<Order>()
-                    .Customize(x => x.WaitForNonStaleResultsAsOfNow())
+                    .Customize(x => x.WaitForNonStaleResults())
                     .Where(x => x.Employee == employee)
                     .ToList();
 

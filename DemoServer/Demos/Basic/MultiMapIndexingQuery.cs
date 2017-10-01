@@ -17,6 +17,11 @@ namespace DemoServer.Demos.Basic
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
+                var query =
+                    session.Advanced.RawQuery<NameAndCountry.Result>(
+                        "FROM INDEX 'NameAndCountry' WHERE search(Country, $p0)");
+                query.AddParameter("p0", country);
+                var result = query.ToList();
                 return session.Query<NameAndCountry.Result, NameAndCountry>()
                     .Search(x => x.Country, country)
                     .Select(x => new { x.Name, x.Id })

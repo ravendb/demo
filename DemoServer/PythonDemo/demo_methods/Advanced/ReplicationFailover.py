@@ -8,6 +8,6 @@ class ReplicationFailover(object):
             store.initialize()
 
             with store.open_session() as session:
-                results = session.load(document_id)
+                results = session.load(document_id, object_type=dict)
 
                 return results

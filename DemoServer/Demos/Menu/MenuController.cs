@@ -73,9 +73,13 @@ namespace DemoServer.Demos.Menu
             }
         }
 
-        private static string FindPythonCode(string url)
+        private string FindPythonCode(string url)
         {
-            return "No Python code available for this demo";
+            var path = Path.GetFullPath(Path.Combine(BasePath, "PythonDemo/demo_methods/" + url + ".py"));
+
+            return System.IO.File.Exists(path)
+                ? System.IO.File.ReadAllText(path)
+                : "No Python code available for this demo";
         }
 
         private static string FindJavaCode(string url)

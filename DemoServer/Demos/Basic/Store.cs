@@ -24,7 +24,7 @@ namespace DemoServer.Demos.Basic
 
                 session.SaveChanges();
 
-                return $"New Company Created Successfully";
+                return "New Company Created Successfully";
             }
         }
     }

@@ -1,4 +1,4 @@
-from pyravendb.store.document_store import documentstore
+from pyravendb.store.document_store import DocumentStore
 
 store = None
 
@@ -8,7 +8,7 @@ class DocumentStoreHolder(object):
     def get_store():
         global store
         if not store:
-            store = documentstore(url="http://localhost.fiddler:8080", database="demoDB")
+            store = DocumentStore(urls=["http://localhost.fiddler:8080"], database="Demo")
             store.initialize()
 
         return store

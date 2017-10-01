@@ -26,14 +26,15 @@ namespace DemoServer.Demos.Menu
                     .Send(new DeleteDatabasesOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
 
                 WaitForDeleteToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
-
-                DocumentStoreHolder.Store
-                    .Admin
-                    .Server
-                    .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
-
-                WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
             }
+
+            DocumentStoreHolder.Store
+                .Admin
+                .Server
+                .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
+
+            WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
+            
 
             DocumentStoreHolder.Store
                 .Admin
