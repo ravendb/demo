@@ -12,5 +12,5 @@ class BoostingEnabled(object):
                                                              "ShippedAt": datetime, "ShipTo": AddressC,
                                                              "Lines": OrderLine}).
                           where(ShipTo_City=city, ShipTo_Country=country))
-						  
+
             return orders

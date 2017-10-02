@@ -1,5 +1,5 @@
 from demo.holder import DocumentStoreHolder
-from demo.indexes import *
+from demo.indexes import ProductSales
 
 
 class MapReduceUsingDocumentQuery(object):
