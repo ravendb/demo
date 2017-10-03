@@ -9,7 +9,7 @@
 
   <ItemGroup>
     <EmbeddedResource Include="Data\*.*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
-    <None Update="index.html;Demos\**\*;Scripts\**\*">
+    <None Update="index.html;Demos\**\*;PythonDemo\**\*;Scripts\**\*">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
     <Compile Update="Demos\**\*.cs">
