@@ -71,10 +71,7 @@ namespace DemoServer.Demos.Menu
         {
             using (var stream = string.IsNullOrWhiteSpace(path) ? GetEmbeddedLastFmSubset() : System.IO.File.OpenRead(path))
             {
-                var options = new DatabaseSmugglerOptions
-                {
-                    Database = DocumentStoreHolder.MediaDatabaseName
-                };
+                var options = new DatabaseSmugglerImportOptions();
 
                 await ((DocumentStore)DocumentStoreHolder.MediaStore).Smuggler.ImportAsync(options, stream)
                     .ConfigureAwait(false);
