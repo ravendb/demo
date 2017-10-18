@@ -7,10 +7,11 @@ from demo.entities import Order
 class SetBasedScripted(object):
     @staticmethod
     def set_based_scripted(employee="employees/1", discount=5):
-        query = ("FROM Index 'Orders/Totals' "
-                 "WHERE Employee= $emp "
-                 "UPDATE {for(var i = 0; i < this.Lines.length; i++){"
-                 "this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, discount);}")
+        query = ("FROM INDEX 'Orders/Totals' "
+                 "WHERE Employee = $emp "
+                 "UPDATE { for(var i = 0; i < this.Lines.length; i++) { "
+                 "this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, args.discount);}}")
+
         query_parameters = {"emp": employee, "discount": discount}
 
         patch_operation = PatchByQueryOperation(

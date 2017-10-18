@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DemoServer.Controllers;
 using DemoServer.Entities;
@@ -25,7 +26,7 @@ WHERE Employee = $emp
 UPDATE {
     for(var i = 0; i < this.Lines.length; i++)
     {
-        this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, discount);
+        this.Lines[i].Discount = Math.max(this.Lines[i].Discount || 0, args.discount);
     }
 }",
                     QueryParameters = new Raven.Client.Parameters()
