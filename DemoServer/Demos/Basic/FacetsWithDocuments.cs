@@ -21,9 +21,10 @@ namespace DemoServer.Demos.Basic
                 var facetResults = session
                     .Query<Product, ProductsAndPriceAndSuplier>()
                     .Where(x => x.UnitsInStock > 1)
-                    .ToFacets(MenuController.FixedFacet);
+                    .AggregateBy(MenuController.FixedFacet)
+                    .Execute();
 
-                return DemoUtilities.FormatRangeResults(facetResults.Results);
+                return DemoUtilities.FormatRangeResults(facetResults);
             }
         }
     }

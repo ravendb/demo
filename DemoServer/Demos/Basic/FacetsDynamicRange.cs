@@ -20,15 +20,14 @@ namespace DemoServer.Demos.Basic
             var from = decimal.Parse(fromVal);
             var to = decimal.Parse(toVal);
 
-            List<Facet> newFacet = new List<Facet>
+            List<FacetBase> newFacet = new List<FacetBase>
             {
                 new Facet
                 {
-                    Name = "Products"
+                    FieldName = "Products"
                 },
-                new Facet<Product>
+                new RangeFacet<Product>
                 {
-                    Name = x => x.PricePerUnit,
                     Ranges =
                     {
                         x => x.PricePerUnit < from,
@@ -36,9 +35,8 @@ namespace DemoServer.Demos.Basic
                         x => x.PricePerUnit >= to,
                     }
                 },
-                new Facet<Product>
+                new RangeFacet<Product>
                 {
-                    Name = x => x.UnitsInStock,
                     Ranges =
                     {
                         x => x.UnitsInStock < 10,
@@ -52,9 +50,10 @@ namespace DemoServer.Demos.Basic
                 var facetResults = session
                     .Query<Product, ProductsAndPriceAndSuplier>()
                     .Where(x => x.UnitsInStock > 1)
-                    .ToFacets(newFacet);
+                    .AggregateBy(newFacet)
+                    .Execute();
 
-                return DemoUtilities.FormatRangeResults(facetResults.Results);
+                return DemoUtilities.FormatRangeResults(facetResults);
             }
         }
     }

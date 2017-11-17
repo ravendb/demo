@@ -24,7 +24,7 @@ namespace DemoServer
                 {
                     Key = key,
                     Value = t.Range,
-                    Count = t.Count ?? 0
+                    Count = t.Count
                 }));
             }
             return lst;

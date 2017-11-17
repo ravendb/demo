@@ -5,6 +5,7 @@ namespace DemoServer.Entities
 {
     public class LastFm
     {
+        public string Id { get; set; }
         public string Artist { get; set; }
         public string TrackId { get; set; }
         public string Title { get; set; }

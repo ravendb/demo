@@ -22,11 +22,10 @@ namespace DemoServer.Demos.Basic
             {
                 var result = session.Query<Product, Products>()
                     .Where(x => x.UnitsInStock >= from && x.UnitsInStock <= to)
-                    .AggregateBy(x => x.Category)
-                    .SumOn(x => x.UnitsInStock)
-                    .ToList();
+                    .AggregateBy(x => x.ByField(f => f.Category).SumOn(f => f.UnitsInStock))
+                    .Execute();
 
-                return DemoUtilities.FormatRangeResults(result.Results);
+                return DemoUtilities.FormatRangeResults(result);
             }
         }
     }

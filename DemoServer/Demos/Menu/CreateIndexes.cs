@@ -7,12 +7,13 @@ using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Indexes;
 using Raven.Client.Documents.Queries.Facets;
+using System.Linq;
 
 namespace DemoServer.Demos.Menu
 {
     public partial class MenuController : BaseController
     {
-        public static List<Facet> FixedFacet { get; set; }
+        public static List<FacetBase> FixedFacet { get; set; }
 
         [HttpGet]
         [Route("/menu/CreateIndexes")]
@@ -43,9 +44,18 @@ namespace DemoServer.Demos.Menu
             const decimal toVal = 20;
 
             FixedFacet = FacetRangeCreation.CreateFacets(fromVal, toVal);
+
+            var facets = FacetRangeCreation.CreateFacets();
+            var rangeFacets = FacetRangeCreation.CreateRangeFacets(fromVal, toVal);
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Store(new FacetSetup { Id = "facets/ProductFacet", Facets = FixedFacet });
+                session.Store(new FacetSetup { 
+                    Id = "facets/ProductFacet", 
+                    Facets = facets,
+                    RangeFacets = rangeFacets 
+                });
+
                 session.SaveChanges();
             }
         }

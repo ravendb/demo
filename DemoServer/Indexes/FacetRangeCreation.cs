@@ -1,22 +1,18 @@
 ﻿using System.Collections.Generic;
 using DemoServer.Entities;
 using Raven.Client.Documents.Queries.Facets;
+using System.Linq;
 
 namespace DemoServer.Indexes
 {
     public class FacetRangeCreation
     {
-        public static List<Facet> CreateFacets(decimal from, decimal to)
+        public static List<RangeFacet> CreateRangeFacets(decimal from, decimal to)
         {
-            List<Facet> facets = new List<Facet>
+            List<RangeFacet> facets = new List<RangeFacet>
             {
-                new Facet
+                new RangeFacet<Product>
                 {
-                    Name = "Products"
-                },
-                new Facet<Product>
-                {
-                    Name = x => x.PricePerUnit,
                     Ranges =
                     {
                         x => x.PricePerUnit < from,
@@ -24,9 +20,8 @@ namespace DemoServer.Indexes
                         x => x.PricePerUnit >= to,
                     }
                 },
-                new Facet<Product>
+                new RangeFacet<Product>
                 {
-                    Name = x => x.UnitsInStock,
                     Ranges =
                     {
                         x => x.UnitsInStock < 10,
@@ -35,6 +30,27 @@ namespace DemoServer.Indexes
                 }
             };
             return facets;
+        }
+
+        public static List<Facet> CreateFacets()
+        {
+            List<Facet> facets = new List<Facet>
+            {
+                new Facet
+                {
+                    FieldName = "Products"
+                },
+            };
+            return facets;
+        }
+
+
+        public static List<FacetBase> CreateFacets(decimal from, decimal to)
+        {
+            return CreateRangeFacets(from, to)
+                .Cast<FacetBase>()
+                .Union(CreateFacets().Cast<FacetBase>())
+                .ToList();
         }
     }
 
