@@ -18,15 +18,16 @@ namespace DemoServer.Indexes
                 {
                     Query = new object[]
                     {
-                        song.Artist, 
-                        song.TimeStamp, 
-                        song.Tags, 
-                        song.Title, 
+                        song.Artist,
+                        song.TimeStamp,
+                        song.Tags,
+                        song.Title,
                         song.TrackId
                     }
                 };
 
             Index(x => x.Query, FieldIndexing.Search);
+            TermVector(x => x.Query, FieldTermVector.Yes);
         }
     }
 }

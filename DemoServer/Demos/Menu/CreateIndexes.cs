@@ -50,10 +50,11 @@ namespace DemoServer.Demos.Menu
 
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Store(new FacetSetup { 
-                    Id = "facets/ProductFacet", 
+                session.Store(new FacetSetup
+                {
+                    Id = "facets/ProductFacet",
                     Facets = facets,
-                    RangeFacets = rangeFacets 
+                    RangeFacets = rangeFacets
                 });
 
                 session.SaveChanges();
