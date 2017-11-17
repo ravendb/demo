@@ -26,7 +26,7 @@ namespace DemoServer.Demos.Advanced
                     .Take(5)
                     .ToList();
 
-                return mltByArtist.ToList();
+                return mltByArtist;
             }
         }
     }
