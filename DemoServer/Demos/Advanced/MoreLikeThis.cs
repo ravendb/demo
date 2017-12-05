@@ -19,10 +19,13 @@ namespace DemoServer.Demos.Advanced
             using (var session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 List<LastFm> mltByArtist = session.Query<LastFm, LastFmAnalyzed>()
-                    .MoreLikeThis(x => x.Id == documentId, new MoreLikeThisOptions()
-                    {
-                        Fields = new[] { "Query" }
-                    })
+                    .MoreLikeThis(builder => builder
+                        .UsingDocument(x => x.Id == documentId)
+                        .WithOptions(
+                            new MoreLikeThisOptions
+                            {
+                                Fields = new[] { "Query" }
+                            }))
                     .Take(5)
                     .ToList();
 

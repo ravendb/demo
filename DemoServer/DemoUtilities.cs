@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using DemoServer.Demos.Menu;
 using DemoServer.Helpers;
 using DemoServer.Indexes;
-using Raven.Client.Documents.Commands;
+using Raven.Client.Documents.Queries.Facets;
 
 namespace DemoServer
 {

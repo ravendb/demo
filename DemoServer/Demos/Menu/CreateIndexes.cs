@@ -7,7 +7,6 @@ using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Indexes;
 using Raven.Client.Documents.Queries.Facets;
-using System.Linq;
 
 namespace DemoServer.Demos.Menu
 {

@@ -6,7 +6,6 @@ using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Smuggler;
-using Raven.Client.Http;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
@@ -22,7 +21,7 @@ namespace DemoServer.Demos.Menu
             if (deleteDatabase)
             {
                 DocumentStoreHolder.MediaStore
-                    .Admin
+                    .Maintenance
                     .Server
                     .Send(new DeleteDatabasesOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
 
@@ -30,7 +29,7 @@ namespace DemoServer.Demos.Menu
             }
 
             DocumentStoreHolder.MediaStore
-                    .Admin
+                    .Maintenance
                     .Server
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.MediaDatabaseName)));
 
@@ -48,7 +47,7 @@ namespace DemoServer.Demos.Menu
             do
             {
                 topology = store
-                .Admin
+                .Maintenance
                 .Server
                 .Send(new GetDatabaseRecordOperation(dbName)).Topology;
             } while (topology.Members.Count < 1);
@@ -60,7 +59,7 @@ namespace DemoServer.Demos.Menu
             do
             {
                 var databaseRecord = store
-                    .Admin
+                    .Maintenance
                     .Server
                     .Send(new GetDatabaseRecordOperation(dbName));
                 topology = databaseRecord?.Topology;

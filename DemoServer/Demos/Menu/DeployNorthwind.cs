@@ -21,7 +21,7 @@ namespace DemoServer.Demos.Menu
             if (deleteDatabase)
             {
                 DocumentStoreHolder.Store
-                    .Admin
+                    .Maintenance
                     .Server
                     .Send(new DeleteDatabasesOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
 
@@ -29,21 +29,21 @@ namespace DemoServer.Demos.Menu
             }
 
             DocumentStoreHolder.Store
-                .Admin
+                .Maintenance
                 .Server
                 .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
 
             WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
-            
+
 
             DocumentStoreHolder.Store
-                .Admin
+                .Maintenance
                 .Send(new CreateSampleDataOperation());
 
             return string.Format("Northwind was deployed to '{0}' database.", DocumentStoreHolder.NorthwindDatabaseName);
         }
 
-        public class CreateSampleDataOperation : IAdminOperation
+        public class CreateSampleDataOperation : IMaintenanceOperation
         {
             public RavenCommand GetCommand(DocumentConventions conventions, JsonOperationContext context)
             {
