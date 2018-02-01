@@ -15,8 +15,8 @@ namespace DemoServer.Demos.Menu
     {
         [HttpGet]
         [Route("/menu/createLastFmDataset")]
-        [Demo("Deploy Last.fm", DemoOutputType.String, demoOrder: 310)]
-        public async Task<string> CreateLastFmDataset(string path = null, bool deleteDatabase = false)
+        [Demo("Deploy Last.fm", DemoOutputType.String, demoOrder: 305)]
+        public async Task<string> CreateLastFmDataset(string path = "c:\\work\\media.ravendbdump", bool deleteDatabase = true)
         {
             if (deleteDatabase)
             {

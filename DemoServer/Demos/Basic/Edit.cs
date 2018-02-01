@@ -10,17 +10,17 @@ namespace DemoServer.Demos.Basic
         [HttpGet]
         [Route("/basic/edit")]
         [Demo("Edit", DemoOutputType.String, demoOrder: 20)]
-        public object Edit(int companyId = 1)
+        public object Edit(string companyId = "companies/1-A")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                var company = session.Load<Company>($"companies/{companyId}");
+                var company = session.Load<Company>(companyId);
 
                 company.Address.Line2 = "Zip 12345";
 
                 session.SaveChanges();
 
-                return $"CompanyId {companyId} Edited Successfully";
+                return $"{companyId} Edited Successfully";
             }
         }
 
