@@ -10,15 +10,15 @@ namespace DemoServer.Demos.Basic
         [HttpGet]
         [Route("/basic/delete")]
         [Demo("Delete", DemoOutputType.String, demoOrder: 30)]
-        public object Delete(int companyId = 2)
+        public object Delete(string companyId = "companies/2-A")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
-                session.Delete(session.Load<Company>($"companies/{companyId}"));
+                session.Delete(session.Load<Company>(companyId));
 
                 session.SaveChanges();
 
-                return $"CompanyId {companyId} Deleted Successfully";
+                return $"{companyId} Deleted Successfully";
             }
         }
     }

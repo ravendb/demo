@@ -15,8 +15,8 @@ namespace DemoServer.Demos.Menu
     {
         [HttpGet]
         [Route("/menu/deployNorthwind")]
-        [Demo("Deploy Northwind", DemoOutputType.String, demoOrder: 305)]
-        public object DeployNorthwind(bool deleteDatabase = false)
+        [Demo("Deploy Northwind", DemoOutputType.String, demoOrder: 300)]
+        public object DeployNorthwind(bool deleteDatabase = true)
         {
             if (deleteDatabase)
             {

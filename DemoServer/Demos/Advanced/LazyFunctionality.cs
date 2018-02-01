@@ -13,7 +13,7 @@ namespace DemoServer.Demos.Advanced
         [HttpGet]
         [Route("/advanced/lazyFunctionality")]
         [Demo("Lazy Functionality", DemoOutputType.Flatten, demoOrder: 220)]
-        public object LazyFunctionality(string companyId = "companies/20")
+        public object LazyFunctionality(string companyId = "companies/20-A")
         {
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {

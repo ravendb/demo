@@ -16,7 +16,7 @@ namespace DemoServer.Demos.Menu
 
         [HttpGet]
         [Route("/menu/CreateIndexes")]
-        [Demo("Deploy Indexes", DemoOutputType.String, demoOrder: 300)]
+        [Demo("Deploy Indexes", DemoOutputType.String, demoOrder: 310)]
         public object CreateIndexes()
         {
             // Side By Side Index Creation:
