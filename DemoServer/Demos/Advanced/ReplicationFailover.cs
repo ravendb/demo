@@ -21,7 +21,7 @@ namespace DemoServer.Demos.Advanced
 
 
             documentStore.Initialize();
-            documentStore.SetRequestsTimeout(TimeSpan.FromSeconds(1));
+            documentStore.SetRequestTimeout(TimeSpan.FromSeconds(1));
 
             return documentStore;
         }

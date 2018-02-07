@@ -34,7 +34,7 @@ namespace DemoServer.Helpers
                 Database = NorthwindDatabaseName,
             }.Initialize();
 
-            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(30));
+            docStoreInit.SetRequestTimeout(TimeSpan.FromSeconds(30));
 
             return docStoreInit;
         }
@@ -47,7 +47,7 @@ namespace DemoServer.Helpers
                 Database = MediaDatabaseName
             }.Initialize();
 
-            docStoreInit.SetRequestsTimeout(TimeSpan.FromSeconds(30));
+            docStoreInit.SetRequestTimeout(TimeSpan.FromSeconds(30));
 
             return docStoreInit;
         }
