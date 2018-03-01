@@ -82,8 +82,14 @@ namespace DemoServer.Demos.Menu
                 : "No Python code available for this demo";
         }
 
-        private static string FindJavaCode(string url)
+        private string FindJavaCode(string url)
         {
+            var path = Path.GetFullPath(Path.Combine(BasePath, "JavaDemo/src/main/java/net/ravendb/demo/" + url + ".java"));
+
+            if (System.IO.File.Exists(path))
+            {
+                return System.IO.File.ReadAllText(path);
+            }
             return "No Java code available for this demo";
         }
 
