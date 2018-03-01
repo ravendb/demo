@@ -232,7 +232,6 @@ _Pvt_Extensions
 .fake/
 
 
-# Ignore InteliJ settings folder
-DemoMethods/.idea/
-DemoMethods/*.iml
-DemoMethods/target/
+DemoServer/JavaDemo/.idea/
+DemoServer/JavaDemo/*.iml
+DemoServer/JavaDemo/target/

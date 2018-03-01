@@ -13,7 +13,7 @@ namespace DemoServer.Demos.Advanced
         [HttpGet]
         [Route("/advanced/setBasedScripted")]
         [Demo("Set Based Scripted", DemoOutputType.Flatten, demoOrder: 240)]
-        public object SetBasedScripted(string employee = "employees/1", int discount = 5)
+        public object SetBasedScripted(string employee = "employees/1-A", int discount = 5)
         {
             var updateByIndex = DocumentStoreHolder.Store.Operations.Send(new PatchByQueryOperation(
                 new IndexQuery
