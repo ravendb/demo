@@ -33,7 +33,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="2.0.1" />
     <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.0.1" />
-    <PackageReference Include="RavenDB.Client" Version="4.0.5" />
+    <PackageReference Include="RavenDB.Client" Version="4.0.6" />
   </ItemGroup>
 
   <ItemGroup>
