@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 using DemoServer.Controllers;
@@ -6,6 +7,7 @@ using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Smuggler;
+using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
@@ -20,12 +22,18 @@ namespace DemoServer.Demos.Menu
         {
             if (deleteDatabase)
             {
-                DocumentStoreHolder.MediaStore
-                    .Maintenance
-                    .Server
-                    .Send(new DeleteDatabasesOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
+                try
+                {
+                    DocumentStoreHolder.MediaStore
+                        .Maintenance
+                        .Server
+                        .Send(new DeleteDatabasesOperation(DocumentStoreHolder.MediaDatabaseName, hardDelete: true));
 
-                WaitForDeleteToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
+                    WaitForDeleteToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
+                }
+                catch (DatabaseDoesNotExistException)
+                {
+                }
             }
 
             DocumentStoreHolder.MediaStore
@@ -34,7 +42,6 @@ namespace DemoServer.Demos.Menu
                     .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.MediaDatabaseName)));
 
             WaitForOperationToComplete(DocumentStoreHolder.MediaStore, DocumentStoreHolder.MediaDatabaseName);
-            
 
             await AddDocumentsToDbAsync(path).ConfigureAwait(false);
 

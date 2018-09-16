@@ -1,9 +1,11 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using DemoServer.Controllers;
 using DemoServer.Helpers;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Conventions;
 using Raven.Client.Documents.Operations;
+using Raven.Client.Exceptions.Database;
 using Raven.Client.Http;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
@@ -20,12 +22,18 @@ namespace DemoServer.Demos.Menu
         {
             if (deleteDatabase)
             {
-                DocumentStoreHolder.Store
-                    .Maintenance
-                    .Server
-                    .Send(new DeleteDatabasesOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
+                try
+                {
+                    DocumentStoreHolder.Store
+                        .Maintenance
+                        .Server
+                        .Send(new DeleteDatabasesOperation(DocumentStoreHolder.NorthwindDatabaseName, hardDelete: true));
 
-                WaitForDeleteToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
+                    WaitForDeleteToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
+                }
+                catch (DatabaseDoesNotExistException)
+                {
+                }
             }
 
             DocumentStoreHolder.Store
@@ -34,7 +42,6 @@ namespace DemoServer.Demos.Menu
                 .Send(new CreateDatabaseOperation(new DatabaseRecord(DocumentStoreHolder.NorthwindDatabaseName)));
 
             WaitForOperationToComplete(DocumentStoreHolder.Store, DocumentStoreHolder.NorthwindDatabaseName);
-
 
             DocumentStoreHolder.Store
                 .Maintenance
