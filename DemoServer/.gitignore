@@ -1,0 +1,11 @@
+# React app & npm output
+!typings/
+
+wwwroot/dev/
+!wwwroot/dev/index.html
+
+wwwroot/dist/
+!wwwroot/dist/index.html
+
+client/**/*.js
+client/**/*.js.map
