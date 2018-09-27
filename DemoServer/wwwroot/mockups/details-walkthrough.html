@@ -1,0 +1,241 @@
+﻿<!DOCTYPE html lang="en-PL">
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+    <div class="header">
+        <div>
+            <a href="index.html" class="logo">
+                <img src="../img/logo.svg" alt="RavenDB Demo" />
+            </a>
+        </div>
+        <div class="flex-grow"></div>
+        <div class="progress"></div>
+        <div class="dropdown">
+
+            <a class="settings" data-toggle="dropdown">
+                <i class="icon-settings"></i>
+            </a>
+            <div class="dropdown-menu placement-right">
+                <a class="dropdown-item" href="#">Reset demo</a>
+                <a class="dropdown-item" href="#">Share</a>
+            </div>
+        </div>
+
+    </div>
+    <div class="container">
+        <div id="sidebar" class="sidebar">
+            <div class="sidebar-controlls">
+                <button id="collapseSidebar" class="collapse-sidebar">
+                    <i class="icon-collapse"></i>
+                    <i class="icon-expand"></i>
+                </button>
+                <a href="index.html" class="back-button"><i class="icon-left"></i></a>
+            </div>
+            <div class="sidebar-body">
+                <div class="sidebar-heading">
+                    <a href="index.html" class="back-button"><i class="icon-left"></i></a>
+                    <h1>Lorem ipsum dolor sit amet</h1>
+                </div>
+                <div class="language-select">
+                    <button class="btn active">C#</button>
+                    <button class="btn">Python</button>
+                    <button class="btn">C#</button>
+                </div>
+                <h2>Description</h2>
+                <hr />
+                <p>
+                    Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+                </p>
+                <p>
+                    Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                </p>
+
+                <h2>Walkthrough</h2>
+                <hr />
+                <ol class="walgrhough">
+                    <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><a href="#">Cons ectetuer adipiscing elit</a></li>
+                    <li><a href="#">Sed diam nonummy nibh euismod tincidunt</a></li>
+                    <li><a href="#">Ut laoreet dolore magna aliquam erat volutpat</a></li>
+                    <li><a href="#">Ut wisi enim ad minim veniam, quis nostrud exerci tation</a></li>
+                    <li><a href="#">Ullamcorper suscipit lobortis nisl ut aliquip ex ea</a></li>
+                </ol>
+
+                <h2>Assets</h2>
+                <hr />
+                <ul class="list-withIcons">
+                    <li><i class="icon-link"></i> <a href="#">Lorem ipsum dolor sit amet</a></li>
+                    <li><i class="icon-download"></i> <a href="#">consectetuer adipiscing elit</a></li>
+                    <li><i class="icon-document"></i> <a href="#">sed diam nonummy nibh euismod tincidunt</a></li>
+                    <li><i class="icon-link"></i> <a href="#">ut laoreet dolore magna</a></li>
+                    <li><i class="icon-link"></i> <a href="#">aliquam erat volutpat</a></li>
+                    <li><i class="icon-link"></i> <a href="#">augue duis dolore</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+        <div class="demo-body show-walkthrough">
+            <div style="position: relative; padding: .1px">
+                <div class="walkthrough-overlay">
+                    <div class="clip-top"></div>
+                    <div class="clip-right"></div>
+                    <div class="clip-bottom"></div>
+                    <div class="clip-left"></div>
+                </div>
+                <div class="parameters">
+
+                    <div class="parameter">
+                        <input type="text" class="parameter-input" placeholder="John" />
+                        <div class="parameter-label">
+                            <div class="name">searchQuery</div>
+                            <div class="type"></div>
+                        </div>
+                    </div>
+
+                    <div class="parameter">
+                        <input type="date" class="parameter-input" placeholder="2011-09-29" />
+                        <div class="parameter-label">
+                            <div class="name">searchQuery</div>
+                            <div class="type"></div>
+                        </div>
+                    </div>
+
+                    <div class="parameter">
+                        <input type="number" data-type="integer" class="parameter-input" placeholder="10" />
+                        <div class="parameter-label">
+                            <div class="name">searchQuery</div>
+                            <div class="type"></div>
+                        </div>
+                    </div>
+
+                    <div class="parameter">
+                        <input type="number" data-type="float" class="parameter-input" placeholder="10.42792" />
+                        <div class="parameter-label">
+                            <div class="name">searchQuery</div>
+                            <div class="type"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="demo-code">
+
+
+                    <div>
+                        <a class="folding collapsed" data-toggle="collapse" href="#includes" role="button" aria-expanded="false" aria-controls="includes">
+                            usings
+                        </a>
+                        <div class="collapse" id="includes">
+                            <div>
+<pre class="line-numbers"><code class="language-csharp">using DemoServer.Indexes;
+using Microsoft.AspNetCore.Mvc;
+using Raven.Client.Documents.Indexes;
+using Raven.Client.Documents.Queries.Facets;
+</code></pre>
+                            </div>
+                        </div>
+                    </div>
+
+<pre class="line-numbers" data-start="5" data-line="15-25"><code class="language-csharp">namespace DemoServer.Demos.Menu
+    {
+    public partial class MenuController : BaseController
+    {
+        public static List<FacetBase>
+        FixedFacet { get; set; }
+
+        [HttpGet]
+        [Route("/menu/CreateIndexes")]
+        [Demo("Deploy Indexes", DemoOutputType.String, demoOrder: 310)]
+        public object CreateIndexes()
+        {
+        // Side By Side Index Creation:
+        // IndexCreation.SideBySideCreateIndexes(GetType().GetTypeInfo().Assembly, DocumentStoreHolder.Store);
+
+        try
+        {
+            IndexCreation.CreateIndexes(GetType().GetTypeInfo().Assembly, DocumentStoreHolder.Store);
+            CreateFixedFacet();
+
+            DocumentStoreHolder.MediaStore.ExecuteIndex(new LastFmAnalyzed());
+        }
+        catch (Exception e)
+        {
+            return e.Message;
+        }
+
+        return "Indexes and Facets were created successfully";
+    }
+    private static void CreateFixedFacet()
+    {
+        const decimal fromVal = 10;
+        const decimal toVal = 20;
+
+        FixedFacet = FacetRangeCreation.CreateFacets(fromVal, toVal);
+
+        var facets = FacetRangeCreation.CreateFacets();
+        var rangeFacets = FacetRangeCreation.CreateRangeFacets(fromVal, toVal);
+
+        using (var session = DocumentStoreHolder.Store.OpenSession())
+        {
+            session.Store(new FacetSetup
+            {
+                Id = "facets/ProductFacet",
+                Facets = facets,
+                RangeFacets = rangeFacets
+            });
+
+            session.SaveChanges();
+            }
+        }
+    }
+}
+</code></pre>
+                </div>
+
+                <div class="fab-container">
+                    <a href="details-walkthrough.html" id="startWalkthrough" class="fab"><i class="icon-learn"></i> Walktrhough</a>
+                    <button id="runScript" class="fab collapsed" data-toggle="collapse" data-target="#results" type="button"><i class="icon-play"></i> Run script</button>
+                </div>
+                <div id="results" class="results-container collapse">
+                    <div class="results">
+                        <div class="flex-horizontal">
+                            <div>
+                                <h1>RESULTS</h1>
+                            </div>
+                            <div class="flex-grow"></div>
+                            <div class="results-speed">
+                                <div>
+                                    <div class="text-muted">CLIENT</div>
+                                    <div>0.06 seconds</div>
+                                </div>
+                                <i class="icon-speed"></i>
+                                <div>
+                                    <div class="text-muted">SERVER</div>
+                                    <div>< 0.01 seconds</div>
+                                </div>
+                            </div>
+                            <div>
+                                <button class="minimize-results" data-toggle="collapse" data-target="#results" type="button"><i class="icon-down"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <img src="../img/file-added.png" />
+                            <h2>File succesfully added</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="../js/bootstrap-native-v4.min.js"></script>
+    <script src="../js/prism.js"></script>
+    <script src="../js/scripts.js"></script>
+</body>
+</html>
