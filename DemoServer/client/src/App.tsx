@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Route } from "react-router";
-import { Home } from "./components/pages/Home";
-import { ExamplePage } from "./components/pages/Example";
+import { Home } from "./pages/Home";
+import { ExamplePage } from "./pages/Example";
 
 
 export default class App extends React.Component<{}, {}> {

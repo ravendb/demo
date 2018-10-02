@@ -1,7 +1,6 @@
 import * as React from "react";
 import { Col, Grid, Row, Glyphicon } from "react-bootstrap";
 import { NavMenu } from "./ui/NavMenu";
-import { LinkContainer } from "react-router-bootstrap";
 
 export class Layout extends React.Component {
     displayName = Layout.name

@@ -1,5 +1,4 @@
 import * as moment from "moment";
-import "moment-timezone";
 
 export function toTitleCase(s: string) {
     if (!s) {
@@ -59,4 +58,9 @@ export function getEnumTextValues(e: any) {
         }
     }
     return values;
+}
+
+export function deepCopy<T>(obj: T): T {
+    var copy = JSON.parse(JSON.stringify(obj));
+    return copy as T;
 }

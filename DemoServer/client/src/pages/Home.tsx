@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Page } from "../Layout";
+import { Page } from "../components/Layout";
 
 export class Home extends React.Component {
   displayName = Home.name
