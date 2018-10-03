@@ -1,4 +1,6 @@
-import "../styles/main.scss";
+import "../styles/styles.scss";
+
+import "./libs/prism.bundle";
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
@@ -18,3 +20,5 @@ ReactDOM.render(
     </BrowserRouter>
   </Provider>,
   rootElement);
+
+import "./libs/bootstrap-native-v4.min.js";

@@ -1,5 +1,4 @@
 import * as React from "react";
-import { Row, Col } from "react-bootstrap";
 
 interface ExampleDisplayProps {
     loading: boolean;
@@ -17,12 +16,8 @@ export class ExampleDisplay extends React.Component<ExampleDisplayProps, {}> {
         const body = loading ? "Loading Result..." : `Result: ${text}`;
 
         return <>
-          <h4>Example Page</h4>
-          <Row>
-              <Col sm={2}>
-                {body}
-              </Col>
-          </Row>
+            <h4>Example Page</h4>
+            <p>{body}</p>
         </>;
     }
 }

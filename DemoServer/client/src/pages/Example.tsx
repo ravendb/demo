@@ -4,7 +4,7 @@ import Example from "../features/example/containers/ExampleDisplayContainer";
 
 export class ExamplePage extends React.Component<{}, {}> {
     render() {
-        return <Page header="Example" headerGlyph="pencil">
+        return <Page>
           <Example /> 
         </Page>;
     }
