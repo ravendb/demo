@@ -9,8 +9,8 @@ import { Assets } from "./Assets";
 function Body() {
     return <div className="sidebar-body">
         <Heading text="Lorem ipsum dolor sit amet" />
-        <LanguageSelect />
-        <Description title="Description">
+        <LanguageSelect selected="csharp" />
+        <Description>
             <p>
                 Lorem ipsum dolor sit amet, <strong>consectetuer adipiscing</strong> elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
                 </p>

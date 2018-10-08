@@ -1,14 +1,13 @@
 import * as React from "react";
 
 interface DescriptionProps {
-    title: string;
 }
 
 export class Description extends React.Component<DescriptionProps, {}> {
     render() {
-        const { title, children } = this.props;
+        const { children } = this.props;
         return <>
-            <h2>{title}</h2>
+            <h2>Description</h2>
             <hr />
             {children}
         </>;
