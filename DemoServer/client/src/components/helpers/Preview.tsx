@@ -25,7 +25,7 @@ export class CodePreview extends React.Component<CodePreviewProps, {}> {
     render() {
         const { language, linesStart, children } = this.props;
 
-        return <pre className="line-numbers" data-start={linesStart}>
+        return <pre className="line-numbers" data-start={linesStart} data-line="15-25">
             <code className={`language-${language}`}>
                 {children}
             </code>

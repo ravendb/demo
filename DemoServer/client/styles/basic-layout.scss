@@ -21,6 +21,12 @@
     }
 }
 
+#root {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
 .text-muted {
     color: $gray;
 }

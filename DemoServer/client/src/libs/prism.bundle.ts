@@ -17,3 +17,4 @@ import 'imports-loader?Prism=prismjs!prismjs/components/prism-powershell';
 import 'imports-loader?Prism=prismjs!prismjs/components/prism-sql';
 
 import 'imports-loader?Prism=prismjs!prismjs/plugins/line-numbers/prism-line-numbers';
+import 'imports-loader?Prism=prismjs!prismjs/plugins/line-highlight/prism-line-highlight';
