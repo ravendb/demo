@@ -9,3 +9,6 @@ wwwroot/dist/
 
 client/**/*.js
 client/**/*.js.map
+
+# incude custom js libs
+!client/src/libs/*.js

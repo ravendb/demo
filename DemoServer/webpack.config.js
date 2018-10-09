@@ -26,7 +26,7 @@ module.exports = (env, argv) => {
       main: path.join(__dirname, './client/src/index.tsx'),
     }, isProductionMode 
         ? {} 
-        : { 'styles-webpack': path.join(__dirname, './client/styles/main.scss') }),
+        : { 'styles-webpack': path.join(__dirname, './client/styles/styles.scss') }),
     output: path.join(__dirname, BUNDLE_OUTPUT_DIR),
     module: {
       rules: [

@@ -1,0 +1,11 @@
+﻿.sidebar {
+    .walgrhough {
+        a {
+            color: $color-5;
+
+            &:hover {
+                color: saturate( lighten( $color-5, 25% ), 10% );
+            }
+        }
+    }
+}

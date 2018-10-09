@@ -1,0 +1,92 @@
+﻿// Variables
+// --------------------------------------------------
+
+//== Colors
+//
+
+$gray-base: #22252b; 
+$gray-base-light: #262a30; 
+$gray-darker: #2b333b;
+$gray-dark: #3b4654;
+$gray: #637085;
+$gray-light: #98a7b7;
+$gray-lighter: #f0f4f6;
+
+
+$brand-primary-dark: #b21557;
+$brand-primary: #d7325a;
+$brand-primary-light: #ff6482;
+
+$color-1: #f06582;
+$color-1-1: #f3766e;
+$color-1-2: #f38a66;
+$color-1-3: #eea361;
+$color-2: #f0b362;
+$color-2-1: #f0c254;
+$color-2-2: #edcd51;
+$color-2-3: #c4d451;
+$color-3: #7bd85d;
+$color-3-1: #51d27a;
+$color-3-2: #37c4ac;
+$color-3-3: #2fb7d2;
+$color-4: #2f9ef3;
+$color-4-1: #5186ee;
+$color-4-2: #7069ee;
+$color-4-3: #8361d4;
+$color-5: #945ab5;
+$color-5-1: #bf569f;
+$color-5-2: #d85b9a;
+$color-5-3: #ed558c;
+
+$brand-success-dark: adjust-color($color-3, $lightness: -13%, $saturation: -20%);
+$brand-success: $color-3;
+$brand-success-light: adjust-color($color-3, $lightness: 13%, $saturation: 20%);
+
+$brand-info-dark: adjust-color($color-4, $lightness: -13%, $saturation: -20%);
+$brand-info: $color-4;
+$brand-info-light: adjust-color($color-4, $lightness: 13%, $saturation: 20%);
+
+$brand-warning-dark: adjust-color($color-2, $lightness: -13%, $saturation: -20%);
+$brand-warning: $color-2;
+$brand-warning-light: adjust-color($color-2, $lightness: 13%, $saturation: 20%);
+
+$brand-danger-dark: adjust-color($color-1, $lightness: -13%, $saturation: -20%); 
+$brand-danger: $color-1;
+$brand-danger-light: adjust-color($color-1, $lightness: 13%, $saturation: 20%);
+
+$font-size: 14px;
+
+$global-easing: cubic-bezier(0, 0.5, 0.5, 1);
+$global-easing-in-out: cubic-bezier(0.6, 0, 0.6, 1);
+$global-easing-out: cubic-bezier(0.5, 0, 1, 0.5);
+
+
+$gutter: 30px;
+$gutter-ratio: 1.6180;
+$gutter-lg: $gutter * $gutter-ratio;
+$gutter-xl: $gutter-lg * $gutter-ratio;
+$gutter-sm: $gutter / $gutter-ratio;
+$gutter-xs: $gutter-sm / $gutter-ratio;
+
+$sidebar-width: 440px;
+
+$global-box-shadow: 0 0 20px 5px $gray-base;
+
+$zindex-parameters: 1005;
+
+$zindex-fabs: 1010;
+$zindex-results: 1020;
+$zindex-walkthrough-overlay: 1025;
+$zindex-line-highlight: 1026;
+$zindex-dropdown: 1030;
+$dropdown-min-width: 100px;
+
+$dropdown-link-color: $gray-lighter;
+//@brand-database-color: #ad1457;
+//@color-counters: @color-3-3;
+//@color-revisions: @color-1-3;
+//@color-recent: @color-4-1;
+//@color-attachments: @color-3-1;
+//@color-related: @color-4-3;
+//@link-color: #e33572;
+//@link-hover-color: #ff6565;
