@@ -226,49 +226,55 @@ hr {
     }
 }
 
+#demo-body-container {
+    position: absolute;
+    padding: .1px;
+    min-width: 100%;
+}
+
+#preview-source-code {
+    z-index: $zindex-code;
+}
+
+#demo-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: $zindex-walkthrough-overlay;
+    #highlight-top, #highlight-right, #highlight-bottom, #highlight-left {
+        position: absolute;
+        background-color: rgba($color-5, .8);
+        z-index: 1020;
+    }
+    #highlight-top {
+        top:0;
+        width: 100%;
+    }
+    #highlight-right {
+        right: 0;
+    }
+    #highlight-bottom {
+        bottom: 0;
+        width: 100%;
+    }
+    #highlight-left {
+        left: 0;
+    }
+    
+}
+
 .demo-body {
     flex-grow: 1;
     background-color: $gray-base;
     overflow: auto;
     position: relative;
 
-
-    .walkthrough-overlay {
-        .clip-top {
-        }
-
-        .clip-bottom {
-        }
-
-        .clip-right {
-        }
-
-        .clip-left {
-        }
-    }
-
     .demo-code {
         padding: $gutter;
         position: relative;
     }
-
-    &.show-walkthrough {
-        .walkthrough-overlay {
-            display: block;
-            background-color: rgba($gray-dark, .9);
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: $zindex-walkthrough-overlay;
-        }
-
-        .demo-code {
-            z-index: $zindex-line-highlight + 2;
-        }
-    }
-
 
     .results-container {
         bottom: 0;

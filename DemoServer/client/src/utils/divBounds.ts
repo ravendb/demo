@@ -3,6 +3,8 @@ export interface DivBounds {
     offsetRight: number;
     offsetTop: number;
     offsetBottom: number;
+    height: number;
+    width: number;
 }
 
 export function getBoundsRelatedToOtherElement(element: HTMLElement, relativeTo: HTMLElement): DivBounds {
@@ -10,9 +12,11 @@ export function getBoundsRelatedToOtherElement(element: HTMLElement, relativeTo:
     const relativeRect = relativeTo.getBoundingClientRect();
 
     return {
-        offsetLeft: elRect.left - relativeRect.left,
-        offsetRight: relativeRect.right - elRect.right,
-        offsetTop: elRect.top - relativeRect.top,
-        offsetBottom: relativeRect.bottom - elRect.bottom
+        offsetLeft: Math.round(elRect.left - relativeRect.left),
+        offsetRight: Math.round(relativeRect.right - elRect.right),
+        offsetTop: Math.round(elRect.top - relativeRect.top),
+        offsetBottom: Math.round(relativeRect.bottom - elRect.bottom),
+        height: Math.round(elRect.height),
+        width: Math.round(elRect.width)
     }
 }

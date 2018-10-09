@@ -22,6 +22,13 @@ export class DemoBody extends React.Component<DemoBodyProps, DemoBodyState> {
     render() {
         const resultsId = "results";
         return <div className="demo-body">
+            <div id="demo-body-container">
+            <div id="demo-highlight">
+                <div id="highlight-top"></div>
+                <div id="highlight-right"></div>
+                <div id="highlight-bottom"></div>
+                <div id="highlight-left"></div>
+            </div>
             <Parameters items={[
                 { type: "text", name: "searchQuery", placeholder: "John" },
                 { type: "date", name: "searchQuery", placeholder: "2011-09-29" },
@@ -42,6 +49,7 @@ export class DemoBody extends React.Component<DemoBodyProps, DemoBodyState> {
                 clientExecTime="0.06 seconds"
                 serverExecTime="< 0.01 seconds"
             />
+            </div>
         </div>;
     }
 }

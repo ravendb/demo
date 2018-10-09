@@ -9,17 +9,40 @@ function printDivBounds(bounds: DivBounds) {
     console.log("OFFSET BOTTOM: " + bounds.offsetBottom);
 }
 
+function getPixels(bounds: DivBounds, propSelect: (b: DivBounds) => number) {
+    return propSelect(bounds).toString() + "px";
+}
+
+function populateBounds(bounds: DivBounds) {
+    const highlightTop = document.getElementById("highlight-top");
+    highlightTop.style.height = getPixels(bounds, b => b.offsetTop);
+
+    const highlightBottom = document.getElementById("highlight-bottom");
+    highlightBottom.style.height = getPixels(bounds, b => b.offsetBottom);
+
+    const highlightLeft = document.getElementById("highlight-left");
+    highlightLeft.style.top = getPixels(bounds, b => b.offsetTop);
+    highlightLeft.style.height = getPixels(bounds, b => b.height);
+    highlightLeft.style.width = getPixels(bounds, b => b.offsetLeft);
+
+    const highlightRight = document.getElementById("highlight-right");
+    highlightRight.style.top = getPixels(bounds, b => b.offsetTop);
+    highlightRight.style.height = getPixels(bounds, b => b.height);
+    highlightRight.style.width = getPixels(bounds, b => b.offsetRight);
+}
+
 const Prism = window["Prism"] as any;
 Prism.hooks.add('complete', env => {
     console.log('env', env);
     const parentElement = env && env.element && env.element.parentElement;
     const lineHighlights = parentElement && parentElement.getElementsByClassName("line-highlight");
-    const codeBody = document.getElementsByClassName("demo-body")[0];
+    const codeBody = document.getElementById("demo-body-container");
 
     if (lineHighlights && lineHighlights.length > 0) {
         const firstHighlight = lineHighlights[0];
         const relativeBounds = getBoundsRelatedToOtherElement(firstHighlight as HTMLElement, codeBody as HTMLElement);
         printDivBounds(relativeBounds);
+        populateBounds(relativeBounds);
 
         console.log('code body', codeBody);
         console.log('firstHighlight', firstHighlight);

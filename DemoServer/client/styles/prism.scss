@@ -152,7 +152,7 @@ pre[data-line] {
     right: 0;
     padding: inherit 0;
     margin-top: 1em; /* Same as .prism’s padding-top */
-    background: rgba($gray-lighter, 0.5);
+    background: $gray-darker;
     //background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
     pointer-events: none;
     line-height: inherit;
