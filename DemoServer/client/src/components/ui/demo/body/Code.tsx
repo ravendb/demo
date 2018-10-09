@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CodePreview } from "../../../helpers/Preview";
+import { CodePreview, HighlightLinesRange } from "../../../helpers/Preview";
 import { Language } from "../../../../features/common/commonModels";
 
 interface UsingsProps {
@@ -16,7 +16,7 @@ class Usings extends React.Component<UsingsProps, {}> {
             </a>
             <div className="collapse" id="includes">
                 <div>
-                    <CodePreview language={language}>
+                    <CodePreview id="preview-usings" language={language}>
                         {children}
                     </CodePreview>
                 </div>
@@ -26,14 +26,15 @@ class Usings extends React.Component<UsingsProps, {}> {
 }
 
 interface SourceCodeProps {
-    linesStart: number;
     language: Language;
+    linesStart?: number;
+    highlightLinesRange?: HighlightLinesRange;
 }
 
 class SourceCode extends React.Component<SourceCodeProps, {}> {
     render() {
         const { children } = this.props;
-        return <CodePreview {...this.props}>
+        return <CodePreview id="preview-source-code" {...this.props}>
             {children}
         </CodePreview>;
     }
@@ -68,7 +69,10 @@ export class Code extends React.Component<CodeProps, {}> {
         const usingsLinesCnt = usings ? usings.split("\n").length : 0;
         return <div className="demo-code">
             <Usings language={language} title={this.usingsTitle()}>{usings}</Usings>
-            <SourceCode language={language} linesStart={usingsLinesCnt + 1}>{sourceCode}</SourceCode>
+            <SourceCode language={language} linesStart={usingsLinesCnt + 1}
+                highlightLinesRange={{ start: 15, end: 25 }}>
+                {sourceCode}
+            </SourceCode>
         </div>;
     }
 }

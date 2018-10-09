@@ -1,6 +1,8 @@
 import "../styles/styles.scss";
 
-import "./libs/prism.bundle";
+window["Prism"] = { "manual": true };
+import Prism from "./libs/prism.bundle";
+console.log(Prism);
 
 import * as React from "react";
 import * as ReactDOM from "react-dom";
