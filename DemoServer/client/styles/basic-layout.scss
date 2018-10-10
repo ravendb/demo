@@ -245,7 +245,7 @@ hr {
     z-index: $zindex-walkthrough-overlay;
     #highlight-top, #highlight-right, #highlight-bottom, #highlight-left {
         position: absolute;
-        background-color: rgba($color-5, .8);
+        background-color: rgba($gray-dark, .8);
         z-index: 1020;
     }
     #highlight-top {
