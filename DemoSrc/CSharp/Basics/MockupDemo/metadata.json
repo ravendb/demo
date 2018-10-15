@@ -1,0 +1,50 @@
+{
+    "DemoDescription" : "This is the general description of the MockupDemo",
+    
+    "DemoAssets" : [
+        {
+            "AssetTitle": "Demo Asset Title-1",
+            "AssetBody" : "https://www.google.com/"
+        },
+        {
+            "AssetTitle": "Demo Asset Title-2",
+            "AssetBody" : "https://www.google.com/chrome/"
+        }
+    ],
+    
+    "Params":
+    {
+        "serverUrl" : "string",
+        "dbName" : "string"
+    },
+
+    "WT":
+    [
+        {
+            "WT-Title" : "WT-1 Title",
+            "WT-Desc"  : "WT-1 Description",
+            "WT-Lines" : "7-10",
+            "WT-Assets": [
+                {
+                    "AssetTitle": "WT-1 Asset Title-1",
+                    "AssetBody": "https://www.google.com/"
+                },
+                {
+                    "AssetTitle": "WT-1 Asset Title-2",
+                    "AssetBody": "https://www.google.com/chrome/"
+                }
+            ]
+        },
+        {
+            "WT-Title" : "WT-2 Title",
+            "WT-Desc"  : "WT-2 Description",
+            "WT-Lines" : "13",
+            "WT-Assets": [
+                {
+                    "AssetTitle": "WT-2 Asset Title-1",
+                    "AssetBody": "https://www.mozilla.org/en-US/firefox/new/"
+                }
+            ]
+        }
+    ]
+}
