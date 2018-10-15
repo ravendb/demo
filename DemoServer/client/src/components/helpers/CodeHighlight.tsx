@@ -1,43 +1,28 @@
 import * as React from "react";
-import { Language } from "../../features/common/commonModels";
 import { addHighlightHook, removeHighlightHook } from "../../utils/highlight";
 import { addResizeListener, removeResizeListener } from "../../utils/resize";
+import { Language } from "../../features/common/commonModels";
 
 const Prism = window["Prism"] as any;
-
-interface RawHtmlProps {
-    className?: string;
-}
-
-export class RawHtml extends React.Component<RawHtmlProps, {}> {
-    rawInput() {
-        const input = this.props.children as string;
-        return { __html: input };
-    }
-
-    render() {
-        return <span dangerouslySetInnerHTML={this.rawInput()}></span>
-    }
-}
 
 export interface HighlightLinesRange {
     start: number;
     end: number;
 }
 
-export interface CodePreviewProps {
+interface CodeHighlightProps {
     id: string;
     language: Language;
     linesStart?: number;
-    highlightLinesRange?: HighlightLinesRange;
+    highlightLinesRange: HighlightLinesRange;
 }
 
-interface CodePreviewState {
+interface CodeHighlightState {
     windowWidth: number;
     windowHeight: number;
 }
 
-export class CodePreview extends React.Component<CodePreviewProps, CodePreviewState> {
+export class CodeHighlight extends React.Component<CodeHighlightProps, CodeHighlightState> {
     constructor(props) {
         super(props);
 
@@ -50,8 +35,8 @@ export class CodePreview extends React.Component<CodePreviewProps, CodePreviewSt
     }
 
     componentDidMount() {
-        this.highlightSyntax();
         addHighlightHook();
+        this.highlightSyntax();
         addResizeListener(this.updateWindowDimensions);
     }
 

@@ -21,7 +21,7 @@ export class Parameters extends React.Component<ParametersProps, {}> {
                 <div className="name">{name}</div>
                 <div className="type"></div>
             </div>
-        </div>
+        </div>;
     }
 
     render() {
