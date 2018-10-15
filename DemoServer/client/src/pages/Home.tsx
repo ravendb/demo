@@ -1,12 +1,13 @@
 import * as React from "react";
 import { Page } from "../components/Layout";
+import { Home } from "../components/ui/home";
 
-export class Home extends React.Component {
-  displayName = Home.name
+export class HomePage extends React.Component {
+  displayName = HomePage.name
 
   render() {
     return <Page>
-      <h4>Welcome!</h4>
+      <Home />
     </Page>;
   }
 }
