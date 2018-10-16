@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="MockSrc\CSharp\Basics\Demo1-1\source.cs" />
+    <Compile Remove="MockSrc\CSharp\Basics\Demo1-2\source.cs" />
+    <Compile Remove="MockSrc\CSharp\Indexing\Demo2-1\source.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="MockSrc\CSharp\Basics\Demo1-1\source.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MockSrc\CSharp\Basics\Demo1-2\source.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MockSrc\CSharp\Indexing\Demo2-1\source.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="xunit" Version="2.3.1" />
+    <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\DemoParser\DemoParser.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="MockSrc\CSharp\Basics\Demo1-2\metadata.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\Basics\demos.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\Basics\Demo1-1\metadata.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\categories.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\Indexing\Demo2-1\metadata.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\Indexing\demos.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
