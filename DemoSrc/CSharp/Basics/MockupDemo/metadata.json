@@ -1,14 +1,14 @@
 {
-    "DemoDescription" : "This is the general description of the MockupDemo",
+    "Description" : "This is the general description of the MockupDemo",
     
-    "DemoAssets" : [
+    "Assets" : [
         {
-            "AssetTitle": "Demo Asset Title-1",
-            "AssetBody" : "https://www.google.com/"
+            "Title" : "Demo Asset Title-1",
+            "Body"  : "https://www.google.com/"
         },
         {
-            "AssetTitle": "Demo Asset Title-2",
-            "AssetBody" : "https://www.google.com/chrome/"
+            "Title" : "Demo Asset Title-2",
+            "Body"  : "https://www.google.com/chrome/"
         }
     ],
     
@@ -18,31 +18,31 @@
         "dbName" : "string"
     },
 
-    "WT":
+    "WalkThroughs":
     [
         {
-            "WT-Title" : "WT-1 Title",
-            "WT-Desc"  : "WT-1 Description",
-            "WT-Lines" : "7-10",
-            "WT-Assets": [
+            "Title" : "WT-1 Title",
+            "Description" : "WT-1 Description",
+            "Lines" : "7-10",
+            "Assets" : [
                 {
-                    "AssetTitle": "WT-1 Asset Title-1",
-                    "AssetBody": "https://www.google.com/"
+                    "Title" : "WT-1 Asset Title-1",
+                    "Body"  : "https://www.google.com/"
                 },
                 {
-                    "AssetTitle": "WT-1 Asset Title-2",
-                    "AssetBody": "https://www.google.com/chrome/"
+                    "Title" : "WT-1 Asset Title-2",
+                    "Body"  : "https://www.google.com/chrome/"
                 }
             ]
         },
         {
-            "WT-Title" : "WT-2 Title",
-            "WT-Desc"  : "WT-2 Description",
-            "WT-Lines" : "13",
-            "WT-Assets": [
+            "Title" : "WT-2 Title",
+            "Description" : "WT-2 Description",
+            "Lines" : "13",
+            "Assets" : [
                 {
-                    "AssetTitle": "WT-2 Asset Title-1",
-                    "AssetBody": "https://www.mozilla.org/en-US/firefox/new/"
+                    "Title" : "WT-2 Asset Title-1",
+                    "Body"  : "https://www.mozilla.org/en-US/firefox/new/"
                 }
             ]
         }

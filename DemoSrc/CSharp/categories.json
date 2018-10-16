@@ -1,6 +1,6 @@
 [
     {
-        "CategoryTitle": "Basics",
-        "CategoryDescription": "This is the description of the Basics category."
+        "Title" : "Basics",
+        "Description" : "This is the description of the Basics category."
     }   
 ]   
