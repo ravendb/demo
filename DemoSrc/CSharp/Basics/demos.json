@@ -1,3 +1,7 @@
 [
-    "MockupDemo"
+    "MockupDemo",
+    "CreateDocumentStore",
+    "CreateDatabase",
+    "CreateNewDocument",
+    "EditDocument"
 ]

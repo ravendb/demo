@@ -1,4 +1,6 @@
 {
+    "Title" : "The Demo Title",
+    
     "Description" : "This is the general description of the MockupDemo",
     
     "Assets" : [
@@ -21,9 +23,9 @@
     "WalkThroughs":
     [
         {
-            "Title" : "WT-1 Title",
-            "Description" : "WT-1 Description",
             "Lines" : "7-10",
+            "Title" : "WT-1 Title",
+            "Description" : "WT-1 Description",            
             "Assets" : [
                 {
                     "Title" : "WT-1 Asset Title-1",
@@ -36,9 +38,9 @@
             ]
         },
         {
-            "Title" : "WT-2 Title",
-            "Description" : "WT-2 Description",
             "Lines" : "13",
+            "Title" : "WT-2 Title",
+            "Description" : "WT-2 Description",            
             "Assets" : [
                 {
                     "Title" : "WT-2 Asset Title-1",

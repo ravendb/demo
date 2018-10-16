@@ -1,0 +1,148 @@
+{
+    "Title" : "Create New Document",
+    
+    "Description" : [
+        "Create a new C# entity and save it as a document in the Database.",
+        "The document will be stored in the RavenDB database in as JSON format object.",
+        "The JSON structure is set according to the C# object model passed to the Session.",
+        "(See the link about data modeling in the Assets below)"
+    ],
+    
+    "Assets" : [
+        {
+            "Title" : "Document Modeling",
+            "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+        },
+        {
+            "Title" : "What is a Collection",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
+        },
+        {
+            "Title" : "Documents & Collections",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
+        },
+        {
+            "Title" : "The Document Session",
+            "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+        },
+        {
+            "Title" : "What is a Session",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+        },
+        {
+            "Title" : "The Store Command",
+            "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+        },
+        {
+            "Title" : "Storing Entities",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+        },
+        {
+            "Title" : "The SaveChanges Command",
+            "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+        },
+        {
+            "Title" : "Saving Changes",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+        }
+    ],
+    
+    "Params":
+    {
+        "Name"  : "string",
+        "Phone" : "string",
+        "Contact Name"  : "string",
+        "Contact Title" : "string"
+    },
+
+    "WalkThroughs":
+    [
+        {
+            "Lines" : "2-5",
+            "Title" : "Create a new C# object to be saved",
+            "Description" : [
+                "Define the C# object to be saved.",
+                "The C# class name determines the collection to which the document will belong to in the database.",
+                "Collections are used to group documents together so that it is convenient to apply some operation to them.",
+                "The C# class properties determine the document JSON structure in the database."
+            ],
+            "Assets" : [
+                {
+                    "Title" : "Document Modeling",
+                    "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                },
+                {
+                    "Title" : "What is a Collection",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
+                },
+                {
+                    "Title" : "Documents & Collections",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
+                }
+            ]
+        },
+        {
+            "Lines" : "7",
+            "Title" : "Open a Session",
+            "Description" : [
+                "Once the document store is defined, direct communication with the database is done through the Session.",
+                "The Session tracks the changes done to your entity objects.",
+                "Any change made to your entities is persisted to the database when calling SaveChanges later on.",
+                "Note: be sure to wrap the Session variable in a 'using' statement to ensure proper disposal."
+            ],
+            "Assets" : [
+                {
+                    "Title" : "The Document Session",
+                    "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+                },
+                {
+                    "Title" : "What is a Session",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+                },
+                {
+                    "Title" : "Opening a Session",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+                }
+            ]
+        },
+        {
+            "Lines" : "10",
+            "Title" : "Store the new company object in the Session",
+            "Description" : [
+                "Associate the new entity with the Session with the Store command.",
+                "The actual 'save' is done later (when SaveChanges is called).",
+                "However, the Store command will give the new entity an ID immediately,",
+                "so you can refer to it in other documents that you'll save in the same batch."
+            ],
+            "Assets" : [
+                {
+                    "Title" : "The Store Command",
+                    "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                },
+                {
+                    "Title" : "Storing Entities",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+                }
+            ]
+        },
+        {
+            "Lines" : "14",
+            "Title" : "Save the changes",
+            "Description" : [
+                "The SaveChanges call will check the session state for all changes (i.e. a new entity was added).",
+                "It will then send those changes to the server as a single remote call that will complete transactionally.",
+                "In other words, either all the changes are saved as a single unit or none of them are."
+            ],
+            "Assets" : [
+                {
+                    "Title" : "The SaveChanges Command",
+                    "Body"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title" : "Saving Changes",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}

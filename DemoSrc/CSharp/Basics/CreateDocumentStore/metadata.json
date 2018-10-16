@@ -1,0 +1,76 @@
+{
+    "Title" : "Create a Document Store",
+    
+    "Description" : [
+        "The document store is the main client API objet that establishes the communication with the RavenDB cluster.", 
+        "It exposes methods to perform operations against an associated server instance,",
+        "holding the configuration, topology, cache and any customizations that you might have applied.",
+        "A single instance of a Document Store should be used per the life time of the application."
+    ],
+    
+    "Assets" : [
+        {
+            "Title" : "What is a Document Store",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
+        },        
+        {
+            "Title" : "Creating a document store",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+        },        
+        {
+            "Title" : "Setup a Default Database",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/setting-up-default-database"
+        },
+        {
+            "Title" : "Setting up RavenDB",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/start/getting-started"
+        },
+        {
+            "Title" : "Server URL",
+            "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/core-configuration#serverurl"
+        }
+    ],
+    
+    "Params":
+    {
+        "serverURL" : "string",
+        "databaseName" : "string"
+    },
+
+    "WalkThroughs":
+    [
+        {
+            "Lines"  : "1",
+            "Title"  : "Server URL",
+            "Description" : "The RavenDB server URL. The URL which the server is listening to",
+            "Assets" : [
+                {
+                    "Title" : "Setting up RavenDB",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/start/getting-started"
+                },
+                {
+                    "Title" : "Server URL",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/core-configuration#serverurl"
+                }
+            ]
+        },
+        {
+            "Lines"  : "5-11",
+            "Title"  : "Initialize the Document Store",
+            "Description" : [
+                "Initialize the Document Store with the server URL and a default database.",
+                "This will instantiate a communication channel between your application and the specified RavenDB server instance."
+             ],          
+            "Assets" : [
+                {
+                    "Title" : "Creating a Document Store",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+                },
+                {
+                    "Title" : "Setup a Default Database",
+                    "Body"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/setting-up-default-database"
+                }
+            ]
+        }
+    ]
+}
