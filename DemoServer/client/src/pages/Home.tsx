@@ -6,7 +6,7 @@ export class HomePage extends React.Component {
   displayName = HomePage.name
 
   render() {
-    return <Page>
+    return <Page noContainter>
       <Home />
     </Page>;
   }
