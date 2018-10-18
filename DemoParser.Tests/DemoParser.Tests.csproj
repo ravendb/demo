@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
@@ -7,27 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="MockSrc\CSharp\Basics\Demo1-1\source.cs" />
-    <Compile Remove="MockSrc\CSharp\Basics\Demo1-2\source.cs" />
-    <Compile Remove="MockSrc\CSharp\Indexing\Demo2-1\source.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="MockSrc\CSharp\Basics\Demo1-1\source.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MockSrc\CSharp\Basics\Demo1-2\source.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="MockSrc\CSharp\Indexing\Demo2-1\source.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
+    <PackageReference Include="RavenDB.Client" Version="4.1.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
     <PackageReference Include="xunit.runner.visualstudio" Version="2.3.1" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,19 +19,19 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="MockSrc\CSharp\Basics\Demo1-2\metadata.json">
+    <Compile Update="MockSrc\CSharp\Basics\Demo101\Demo101Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="MockSrc\CSharp\Basics\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="MockSrc\CSharp\Basics\Demo1-1\metadata.json">
+    <None Update="MockSrc\CSharp\Basics\Demo101\metadata.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\categories.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="MockSrc\CSharp\Indexing\Demo2-1\metadata.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\Indexing\demos.json">
