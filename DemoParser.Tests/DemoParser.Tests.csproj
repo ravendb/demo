@@ -19,12 +19,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="DemoCode\Input.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="MockSrc\CSharp\Basics\Demo101\Demo101Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="DemoCode\ExpectedOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="MockSrc\CSharp\Basics\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
