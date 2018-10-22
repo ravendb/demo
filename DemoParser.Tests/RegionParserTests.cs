@@ -52,7 +52,7 @@ namespace DemoParser.Tests
             Assert.Contains(result, x => x.Name.StartsWith("Walk_"));
         }
 
-        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Demo101Controller.cs";
+        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Code.cs";
 
         private List<CodeRegion> Act(string filePath = DefaultFilePath)
         {

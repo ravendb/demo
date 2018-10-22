@@ -2,12 +2,12 @@
 using DemoParser.CodeParsing;
 using Xunit;
 
-namespace DemoParser.Tests.DemoCode
+namespace DemoParser.Tests.DemoCodeBuilderTests
 {
     public class DemoCodeBuilderTests
     {
-        private const string DefaultFilePath = "DemoCode\\Input.cs";
-        private const string DefaultExpectedOutputFilePath = "DemoCode\\ExpectedOutput.txt";
+        private const string DefaultFilePath = "DemoCodeBuilderTests\\Input.cs";
+        private const string DefaultExpectedOutputFilePath = "DemoCodeBuilderTests\\ExpectedOutput.txt";
 
         [Fact]
         public void BuildsUsings()
@@ -49,6 +49,8 @@ namespace DemoParser.Tests.DemoCode
 
             Assert.NotEmpty(resultWalkthroughs);
             Assert.Equal(5, resultWalkthroughs.Count);
+
+            Assert.All(resultWalkthroughs, w => Assert.NotEmpty(w.RegionName));
         }
 
         [Fact]
@@ -65,8 +67,8 @@ namespace DemoParser.Tests.DemoCode
             {
                 if (i < resultWalkthroughs.Count - 1)
                 {
-                    var aLines = resultWalkthroughs[i].Lines;
-                    var bLines = resultWalkthroughs[i + 1].Lines;
+                    var aLines = resultWalkthroughs[i].Range;
+                    var bLines = resultWalkthroughs[i + 1].Range;
 
                     Assert.True(aLines.Start <= bLines.Start, $"Walkthrough #{i} start is larger than walkthrough #{i+1} start.");
                     Assert.True(aLines.End <= bLines.End, $"Walkthrough #{i} end is larger than walkthrough #{i + 1} end.");

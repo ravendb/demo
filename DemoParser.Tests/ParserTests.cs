@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using DemoParser.Models;
@@ -42,13 +43,22 @@ namespace DemoParser.Tests
         {
             var result = Act(DefaultSettings);
 
-            var firstResult = result[0];
-            var firstDemo = firstResult.Demos[0];
+            AssertAllDemos(result, Assert.NotNull);
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Assets));
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Params));
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Walkthroughs));
+        }
 
-            Assert.NotNull(firstDemo);
-            Assert.NotEmpty(firstDemo.Assets);
-            Assert.NotEmpty(firstDemo.Params);
-            Assert.NotEmpty(firstDemo.Walkthroughs);
+        [Fact]
+        public void GetsDemoCode()
+        {
+            var result = Act(DefaultSettings);
+
+            AssertAllDemos(result, d => Assert.NotEmpty(d.SourceCode));
+            AssertAllDemos(result, d => Assert.True(d.UsingsLastLine > 0));
+
+            AssertAllWalkthroughs(result, w => Assert.True(w.Lines.Start <= w.Lines.End));
+            AssertAllWalkthroughs(result, w => Assert.NotEmpty(w.Title));
         }
 
         private ParserSettings DefaultSettings => new ParserSettings
@@ -62,6 +72,16 @@ namespace DemoParser.Tests
             var parser = new Parser(settings);
             var result = parser.Run().ToList();
             return result;
+        }
+
+        private void AssertAllDemos(List<DemoCategory> result, Action<Demo> demoAssertion)
+        {
+            Assert.All(result, category => Assert.All(category.Demos, demoAssertion));
+        }
+
+        private void AssertAllWalkthroughs(List<DemoCategory> result, Action<DemoWalkthrough> walkthroughAssertion)
+        {
+            Assert.All(result, category => Assert.All(category.Demos, demo => Assert.All(demo.Walkthroughs, walkthroughAssertion)));
         }
     }
 }

@@ -83,7 +83,7 @@ namespace DemoParser.Tests
             Assert.All(depthCounts, pair => Assert.True(pair.Value % 2 == 0));
         }
 
-        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Demo101Controller.cs";
+        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Code.cs";
 
         private List<Tokenizer.RegionToken> Act(string path = DefaultFilePath)
         {

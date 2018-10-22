@@ -6,7 +6,7 @@ using Raven.Client.Exceptions;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
-namespace DemoParser.Tests.DemoCode
+namespace DemoParser.Tests.DemoCodeBuilderTests
 {
     public class Input : DemoCodeController
     {

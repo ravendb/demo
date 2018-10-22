@@ -11,7 +11,7 @@ namespace DemoParser.CodeParsing
     public class DemoCodeBuilder
     {
         private readonly StringBuilder _outputCode = new StringBuilder();
-        private readonly Demo _outputDemo = new Demo();
+        private readonly Output _outputDemo = new Output();
         private readonly CodeSlicer _codeSlicer;
 
         private readonly RegionContainer _regions;
@@ -67,21 +67,46 @@ namespace DemoParser.CodeParsing
             return this;
         }
 
-        private void CopyWalkthroughs(IEnumerable<LinesRange> walkthroughRanges)
+        private void CopyWalkthroughs(List<LinesRange> walkthroughRanges)
         {
-            foreach (var range in walkthroughRanges)
+            var walkRegions = _regions.Walk;
+
+            for (var i = 0; i < walkRegions.Count; i++)
             {
-                _outputDemo.Walkthroughs.Add(new DemoWalkthrough
+                var range = walkthroughRanges[i];
+
+                var walkthrough = new WalkthroughOutput
                 {
-                    Lines = range
-                });
+                    Range = range,
+                    RegionName = walkRegions[i].Name
+                };
+
+                _outputDemo.Walkthroughs.Add(walkthrough);
             }
         }
 
-        public Demo Build()
+        public Output Build()
         {
             _outputDemo.SourceCode = _outputCode.ToString();
             return _outputDemo;
+        }
+
+        public class Output
+        {
+            public Output()
+            {
+                Walkthroughs = new List<WalkthroughOutput>();
+            }
+
+            public string SourceCode { get; set; }
+            public int UsingsLastLine { get; set; }
+            public List<WalkthroughOutput> Walkthroughs { get; set; }
+        }
+
+        public class WalkthroughOutput
+        {
+            public LinesRange Range { get; set; }
+            public string RegionName { get; set; }
         }
     }
 }
