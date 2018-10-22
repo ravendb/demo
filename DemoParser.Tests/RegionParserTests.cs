@@ -17,12 +17,11 @@ namespace DemoParser.Tests
         }
 
         [Fact]
-        public void AllRegions_ContainData()
+        public void AllRegions_ContainName()
         {
             var result = Act();
 
             Assert.All(result, x => Assert.False(string.IsNullOrEmpty(x.Name)));
-            Assert.All(result, x => Assert.False(string.IsNullOrEmpty(x.Content)));
         }
 
         [Fact]

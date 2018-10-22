@@ -8,7 +8,6 @@ namespace DemoParser.Regions
     public class RegionParser
     {
         private readonly Tokenizer _tokenizer = new Tokenizer();
-        private readonly CodeSlicer _codeSlicer = new CodeSlicer();
 
         private readonly string _filePath;
 
@@ -52,7 +51,6 @@ namespace DemoParser.Regions
             var endToken = _tokens[endTokenNum];
 
             region.LineEnd = endToken.LineNumber;
-            SetRegionContent(region);
 
             return region;
         }
@@ -74,12 +72,6 @@ namespace DemoParser.Regions
             }
 
             throw new InvalidOperationException($"Could not find closing token for line {startToken.LineNumber}");
-        }
-
-        private void SetRegionContent(CodeRegion region)
-        {
-            var code = _codeSlicer.GetSliceFor(_filePath, region);
-            region.Content = code;
         }
     }
 }

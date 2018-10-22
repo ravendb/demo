@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Text;
 using DemoParser.Models;
@@ -11,17 +10,16 @@ namespace DemoParser.CodeParsing
 {
     public class DemoCodeBuilder
     {
-        private readonly string[] _inputLines;
         private readonly StringBuilder _outputCode = new StringBuilder();
         private readonly Demo _outputDemo = new Demo();
+        private readonly CodeSlicer _codeSlicer;
 
         private readonly RegionContainer _regions;
-        private readonly Dictionary<string, LinesRange> _walkthroughRanges = new Dictionary<string, LinesRange>();
 
         private DemoCodeBuilder(string filePath, List<CodeRegion> regions)
         {
-            _inputLines = File.ReadAllLines(filePath);
             _regions = new RegionContainer(regions);
+            _codeSlicer = new CodeSlicer(filePath, _regions);
         }
 
         public static DemoCodeBuilder Initialize(string filePath)
@@ -38,19 +36,14 @@ namespace DemoParser.CodeParsing
             if (usingsRegion == null)
                 return this;
 
-            var lineCnt = 0;
-
-            using (var reader = new StringReader(usingsRegion.Content))
+            var usingsCode = _codeSlicer.CopyUsings(new LinesRange
             {
-                string line;
-                while ((line = reader.ReadLine()) != null)
-                {
-                    _outputCode.AppendLine(line);
-                    lineCnt++;
-                }
-            }
+                Start = usingsRegion.LineStart,
+                End = usingsRegion.LineEnd
+            });
 
-            _outputDemo.UsingsLastLine = lineCnt;
+            _outputCode.Append(usingsCode.Code);
+            _outputDemo.UsingsLastLine = usingsCode.LineCount;
             return this;
         }
 
@@ -61,65 +54,28 @@ namespace DemoParser.CodeParsing
             if (demoRegion == null)
                 throw new InvalidOperationException($"Region {RegionNames.Demo} was not found.");
 
-            CopyDemoCode(demoRegion.LineStart, demoRegion.LineEnd);
+            var demoCode = _codeSlicer.CopyCodeWithWalkthroughs(new CodeSlicer.CodeWithWalkthroughsInput
+            {
+                Start = demoRegion.LineStart,
+                End = demoRegion.LineEnd,
+                LineCountOffset = _outputDemo.UsingsLastLine
+            });
+
+            _outputCode.Append(demoCode.Code);
+
+            CopyWalkthroughs(demoCode.WalkthroughRanges);
             return this;
         }
 
-        public DemoCodeBuilder SetWalkthroughs()
+        private void CopyWalkthroughs(IEnumerable<LinesRange> walkthroughRanges)
         {
-            foreach (var range in _walkthroughRanges)
+            foreach (var range in walkthroughRanges)
             {
                 _outputDemo.Walkthroughs.Add(new DemoWalkthrough
                 {
-                    Lines = range.Value
+                    Lines = range
                 });
             }
-
-            return this;
-        }
-
-        private void CopyDemoCode(int startLine, int endLine)
-        {
-            var outputLineCnt = _outputDemo.UsingsLastLine;
-
-            for (var i = startLine + 1; i < endLine; i++)
-            {
-                var startingRegion = _regions.GetWalkRegionStartingWithLine(i);
-                if (startingRegion != null)
-                {
-                    SetWalkStartFor(startingRegion, outputLineCnt);
-                    continue;
-                }
-
-                var endingRegion = _regions.GetWalkRegionEndingWithLine(i);
-                if (endingRegion != null)
-                {
-                    SetWalkEndFor(endingRegion, outputLineCnt);
-                    continue;
-                }
-
-                CopyCodeLine(i);
-                outputLineCnt++;
-            }
-        }
-
-        private void SetWalkStartFor(CodeRegion region, int outputLineCnt)
-        {
-            _walkthroughRanges[region.Name] = new LinesRange
-            {
-                Start = outputLineCnt + 1
-            };
-        }
-
-        private void SetWalkEndFor(CodeRegion region, int outputLineCnt)
-        {
-            _walkthroughRanges[region.Name].End = outputLineCnt;
-        }
-
-        private void CopyCodeLine(int num)
-        {
-            var line = _inputLines[num - 1];
-            _outputCode.AppendLine(line);
         }
 
         public Demo Build()

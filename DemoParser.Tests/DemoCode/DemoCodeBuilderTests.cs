@@ -43,7 +43,6 @@ namespace DemoParser.Tests.DemoCode
             var result = GetBuilder()
                 .SetUsings()
                 .SetDemoBody()
-                .SetWalkthroughs()
                 .Build();
 
             var resultWalkthroughs = result.Walkthroughs;
@@ -58,7 +57,6 @@ namespace DemoParser.Tests.DemoCode
             var result = GetBuilder()
                 .SetUsings()
                 .SetDemoBody()
-                .SetWalkthroughs()
                 .Build();
 
             var resultWalkthroughs = result.Walkthroughs;
