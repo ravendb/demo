@@ -1,7 +1,7 @@
 {
     "Name": "Mockup Demo 2",
     "Description": "This is the general description of the MockupDemo 2",
-    "ControllerFullName": "DemoParser.Tests.MockSrc.CSharp.Basics.Demo102.Demo102Controller",
+    "SourceFileName": "Demo102Controller.cs",
 
     "Assets": [
         {
@@ -18,19 +18,6 @@
             "Title": "Demo Asset Title-3",
             "Type": "document",
             "Url": "https://www.google.com/chrome/"
-        }
-    ],
-
-    "Params": [
-        {
-            "Name": "serverUrl",
-            "Type": "string",
-            "Placeholder": "http://localhost:8080/"
-        },
-        {
-            "Name": "dbName",
-            "Type": "string",
-            "Placeholder": "MyDatabase"
         }
     ],
 

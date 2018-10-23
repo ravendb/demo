@@ -3,7 +3,7 @@ using System.Linq;
 using DemoParser.Regions;
 using Xunit;
 
-namespace DemoParser.Tests
+namespace DemoParser.Tests.TokenizerTests
 {
     public class TokenizerTests
     {
@@ -83,7 +83,7 @@ namespace DemoParser.Tests
             Assert.All(depthCounts, pair => Assert.True(pair.Value % 2 == 0));
         }
 
-        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Code.cs";
+        private const string DefaultFilePath = "TokenizerTests\\Input.cs";
 
         private List<Tokenizer.RegionToken> Act(string path = DefaultFilePath)
         {

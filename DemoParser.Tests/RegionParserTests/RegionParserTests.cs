@@ -3,7 +3,7 @@ using System.Linq;
 using DemoParser.Regions;
 using Xunit;
 
-namespace DemoParser.Tests
+namespace DemoParser.Tests.RegionParserTests
 {
     public class RegionParserTests
     {
@@ -52,7 +52,7 @@ namespace DemoParser.Tests
             Assert.Contains(result, x => x.Name.StartsWith("Walk_"));
         }
 
-        private const string DefaultFilePath = "MockSrc\\CSharp\\Basics\\Demo101\\Code.cs";
+        private const string DefaultFilePath = "RegionParserTests\\Input.cs";
 
         private List<CodeRegion> Act(string filePath = DefaultFilePath)
         {

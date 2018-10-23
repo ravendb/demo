@@ -21,36 +21,35 @@ namespace DemoParser
 
         public IEnumerable<DemoCategory> Run()
         {
-            var languageFolder = LanguageMaps.GetFolderFor(_settings.Language);
-            var rootFolder = Path.Join(_settings.RootSourceFolder, languageFolder);
+            var rootFolder = _settings.SourceCodeFolder;
 
-            var categories = _jsonImporter.GetCategories(rootFolder);
+            var jsonDemos = _jsonImporter.GetDemoSets(rootFolder);
 
-            foreach (var categoryJson in categories)
+            foreach (var demoSet in jsonDemos)
             {
-                var categoryFolder = Path.Join(rootFolder, categoryJson.FolderName);
-                yield return ParseCategory(categoryFolder, categoryJson);
+                var category = demoSet.Category;
+                var categoryFolder = Path.Join(rootFolder, category.Folder);
+                yield return ParseCategory(categoryFolder, demoSet);
             }
         }
 
-        private DemoCategory ParseCategory(string categoryFolder, JsonCategory category)
+        private DemoCategory ParseCategory(string categoryFolder, JsonDemoSet demoSet)
         {
-            var demos = GetDemos(categoryFolder).ToList();
+            var demos = GetDemos(categoryFolder, demoSet.Demos).ToList();
+            var category = demoSet.Category;
             var folderName = Path.GetFileName(categoryFolder);
 
             return new DemoCategory
             {
-                Title = category.Title,
+                Title = category.Name,
                 FolderName = folderName,
                 Demos = demos
             };
         }
 
-        private IEnumerable<Demo> GetDemos(string categoryFolder)
+        private IEnumerable<Demo> GetDemos(string categoryFolder, IEnumerable<string> demoNames)
         {
-            var demoList = _jsonImporter.GetDemos(categoryFolder);
-
-            foreach (var demoName in demoList)
+            foreach (var demoName in demoNames)
             {
                 var demoFolder = Path.Join(categoryFolder, demoName);
                 yield return ParseDemo(demoFolder);
@@ -60,8 +59,7 @@ namespace DemoParser
         private Demo ParseDemo(string demoFolder)
         {
             var demo = _jsonImporter.GetMetadata(demoFolder);
-            var codeFileName = LanguageMaps.GetFileNameFor(_settings.Language);
-            var codeFilePath = Path.Join(demoFolder, codeFileName);
+            var codeFilePath = Path.Join(demoFolder, demo.SourceFileName);
 
             var codeOutput = DemoCodeBuilder.Initialize(codeFilePath)
                 .SetUsings()

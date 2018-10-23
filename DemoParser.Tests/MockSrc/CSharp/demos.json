@@ -1,0 +1,23 @@
+[{
+        "Category": {
+            "Name": "Basics",
+            "Folder": "Basics",
+            "Description": "This is the description of the Basics category."
+        },
+        "Demos": [
+            "Demo101",
+            "Demo102"
+        ]
+    },
+    {
+        "Category": {
+
+            "Name": "Indexing",
+            "Folder": "Indexing",
+            "Description": "This is the description of the Indexing category."
+        },
+        "Demos": [
+            "Demo201"
+        ]
+    }
+]

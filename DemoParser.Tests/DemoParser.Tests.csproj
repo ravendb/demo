@@ -7,6 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="RegionParserTests\Input.cs" />
+    <Compile Remove="TokenizerTests\Input.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="RegionParserTests\Input.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TokenizerTests\Input.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.8.0" />
     <PackageReference Include="RavenDB.Client" Version="4.1.2" />
     <PackageReference Include="xunit" Version="2.3.1" />
@@ -25,10 +39,19 @@
     <Compile Update="MockSrc\CSharp\Basics\Demo101\Code.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Update="MockSrc\CSharp\Basics\Demo101\Demo101Controller.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="MockSrc\CSharp\Basics\Demo102\Code.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Update="MockSrc\CSharp\Basics\Demo102\Demo102Controller.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
     <Compile Update="MockSrc\CSharp\Indexing\Demo201\Code.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
+    <Compile Update="MockSrc\CSharp\Indexing\Demo201\Demo201Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
   </ItemGroup>
@@ -47,6 +70,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\categories.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="MockSrc\CSharp\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\Indexing\Demo201\metadata.json">

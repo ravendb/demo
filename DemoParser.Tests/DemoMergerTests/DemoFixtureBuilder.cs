@@ -12,15 +12,7 @@ namespace DemoParser.Tests.DemoMergerTests
             _result = new Demo
             {
                 Description = "demo description",
-                Name = "Demo Name",
-                Params = new List<DemoParameter>
-                {
-                    new DemoParameter
-                    {
-                        Name = "param 1",
-                        Type = ParameterType.DateTime
-                    }
-                }
+                Name = "Demo Name"
             };
         }
 

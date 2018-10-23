@@ -2,7 +2,7 @@
 {
     public class ParserSettings
     {
-        public string RootSourceFolder { get; set; }
+        public string SourceCodeFolder { get; set; }
 
         public DemoLanguage Language { get; set; }
     }

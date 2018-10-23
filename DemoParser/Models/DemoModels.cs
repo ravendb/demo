@@ -7,7 +7,6 @@ namespace DemoParser.Models
         public Demo()
         {
             Assets = new List<DemoAsset>();
-            Params = new List<DemoParameter>();
             Walkthroughs = new List<DemoWalkthrough>();
         }
 
@@ -15,15 +14,11 @@ namespace DemoParser.Models
 
         public string Description { get; set; }
 
-        public string ControllerFullName { get; set; }
-
         public string SourceCode { get; set; }
 
         public int UsingsLastLine { get; set; }
 
         public List<DemoAsset> Assets { get; set; }
-
-        public List<DemoParameter> Params { get; set; }
 
         public List<DemoWalkthrough> Walkthroughs { get; set; }
     }
@@ -67,22 +62,5 @@ namespace DemoParser.Models
         public int Start { get; set; }
 
         public int End { get; set; }
-    }
-
-    public class DemoParameter
-    {
-        public string Name { get; set; }
-
-        public ParameterType Type { get; set; }
-
-        public string Placeholder { get; set; }
-    }
-
-    public enum ParameterType
-    {
-        String,
-        DateTime,
-        Int,
-        Double
     }
 }

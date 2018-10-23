@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="Controllers\Demos\Basics\Demo101\metadata.json" />
+    <Content Remove="Controllers\Demos\demos.json" />
     <Content Remove="tsconfig.json" />
     <Content Remove="tsconfig.prod.json" />
     <Content Remove="tslint.json" />
@@ -19,6 +21,12 @@
     <Content Include="client\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Controllers\Demos\Basics\Demo101\metadata.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Controllers\Demos\demos.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="tsconfig.json" />
     <None Include="tsconfig.prod.json" />
     <None Include="tslint.json" />
@@ -37,7 +45,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DemoParser\DemoParser.csproj" />
-    <ProjectReference Include="..\DemoSrc\DemoSrc.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,3 +1,4 @@
+﻿using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
 using Raven.Client.Exceptions;
@@ -5,19 +6,19 @@ using Raven.Client.Exceptions;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
-namespace DemoSrc.CSharp.Basics.Demo101
+namespace DemoServer.Controllers.Demos.Basics.Demo101
 {
-    public class Demo101Controller : DemoCodeController<EmptyParameters, EmptyParameters>
+    public class Demo101Controller : DemoController
     {
-        public override void SetPrerequisites()
+        protected override void SetPrerequisites()
         {
         }
 
-        public override EmptyParameters Run(EmptyParameters input)
+        public IActionResult Run()
         {
             #region Demo
             var serverURL = "http://localhost:8080";
-            var databaseName = "Demo";
+            var databaseName = "DemoExample";
 
             #region Walk_1
             var documentStore = new DocumentStore
@@ -64,7 +65,7 @@ namespace DemoSrc.CSharp.Basics.Demo101
             }
             #endregion
 
-            return new EmptyParameters();
+            return Ok();
         }
 
         public class Company

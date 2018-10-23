@@ -45,9 +45,7 @@ namespace DemoParser.Tests
             var result = Act(DefaultSettings);
 
             AssertAllDemos(result, Assert.NotNull);
-            AssertAllDemos(result, d => Assert.NotEmpty(d.ControllerFullName));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Assets));
-            AssertAllDemos(result, d => Assert.NotEmpty(d.Params));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Walkthroughs));
         }
 
@@ -65,7 +63,7 @@ namespace DemoParser.Tests
 
         private ParserSettings DefaultSettings => new ParserSettings
         {
-            RootSourceFolder = "MockSrc",
+            SourceCodeFolder = "MockSrc\\CSharp",
             Language = DemoLanguage.CSharp
         };
 
