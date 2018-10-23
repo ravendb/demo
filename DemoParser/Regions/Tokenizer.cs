@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using DemoParser.Utils;
 
 namespace DemoParser.Regions
 {
@@ -11,6 +12,9 @@ namespace DemoParser.Regions
 
         public IEnumerable<RegionToken> GetFromFile(string filePath)
         {
+            if (File.Exists(filePath) == false)
+                throw new ParsingException($"File {filePath} does not exist.");
+
             var lines = File.ReadLines(filePath);
             var lineCnt = 0;
             var depth = 0;

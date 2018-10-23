@@ -11,6 +11,9 @@ namespace DemoParser.Utils.Json
         {
             var filePath = Path.Join(folderPath, fileName);
 
+            if (File.Exists(filePath) == false)
+                throw new ParsingException($"File {filePath} is missing.");
+
             using (var streamReader = new StreamReader(filePath))
             {
                 var text = streamReader.ReadToEnd();

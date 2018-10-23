@@ -17,6 +17,7 @@ namespace DemoParser.Tests
 
             var firstResult = result[0];
             Assert.False(string.IsNullOrEmpty(firstResult.Title));
+            Assert.False(string.IsNullOrEmpty(firstResult.FolderName));
         }
 
         [Fact]
@@ -44,6 +45,7 @@ namespace DemoParser.Tests
             var result = Act(DefaultSettings);
 
             AssertAllDemos(result, Assert.NotNull);
+            AssertAllDemos(result, d => Assert.NotEmpty(d.ControllerFullName));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Assets));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Params));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Walkthroughs));

@@ -36,10 +36,12 @@ namespace DemoParser
         private DemoCategory ParseCategory(string categoryFolder, JsonCategory category)
         {
             var demos = GetDemos(categoryFolder).ToList();
+            var folderName = Path.GetFileName(categoryFolder);
 
             return new DemoCategory
             {
                 Title = category.Title,
+                FolderName = folderName,
                 Demos = demos
             };
         }

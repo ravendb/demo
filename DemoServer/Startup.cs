@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using DemoServer.Utils;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.Webpack;
@@ -38,6 +39,8 @@ namespace DemoServer
             {
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
+
+            DemoContainer.Initialize(settings.Parser.SourceFolder);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

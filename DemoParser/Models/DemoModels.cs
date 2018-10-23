@@ -15,6 +15,8 @@ namespace DemoParser.Models
 
         public string Description { get; set; }
 
+        public string ControllerFullName { get; set; }
+
         public string SourceCode { get; set; }
 
         public int UsingsLastLine { get; set; }

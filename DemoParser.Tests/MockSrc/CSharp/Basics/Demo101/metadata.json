@@ -1,6 +1,7 @@
 {
     "Name": "Mockup Demo",
     "Description": "This is the general description of the MockupDemo",
+    "ControllerFullName": "DemoParser.Tests.MockSrc.CSharp.Basics.Demo101.Demo101Controller",
 
     "Assets": [
         {
