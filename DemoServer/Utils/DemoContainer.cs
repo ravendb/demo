@@ -5,29 +5,30 @@ using DemoParser.Models;
 
 namespace DemoServer.Utils
 {
-    internal static class DemoContainer
+    public class DemoContainer
     {
-        public static readonly Dictionary<DemoLanguage, List<DemoCategory>> Categories =
+        public readonly Dictionary<DemoLanguage, List<DemoCategory>> Categories =
             new Dictionary<DemoLanguage, List<DemoCategory>>();
 
-        private static string _demoSourceFolder;
-
-        public static void Initialize(string demoSourceFolder)
+        private DemoContainer(string demoSourceFolder)
         {
-            _demoSourceFolder = demoSourceFolder;
             var language = DemoLanguage.CSharp;
 
             var parserSettings = new ParserSettings
             {
-                SourceCodeFolder = _demoSourceFolder,
+                SourceCodeFolder = demoSourceFolder,
                 Language = language
             };
 
             var parser = new Parser(parserSettings);
             var result = parser.Run();
 
-            var categories = result.ToList();
-            Categories[language] = categories;
+            Categories[language] = result.ToList();
+        }
+
+        public static DemoContainer Initialize(string demoSourceFolder)
+        {
+            return new DemoContainer(demoSourceFolder);
         }
     }
 }

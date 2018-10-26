@@ -1,6 +1,6 @@
 export interface Demo {
-    name: string;
-    img: string;
+    slug: string;
+    title: string;
 }
 
 export interface DemoWithProgress extends Demo {
@@ -8,6 +8,6 @@ export interface DemoWithProgress extends Demo {
 }
 
 export interface DemoCategory {
-    name: string;
+    slug: string;
     demos: DemoWithProgress[];
 }

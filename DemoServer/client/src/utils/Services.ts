@@ -36,3 +36,9 @@ export class ExampleService extends Service {
         return this.get("get-data");
     }
 }
+
+export class HomeService extends Service {
+    constructor() {
+        super("/");
+    }
+}

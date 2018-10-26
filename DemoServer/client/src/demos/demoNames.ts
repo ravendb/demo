@@ -1,0 +1,1 @@
+export type DemoType = "DEMO_101" | "DEMO_102";

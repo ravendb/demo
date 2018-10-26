@@ -40,7 +40,8 @@ namespace DemoServer
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
 
-            DemoContainer.Initialize("Controllers\\Demos");
+            var demoContainer = DemoContainer.Initialize("Controllers\\Demos");
+            services.AddSingleton(demoContainer);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

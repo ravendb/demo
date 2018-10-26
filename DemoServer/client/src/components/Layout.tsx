@@ -2,16 +2,16 @@ import * as React from "react";
 import { Header } from "./ui/Header";
 
 interface LayoutProps {
-    noContainter?: boolean;
+    noContainer?: boolean;
 }
 
 export class Layout extends React.Component<LayoutProps, {}> {
     displayName = Layout.name
 
     render() {
-        const { noContainter, children } = this.props;
+        const { noContainer, children } = this.props;
 
-        const body = noContainter
+        const body = noContainer
             ? <>{children}</>
             : <div className="container">
                 {children}
