@@ -1,4 +1,4 @@
-import { deepCopy } from "../utils/MiscUtils";
+import { deepCopy } from "../utils/miscUtils";
 
 export interface ErrorState {
     error: any;

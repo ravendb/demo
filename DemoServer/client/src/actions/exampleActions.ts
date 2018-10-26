@@ -1,22 +1,23 @@
-import * as actionNames from "./actionNames";
-import { ExampleDataDto } from "./models";
-import { ExampleService } from "../../utils/Services";
-import { DemoAsyncDispatch, DemoAsyncAction } from "../../store/async";
-import { apiError } from "../common/actions";
+import * as actionTypes from "./actionTypes";
+import { ExampleService } from "../utils/Services";
+import { ExampleDataDto } from "../models/exampleModels";
+import { DemoAsyncDispatch } from "../store/async";
+import { DemoAsyncAction } from ".";
+import { apiError } from "./errorActions";
 
 const service = new ExampleService();
 
 export interface FetchResult {
-    type: actionNames.FETCH_RESULT_REQUEST;
+    type: actionTypes.FETCH_RESULT_REQUEST;
 }
 
 export interface FetchResultFailure {
-    type: actionNames.FETCH_RESULT_FAILURE;
+    type: actionTypes.FETCH_RESULT_FAILURE;
     error: any;
 }
 
 export interface FetchResultSuccess {
-    type: actionNames.FETCH_RESULT_SUCCESS;
+    type: actionTypes.FETCH_RESULT_SUCCESS;
     result: ExampleDataDto;
 }
 
@@ -24,20 +25,20 @@ export type ExampleAction = FetchResult | FetchResultFailure | FetchResultSucces
 
 function requestResult(): FetchResult {
     return {
-        type: actionNames.FETCH_RESULT_REQUEST
+        type: "FETCH_RESULT_REQUEST"
     };
 }
 
 function fetchResultFailure(error: any): FetchResultFailure {
     return {
-        type: actionNames.FETCH_RESULT_FAILURE,
+        type: "FETCH_RESULT_FAILURE",
         error
     };
 }
 
 function fetchResultSuccess(result: ExampleDataDto): FetchResultSuccess {
     return {
-        type: actionNames.FETCH_RESULT_SUCCESS,
+        type: "FETCH_RESULT_SUCCESS",
         result
     };
 }

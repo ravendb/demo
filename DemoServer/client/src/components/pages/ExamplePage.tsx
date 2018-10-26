@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Page } from "../components/Layout";
-import Example from "../features/example/containers/ExampleDisplayContainer";
+import { Page } from "../Layout";
+import { Example } from "../example/Example";
 
 export class ExamplePage extends React.Component<{}, {}> {
     render() {

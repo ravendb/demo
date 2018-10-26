@@ -1,7 +1,7 @@
 import * as React from "react";
-import { Page } from "../components/Layout";
-import { Sidebar } from "../components/ui/sidebar";
-import { Walkthrough } from "../components/ui/demo/walkthrough";
+import { Page } from "../Layout";
+import { Sidebar } from "../ui/sidebar";
+import { Walkthrough } from "../ui/demo/walkthrough";
 
 export class WalkthroughPage extends React.Component {
   displayName = WalkthroughPage.name

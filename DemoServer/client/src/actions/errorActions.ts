@@ -1,16 +1,15 @@
-import * as actionNames from "./actionNames";
+import * as actionTypes from "./actionTypes";
 
 export type ErrorAction = ApiErrorAction;
-export type CommonAction = ErrorAction;
 
 export interface ApiErrorAction {
-    type: actionNames.API_ERROR;
+    type: actionTypes.API_ERROR;
     error: any;
 }
 
 export function apiError(error: any) : ApiErrorAction {
     return {
-        type: actionNames.API_ERROR,
+        type: "API_ERROR",
         error
     };
 }

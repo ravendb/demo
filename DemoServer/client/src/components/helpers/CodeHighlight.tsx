@@ -1,7 +1,7 @@
 import * as React from "react";
 import { addHighlightHook, removeHighlightHook } from "../../utils/highlight";
 import { addResizeListener, removeResizeListener } from "../../utils/resize";
-import { Language } from "../../features/common/commonModels";
+import { Language } from "../../models/commonModels";
 
 const Prism = window["Prism"] as any;
 

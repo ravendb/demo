@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Language } from "../../../features/common/commonModels";
+import { Language } from "../../../models/commonModels";
 import { Usings } from "./Usings";
 import { CodePreview } from "../../helpers/CodePreview";
 import { HighlightLinesRange, CodeHighlight } from "../../helpers/CodeHighlight";

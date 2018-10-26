@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Language } from "../../features/common/commonModels";
+import { Language } from "../../models/commonModels";
 
 const Prism = window["Prism"] as any;
 

@@ -1,8 +1,7 @@
 import * as React from "react";
-import { DemoCategory, DemoWithProgress } from "./models";
-import * as categories from "../../../demos/categories";
-import { Category } from "../../../demos/categories";
 import { Link } from "react-router-dom";
+import { DemoWithProgress } from "../../models/demoModels";
+import { Category, categoryList } from "../demos/categories";
 
 interface DemoItemProps {
     category: string;
@@ -48,7 +47,7 @@ export class Home extends React.Component<HomeProps, {}> {
         return <>
             <div className="header-image"><h1>Dive into RavenDB</h1></div>
             <div className="demo-list">
-                {categories.categoryList.map((x, i) => <DemoCategory category={x} key={`demo_category_${i}`} />)}
+                {categoryList.map((x, i) => <DemoCategory category={x} key={`demo_category_${i}`} />)}
             </div>
         </>;
     }

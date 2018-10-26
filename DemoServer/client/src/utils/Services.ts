@@ -1,5 +1,5 @@
 import { ApiClient } from "./ApiClient";
-import { ExampleDataDto } from "../features/example/models";
+import { ExampleDataDto } from "../models/exampleModels";
 
 export interface PagedList<T> {
     totalResults: number;
