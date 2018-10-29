@@ -4,7 +4,7 @@ import { Usings } from "./Usings";
 import { CodePreview } from "../helpers/CodePreview";
 import { HighlightLinesRange, CodeHighlight } from "../helpers/CodeHighlight";
 
-interface CodeProps {
+export interface CodeProps {
     language: Language;
     usings: string;
     sourceCode: string;

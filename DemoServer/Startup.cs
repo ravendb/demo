@@ -6,20 +6,21 @@ using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using NLog.Extensions.Logging;
 
 namespace DemoServer
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Configuration = configuration;
             HostingEnvironment = env;
+            LoggerFactory = loggerFactory;
         }
 
         private IConfiguration Configuration { get; }
         private IHostingEnvironment HostingEnvironment { get; }
+        private ILoggerFactory LoggerFactory { get; }
 
         private string GetSpaOutputDir(IHostingEnvironment env) => env.IsDevelopment() ? "wwwroot/dev" : "wwwroot/dist";
 
@@ -40,14 +41,12 @@ namespace DemoServer
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
 
-            var demoContainer = DemoContainer.Initialize("Controllers\\Demos");
+            var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>());
             services.AddSingleton(demoContainer);
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddNLog();
-
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

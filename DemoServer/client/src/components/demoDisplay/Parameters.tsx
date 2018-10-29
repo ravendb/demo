@@ -7,7 +7,7 @@ interface ParameterItem {
     datatype?: "integer" | "float"
 }
 
-interface ParametersProps {
+export interface ParametersProps {
     items: ParameterItem[];
 }
 

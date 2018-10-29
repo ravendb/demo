@@ -1,6 +1,6 @@
 import * as React from "react";
 
-interface WalkthroughItem {
+export interface WalkthroughItem {
     href: string;
     title: string;
 }
@@ -9,7 +9,7 @@ interface WalkthroughProps {
     items: WalkthroughItem[];
 }
 
-export class Walkthrough extends React.Component<WalkthroughProps, {}> {
+export class WalkthroughLinks extends React.Component<WalkthroughProps, {}> {
     displayItem(item: WalkthroughItem, index: number) {
         const { href, title } = item;
         return <li key={`walkthrough_${title}${index}`}><a href={href}>{title}</a></li>

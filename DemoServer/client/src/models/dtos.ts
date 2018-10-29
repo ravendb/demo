@@ -6,12 +6,12 @@ export interface DemoAssetDto {
     url: string;
 }
 
-interface LinesRangeDto {
+export interface LinesRangeDto {
     start: number;
     end: number;
 }
 
-interface DemoWalkthroughDto {
+export interface DemoWalkthroughDto {
     title: string;
     slug: string;
     descriptionHtml: string;

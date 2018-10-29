@@ -1,4 +1,5 @@
 ﻿using System;
+using DemoServer.Models;
 using DemoServer.Utils;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -24,7 +25,8 @@ namespace DemoServer.Controllers
             try
             {
                 var demo = _demoContainer.GetDemo(categoryName, demoName);
-                return Ok(demo);
+                var dto = DemoDto.FromModel(demo);
+                return Ok(dto);
             }
             catch (InvalidOperationException e)
             {

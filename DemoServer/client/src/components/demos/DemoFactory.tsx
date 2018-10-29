@@ -13,19 +13,19 @@ function getDemoType(categorySlug: string, demoSlug: string) {
     return demo && demo.type;
 }
 
-interface DemoFactoryProps {
+export interface DemoFactoryProps {
     categorySlug: string;
     demoSlug: string;
 }
 
-export function DemoFactory(props: DemoFactoryProps & DemoProps) {
+export function DemoFactory(props: DemoFactoryProps) {
     const { categorySlug, demoSlug } = props;
     const demoType = getDemoType(categorySlug, demoSlug);
 
     switch (demoType) {
         case "DEMO_101":
-            return <Demo101 {...props} />
+            return <Demo101 {...props} />;
     }
 
-    return <DemoNotFound />;
+    return <DemoNotFound {...props} loadMetadata={() => {}} />;
 }

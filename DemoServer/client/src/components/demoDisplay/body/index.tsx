@@ -1,45 +1,29 @@
 import * as React from "react";
-import { Parameters } from "../Parameters";
-import { Code } from "../Code";
+import { Parameters, ParametersProps } from "../Parameters";
+import { Code, CodeProps } from "../Code";
 import { NavPanel } from "./NavPanel";
-import { Results } from "./Results";
-import * as mockup from "../../mockup";
+import { Results, ResultDisplayProps } from "./Results";
 
 interface DemoBodyProps {
+    code: CodeProps;
+    results?: ResultDisplayProps;
+    parameters?: ParametersProps;
 }
 
-interface DemoBodyState {
-}
-
-export class DemoBody extends React.Component<DemoBodyProps, DemoBodyState> {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-        };
-    }
-
+export class DemoBody extends React.Component<DemoBodyProps, {}> {
     render() {
+        const { code, parameters, results } = this.props;
         const resultsId = "results";
         return <div className="demo-body">
             <div id="demo-body-container">
-                <Parameters items={[
-                    { type: "text", name: "searchQuery", placeholder: "John" },
-                    { type: "date", name: "searchQuery", placeholder: "2011-09-29" },
-                    { type: "number", datatype: "integer", name: "searchQuery", placeholder: "10" },
-                    { type: "number", datatype: "float", name: "searchQuery", placeholder: "10.42792" }
-                ]} />
-                <Code language="csharp" {...mockup} />
+                {parameters && <Parameters {...parameters} />}
+                <Code {...code} />
                 <NavPanel
                     onWalkthroughClick={() => alert("WALKTHROUGH clicked")}
                     onRunScriptClicked={() => console.log("RUN SCRIPT clicked")}
                     resultsElementId={resultsId}
                 />
-                <Results
-                    elementId={resultsId}
-                    clientExecTime="0.06 seconds"
-                    serverExecTime="< 0.01 seconds"
-                />
+                {results && <Results elementId={resultsId} {...results} />}
             </div>
         </div>;
     }

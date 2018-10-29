@@ -1,12 +1,22 @@
 import * as React from "react";
+import { DemoFactoryProps } from "./DemoFactory";
 
-export interface DemoProps {
+export interface DemoOwnProps extends DemoFactoryProps {
 }
 
-export abstract class Demo extends React.Component<DemoProps, {}> {
+export interface DemoStateProps {
 }
 
-export class DemoNotFound extends Demo {
+export interface DemoDispatchProps {
+    loadMetadata: (category: string, demo: string) => void;
+}
+
+export type DemoProps = DemoStateProps & DemoOwnProps & DemoDispatchProps;
+
+export abstract class DemoDisplay extends React.Component<DemoProps, {}> {
+}
+
+export class DemoNotFound extends DemoDisplay {
     render() {
         return <>
             <h2>Demo not found</h2>

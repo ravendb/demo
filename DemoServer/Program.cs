@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using NLog.Extensions.Logging;
 
 namespace DemoServer
 {
@@ -12,6 +13,7 @@ namespace DemoServer
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .ConfigureLogging(x => x.AddNLog())
                 .UseStartup<Startup>();
     }
 }

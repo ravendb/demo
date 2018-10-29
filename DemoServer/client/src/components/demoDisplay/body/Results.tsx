@@ -1,9 +1,12 @@
 import * as React from "react";
 
-interface ResultsProps {
-    elementId: string;
+export interface ResultDisplayProps {
     clientExecTime: string;
     serverExecTime: string;
+}
+
+export interface ResultsProps extends ResultDisplayProps {
+    elementId: string;
 }
 
 export class Results extends React.Component<ResultsProps, {}> {

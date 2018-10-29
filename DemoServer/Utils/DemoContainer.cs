@@ -3,18 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using DemoParser;
 using DemoParser.Models;
+using Microsoft.Extensions.Logging;
 
 namespace DemoServer.Utils
 {
     public class DemoContainer
     {
+        private readonly ILogger _logger;
+
         public readonly Dictionary<DemoLanguage, List<DemoCategory>> Categories =
             new Dictionary<DemoLanguage, List<DemoCategory>>();
 
         private const DemoLanguage SupportedLanguage = DemoLanguage.CSharp;
 
-        private DemoContainer(string demoSourceFolder)
+        private DemoContainer(string demoSourceFolder, ILogger<DemoContainer> logger)
         {
+            _logger = logger;
             var language = SupportedLanguage;
 
             var parserSettings = new ParserSettings
@@ -24,14 +28,21 @@ namespace DemoServer.Utils
             };
 
             var parser = new Parser(parserSettings);
-            var result = parser.Run();
 
-            Categories[language] = result.ToList();
+            try
+            {
+                var result = parser.Run();
+                Categories[language] = result.ToList();
+            }
+            catch (Exception e)
+            {
+                _logger.LogError(e, "Error during source code parsing.");
+            }
         }
 
-        public static DemoContainer Initialize(string demoSourceFolder)
+        public static DemoContainer Initialize(string demoSourceFolder, ILogger<DemoContainer> logger)
         {
-            return new DemoContainer(demoSourceFolder);
+            return new DemoContainer(demoSourceFolder, logger);
         }
 
         public Demo GetDemo(string categoryName, string demoName)
