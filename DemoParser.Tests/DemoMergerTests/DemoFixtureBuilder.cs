@@ -11,8 +11,7 @@ namespace DemoParser.Tests.DemoMergerTests
         {
             _result = new Demo
             {
-                Description = "demo description",
-                Name = "Demo Name"
+                Slug = "demo-slug"
             };
         }
 

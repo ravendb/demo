@@ -8,7 +8,7 @@ using Raven.Client.ServerWide.Operations;
 
 namespace DemoServer.Controllers.Demos.Basics.Demo101
 {
-    public class Demo101Controller : DemoController
+    public class Demo101Controller : DemoCodeController
     {
         protected override void SetPrerequisites()
         {

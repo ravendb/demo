@@ -1,5 +1,6 @@
 import { ApiClient } from "./ApiClient";
 import { ExampleDataDto } from "../models/exampleModels";
+import { DemoDto } from "../models/dtos";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -37,8 +38,12 @@ export class ExampleService extends Service {
     }
 }
 
-export class HomeService extends Service {
+export class DemoService extends Service {
     constructor() {
-        super("/");
+        super("/demo");
+    }
+
+    getMetadata(category: string, demo: string): Promise<DemoDto> {
+        return this.get(`get/${category}/${demo}`);
     }
 }

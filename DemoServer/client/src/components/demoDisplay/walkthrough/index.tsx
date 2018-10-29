@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Parameters } from "../Parameters";
-import * as mockup from "../../../mockup";
+import * as mockup from "../../mockup";
 import { Code } from "../Code";
 
 interface WalkthroughProps {

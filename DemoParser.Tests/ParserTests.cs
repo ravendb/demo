@@ -16,8 +16,8 @@ namespace DemoParser.Tests
             Assert.NotEmpty(result);
 
             var firstResult = result[0];
-            Assert.False(string.IsNullOrEmpty(firstResult.Title));
-            Assert.False(string.IsNullOrEmpty(firstResult.FolderName));
+            Assert.False(string.IsNullOrEmpty(firstResult.Slug));
+            Assert.False(string.IsNullOrEmpty(firstResult.Directory));
         }
 
         [Fact]

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { Language } from "../../../models/commonModels";
+import { Language } from "../../models/commonModels";
 import { Usings } from "./Usings";
-import { CodePreview } from "../../helpers/CodePreview";
-import { HighlightLinesRange, CodeHighlight } from "../../helpers/CodeHighlight";
+import { CodePreview } from "../helpers/CodePreview";
+import { HighlightLinesRange, CodeHighlight } from "../helpers/CodeHighlight";
 
 interface CodeProps {
     language: Language;

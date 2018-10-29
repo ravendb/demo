@@ -12,11 +12,9 @@ namespace DemoParser.Utils.Json
 
     internal class JsonCategory
     {
-        public string Name { get; set; }
+        public string Slug { get; set; }
 
-        public string Folder { get; set; }
-
-        public string Description { get; set; }
+        public string Directory { get; set; }
     }
 
     internal class JsonMetadata : Demo

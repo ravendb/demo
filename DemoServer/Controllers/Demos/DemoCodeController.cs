@@ -2,7 +2,7 @@
 
 namespace DemoServer.Controllers.Demos
 {
-    public abstract class DemoController : Controller
+    public abstract class DemoCodeController : Controller
     {
         protected abstract void SetPrerequisites();
     }

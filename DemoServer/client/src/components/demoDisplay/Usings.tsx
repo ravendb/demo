@@ -1,6 +1,6 @@
 import * as React from "react";
-import { Language } from "../../../models/commonModels";
-import { CodePreview } from "../../helpers/CodePreview";
+import { Language } from "../../models/commonModels";
+import { CodePreview } from "../helpers/CodePreview";
 
 interface UsingsProps {
     language: Language;

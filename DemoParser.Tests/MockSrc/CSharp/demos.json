@@ -1,22 +1,20 @@
 [{
-        "Category": {
-            "Name": "Basics",
-            "Folder": "Basics",
-            "Description": "This is the description of the Basics category."
+        "category": {
+            "slug": "Basics",
+            "directory": "Basics"
         },
-        "Demos": [
+        "demos": [
             "Demo101",
             "Demo102"
         ]
     },
     {
-        "Category": {
+        "category": {
 
-            "Name": "Indexing",
-            "Folder": "Indexing",
-            "Description": "This is the description of the Indexing category."
+            "slug": "Indexing",
+            "directory": "Indexing"
         },
-        "Demos": [
+        "demos": [
             "Demo201"
         ]
     }

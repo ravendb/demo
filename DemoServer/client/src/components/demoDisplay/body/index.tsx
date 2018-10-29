@@ -3,7 +3,7 @@ import { Parameters } from "../Parameters";
 import { Code } from "../Code";
 import { NavPanel } from "./NavPanel";
 import { Results } from "./Results";
-import * as mockup from "../../../mockup";
+import * as mockup from "../../mockup";
 
 interface DemoBodyProps {
 }

@@ -1,9 +1,9 @@
 import { DemoType } from "./demoNames";
 
 interface DemoInfo {
-    slug: string,
-    title: string,
-    type: DemoType
+    slug: string;
+    title: string;
+    type: DemoType;
 }
 
 export interface Category {

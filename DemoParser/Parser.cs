@@ -28,7 +28,7 @@ namespace DemoParser
             foreach (var demoSet in jsonDemos)
             {
                 var category = demoSet.Category;
-                var categoryFolder = Path.Join(rootFolder, category.Folder);
+                var categoryFolder = Path.Join(rootFolder, category.Directory);
                 yield return ParseCategory(categoryFolder, demoSet);
             }
         }
@@ -41,8 +41,8 @@ namespace DemoParser
 
             return new DemoCategory
             {
-                Title = category.Name,
-                FolderName = folderName,
+                Slug = category.Slug,
+                Directory = folderName,
                 Demos = demos
             };
         }

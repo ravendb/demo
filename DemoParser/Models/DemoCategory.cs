@@ -9,9 +9,9 @@ namespace DemoParser.Models
             Demos = new List<Demo>();
         }
 
-        public string Title { get; set; }
+        public string Slug { get; set; }
 
-        public string FolderName { get; set; }
+        public string Directory { get; set; }
 
         public List<Demo> Demos { get; set; }
     }

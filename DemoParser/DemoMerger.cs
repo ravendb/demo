@@ -36,7 +36,7 @@ namespace DemoParser
         private void ValidateSourceCode(Demo destDemo)
         {
             if (string.IsNullOrEmpty(_codeOutput.SourceCode))
-                throw new ParsingException($"Source code for demo {destDemo.Name} was null or empty");
+                throw new ParsingException($"Source code for demo {destDemo.Slug} was null or empty");
         }
 
         private DemoCodeBuilder.WalkthroughOutput GetSourceWalkthroughByMetadataCount(int count)

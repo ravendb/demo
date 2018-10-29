@@ -1,11 +1,10 @@
 [
     {
-        "Category": {
-            "Name": "Basics",
-            "Folder": "Basics",
-            "Description": "This is the description of the Basics category."
+        "category": {
+            "slug": "Basics",
+            "directory": "Basics"
         },
-        "Demos": [
+        "demos": [
             "Demo101"
         ]
     }
