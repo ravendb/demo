@@ -2,33 +2,33 @@ import { ParametersProps } from "./demoDisplay/Parameters";
 import { CodeProps } from "./demoDisplay/Code";
 import { ResultDisplayProps } from "./demoDisplay/body/Results";
 import React = require("react");
-import { DemoBody } from "./demoDisplay/body";
+import { DemoBodyDisplay } from "./demoDisplay/body";
 import { SidebarDisplay } from "./sidebar";
 import { AssetsItem } from "./sidebar/AssetLinks";
 
-export function MockupDemoBody() {
-    const paramProps: ParametersProps = {
-        items: [
-            { type: "text", name: "searchQuery", placeholder: "John" },
-            { type: "date", name: "searchQuery", placeholder: "2011-09-29" },
-            { type: "number", datatype: "integer", name: "searchQuery", placeholder: "10" },
-            { type: "number", datatype: "float", name: "searchQuery", placeholder: "10.42792" }
-        ]
-    };
+// export function MockupDemoBody() {
+//     const paramProps: ParametersProps = {
+//         items: [
+//             { type: "text", name: "searchQuery", placeholder: "John" },
+//             { type: "date", name: "searchQuery", placeholder: "2011-09-29" },
+//             { type: "number", datatype: "integer", name: "searchQuery", placeholder: "10" },
+//             { type: "number", datatype: "float", name: "searchQuery", placeholder: "10.42792" }
+//         ]
+//     };
 
-    const codeProps: CodeProps = {
-        language: "csharp",
-        usings,
-        sourceCode
-    };
+//     const codeProps: CodeProps = {
+//         language: "csharp",
+//         sourceCode,
+//         usingsLastLine: 4
+//     };
 
-    const resultProps: ResultDisplayProps = {
-        clientExecTime: "0.06 seconds",
-        serverExecTime: "< 0.01 seconds"
-    };
+//     const resultProps: ResultDisplayProps = {
+//         clientExecTime: "0.06 seconds",
+//         serverExecTime: "< 0.01 seconds"
+//     };
 
-    return <DemoBody code={codeProps} parameters={paramProps} results={resultProps} />;
-}
+//     return <DemoBodyDisplay code={codeProps} parameters={paramProps} results={resultProps} />;
+// }
 
 export function MockSidebar() {
     const description = <>
@@ -67,12 +67,11 @@ export function MockSidebar() {
     />;
 }
 
-export const usings = `using DemoServer.Indexes;
+export const sourceCode = `using DemoServer.Indexes;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Indexes;
-using Raven.Client.Documents.Queries.Facets;`;
-
-export const sourceCode = `namespace DemoServer.Demos.Menu
+using Raven.Client.Documents.Queries.Facets;
+namespace DemoServer.Demos.Menu
 {
     public partial class MenuController : BaseController
     {

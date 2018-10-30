@@ -11,7 +11,7 @@ import { DemoWalkthroughDto, DemoAssetDto } from "../../models/dtos";
 import { DemoAsyncDispatch } from "../../store/async";
 import { connect } from "react-redux";
 
-interface SidebarOwnProps {
+export interface SidebarOwnProps {
     title: string;
     description: React.ReactNode;
 }
@@ -25,7 +25,7 @@ interface SidebarStateProps {
 interface SidebarDispatchProps {
 }
 
-type SidebarProps = SidebarOwnProps & SidebarStateProps & SidebarDispatchProps;
+export type SidebarProps = SidebarOwnProps & SidebarStateProps & SidebarDispatchProps;
 
 interface SidebarDisplayState {
     sidebarCollapsed: boolean;
@@ -81,19 +81,19 @@ function assetToLink(dto: DemoAssetDto): AssetsItem {
     };
 }
 
-export function mapStateToProps({ demo }: AppState): SidebarStateProps {
-    const { demo: dto } = demo;
+function mapStateToProps({ demos }: AppState): SidebarStateProps {
+    const { demo: dto, language } = demos;
     const walkthroughLinks = dto && dto.walkthroughs ? dto.walkthroughs.map(walkthroughToLink) : [];
     const assetLinks = dto && dto.assets ? dto.assets.map(assetToLink) : [];
 
     return {
-        selectedLanguage: "csharp",
+        selectedLanguage: language,
         walkthroughLinks,
         assetLinks
     };
 }
 
-export function mapDispatchToProps(dispatch: DemoAsyncDispatch): SidebarDispatchProps {
+function mapDispatchToProps(dispatch: DemoAsyncDispatch): SidebarDispatchProps {
     return {
     };
 }

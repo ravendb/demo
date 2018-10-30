@@ -1,10 +1,18 @@
 import * as React from "react";
-import { DemoFactoryProps } from "./DemoFactory";
+import { Page } from "../Layout";
+import { Sidebar, SidebarOwnProps } from "../sidebar";
+import { DemoBodyDisplay } from "../demoDisplay/body";
+import { AppState } from "../../store/state";
+import { DemoAsyncDispatch } from "../../store/async";
+import { getMetadata } from "../../actions/demoActions";
+import { connect } from "react-redux";
 
-export interface DemoOwnProps extends DemoFactoryProps {
+export interface DemoOwnProps extends SidebarOwnProps {
 }
 
 export interface DemoStateProps {
+    categorySlug: string;
+    demoSlug: string;
 }
 
 export interface DemoDispatchProps {
@@ -13,14 +21,32 @@ export interface DemoDispatchProps {
 
 export type DemoProps = DemoStateProps & DemoOwnProps & DemoDispatchProps;
 
-export abstract class DemoDisplay extends React.Component<DemoProps, {}> {
-}
+export class DemoDisplay extends React.Component<DemoProps, {}> {
+    componentDidMount() {
+        const { loadMetadata, categorySlug, demoSlug } = this.props;
+        loadMetadata(categorySlug, demoSlug);
+    }
 
-export class DemoNotFound extends DemoDisplay {
     render() {
-        return <>
-            <h2>Demo not found</h2>
-            <p>We're sorry, this is not the demo you're looking for.</p>
-        </>;
+        return <Page>
+            <Sidebar {...this.props} />
+            <DemoBodyDisplay />
+        </Page>;
     }
 }
+
+function mapStateToProps({ demos }: AppState): DemoStateProps {
+    const { categorySlug, demoSlug } = demos;
+    return {
+        categorySlug,
+        demoSlug
+    };
+}
+
+function mapDispatchToProps(dispatch: DemoAsyncDispatch): DemoDispatchProps {
+    return {
+        loadMetadata: (category: string, demo: string) => dispatch(getMetadata(category, demo))
+    };
+}
+
+export const Demo = connect<DemoStateProps, DemoDispatchProps, DemoOwnProps>(mapStateToProps, mapDispatchToProps)(DemoDisplay);

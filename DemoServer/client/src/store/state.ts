@@ -1,5 +1,7 @@
 import { deepCopy } from "../utils/miscUtils";
 import { DemoDto } from "../models/dtos";
+import { Language } from "../models/commonModels";
+import { RouterState } from "react-router-redux";
 
 export interface ErrorState {
     error: any;
@@ -11,6 +13,9 @@ export interface ExampleState {
 }
 
 export interface DemoState {
+    language: Language;
+    categorySlug: string;
+    demoSlug: string;
     demo: DemoDto;
     loadingDemo: boolean;
 }
@@ -18,7 +23,8 @@ export interface DemoState {
 export interface AppState {
     example: ExampleState;
     error: ErrorState;
-    demo: DemoState;
+    demos: DemoState;
+    routing: RouterState;
 }
 
 export function modifyState<S>(state: S, modify: (state: S) => void): S {

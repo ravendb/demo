@@ -31,6 +31,15 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /bootstrap\.native/,
+          use: {
+            loader: 'bootstrap.native-loader',
+            options: {
+              only: ['collapse']
+            }
+          }
+        },
+        {
           test: /\.tsx?$/,
           // include: /client/,
           use: 'ts-loader'

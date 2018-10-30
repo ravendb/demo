@@ -5,6 +5,7 @@ import { ExamplePage } from "./components/pages/ExamplePage";
 import { DetailsPage } from "./components/pages/DetailsPage";
 import { WalkthroughPage } from "./components/pages/WalkthroughPage";
 import { DemoFactory } from "./components/demos/DemoFactory";
+import { demoPath } from "./utils/paths";
 
 export default class App extends React.Component<{}, {}> {
   displayName = App.name
@@ -18,7 +19,7 @@ export default class App extends React.Component<{}, {}> {
       <Route exact path='/' component={HomePage} />
       <Route exact path='/example' component={ExamplePage} />
       <Route exact path='/details' component={DetailsPage} />
-      <Route path='/demos/:category/:demo' render={props => <DemoFactory categorySlug={props.match.params.category} demoSlug={props.match.params.demo} />} />
+      <Route path={demoPath} component={DemoFactory} />
       <Route exact path='/walkthrough' component={WalkthroughPage} />
     </>;
   }

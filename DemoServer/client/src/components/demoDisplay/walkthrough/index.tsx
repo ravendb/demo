@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Parameters } from "../Parameters";
 import * as mockup from "../../mockup";
-import { Code } from "../Code";
+import { CodeDisplay } from "../Code";
 
 interface WalkthroughProps {
 }
@@ -37,7 +37,7 @@ export class Walkthrough extends React.Component<WalkthroughProps, WalkthroughSt
                     { type: "number", datatype: "integer", name: "searchQuery", placeholder: "10" },
                     { type: "number", datatype: "float", name: "searchQuery", placeholder: "10.42792" }
                 ]} />
-                <Code language="csharp" {...mockup} highlightLinesRange={{ start: 15, end: 25 }} />
+                {/* <Code language="csharp" {...mockup} highlightLinesRange={{ start: 15, end: 25 }} /> */}
             </div>
         </div>;
     }

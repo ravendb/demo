@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Page } from "../Layout";
-import { MockupDemoBody, MockSidebar } from "../mockup";
+import { MockSidebar } from "../mockup";
 
 export class DetailsPage extends React.Component {
   displayName = DetailsPage.name
@@ -8,7 +8,7 @@ export class DetailsPage extends React.Component {
   render() {
     return <Page>
       <MockSidebar />
-      <MockupDemoBody />
+      {/* <MockupDemoBody /> */}
     </Page>;
   }
 }
