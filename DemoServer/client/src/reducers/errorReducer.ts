@@ -5,6 +5,7 @@ export function errorReducer(state: ErrorState = { error: null }, action: ErrorA
     switch (action.type) {
         case "API_ERROR":
             alert("API error: " + action.error);
+            console.log(action.error);
             return modifyState(state, s => s.error = action.error);
     }
     return state;

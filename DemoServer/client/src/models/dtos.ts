@@ -26,3 +26,7 @@ export interface DemoDto {
     assets: DemoAssetDto[];
     walkthroughs: DemoWalkthroughDto[];
 }
+
+export interface DemoParamsDto {
+    [key:string]: any;
+}

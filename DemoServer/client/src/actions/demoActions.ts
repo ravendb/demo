@@ -1,9 +1,10 @@
 import * as actionTypes from "./actionTypes";
-import { DemoService } from "../utils/Services";
+import { DemoService, RunDemoService } from "../utils/Services";
 import { DemoDto } from "../models/dtos";
 import { DemoAsyncAction } from ".";
 import { DemoAsyncDispatch } from "../store/async";
 import { apiError } from "./errorActions";
+import { ParameterPair, toDemoParamsDto } from "../models/demoModels";
 
 const service = new DemoService();
 
@@ -23,7 +24,34 @@ export interface GetMetadataSuccess {
     result: DemoDto;
 }
 
-export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess;
+export interface RunDemoRequest {
+    type: actionTypes.DEMO_RUN_REQUEST;
+}
+
+export interface RunDemoFailure {
+    type: actionTypes.DEMO_RUN_FAILURE;
+    error: any;
+}
+
+export interface RunDemoSuccess {
+    type: actionTypes.DEMO_RUN_SUCCESS;
+    results: object;
+}
+
+export interface InitDemoParams {
+    type: actionTypes.DEMO_PARAMS_INIT;
+    parameters: ParameterPair[];
+}
+
+export interface ChangeDemoParams {
+    type: actionTypes.DEMO_PARAMS_CHANGE;
+    name: string;
+    value: any;
+}
+
+export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
+    | RunDemoRequest | RunDemoFailure | RunDemoSuccess
+    | InitDemoParams | ChangeDemoParams;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {
@@ -48,16 +76,66 @@ function getMetadataSuccess(result: DemoDto): GetMetadataSuccess {
 }
 
 export function getMetadata(category: string, demo: string): DemoAsyncAction {
-    return (dispatch: DemoAsyncDispatch) => {
+    return async (dispatch: DemoAsyncDispatch) => {
         dispatch(getMetadataRequest(category, demo));
-
-        return service.getMetadata(category, demo)
-            .then(result => {
-                dispatch(getMetadataSuccess(result));
-            })
-            .catch(error => {
-                dispatch(apiError(error));
-                dispatch(getMetadataFailure(error));
-            });
+        try {
+            const result = await service.getMetadata(category, demo);
+            dispatch(getMetadataSuccess(result));
+        } catch (error) {
+            dispatch(apiError(error));
+            dispatch(getMetadataFailure(error))
+        }
     }
+}
+
+function runDemoRequest(): RunDemoRequest {
+    return {
+        type: "DEMO_RUN_REQUEST"
+    };
+}
+
+function runDemoFailure(error: any): RunDemoFailure {
+    return {
+        type: "DEMO_RUN_FAILURE",
+        error
+    };
+}
+
+function runDemoSuccess(results: object): RunDemoSuccess {
+    return {
+        type: "DEMO_RUN_SUCCESS",
+        results
+    };
+}
+
+export function runDemo(): DemoAsyncAction {
+    return async (dispatch: DemoAsyncDispatch, getState) => {
+        const { demos } = getState();
+        const { demoSlug, parameters } = demos;
+        dispatch(runDemoRequest());
+        const demoService = new RunDemoService(demoSlug);
+        try {
+            const dto = toDemoParamsDto(parameters);
+            const result = await demoService.run(dto);
+            dispatch(runDemoSuccess(result));
+        } catch(error) {
+            dispatch(apiError(error));
+            dispatch(runDemoFailure(error));
+        }
+    };
+}
+
+export function initDemoParams(parameters: ParameterPair[]): InitDemoParams {
+    return {
+        type: "DEMO_PARAMS_INIT",
+        parameters
+    };
+}
+
+export function changeDemoParams(name: string, value: any): ChangeDemoParams {
+    return {
+        type: "DEMO_PARAMS_CHANGE",
+        name,
+        value
+    };
 }

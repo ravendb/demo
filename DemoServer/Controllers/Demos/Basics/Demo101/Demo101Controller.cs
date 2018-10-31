@@ -14,7 +14,8 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
         {
         }
 
-        public IActionResult Run()
+        [HttpPost]
+        public IActionResult Run(RunParams runParams)
         {
             #region Demo
             var serverURL = "http://localhost:8080";
@@ -79,6 +80,12 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
         {
             public string Name { get; set; }
             public string Title { get; set; }
+        }
+
+        public class RunParams
+        {
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
         }
     }
 }

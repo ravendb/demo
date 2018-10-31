@@ -1,6 +1,6 @@
 import { ApiClient } from "./ApiClient";
 import { ExampleDataDto } from "../models/exampleModels";
-import { DemoDto } from "../models/dtos";
+import { DemoDto, DemoParamsDto } from "../models/dtos";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -15,16 +15,16 @@ abstract class Service {
         return `${this.apiUrl}/${url}`;
     }
 
-    protected get<T>(url: string): Promise<T> {
-        return ApiClient.get(this.fullUrl(url));
+    protected async get<T>(url: string): Promise<T> {
+        return ApiClient.get<T>(this.fullUrl(url));
     }
 
-    protected postEmpty(url: string): Promise<any> {
+    protected async postEmpty(url: string): Promise<any> {
         return ApiClient.postEmpty(this.fullUrl(url));
     }
 
-    protected post<TInput, TOutput>(url: string, data: TInput): Promise<TOutput> {
-        return ApiClient.post(this.fullUrl(url), data);
+    protected async post<TInput, TOutput>(url: string, data: TInput): Promise<TOutput> {
+        return ApiClient.post<TInput, TOutput>(this.fullUrl(url), data);
     }
 }
 
@@ -33,8 +33,8 @@ export class ExampleService extends Service {
         super("/example");
     }
 
-    getData(): Promise<ExampleDataDto> {
-        return this.get("get-data");
+    async getData(): Promise<ExampleDataDto> {
+        return this.get<ExampleDataDto>("get-data");
     }
 }
 
@@ -43,7 +43,17 @@ export class DemoService extends Service {
         super("/demo");
     }
 
-    getMetadata(category: string, demo: string): Promise<DemoDto> {
-        return this.get(`get/${category}/${demo}`);
+    async getMetadata(category: string, demo: string): Promise<DemoDto> {
+        return this.get<DemoDto>(`get/${category}/${demo}`);
+    }
+}
+
+export class RunDemoService extends Service {
+    constructor(demoName: string) {
+        super(`/${demoName}`);
+    }
+
+    async run(dto: DemoParamsDto): Promise<object> {
+        return this.post<DemoParamsDto, object>("run", dto);
     }
 }

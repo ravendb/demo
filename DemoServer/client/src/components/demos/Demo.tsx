@@ -6,8 +6,10 @@ import { AppState } from "../../store/state";
 import { DemoAsyncDispatch } from "../../store/async";
 import { getMetadata } from "../../actions/demoActions";
 import { connect } from "react-redux";
+import { ParameterItem } from "../demoDisplay/Parameters";
 
 export interface DemoOwnProps extends SidebarOwnProps {
+    parameters: ParameterItem[];
 }
 
 export interface DemoStateProps {
@@ -28,9 +30,10 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
     }
 
     render() {
+        const { parameters } = this.props;
         return <Page>
             <Sidebar {...this.props} />
-            <DemoBodyDisplay />
+            <DemoBodyDisplay parameters={parameters} />
         </Page>;
     }
 }

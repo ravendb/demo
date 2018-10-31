@@ -8,7 +8,10 @@ const initialState: DemoState = {
     categorySlug: "",
     demoSlug: "",
     demo: null,
-    loadingDemo: false
+    loadingDemo: false,
+    loadingRunResults: false,
+    parameters: [],
+    runResults: null
 };
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
@@ -23,7 +26,9 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             });
 
         case "DEMO_GET_METADATA_FAILURE":
-            return state;
+            return modifyState(state, s => {
+                s.loadingDemo = false;
+            });
 
         case "@@router/LOCATION_CHANGE":
             return modifyState(state, s => {
@@ -32,6 +37,32 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                     s.categorySlug = params.category;
                     s.demoSlug = params.demo;
                 }
+            });
+
+        case "DEMO_RUN_REQUEST":
+            return modifyState(state, s => s.loadingRunResults = true);
+
+        case "DEMO_RUN_SUCCESS":
+            return modifyState(state, s => {
+                s.loadingRunResults = false;
+                s.runResults = action.results;
+            });
+
+        case "DEMO_RUN_FAILURE":
+            return modifyState(state, s => {
+                s.loadingRunResults = false;
+            });
+
+        case "DEMO_PARAMS_INIT":
+            return modifyState(state, s => {
+                s.parameters = action.parameters;
+            });
+
+        case "DEMO_PARAMS_CHANGE":
+            return modifyState(state, s => {
+                s.parameters = s.parameters.map(x => x.name === action.name
+                    ? { ...x, value: action.value }
+                    : x);
             });
     }
 

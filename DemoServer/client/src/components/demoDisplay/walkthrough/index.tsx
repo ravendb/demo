@@ -31,7 +31,7 @@ export class Walkthrough extends React.Component<WalkthroughProps, WalkthroughSt
                     </div>
                     <div id="highlight-left"></div>
                 </div>
-                <Parameters items={[
+                <Parameters paramDefinitions={[
                     { type: "text", name: "searchQuery", placeholder: "John" },
                     { type: "date", name: "searchQuery", placeholder: "2011-09-29" },
                     { type: "number", datatype: "integer", name: "searchQuery", placeholder: "10" },

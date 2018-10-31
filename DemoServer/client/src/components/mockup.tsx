@@ -1,4 +1,4 @@
-import { ParametersProps } from "./demoDisplay/Parameters";
+// import { ParametersProps } from "./demoDisplay/Parameters";
 import { CodeProps } from "./demoDisplay/Code";
 import { ResultDisplayProps } from "./demoDisplay/body/Results";
 import React = require("react");

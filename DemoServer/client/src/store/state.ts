@@ -2,6 +2,7 @@ import { deepCopy } from "../utils/miscUtils";
 import { DemoDto } from "../models/dtos";
 import { Language } from "../models/commonModels";
 import { RouterState } from "react-router-redux";
+import { ParameterPair } from "../models/demoModels";
 
 export interface ErrorState {
     error: any;
@@ -18,6 +19,9 @@ export interface DemoState {
     demoSlug: string;
     demo: DemoDto;
     loadingDemo: boolean;
+    loadingRunResults: boolean;
+    parameters: ParameterPair[];
+    runResults: object;
 }
 
 export interface AppState {

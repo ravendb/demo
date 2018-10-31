@@ -1,13 +1,25 @@
 import * as React from "react";
 import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
+import { AppState } from "../../../store/state";
+import { DemoAsyncDispatch } from "../../../store/async";
+import { runDemo } from "../../../actions/demoActions";
+import { connect } from "react-redux";
 
-interface NavPanelProps {
+interface NavPanelOwnProps {
     onWalkthroughClick: () => void;
-    onRunScriptClicked?: () => void;
     resultsElementId?: string;
 }
 
-export class NavPanel extends React.Component<NavPanelProps, {}> {
+interface NavPanelStateProps {
+}
+
+interface NavPanelDispatchProps {
+    onRunScriptClicked: () => void;
+}
+
+type NavPanelProps = NavPanelOwnProps & NavPanelStateProps & NavPanelDispatchProps;
+
+class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     collapseButton: HTMLElement;
 
     componentDidMount() {
@@ -19,6 +31,12 @@ export class NavPanel extends React.Component<NavPanelProps, {}> {
         this.collapseButton && bsn.Collapse(this.collapseButton, "dispose");
     }
 
+    handleRunScriptClick() {
+        const { onRunScriptClicked } = this.props;
+        onRunScriptClicked();
+        this.collapseButton && bsn.Collapse(this.collapseButton, "show");
+    }
+
     walkthroughButton() {
         const { onWalkthroughClick } = this.props;
         return <button id="startWalkthrough" className="fab" type="button" onClick={onWalkthroughClick} >
@@ -27,19 +45,32 @@ export class NavPanel extends React.Component<NavPanelProps, {}> {
     }
 
     runScriptButton() {
-        const { onRunScriptClicked, resultsElementId } = this.props;
-        <button id="runScript" className="fab collapsed" type="button"
+        const { resultsElementId } = this.props;
+        return <button id="runScript" className="fab collapsed" type="button"
             data-toggle="collapse" data-target={`#${resultsElementId}`}
-            onClick={onRunScriptClicked}>
+            onClick={() => this.handleRunScriptClick()}>
             <i className="icon-play"></i> Run script
         </button>;
     }
 
     render() {
-        const { onRunScriptClicked, resultsElementId } = this.props;
+        const { resultsElementId } = this.props;
         return <div className="fab-container">
             {this.walkthroughButton()}
-            {onRunScriptClicked && resultsElementId && this.runScriptButton()}
+            {resultsElementId && this.runScriptButton()}
         </div>;
     }
 }
+
+function mapStateToProps({ demos }: AppState): NavPanelStateProps {
+    return {
+    };
+}
+
+function mapDispatchToProps(dispatch: DemoAsyncDispatch): NavPanelDispatchProps {
+    return {
+        onRunScriptClicked: () => dispatch(runDemo())
+    };
+}
+
+export const NavPanel = connect<NavPanelStateProps, NavPanelDispatchProps, NavPanelOwnProps>(mapStateToProps, mapDispatchToProps)(NavPanelComponent);

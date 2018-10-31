@@ -44,16 +44,14 @@ function fetchResultSuccess(result: ExampleDataDto): FetchResultSuccess {
 }
 
 export function fetchResult(): DemoAsyncAction {
-    return (dispatch: DemoAsyncDispatch) => {
+    return async (dispatch: DemoAsyncDispatch) => {
         dispatch(requestResult());
-
-        return service.getData()
-            .then(result => {
-                dispatch(fetchResultSuccess(result));
-            })
-            .catch(error => {
-                dispatch(apiError(error));
-                dispatch(fetchResultFailure(error));
-            });
+        try {
+            const result = await service.getData();
+            dispatch(fetchResultSuccess(result));
+        } catch(error) {
+            dispatch(apiError(error));
+            dispatch(fetchResultFailure(error));
+        }
     }
 }
