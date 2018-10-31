@@ -1,17 +1,20 @@
 import * as React from "react";
+import { connect } from "react-redux";
+import { AppState } from "../../../store/state";
 
-export interface ResultDisplayProps {
-    clientExecTime: string;
-    serverExecTime: string;
-}
-
-export interface ResultsProps extends ResultDisplayProps {
+interface OwnProps {
     elementId: string;
 }
 
-export class Results extends React.Component<ResultsProps, {}> {
+interface StateProps {
+    loadingResults: boolean;
+}
+
+type ResultsPanelProps = OwnProps & StateProps;
+
+class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
     render() {
-        const { elementId, clientExecTime, serverExecTime } = this.props;
+        const { elementId, loadingResults, children } = this.props;
         return <div id={elementId} className="results-container collapse">
             <div className="results">
                 <div className="flex-horizontal">
@@ -22,12 +25,12 @@ export class Results extends React.Component<ResultsProps, {}> {
                     <div className="results-speed">
                         <div>
                             <div className="text-muted">CLIENT</div>
-                            <div>{clientExecTime}</div>
+                            <div>dummy data</div>
                         </div>
                         <i className="icon-speed"></i>
                         <div>
                             <div className="text-muted">SERVER</div>
-                            <div>{serverExecTime}</div>
+                            <div>dummy data</div>
                         </div>
                     </div>
                     <div>
@@ -38,10 +41,19 @@ export class Results extends React.Component<ResultsProps, {}> {
                 </div>
 
                 <div className="text-center">
-                    <img src="../img/file-added.png" />
-                    <h2>File succesfully added</h2>
+                    {loadingResults
+                        ? "LOADING RESULTS..."
+                        : children}
                 </div>
             </div>
         </div>;
     }
 }
+
+export const ResultsPanel = connect<StateProps, {}, OwnProps>(
+    ({ demos }: AppState) => {
+        return {
+            loadingResults: demos.loadingRunResults
+        };
+    }
+)(ResultsPanelDisplay);

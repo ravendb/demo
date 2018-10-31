@@ -66,7 +66,7 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
             }
             #endregion
 
-            return Ok();
+            return Ok("The database was created successfully");
         }
 
         public class Company

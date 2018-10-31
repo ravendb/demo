@@ -1,16 +1,13 @@
 import * as React from "react";
 import { Page } from "../Layout";
 import { Sidebar, SidebarOwnProps } from "../sidebar";
-import { DemoBodyDisplay } from "../demoDisplay/body";
+import { DemoBody, DemoBodyProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
 import { DemoAsyncDispatch } from "../../store/async";
 import { getMetadata } from "../../actions/demoActions";
 import { connect } from "react-redux";
-import { ParameterItem } from "../demoDisplay/Parameters";
 
-export interface DemoOwnProps extends SidebarOwnProps {
-    parameters: ParameterItem[];
-}
+export type DemoOwnProps = SidebarOwnProps & DemoBodyProps;
 
 export interface DemoStateProps {
     categorySlug: string;
@@ -30,10 +27,9 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
     }
 
     render() {
-        const { parameters } = this.props;
         return <Page>
             <Sidebar {...this.props} />
-            <DemoBodyDisplay parameters={parameters} />
+            <DemoBody {...this.props} />
         </Page>;
     }
 }

@@ -1,32 +1,28 @@
 import * as React from "react";
-import { Parameters, ParameterItem } from "../Parameters";
+import { Parameters, ParameterOwnProps } from "../Parameters";
 import { Code } from "../Code";
 import { NavPanel } from "./NavPanel";
-import { Results, ResultDisplayProps } from "./Results";
+import { ResultsPanel } from "../results/ResultsPanel";
 
-interface DemoBodyOwnProps {
-    parameters?: ParameterItem[];
+export type DemoBodyProps = ParameterOwnProps & {
+    resultsComponents: () => JSX.Element;
 }
 
-interface DemoBodyStateProps {
-    results?: ResultDisplayProps;
-}
-
-type DemoBodyProps = DemoBodyOwnProps & DemoBodyStateProps;
-
-export class DemoBodyDisplay extends React.Component<DemoBodyProps, {}> {
+export class DemoBody extends React.Component<DemoBodyProps, {}> {
     render() {
-        const { parameters, results } = this.props;
+        const { paramDefinitions, resultsComponents } = this.props;
         const resultsId = "results";
         return <div className="demo-body">
             <div id="demo-body-container">
-                {parameters && <Parameters paramDefinitions={parameters} />}
+                {paramDefinitions && <Parameters paramDefinitions={paramDefinitions} />}
                 <Code />
                 <NavPanel
                     onWalkthroughClick={() => alert("WALKTHROUGH clicked")}
                     resultsElementId={resultsId}
                 />
-                <Results elementId={resultsId} {...results} />
+                <ResultsPanel elementId={resultsId}>
+                    {resultsComponents()}
+                </ResultsPanel>
             </div>
         </div>;
     }

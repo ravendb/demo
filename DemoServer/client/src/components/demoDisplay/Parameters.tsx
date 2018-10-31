@@ -12,7 +12,7 @@ export interface ParameterItem {
     datatype?: "integer" | "float"
 }
 
-interface ParameterOwnProps {
+export interface ParameterOwnProps {
     paramDefinitions: ParameterItem[];
 }
 

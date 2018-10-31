@@ -21,7 +21,7 @@ export interface DemoState {
     loadingDemo: boolean;
     loadingRunResults: boolean;
     parameters: ParameterPair[];
-    runResults: object;
+    runResults: any;
 }
 
 export interface AppState {

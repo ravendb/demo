@@ -1,8 +1,6 @@
 // import { ParametersProps } from "./demoDisplay/Parameters";
 import { CodeProps } from "./demoDisplay/Code";
-import { ResultDisplayProps } from "./demoDisplay/body/Results";
 import React = require("react");
-import { DemoBodyDisplay } from "./demoDisplay/body";
 import { SidebarDisplay } from "./sidebar";
 import { AssetsItem } from "./sidebar/AssetLinks";
 
