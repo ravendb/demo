@@ -1,7 +1,8 @@
-import { DemoState, modifyState } from "../state";
+import { modifyState } from "../state";
 import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
-import { matchDemoPath } from "../../utils/paths";
+import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
+import { DemoState, getCurrentWalkthrough } from "../state/DemoState";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -32,10 +33,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
 
         case "@@router/LOCATION_CHANGE":
             return modifyState(state, s => {
-                const params = matchDemoPath(action);
+                const params = matchDemoWithWalkthroughPath(action) || matchDemoPath(action);
                 if (params) {
                     s.categorySlug = params.category;
                     s.demoSlug = params.demo;
+                    s.currentWalkthroughSlug = params.wtSlug;
                 }
             });
 

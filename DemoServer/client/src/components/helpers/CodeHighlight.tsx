@@ -2,13 +2,11 @@ import * as React from "react";
 import { addHighlightHook, removeHighlightHook } from "../../utils/highlight";
 import { addResizeListener, removeResizeListener } from "../../utils/resize";
 import { Language } from "../../models/commonModels";
+import { LinesRangeDto } from "../../models/dtos";
 
 const Prism = window["Prism"] as any;
 
-export interface HighlightLinesRange {
-    start: number;
-    end: number;
-}
+export type HighlightLinesRange = LinesRangeDto;
 
 interface CodeHighlightProps {
     id: string;

@@ -3,17 +3,27 @@ import { Parameters, ParameterOwnProps } from "../Parameters";
 import { Code } from "../Code";
 import { NavPanel } from "./NavPanel";
 import { ResultsPanel } from "../results/ResultsPanel";
+import { connect } from "react-redux";
+import { AppState } from "../../../store/state";
+import { WalkthroughOverlay } from "../walkthrough/WalkthroughOverlay";
 
-export type DemoBodyProps = ParameterOwnProps & {
+export type DemoBodyOwnProps = ParameterOwnProps & {
     resultsComponents: () => JSX.Element;
 }
 
-export class DemoBody extends React.Component<DemoBodyProps, {}> {
+interface DemoBodyStateProps {
+    showWalkthrough: boolean;
+}
+
+type DemoBodyProps = DemoBodyStateProps & DemoBodyOwnProps;
+
+class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
     render() {
-        const { paramDefinitions, resultsComponents } = this.props;
+        const { paramDefinitions, resultsComponents, showWalkthrough } = this.props;
         const resultsId = "results";
         return <div className="demo-body">
             <div id="demo-body-container">
+                {showWalkthrough && <WalkthroughOverlay />}
                 {paramDefinitions && <Parameters paramDefinitions={paramDefinitions} />}
                 <Code />
                 <NavPanel
@@ -27,3 +37,11 @@ export class DemoBody extends React.Component<DemoBodyProps, {}> {
         </div>;
     }
 }
+
+export const DemoBody = connect<DemoBodyStateProps, {}, DemoBodyOwnProps>(
+    ({ demos }: AppState): DemoBodyStateProps => {
+        return {
+            showWalkthrough: !!demos.currentWalkthroughSlug
+        };
+    }
+)(DemoBodyComponent);

@@ -2,16 +2,17 @@ import * as React from "react";
 import { Language } from "../../models/commonModels";
 import { Usings } from "./Usings";
 import { CodePreview } from "../helpers/CodePreview";
-import { HighlightLinesRange, CodeHighlight } from "../helpers/CodeHighlight";
+import { CodeHighlight } from "../helpers/CodeHighlight";
 import { sliceIntoTwo } from "../../utils/codeParsing";
 import { AppState } from "../../store/state";
-import { Dispatch } from "redux";
 import { connect } from "react-redux";
+import { getCurrentWalkthrough } from "../../store/state/DemoState";
+import { LinesRangeDto } from "../../models/dtos";
 
 export interface CodeProps {
     language: Language;
     sourceCode: string;
-    highlightLinesRange?: HighlightLinesRange;
+    highlightLinesRange?: LinesRangeDto;
     usingsLastLine: number;
 }
 
@@ -42,16 +43,13 @@ export class CodeDisplay extends React.Component<CodeProps, {}> {
 
 function mapStateToProps({ demos }: AppState): CodeProps {
     const { demo: dto } = demos;
+    const wt = getCurrentWalkthrough(demos);
     return {
-        language: "csharp",
+        language: demos.language,
         sourceCode: dto && dto.sourceCode,
-        usingsLastLine: dto && dto.usingsLastLine
+        usingsLastLine: dto && dto.usingsLastLine,
+        highlightLinesRange: wt && wt.lines
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch) {
-    return {
-    };
-}
-
-export const Code = connect(mapStateToProps, mapDispatchToProps)(CodeDisplay);
+export const Code = connect<CodeProps>(mapStateToProps)(CodeDisplay);

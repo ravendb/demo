@@ -2,10 +2,12 @@ import { matchPath } from 'react-router-dom';
 import { LocationChangeAction } from 'connected-react-router';
 
 export const demoPath = '/demos/:category/:demo';
+export const demoWithWalkthroughPath = '/demos/:category/:demo/wt/:wtSlug';
 
 interface DemoPathParams {
     category: string;
     demo: string;
+    wtSlug?: string;
 }
 
 function getPathParams(action: LocationChangeAction, pattern: string): any {
@@ -14,10 +16,9 @@ function getPathParams(action: LocationChangeAction, pattern: string): any {
     return match && match.params;
 }
 
-export function matchDemoPath(action: LocationChangeAction): DemoPathParams {
-    const params = getPathParams(action, demoPath);
-    return {
-        category: params && params.category,
-        demo: params && params.demo
-    };
-};
+function createMatcher<T>(pattern: string) {
+    return (action: LocationChangeAction): T => getPathParams(action, pattern);
+}
+
+export const matchDemoPath = createMatcher<DemoPathParams>(demoPath);
+export const matchDemoWithWalkthroughPath = createMatcher<DemoPathParams>(demoWithWalkthroughPath);
