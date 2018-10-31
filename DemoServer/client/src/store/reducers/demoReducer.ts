@@ -1,7 +1,7 @@
-import { DemoState, modifyState } from "../store/state";
+import { DemoState, modifyState } from "../state";
 import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
-import { matchDemoPath } from "../utils/paths";
+import { matchDemoPath } from "../../utils/paths";
 
 const initialState: DemoState = {
     language: "csharp",

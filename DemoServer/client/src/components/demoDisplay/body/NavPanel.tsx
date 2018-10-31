@@ -2,7 +2,7 @@ import * as React from "react";
 import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
 import { AppState } from "../../../store/state";
 import { DemoAsyncDispatch } from "../../../store/async";
-import { runDemo } from "../../../actions/demoActions";
+import { runDemo } from "../../../store/actions/demoActions";
 import { connect } from "react-redux";
 
 interface NavPanelOwnProps {

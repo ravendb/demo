@@ -3,7 +3,7 @@ import { ParameterPair } from "../../models/demoModels";
 import { DemoAsyncDispatch } from "../../store/async";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
-import { changeDemoParams, initDemoParams } from "../../actions/demoActions";
+import { changeDemoParams, initDemoParams } from "../../store/actions/demoActions";
 
 export interface ParameterItem {
     type: "text" | "date" | "number";

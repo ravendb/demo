@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes";
-import { DemoService, RunDemoService } from "../utils/Services";
-import { DemoDto } from "../models/dtos";
 import { DemoAsyncAction } from ".";
-import { DemoAsyncDispatch } from "../store/async";
 import { apiError } from "./errorActions";
-import { ParameterPair, toDemoParamsDto } from "../models/demoModels";
+import { DemoService, RunDemoService } from "../../utils/Services";
+import { DemoDto } from "../../models/dtos";
+import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
+import { DemoAsyncDispatch } from "../async";
 
 const service = new DemoService();
 

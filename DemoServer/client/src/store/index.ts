@@ -1,18 +1,14 @@
 import { createStore, applyMiddleware } from "redux";
 import { AppState } from "./state";
-import { Action } from "../actions";
-import reducer from "../reducers";
+import reducer from "./reducers";
 import thunk, { ThunkMiddleware } from "redux-thunk";
 import { connectRouter, routerMiddleware } from "connected-react-router";
 import { createBrowserHistory } from "history";
+import { Action } from "./actions";
 
 export const history = createBrowserHistory();
 
 const initialState = {
-    example: {
-        loading: false,
-        text: null
-    }
 };
 
 export const store = createStore<AppState, Action, any, any>(

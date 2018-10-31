@@ -4,7 +4,7 @@ import { Sidebar, SidebarOwnProps } from "../sidebar";
 import { DemoBody, DemoBodyProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
 import { DemoAsyncDispatch } from "../../store/async";
-import { getMetadata } from "../../actions/demoActions";
+import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
 
 export type DemoOwnProps = SidebarOwnProps & DemoBodyProps;
