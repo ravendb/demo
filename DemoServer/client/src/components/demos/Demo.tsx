@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Page } from "../Layout";
-import { Sidebar, SidebarOwnProps } from "../sidebar";
+import { Sidebar, SidebarOwnProps } from "../demoDisplay/sidebar";
 import { DemoBody, DemoBodyOwnProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
 import { DemoAsyncDispatch } from "../../store/async";

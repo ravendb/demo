@@ -1,8 +1,10 @@
 import * as React from "react";
-import { AssetType } from "../../models/dtos";
+import { AssetType, DemoAssetDto } from "../../../models/dtos";
+import { connect } from "react-redux";
+import { AppState } from "../../../store/state";
 
 export interface AssetsItem {
-    href: string;
+    url: string;
     title: string;
     type: AssetType;
 }
@@ -11,7 +13,7 @@ interface AssetsProps {
     items: AssetsItem[];
 }
 
-export class AssetLinks extends React.Component<AssetsProps, {}> {
+class AssetLinksComponent extends React.Component<AssetsProps, {}> {
     typeToIcon(type: AssetType): string {
         switch (type) {
             case "Document":
@@ -27,11 +29,11 @@ export class AssetLinks extends React.Component<AssetsProps, {}> {
     }
 
     displayItem(item: AssetsItem, index: number) {
-        const { href, title, type } = item;
+        const { url, title, type } = item;
         const icon = this.typeToIcon(type);
 
         return <li key={`asset_${title}${index}`}>
-            <i className={`icon-${icon}`}></i> <a href={href}>{title}</a>
+            <i className={`icon-${icon}`}></i> <a href={url}>{title}</a>
         </li>;
     }
 
@@ -46,3 +48,18 @@ export class AssetLinks extends React.Component<AssetsProps, {}> {
         </>;
     }
 }
+
+function assetToLink(dto: DemoAssetDto): AssetsItem {
+    const { url, title, type } = dto;
+    return { url, title, type };
+}
+
+export const AssetLinks = connect<AssetsProps>(
+    ({ demos }: AppState): AssetsProps => {
+        const dto = demos.demo;
+        const items = dto && dto.assets ? dto.assets.map(assetToLink) : [];
+        return {
+            items
+        };
+    }
+)(AssetLinksComponent);

@@ -3,12 +3,10 @@ import { Controls } from "./Controls";
 import { Heading } from "./Heading";
 import { LanguageSelect } from "./LanguageSelect";
 import { Description } from "./Description";
-import { WalkthroughLinks, WalkthroughItem } from "./WalkthroughLinks";
-import { AssetLinks, AssetsItem } from "./AssetLinks";
-import { Language } from "../../models/commonModels";
-import { AppState } from "../../store/state";
-import { DemoWalkthroughDto, DemoAssetDto } from "../../models/dtos";
-import { DemoAsyncDispatch } from "../../store/async";
+import { WalkthroughLinks } from "./WalkthroughLinks";
+import { AssetLinks } from "./AssetLinks";
+import { Language } from "../../../models/commonModels";
+import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
 export interface SidebarOwnProps {
@@ -18,8 +16,6 @@ export interface SidebarOwnProps {
 
 interface SidebarStateProps {
     selectedLanguage: Language;
-    walkthroughLinks: WalkthroughItem[];
-    assetLinks: AssetsItem[];
 }
 
 interface SidebarDispatchProps {
@@ -49,7 +45,7 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
     }
 
     render() {
-        const { title, description, walkthroughLinks, assetLinks, selectedLanguage } = this.props;
+        const { title, description, selectedLanguage } = this.props;
         const { sidebarCollapsed } = this.state;
         const customClass = sidebarCollapsed ? "small" : "";
 
@@ -59,43 +55,18 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
                 <Heading text={title} />
                 <LanguageSelect selected={selectedLanguage} />
                 <Description>{description}</Description>
-                <WalkthroughLinks items={walkthroughLinks} />
-                <AssetLinks items={assetLinks} />
+                <WalkthroughLinks />
+                <AssetLinks />
             </div>
         </div>;
     }
 }
 
-function walkthroughToLink(dto: DemoWalkthroughDto): WalkthroughItem {
-    return {
-        href: dto.slug,
-        title: dto.title
-    };
-}
-
-function assetToLink(dto: DemoAssetDto): AssetsItem {
-    return {
-        href: dto.url,
-        title: dto.title,
-        type: dto.type
-    };
-}
-
 function mapStateToProps({ demos }: AppState): SidebarStateProps {
-    const { demo: dto, language } = demos;
-    const walkthroughLinks = dto && dto.walkthroughs ? dto.walkthroughs.map(walkthroughToLink) : [];
-    const assetLinks = dto && dto.assets ? dto.assets.map(assetToLink) : [];
-
+    const { language } = demos;
     return {
-        selectedLanguage: language,
-        walkthroughLinks,
-        assetLinks
+        selectedLanguage: language
     };
 }
 
-function mapDispatchToProps(dispatch: DemoAsyncDispatch): SidebarDispatchProps {
-    return {
-    };
-}
-
-export const Sidebar = connect<SidebarStateProps, SidebarDispatchProps, SidebarOwnProps>(mapStateToProps, mapDispatchToProps)(SidebarDisplay);
+export const Sidebar = connect<SidebarStateProps, SidebarDispatchProps, SidebarOwnProps>(mapStateToProps)(SidebarDisplay);

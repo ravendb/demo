@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Language, languageToDisplay } from "../../models/commonModels";
+import { Language, languageToDisplay } from "../../../models/commonModels";
 
 interface LanguageSelectProps {
     selected: Language;

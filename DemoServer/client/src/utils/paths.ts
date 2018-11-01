@@ -3,7 +3,7 @@ import { LocationChangeAction } from "connected-react-router";
 
 export const demoPath = '/demos/:category/:demo';
 
-interface DemoPathParams {
+export interface DemoPathParams {
     category: string;
     demo: string;
     wtSlug?: string;
@@ -32,4 +32,10 @@ export const matchDemoWithWalkthroughPath = (action: LocationChangeAction): Demo
         ...urlMatch,
         wtSlug: hash
     }
+}
+
+export function createDemoWithWalkthroughPath(pathParams: DemoPathParams) {
+    const { category, demo, wtSlug } = pathParams;
+    const wtPart = wtSlug ? `#${wtSlug}` : "";
+    return `/demos/${category}/${demo}${wtPart}`;
 }
