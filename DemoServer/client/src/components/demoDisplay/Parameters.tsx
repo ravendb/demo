@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ParameterPair } from "../../models/demoModels";
-import { DemoAsyncDispatch } from "../../store/async";
+import { DemoThunkDispatch } from "../../store";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
 import { changeDemoParams, initDemoParams } from "../../store/actions/demoActions";
@@ -70,7 +70,7 @@ function mapStateToProps({ demos }: AppState): ParameterStateProps {
     };
 }
 
-function mapDispatchToProps(dispatch: DemoAsyncDispatch): ParameterDispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): ParameterDispatchProps {
     return {
         initParams: (parameters: ParameterPair[]) => dispatch(initDemoParams(parameters)),
         handleValueChange: (paramName: string, value: any) => dispatch(changeDemoParams(paramName, value))

@@ -3,7 +3,7 @@ import { Page } from "../Layout";
 import { Sidebar, SidebarOwnProps } from "../demoDisplay/sidebar";
 import { DemoBody, DemoBodyOwnProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
-import { DemoAsyncDispatch } from "../../store/async";
+import { DemoThunkDispatch } from "../../store";
 import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
 
@@ -42,7 +42,7 @@ function mapStateToProps({ demos }: AppState): DemoStateProps {
     };
 }
 
-function mapDispatchToProps(dispatch: DemoAsyncDispatch): DemoDispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): DemoDispatchProps {
     return {
         loadMetadata: (category: string, demo: string) => dispatch(getMetadata(category, demo))
     };

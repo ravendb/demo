@@ -1,16 +1,19 @@
 import * as React from "react";
 import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
 import { AppState } from "../../../store/state";
-import { DemoAsyncDispatch } from "../../../store/async";
+import { DemoThunkDispatch } from "../../../store";
 import { runDemo } from "../../../store/actions/demoActions";
 import { connect } from "react-redux";
+import { createDemoWithWalkthroughPath } from "../../../utils/paths";
 
 interface NavPanelOwnProps {
-    onWalkthroughClick: () => void;
     resultsElementId?: string;
 }
 
 interface NavPanelStateProps {
+    categorySlug: string;
+    demoSlug: string;
+    firstWtSlug?: string;
 }
 
 interface NavPanelDispatchProps {
@@ -38,10 +41,15 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     walkthroughButton() {
-        const { onWalkthroughClick } = this.props;
-        return <button id="startWalkthrough" className="fab" type="button" onClick={onWalkthroughClick} >
+        const { categorySlug, demoSlug, firstWtSlug } = this.props;
+        const url = createDemoWithWalkthroughPath({
+            category: categorySlug,
+            demo: demoSlug,
+            wtSlug: firstWtSlug
+        });
+        return <a href={url} role="button" id="startWalkthrough" className="fab" >
             <i className="icon-learn"></i> Walkthrough
-        </button>;
+        </a>;
     }
 
     runScriptButton() {
@@ -63,11 +71,18 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
+    const { categorySlug, demoSlug, demo } = demos;
+    const firstWt = demo && demo.walkthroughs
+        && demo.walkthroughs.length > 0
+        && demo.walkthroughs[0];
     return {
+        categorySlug,
+        demoSlug,
+        firstWtSlug: firstWt && firstWt.slug
     };
 }
 
-function mapDispatchToProps(dispatch: DemoAsyncDispatch): NavPanelDispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): NavPanelDispatchProps {
     return {
         onRunScriptClicked: () => dispatch(runDemo())
     };

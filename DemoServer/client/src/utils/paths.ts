@@ -34,7 +34,7 @@ export const matchDemoWithWalkthroughPath = (action: LocationChangeAction): Demo
     }
 }
 
-export function createDemoWithWalkthroughPath(pathParams: DemoPathParams) {
+export function createDemoWithWalkthroughPath(pathParams: DemoPathParams): string {
     const { category, demo, wtSlug } = pathParams;
     const wtPart = wtSlug ? `#${wtSlug}` : "";
     return `/demos/${category}/${demo}${wtPart}`;

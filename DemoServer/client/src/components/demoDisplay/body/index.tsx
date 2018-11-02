@@ -26,10 +26,7 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
                 {showWalkthrough && <WalkthroughOverlay />}
                 {paramDefinitions && <Parameters paramDefinitions={paramDefinitions} />}
                 <Code />
-                <NavPanel
-                    onWalkthroughClick={() => alert("WALKTHROUGH clicked")}
-                    resultsElementId={resultsId}
-                />
+                <NavPanel resultsElementId={resultsId} />
                 <ResultsPanel elementId={resultsId}>
                     {resultsComponents()}
                 </ResultsPanel>

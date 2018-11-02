@@ -1,10 +1,10 @@
 import * as actionTypes from "./actionTypes";
-import { DemoAsyncAction } from ".";
+import { DemoThunkAction, Action } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/Services";
 import { DemoDto } from "../../models/dtos";
 import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
-import { DemoAsyncDispatch } from "../async";
+import { DemoThunkDispatch } from "../";
 
 const service = new DemoService();
 
@@ -75,8 +75,8 @@ function getMetadataSuccess(result: DemoDto): GetMetadataSuccess {
     };
 }
 
-export function getMetadata(category: string, demo: string): DemoAsyncAction {
-    return async (dispatch: DemoAsyncDispatch) => {
+export function getMetadata(category: string, demo: string): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch) => {
         dispatch(getMetadataRequest(category, demo));
         try {
             const result = await service.getMetadata(category, demo);
@@ -108,8 +108,8 @@ function runDemoSuccess(results: object): RunDemoSuccess {
     };
 }
 
-export function runDemo(): DemoAsyncAction {
-    return async (dispatch: DemoAsyncDispatch, getState) => {
+export function runDemo(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch, getState) => {
         const { demos } = getState();
         const { demoSlug, parameters } = demos;
         dispatch(runDemoRequest());
@@ -118,7 +118,7 @@ export function runDemo(): DemoAsyncAction {
             const dto = toDemoParamsDto(parameters);
             const result = await demoService.run(dto);
             dispatch(runDemoSuccess(result));
-        } catch(error) {
+        } catch (error) {
             dispatch(apiError(error));
             dispatch(runDemoFailure(error));
         }

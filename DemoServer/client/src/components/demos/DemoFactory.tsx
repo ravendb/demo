@@ -3,7 +3,7 @@ import { Demo101 } from "./basics/Demo101";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
-import { DemoAsyncDispatch } from "../../store/async";
+import { DemoThunkDispatch } from "../../store";
 
 const DemoNotFound = () => {
     return <>
@@ -22,18 +22,10 @@ function getDemoType(categorySlug: string, demoSlug: string) {
     return demo && demo.type;
 }
 
-interface DemoFactoryStateProps {
+interface DemoFactoryProps {
     categorySlug: string;
     demoSlug: string;
 }
-
-interface DemoFactoryDispatchProps {
-}
-
-interface DemoFactoryOwnProps {
-}
-
-type DemoFactoryProps = DemoFactoryStateProps & DemoFactoryDispatchProps & DemoFactoryOwnProps;
 
 function DemoFactoryComponent(props: DemoFactoryProps) {
     const { categorySlug, demoSlug } = props;
@@ -55,9 +47,4 @@ function mapStateToProps({ demos }: AppState): DemoFactoryProps {
     };
 }
 
-function mapDispatchToProps(dispatch: DemoAsyncDispatch): DemoFactoryDispatchProps {
-    return {
-    };
-}
-
-export const DemoFactory = connect<DemoFactoryStateProps, DemoFactoryDispatchProps, DemoFactoryOwnProps>(mapStateToProps, mapDispatchToProps)(DemoFactoryComponent);
+export const DemoFactory = connect<DemoFactoryProps>(mapStateToProps)(DemoFactoryComponent);

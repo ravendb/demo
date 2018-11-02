@@ -2,7 +2,7 @@ import { modifyState } from "../state";
 import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
-import { DemoState, getCurrentWalkthrough } from "../state/DemoState";
+import { DemoState } from "../state/DemoState";
 
 const initialState: DemoState = {
     language: "csharp",
