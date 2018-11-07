@@ -10,6 +10,7 @@ const initialState: DemoState = {
     demoSlug: "",
     demo: null,
     loadingDemo: false,
+    settingPrerequisites: false,
     loadingRunResults: false,
     parameters: [],
     runResults: null
@@ -40,6 +41,13 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                     s.currentWalkthroughSlug = params.wtSlug;
                 }
             });
+
+        case "DEMO_SET_PREREQUISITES_REQUEST":
+            return modifyState(state, s => s.settingPrerequisites = true);
+
+        case "DEMO_SET_PREREQUISITES_FAILURE":
+        case "DEMO_SET_PREREQUISITES_SUCCESS":
+            return modifyState(state, s => s.settingPrerequisites = false);
 
         case "DEMO_RUN_REQUEST":
             return modifyState(state, s => s.loadingRunResults = true);

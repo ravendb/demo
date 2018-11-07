@@ -53,6 +53,10 @@ export class RunDemoService extends Service {
         super(`/${demoName}`);
     }
 
+    async setPrerequisites(): Promise<any> {
+        return this.postEmpty(`setPrerequisites`);
+    }
+
     async run(dto: DemoParamsDto): Promise<object> {
         return this.post<DemoParamsDto, object>("run", dto);
     }

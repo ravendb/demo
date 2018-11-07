@@ -33,7 +33,7 @@ class AssetLinksComponent extends React.Component<AssetsProps, {}> {
         const icon = this.typeToIcon(type);
 
         return <li key={`asset_${title}${index}`}>
-            <i className={`icon-${icon}`}></i> <a href={url}>{title}</a>
+            <i className={`icon-${icon}`}></i> <a href={url} target="_blank">{title}</a>
         </li>;
     }
 

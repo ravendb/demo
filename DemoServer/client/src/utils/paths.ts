@@ -39,3 +39,8 @@ export function createDemoWithWalkthroughPath(pathParams: DemoPathParams): strin
     const wtPart = wtSlug ? `#${wtSlug}` : "";
     return `/demos/${category}/${demo}${wtPart}`;
 }
+
+export function createDemoWithoutWalkthroughPath(pathParams: DemoPathParams): string {
+    const { category, demo } = pathParams;
+    return `/demos/${category}/${demo}#`;
+}

@@ -6,6 +6,10 @@ interface ParametersState {
     parameters: ParameterPair[];
 }
 
+interface PrerequisitesState {
+    settingPrerequisites: boolean;
+}
+
 interface RunResultsState {
     loadingRunResults: boolean;
     runResults: any;
@@ -21,10 +25,14 @@ export function getCurrentWalkthrough(state: DemoState): DemoWalkthroughDto {
         && state.demo.walkthroughs.find(x => x.slug === slug);
 }
 
-export type DemoState = ParametersState & RunResultsState & WalkthroughState & {
-    language: Language;
-    categorySlug: string;
-    demoSlug: string;
-    demo: DemoDto;
-    loadingDemo: boolean;
-}
+export type DemoState = ParametersState
+    & RunResultsState
+    & WalkthroughState
+    & PrerequisitesState
+    & {
+        language: Language;
+        categorySlug: string;
+        demoSlug: string;
+        demo: DemoDto;
+        loadingDemo: boolean;
+    }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
 using Raven.Client.Exceptions;
@@ -10,8 +11,9 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
 {
     public class Demo101Controller : DemoCodeController
     {
-        protected override void SetPrerequisites()
+        public override Task SetPrerequisites()
         {
+            return Task.CompletedTask;
         }
 
         [HttpPost]

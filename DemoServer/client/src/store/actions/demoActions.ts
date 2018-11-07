@@ -24,6 +24,19 @@ export interface GetMetadataSuccess {
     result: DemoDto;
 }
 
+export interface SetPrerequisitesRequest {
+    type: actionTypes.DEMO_SET_PREREQUISITES_REQUEST;
+}
+
+export interface SetPrerequisitesFailure {
+    type: actionTypes.DEMO_SET_PREREQUISITES_FAILURE;
+    error: any;
+}
+
+export interface SetPrerequisitesSuccess {
+    type: actionTypes.DEMO_SET_PREREQUISITES_SUCCESS;
+}
+
 export interface RunDemoRequest {
     type: actionTypes.DEMO_RUN_REQUEST;
 }
@@ -50,6 +63,7 @@ export interface ChangeDemoParams {
 }
 
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
+    | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | InitDemoParams | ChangeDemoParams;
 
@@ -81,11 +95,49 @@ export function getMetadata(category: string, demo: string): DemoThunkAction {
         try {
             const result = await service.getMetadata(category, demo);
             dispatch(getMetadataSuccess(result));
+            dispatch(setPrerequisites());
         } catch (error) {
             dispatch(apiError(error));
             dispatch(getMetadataFailure(error))
         }
     }
+}
+
+const createDemoService = (demoSlug: string) => new RunDemoService(demoSlug);
+
+function setPrerequisitesRequest(): SetPrerequisitesRequest {
+    return {
+        type: "DEMO_SET_PREREQUISITES_REQUEST"
+    };
+}
+
+function setPrerequisitesFailure(error: any): SetPrerequisitesFailure {
+    return {
+        type: "DEMO_SET_PREREQUISITES_FAILURE",
+        error
+    };
+}
+
+function setPrerequisitesSuccess(): SetPrerequisitesSuccess {
+    return {
+        type: "DEMO_SET_PREREQUISITES_SUCCESS"
+    };
+}
+
+function setPrerequisites(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch, getState) => {
+        const { demos } = getState();
+        const { demoSlug } = demos;
+        dispatch(setPrerequisitesRequest());
+        const demoService = createDemoService(demoSlug);
+        try {
+            await demoService.setPrerequisites();
+            dispatch(setPrerequisitesSuccess());
+        } catch (error) {
+            dispatch(apiError(error));
+            dispatch(setPrerequisitesFailure(error));
+        }
+    };
 }
 
 function runDemoRequest(): RunDemoRequest {
@@ -113,7 +165,7 @@ export function runDemo(): DemoThunkAction {
         const { demos } = getState();
         const { demoSlug, parameters } = demos;
         dispatch(runDemoRequest());
-        const demoService = new RunDemoService(demoSlug);
+        const demoService = createDemoService(demoSlug);
         try {
             const dto = toDemoParamsDto(parameters);
             const result = await demoService.run(dto);

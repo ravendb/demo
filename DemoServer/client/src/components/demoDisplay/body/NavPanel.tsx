@@ -14,6 +14,7 @@ interface NavPanelStateProps {
     categorySlug: string;
     demoSlug: string;
     firstWtSlug?: string;
+    settingPrerequisites: boolean;
 }
 
 interface NavPanelDispatchProps {
@@ -53,11 +54,14 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     runScriptButton() {
-        const { resultsElementId } = this.props;
+        const { resultsElementId, settingPrerequisites } = this.props;
+        const wording = settingPrerequisites ? "Setting prerequisites..." : "Run script";
+
         return <button id="runScript" className="fab collapsed" type="button"
+            disabled={settingPrerequisites}
             data-toggle="collapse" data-target={`#${resultsElementId}`}
             onClick={() => this.handleRunScriptClick()}>
-            <i className="icon-play"></i> Run script
+            <i className="icon-play"></i> {wording}
         </button>;
     }
 
@@ -71,14 +75,15 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, demo } = demos;
+    const { categorySlug, demoSlug, demo, settingPrerequisites } = demos;
     const firstWt = demo && demo.walkthroughs
         && demo.walkthroughs.length > 0
         && demo.walkthroughs[0];
     return {
         categorySlug,
         demoSlug,
-        firstWtSlug: firstWt && firstWt.slug
+        firstWtSlug: firstWt && firstWt.slug,
+        settingPrerequisites
     };
 }
 
