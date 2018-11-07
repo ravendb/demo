@@ -1,23 +1,31 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
+import { Dispatch } from "redux";
+import { hideResults } from "../../../store/actions/demoActions";
+import { Collapse } from "../../helpers/Collapse";
 
 interface OwnProps {
     elementId: string;
 }
 
 interface StateProps {
+    showPanel: boolean;
     loadingResults: boolean;
 }
 
-type ResultsPanelProps = OwnProps & StateProps;
+interface DispatchProps {
+    hidePanel: () => void;
+}
+
+type ResultsPanelProps = OwnProps & StateProps & DispatchProps;
 
 class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
     render() {
-        const { elementId, loadingResults, children } = this.props;
-        return <div id={elementId} className="results-container collapse">
+        const { elementId, loadingResults, children, hidePanel, showPanel } = this.props;
+        return <Collapse id="results-panel" className="results-container" show={showPanel}>
             <div className="results">
-                <div className="flex-horizontal">
+                <div className="flex-horizontal margin-bottom">
                     <div>
                         <h1>RESULTS</h1>
                     </div>
@@ -34,26 +42,32 @@ class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
                         </div>
                     </div>
                     <div>
-                        <button className="minimize-results" data-toggle="collapse" data-target={`#${elementId}`} type="button">
+                        <button className="minimize-results" onClick={hidePanel}>
                             <i className="icon-down"></i>
                         </button>
                     </div>
                 </div>
 
-                <div className="text-center">
+                <div className="text-center padding">
                     {loadingResults
                         ? "LOADING RESULTS..."
                         : children}
                 </div>
             </div>
-        </div>;
+        </Collapse>;
     }
 }
 
-export const ResultsPanel = connect<StateProps, {}, OwnProps>(
+export const ResultsPanel = connect<StateProps, DispatchProps, OwnProps>(
     ({ demos }: AppState) => {
         return {
-            loadingResults: demos.loadingRunResults
+            loadingResults: demos.loadingRunResults,
+            showPanel: demos.showResultsPanel
+        };
+    },
+    (dispatch: Dispatch): DispatchProps => {
+        return {
+            hidePanel: () => dispatch(hideResults())
         };
     }
 )(ResultsPanelDisplay);

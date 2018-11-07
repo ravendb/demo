@@ -1,22 +1,24 @@
 import * as React from "react";
 import { Language } from "../../models/commonModels";
 import { CodePreview } from "../helpers/CodePreview";
-import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
+import { Collapse } from "../helpers/Collapse";
 
 interface UsingsProps {
     language: Language;
 }
 
-export class Usings extends React.Component<UsingsProps, {}> {
+interface UsingsState {
+    expand: boolean;
+}
+
+export class Usings extends React.Component<UsingsProps, UsingsState> {
     collapseButton: HTMLElement;
 
-    componentDidMount() {
-        this.collapseButton = document.getElementById("toggle-collapse-usings");
-        bsn.Collapse(this.collapseButton);
-    }
+    constructor(props) {
+        super(props);
+        this.state = { expand: false };
 
-    componentWillUnmount() {
-        bsn.Collapse(this.collapseButton, "dispose");
+        this.toggleCollapse = this.toggleCollapse.bind(this);
     }
 
     getTitle() {
@@ -32,19 +34,25 @@ export class Usings extends React.Component<UsingsProps, {}> {
         }
     }
 
+    toggleCollapse() {
+        this.setState(prevState => ({
+            expand: !prevState.expand
+        }));
+    }
+
     render() {
         const { language, children } = this.props;
+        const { expand } = this.state;
+
         return <div>
-            <a id="toggle-collapse-usings" className="folding collapsed" role="button" data-toggle="collapse" data-target="#includes" aria-expanded="false" aria-controls="includes">
+            <a className="folding collapsed" role="button" onClick={this.toggleCollapse}>
                 {this.getTitle()}
             </a>
-            <div className="collapse" id="includes">
-                <div>
-                    <CodePreview id="preview-usings" language={language}>
-                        {children}
-                    </CodePreview>
-                </div>
-            </div>
+            <Collapse id="includes" show={expand}>
+                <CodePreview id="preview-usings" language={language}>
+                    {children}
+                </CodePreview>
+            </Collapse>
         </div>;
     }
 }

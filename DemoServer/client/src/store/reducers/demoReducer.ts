@@ -11,6 +11,7 @@ const initialState: DemoState = {
     demo: null,
     loadingDemo: false,
     settingPrerequisites: false,
+    showResultsPanel: false,
     loadingRunResults: false,
     parameters: [],
     runResults: null
@@ -50,7 +51,10 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             return modifyState(state, s => s.settingPrerequisites = false);
 
         case "DEMO_RUN_REQUEST":
-            return modifyState(state, s => s.loadingRunResults = true);
+            return modifyState(state, s => {
+                s.showResultsPanel = true;
+                s.loadingRunResults = true;
+            });
 
         case "DEMO_RUN_SUCCESS":
             return modifyState(state, s => {
@@ -61,6 +65,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "DEMO_RUN_FAILURE":
             return modifyState(state, s => {
                 s.loadingRunResults = false;
+            });
+
+        case "DEMO_HIDE_RESULTS":
+            return modifyState(state, s => {
+                s.showResultsPanel = false
             });
 
         case "DEMO_PARAMS_INIT":

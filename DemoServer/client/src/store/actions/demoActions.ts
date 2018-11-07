@@ -51,6 +51,10 @@ export interface RunDemoSuccess {
     results: object;
 }
 
+export interface HideResults {
+    type: actionTypes.DEMO_HIDE_RESULTS;
+}
+
 export interface InitDemoParams {
     type: actionTypes.DEMO_PARAMS_INIT;
     parameters: ParameterPair[];
@@ -65,6 +69,7 @@ export interface ChangeDemoParams {
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
+    | HideResults
     | InitDemoParams | ChangeDemoParams;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
@@ -174,6 +179,12 @@ export function runDemo(): DemoThunkAction {
             dispatch(apiError(error));
             dispatch(runDemoFailure(error));
         }
+    };
+}
+
+export function hideResults(): HideResults {
+    return {
+        type: "DEMO_HIDE_RESULTS"
     };
 }
 

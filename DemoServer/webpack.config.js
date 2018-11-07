@@ -35,7 +35,7 @@ module.exports = (env, argv) => {
           use: {
             loader: 'bootstrap.native-loader',
             options: {
-              only: ['collapse']
+              only: ['dropdown']
             }
           }
         },

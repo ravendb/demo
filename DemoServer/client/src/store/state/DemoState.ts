@@ -11,6 +11,7 @@ interface PrerequisitesState {
 }
 
 interface RunResultsState {
+    showResultsPanel: boolean;
     loadingRunResults: boolean;
     runResults: any;
 }

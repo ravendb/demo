@@ -1,5 +1,4 @@
 import * as React from "react";
-import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
 import { AppState } from "../../../store/state";
 import { DemoThunkDispatch } from "../../../store";
 import { runDemo } from "../../../store/actions/demoActions";
@@ -24,21 +23,9 @@ interface NavPanelDispatchProps {
 type NavPanelProps = NavPanelOwnProps & NavPanelStateProps & NavPanelDispatchProps;
 
 class NavPanelComponent extends React.Component<NavPanelProps, {}> {
-    collapseButton: HTMLElement;
-
-    componentDidMount() {
-        this.collapseButton = document.getElementById("runScript");
-        this.collapseButton && bsn.Collapse(this.collapseButton);
-    }
-
-    componentWillUnmount() {
-        this.collapseButton && bsn.Collapse(this.collapseButton, "dispose");
-    }
-
     handleRunScriptClick() {
         const { onRunScriptClicked } = this.props;
         onRunScriptClicked();
-        this.collapseButton && bsn.Collapse(this.collapseButton, "show");
     }
 
     walkthroughButton() {
