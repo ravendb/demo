@@ -3,10 +3,24 @@ import { DemoThunkAction, Action } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/Services";
 import { DemoDto } from "../../models/dtos";
-import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
+import { ParameterPair, toDemoParamsDto, UserProgressDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
 
 const service = new DemoService();
+
+export interface GetProgressRequest {
+    type: actionTypes.DEMO_GET_PROGRESS_REQUEST;
+}
+
+export interface GetProgressFailure {
+    type: actionTypes.DEMO_GET_PROGRESS_FAILURE;
+    error: any;
+}
+
+export interface GetProgressSuccess {
+    type: actionTypes.DEMO_GET_PROGRESS_SUCCESS;
+    result: UserProgressDto;
+}
 
 export interface GetMetadataRequest {
     type: actionTypes.DEMO_GET_METADATA_REQUEST;
@@ -66,11 +80,45 @@ export interface ChangeDemoParams {
     value: any;
 }
 
-export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
+export type DemoAction = GetProgressRequest | GetProgressFailure | GetProgressSuccess
+    | GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | InitDemoParams | ChangeDemoParams;
+
+function getProgressRequest(): GetProgressRequest {
+    return {
+        type: "DEMO_GET_PROGRESS_REQUEST"
+    };
+}
+
+function getProgressFailure(error: any): GetProgressFailure {
+    return {
+        type: "DEMO_GET_PROGRESS_FAILURE",
+        error
+    };
+}
+
+function getProgressSuccess(result: UserProgressDto): GetProgressSuccess {
+    return {
+        type: "DEMO_GET_PROGRESS_SUCCESS",
+        result
+    };
+}
+
+export function getProgress(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch) => {
+        dispatch(getProgressRequest());
+        try {
+            const result = await service.getProgress();
+            dispatch(getProgressSuccess(result));
+        } catch (error) {
+            dispatch(apiError(error));
+            dispatch(getProgressFailure(error));
+        }
+    }
+}
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {

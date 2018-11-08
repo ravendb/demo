@@ -1,6 +1,6 @@
 import { ApiClient } from "./ApiClient";
-import { ExampleDataDto } from "../models/exampleModels";
 import { DemoDto, DemoParamsDto } from "../models/dtos";
+import { UserProgressDto } from "../models/demoModels";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -28,19 +28,13 @@ abstract class Service {
     }
 }
 
-export class ExampleService extends Service {
-    constructor() {
-        super("/example");
-    }
-
-    async getData(): Promise<ExampleDataDto> {
-        return this.get<ExampleDataDto>("get-data");
-    }
-}
-
 export class DemoService extends Service {
     constructor() {
         super("/demo");
+    }
+
+    async getProgress(): Promise<UserProgressDto> {
+        return this.get<UserProgressDto>("progress");
     }
 
     async getMetadata(category: string, demo: string): Promise<DemoDto> {

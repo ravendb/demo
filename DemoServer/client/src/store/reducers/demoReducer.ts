@@ -6,6 +6,8 @@ import { DemoState } from "../state/DemoState";
 
 const initialState: DemoState = {
     language: "csharp",
+    loadingProgress: false,
+    userProgress: null,
     categorySlug: "",
     demoSlug: "",
     demo: null,
@@ -19,6 +21,18 @@ const initialState: DemoState = {
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
+        case "DEMO_GET_PROGRESS_REQUEST":
+            return modifyState(state, s => s.loadingProgress = true);
+
+        case "DEMO_GET_PROGRESS_SUCCESS":
+            return modifyState(state, s => {
+                s.loadingProgress = false;
+                s.userProgress = action.result
+            });
+
+        case "DEMO_GET_PROGRESS_FAILURE":
+            return modifyState(state, s => s.loadingProgress = false);
+
         case "DEMO_GET_METADATA_REQUEST":
             return modifyState(state, s => s.loadingDemo = true);
 
