@@ -24,12 +24,3 @@ export function toDemoParamsDto(parameters: ParameterPair[]): DemoParamsDto {
         return {...acc, [current.name]: current.value}
     }, {});
 }
-
-export interface UserProgressDto {
-    completedDemos: DemoProgressDto[];
-}
-
-export interface DemoProgressDto {
-    categorySlug: string;
-    demoSlug: string;
-}

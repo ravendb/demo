@@ -1,15 +1,14 @@
 import * as React from "react";
-import { UserProgressDto } from "../../models/demoModels";
 import { Category, categoryList } from "../demos/categories";
 import { connect } from "react-redux";
 import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { getProgress } from "../../store/actions/demoActions";
 import { DemoCategory } from "./DemoCategory";
+import { UserProgress } from "../../models/progress";
 
 interface HomeStateProps {
-    loadingProgress: boolean;
-    progress: UserProgressDto;
+    progress: UserProgress;
 }
 
 interface HomeDispatchProps {
@@ -28,7 +27,7 @@ class HomeDisplay extends React.Component<HomeProps, {}> {
         const { progress } = this.props;
         const completedForCategory = progress
             && progress.completedDemos
-            && progress.completedDemos.filter(x => x.categorySlug === category.slug);
+            && progress.completedDemos.filter(x => x.category === category.slug);
 
         return <DemoCategory category={category} key={`demo_category_${index}`} completedDemos={completedForCategory} />
     }
@@ -46,7 +45,6 @@ class HomeDisplay extends React.Component<HomeProps, {}> {
 export const Home = connect<HomeStateProps, HomeDispatchProps, {}>(
     ({ demos }: AppState): HomeStateProps => {
         return {
-            loadingProgress: demos.loadingProgress,
             progress: demos.userProgress
         }
     },

@@ -1,10 +1,10 @@
 import { Language } from "../../models/commonModels";
 import { DemoDto, DemoWalkthroughDto } from "../../models/dtos";
-import { ParameterPair, UserProgressDto } from "../../models/demoModels";
+import { ParameterPair } from "../../models/demoModels";
+import { UserProgress } from "../../models/progress";
 
 interface UserProgressState {
-    loadingProgress: boolean;
-    userProgress: UserProgressDto;
+    userProgress: UserProgress;
 }
 
 interface ParametersState {

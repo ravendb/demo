@@ -19,24 +19,6 @@ namespace DemoServer.Controllers
         }
 
         [HttpGet]
-        [Route("progress")]
-        public IActionResult GetProgress()
-        {
-            //TODO
-            //get user id from request
-            //get progress from DB
-            //create user id if needed
-
-            var dto = new UserProgressDto();
-            //dto.CompletedDemos.Add(new DemoProgressDto
-            //{
-            //    CategorySlug = "basics",
-            //    DemoSlug = "demo101"
-            //});
-            return Ok(dto);
-        }
-
-        [HttpGet]
         [Route("get/{categoryName}/{demoName}")]
         public IActionResult GetDemo(string categoryName, string demoName)
         {

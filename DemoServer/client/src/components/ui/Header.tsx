@@ -9,6 +9,10 @@ export class Header extends React.Component<{}, {}> {
         this.dropdown && bsn.Dropdown(this.dropdown);
     }
 
+    componentWillUnmount() {
+        this.dropdown && bsn.Dropdown(this.dropdown, "dispose");
+    }
+
     render() {
         return <div className="header">
             <div>

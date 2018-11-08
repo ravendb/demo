@@ -1,11 +1,12 @@
 import * as React from "react";
-import { DemoWithProgress, DemoProgressDto } from "../../models/demoModels";
 import { Category } from "../demos/categories";
 import { DemoItem } from "./DemoItem";
+import { DemoProgress } from "../../models/progress";
+import { DemoWithProgress } from "../../models/demoModels";
 
 interface DemoCategoryProps {
     category: Category;
-    completedDemos: DemoProgressDto[];
+    completedDemos: DemoProgress[];
 }
 
 export function DemoCategory(props: DemoCategoryProps) {
@@ -13,7 +14,7 @@ export function DemoCategory(props: DemoCategoryProps) {
     const { title, slug, demos } = category;
 
     const demosWithProgress = demos.map(d => {
-        const completedDemo = completedDemos && completedDemos.find(c => c.demoSlug === d.slug);
+        const completedDemo = completedDemos && completedDemos.find(c => c.demo === d.slug);
         return {
             ...d,
             completed: !!completedDemo
