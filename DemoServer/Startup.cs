@@ -26,6 +26,8 @@ namespace DemoServer
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+
             var settings = new Settings();
             Configuration.Bind(settings);
 
@@ -43,6 +45,8 @@ namespace DemoServer
 
             var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>());
             services.AddSingleton(demoContainer);
+
+            services.AddScoped<HeadersAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

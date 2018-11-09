@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DemoServer.Utils;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
@@ -11,6 +12,10 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
 {
     public class Demo101Controller : DemoCodeController
     {
+        public Demo101Controller(HeadersAccessor headersAccessor) : base(headersAccessor)
+        {
+        }
+
         public override Task SetPrerequisites()
         {
             return Task.CompletedTask;

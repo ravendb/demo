@@ -2,12 +2,14 @@
 using System.Linq;
 using DemoServer.Models;
 using DemoServer.Utils;
+using DemoServer.Utils.Filters;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DemoServer.Controllers
 {
     [Route("demo")]
+    [AddUserIdToHeader]
     public class HomeController : Controller
     {
         private readonly DemoContainer _demoContainer;
