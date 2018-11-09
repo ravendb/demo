@@ -5,4 +5,5 @@ export interface UserProgress {
 export interface DemoProgress {
     category: string;
     demo: string;
+    demoHash: string;
 }

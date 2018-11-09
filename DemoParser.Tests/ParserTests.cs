@@ -61,6 +61,29 @@ namespace DemoParser.Tests
             AssertAllWalkthroughs(result, w => Assert.NotEmpty(w.Title));
         }
 
+        [Fact]
+        public void SetsDemoHash()
+        {
+            var result = Act(DefaultSettings);
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Hash));
+        }
+
+        [Fact]
+        public void SetsSlugs()
+        {
+            var result = Act(DefaultSettings);
+            Assert.All(result, c => Assert.NotEmpty(c.Slug));
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Slug));
+        }
+
+        [Fact]
+        public void SetsLowercaseSlugs()
+        {
+            var result = Act(DefaultSettings);
+            Assert.All(result, c => AssertIsLowercase(c.Slug));
+            AssertAllDemos(result, d => AssertIsLowercase(d.Slug));
+        }
+
         private ParserSettings DefaultSettings => new ParserSettings
         {
             SourceCodeFolder = "MockSrc\\CSharp",
@@ -82,6 +105,12 @@ namespace DemoParser.Tests
         private void AssertAllWalkthroughs(List<DemoCategory> result, Action<DemoWalkthrough> walkthroughAssertion)
         {
             Assert.All(result, category => Assert.All(category.Demos, demo => Assert.All(demo.Walkthroughs, walkthroughAssertion)));
+        }
+
+        private void AssertIsLowercase(string text)
+        {
+            Assert.NotNull(text);
+            Assert.Equal(text.ToLower(), text);
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using DemoServer.Models;
 using DemoServer.Utils;
 using Microsoft.AspNetCore.Mvc;
@@ -16,6 +17,15 @@ namespace DemoServer.Controllers
         {
             _demoContainer = demoContainer;
             _logger = logger;
+        }
+
+        [HttpGet]
+        [Route("get-versions")]
+        public IActionResult GetDemoVersions()
+        {
+            var versions = _demoContainer.GetDemoVersions();
+            var dtos = versions.Select(DemoVersionDto.FromEntry).ToList();
+            return Ok(dtos);
         }
 
         [HttpGet]

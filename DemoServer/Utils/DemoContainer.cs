@@ -63,5 +63,34 @@ namespace DemoServer.Utils
 
             return demo;
         }
+
+        public List<DemoVersionEntry> GetDemoVersions()
+        {
+            var categoriesForLanguage = Categories[SupportedLanguage];
+            return GetDemoVersionsFor(categoriesForLanguage).ToList();
+        }
+
+        private IEnumerable<DemoVersionEntry> GetDemoVersionsFor(IEnumerable<DemoCategory> categories)
+        {
+            foreach (var category in categories)
+            {
+                foreach (var demo in category.Demos)
+                {
+                    yield return new DemoVersionEntry
+                    {
+                        Category = category.Slug,
+                        Demo = demo.Slug,
+                        Hash = demo.Hash
+                    };
+                }
+            }
+        }
+
+        public class DemoVersionEntry
+        {
+            public string Category { get; set; }
+            public string Demo { get; set; }
+            public string Hash { get; set; }
+        }
     }
 }

@@ -5,22 +5,22 @@ import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
-import { getProgress } from "../../store/actions/progressActions";
+import { getVersions } from "../../store/actions/progressActions";
 
 interface HomeStateProps {
     progress: UserProgress;
 }
 
 interface HomeDispatchProps {
-    getProgress: () => void;
+    getDemoVersions: () => void;
 }
 
 type HomeProps = HomeStateProps & HomeDispatchProps;
 
 class HomeDisplay extends React.Component<HomeProps, {}> {
     componentDidMount() {
-        const { getProgress } = this.props;
-        getProgress();
+        const { getDemoVersions } = this.props;
+        getDemoVersions();
     }
 
     getCategoryElement(category: Category, index: number) {
@@ -50,7 +50,7 @@ export const Home = connect<HomeStateProps, HomeDispatchProps, {}>(
     },
     (dispatch: DemoThunkDispatch): HomeDispatchProps => {
         return {
-            getProgress: () => dispatch(getProgress())
+            getDemoVersions: () => dispatch(getVersions())
         }
     }
 )(HomeDisplay);

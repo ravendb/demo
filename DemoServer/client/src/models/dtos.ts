@@ -30,3 +30,9 @@ export interface DemoDto {
 export interface DemoParamsDto {
     [key:string]: any;
 }
+
+export interface DemoVersionDto {
+    category: string;
+    demo: string;
+    hash: string;
+}

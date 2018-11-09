@@ -1,5 +1,5 @@
 import { ApiClient } from "./ApiClient";
-import { DemoDto, DemoParamsDto } from "../models/dtos";
+import { DemoDto, DemoParamsDto, DemoVersionDto } from "../models/dtos";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -30,6 +30,10 @@ abstract class Service {
 export class DemoService extends Service {
     constructor() {
         super("/demo");
+    }
+
+    async getVersions(): Promise<DemoVersionDto[]> {
+        return this.get<DemoVersionDto[]>("get-versions");
     }
 
     async getMetadata(category: string, demo: string): Promise<DemoDto> {

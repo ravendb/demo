@@ -1,4 +1,5 @@
 {
+    "Slug": "DEMO201",
     "SourceFileName": "Demo201Controller.cs",
 
     "Assets": [
@@ -24,7 +25,8 @@
             "Title": "WT-1 Title",
             "Slug": "wt-1",
             "DescriptionHtml": "WT-1 Description",
-            "Assets": [{
+            "Assets": [
+                {
                     "Title": "WT-1 Asset Title-1",
                     "Type": "document",
                     "Url": "https://www.google.com/"
@@ -40,41 +42,49 @@
             "Title": "WT-2 Title",
             "Slug": "wt-2",
             "DescriptionHtml": "WT-2 Description",
-            "Assets": [{
-                "Title": "WT-2 Asset Title-1",
-                "Type": "downloadable",
-                "Url": "https://www.mozilla.org/en-US/firefox/new/"
-            }]
+            "Assets": [
+                {
+                    "Title": "WT-2 Asset Title-1",
+                    "Type": "downloadable",
+                    "Url": "https://www.mozilla.org/en-US/firefox/new/"
+                }
+            ]
         },
         {
             "Title": "WT-3 Title",
             "Slug": "wt-3",
             "DescriptionHtml": "WT-3 Description",
-            "Assets": [{
-                "Title": "WT-3 Asset Title-1",
-                "Type": "downloadable",
-                "Url": "https://www.mozilla.org/en-US/firefox/new/"
-            }]
+            "Assets": [
+                {
+                    "Title": "WT-3 Asset Title-1",
+                    "Type": "downloadable",
+                    "Url": "https://www.mozilla.org/en-US/firefox/new/"
+                }
+            ]
         },
         {
             "Title": "WT-4 Title",
             "Slug": "wt-4",
             "DescriptionHtml": "WT-4 Description",
-            "Assets": [{
-                "Title": "WT-4 Asset Title-1",
-                "Type": "downloadable",
-                "Url": "https://www.mozilla.org/en-US/firefox/new/"
-            }]
+            "Assets": [
+                {
+                    "Title": "WT-4 Asset Title-1",
+                    "Type": "downloadable",
+                    "Url": "https://www.mozilla.org/en-US/firefox/new/"
+                }
+            ]
         },
         {
             "Title": "WT-5 Title",
             "Slug": "wt-5",
             "DescriptionHtml": "WT-5 Description",
-            "Assets": [{
-                "Title": "WT-5 Asset Title-1",
-                "Type": "downloadable",
-                "Url": "https://www.mozilla.org/en-US/firefox/new/"
-            }]
+            "Assets": [
+                {
+                    "Title": "WT-5 Asset Title-1",
+                    "Type": "downloadable",
+                    "Url": "https://www.mozilla.org/en-US/firefox/new/"
+                }
+            ]
         }
     ]
 }

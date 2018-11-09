@@ -7,11 +7,23 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FileHashTests\Input_Changed.cs" />
+    <Compile Remove="FileHashTests\Input_Identical.cs" />
+    <Compile Remove="FileHashTests\Input_Initial.cs" />
     <Compile Remove="RegionParserTests\Input.cs" />
     <Compile Remove="TokenizerTests\Input.cs" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="FileHashTests\Input_Changed.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FileHashTests\Input_Initial.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="FileHashTests\Input_Identical.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="RegionParserTests\Input.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

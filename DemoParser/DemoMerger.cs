@@ -21,6 +21,7 @@ namespace DemoParser
 
             destDemo.SourceCode = _codeOutput.SourceCode;
             destDemo.UsingsLastLine = _codeOutput.UsingsLastLine;
+            destDemo.Hash = _codeOutput.FileHash;
 
             var destWalkthroughs = destDemo.Walkthroughs;
 

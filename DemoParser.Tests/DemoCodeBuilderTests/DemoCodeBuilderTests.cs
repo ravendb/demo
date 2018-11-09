@@ -76,6 +76,17 @@ namespace DemoParser.Tests.DemoCodeBuilderTests
             }
         }
 
+        [Fact]
+        public void CalculatesFileHash()
+        {
+            var result = GetBuilder()
+                .SetFileHash()
+                .Build();
+
+            Assert.NotNull(result);
+            Assert.NotEmpty(result.FileHash);
+        }
+
         private DemoCodeBuilder GetBuilder(string filePath = DefaultFilePath)
         {
             return DemoCodeBuilder.Initialize(filePath);

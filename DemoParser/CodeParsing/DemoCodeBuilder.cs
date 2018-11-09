@@ -10,14 +10,17 @@ namespace DemoParser.CodeParsing
 {
     public class DemoCodeBuilder
     {
+        private readonly FileHashCalculator _hashCalculator = new FileHashCalculator();
         private readonly StringBuilder _outputCode = new StringBuilder();
         private readonly Output _outputDemo = new Output();
-        private readonly CodeSlicer _codeSlicer;
 
+        private readonly string _filePath;
+        private readonly CodeSlicer _codeSlicer;
         private readonly RegionContainer _regions;
 
         private DemoCodeBuilder(string filePath, List<CodeRegion> regions)
         {
+            _filePath = filePath;
             _regions = new RegionContainer(regions);
             _codeSlicer = new CodeSlicer(filePath, _regions);
         }
@@ -44,6 +47,13 @@ namespace DemoParser.CodeParsing
 
             _outputCode.Append(usingsCode.Code);
             _outputDemo.UsingsLastLine = usingsCode.LineCount;
+            return this;
+        }
+
+        public DemoCodeBuilder SetFileHash()
+        {
+            var hash = _hashCalculator.Get(_filePath);
+            _outputDemo.FileHash = hash;
             return this;
         }
 
@@ -101,6 +111,7 @@ namespace DemoParser.CodeParsing
             public string SourceCode { get; set; }
             public int UsingsLastLine { get; set; }
             public List<WalkthroughOutput> Walkthroughs { get; set; }
+            public string FileHash { get; set; }
         }
 
         public class WalkthroughOutput

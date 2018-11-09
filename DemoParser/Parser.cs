@@ -41,7 +41,7 @@ namespace DemoParser
 
             return new DemoCategory
             {
-                Slug = category.Slug,
+                Slug = category.Slug.ToLower(),
                 Directory = folderName,
                 Demos = demos
             };
@@ -60,10 +60,12 @@ namespace DemoParser
         {
             var demo = _jsonImporter.GetMetadata(demoFolder);
             var codeFilePath = Path.Join(demoFolder, demo.SourceFileName);
+            demo.Slug = demo.Slug.ToLower();
 
             var codeOutput = DemoCodeBuilder.Initialize(codeFilePath)
                 .SetUsings()
                 .SetDemoBody()
+                .SetFileHash()
                 .Build();
 
             var merger = new DemoMerger(codeOutput);
