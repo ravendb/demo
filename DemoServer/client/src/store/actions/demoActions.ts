@@ -1,16 +1,13 @@
 import * as actionTypes from "./actionTypes";
-import { DemoThunkAction, Action } from ".";
+import { DemoThunkAction } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/Services";
 import { DemoDto } from "../../models/dtos";
 import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
+import { updateProgress } from "./progressActions";
 
 const service = new DemoService();
-
-export interface GetProgress {
-    type: actionTypes.PROGRESS_GET;
-}
 
 export interface GetMetadataRequest {
     type: actionTypes.DEMO_GET_METADATA_REQUEST;
@@ -70,18 +67,11 @@ export interface ChangeDemoParams {
     value: any;
 }
 
-export type DemoAction = GetProgress
-    | GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
+export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | InitDemoParams | ChangeDemoParams;
-
-export function getProgress(): GetProgress {
-    return {
-        type: "PROGRESS_GET"
-    };
-}
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {
@@ -179,13 +169,14 @@ function runDemoSuccess(results: object): RunDemoSuccess {
 export function runDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const { demos } = getState();
-        const { demoSlug, parameters } = demos;
+        const { categorySlug, demoSlug, parameters } = demos;
         dispatch(runDemoRequest());
         const demoService = createDemoService(demoSlug);
         try {
             const dto = toDemoParamsDto(parameters);
             const result = await demoService.run(dto);
             dispatch(runDemoSuccess(result));
+            dispatch(updateProgress(categorySlug, demoSlug));
         } catch (error) {
             dispatch(apiError(error));
             dispatch(runDemoFailure(error));

@@ -1,11 +1,6 @@
 import { Language } from "../../models/commonModels";
 import { DemoDto, DemoWalkthroughDto } from "../../models/dtos";
 import { ParameterPair } from "../../models/demoModels";
-import { UserProgress } from "../../models/progress";
-
-interface UserProgressState {
-    userProgress: UserProgress;
-}
 
 interface ParametersState {
     parameters: ParameterPair[];
@@ -31,8 +26,7 @@ export function getCurrentWalkthrough(state: DemoState): DemoWalkthroughDto {
         && state.demo.walkthroughs.find(x => x.slug === slug);
 }
 
-export type DemoState = UserProgressState
-    & ParametersState
+export type DemoState = ParametersState
     & RunResultsState
     & WalkthroughState
     & PrerequisitesState

@@ -1,4 +1,4 @@
-import { UserProgress } from "../models/progress";
+import { UserProgress } from "../../models/progress";
 
 function saveInStorage<T>(key: string, value: T) {
     const text = JSON.stringify(value);

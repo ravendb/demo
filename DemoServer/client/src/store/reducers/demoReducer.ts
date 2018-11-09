@@ -3,11 +3,9 @@ import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
-import { DemoStorage } from "../../utils/DemoStorage";
 
 const initialState: DemoState = {
     language: "csharp",
-    userProgress: null,
     categorySlug: "",
     demoSlug: "",
     demo: null,
@@ -21,11 +19,6 @@ const initialState: DemoState = {
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
-        case "PROGRESS_GET":
-            return modifyState(state, s => {
-                s.userProgress = DemoStorage.getUserProgress()
-            });
-
         case "DEMO_GET_METADATA_REQUEST":
             return modifyState(state, s => s.loadingDemo = true);
 

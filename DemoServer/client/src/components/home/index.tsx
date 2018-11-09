@@ -3,9 +3,9 @@ import { Category, categoryList } from "../demos/categories";
 import { connect } from "react-redux";
 import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
-import { getProgress } from "../../store/actions/demoActions";
 import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
+import { getProgress } from "../../store/actions/progressActions";
 
 interface HomeStateProps {
     progress: UserProgress;
@@ -43,9 +43,9 @@ class HomeDisplay extends React.Component<HomeProps, {}> {
 }
 
 export const Home = connect<HomeStateProps, HomeDispatchProps, {}>(
-    ({ demos }: AppState): HomeStateProps => {
+    ({ progress }: AppState): HomeStateProps => {
         return {
-            progress: demos.userProgress
+            progress: progress.userProgress
         }
     },
     (dispatch: DemoThunkDispatch): HomeDispatchProps => {

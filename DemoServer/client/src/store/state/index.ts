@@ -1,10 +1,12 @@
 import { deepCopy } from "../../utils/miscUtils";
 import { ErrorState } from "./ErrorState";
 import { DemoState } from "./DemoState";
+import { ProgressState } from "./ProgressState";
 
 export interface AppState {
     error: ErrorState;
     demos: DemoState;
+    progress: ProgressState;
 }
 
 export function modifyState<S>(state: S, modify: (state: S) => void): S {

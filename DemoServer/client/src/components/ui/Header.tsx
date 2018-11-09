@@ -31,7 +31,6 @@ export class Header extends React.Component<{}, {}> {
                     <a className="dropdown-item" href="#">Share</a>
                 </div>
             </div>
-
         </div>;
     }
 }
