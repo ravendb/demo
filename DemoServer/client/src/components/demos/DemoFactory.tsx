@@ -3,7 +3,6 @@ import { Demo101 } from "./basics/Demo101";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
-import { DemoThunkDispatch } from "../../store";
 
 const DemoNotFound = () => {
     return <>

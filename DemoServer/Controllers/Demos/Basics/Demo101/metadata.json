@@ -23,7 +23,7 @@
     "Walkthroughs": [
         {
             "Title": "WT-1 Title",
-            "Slug": "wt-1",
+            "Slug": "step-1",
             "DescriptionHtml": "WT-1 Description",
             "Assets": [
                 {
@@ -40,7 +40,7 @@
         },
         {
             "Title": "WT-2 Title",
-            "Slug": "wt-2",
+            "Slug": "step-2",
             "DescriptionHtml": "WT-2 Description",
             "Assets": [
                 {
@@ -52,7 +52,7 @@
         },
         {
             "Title": "WT-3 Title",
-            "Slug": "wt-3",
+            "Slug": "step-3",
             "DescriptionHtml": "WT-3 Description",
             "Assets": [
                 {
@@ -64,7 +64,7 @@
         },
         {
             "Title": "WT-4 Title",
-            "Slug": "wt-4",
+            "Slug": "step-4",
             "DescriptionHtml": "WT-4 Description",
             "Assets": [
                 {
@@ -76,7 +76,7 @@
         },
         {
             "Title": "WT-5 Title",
-            "Slug": "wt-5",
+            "Slug": "step-5",
             "DescriptionHtml": "WT-5 Description",
             "Assets": [
                 {

@@ -94,19 +94,19 @@ namespace DemoParser.Tests.DemoMergerTests
         private DemoCodeBuilder.WalkthroughOutput Walk1 => new DemoCodeBuilder.WalkthroughOutput
         {
             Range = new LinesRange {Start = 3, End = 5},
-            RegionName = "Walk_1"
+            RegionName = "Step_1"
         };
 
         private DemoCodeBuilder.WalkthroughOutput Walk2 => new DemoCodeBuilder.WalkthroughOutput
         {
             Range = new LinesRange {Start = 7, End = 11},
-            RegionName = "Walk_2"
+            RegionName = "Step_2"
         };
 
         private DemoCodeBuilder.WalkthroughOutput Walk3 => new DemoCodeBuilder.WalkthroughOutput
         {
             Range = new LinesRange {Start = 15, End = 18},
-            RegionName = "Walk_3"
+            RegionName = "Step_3"
         };
 
         private DemoCodeBuilder.WalkthroughOutput WalkWrongCasing1 => BreakCasing(Walk1);

@@ -19,7 +19,7 @@ namespace DemoSrc.CSharp.Basics.Demo101
             var serverURL = "http://localhost:8080";
             var databaseName = "Demo";
 
-            #region Walk_1
+            #region Step_1
             var documentStore = new DocumentStore
             {
                 Urls = new[] { serverURL },
@@ -27,11 +27,11 @@ namespace DemoSrc.CSharp.Basics.Demo101
             };
             #endregion
 
-            #region Walk_2
+            #region Step_2
             documentStore.Initialize();
             #endregion
 
-            #region Walk_3
+            #region Step_3
             try
             {
                 documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(databaseName)));
@@ -53,11 +53,11 @@ namespace DemoSrc.CSharp.Basics.Demo101
                 }
             };
 
-            #region Walk_4
+            #region Step_4
             using (var session = documentStore.OpenSession())
             #endregion
             {
-                #region Walk_5
+                #region Step_5
                 session.Store(newCompany);
                 session.SaveChanges();
                 #endregion

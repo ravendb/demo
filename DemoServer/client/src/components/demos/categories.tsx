@@ -12,16 +12,18 @@ export interface Category {
     demos: DemoInfo[];
 }
 
+const basicsCategory: Category = {
+    slug: "basics",
+    title: "Basics",
+    demos: [
+        {
+            slug: "demo101",
+            title: "The First Demo",
+            type: "DEMO_101"
+        }
+    ]
+};
+
 export const categoryList: Category[] = [
-    {
-        slug: "basics",
-        title: "Basics",
-        demos: [
-            {
-                slug: "demo101",
-                title: "The First Demo",
-                type: "DEMO_101"
-            }
-        ]
-    }
-]
+    basicsCategory
+];

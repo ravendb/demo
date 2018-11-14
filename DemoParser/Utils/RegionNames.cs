@@ -4,6 +4,6 @@
     {
         public const string Usings = "Usings";
         public const string Demo = "Demo";
-        public const string WalkthroughPrefix = "Walk_";
+        public const string WalkthroughPrefix = "Step_";
     }
 }

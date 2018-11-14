@@ -18,10 +18,7 @@ interface SidebarStateProps {
     selectedLanguage: Language;
 }
 
-interface SidebarDispatchProps {
-}
-
-export type SidebarProps = SidebarOwnProps & SidebarStateProps & SidebarDispatchProps;
+export type SidebarProps = SidebarOwnProps & SidebarStateProps;
 
 interface SidebarDisplayState {
     sidebarCollapsed: boolean;
@@ -69,4 +66,4 @@ function mapStateToProps({ demos }: AppState): SidebarStateProps {
     };
 }
 
-export const Sidebar = connect<SidebarStateProps, SidebarDispatchProps, SidebarOwnProps>(mapStateToProps)(SidebarDisplay);
+export const Sidebar = connect<SidebarStateProps, {}, SidebarOwnProps>(mapStateToProps)(SidebarDisplay);

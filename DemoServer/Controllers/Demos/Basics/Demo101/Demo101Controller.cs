@@ -19,28 +19,33 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
         public override Task SetPrerequisites()
         {
             return Task.CompletedTask;
+            //TODO: set up the database
         }
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            #region Demo
+            var firstName = runParams.FirstName;
+            var lastName = runParams.LastName;
+
             var serverURL = "http://localhost:8080";
             var databaseName = "DemoExample";
+            //TODO: replace databaseName with user database
 
-            #region Walk_1
+            #region Demo
+            #region Step_1
             var documentStore = new DocumentStore
             {
-                Urls = new[] { serverURL },
+                Urls = new[] { serverURL }, //for example: serverUrl = "http://localhost:8080"
                 Database = databaseName
             };
             #endregion
 
-            #region Walk_2
+            #region Step_2
             documentStore.Initialize();
             #endregion
 
-            #region Walk_3
+            #region Step_3
             try
             {
                 documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(databaseName)));
@@ -57,16 +62,16 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
                 Phone = "(+972)052-5933777",
                 Contact = new Contact
                 {
-                    Name = "Ayende",
+                    Name = firstName + " " + lastName,
                     Title = "CEO"
                 }
             };
 
-            #region Walk_4
+            #region Step_4
             using (var session = documentStore.OpenSession())
             #endregion
             {
-                #region Walk_5
+                #region Step_5
                 session.Store(newCompany);
                 session.SaveChanges();
                 #endregion

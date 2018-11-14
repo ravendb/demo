@@ -41,7 +41,7 @@ namespace DemoParser.Tests.RegionParserTests
 
             Assert.Contains(result, x => x.Name == "Usings");
             Assert.Contains(result, x => x.Name == "Demo");
-            Assert.Contains(result, x => x.Name.StartsWith("Walk_"));
+            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
         }
 
         [Fact]
@@ -49,7 +49,7 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = Act();
 
-            Assert.Contains(result, x => x.Name.StartsWith("Walk_"));
+            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
         }
 
         private const string DefaultFilePath = "RegionParserTests\\Input.cs";

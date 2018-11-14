@@ -53,7 +53,7 @@ namespace DemoParser.Tests.DemoMergerTests
                     Url = "someurl2"
                 },
             },
-            Title = "walk_1",
+            Title = "step_1",
             DescriptionHtml = "some description"
         };
 
@@ -68,7 +68,7 @@ namespace DemoParser.Tests.DemoMergerTests
                     Url = "someurl"
                 }
             },
-            Title = "walk_2",
+            Title = "step_2",
             DescriptionHtml = "some description 2"
         };
 
@@ -83,7 +83,7 @@ namespace DemoParser.Tests.DemoMergerTests
                     Url = "someurl"
                 }
             },
-            Title = "walk_3",
+            Title = "step_3",
             DescriptionHtml = "some description 3"
         };
     }
