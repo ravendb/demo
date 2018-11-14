@@ -48,5 +48,5 @@ export function addHighlightHook() {
 }
 
 export function removeHighlightHook() {
-    Prism.hooks.remove('complete', prismCompleteHook);
+    Prism.hooks.remove && Prism.hooks.remove('complete', prismCompleteHook);
 }

@@ -3,7 +3,7 @@ import { AppState } from "../../../store/state";
 import { DemoThunkDispatch } from "../../../store";
 import { runDemo } from "../../../store/actions/demoActions";
 import { connect } from "react-redux";
-import { createDemoWithWalkthroughPath } from "../../../utils/paths";
+import { getFirstWalkthroughUrl } from "../../../store/helpers/walkthroughUrls";
 
 interface NavPanelOwnProps {
     resultsElementId?: string;
@@ -12,7 +12,7 @@ interface NavPanelOwnProps {
 interface NavPanelStateProps {
     categorySlug: string;
     demoSlug: string;
-    firstWtSlug?: string;
+    firstWtUrl?: string;
     settingPrerequisites: boolean;
 }
 
@@ -29,13 +29,8 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     walkthroughButton() {
-        const { categorySlug, demoSlug, firstWtSlug } = this.props;
-        const url = createDemoWithWalkthroughPath({
-            category: categorySlug,
-            demo: demoSlug,
-            wtSlug: firstWtSlug
-        });
-        return <a href={url} role="button" id="startWalkthrough" className="fab" >
+        const { firstWtUrl } = this.props;
+        return <a href={firstWtUrl} role="button" id="startWalkthrough" className="fab" >
             <i className="icon-learn"></i> Walkthrough
         </a>;
     }
@@ -62,14 +57,11 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, demo, settingPrerequisites } = demos;
-    const firstWt = demo && demo.walkthroughs
-        && demo.walkthroughs.length > 0
-        && demo.walkthroughs[0];
+    const { categorySlug, demoSlug, settingPrerequisites } = demos;
     return {
         categorySlug,
         demoSlug,
-        firstWtSlug: firstWt && firstWt.slug,
+        firstWtUrl: getFirstWalkthroughUrl(demos),
         settingPrerequisites
     };
 }

@@ -20,12 +20,6 @@ interface WalkthroughState {
     currentWalkthroughSlug?: string;
 }
 
-export function getCurrentWalkthrough(state: DemoState): DemoWalkthroughDto {
-    const slug = state.currentWalkthroughSlug;
-    return slug && state.demo && state.demo.walkthroughs
-        && state.demo.walkthroughs.find(x => x.slug === slug);
-}
-
 export type DemoState = ParametersState
     & RunResultsState
     & WalkthroughState
@@ -37,3 +31,14 @@ export type DemoState = ParametersState
         demo: DemoDto;
         loadingDemo: boolean;
     }
+
+export function getCurrentWalkthroughIndex(state: DemoState): number {
+    const slug = state.currentWalkthroughSlug;
+    const walkthroughs = slug && state.demo && state.demo.walkthroughs && state.demo.walkthroughs;
+    return walkthroughs ? walkthroughs.findIndex(x => x.slug === slug) : -1;
+}
+
+export function getCurrentWalkthrough(state: DemoState): DemoWalkthroughDto {
+    const i = getCurrentWalkthroughIndex(state);
+    return i === -1 ? null : state.demo.walkthroughs[i];
+}

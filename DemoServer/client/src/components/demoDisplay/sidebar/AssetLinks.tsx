@@ -2,6 +2,7 @@ import * as React from "react";
 import { AssetType, DemoAssetDto } from "../../../models/dtos";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
+import { AssetIcon } from "../../ui/AssetIcon";
 
 export interface AssetsItem {
     url: string;
@@ -14,26 +15,11 @@ interface AssetsProps {
 }
 
 class AssetLinksComponent extends React.Component<AssetsProps, {}> {
-    typeToIcon(type: AssetType): string {
-        switch (type) {
-            case "Document":
-                return "document";
-
-            case "Downloadable":
-                return "download";
-
-            case "Link":
-            default:
-                return "link";
-        }
-    }
-
     displayItem(item: AssetsItem, index: number) {
-        const { url, title, type } = item;
-        const icon = this.typeToIcon(type);
+        const { url, title } = item;
 
         return <li key={`asset_${title}${index}`}>
-            <i className={`icon-${icon}`}></i> <a href={url} target="_blank">{title}</a>
+            <AssetIcon {...item} /> <a href={url} target="_blank">{title}</a>
         </li>;
     }
 
