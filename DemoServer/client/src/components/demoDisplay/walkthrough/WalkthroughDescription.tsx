@@ -13,6 +13,7 @@ function WalkthroughDescriptionComponent(props: Props) {
     return <div className="walkthrough-description">
         <h3><RawHtml>{descriptionHtml}</RawHtml></h3>
     </div>;
+    // TODO: Make class "walkthrough-description" work here. Currently it has no effect.
 }
 
 export const WalkthroughDescription = connect<Props>(

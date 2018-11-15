@@ -21,7 +21,7 @@
     <Content Include="client\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Demos\Basics\Demo101\metadata.json">
+    <None Include="Controllers\Demos\Basics\CreateDatabase\metadata.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Controllers\Demos\demos.json">
@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <_ContentIncludedByDefault Remove="wwwroot\css\styles.min.css" />
+    <_ContentIncludedByDefault Remove="Controllers\Demos\Queries\Demo102\metadata.json" />
   </ItemGroup>
 
   <ItemGroup>

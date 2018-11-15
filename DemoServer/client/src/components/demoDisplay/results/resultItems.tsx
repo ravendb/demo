@@ -2,10 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 
-export const FileAdded = () => (
+export const DocumentCreated = () => (
     <div className="text-center">
         <img src="../img/file-added.png" />
-        <h2>File succesfully added</h2>
+        <h2>Document succesfully created</h2>
     </div>
 );
 

@@ -1,4 +1,4 @@
-import { DemoType } from "./demoNames";
+import { DemoType } from "./demoTypes";
 
 interface DemoInfo {
     slug: string;
@@ -17,13 +17,36 @@ const basicsCategory: Category = {
     title: "Basics",
     demos: [
         {
-            slug: "demo101",
-            title: "The First Demo",
-            type: "DEMO_101"
+            slug: "CreateDatabaseDemo",
+            title: "Create Database",
+            type: "DEMO_CreateDatabase"
+        },
+        {
+            slug: "CreateDocumentDemo",
+            title: "Create Document",
+            type: "DEMO_CreateDocument"
+        },
+        {
+            slug: "EditDocumentDemo",
+            title: "Edit Document",
+            type: "DEMO_EditDocument"
+        }
+    ]
+};
+
+const queriesCategory: Category = {
+    slug: "queries",
+    title: "Queries",
+    demos: [
+        {
+            slug: "SimpleQueryDemo",
+            title: "Simple Query",
+            type: "DEMO_SimpleQuery"
         }
     ]
 };
 
 export const categoryList: Category[] = [
-    basicsCategory
+    basicsCategory,
+    queriesCategory
 ];

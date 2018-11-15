@@ -483,3 +483,9 @@ hr {
     padding: $gutter-xs $gutter-xs;
     color: $gray-light;
 }
+
+.walkthrough-description {
+    background-color: darkblue; 
+    // TODO - Choose any other color...
+    // TODO - make this class work for the walkthrough steps descriptions. Currently used inside WalkthroughDesctription.tsx but has no effect.
+}

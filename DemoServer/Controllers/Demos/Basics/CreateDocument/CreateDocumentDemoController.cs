@@ -3,82 +3,77 @@ using DemoServer.Utils;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
-using Raven.Client.Exceptions;
 #endregion
-using Raven.Client.ServerWide;
-using Raven.Client.ServerWide.Operations;
 
-namespace DemoServer.Controllers.Demos.Basics.Demo101
+namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
-    public class Demo101Controller : DemoCodeController
+    public class CreateDocumentDemoController : DemoCodeController
     {
-        public Demo101Controller(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public CreateDocumentDemoController(HeadersAccessor headersAccessor) : base(headersAccessor)
         {
         }
 
         public override Task SetPrerequisites()
         {
             return Task.CompletedTask;
-            //TODO: set up the database
+            //TODO: Set up the database if does not exist
         }
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var firstName = runParams.FirstName;
-            var lastName = runParams.LastName;
+            var companyName = runParams.CompanyName;
+            var companyPhone = runParams.CompanyPhone;
+            var contactName = runParams.ContactName;
+            var contactTitle = runParams.ContactTitle;
 
             var serverURL = "http://localhost:8080";
             var databaseName = "DemoExample";
-            //TODO: replace databaseName with user database
-
+            
             #region Demo
+            
             #region Step_1
             var documentStore = new DocumentStore
             {
-                Urls = new[] { serverURL }, //for example: serverUrl = "http://localhost:8080"
+                Urls = new[] { serverURL }, 
                 Database = databaseName
             };
-            #endregion
-
-            #region Step_2
+           
             documentStore.Initialize();
+            #endregion
+            
+            #region Step_2
+            // Define the object to be stored 
+            var newCompany = new Company
+            {
+                Name = companyName,
+                Phone = companyPhone,
+                Contact = new Contact
+                {
+                    Name = contactName,
+                    Title = contactTitle
+                }
+            };
             #endregion
 
             #region Step_3
-            try
-            {
-                documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(databaseName)));
-            }
-            catch (ConcurrencyException)
-            {
-                // Database already exists
-            }
-            #endregion
-
-            var newCompany = new Company
-            {
-                Name = "Hibernating Rhinos",
-                Phone = "(+972)052-5933777",
-                Contact = new Contact
-                {
-                    Name = firstName + " " + lastName,
-                    Title = "CEO"
-                }
-            };
-
-            #region Step_4
+            // Open the session for work
             using (var session = documentStore.OpenSession())
             #endregion
             {
-                #region Step_5
+                #region Step_4
+                // Store the new company entity in the session
                 session.Store(newCompany);
+                #endregion
+                
+                #region Step_5
+                // Save the entity as a document in the database
                 session.SaveChanges();
                 #endregion
             }
             #endregion
 
-            return Ok("The database was created successfully");
+            return Ok("The document was created successfully");
         }
 
         public class Company
@@ -96,8 +91,10 @@ namespace DemoServer.Controllers.Demos.Basics.Demo101
 
         public class RunParams
         {
-            public string FirstName { get; set; }
-            public string LastName { get; set; }
+            public string CompanyName { get; set; }
+            public string CompanyPhone { get; set; }
+            public string ContactName { get; set; }
+            public string ContactTitle { get; set; }
         }
     }
 }

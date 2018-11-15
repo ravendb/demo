@@ -1,5 +1,8 @@
 import * as React from "react";
-import { Demo101 } from "./basics/Demo101";
+import { CreateDatabaseDemo } from "./basics/CreateDatabaseDemo";
+import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
+import { EditDocumentDemo } from "./basics/EditDocumentDemo";
+import { SimpleQueryDemo } from "./queries/SimpleQueryDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -31,8 +34,22 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
     const demoType = getDemoType(categorySlug, demoSlug);
 
     switch (demoType) {
-        case "DEMO_101":
-            return <Demo101 />;
+        // Catgegory Basics 
+        case "DEMO_CreateDatabase":
+            return <CreateDatabaseDemo />;
+            break;
+        case "DEMO_CreateDocument":
+            return <CreateDocumentDemo />;
+            break;
+        case "DEMO_EditDocument":
+            return <EditDocumentDemo />;
+            break;   
+            
+        // Category Queries    
+        case "DEMO_SimpleQuery":
+            return <SimpleQueryDemo />;
+        
+        // Category Todo...    
     }
 
     return <DemoNotFound />;

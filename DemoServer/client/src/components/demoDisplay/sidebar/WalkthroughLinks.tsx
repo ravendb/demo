@@ -32,7 +32,7 @@ class WalkthroughLinksComponent extends React.Component<WalkthroughProps, {}> {
         return <>
             <h2>Walkthrough</h2>
             <hr />
-            <ol className="walgrhough">
+            <ol className="walkthrough">
                 {items.map((x, i) => this.displayItem(x, i))}
             </ol>
         </>;

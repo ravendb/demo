@@ -1,0 +1,120 @@
+{
+    "Slug": "EditDocumentDemo",
+    "SourceFileName": "EditDocumentDemoController.cs",
+
+    "Assets": [
+        {
+            "Title": "The Document Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+        },
+        {
+            "Title": "What is a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+        },
+        {
+            "Title": "Opening a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+        },
+        {
+            "Title": "Loading Entities",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
+        },
+        {
+            "Title": "The Load Command",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#load"
+        },
+        {
+            "Title": "The SaveChanges Command",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+        },
+        {
+            "Title": "Saving Changes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Initialize the data store",
+            "Slug" : "step-1",
+            "DescriptionHtml": "Initialize the data store. Learn more in Demo: <em>Create Database</em>",
+            "Assets": [
+                {
+                    "Title": "Create Database Demo",
+                    "Type" : "link ",
+                    "Url"  : "https://www.google.com/"
+                    // TODO: update link
+                }
+            ]
+        },
+        {
+            "Title": "Open a Session",
+            "Slug" : "step-2",
+            "DescriptionHtml": "Once the document store is defined, direct communication with the database is done through the Session.<br/>The Session tracks the changes done to your entity objects.<br/>Any change made to your entities is persisted to the database when calling SaveChanges later on.<br/>Note: be sure to wrap the Session variable in a 'using' statement to ensure proper disposal.",
+            "Assets": [
+                {
+                    "Title": "The Document Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+                },
+                {
+                    "Title": "What is a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+                },
+                {
+                    "Title": "Opening a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+                }
+            ]
+        },
+        {
+            "Title": "Load an existing document",
+            "Slug" : "step-3",
+            "DescriptionHtml": "Load an existing document from the data store using 'session.Load'.<br/>The loaded document is added to the internal entities map (dictionary) that the session manages.<br/>The session will track all changes that will be made to this entity,<br/>so that when 'saveChanges' is called later on, the entity will be persisted to the data store only if it was changed.",
+            "Assets": [
+                {
+                    "Title": "Loading Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
+                },
+                {
+                    "Title": "The Load Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#load"
+                }
+            ]
+        },
+        {
+            "Title": "Edit the C# entity",
+            "Slug" : "step-4",
+            "DescriptionHtml": "Edit the C# entity",
+            "Assets": []
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-5",
+            "DescriptionHtml": "When calling SaveChanges, the loaded entity is compared with the entity as it was when loaded from the database.<br/>If any changes were made, that entity will be persisted to the database, in the related document.<br/>The session sends the changes to the server as a single remote call that completes transactionally.",
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}

@@ -5,7 +5,18 @@
             "directory": "Basics"
         },
         "demos": [
-            "Demo101"
+            "CreateDatabase",
+            "CreateDocument",
+            "EditDocument"
+        ]
+    },
+    {
+        "category": {
+            "slug": "queries",
+            "directory": "Queries"
+        },
+        "demos": [
+            "SimpleQuery"
         ]
     }
 ]
