@@ -7,9 +7,9 @@ using Raven.Client.Documents;
 
 namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
-    public class CreateDocumentDemoController : DemoCodeController
+    public class CreateDocumentController : DemoCodeController
     {
-        public CreateDocumentDemoController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public CreateDocumentController(HeadersAccessor headersAccessor) : base(headersAccessor)
         {
         }
 

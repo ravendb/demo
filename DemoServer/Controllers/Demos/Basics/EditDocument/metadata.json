@@ -1,6 +1,6 @@
 {
-    "Slug": "EditDocumentDemo",
-    "SourceFileName": "EditDocumentDemoController.cs",
+    "Slug": "edit-document",
+    "SourceFileName": "EditDocumentController.cs",
 
     "Assets": [
         {

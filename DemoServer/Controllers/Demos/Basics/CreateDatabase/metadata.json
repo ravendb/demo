@@ -1,6 +1,6 @@
 {
-    "Slug": "CreateDatabaseDemo",
-    "SourceFileName": "CreateDatabaseDemoController.cs",
+    "Slug": "create-database",
+    "SourceFileName": "CreateDatabaseController.cs",
 
     "Assets": [
         {

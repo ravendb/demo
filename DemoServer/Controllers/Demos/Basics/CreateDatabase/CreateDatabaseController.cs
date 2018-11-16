@@ -10,9 +10,9 @@ using Raven.Client.ServerWide.Operations;
 
 namespace DemoServer.Controllers.Demos.Basics.CreateDatabase
 {
-    public class CreateDatabaseDemoController : DemoCodeController
+    public class CreateDatabaseController : DemoCodeController
     {
-        public CreateDatabaseDemoController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public CreateDatabaseController(HeadersAccessor headersAccessor) : base(headersAccessor)
         {
         }
 

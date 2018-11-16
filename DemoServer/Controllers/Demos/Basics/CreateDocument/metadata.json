@@ -1,6 +1,6 @@
 {
-    "Slug": "CreateDocumentDemo",
-    "SourceFileName": "CreateDocumentDemoController.cs",
+    "Slug": "create-document",
+    "SourceFileName": "CreateDocumentController.cs",
 
     "Assets": [
         {

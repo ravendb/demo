@@ -43,11 +43,11 @@ export class DemoService extends Service {
 
 export class RunDemoService extends Service {
     constructor(demoName: string) {
-        super(`/${demoName}`);
+        super(`/execute/${demoName}`);
     }
 
     async setPrerequisites(): Promise<any> {
-        return this.postEmpty(`setPrerequisites`);
+        return this.postEmpty(`set-prerequisites`);
     }
 
     async run(dto: DemoParamsDto): Promise<object> {

@@ -6,9 +6,9 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
 {
-    public class SimpleQueryDemoController : DemoCodeController
+    public class SimpleQueryController : DemoCodeController
     {
-        public SimpleQueryDemoController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public SimpleQueryController(HeadersAccessor headersAccessor) : base(headersAccessor)
         {
         }
 

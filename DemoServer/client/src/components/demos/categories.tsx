@@ -17,17 +17,17 @@ const basicsCategory: Category = {
     title: "Basics",
     demos: [
         {
-            slug: "CreateDatabaseDemo",
+            slug: "create-database",
             title: "Create Database",
             type: "DEMO_CreateDatabase"
         },
         {
-            slug: "CreateDocumentDemo",
+            slug: "create-document",
             title: "Create Document",
             type: "DEMO_CreateDocument"
         },
         {
-            slug: "EditDocumentDemo",
+            slug: "edit-document",
             title: "Edit Document",
             type: "DEMO_EditDocument"
         }
@@ -39,7 +39,7 @@ const queriesCategory: Category = {
     title: "Queries",
     demos: [
         {
-            slug: "SimpleQueryDemo",
+            slug: "simple-query",
             title: "Simple Query",
             type: "DEMO_SimpleQuery"
         }

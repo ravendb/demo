@@ -7,9 +7,9 @@ using Raven.Client.Documents;
 
 namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
-    public class EditDocumentDemoController : DemoCodeController
+    public class EditDocumentController : DemoCodeController
     {
-        public EditDocumentDemoController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public EditDocumentController(HeadersAccessor headersAccessor) : base(headersAccessor)
         {
         }
 
