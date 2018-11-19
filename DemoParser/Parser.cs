@@ -58,9 +58,9 @@ namespace DemoParser
 
         private Demo ParseDemo(string demoFolder)
         {
-            var demo = _jsonImporter.GetMetadata(demoFolder);
-            var codeFilePath = Path.Join(demoFolder, demo.SourceFileName);
-            demo.Slug = demo.Slug.ToLower();
+            var demoJson = _jsonImporter.GetMetadata(demoFolder);
+            var codeFilePath = Path.Join(demoFolder, demoJson.SourceFileName);
+            var demo = demoJson.ToDemo();
 
             var codeOutput = DemoCodeBuilder.Initialize(codeFilePath)
                 .SetUsings()

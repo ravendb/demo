@@ -37,13 +37,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         // Catgegory Basics 
         case "DEMO_CreateDatabase":
             return <CreateDatabaseDemo />;
-            break;
         case "DEMO_CreateDocument":
             return <CreateDocumentDemo />;
-            break;
         case "DEMO_EditDocument":
             return <EditDocumentDemo />;
-            break;   
             
         // Category Queries    
         case "DEMO_SimpleQuery":

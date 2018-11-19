@@ -17,8 +17,53 @@ namespace DemoParser.Utils.Json
         public string Directory { get; set; }
     }
 
-    internal class JsonMetadata : Demo
+    internal class JsonMetadata
     {
         public string SourceFileName { get; set; }
+
+        public JsonMetadata()
+        {
+            Assets = new List<JsonDemoAsset>();
+            Walkthroughs = new List<JsonDemoWalkthrough>();
+        }
+
+        public string Slug { get; set; }
+
+        public string SourceCode { get; set; }
+
+        public string Hash { get; set; }
+
+        public int UsingsLastLine { get; set; }
+
+        public List<JsonDemoAsset> Assets { get; set; }
+
+        public List<JsonDemoWalkthrough> Walkthroughs { get; set; }
+    }
+
+    public class JsonDemoAsset
+    {
+        public AssetType Type { get; set; }
+
+        public string Title { get; set; }
+
+        public string Url { get; set; }
+    }
+
+    public class JsonDemoWalkthrough
+    {
+        public JsonDemoWalkthrough()
+        {
+            Assets = new List<JsonDemoAsset>();
+        }
+
+        public string Title { get; set; }
+
+        public string Slug { get; set; }
+
+        public List<string> DescriptionLines { get; set; }
+
+        public LinesRange Lines { get; set; }
+
+        public List<JsonDemoAsset> Assets { get; set; }
     }
 }

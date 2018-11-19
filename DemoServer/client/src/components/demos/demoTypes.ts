@@ -1,8 +1,7 @@
-export type DemoType = 
-                        // Category Basics 
-                       "DEMO_CreateDatabase" | 
-                       "DEMO_CreateDocument" |
-                       "DEMO_EditDocument"   |
-    
-                       // Category Queries
-                       "DEMO_SimpleQuery";
+type Basic = "DEMO_CreateDatabase" 
+    | "DEMO_CreateDocument"
+    | "DEMO_EditDocument";
+
+type Queries = "DEMO_SimpleQuery";
+
+export type DemoType = Basic | Queries;
