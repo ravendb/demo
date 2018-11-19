@@ -60,7 +60,6 @@ $global-easing: cubic-bezier(0, 0.5, 0.5, 1);
 $global-easing-in-out: cubic-bezier(0.6, 0, 0.6, 1);
 $global-easing-out: cubic-bezier(0.5, 0, 1, 0.5);
 
-
 $gutter: 30px;
 $gutter-ratio: 1.6180;
 $gutter-lg: $gutter * $gutter-ratio;
@@ -71,10 +70,6 @@ $gutter-xs: $gutter-sm / $gutter-ratio;
 $sidebar-width: 440px;
 
 $global-box-shadow: 0 0 20px 5px $gray-base;
-
-
-
-
 
 $zindex-line-highlight: 1;
 $zindex-code: 1022;
@@ -95,3 +90,6 @@ $dropdown-link-color: $gray-lighter;
 //@color-related: @color-4-3;
 //@link-color: #e33572;
 //@link-hover-color: #ff6565;
+
+$walkthrough-step-background-color: rgba(176, 196, 222, 0.8);
+$walkthrough-step-text-color: #000052;

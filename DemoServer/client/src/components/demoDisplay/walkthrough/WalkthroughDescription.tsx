@@ -6,21 +6,28 @@ import { getCurrentWalkthrough } from "../../../store/state/DemoState";
 
 interface Props {
     descriptionHtml: string;
+    title: string;
+    slug: string; 
 }
 
 function WalkthroughDescriptionComponent(props: Props) {
-    const { descriptionHtml } = props;
-    return <div className="walkthrough-description">
-        <h3><RawHtml>{descriptionHtml}</RawHtml></h3>
-    </div>;
-    // TODO: Make class "walkthrough-description" work here. Currently it has no effect.
+    const { descriptionHtml, title, slug } = props;
+    
+    const stepNumber = slug.split("-")[1];
+    
+    return <div className="walkthrough-step">
+              <h2>Step {stepNumber} : {title}</h2>
+              <h3><RawHtml>{descriptionHtml}</RawHtml></h3>
+           </div>;
 }
 
 export const WalkthroughDescription = connect<Props>(
     ({ demos }: AppState): Props => {
         const wt = getCurrentWalkthrough(demos);
         return {
-            descriptionHtml: wt && wt.descriptionHtml
+            descriptionHtml: wt && wt.descriptionHtml,
+            title: wt && wt.title,
+            slug: wt && wt.slug
         };
     }
 )(WalkthroughDescriptionComponent);

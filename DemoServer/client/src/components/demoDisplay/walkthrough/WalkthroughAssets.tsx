@@ -29,9 +29,13 @@ interface Props {
 
 function WalkthroughAssetsComponent(props: Props) {
     const { assets } = props;
-    return <ul className="list-withIcons">
-        {assets && assets.map((x, i) => <Asset dto={x} key={`wtasset_${i}`} />)}
-    </ul>;
+    
+    return <div className="walkthrough-step"> 
+              <h2>Related Links:</h2> 
+              <ul className="list-withIcons walkthrough-assets">
+                 {assets && assets.map((x, i) => <Asset dto={x} key={`wtasset_${i}`} />)}
+              </ul>
+           </div>
 }
 
 export const WalkthroughAssets = connect<Props>(
