@@ -1,6 +1,11 @@
 {
     "Slug": "edit-document",
     "SourceFileName": "EditDocumentController.cs",
+    "Title": "Edit Document",
+    "DescriptionLines": [
+        "Edit a document that is already stored in the database.",
+        "You will load an existing document from the Data Store, update it and save it back."
+    ],
 
     "Assets": [
         {

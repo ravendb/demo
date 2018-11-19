@@ -16,6 +16,8 @@ namespace DemoServer.Models
         public string SourceCode { get; set; }
         public string Hash { get; set; }
         public int UsingsLastLine { get; set; }
+        public string Title { get; set; }
+        public string DescriptionHtml { get; set; }
         public List<DemoAssetDto> Assets { get; set; }
         public List<DemoWalkthroughDto> Walkthroughs { get; set; }
 
@@ -30,6 +32,8 @@ namespace DemoServer.Models
                 SourceCode = demo.SourceCode,
                 Hash = demo.Hash,
                 UsingsLastLine = demo.UsingsLastLine,
+                Title = demo.Title,
+                DescriptionHtml = demo.DescriptionHtml,
                 Walkthroughs = walkthroughDtos,
                 Assets = assetDtos
             };

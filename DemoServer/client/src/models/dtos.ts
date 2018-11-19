@@ -23,6 +23,8 @@ export interface DemoDto {
     slug: string;
     sourceCode: string;
     usingsLastLine: number;
+    title: string;
+    descriptionHtml: string;
     assets: DemoAssetDto[];
     walkthroughs: DemoWalkthroughDto[];
 }

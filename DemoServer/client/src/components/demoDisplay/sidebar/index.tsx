@@ -9,16 +9,10 @@ import { Language } from "../../../models/commonModels";
 import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
-export interface SidebarOwnProps {
+interface SidebarProps {
     title: string;
-    description: React.ReactNode;
-}
-
-interface SidebarStateProps {
     selectedLanguage: Language;
 }
-
-export type SidebarProps = SidebarOwnProps & SidebarStateProps;
 
 interface SidebarDisplayState {
     sidebarCollapsed: boolean;
@@ -42,7 +36,7 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
     }
 
     render() {
-        const { title, description, selectedLanguage } = this.props;
+        const { title, selectedLanguage } = this.props;
         const { sidebarCollapsed } = this.state;
         const customClass = sidebarCollapsed ? "small" : "";
 
@@ -51,7 +45,7 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
             <div className="sidebar-body">
                 <Heading text={title} />
                 <LanguageSelect selected={selectedLanguage} />
-                <Description>{description}</Description>
+                <Description />
                 <WalkthroughLinks />
                 <AssetLinks />
             </div>
@@ -59,11 +53,12 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
     }
 }
 
-function mapStateToProps({ demos }: AppState): SidebarStateProps {
-    const { language } = demos;
+function mapStateToProps({ demos }: AppState): SidebarProps {
+    const { language, demo } = demos;
     return {
+        title: demo && demo.title,
         selectedLanguage: language
     };
 }
 
-export const Sidebar = connect<SidebarStateProps, {}, SidebarOwnProps>(mapStateToProps)(SidebarDisplay);
+export const Sidebar = connect<SidebarProps>(mapStateToProps)(SidebarDisplay);

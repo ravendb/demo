@@ -9,6 +9,8 @@ namespace DemoParser.Utils.Json
         public static Demo ToDemo(this JsonMetadata json)
         {
             var demo = new Demo();
+            demo.Title = json.Title;
+            demo.DescriptionHtml = ConvertToDescription(json.DescriptionLines);
             demo.Assets = json.Assets.Select(ToModel).ToList();
             demo.Walkthroughs = json.Walkthroughs.Select(ToModel).ToList();
             demo.Slug = json.Slug.ToLower();

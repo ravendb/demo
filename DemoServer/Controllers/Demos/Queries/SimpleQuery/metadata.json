@@ -1,6 +1,10 @@
 {
     "Slug": "simple-query",
     "SourceFileName": "SimpleQueryController.cs",
+    "Title": "Simple Query",
+    "DescriptionLines": [
+        "Simple Query Demo Description."
+    ],
 
     "Assets": [],
 

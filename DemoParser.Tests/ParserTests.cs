@@ -45,6 +45,8 @@ namespace DemoParser.Tests
             var result = Act(DefaultSettings);
 
             AssertAllDemos(result, Assert.NotNull);
+            AssertAllDemos(result, d => Assert.NotEmpty(d.Title));
+            AssertAllDemos(result, d => Assert.NotEmpty(d.DescriptionHtml));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Assets));
             AssertAllDemos(result, d => Assert.NotEmpty(d.Walkthroughs));
         }

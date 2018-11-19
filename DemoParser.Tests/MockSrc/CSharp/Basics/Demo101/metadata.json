@@ -1,6 +1,11 @@
 {
-    "Slug":  "Demo101",
+    "Slug": "Demo101",
     "SourceFileName": "Demo101Controller.cs",
+    "Title": "Demo101 Title",
+    "DescriptionLines": [
+        "This is the multi-line demo description",
+        "Here is the second line."
+    ],
 
     "Assets": [
         {

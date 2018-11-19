@@ -18,6 +18,10 @@ namespace DemoParser.Models
 
         public int UsingsLastLine { get; set; }
 
+        public string Title { get; set; }
+
+        public string DescriptionHtml { get; set; }
+
         public List<DemoAsset> Assets { get; set; }
 
         public List<DemoWalkthrough> Walkthroughs { get; set; }

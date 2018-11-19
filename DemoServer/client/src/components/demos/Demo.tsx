@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Page } from "../Layout";
-import { Sidebar, SidebarOwnProps } from "../demoDisplay/sidebar";
+import { Sidebar } from "../demoDisplay/sidebar";
 import { DemoBody, DemoBodyOwnProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
 
-export type DemoOwnProps = SidebarOwnProps & DemoBodyOwnProps;
+export type DemoOwnProps = DemoBodyOwnProps;
 
 export interface DemoStateProps {
     categorySlug: string;

@@ -7,8 +7,6 @@ const resultsCreator = () => <>
 </>;
 
 export const SimpleQueryDemo = () => <Demo
-    title = "Simple Query"
-    description = "Simple Query Demo Descdription."
     paramDefinitions = { [] }
     resultsComponents = { resultsCreator }
 />;
