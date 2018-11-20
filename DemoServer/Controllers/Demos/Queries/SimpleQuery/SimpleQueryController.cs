@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 #endregion
@@ -8,11 +9,12 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
 {
     public class SimpleQueryController : DemoCodeController
     {
-        public SimpleQueryController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public SimpleQueryController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
+            headersAccessor, databaseAccessor)
         {
         }
 
-        public override Task SetPrerequisites()
+        protected override Task SetDemoPrerequisites()
         {
             return Task.CompletedTask;
         }

@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
@@ -9,11 +10,12 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
     public class CreateDocumentController : DemoCodeController
     {
-        public CreateDocumentController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public CreateDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
+            headersAccessor, databaseAccessor)
         {
         }
 
-        public override Task SetPrerequisites()
+        protected override Task SetDemoPrerequisites()
         {
             return Task.CompletedTask;
             //TODO: Set up the database if does not exist

@@ -1,4 +1,5 @@
 ﻿using DemoServer.Utils;
+using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -47,6 +48,8 @@ namespace DemoServer
             services.AddSingleton(demoContainer);
 
             services.AddScoped<HeadersAccessor>();
+            services.AddScoped<DocumentStoreHolder>();
+            services.AddScoped<DatabaseAccessor>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

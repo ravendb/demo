@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents;
@@ -12,11 +13,12 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDatabase
 {
     public class CreateDatabaseController : DemoCodeController
     {
-        public CreateDatabaseController(HeadersAccessor headersAccessor) : base(headersAccessor)
+        public CreateDatabaseController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
+            headersAccessor, databaseAccessor)
         {
         }
 
-        public override Task SetPrerequisites()
+        protected override Task SetDemoPrerequisites()
         {
             return Task.CompletedTask;
             //TODO: Delete the database if exists
