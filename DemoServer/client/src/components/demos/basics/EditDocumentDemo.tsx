@@ -8,7 +8,6 @@ const resultsCreator = () => <>
 
 export const EditDocumentDemo = () => <Demo
     paramDefinitions = {[
-        { type: "text", name: "documentID", placeholder: "companies/1-A" },
         { type: "text", name: "companyName", placeholder: "New Company Name" }
     ]}
     resultsComponents = {resultsCreator}

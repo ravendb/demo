@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using DemoServer.Utils;
+﻿using DemoServer.Utils;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -12,11 +11,6 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
         public SimpleQueryController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
             headersAccessor, databaseAccessor)
         {
-        }
-
-        protected override Task SetDemoPrerequisites()
-        {
-            return Task.CompletedTask;
         }
 
         [HttpPost]

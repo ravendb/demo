@@ -13,22 +13,22 @@ namespace DemoServer.Controllers.Demos
     public abstract class DemoCodeController : Controller
     {
         private readonly HeadersAccessor _headersAccessor;
-        private readonly DatabaseAccessor _databaseAccessor;
+        protected readonly DatabaseAccessor DatabaseAccessor;
 
         protected DemoCodeController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor)
         {
             _headersAccessor = headersAccessor;
-            _databaseAccessor = databaseAccessor;
+            DatabaseAccessor = databaseAccessor;
         }
 
         [HttpPost]
         public async Task SetPrerequisites()
         {
-            _databaseAccessor.EnsureUserDatabaseExists(UserId);
+            DatabaseAccessor.EnsureUserDatabaseExists(UserId);
             await SetDemoPrerequisites();
         }
 
-        protected abstract Task SetDemoPrerequisites();
+        protected virtual Task SetDemoPrerequisites() => Task.CompletedTask;
 
         protected Guid UserId => _headersAccessor.GetUserIdFromRequest();
     }

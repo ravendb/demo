@@ -27,9 +27,8 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDatabase
         [HttpPost]
         public IActionResult Run()
         {
-            var serverURL = "http://localhost:8080";
-            var databaseName = "DemoExample";
-            //TODO: replace databaseName with the user database
+            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
+            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
 
             #region Demo
             
@@ -37,7 +36,7 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDatabase
             // Init the Document Store
             var documentStore = new DocumentStore
             {
-                Urls = new[] { serverURL }, // For example: serverUrl = "http://localhost:8080"
+                Urls = new[] { serverUrl }, // For example: serverUrl = "http://localhost:8080"
                 Database = databaseName
             };
             

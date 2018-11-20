@@ -14,11 +14,17 @@ namespace DemoServer.Utils.Database
             ValidateSettings();
         }
 
+        private void ValidateSettings()
+        {
+            if (_databaseSettings.Urls == null || _databaseSettings.Urls.Length == 0)
+                throw new InvalidOperationException($"{nameof(_databaseSettings.Urls)} was not provided in the application settings");
+        }
+
         public IDocumentStore InitializeFor(string databaseName)
         {
             var store = new DocumentStore
             {
-                Urls = _databaseSettings.Urls.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries),
+                Urls = _databaseSettings.Urls,
                 Database = databaseName
             };
 
@@ -35,12 +41,6 @@ namespace DemoServer.Utils.Database
             }
 
             return store.Initialize();
-        }
-
-        private void ValidateSettings()
-        {
-            if (string.IsNullOrEmpty(_databaseSettings.Urls))
-                throw new InvalidOperationException($"{nameof(_databaseSettings.Urls)} was not provided in the application settings");
         }
     }
 }

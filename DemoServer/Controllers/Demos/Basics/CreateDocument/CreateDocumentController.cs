@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using DemoServer.Utils;
+﻿using DemoServer.Utils;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -15,12 +14,6 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
         {
         }
 
-        protected override Task SetDemoPrerequisites()
-        {
-            return Task.CompletedTask;
-            //TODO: Set up the database if does not exist
-        }
-
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
@@ -29,15 +22,15 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             var contactName = runParams.ContactName;
             var contactTitle = runParams.ContactTitle;
 
-            var serverURL = "http://localhost:8080";
-            var databaseName = "DemoExample";
+            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
+            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
             
             #region Demo
             
             #region Step_1
             var documentStore = new DocumentStore
             {
-                Urls = new[] { serverURL }, 
+                Urls = new[] { serverUrl }, 
                 Database = databaseName
             };
            

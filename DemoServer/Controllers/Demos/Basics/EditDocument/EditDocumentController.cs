@@ -10,33 +10,38 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
     public class EditDocumentController : DemoCodeController
     {
+        private const string DocumentId = "companies/1-A";
+
         public EditDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
             headersAccessor, databaseAccessor)
         {
         }
 
+        private Company InitialCompany => new Company
+        {
+            Id = DocumentId,
+            Name = "Company Name",
+            Phone = "(+972)52-5486969"
+        };
+
         protected override Task SetDemoPrerequisites()
         {
-            return Task.CompletedTask;
-            //TODO: Set up the database if does not exist
-            //TODO: Verify the document exists in the database
+            return DatabaseAccessor.SaveInitialDocument(UserId, InitialCompany);
         }
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var documentID = runParams.DocumentID;
             var companyName = runParams.CompanyName;
 
-            var serverURL = "http://localhost:8080";
-            var databaseName = "DemoExample";
-         
+            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
+            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
+
             #region Demo
-            
             #region Step_1
             var documentStore = new DocumentStore
             {
-                Urls = new[] { serverURL }, 
+                Urls = new[] { serverUrl }, 
                 Database = databaseName
             };
             
@@ -50,7 +55,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             {
                 #region Step_3
                 // Load the document 
-                var company = session.Load<Company>(documentID);
+                var company = session.Load<Company>("companies/1-A");
                 #endregion
                 
                 #region Step_4
@@ -65,11 +70,12 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             }
             #endregion
             
-            return Ok($"Document {documentID} was edited successfully");
+            return Ok($"Document {DocumentId} was edited successfully");
         }
 
         public class Company
         {
+            public string Id { get; set; }
             public string Name { get; set; }
             public string Phone { get; set; }
             public Contact Contact { get; set; }
@@ -83,7 +89,6 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         public class RunParams
         {
-            public string DocumentID { get; set; }
             public string CompanyName { get; set; }
         }
     }

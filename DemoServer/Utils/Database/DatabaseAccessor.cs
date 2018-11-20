@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Threading.Tasks;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
+using Raven.Client.Documents.Session;
 using Raven.Client.Exceptions;
 using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
@@ -13,10 +15,31 @@ namespace DemoServer.Utils.Database
         private const string UserDatabasePrefix = "User-";
 
         private readonly DocumentStoreHolder _documentStoreHolder;
+        private readonly Settings.DatabaseSettings _databaseSettings;
 
-        public DatabaseAccessor(DocumentStoreHolder documentStoreHolder)
+        public DatabaseAccessor(DocumentStoreHolder documentStoreHolder, Settings settings)
         {
             _documentStoreHolder = documentStoreHolder;
+            _databaseSettings = settings.Database;
+        }
+
+        public string GetDatabaseName(Guid userId) => $"{UserDatabasePrefix}{userId.ToString()}";
+
+        public string GetFirstDatabaseUrl()
+        {
+            return _databaseSettings.Urls[0];
+        }
+
+        private IDocumentStore GetDocumentStore(Guid userId)
+        {
+            var databaseName = GetDatabaseName(userId);
+            return _documentStoreHolder.InitializeFor(databaseName);
+        }
+
+        private IAsyncDocumentSession GetSession(Guid userId)
+        {
+            var documentStore = GetDocumentStore(userId);
+            return documentStore.OpenAsyncSession();
         }
 
         public void EnsureUserDatabaseExists(Guid userId)
@@ -28,14 +51,6 @@ namespace DemoServer.Utils.Database
 
             CreateDatabase(documentStore);
         }
-
-        private IDocumentStore GetDocumentStore(Guid userId)
-        {
-            var databaseName = GetDatabaseName(userId);
-            return _documentStoreHolder.InitializeFor(databaseName);
-        }
-
-        private string GetDatabaseName(Guid userId) => $"{UserDatabasePrefix}{userId.ToString()}";
 
         private bool DoesDatabaseExist(IDocumentStore documentStore)
         {
@@ -61,6 +76,15 @@ namespace DemoServer.Utils.Database
             catch (ConcurrencyException)
             {
                 // The database was already created before calling CreateDatabaseOperation
+            }
+        }
+
+        public async Task SaveInitialDocument<T>(Guid userId, T document)
+        {
+            using (var session = GetSession(userId))
+            {
+                await session.StoreAsync(document);
+                await session.SaveChangesAsync();
             }
         }
     }
