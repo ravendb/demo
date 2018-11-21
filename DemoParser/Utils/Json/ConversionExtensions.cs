@@ -43,7 +43,6 @@ namespace DemoParser.Utils.Json
             };
         }
 
-        private static string ConvertToDescription(IEnumerable<string> descriptionLines) =>
-            string.Join("<br />", descriptionLines);
+        private static string ConvertToDescription(IEnumerable<string> descriptionLines) => string.Join("", descriptionLines);
     }
 }
