@@ -87,5 +87,17 @@ namespace DemoServer.Utils.Database
                 await session.SaveChangesAsync();
             }
         }
+
+        public async Task DeleteDatabase(Guid userId)
+        {
+            var documentStore = GetDocumentStore(userId);
+            await DeleteDatabase(documentStore);
+        }
+
+        private Task DeleteDatabase(IDocumentStore documentStore)
+        {
+            var operation = new DeleteDatabasesOperation(documentStore.Database, hardDelete: true);
+            return documentStore.Maintenance.Server.SendAsync(operation);
+        }
     }
 }
