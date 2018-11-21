@@ -490,7 +490,6 @@ hr {
     display: block;
 }
 
-
 .dropdown-item-text {
     display: block;
     padding: $gutter-xs $gutter-xs;
@@ -504,7 +503,7 @@ hr {
     margin-right: 30px;
     margin-top: 10px;
     // TODO - make margins similar to the highlight-left #id
-    border: 2px solid red;
+    border: 2px solid $brand-primary;
     border-radius: 25px;
     // TODO - Decide on the above colors
     
