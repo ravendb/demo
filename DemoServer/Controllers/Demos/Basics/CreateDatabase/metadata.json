@@ -3,10 +3,10 @@
     "SourceFileName": "CreateDatabaseController.cs",
     "Title": "Create Database",
     "DescriptionLines": [
-        "Create a Database in RavenDB Server.",
-        "The database will hold your JSON documents.",
-        "If you have more than one server instance in your RavenDB cluster,",
-        "then you can set the database replication factor."
+        "<p>Create a Database in RavenDB Server.<br>",
+        "The database will hold your JSON documents.</p>",
+        "<p>If you have more than one server instance in your RavenDB cluster,",
+        "then you can set the database replication factor.</p>"
     ],
 
     "Assets": [
@@ -37,9 +37,9 @@
             "Title": "Initialize the Document Store",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "The document store is the main client API object that establishes the communication with the RavenDB cluster.",
-                "It exposes methods to perform operations against an associated server instance,",
-                "holding the configuration, topology, cache and any customizations that you might have applied.",
+                "The document store is the main client API object that establishes the communication with the RavenDB cluster.<br><br>",
+                "It exposes methods to perform operations against an associated server instance,<br>",
+                "holding the configuration, topology, cache and any customizations that you might have applied.<br><br>",
                 "A single instance of a Document Store should be used per the life time of the application."
             ],
             "Assets": [
@@ -74,9 +74,9 @@
             "Title": "Create a database in RavenDB server",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "An instance of a <em>DatabaseRecord</em> object containing the database name and configuration is provided to the <em>Create Database Operation.</em>",
-                "The database replication factor can be specified at this time, otherwise the default is 1.",
-                "Note: an exception is thrown if the database already exists."
+                "An instance of a <em>DatabaseRecord</em> object containing the database name and configuration is provided to the <em>Create Database Operation.</em><br><br>",
+                "The database replication factor can be specified at this time, otherwise the default is 1.<br><br>",
+                "Note: an exception is thrown if the database already exists.<br>"
             ],
             "Assets": [
                 {
