@@ -24,7 +24,7 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
         return <div className="demo-body">
             <div id="demo-body-container">
                 {showWalkthrough && <WalkthroughOverlay />}
-                {paramDefinitions && <Parameters paramDefinitions={paramDefinitions} />}
+                {paramDefinitions && paramDefinitions.length > 0 && <Parameters paramDefinitions={paramDefinitions} />}
                 <Code />
                 <NavPanel resultsElementId={resultsId} />
                 <ResultsPanel elementId={resultsId}>

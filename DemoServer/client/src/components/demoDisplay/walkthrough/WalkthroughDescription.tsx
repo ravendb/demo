@@ -13,11 +13,11 @@ interface Props {
 function WalkthroughDescriptionComponent(props: Props) {
     const { descriptionHtml, title, slug } = props;
     
-    const stepNumber = slug.split("-")[1];
+    const stepNumber = slug && slug.split("-")[1];
     
     return <div className="walkthrough-step">
               <h2>Step {stepNumber} : {title}</h2>
-              <h3><RawHtml>{descriptionHtml}</RawHtml></h3>
+              <div className="description"><RawHtml>{descriptionHtml}</RawHtml></div>
            </div>;
 }
 

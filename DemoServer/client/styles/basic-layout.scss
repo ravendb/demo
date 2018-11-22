@@ -231,39 +231,11 @@ hr {
     position: absolute;
     padding: .1px;
     min-width: 100%;
+    min-height: 100%;
 }
 
 #preview-source-code {
     z-index: $zindex-code;
-}
-
-#demo-highlight {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    z-index: $zindex-walkthrough-overlay;
-    #highlight-top, #highlight-right, #highlight-bottom, #highlight-left {
-        position: absolute;
-        background-color: rgba($gray-dark, .8);
-        z-index: 1020;
-    }
-    #highlight-top {
-        top:0;
-        width: 100%;
-    }
-    #highlight-right {
-        right: 0;
-    }
-    #highlight-bottom {
-        bottom: 0;
-        width: 100%;
-    }
-    #highlight-left {
-        left: 0;
-    }
-    
 }
 
 .demo-body {
@@ -490,37 +462,9 @@ hr {
     display: block;
 }
 
+
 .dropdown-item-text {
     display: block;
     padding: $gutter-xs $gutter-xs;
     color: $gray-light;
-}
-
-.walkthrough-step {
-    background-color: $walkthrough-step-background-color;   
-    color: $walkthrough-step-text-color;   
-    margin-left: 30px;
-    margin-right: 30px;
-    margin-top: 10px;
-    // TODO - make margins similar to the highlight-left #id
-    border: 2px solid $brand-primary;
-    border-radius: 25px;
-    // TODO - Decide on the above colors
-    
-    h2 {
-        margin: 5px;
-        margin-top: 15px;
-        padding: 5px;
-        padding-top: 10px;
-    }
-    
-    h3 {
-        margin: 5px;
-        padding: 5px;
-        padding-bottom: 10px;        
-    }
-}
-
-.walkthrough-assets {
-   margin-left: 10px;
 }

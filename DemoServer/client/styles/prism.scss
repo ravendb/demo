@@ -150,14 +150,15 @@ pre[data-line] {
     position: absolute;
     left: 0;
     right: 0;
-    padding: inherit 0;
+    padding: 0;
     margin-top: 1em; /* Same as .prism’s padding-top */
-    background: $gray-darker;
+    background: transparent;
     //background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
     pointer-events: none;
     line-height: inherit;
     white-space: pre;
-    z-index: $zindex-line-highlight;
+	z-index: $zindex-line-highlight;
+	//transition: all .4 ease;
 }
 
 	.line-highlight:before,

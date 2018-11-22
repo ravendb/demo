@@ -14,26 +14,47 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
         super(props);
     }
 
+    navButton(url: string, text: string, btnClass: string) {
+        let className = "walkthrough-nav ";
+        if (!url) {
+            className += " disabled";
+        }
+        className += btnClass;
+
+        return <a href={url || null} role="button" className={className}>{text}</a>;
+    }
+
     previousButton() {
         const { previousUrl } = this.props;
-        return previousUrl && <a href={previousUrl} role="button" className="fab">Previous</a>;
+        return this.navButton(previousUrl, "‹  Previous", "nav-prev");
     }
 
     nextButton() {
         const { nextUrl } = this.props;
-        return nextUrl && <a href={nextUrl} role="button" className="fab">Next</a>;
+        return this.navButton(nextUrl, "Next  ›", "nav-next");
     }
 
     closeButton() {
         const { closeUrl } = this.props;
-        return <a href={closeUrl} role="button" className="fab">Close</a>;
+        return this.navButton(closeUrl, "Close walthrough  ×", "nav-close");
     }
 
     render() {
-        return <div>
-            {this.previousButton()}<br />
-            {this.nextButton()}<br /><br />
+        return <div className="walkthrough-header">
+        <h1><i className="icon-learn"></i> CODE WALKTHROUGH</h1>
+        <div className="flex-grow"></div>
+            <div className="walkthrough-nav-container">
+            {this.previousButton()}
+            <div id="walkthroughProgress">
+                <div className="item active"></div>
+                <div className="item active"></div>
+                <div className="item active"></div>
+                <div className="item"></div>
+                <div className="item"></div>
+            </div>
+            {this.nextButton()}
             {this.closeButton()}
+            </div>
         </div>;
     }
 }

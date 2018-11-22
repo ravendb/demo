@@ -1,0 +1,138 @@
+
+#demo-highlight {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: $zindex-walkthrough-overlay;
+    #highlight-top, #highlight-right, #highlight-bottom, #highlight-left {
+        position: absolute;
+        background-color: $highlight-bg;
+        z-index: 1020;
+    }
+
+    #highlight-top {
+        transition: height .4s ease;
+    }
+
+    #highlight-bottom {
+        transition: min-height .4s ease, top .4s ease;
+        left: 0;
+        right: 0;
+    }
+
+    #highlight-top {
+        top:0;
+    }
+
+    #highlight-left, #highlight-right {
+        top: 0;
+        //min-height: 100%;
+        transition: height .4s ease;
+    }
+    #highlight-right {
+        right: 0;
+    }
+
+    #highlight-left {
+        left: 0;        
+    }
+}
+
+#walkthroughProgress {
+    flex-grow: 1;
+    display: flex;
+    counter-reset: progres;
+    margin: $gutter-xxs;
+    flex-shrink: 1;
+    min-width: 70px;
+
+    .item {
+        margin: 2px;
+        height: 3px;
+        background-color: $gray-base;
+        flex-grow: 1;
+        flex-basis: 0;
+
+        &.active {
+            background-color: $color-5;
+        }
+    }
+}
+
+
+.walkthrough-header {
+    position: sticky;
+    top: $gutter;
+    display: flex;
+    flex-wrap: wrap;
+    
+
+    h1 {
+        font-weight: 300;
+        margin: 0;
+        margin-right: $gutter;
+        color: $gray-light;
+        i {
+            margin-right: $gutter-xs;
+        }
+        margin-bottom: $gutter-sm;
+    }
+
+   
+
+    .walkthrough-nav-container {
+        flex-grow: 1;
+        margin: -$gutter-xxs;
+        display: flex;
+        align-items: center;
+        a {
+            background-color: $gray-darker;
+            color: $gray-light;
+            padding: $gutter-xxs $gutter;
+            margin: $gutter-xxs;
+            text-decoration: none;
+            flex-shrink: 0;
+            &:hover {
+                background-color: $brand-primary;
+                color: $gray-lighter;
+            }
+
+            &.nav-next {
+                background-color: $color-5;
+                color: $gray-lighter;
+
+                &:hover {
+                    background-color: saturate( lighten( $color-5, 10% ), 10% );
+                }
+            }
+    
+        }
+    }
+}
+
+.walkthrough-desciprion {
+    padding: $gutter;
+    display: flex;
+    h2, h3 {
+        margin-top: 0;
+        padding-bottom: $gutter-sm;
+        border-bottom: 1px solid $gray-light;
+        color: $gray-lighter;
+    }
+
+    .description {
+        max-width: 45em;
+    }
+
+    .walkthrough-step {
+        margin-right: $gutter;
+        flex-grow: 1;
+    }
+
+    .walkthrough-assets {
+        width: 300px;
+    }
+}
+

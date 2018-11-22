@@ -1,20 +1,21 @@
 ﻿.sidebar {
     .walkthrough {
-        
-        a {
-            color: $color-5;
-
-            &:hover {
-                color: saturate( lighten( $color-5, 25% ), 10% );
+        li {
+            &.active {
+                a {
+                    color: $gray-lighter;
+                }
             }
 
-            &:active {
-                color: black;
-                background-color: lightseagreen;
+            a {
+                color: $color-5;
+
+                &:hover {
+                    color: saturate( lighten( $color-5, 25% ), 10% );
+                }
+
+                
             }
-            
-            //TODO: The above '&:active' only works when clicking the mouse.Need to make the highlight 'stay' after the click 
-            //TODO: Rafal - Please decide the colors...
         }
     }
 }
