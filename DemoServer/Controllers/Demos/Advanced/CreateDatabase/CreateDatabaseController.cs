@@ -9,7 +9,7 @@ using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Basics.CreateDatabase
+namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
 {
     public class CreateDatabaseController : DemoCodeController
     {

@@ -1,7 +1,8 @@
-type Basic = "DEMO_CreateDatabase" 
-    | "DEMO_CreateDocument"
-    | "DEMO_EditDocument";
+type Basic = "DEMO_CreateDocument" | 
+             "DEMO_EditDocument";
 
 type Queries = "DEMO_SimpleQuery";
 
-export type DemoType = Basic | Queries;
+type Advanced = "DEMO_CreateDatabase"
+
+export type DemoType = Basic | Queries | Advanced;

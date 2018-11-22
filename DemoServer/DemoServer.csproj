@@ -21,9 +21,6 @@
     <Content Include="client\favicon.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Controllers\Demos\Basics\CreateDatabase\metadata.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Controllers\Demos\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -53,6 +50,10 @@
     <Content Update="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\Demos\Advanced" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug' And !Exists('wwwroot/dev/js')">

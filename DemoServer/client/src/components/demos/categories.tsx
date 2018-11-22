@@ -17,11 +17,6 @@ const basicsCategory: Category = {
     title: "Basics",
     demos: [
         {
-            slug: "create-database",
-            title: "Create Database",
-            type: "DEMO_CreateDatabase"
-        },
-        {
             slug: "create-document",
             title: "Create Document",
             type: "DEMO_CreateDocument"
@@ -46,7 +41,20 @@ const queriesCategory: Category = {
     ]
 };
 
+const advancedCategory: Category = {
+    slug: "advanced",
+    title: "Advanced",
+    demos: [
+        {
+            slug: "create-database",
+            title: "Create Database",
+            type: "DEMO_CreateDatabase"
+        }
+    ]
+};
+
 export const categoryList: Category[] = [
     basicsCategory,
-    queriesCategory
+    queriesCategory,
+    advancedCategory
 ];

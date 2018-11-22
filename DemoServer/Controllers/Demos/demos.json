@@ -5,7 +5,6 @@
             "directory": "Basics"
         },
         "demos": [
-            "CreateDatabase",
             "CreateDocument",
             "EditDocument"
         ]
@@ -17,6 +16,15 @@
         },
         "demos": [
             "SimpleQuery"
+        ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "Advanced"
+        },
+        "demos": [
+            "CreateDatabase"
         ]
     }
 ]

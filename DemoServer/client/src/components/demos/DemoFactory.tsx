@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CreateDatabaseDemo } from "./basics/CreateDatabaseDemo";
+import { CreateDatabaseDemo } from "./advanced/CreateDatabaseDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { SimpleQueryDemo } from "./queries/SimpleQueryDemo";
@@ -34,9 +34,7 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
     const demoType = getDemoType(categorySlug, demoSlug);
 
     switch (demoType) {
-        // Catgegory Basics 
-        case "DEMO_CreateDatabase":
-            return <CreateDatabaseDemo />;
+        // Category Basics         
         case "DEMO_CreateDocument":
             return <CreateDocumentDemo />;
         case "DEMO_EditDocument":
@@ -46,7 +44,9 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         case "DEMO_SimpleQuery":
             return <SimpleQueryDemo />;
         
-        // Category Todo...    
+        // Category Advanced
+        case "DEMO_CreateDatabase":
+            return <CreateDatabaseDemo />;   
     }
 
     return <DemoNotFound />;
