@@ -4,7 +4,7 @@
     "Title": "Edit Document",
     "DescriptionLines": [
         "<p>Edit a document that is already stored in the database.<br>",
-        "You will load an existing document from the Data Store, update it and save it back.</p>"
+        "You will load an existing document from the Document Store, update it and save it back.</p>"
     ],
 
     "Assets": [
@@ -63,10 +63,10 @@
             "Title": "Open a Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "Once the document store is defined, direct communication with the database is done through the Session.<br>",
-                "The Session tracks the changes done to your entity objects.<br><br>",
-                "Any change made to your entities is persisted to the database when calling <em>SaveChanges</em> later on.<br><br>",
-                "Note: be sure to wrap the Session variable in a <em>'using'</em> statement to ensure proper disposal."
+                "Once the document store is defined, direct communication with the database is done through the `Session`.<br>",
+                "The `Session` tracks the changes done to your entity objects.<br><br>",
+                "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.<br><br>",
+                "**Note:** be sure to wrap the Session variable in a 'using' statement to ensure proper disposal."
             ],
             "Assets": [
                 {
@@ -90,10 +90,10 @@
             "Title": "Load an existing document",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Load an existing document from the data store using <em>'session.Load'</em>.<br>",
+                "Load an existing document from the data store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.<br><br>",
                 "The session will track all changes that will be made to this entity,<br>",
-                "so that when <em>'SaveChanges'</em> is called later on, the entity will be persisted to the data store only if it was changed."
+                "so that when `SaveChanges()` is called later on, the entity will be persisted to the data store only if it was changed."
             ],
             "Assets": [
                 {
@@ -118,7 +118,7 @@
             "Title": "Save the changes",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "When calling <em>SaveChanges</em>, the loaded entity is compared with the entity as it was when loaded from the database.<br>",
+                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.<br>",
                 "If any changes were made, that entity will be persisted to the database, in the related document.<br><br>",
                 "The session sends the changes to the server as a single remote call that completes transactionally."
 

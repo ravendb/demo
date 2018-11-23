@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { RawHtml } from "../../helpers/RawHtml";
+import { Markdown } from "../../helpers/Markdown";
 
 interface Props {
     descriptionHtml: string;
@@ -12,7 +12,7 @@ function DescriptionComponent(props: Props) {
     return <>
         <h2>Description</h2>
         <hr />
-        <RawHtml>{descriptionHtml}</RawHtml>
+        <Markdown>{descriptionHtml}</Markdown>
     </>;
 }
 

@@ -1,10 +1,6 @@
 import * as React from "react";
 
-interface RawHtmlProps {
-    className?: string;
-}
-
-export class RawHtml extends React.Component<RawHtmlProps, {}> {
+export class RawHtml extends React.Component<{}, {}> {
     rawInput() {
         const input = this.props.children as string;
         return { __html: input };
