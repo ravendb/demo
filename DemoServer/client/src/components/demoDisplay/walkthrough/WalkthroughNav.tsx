@@ -2,6 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough } from "../../../store/helpers/walkthroughUrls";
+import { WalkthroughProgress } from "./WalkthroughProgress";
 
 interface Props {
     previousUrl: string;
@@ -45,13 +46,7 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
         <div className="flex-grow"></div>
             <div className="walkthrough-nav-container">
             {this.previousButton()}
-            <div id="walkthroughProgress">
-                <div className="item active"></div>
-                <div className="item active"></div>
-                <div className="item active"></div>
-                <div className="item"></div>
-                <div className="item"></div>
-            </div>
+            <WalkthroughProgress />
             {this.nextButton()}
             {this.closeButton()}
             </div>

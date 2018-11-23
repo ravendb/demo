@@ -1,7 +1,7 @@
 import * as React from "react";
 
-interface WalkthroughItem { 
-    key: number;
+interface WalkthroughItem {
+    itemNum: number;
     title: string;
     url: string;
 }
@@ -9,6 +9,6 @@ interface WalkthroughItem {
 export class WalkthroughItemComponent extends React.Component<WalkthroughItem> {
 
     render() {
-        return <li key={this.props.key}><a href={this.props.url}>{this.props.title}</a></li>
+        return <li><a href={this.props.url}>{this.props.title}</a></li>
     }
 }

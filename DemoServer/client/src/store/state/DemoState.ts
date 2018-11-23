@@ -38,6 +38,11 @@ export function getCurrentWalkthroughIndex(state: DemoState): number {
     return walkthroughs ? walkthroughs.findIndex(x => x.slug === slug) : -1;
 }
 
+export function getWalkthroughsCount(state: DemoState) {
+    const wts = state.demo && state.demo.walkthroughs;
+    return wts ? wts.length : 0;
+}
+
 export function getCurrentWalkthrough(state: DemoState): DemoWalkthroughDto {
     const i = getCurrentWalkthroughIndex(state);
     return i === -1 ? null : state.demo.walkthroughs[i];

@@ -20,7 +20,7 @@ class WalkthroughLinksComponent extends React.Component<WalkthroughProps> {
 
     renderWalkthroughItem = (item, index) => {        
         const url = createDemoWithWalkthroughPath({ category: this.props.categorySlug, demo: this.props.demoSlug, wtSlug: item.slug});        
-        return <WalkthroughItemComponent key={index} title={item.title} url={url} />;
+        return <WalkthroughItemComponent key={index} itemNum={index} title={item.title} url={url} />;
     };
     
     render() {

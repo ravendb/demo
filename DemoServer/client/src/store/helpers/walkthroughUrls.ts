@@ -1,11 +1,6 @@
-import { DemoState, getCurrentWalkthroughIndex } from "../state/DemoState";
+import { DemoState, getCurrentWalkthroughIndex, getWalkthroughsCount } from "../state/DemoState";
 import { DemoWalkthroughDto } from "../../models/dtos";
 import { createDemoWithWalkthroughPath, createDemoWithoutWalkthroughPath } from "../../utils/paths";
-
-function getWalkthroughsCount(state: DemoState) {
-    const wts = state.demo && state.demo.walkthroughs;
-    return wts ? wts.length : 0;
-}
 
 function getWalkthroughUrl(state: DemoState, wt: DemoWalkthroughDto): string {
     if (!wt) {
