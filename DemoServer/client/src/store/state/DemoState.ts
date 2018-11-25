@@ -34,7 +34,7 @@ export type DemoState = ParametersState
 
 export function getCurrentWalkthroughIndex(state: DemoState): number {
     const slug = state.currentWalkthroughSlug;
-    const walkthroughs = slug && state.demo && state.demo.walkthroughs && state.demo.walkthroughs;
+    const walkthroughs = slug && state.demo && state.demo.walkthroughs;
     return walkthroughs ? walkthroughs.findIndex(x => x.slug === slug) : -1;
 }
 

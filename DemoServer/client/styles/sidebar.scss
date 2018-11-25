@@ -16,6 +16,11 @@
 
                 
             }
+
+            .selectedItem {
+                color: saturate( lighten( $color-5, 25% ), 10% );
+                // TODO: Should we add background color for the selected wt item ?
+            }
         }
     }
 }

@@ -1,14 +1,35 @@
 import * as React from "react";
+import { connect } from "react-redux";
+import {AppState} from "../../../store/state";
+import {getCurrentWalkthroughIndex} from "../../../store/state/DemoState";
 
-interface WalkthroughItem {
-    itemNum: number;
+interface SelectedItem {
+    selectedItemStep: number;
+}
+
+interface ListItem {
+    listItemStep: number;
     title: string;
     url: string;
 }
 
-export class WalkthroughItemComponent extends React.Component<WalkthroughItem> {
+type Props = SelectedItem & ListItem;
+
+class WalkthroughItemComponent extends React.Component<Props> {
 
     render() {
-        return <li><a href={this.props.url}>{this.props.title}</a></li>
+        return <li>
+            <a className= {this.props.selectedItemStep === this.props.listItemStep ? "selectedItem" : ""} href={this.props.url}>
+                {this.props.title}
+            </a>
+        </li>
     }
 }
+
+export const WalkthroughItem = connect<SelectedItem>(
+    ({ demos }: AppState): SelectedItem => {
+        return {
+            selectedItemStep: getCurrentWalkthroughIndex(demos)
+        }
+    }
+)(WalkthroughItemComponent);

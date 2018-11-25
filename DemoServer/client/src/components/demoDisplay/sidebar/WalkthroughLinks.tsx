@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { DemoWalkthroughDto } from "../../../models/dtos";
-import { WalkthroughItemComponent } from "./WalkthroughItem";
+import { WalkthroughItem } from "./WalkthroughItem";
 import { createDemoWithWalkthroughPath } from "../../../utils/paths";
 
 interface WalkthroughItem {
@@ -20,7 +20,7 @@ class WalkthroughLinksComponent extends React.Component<WalkthroughProps> {
 
     renderWalkthroughItem = (item, index) => {        
         const url = createDemoWithWalkthroughPath({ category: this.props.categorySlug, demo: this.props.demoSlug, wtSlug: item.slug});        
-        return <WalkthroughItemComponent key={index} itemNum={index} title={item.title} url={url} />;
+        return <WalkthroughItem key={index} listItemStep={index} title={item.title} url={url} />;
     };
     
     render() {
