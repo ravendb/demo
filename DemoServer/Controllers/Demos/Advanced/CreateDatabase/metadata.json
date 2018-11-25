@@ -74,7 +74,7 @@
             "Title": "Create a database in RavenDB server",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "An instance of a <em>DatabaseRecord</em> object containing the database name and configuration is provided to the <em>Create Database Operation.</em><br><br>",
+                "An instance of a `DatabaseRecord` object containing the database name and configuration is provided to the `CreateDatabaseOperation`.<br><br>",
                 "The database replication factor can be specified at this time, otherwise the default is 1.<br><br>",
                 "Note: an exception is thrown if the database already exists.<br>"
             ],

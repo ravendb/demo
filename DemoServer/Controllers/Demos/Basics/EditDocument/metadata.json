@@ -47,9 +47,9 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the data store",
+            "Title": "Initialize the document store",
             "Slug" : "step-1",
-            "DescriptionLines": [ "Initialize the data store. Learn more in Demo: <em>Create Database</em>" ],
+            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_" ],
             "Assets": [
                 {
                     "Title": "Create Database Demo",
@@ -66,7 +66,7 @@
                 "Once the document store is defined, direct communication with the database is done through the `Session`.<br>",
                 "The `Session` tracks the changes done to your entity objects.<br><br>",
                 "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.<br><br>",
-                "**Note:** be sure to wrap the Session variable in a 'using' statement to ensure proper disposal."
+                "**Note:** be sure to wrap the Session variable in a `'using'` statement to ensure proper disposal."
             ],
             "Assets": [
                 {
@@ -90,7 +90,7 @@
             "Title": "Load an existing document",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Load an existing document from the data store using `session.Load()`.<br>",
+                "Load an existing document from the document store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.<br><br>",
                 "The session will track all changes that will be made to this entity,<br>",
                 "so that when `SaveChanges()` is called later on, the entity will be persisted to the data store only if it was changed."
@@ -109,9 +109,9 @@
             ]
         },
         {
-            "Title": "Edit the C# entity",
+            "Title": "Edit your data",
             "Slug" : "step-4",
-            "DescriptionLines": [ "Edit the C# entity" ],
+            "DescriptionLines": [ "Edit the C# entity data" ],
             "Assets": []
         },
         {

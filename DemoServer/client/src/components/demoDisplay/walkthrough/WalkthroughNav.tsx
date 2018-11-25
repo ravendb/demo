@@ -37,7 +37,7 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
 
     closeButton() {
         const { closeUrl } = this.props;
-        return this.navButton(closeUrl, "Close walthrough  ×", "nav-close");
+        return this.navButton(closeUrl, "Close walkthrough   ×", "nav-close");
     }
 
     render() {

@@ -47,7 +47,8 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
             try
             {
                 // Create the new database
-                documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(databaseName)));
+                var databaseRecord = new DatabaseRecord(databaseName);
+                documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(databaseRecord));
             }
             catch (ConcurrencyException)
             {

@@ -12,9 +12,6 @@ interface AssetProps {
 class Asset extends React.Component<AssetProps, {}> {
     render() {
         const { dto } = this.props;
-        if (!dto) {
-            return null;
-        }
 
         const { title, url } = dto;
         return <li>
@@ -29,6 +26,9 @@ interface Props {
 
 function WalkthroughAssetsComponent(props: Props) {
     const { assets } = props;
+    if (assets && !assets.length) {
+        return null;
+    }
     
     return <div className="walkthrough-assets"> 
               <h3>Related Links:</h3> 
