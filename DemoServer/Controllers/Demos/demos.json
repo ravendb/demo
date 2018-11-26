@@ -6,7 +6,8 @@
         },
         "demos": [
             "CreateDocument",
-            "EditDocument"
+            "EditDocument",
+            "DeleteDocument"
         ]
     },
     {

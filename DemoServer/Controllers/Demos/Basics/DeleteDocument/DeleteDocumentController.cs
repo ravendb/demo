@@ -6,37 +6,38 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Basics.EditDocument
+namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
-    public class EditDocumentController : DemoCodeController
+    public class DeleteDocumentController : DemoCodeController
     {
         private const string DocumentId = "companies/1-A";
 
-        public EditDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
+        public DeleteDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
             headersAccessor, databaseAccessor)
         {
         }
 
-        private Company InitialCompany => new Company
+        private Company initialCompanyDocument => new Company
         {
             Id = DocumentId,
             Name = "Company Name",
             Phone = "(+972)52-5486969"
         };
 
-        protected override Task SetDemoPrerequisites()
-        {
-            return DatabaseAccessor.SaveDocument(UserId, InitialCompany); 
-        }
-
         [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        public async Task<IActionResult> Run(RunParams runParams)
         {
-            var companyName = runParams.CompanyName;
+            var documentID = runParams.documentID;
 
             var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
             var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
 
+            // Verify document exists here (and not in SetDemoPrerequisites) since:
+            //    demo can be run multiple times -or-
+            //    document to be deleted can come from demo parameters
+            
+            await DatabaseAccessor.EnsureDocumentExists(UserId, documentID, initialCompanyDocument);
+            
             #region Demo
             #region Step_1
             var documentStore = new DocumentStore
@@ -54,23 +55,18 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             #endregion
             {
                 #region Step_3
-                // Load the document 
-                var company = session.Load<Company>(DocumentId);
+                // Mark the entity to be deleted in the session
+                session.Delete(documentID);
                 #endregion
                 
                 #region Step_4
-                // Update the data 
-                company.Name = companyName;
-                #endregion
-                
-                #region Step_5
-                // Save the entity as a document in the database
+                // Document is deleted upon saving the changes
                 session.SaveChanges();
                 #endregion
             }
             #endregion
             
-            return Ok($"Document {DocumentId} was edited successfully");
+            return Ok($"Document {documentID} was deleted successfully");
         }
 
         public class Company
@@ -78,18 +74,11 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             public string Id { get; set; }
             public string Name { get; set; }
             public string Phone { get; set; }
-            public Contact Contact { get; set; }
-        }
-
-        public class Contact
-        {
-            public string Name { get; set; }
-            public string Title { get; set; }
         }
 
         public class RunParams
         {
-            public string CompanyName { get; set; }
+            public string documentID { get; set; }
         }
     }
 }

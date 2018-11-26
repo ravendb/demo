@@ -1,0 +1,82 @@
+{
+    "Slug": "delete-document",
+    "SourceFileName": "DeleteDocumentController.cs",
+    "Title": "Delete Document",
+    "DescriptionLines": [
+        "<p>Delete a document from the database.</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Deleting Entities",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/deleting-entities"
+        },
+        {
+            "Title": "Optimistic Concurrency",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Initialize the Document Store",
+            "Slug" : "step-1",
+            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_ (TODO)" ],
+            "Assets": []
+        },
+        {
+            "Title": "Open a Session",
+            "Slug" : "step-2",
+            "DescriptionLines": [ "Open the `Session` for work. Learn more in Demo: _Create Document_ (TODO)" ],
+            "Assets": []
+        },
+        {
+            "Title": "Mark entity to be deleted",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "Mark the entity to be deleted from the `Session`.<br>",               
+                "The document is actualy deleted from the database only when `SaveChanges()` is called later on.<br><br>",
+                "**Note:**<br>",
+                "*  When using the above `Delete()` overload the document is deleted with no concurrency checks.<br>",
+                "*  A _Concurrency Exception_ can be thrown only when using the following `Delete()` overloads:<br>",
+                "     `void Delete<T>(T entity);`<br>",
+                "     `void Delete(string id, string expectedChangeVector);`"
+            ],
+            "Assets": [
+                {
+                    "Title": "Deleting Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/deleting-entities"
+                },
+                {
+                    "Title": "Optimistic Concurrency",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "The document is deleted from the database now when calling `SaveChanges()`.<br>",                
+                "The session sends the changes to the server as a single remote call that completes transactionally."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}

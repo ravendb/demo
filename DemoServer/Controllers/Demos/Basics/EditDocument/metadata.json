@@ -47,17 +47,10 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the document store",
+            "Title": "Initialize the Document Store",
             "Slug" : "step-1",
-            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_" ],
-            "Assets": [
-                {
-                    "Title": "Create Database Demo",
-                    "Type" : "link ",
-                    "Url"  : "https://www.google.com/"
-                    // TODO: update link
-                }
-            ]
+            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_ (TODO)" ],
+            "Assets": []
         },
         {
             "Title": "Open a Session",

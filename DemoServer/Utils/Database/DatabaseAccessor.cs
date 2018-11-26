@@ -79,7 +79,23 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public async Task SaveInitialDocument<T>(Guid userId, T document)
+        public async Task EnsureDocumentExists<T>(Guid userID, string documentID, T document)
+        {
+            // Verify that a document with the ID 'documentID' exists 
+            // if not, create the document with that ID.
+            
+            using (var session = GetSession(userID))
+            {
+                var doc = await session.LoadAsync<T>(documentID);
+                if (doc == null)
+                {
+                    await session.StoreAsync(document, documentID);
+                    await session.SaveChangesAsync();
+                }
+            }
+        }
+        
+        public async Task SaveDocument<T>(Guid userId, T document) 
         {
             using (var session = GetSession(userId))
             {

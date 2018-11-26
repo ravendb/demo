@@ -1,5 +1,6 @@
 type Basic = "DEMO_CreateDocument" | 
-             "DEMO_EditDocument";
+             "DEMO_EditDocument"   |
+             "DEMO_DeleteDocument";
 
 type Queries = "DEMO_SimpleQuery";
 

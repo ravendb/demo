@@ -2,6 +2,7 @@ import * as React from "react";
 import { CreateDatabaseDemo } from "./advanced/CreateDatabaseDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
+import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { SimpleQueryDemo } from "./queries/SimpleQueryDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
@@ -39,6 +40,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <CreateDocumentDemo />;
         case "DEMO_EditDocument":
             return <EditDocumentDemo />;
+        case "DEMO_DeleteDocument":
+            return <DeleteDocumentDemo />;
             
         // Category Queries    
         case "DEMO_SimpleQuery":

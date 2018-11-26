@@ -59,18 +59,10 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the document store",
+            "Title": "Initialize the Document Store",
             "Slug" : "step-1",
-            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_" ],
-            "Assets": [
-                {
-                    "Title": "Create Database Demo",
-                    "Type": "link ",
-                    // TODO: Ask Rafal to create a new icon that will indicate a link to another Demo ...
-                    "Url": "https://www.google.com/"
-                    // TODO: How to place link to specific demo here ?
-                }
-            ]
+            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_ (TODO)" ],
+            "Assets": []
         },
         {
             "Title": "Create a new C# object to be saved",
