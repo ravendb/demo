@@ -9,8 +9,8 @@ function getPixels(bounds: DivBounds, propSelect: (b: DivBounds) => number) {
 function populateBounds(bounds: DivBounds) {
     const highlightTop = document.getElementById("highlight-top");
     highlightTop.style.height = getPixels(bounds, b => b.offsetTop);
-    highlightTop.style.left =  getPixels(bounds, b => b.offsetLeft);
-    highlightTop.style.right =  getPixels(bounds, b => b.offsetRight);
+    highlightTop.style.left = getPixels(bounds, b => b.offsetLeft);
+    highlightTop.style.right = getPixels(bounds, b => b.offsetRight);
 
     const highlightBottom = document.getElementById("highlight-bottom");
     highlightBottom.style.top = `${bounds.offsetTop + bounds.height}px`;
@@ -25,14 +25,28 @@ function populateBounds(bounds: DivBounds) {
     highlightRight.style.width = getPixels(bounds, b => b.offsetRight);
 }
 
+function scrollToElement(el: HTMLElement) {
+    window.setTimeout(() => 
+        el.scrollIntoView({
+            behavior: "smooth"
+        }), 400);
+}
+
 function exposeLineHighlights() {
     const codeBody = document.getElementById("demo-body-container");
     const lineHighlights = document.getElementsByClassName("line-highlight");
 
-    if (lineHighlights && lineHighlights.length > 0) {
-        const firstHighlight = lineHighlights[0];
-        const relativeBounds = getBoundsRelatedToOtherElement(firstHighlight as HTMLElement, codeBody as HTMLElement);
-        populateBounds(relativeBounds);
+    if (!lineHighlights || lineHighlights.length == 0) {
+        return;
+    }
+
+    const firstHighlight = lineHighlights[0] as HTMLElement;
+    const relativeBounds = getBoundsRelatedToOtherElement(firstHighlight, codeBody);
+    populateBounds(relativeBounds);
+
+    const wtDescriptions = document.getElementsByClassName("walkthrough-description");
+    if (wtDescriptions && wtDescriptions.length > 0) {
+        scrollToElement(wtDescriptions[0] as HTMLElement);
     }
 }
 
