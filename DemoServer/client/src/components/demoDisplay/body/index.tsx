@@ -21,8 +21,9 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
     render() {
         const { paramDefinitions, resultsComponents, showWalkthrough } = this.props;
         const resultsId = "results";
+        const demoBodyContainerClass = showWalkthrough ? "walkthrough-active" : "";
         return <div className="demo-body">
-            <div id="demo-body-container">
+            <div id="demo-body-container" className={demoBodyContainerClass}>
                 {showWalkthrough && <WalkthroughOverlay />}
                 {paramDefinitions && paramDefinitions.length > 0 && <Parameters paramDefinitions={paramDefinitions} />}
                 <Code />

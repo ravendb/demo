@@ -11,8 +11,8 @@ interface Props {
 class WalkthroughProgressComponent extends React.Component<Props, {}> {
     getIndexedArray = (count: number) => count < 0 ? [] : [...Array(count).keys()];
 
-    doneItem = (i: number) => <div className="item active" key={`done_${i}`}></div>;
-    toDoItem = (i: number) => <div className="item" key={`todo_${i}`}></div>;
+    doneItem = (i: number) => <a href="" className="item active" key={`done_${i}`}></a>;
+    toDoItem = (i: number) => <a href="" className="item" key={`todo_${i}`}></a>;
 
     doneItems(count: number) {
         return this.getIndexedArray(count).map(this.doneItem);

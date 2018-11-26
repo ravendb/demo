@@ -52,17 +52,47 @@
     margin: $gutter-xxs;
     flex-shrink: 1;
     min-width: 70px;
+    align-items: center;
 
     .item {
         margin: 2px;
-        height: 3px;
+        height: 4px;
         background-color: $gray-base;
         flex-grow: 1;
         flex-basis: 0;
+        transition: height .15s;
+        text-align: center;
+        overflow: hidden;
+        text-decoration: none !important;
+        color: $gray-lighter;
+        font-weight: bold;
+        line-height: 25px;
+
+        &::before {
+            opacity: 0;
+            counter-increment: section;
+            content: counter(section); 
+            transition: opacity .15s;
+
+        }
+
+        &:hover {
+            height: 25px;
+
+            &::before {
+                opacity: 1;
+            }
+        }
 
         &.active {
             background-color: $color-5;
         }
+    }
+}
+
+.walkthrough-active {
+    .parameters, .fab-container {
+        visibility: hidden;
     }
 }
 
@@ -72,6 +102,7 @@
     top: $gutter;
     display: flex;
     flex-wrap: wrap;
+    counter-reset: section; 
     
 
     h1 {
@@ -92,7 +123,7 @@
         margin: -$gutter-xxs;
         display: flex;
         align-items: center;
-        a {
+        .walkthrough-nav {
             background-color: $gray-darker;
             color: $gray-light;
             padding: $gutter-xxs $gutter;
