@@ -8,7 +8,6 @@
     z-index: $zindex-walkthrough-overlay;
     #highlight-top, #highlight-right, #highlight-bottom, #highlight-left {
         position: absolute;
-        background-color: $highlight-bg;
         z-index: 1020;
     }
 
@@ -17,6 +16,7 @@
     }
 
     #highlight-bottom {
+        background-color: $highlight-bottom-bg;
         transition: min-height .4s ease, top .4s ease;
         left: 0;
         right: 0;
@@ -24,12 +24,17 @@
 
     #highlight-top {
         top:0;
+        background-color: $highlight-bg;
     }
 
     #highlight-left, #highlight-right {
         top: 0;
-        //min-height: 100%;
         transition: height .4s ease;
+        background: $highlight-bg;
+        background: -moz-linear-gradient(top, $highlight-bg 95%, $highlight-bottom-bg 100%);
+        background: -webkit-linear-gradient(top, $highlight-bg 95%,$highlight-bottom-bg 100%);
+        background: linear-gradient(to bottom, $highlight-bg 95%, $highlight-bottom-bg 100%);
+        background-position: bottom;
     }
     #highlight-right {
         right: 0;
@@ -94,12 +99,17 @@
             margin: $gutter-xxs;
             text-decoration: none;
             flex-shrink: 0;
-            &:hover {
-                background-color: $brand-primary;
+            &:not(.disabled):hover {
+                background-color: $color-5;
                 color: $gray-lighter;
             }
 
-            &.nav-next {
+            &.disabled {
+                opacity: .5;
+                cursor: default;
+            }
+
+            &.nav-next:not(.disabled) {
                 background-color: $color-5;
                 color: $gray-lighter;
 

@@ -18,8 +18,10 @@ type Props = SelectedItem & ListItem;
 class WalkthroughItemComponent extends React.Component<Props> {
 
     render() {
-        return <li>
-            <a className= {this.props.selectedItemStep === this.props.listItemStep ? "selectedItem" : ""} href={this.props.url}>
+        const { selectedItemStep, listItemStep } = this.props;
+        const isActive = selectedItemStep === listItemStep;
+        return <li className={isActive ? "active" : ""}>
+            <a href={this.props.url}>
                 {this.props.title}
             </a>
         </li>

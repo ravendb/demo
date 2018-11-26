@@ -2,8 +2,19 @@
     .walkthrough {
         li {
             &.active {
+                background-color: $color-5;
+                margin-left: -$gutter-xs;
+                margin-right: -$gutter-xs;
+                padding-left: $gutter-xs;
+                padding-right: $gutter-xs;
+
                 a {
                     color: $gray-lighter;
+                }
+
+                &::before {
+                    color: $gray-lighter;
+                    font-weight: bold;
                 }
             }
 
@@ -15,11 +26,6 @@
                 }
 
                 
-            }
-
-            .selectedItem {
-                color: saturate( lighten( $color-5, 25% ), 10% );
-                // TODO: Should we add background color for the selected wt item ?
             }
         }
     }

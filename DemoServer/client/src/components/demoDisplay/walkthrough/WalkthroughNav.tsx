@@ -18,7 +18,7 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
     navButton(url: string, text: string, btnClass: string) {
         let className = "walkthrough-nav ";
         if (!url) {
-            className += " disabled";
+            className += "disabled ";
         }
         className += btnClass;
 
