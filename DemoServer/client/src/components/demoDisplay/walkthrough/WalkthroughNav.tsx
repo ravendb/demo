@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough } from "../../../store/helpers/walkthroughUrls";
 import { WalkthroughProgress } from "./WalkthroughProgress";
+import { NextButton, PreviousButton, CloseButton } from "./navButtons";
 
 interface Props {
     previousUrl: string;
@@ -25,30 +26,17 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
         return <a href={url || null} role="button" className={className}>{text}</a>;
     }
 
-    previousButton() {
-        const { previousUrl } = this.props;
-        return this.navButton(previousUrl, "‹  Previous", "nav-prev");
-    }
-
-    nextButton() {
-        const { nextUrl } = this.props;
-        return this.navButton(nextUrl, "Next  ›", "nav-next");
-    }
-
-    closeButton() {
-        const { closeUrl } = this.props;
-        return this.navButton(closeUrl, "Close walkthrough   ×", "nav-close");
-    }
-
     render() {
+        const { previousUrl, nextUrl, closeUrl } = this.props;
+
         return <div className="walkthrough-header">
-        <h1><i className="icon-learn"></i> CODE WALKTHROUGH</h1>
-        <div className="flex-grow"></div>
+            <h1><i className="icon-learn"></i> CODE WALKTHROUGH</h1>
+            <div className="flex-grow"></div>
             <div className="walkthrough-nav-container">
-            {this.previousButton()}
-            <WalkthroughProgress />
-            {this.nextButton()}
-            {this.closeButton()}
+                <PreviousButton url={previousUrl} />
+                <WalkthroughProgress />
+                <NextButton url={nextUrl} />
+                <CloseButton url={closeUrl} />
             </div>
         </div>;
     }

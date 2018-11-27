@@ -33,6 +33,11 @@ export function getPreviousWalkthroughUrl(state: DemoState): string {
     return getWalkthroughUrl(state, previousWt);
 }
 
+export function geWalkthroughUrls(state: DemoState): string[] {
+    const walkthroughs = (state.demo && state.demo.walkthroughs) || [];
+    return walkthroughs.map(wt => getWalkthroughUrl(state, wt));
+}
+
 function getNextWalkthrough(state: DemoState): DemoWalkthroughDto {
     const i = getCurrentWalkthroughIndex(state);
     const wtCount = getWalkthroughsCount(state);
