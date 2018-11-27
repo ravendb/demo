@@ -4,7 +4,7 @@
     "Title": "Create Database",
     "DescriptionLines": [
         "Create a Database in RavenDB Server.",
-        "The database will hold your JSON documents.</p>",
+        "The database will hold your JSON documents.",
         "",
         "If you have more than one server instance in your RavenDB cluster,",
         "then you can set the database replication factor."
