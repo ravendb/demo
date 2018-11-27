@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DemoParser.Models;
 
@@ -43,6 +44,6 @@ namespace DemoParser.Utils.Json
             };
         }
 
-        private static string ConvertToDescription(IEnumerable<string> descriptionLines) => string.Join("", descriptionLines);
+        private static string ConvertToDescription(IEnumerable<string> descriptionLines) => string.Join(Environment.NewLine, descriptionLines);
     }
 }

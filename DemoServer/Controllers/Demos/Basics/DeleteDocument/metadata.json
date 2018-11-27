@@ -3,7 +3,7 @@
     "SourceFileName": "DeleteDocumentController.cs",
     "Title": "Delete Document",
     "DescriptionLines": [
-        "<p>Delete a document from the database.</p>"
+        "Delete a document from the database."
     ],
 
     "Assets": [
@@ -36,12 +36,14 @@
             "Title": "Mark entity to be deleted",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Mark the entity to be deleted from the `Session`.<br>",               
-                "The document is actualy deleted from the database only when `SaveChanges()` is called later on.<br><br>",
-                "**Note:**<br>",
-                "*  When using the above `Delete()` overload the document is deleted with no concurrency checks.<br>",
-                "*  A _Concurrency Exception_ can be thrown only when using the following `Delete()` overloads:<br>",
-                "     `void Delete<T>(T entity);`<br>",
+                "Mark the entity to be deleted from the `Session`.",
+                "The document is actually deleted from the database only when `SaveChanges()` is called later on.",
+                "",
+                "**Note:**",
+                "",
+                "* When using the above `Delete()` overload the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following `Delete()` overloads:",
+                "     `void Delete<T>(T entity);`",
                 "     `void Delete(string id, string expectedChangeVector);`"
             ],
             "Assets": [
@@ -61,7 +63,7 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "The document is deleted from the database now when calling `SaveChanges()`.<br>",                
+                "The document is deleted from the database now when calling `SaveChanges()`.",                
                 "The session sends the changes to the server as a single remote call that completes transactionally."
 
             ],
