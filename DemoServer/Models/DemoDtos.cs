@@ -71,6 +71,7 @@ namespace DemoServer.Models
         public string DescriptionHtml { get; set; }
         public LinesRange Lines { get; set; }
         public List<DemoAssetDto> Assets { get; set; }
+        public DemoLink DemoLink { get; set; }
 
         public static DemoWalkthroughDto FromModel(DemoWalkthrough model)
         {
@@ -82,7 +83,8 @@ namespace DemoServer.Models
                 Slug = model.Slug,
                 Title = model.Title,
                 Lines = model.Lines,
-                Assets = assetDtos
+                Assets = assetDtos,
+                DemoLink = model.DemoLink
             };
         }
     }

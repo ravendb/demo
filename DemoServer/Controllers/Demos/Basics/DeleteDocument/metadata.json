@@ -22,15 +22,19 @@
     "Walkthroughs": [
         {
             "Title": "Initialize the Document Store",
-            "Slug" : "step-1",
-            "DescriptionLines": [ "Initialize the document store. Learn more in Demo: _Create Database_ (TODO)" ],
-            "Assets": []
+            "Slug": "step-1",
+            "DemoLink": {
+                "Url": "advanced/create-database#step-1",
+                "Title": "Create Database"
+            }
         },
         {
             "Title": "Open a Session",
-            "Slug" : "step-2",
-            "DescriptionLines": [ "Open the `Session` for work. Learn more in Demo: _Create Document_ (TODO)" ],
-            "Assets": []
+            "Slug": "step-2",
+            "DemoLink": {
+                "Url": "basics/create-document#step-3",
+                "Title": "Create Document"
+            }
         },
         {
             "Title": "Mark entity to be deleted",

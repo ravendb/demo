@@ -61,6 +61,8 @@ namespace DemoParser.Models
         public LinesRange Lines { get; set; }
 
         public List<DemoAsset> Assets { get; set; }
+
+        public DemoLink DemoLink { get; set; }
     }
 
     public class LinesRange
@@ -68,5 +70,12 @@ namespace DemoParser.Models
         public int Start { get; set; }
 
         public int End { get; set; }
+    }
+
+    public class DemoLink
+    {
+        public string Url { get; set; }
+
+        public string Title { get; set; }
     }
 }

@@ -71,5 +71,14 @@ namespace DemoParser.Utils.Json
         public LinesRange Lines { get; set; }
 
         public List<JsonDemoAsset> Assets { get; set; }
+
+        public JsonDemoLink DemoLink { get; set; }
+    }
+
+    public class JsonDemoLink
+    {
+        public string Url { get; set; }
+
+        public string Title { get; set; }
     }
 }

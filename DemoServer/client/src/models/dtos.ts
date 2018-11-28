@@ -11,12 +11,18 @@ export interface LinesRangeDto {
     end: number;
 }
 
+export interface DemoLinkDto {
+    url: string;
+    title: string;
+}
+
 export interface DemoWalkthroughDto {
     title: string;
     slug: string;
     descriptionHtml: string;
     lines: LinesRangeDto;
     assets: DemoAssetDto[];
+    demoLink: DemoLinkDto;
 }
 
 export interface DemoDto {

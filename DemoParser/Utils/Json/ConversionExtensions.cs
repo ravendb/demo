@@ -29,6 +29,7 @@ namespace DemoParser.Utils.Json
                 Slug = json.Slug
             };
 
+            model.DemoLink = ToModel(json.DemoLink);
             model.Assets = json.Assets.Select(ToModel).ToList();
             model.DescriptionHtml = ConvertToDescription(json.DescriptionLines);
 
@@ -45,6 +46,19 @@ namespace DemoParser.Utils.Json
             };
         }
 
-        private static string ConvertToDescription(IEnumerable<string> descriptionLines) => string.Join(Environment.NewLine, descriptionLines);
+        private static string ConvertToDescription(IEnumerable<string> descriptionLines) =>
+            descriptionLines == null ? null : string.Join(Environment.NewLine, descriptionLines);
+
+        private static DemoLink ToModel(JsonDemoLink json)
+        {
+            if (json == null)
+                return null;
+
+            return new DemoLink
+            {
+                Url = json.Url,
+                Title = json.Title
+            };
+        }
     }
 }
