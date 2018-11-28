@@ -8,7 +8,7 @@ import { AppState } from "../../../store/state";
 import { WalkthroughOverlay } from "../walkthrough/WalkthroughOverlay";
 
 export type DemoBodyOwnProps = ParameterOwnProps & {
-    resultsComponents: () => JSX.Element;
+    resultsComponents?: () => JSX.Element;
 }
 
 interface DemoBodyStateProps {
@@ -29,7 +29,7 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
                 <Code />
                 <NavPanel resultsElementId={resultsId} />
                 <ResultsPanel elementId={resultsId}>
-                    {resultsComponents()}
+                    {resultsComponents && resultsComponents()}
                 </ResultsPanel>
             </div>
         </div>;

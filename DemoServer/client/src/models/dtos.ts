@@ -27,6 +27,7 @@ export interface DemoDto {
     descriptionHtml: string;
     assets: DemoAssetDto[];
     walkthroughs: DemoWalkthroughDto[];
+    nonInteractive: boolean;
 }
 
 export interface DemoParamsDto {

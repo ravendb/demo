@@ -12,6 +12,7 @@ namespace DemoParser.Utils.Json
             var demo = new Demo();
             demo.Title = json.Title;
             demo.DescriptionHtml = ConvertToDescription(json.DescriptionLines);
+            demo.NonInteractive = json.NonInteractive;
             demo.Assets = json.Assets.Select(ToModel).ToList();
             demo.Walkthroughs = json.Walkthroughs.Select(ToModel).ToList();
             demo.Slug = json.Slug.ToLower();

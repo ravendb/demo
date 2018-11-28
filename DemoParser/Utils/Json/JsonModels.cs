@@ -39,6 +39,8 @@ namespace DemoParser.Utils.Json
 
         public List<string> DescriptionLines { get; set; }
 
+        public bool NonInteractive { get; set; }
+
         public List<JsonDemoAsset> Assets { get; set; }
 
         public List<JsonDemoWalkthrough> Walkthroughs { get; set; }

@@ -133,7 +133,12 @@ function setPrerequisitesSuccess(): SetPrerequisitesSuccess {
 function setPrerequisites(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const { demos } = getState();
-        const { demoSlug } = demos;
+        const { demoSlug, demo } = demos;
+
+        if (demo.nonInteractive) {
+            return;
+        }
+
         dispatch(setPrerequisitesRequest());
         const demoService = createDemoService(demoSlug);
         try {
@@ -169,7 +174,12 @@ function runDemoSuccess(results: object): RunDemoSuccess {
 export function runDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const { demos } = getState();
-        const { categorySlug, demoSlug, parameters } = demos;
+        const { categorySlug, demoSlug, parameters, demo } = demos;
+
+        if (demo.nonInteractive) {
+            return;
+        }
+
         dispatch(runDemoRequest());
         const demoService = createDemoService(demoSlug);
         try {

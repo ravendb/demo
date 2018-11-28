@@ -14,6 +14,7 @@ interface NavPanelStateProps {
     demoSlug: string;
     firstWtUrl?: string;
     settingPrerequisites: boolean;
+    hideRunButton: boolean;
 }
 
 interface NavPanelDispatchProps {
@@ -48,21 +49,23 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     render() {
-        const { resultsElementId } = this.props;
+        const { resultsElementId, hideRunButton } = this.props;
         return <div className="fab-container">
             {this.walkthroughButton()}
-            {resultsElementId && this.runScriptButton()}
+            {resultsElementId && !hideRunButton && this.runScriptButton()}
         </div>;
     }
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, settingPrerequisites } = demos;
+    const { categorySlug, demoSlug, settingPrerequisites, demo } = demos;
+    const hideRunButton = demo && demo.nonInteractive;
     return {
         categorySlug,
         demoSlug,
         firstWtUrl: getFirstWalkthroughUrl(demos),
-        settingPrerequisites
+        settingPrerequisites,
+        hideRunButton
     };
 }
 

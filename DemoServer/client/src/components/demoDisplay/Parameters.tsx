@@ -13,7 +13,7 @@ export interface ParameterItem {
 }
 
 export interface ParameterOwnProps {
-    paramDefinitions: ParameterItem[];
+    paramDefinitions?: ParameterItem[];
 }
 
 interface ParameterStateProps {
@@ -36,8 +36,10 @@ function toParameterPair({ name, placeholder }: ParameterItem): ParameterPair {
 class ParametersDisplay extends React.Component<ParametersProps, {}> {
     componentDidMount() {
         const { initParams, paramDefinitions } = this.props;
-        const paramPairs = paramDefinitions.map(toParameterPair);
-        initParams(paramPairs);
+        if (paramDefinitions) {
+            const paramPairs = paramDefinitions.map(toParameterPair);
+            initParams(paramPairs);
+        }
     }
 
     displayItem(item: ParameterItem, index: number) {
@@ -58,6 +60,10 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
 
     render() {
         const { paramDefinitions } = this.props;
+        if (!paramDefinitions) {
+            return null;
+        }
+        
         return <div className="parameters">
             {paramDefinitions.map((x, i) => this.displayItem(x, i))}
         </div>;
