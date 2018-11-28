@@ -43,9 +43,12 @@ export class Usings extends React.Component<UsingsProps, UsingsState> {
     render() {
         const { language, children } = this.props;
         const { expand } = this.state;
+        const buttonClass = expand
+            ? "folding"
+            : "folding collapsed";
 
         return <div>
-            <a className="folding collapsed" role="button" onClick={this.toggleCollapse}>
+            <a className={buttonClass} role="button" onClick={this.toggleCollapse}>
                 {this.getTitle()}
             </a>
             <Collapse id="includes" show={expand}>
