@@ -36,7 +36,7 @@
             "Title": "Mark entity to be deleted",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Mark the entity to be deleted from the `Session`.",
+                "Mark the entity to be deleted from the `Session`.<br>",
                 "The document is actually deleted from the database only when `SaveChanges()` is called later on.",
                 "",
                 "**Note:**",
@@ -63,7 +63,7 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "The document is deleted from the database now when calling `SaveChanges()`.",                
+                "The document is deleted from the database now when calling `SaveChanges()`.<br>",                
                 "The session sends the changes to the server as a single remote call that completes transactionally."
 
             ],

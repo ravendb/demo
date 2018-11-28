@@ -3,7 +3,7 @@
     "SourceFileName": "EditDocumentController.cs",
     "Title": "Edit Document",
     "DescriptionLines": [
-        "Edit a document that is already stored in the database.",
+        "Edit a document that is already stored in the database.<br>",
         "You will load an existing document from the Document Store, update it and save it back."
     ],
 
@@ -56,7 +56,7 @@
             "Title": "Open a Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "Once the document store is defined, direct communication with the database is done through the `Session`.",
+                "Once the document store is defined, direct communication with the database is done through the `Session`.<br>",
                 "The `Session` tracks the changes done to your entity objects.",
                 "",
                 "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.",
@@ -85,10 +85,10 @@
             "Title": "Load an existing document",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Load an existing document from the document store using `session.Load()`.",
+                "Load an existing document from the document store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.",
                 "",
-                "The session will track all changes that will be made to this entity,",
+                "The session will track all changes that will be made to this entity,<br>",
                 "so that when `SaveChanges()` is called later on, the entity will be persisted to the data store only if it was changed."
             ],
             "Assets": [
@@ -114,7 +114,7 @@
             "Title": "Save the changes",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.",
+                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.<br>",
                 "If any changes were made, that entity will be persisted to the database, in the related document.",
                 "",
                 "The session sends the changes to the server as a single remote call that completes transactionally."

@@ -3,7 +3,7 @@
     "SourceFileName": "CreateDatabaseController.cs",
     "Title": "Create Database",
     "DescriptionLines": [
-        "Create a Database in RavenDB Server.",
+        "Create a Database in RavenDB Server.<br>",
         "The database will hold your JSON documents.",
         "",
         "If you have more than one server instance in your RavenDB cluster,",
@@ -40,7 +40,7 @@
             "DescriptionLines": [
                 "The document store is the main client API object that establishes the communication with the RavenDB cluster.",
                 "",
-                "It exposes methods to perform operations against an associated server instance,",
+                "It exposes methods to perform operations against an associated server instance,<br>",
                 "holding the configuration, topology, cache and any customizations that you might have applied.",
                 "",
                 "A single instance of a Document Store should be used per the life time of the application."
