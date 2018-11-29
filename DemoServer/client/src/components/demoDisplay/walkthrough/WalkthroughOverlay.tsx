@@ -12,9 +12,11 @@ export function WalkthroughOverlay() {
             </div>
             <div id="highlight-right"></div>
             <div id="highlight-bottom">
-                <div className="walkthrough-description">
-                <WalkthroughDescription />
-                <WalkthroughAssets />
+                <div className="padding">
+                    <div className="walkthrough-description">
+                    <WalkthroughDescription />
+                    <WalkthroughAssets />
+                    </div>
                 </div>
             </div>
             <div id="highlight-left"></div>

@@ -4,6 +4,8 @@ import { AppState } from "../../../store/state";
 import { getCurrentWalkthrough } from "../../../store/state/DemoState";
 import { Markdown } from "../../helpers/Markdown";
 import { DemoLinkDto } from "../../../models/dtos";
+import { IconRight } from "../../helpers/icons";
+import { Header } from "../../ui/Header";
 
 interface DemoLinkDisplayProps {
     url: string;
@@ -31,7 +33,10 @@ function WalkthroughDescriptionComponent(props: Props) {
     const stepNumber = slug && slug.split("-")[1];
 
     return <div className="walkthrough-step">
-        <h2>Step {stepNumber} : {title}</h2>
+        <header>
+            <h2> Step {stepNumber} : {title}</h2>
+            <a href="" className="nextStep"> Next step <IconRight /></a>
+        </header>
         <div className="description">
             {
                 demoLink

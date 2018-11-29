@@ -32,7 +32,7 @@ function WalkthroughAssetsComponent(props: Props) {
     
     return <div className="walkthrough-assets"> 
               <h3>Related Links:</h3> 
-              <ul className="list-withIcons walkthrough-assets">
+              <ul className="list-withIcons">
                  {assets && assets.map((x, i) => <Asset dto={x} key={`wtasset_${i}`} />)}
               </ul>
            </div>

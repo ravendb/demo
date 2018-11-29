@@ -59,6 +59,10 @@ a {
     }
 }
 
+.padding {
+    padding: $gutter;
+}
+
 hr {
     border: none;
     border-top: 1px solid $gray-dark;
@@ -298,7 +302,7 @@ hr {
         padding: $gutter-sm;
         background-color: $gray-dark;
         text-align: center;
-        
+
         h1, h2 {
             margin: 0;
         }
@@ -467,4 +471,28 @@ hr {
     display: block;
     padding: $gutter-xs $gutter-xs;
     color: $gray-light;
+}
+
+ul, ol {
+    &.list-withIcons {
+        padding-left: 0;
+        margin: 0;
+
+        li {
+            line-height: 1.5em;
+            margin-bottom: .5em;
+            display: flex;
+
+            a {
+                font-weight: bold;
+                flex-grow: 1;
+                text-decoration: 0;
+                text-decoration: none;
+            }
+        }
+
+        [class^="icon-"], [class*=" icon-"] {
+            margin-right: $gutter-xs
+        }
+    }
 }

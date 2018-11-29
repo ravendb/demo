@@ -1,6 +1,15 @@
 ﻿.sidebar {
     .walkthrough {
+        counter-reset: walkthrough;
+
         li {
+            &::before {
+                counter-increment: walkthrough;
+                content: counter(walkthrough);
+                display: block;
+                margin-right: $gutter-xs
+            }
+
             &.active {
                 background-color: $color-5;
                 margin-left: -$gutter-xs;
@@ -24,8 +33,27 @@
                 &:hover {
                     color: saturate( lighten( $color-5, 25% ), 10% );
                 }
+            }
+        }
+    }
 
-                
+
+    ul, ol {
+        padding-left: 0;
+        list-style-position: inside;
+
+        li {
+            line-height: 1.5em;
+            margin-bottom: .5em;
+            display: flex;
+
+
+
+            a {
+                font-weight: bold;
+                flex-grow: 1;
+                text-decoration: 0;
+                text-decoration: none;
             }
         }
     }

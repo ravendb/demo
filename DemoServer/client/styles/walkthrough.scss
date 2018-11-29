@@ -154,22 +154,79 @@
 }
 
 .walkthrough-description {
-    padding: $gutter;
+    margin: -$gutter/2;
     display: flex;
-    h2, h3 {
+    flex-wrap: wrap;
+
+
+    header {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            flex-grow: 1;
+            margin: 0;
+        }
+
+
+        .nextStep {
+            margin-left: $gutter-sm;
+            background-color: $color-5;
+            color: $gray-light;
+            padding: $gutter-xxs $gutter;
+            text-decoration: none;
+            color: $gray-lighter;
+            display: inline-block;
+            white-space: nowrap;
+
+            &:hover {
+                color: $gray-lighter;
+                background-color: saturate( lighten( $color-5, 10% ), 10% );
+            }
+        }
+    }
+
+    h3 {
         margin-top: 0;
+        line-height: 36px;
+    }
+
+    header, h3 {
         padding-bottom: $gutter-sm;
         border-bottom: 1px solid $gray-light;
         color: $gray-lighter;
     }
 
     .description {
-        max-width: 45em;
+        em {
+            color: $gray-lighter;
+            //letter-spacing: 0.05em;
+        }
+
+        strong {
+            color: $gray-lighter;
+            font-weight: 900;
+        }
+
+        code {
+            background-color: rgba($color-4, .2);
+            color: $gray-lighter;
+            padding: 0 4px;
+            display: inline-block;
+        }
+
+        ul {
+            padding-left: 26px;
+        }
+    }
+
+    .walkthrough-step, .walkthrough-assets {
+        padding: $gutter/2;
     }
 
     .walkthrough-step {
-        margin-right: $gutter;
-        flex-grow: 1;
+        width: 45em;
+        flex-shrink: 1;
     }
 
     .walkthrough-assets {
