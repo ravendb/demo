@@ -12,6 +12,15 @@
     },
     {
         "category": {
+            "slug": "attachments",
+            "directory": "Attachments"
+        },
+        "demos": [
+            "StoreAttachment"
+        ]
+    },
+    {
+        "category": {
             "slug": "queries",
             "directory": "Queries"
         },

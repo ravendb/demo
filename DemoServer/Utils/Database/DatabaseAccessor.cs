@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 using System.Threading.Tasks;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
@@ -114,6 +116,31 @@ namespace DemoServer.Utils.Database
         {
             var operation = new DeleteDatabasesOperation(documentStore.Database, hardDelete: true);
             return documentStore.Maintenance.Server.SendAsync(operation);
+        }
+
+        public void EnsureFileExists(string filePath, string fileName, int size)
+        {
+            var neededFile = Path.Combine(filePath, fileName);
+
+            if (File.Exists(neededFile) == false)
+            {
+                try
+                {
+                    // Create the file if does not exist
+                    using (FileStream fs = File.Create(neededFile))
+                    using (var binaryWriter = new BinaryWriter(fs, Encoding.UTF8))
+                    {
+                        for (int i = 0; i < size; i++)
+                        {
+                            binaryWriter.Write(i);
+                        }
+                    }
+                }
+                catch 
+                {
+                    // TODO ...
+                }
+            }
         }
     }
 }

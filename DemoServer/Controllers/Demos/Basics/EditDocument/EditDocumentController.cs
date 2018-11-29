@@ -38,6 +38,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
 
             #region Demo
+            
             #region Step_1
             var documentStore = new DocumentStore
             {

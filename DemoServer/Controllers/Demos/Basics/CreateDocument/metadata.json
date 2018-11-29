@@ -64,7 +64,7 @@
             "Slug" : "step-1",
             "DemoLink": {
                 "Url": "advanced/create-database#step-1",
-                "Title":  "Create Database" 
+                "Title":  "Create Database Demo" 
             }
         },
         {
@@ -130,7 +130,7 @@
             "Slug" : "step-4",
             "DescriptionLines": [
                 "Associate the new entity with the `Session` with the `Store` command.<br>",
-                "The actual 'save' is done later (when `SaveChanges()` is called).",
+                "The actual 'save' is done later - when `SaveChanges()` is called.",
                 "",
                 "However, the `Store` command will give the new entity an ID immediately,<br>",
                 "so you can refer to it in other documents that you'll save in the same batch."
@@ -153,7 +153,7 @@
             "Slug" : "step-5",
             "DescriptionLines": [
                 "The `SaveChanges()` call will check the session state for all changes (i.e. a new entity was added).<br>",
-                "It will then send those changes to the server as a single remote call that will complete transactionally.<br>",
+                "It will then send those changes to the server as a single remote call that will complete transactionally.",
                 "",
                 "In other words, either all the changes are saved as a single unit or none of them are."
             ],

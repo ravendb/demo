@@ -1,0 +1,116 @@
+{
+    "Slug": "store-attachment",
+    "SourceFileName": "StoreAttachmentController.cs",
+    "Title": "Store Attachment",
+    "DescriptionLines": [
+        "Attachments are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
+        "",
+        "A document can have any number of attachments, and an attachment has no size limit."
+    ],
+
+    "Assets": [  
+        {
+            "Title": "What are attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/what-are-attachments"
+        },
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+        },
+        {
+            "Title": "Storing attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
+        },
+        {
+            "Title": "Attachments Operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations#attachments"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Initialize the Document Store",
+            "Slug": "step-1",
+            "DemoLink": {
+                "Url": "advanced/create-database#step-1",
+                "Title": "Create Database Demo"
+            }
+        },
+        {
+            "Title": "Open a Session",
+            "Slug": "step-2",
+            "DemoLink": {
+                "Url": "basics/create-document#step-3",
+                "Title": "Create Document Demo"
+            }
+        },
+        {
+            "Title": "Open a binary stream for the file",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "Open a binary stream for the attachment file.<br>",
+                "It will be used in the following `Store()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Attachments and binary data",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+                }
+            ]
+        },
+        {
+            "Title": "Store the attachments on the document",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "Attach the attachments on to the document within the session.<br>",
+                "Specify the document ID, or pass the explicit document entity to the `Store()` method.",
+                "",
+                "The actual save action on the server is done when `SaveChanges()` is called later on."
+            ],
+            "Assets": [
+                {
+                    "Title": "Storing attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
+                },
+                {
+                    "Title": "Working with attachments",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "When executing `SaveChanges()`, the document and all of its attachments are sent to the server in a single transaction call.",
+                "Both the document and all its attachments will be saved, or both will fail.",
+                "",
+                "If the revisions feature is turned on, each attachment that is added on to the document (or deleted from it) will create a new document revision."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}

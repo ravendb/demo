@@ -25,7 +25,7 @@
             "Slug": "step-1",
             "DemoLink": {
                 "Url": "advanced/create-database#step-1",
-                "Title": "Create Database"
+                "Title": "Create Database Demo"
             }
         },
         {
@@ -33,7 +33,7 @@
             "Slug": "step-2",
             "DemoLink": {
                 "Url": "basics/create-document#step-3",
-                "Title": "Create Document"
+                "Title": "Create Document Demo"
             }
         },
         {

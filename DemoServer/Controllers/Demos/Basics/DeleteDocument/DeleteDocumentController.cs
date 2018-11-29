@@ -10,8 +10,6 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
     public class DeleteDocumentController : DemoCodeController
     {
-        private const string DocumentId = "companies/1-A";
-
         public DeleteDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
             headersAccessor, databaseAccessor)
         {
@@ -19,7 +17,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 
         private Company initialCompanyDocument => new Company
         {
-            Id = DocumentId,
+            Id = "companies/1-A",
             Name = "Company Name",
             Phone = "(+972)52-5486969"
         };
@@ -27,18 +25,20 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var documentID = runParams.documentID;
-
             var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
             var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
 
+            var documentID = runParams.documentID;
+            initialCompanyDocument.Id = documentID;
+            
             // Verify document exists here (and not in SetDemoPrerequisites) since:
             //    demo can be run multiple times -or-
             //    document to be deleted can come from demo parameters
             
             await DatabaseAccessor.EnsureDocumentExists(UserId, documentID, initialCompanyDocument);
-            
+
             #region Demo
+            
             #region Step_1
             var documentStore = new DocumentStore
             {

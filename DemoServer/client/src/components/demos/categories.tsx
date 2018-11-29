@@ -34,6 +34,18 @@ const basicsCategory: Category = {
     ]
 };
 
+const attachmentsCategory: Category = {
+    slug: "attachments",
+    title: "Attachments",
+    demos: [
+        {
+            slug: "store-attachment",
+            title: "Store Attachment",
+            type: "DEMO_StoreAttachment"
+        }
+    ]
+};
+
 const queriesCategory: Category = {
     slug: "queries",
     title: "Queries",
@@ -60,6 +72,7 @@ const advancedCategory: Category = {
 
 export const categoryList: Category[] = [
     basicsCategory,
+    attachmentsCategory,
     queriesCategory,
     advancedCategory
 ];
