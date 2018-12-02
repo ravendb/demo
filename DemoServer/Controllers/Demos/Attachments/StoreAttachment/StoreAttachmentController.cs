@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         {
         }
 
-        private const string DemoPath = @"c:\demo\"; // TODO - use current directory instead ? 
+        private const string DemoPath = @".\demo"; // TODO - which directory should be used ?
         
         private Company initialCompanyDocument => new Company
         {
@@ -41,9 +42,18 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             
             // Verify here (and not in SetDemoPrerequisites) since demo can be run multiple times with diff params
             await DatabaseAccessor.EnsureDocumentExists(UserId, documentID, initialCompanyDocument);
-            DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
-            DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
-            
+
+            try
+            {
+                DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
+                DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
+            }
+            catch (Exception e)
+            {
+                return Ok($"Could not create files: {attachment1} & {attachment2}. Error: {e.Message}");
+                // TODO: We need error formatting in results area 
+            }
+
             #region Demo
             
             #region Step_1
@@ -84,7 +94,10 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
                 #endregion
             }
             #endregion
-           
+          
+            //TODO: Should we delete these files that were created in beginning of this demo ?
+            //      Because user can run this demo multiple times with different files from the parameters each time...
+            
             return Ok($"Attachments {attachment1} & {attachment2} were stored successfully on document {documentID}");
         }
     }

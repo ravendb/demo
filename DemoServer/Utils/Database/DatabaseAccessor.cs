@@ -126,7 +126,12 @@ namespace DemoServer.Utils.Database
             {
                 try
                 {
-                    // Create the file if does not exist
+                    // Create directory & file if does not exist
+                    if (Directory.Exists(filePath) == false)
+                    {
+                        Directory.CreateDirectory(filePath);
+                    }
+                    
                     using (FileStream fs = File.Create(neededFile))
                     using (var binaryWriter = new BinaryWriter(fs, Encoding.UTF8))
                     {
@@ -136,9 +141,10 @@ namespace DemoServer.Utils.Database
                         }
                     }
                 }
-                catch 
+                catch (Exception e)
                 {
-                    // TODO ...
+                    throw new Exception($"Failed to create file: {neededFile}");
+                    // TODO: Should we return the more detailed exception ?
                 }
             }
         }
