@@ -158,19 +158,10 @@
     display: flex;
     flex-wrap: wrap;
 
-
-    header {
-        display: flex;
-        align-items: center;
-
-        h2 {
-            flex-grow: 1;
-            margin: 0;
-        }
-
-
+    footer {
+        
         .nextStep {
-            margin-left: $gutter-sm;
+            margin-left: $wt-desc-width - 9.5em;
             background-color: $color-5;
             color: $gray-light;
             padding: $gutter-xxs $gutter;
@@ -183,6 +174,16 @@
                 color: $gray-lighter;
                 background-color: saturate( lighten( $color-5, 10% ), 10% );
             }
+        }
+    }
+    
+    header {
+        display: flex;
+        align-items: center;
+
+        h2 {
+            flex-grow: 1;
+            margin: 0;
         }
     }
 
@@ -225,7 +226,7 @@
     }
 
     .walkthrough-step {
-        width: 45em;
+        width: $wt-desc-width;
         flex-shrink: 1;
     }
 
