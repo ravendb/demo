@@ -32,27 +32,19 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
             var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
 
-            var documentID = runParams.documentID;
-            initialCompanyDocument.Id = documentID;
+            var documentId = runParams.DocumentId;
+            initialCompanyDocument.Id = documentId;
             
-            var attachment1 = runParams.attachment1;
-            var attachment2 = runParams.attachment2;
-            var attachmentType1 = runParams.attachmentType1;
-            var attachmentType2 = runParams.attachmentType2;
+            var attachment1 = runParams.Attachment1;
+            var attachment2 = runParams.Attachment2;
+            var attachmentType1 = runParams.AttachmentType1;
+            var attachmentType2 = runParams.AttachmentType2;
             
             // Verify here (and not in SetDemoPrerequisites) since demo can be run multiple times with diff params
-            await DatabaseAccessor.EnsureDocumentExists(UserId, documentID, initialCompanyDocument);
+            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
 
-            try
-            {
-                DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
-                DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
-            }
-            catch (Exception e)
-            {
-                return Ok($"Could not create files: {attachment1} & {attachment2}. Error: {e.Message}");
-                // TODO: We need error formatting in results area 
-            }
+            DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
+            DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
 
             #region Demo
             
@@ -84,8 +76,8 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             {
                 #region Step_4
                 // Attach the files to the document
-                session.Advanced.Attachments.Store(documentID, attachmentFile1, fileStream1, attachmentType1);
-                session.Advanced.Attachments.Store(documentID, attachmentFile2, fileStream2, attachmentType2);
+                session.Advanced.Attachments.Store(documentId, attachmentFile1, fileStream1, attachmentType1);
+                session.Advanced.Attachments.Store(documentId, attachmentFile2, fileStream2, attachmentType2);
                 #endregion 
                 
                 #region Step_5
@@ -98,7 +90,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             //TODO: Should we delete these files that were created in beginning of this demo ?
             //      Because user can run this demo multiple times with different files from the parameters each time...
             
-            return Ok($"Attachments {attachment1} & {attachment2} were stored successfully on document {documentID}");
+            return Ok($"Attachments {attachment1} & {attachment2} were stored successfully on document {documentId}");
         }
     }
     
@@ -111,10 +103,10 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
     
     public class RunParams
     {
-        public string documentID { get; set; }
-        public string attachment1 { get; set; }
-        public string attachment2 { get; set; }
-        public string attachmentType1 { get; set; }
-        public string attachmentType2 { get; set; }
+        public string DocumentId { get; set; }
+        public string Attachment1 { get; set; }
+        public string Attachment2 { get; set; }
+        public string AttachmentType1 { get; set; }
+        public string AttachmentType2 { get; set; }
     }
 }

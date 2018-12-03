@@ -81,17 +81,14 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public async Task EnsureDocumentExists<T>(Guid userID, string documentID, T document)
+        public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
         {
-            // Verify that a document with the ID 'documentID' exists 
-            // if not, create the document with that ID.
-            
-            using (var session = GetSession(userID))
+            using (var session = GetSession(userId))
             {
-                var doc = await session.LoadAsync<T>(documentID);
+                var doc = await session.LoadAsync<T>(documentId);
                 if (doc == null)
                 {
-                    await session.StoreAsync(document, documentID);
+                    await session.StoreAsync(document, documentId);
                     await session.SaveChangesAsync();
                 }
             }
@@ -122,31 +119,25 @@ namespace DemoServer.Utils.Database
         {
             var neededFile = Path.Combine(filePath, fileName);
 
-            if (File.Exists(neededFile) == false)
+            if (File.Exists(neededFile))
+                return;
+
+            CreateDirectoryIfDoesNotExist(filePath);
+
+            using (var fileStream = File.Create(neededFile))
+            using (var binaryWriter = new BinaryWriter(fileStream, Encoding.UTF8))
             {
-                try
+                for (int i = 0; i < size; i++)
                 {
-                    // Create directory & file if does not exist
-                    if (Directory.Exists(filePath) == false)
-                    {
-                        Directory.CreateDirectory(filePath);
-                    }
-                    
-                    using (FileStream fs = File.Create(neededFile))
-                    using (var binaryWriter = new BinaryWriter(fs, Encoding.UTF8))
-                    {
-                        for (int i = 0; i < size; i++)
-                        {
-                            binaryWriter.Write(i);
-                        }
-                    }
-                }
-                catch (Exception e)
-                {
-                    throw new Exception($"Failed to create file: {neededFile}");
-                    // TODO: Should we return the more detailed exception ?
+                    binaryWriter.Write(i);
                 }
             }
+        }
+
+        private void CreateDirectoryIfDoesNotExist(string directoryPath)
+        {
+            if (Directory.Exists(directoryPath) == false)
+                Directory.CreateDirectory(directoryPath);
         }
     }
 }
