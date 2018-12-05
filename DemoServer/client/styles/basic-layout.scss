@@ -129,6 +129,7 @@ hr {
 .container {
     display: flex;
     flex-grow: 1;
+    position: relative;
 }
 
 .sidebar {
@@ -353,6 +354,12 @@ hr {
             }
         }
 
+        &#openStudio {
+            i {
+                
+            }
+        }
+
         &#startWalkthrough {
             i {
                 background-color: $color-5;
@@ -494,5 +501,147 @@ ul, ol {
         [class^="icon-"], [class*=" icon-"] {
             margin-right: $gutter-xs
         }
+    }
+}
+
+@-moz-keyframes spin {
+    from {
+        -moz-transform: rotate(0deg);
+    }
+
+    to {
+        -moz-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+$spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
+
+.spinner {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    background-color: $brand-primary;
+    z-index: $zindex-spinner;
+    opacity: 0;
+    transition: opacity .3s ease;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 20px;
+        height: 20px;
+        border-radius: 20px;
+        border: 3px solid rgba($gray-lighter,.2);
+        border-top-color: $gray-lighter;
+        animation: i .75s infinite cubic-bezier(.6,.02,.4,.99);
+        -webkit-animation: $spin-properties;
+        -moz-animation: $spin-properties;
+        -ms-animation: $spin-properties;
+        animation: $spin-properties;
+    }
+
+    &:not(.active) {
+        pointer-events: none;
+    }
+
+    &.active {
+        opacity: 1;
+    }
+
+    &.hidden {
+        display: none;
+    }
+}
+
+@-webkit-keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        top: 0;
+        opacity: 0;
+    }
+
+    to {
+        top: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        top: 30px;
+        opacity: 1;
+    }
+
+    to {
+        top: 0;
+        opacity: 0;
+    }
+}
+
+.toast {
+    visibility: hidden;
+    background-color: $gray-lighter;
+    color: $gray-darker;
+    text-align: center;
+    border-radius: 3px;
+    padding: $gutter-xs $gutter-sm;
+    position: fixed;
+    z-index: $zindex-toast;
+    left: 50%;
+    top: 30px;
+
+
+    &.active {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
     }
 }

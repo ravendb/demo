@@ -20,6 +20,9 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-studio:before {
+    content: "\e910";
+}
 
 .icon-cancel:before {
     content: "\e908";

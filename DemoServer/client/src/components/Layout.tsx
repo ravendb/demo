@@ -15,6 +15,8 @@ export class Layout extends React.Component<LayoutProps, {}> {
             ? <>{children}</>
             : <div className="container">
                 {children}
+                <div className="spinner"></div>
+                <div className="toast">Link has been copied to clipboard</div>
             </div>;
 
         return <>

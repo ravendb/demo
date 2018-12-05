@@ -51,6 +51,10 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     render() {
         const { resultsElementId, hideRunButton } = this.props;
         return <div className="fab-container">
+            <a href="#" id="openStudio" className="fab">
+                <i className="icon-studio"></i>
+                Open in studio
+            </a>
             {this.walkthroughButton()}
             {resultsElementId && !hideRunButton && this.runScriptButton()}
         </div>;

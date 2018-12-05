@@ -612,6 +612,8 @@ hr {
       transform-origin: left; }
     .fab-container .fab:hover i {
       transform: scale(1.3) translateX(-50%); }
+    .fab-container .fab#openStudio i {
+      background-color: #f06582; }
     .fab-container .fab#startWalkthrough i {
       background-color: #945ab5; }
     .fab-container .fab#runScript i {
@@ -694,6 +696,14 @@ hr {
   display: block;
   padding: 11.45946px 11.45946px;
   color: #98a7b7; }
+
+.spinner {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+  background-color: #d7325a; }
 
 h1, h2, h3, h4 {
   font-weight: 700; }
