@@ -543,7 +543,7 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
     width: 100%;
     left: 0;
     top: 0;
-    background-color: $brand-primary;
+    background-color: $gray-base;
     z-index: $zindex-spinner;
     opacity: 0;
     transition: opacity .3s ease;

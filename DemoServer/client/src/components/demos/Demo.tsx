@@ -6,12 +6,14 @@ import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
+import { Spinner } from "../ui/Spinner";
 
 export type DemoOwnProps = DemoBodyOwnProps;
 
 export interface DemoStateProps {
     categorySlug: string;
     demoSlug: string;
+    loading: boolean;
 }
 
 export interface DemoDispatchProps {
@@ -27,7 +29,10 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
     }
 
     render() {
+        const { loading } = this.props;
+
         return <Page>
+            <Spinner show={loading} />
             <Sidebar {...this.props} />
             <DemoBody {...this.props} />
         </Page>;
@@ -35,10 +40,13 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): DemoStateProps {
-    const { categorySlug, demoSlug } = demos;
+    const { categorySlug, demoSlug, finishedLoadingDemo, finishedSettingPrerequisites } = demos;
+    const finishedLoading = finishedLoadingDemo && finishedSettingPrerequisites;
+
     return {
         categorySlug,
-        demoSlug
+        demoSlug,
+        loading: !finishedLoading
     };
 }
 

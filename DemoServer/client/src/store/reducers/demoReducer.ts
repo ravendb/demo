@@ -9,8 +9,8 @@ const initialState: DemoState = {
     categorySlug: "",
     demoSlug: "",
     demo: null,
-    loadingDemo: false,
-    settingPrerequisites: false,
+    finishedLoadingDemo: false,
+    finishedSettingPrerequisites: false,
     showResultsPanel: false,
     loadingRunResults: false,
     parameters: [],
@@ -20,17 +20,17 @@ const initialState: DemoState = {
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
         case "DEMO_GET_METADATA_REQUEST":
-            return modifyState(state, s => s.loadingDemo = true);
+            return modifyState(state, s => s.finishedLoadingDemo = false);
 
         case "DEMO_GET_METADATA_SUCCESS":
             return modifyState(state, s => {
-                s.loadingDemo = false;
+                s.finishedLoadingDemo = true;
                 s.demo = action.result
             });
 
         case "DEMO_GET_METADATA_FAILURE":
             return modifyState(state, s => {
-                s.loadingDemo = false;
+                s.finishedLoadingDemo = true;
             });
 
         case "@@router/LOCATION_CHANGE":
@@ -44,11 +44,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             });
 
         case "DEMO_SET_PREREQUISITES_REQUEST":
-            return modifyState(state, s => s.settingPrerequisites = true);
+            return modifyState(state, s => s.finishedSettingPrerequisites = false);
 
         case "DEMO_SET_PREREQUISITES_FAILURE":
         case "DEMO_SET_PREREQUISITES_SUCCESS":
-            return modifyState(state, s => s.settingPrerequisites = false);
+            return modifyState(state, s => s.finishedSettingPrerequisites = true);
 
         case "DEMO_RUN_REQUEST":
             return modifyState(state, s => {

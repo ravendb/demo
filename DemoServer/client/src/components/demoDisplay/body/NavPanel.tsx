@@ -13,7 +13,6 @@ interface NavPanelStateProps {
     categorySlug: string;
     demoSlug: string;
     firstWtUrl?: string;
-    settingPrerequisites: boolean;
     hideRunButton: boolean;
 }
 
@@ -37,14 +36,12 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     runScriptButton() {
-        const { resultsElementId, settingPrerequisites } = this.props;
-        const wording = settingPrerequisites ? "Setting prerequisites..." : "Run script";
+        const { resultsElementId } = this.props;
 
         return <button id="runScript" className="fab collapsed" type="button"
-            disabled={settingPrerequisites}
             data-toggle="collapse" data-target={`#${resultsElementId}`}
             onClick={() => this.handleRunScriptClick()}>
-            <i className="icon-play"></i> {wording}
+            <i className="icon-play"></i> Run script
         </button>;
     }
 
@@ -62,13 +59,12 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, settingPrerequisites, demo } = demos;
+    const { categorySlug, demoSlug, demo } = demos;
     const hideRunButton = demo && demo.nonInteractive;
     return {
         categorySlug,
         demoSlug,
         firstWtUrl: getFirstWalkthroughUrl(demos),
-        settingPrerequisites,
         hideRunButton
     };
 }

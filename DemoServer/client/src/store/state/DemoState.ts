@@ -7,7 +7,7 @@ interface ParametersState {
 }
 
 interface PrerequisitesState {
-    settingPrerequisites: boolean;
+    finishedSettingPrerequisites: boolean;
 }
 
 interface RunResultsState {
@@ -29,7 +29,7 @@ export type DemoState = ParametersState
         categorySlug: string;
         demoSlug: string;
         demo: DemoDto;
-        loadingDemo: boolean;
+        finishedLoadingDemo: boolean;
     }
 
 export function getCurrentWalkthroughIndex(state: DemoState): number {
