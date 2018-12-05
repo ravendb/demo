@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -12,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
 {
     public class StoreAttachmentController : DemoCodeController
     {
-        public StoreAttachmentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public StoreAttachmentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 
@@ -29,9 +30,6 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
-            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
-
             var documentId = runParams.DocumentId;
             initialCompanyDocument.Id = documentId;
             
@@ -47,25 +45,25 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
 
             #region Demo
-            
             #region Step_1
-            // Init the Document Store
-            var documentStore = new DocumentStore
-            {
-                Urls = new[] { serverUrl }, 
-                Database = databaseName
-            };
-            
-            documentStore.Initialize();
+            //TODO remove wt step
+            //// Init the Document Store
+            //var documentStore = new DocumentStore
+            //{
+            //    Urls = new[] { serverUrl }, 
+            //    Database = databaseName
+            //};
+
+            //documentStore.Initialize();
             #endregion
-          
+
             // Set the demo file path 
             string attachmentFile1 = Path.Combine(DemoPath, attachment1); 
             string attachmentFile2 = Path.Combine(DemoPath, attachment2);
           
             #region Step_2
             // Open the session for work
-            using (var session = documentStore.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             
             #region Step_3 

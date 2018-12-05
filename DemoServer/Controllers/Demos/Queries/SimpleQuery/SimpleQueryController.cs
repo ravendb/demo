@@ -1,4 +1,5 @@
 ﻿using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -8,8 +9,8 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
 {
     public class SimpleQueryController : DemoCodeController
     {
-        public SimpleQueryController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public SimpleQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 

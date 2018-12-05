@@ -1,4 +1,5 @@
 ﻿using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -35,6 +36,7 @@ namespace DemoServer
             services.AddSingleton<Settings>(settings);
 
             var serviceProvider = services.BuildServiceProvider();
+            services.AddMemoryCache();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
@@ -46,9 +48,10 @@ namespace DemoServer
 
             var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>());
             services.AddSingleton(demoContainer);
+            services.AddSingleton<DocumentStoreHolder>();
 
+            services.AddScoped<DocumentStoreCache>();
             services.AddScoped<HeadersAccessor>();
-            services.AddScoped<DocumentStoreHolder>();
             services.AddScoped<DatabaseAccessor>();
         }
 

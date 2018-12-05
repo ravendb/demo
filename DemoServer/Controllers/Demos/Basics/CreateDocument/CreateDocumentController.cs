@@ -1,4 +1,6 @@
-﻿using DemoServer.Utils;
+﻿using System;
+using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -9,8 +11,8 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
     public class CreateDocumentController : DemoCodeController
     {
-        public CreateDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public CreateDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 
@@ -22,21 +24,18 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             var contactName = runParams.ContactName;
             var contactTitle = runParams.ContactTitle;
 
-            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
-            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
-            
             #region Demo
-            
             #region Step_1
-            var documentStore = new DocumentStore
-            {
-                Urls = new[] { serverUrl }, 
-                Database = databaseName
-            };
-           
-            documentStore.Initialize();
+            //TODO remove wt step
+            //var documentStore = new DocumentStore
+            //{
+            //    Urls = new[] { serverUrl }, 
+            //    Database = databaseName
+            //};
+
+            //documentStore.Initialize();
             #endregion
-            
+
             #region Step_2
             // Define the object to be stored 
             var newCompany = new Company
@@ -53,7 +52,7 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 
             #region Step_3
             // Open the session for work
-            using (var session = documentStore.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
                 #region Step_4

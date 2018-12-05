@@ -2,6 +2,7 @@
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using DemoServer.Utils.Cache;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Session;
@@ -14,39 +15,30 @@ namespace DemoServer.Utils.Database
 {
     public class DatabaseAccessor
     {
-        private const string UserDatabasePrefix = "User-";
-
-        private readonly DocumentStoreHolder _documentStoreHolder;
         private readonly Settings.DatabaseSettings _databaseSettings;
+        private readonly DocumentStoreCache _documentStoreCache;
 
-        public DatabaseAccessor(DocumentStoreHolder documentStoreHolder, Settings settings)
+        public DatabaseAccessor(Settings settings, DocumentStoreCache documentStoreCache)
         {
-            _documentStoreHolder = documentStoreHolder;
+            _documentStoreCache = documentStoreCache;
             _databaseSettings = settings.Database;
         }
-
-        public string GetDatabaseName(Guid userId) => $"{UserDatabasePrefix}{userId.ToString()}";
 
         public string GetFirstDatabaseUrl()
         {
             return _databaseSettings.Urls[0];
         }
 
-        private IDocumentStore GetDocumentStore(Guid userId)
-        {
-            var databaseName = GetDatabaseName(userId);
-            return _documentStoreHolder.InitializeFor(databaseName);
-        }
-
         private IAsyncDocumentSession GetSession(Guid userId)
         {
-            var documentStore = GetDocumentStore(userId);
-            return documentStore.OpenAsyncSession();
+            var databaseName = DatabaseName.For(userId);
+            var documentStore = _documentStoreCache.GetEntry(userId);
+            return documentStore.OpenAsyncSession(databaseName);
         }
 
         public void EnsureUserDatabaseExists(Guid userId)
         {
-            var documentStore = GetDocumentStore(userId);
+            var documentStore = _documentStoreCache.GetEntry(userId);
 
             if (DoesDatabaseExist(documentStore))
                 return;
@@ -105,7 +97,7 @@ namespace DemoServer.Utils.Database
 
         public async Task DeleteDatabase(Guid userId)
         {
-            var documentStore = GetDocumentStore(userId);
+            var documentStore = _documentStoreCache.GetEntry(userId);
             await DeleteDatabase(documentStore);
         }
 

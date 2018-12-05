@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -13,8 +14,8 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
 {
     public class CreateDatabaseController : DemoCodeController
     {
-        public CreateDatabaseController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public CreateDatabaseController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 
@@ -27,20 +28,19 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
         [HttpPost]
         public IActionResult Run()
         {
-            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
-            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
+            var databaseName = DatabaseName.For(UserId);
 
             #region Demo
-            
             #region Step_1
-            // Init the Document Store
-            var documentStore = new DocumentStore
-            {
-                Urls = new[] { serverUrl }, // For example: serverUrl = "http://localhost:8080"
-                Database = databaseName
-            };
+            //TODO remove wt step
+            //// Init the Document Store
+            //var documentStore = new DocumentStore
+            //{
+            //    Urls = new[] { serverUrl }, // For example: serverUrl = "http://localhost:8080"
+            //    Database = databaseName
+            //};
             
-            documentStore.Initialize();
+            //documentStore.Initialize();
             #endregion
 
             #region Step_2
@@ -48,7 +48,7 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
             {
                 // Create the new database
                 var databaseRecord = new DatabaseRecord(databaseName);
-                documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(databaseRecord));
+                DocumentStoreHolder.Store.Maintenance.Server.Send(new CreateDatabaseOperation(databaseRecord));
             }
             catch (ConcurrencyException)
             {

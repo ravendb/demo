@@ -1,5 +1,7 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -10,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
     public class DeleteDocumentController : DemoCodeController
     {
-        public DeleteDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public DeleteDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 
@@ -25,38 +27,35 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
-            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
-
-            var documentID = runParams.documentID;
-            initialCompanyDocument.Id = documentID;
+            var documentId = runParams.documentID;
+            initialCompanyDocument.Id = documentId;
             
             // Verify document exists here (and not in SetDemoPrerequisites) since:
             //    demo can be run multiple times -or-
             //    document to be deleted can come from demo parameters
             
-            await DatabaseAccessor.EnsureDocumentExists(UserId, documentID, initialCompanyDocument);
+            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
 
             #region Demo
-            
             #region Step_1
-            var documentStore = new DocumentStore
-            {
-                Urls = new[] { serverUrl }, 
-                Database = databaseName
-            };
-            
-            documentStore.Initialize();
+            //TODO remove wt step
+            //var documentStore = new DocumentStore
+            //{
+            //    Urls = new[] { serverUrl }, 
+            //    Database = databaseName
+            //};
+
+            //documentStore.Initialize();
             #endregion
 
             #region Step_2
             // Open the session for work
-            using (var session = documentStore.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
                 #region Step_3
                 // Mark the entity to be deleted in the session
-                session.Delete(documentID);
+                session.Delete(documentId);
                 #endregion
                 
                 #region Step_4
@@ -66,7 +65,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             }
             #endregion
             
-            return Ok($"Document {documentID} was deleted successfully");
+            return Ok($"Document {documentId} was deleted successfully");
         }
 
         public class Company

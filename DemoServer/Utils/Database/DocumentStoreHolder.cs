@@ -17,10 +17,13 @@ namespace DemoServer.Utils.Database
         private void ValidateSettings()
         {
             if (_databaseSettings.Urls == null || _databaseSettings.Urls.Length == 0)
-                throw new InvalidOperationException($"{nameof(_databaseSettings.Urls)} was not provided in the application settings");
+                throw new InvalidOperationException($"{nameof(_databaseSettings.Urls)} was not provided in the application settings.");
+
+            if (string.IsNullOrEmpty(_databaseSettings.Name))
+                throw new InvalidOperationException($"{nameof(_databaseSettings.Name)} was not provided in the application settings.");
         }
 
-        public IDocumentStore InitializeFor(string databaseName)
+        public IDocumentStore CreateStore(string databaseName)
         {
             var store = new DocumentStore
             {

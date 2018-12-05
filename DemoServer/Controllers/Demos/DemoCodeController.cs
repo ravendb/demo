@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Conventions;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.Filters;
@@ -13,11 +14,15 @@ namespace DemoServer.Controllers.Demos
     public abstract class DemoCodeController : Controller
     {
         private readonly HeadersAccessor _headersAccessor;
+        private readonly DocumentStoreCache _documentStoreCache;
+
         protected readonly DatabaseAccessor DatabaseAccessor;
 
-        protected DemoCodeController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor)
+        protected DemoCodeController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache, DatabaseAccessor databaseAccessor)
         {
             _headersAccessor = headersAccessor;
+            _documentStoreCache = documentStoreCache;
+
             DatabaseAccessor = databaseAccessor;
         }
 
@@ -31,5 +36,8 @@ namespace DemoServer.Controllers.Demos
         protected virtual Task SetDemoPrerequisites() => Task.CompletedTask;
 
         protected Guid UserId => _headersAccessor.GetUserIdFromRequest();
+
+        protected DocumentStoreHolderWrapper DocumentStoreHolder =>
+            new DocumentStoreHolderWrapper(_documentStoreCache, UserId);
     }
 }

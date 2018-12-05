@@ -1,5 +1,6 @@
 ﻿using System.Threading.Tasks;
 using DemoServer.Utils;
+using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -12,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
     {
         private const string DocumentId = "companies/1-A";
 
-        public EditDocumentController(HeadersAccessor headersAccessor, DatabaseAccessor databaseAccessor) : base(
-            headersAccessor, databaseAccessor)
+        public EditDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
         {
         }
 
@@ -34,24 +35,21 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
         {
             var companyName = runParams.CompanyName;
 
-            var serverUrl = DatabaseAccessor.GetFirstDatabaseUrl();
-            var databaseName = DatabaseAccessor.GetDatabaseName(UserId);
-
             #region Demo
-            
             #region Step_1
-            var documentStore = new DocumentStore
-            {
-                Urls = new[] { serverUrl }, 
-                Database = databaseName
-            };
-            
-            documentStore.Initialize();
+            //TODO remove wt step
+            //var documentStore = new DocumentStore
+            //{
+            //    Urls = new[] { serverUrl }, 
+            //    Database = databaseName
+            //};
+
+            //documentStore.Initialize();
             #endregion
 
             #region Step_2
             // Open the session for work
-            using (var session = documentStore.OpenSession())
+            using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
                 #region Step_3
