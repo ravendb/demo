@@ -4,6 +4,7 @@ import { DemoThunkDispatch } from "../../../store";
 import { runDemo } from "../../../store/actions/demoActions";
 import { connect } from "react-redux";
 import { getFirstWalkthroughUrl } from "../../../store/helpers/walkthroughUrls";
+import { IconPlay, IconStudio, IconLearn } from "../../helpers/icons";
 
 interface NavPanelOwnProps {
     resultsElementId?: string;
@@ -13,6 +14,7 @@ interface NavPanelStateProps {
     categorySlug: string;
     demoSlug: string;
     firstWtUrl?: string;
+    studioUrl?: string;
     hideRunButton: boolean;
 }
 
@@ -28,10 +30,17 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
         onRunScriptClicked();
     }
 
+    studioButton() {
+        const { studioUrl } = this.props;
+        return studioUrl && <a href={studioUrl} id="openStudio" className="fab" target="_blank">
+            <IconStudio /> Open in studio
+        </a>;
+    }
+
     walkthroughButton() {
         const { firstWtUrl } = this.props;
         return <a href={firstWtUrl} role="button" id="startWalkthrough" className="fab" >
-            <i className="icon-learn"></i> Walkthrough
+            <IconLearn /> Walkthrough
         </a>;
     }
 
@@ -41,17 +50,14 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
         return <button id="runScript" className="fab collapsed" type="button"
             data-toggle="collapse" data-target={`#${resultsElementId}`}
             onClick={() => this.handleRunScriptClick()}>
-            <i className="icon-play"></i> Run script
+            <IconPlay /> Run script
         </button>;
     }
 
     render() {
         const { resultsElementId, hideRunButton } = this.props;
         return <div className="fab-container">
-            <a href="#" id="openStudio" className="fab">
-                <i className="icon-studio"></i>
-                Open in studio
-            </a>
+            {this.studioButton()}
             {this.walkthroughButton()}
             {resultsElementId && !hideRunButton && this.runScriptButton()}
         </div>;
@@ -60,12 +66,14 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
     const { categorySlug, demoSlug, demo } = demos;
-    const hideRunButton = demo && demo.nonInteractive;
+    const nonInteractive = demo && demo.nonInteractive;
+    const studioUrl = !nonInteractive && demo && demo.studioUrl;
     return {
         categorySlug,
         demoSlug,
         firstWtUrl: getFirstWalkthroughUrl(demos),
-        hideRunButton
+        studioUrl,
+        hideRunButton: nonInteractive
     };
 }
 

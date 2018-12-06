@@ -15,18 +15,11 @@ namespace DemoServer.Utils.Database
 {
     public class DatabaseAccessor
     {
-        private readonly Settings.DatabaseSettings _databaseSettings;
         private readonly DocumentStoreCache _documentStoreCache;
 
-        public DatabaseAccessor(Settings settings, DocumentStoreCache documentStoreCache)
+        public DatabaseAccessor(DocumentStoreCache documentStoreCache)
         {
             _documentStoreCache = documentStoreCache;
-            _databaseSettings = settings.Database;
-        }
-
-        public string GetFirstDatabaseUrl()
-        {
-            return _databaseSettings.Urls[0];
         }
 
         private IAsyncDocumentSession GetSession(Guid userId)

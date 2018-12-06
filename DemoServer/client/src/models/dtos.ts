@@ -34,6 +34,7 @@ export interface DemoDto {
     assets: DemoAssetDto[];
     walkthroughs: DemoWalkthroughDto[];
     nonInteractive: boolean;
+    studioUrl: string;
 }
 
 export interface DemoParamsDto {

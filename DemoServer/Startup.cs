@@ -53,6 +53,7 @@ namespace DemoServer
             services.AddScoped<DocumentStoreCache>();
             services.AddScoped<HeadersAccessor>();
             services.AddScoped<DatabaseAccessor>();
+            services.AddScoped<DatabaseLinks>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
