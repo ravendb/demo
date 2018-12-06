@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Threading.Tasks;
 using DemoServer.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Database;
@@ -16,14 +17,16 @@ namespace DemoServer.Controllers
         private readonly DemoContainer _demoContainer;
         private readonly HeadersAccessor _headersAccessor;
         private readonly DatabaseLinks _databaseLinks;
+        private readonly DatabaseAccessor _databaseAccessor;
         private readonly ILogger _logger;
 
         public HomeController(DemoContainer demoContainer, HeadersAccessor headersAccessor, DatabaseLinks databaseLinks,
-            ILogger<HomeController> logger)
+            DatabaseAccessor databaseAccessor, ILogger<HomeController> logger)
         {
             _demoContainer = demoContainer;
             _headersAccessor = headersAccessor;
             _databaseLinks = databaseLinks;
+            _databaseAccessor = databaseAccessor;
             _logger = logger;
         }
 
@@ -55,6 +58,14 @@ namespace DemoServer.Controllers
                 _logger.LogError(e, "An error occured during demo fetching.");
                 return NotFound();
             }
+        }
+
+        [HttpPost]
+        [Route("reset-database")]
+        public async Task<IActionResult> ResetDatabase()
+        {
+            await _databaseAccessor.ResetDatabase(UserId);
+            return Ok();
         }
     }
 }

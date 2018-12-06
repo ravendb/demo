@@ -39,6 +39,10 @@ export class DemoService extends Service {
     async getMetadata(category: string, demo: string): Promise<DemoDto> {
         return this.get<DemoDto>(`get/${category}/${demo}`);
     }
+
+    async resetDatabase(): Promise<any> {
+        return this.postEmpty("reset-database");
+    }
 }
 
 export class RunDemoService extends Service {
@@ -47,7 +51,7 @@ export class RunDemoService extends Service {
     }
 
     async setPrerequisites(): Promise<any> {
-        return this.postEmpty(`set-prerequisites`);
+        return this.postEmpty("set-prerequisites");
     }
 
     async run(dto: DemoParamsDto): Promise<object> {

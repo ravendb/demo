@@ -88,6 +88,12 @@ namespace DemoServer.Utils.Database
             }
         }
 
+        public async Task ResetDatabase(Guid userId)
+        {
+            await DeleteDatabase(userId);
+            EnsureUserDatabaseExists(userId);
+        }
+
         public async Task DeleteDatabase(Guid userId)
         {
             var documentStore = _documentStoreCache.GetEntry(userId);
