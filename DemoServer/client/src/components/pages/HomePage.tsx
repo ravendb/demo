@@ -1,13 +1,13 @@
 import * as React from "react";
-import { Page } from "../Layout";
+import { Layout } from "../layout";
 import { Home } from "../home";
 
 export class HomePage extends React.Component {
   displayName = HomePage.name
 
   render() {
-    return <Page noContainer>
+    return <Layout noContainer>
       <Home />
-    </Page>;
+    </Layout>;
   }
 }

@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { getWalkthroughsCount, getCurrentWalkthroughIndex } from "../../../store/state/DemoState";
+import { getCurrentWalkthroughIndex } from "../../../store/state/DemoState";
 import { geWalkthroughUrls } from "../../../store/helpers/walkthroughUrls";
 
 interface ProgressItemProps {
@@ -28,14 +28,14 @@ class WalkthroughProgressComponent extends React.Component<Props, {}> {
         const { walkthroughUrls } = this.props;
         const wtUrls = walkthroughUrls ? walkthroughUrls.slice(0, end) : [];
         
-        return wtUrls.map((url, i) => <ProgressItem active={true} url={url} key={`done_${i}`} />);
+        return wtUrls.map(url => <ProgressItem active={true} url={url} key={`pritem_${url}`} />);
     }
 
     toDoItems(start: number) {
         const { walkthroughUrls } = this.props;
         const wtUrls = walkthroughUrls ? walkthroughUrls.slice(start) : [];
         
-        return wtUrls.map((url, i) => <ProgressItem active={false} url={url} key={`todo_${i}`} />);
+        return wtUrls.map(url => <ProgressItem active={false} url={url} key={`pritem_${url}`} />);
     }
 
     render() {

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Header } from "./ui/Header";
+import { Header } from "./header";
 
 interface LayoutProps {
     noContainer?: boolean;
@@ -15,21 +15,11 @@ export class Layout extends React.Component<LayoutProps, {}> {
             ? <>{children}</>
             : <div className="container">
                 {children}
-                <div className="toast">Link has been copied to clipboard</div>
             </div>;
 
         return <>
             <Header />
             {body}
         </>;
-    }
-}
-
-interface PageProps extends LayoutProps {
-}
-
-export class Page extends React.Component<PageProps, {}> {
-    render() {
-        return <Layout {...this.props}>{this.props.children}</Layout>;
     }
 }

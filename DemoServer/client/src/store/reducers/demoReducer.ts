@@ -14,7 +14,8 @@ const initialState: DemoState = {
     showResultsPanel: false,
     loadingRunResults: false,
     parameters: [],
-    runResults: null
+    runResults: null,
+    showShareMessage: false
 };
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
@@ -82,6 +83,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                 s.parameters = s.parameters.map(x => x.name === action.name
                     ? { ...x, value: action.value }
                     : x);
+            });
+
+        case "DEMO_TOGGLE_SHARE_MESSAGE":
+            return modifyState(state, s => {
+                s.showShareMessage = action.show;
             });
     }
 

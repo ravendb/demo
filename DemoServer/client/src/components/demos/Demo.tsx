@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Page } from "../Layout";
+import { Layout } from "../layout";
 import { Sidebar } from "../demoDisplay/sidebar";
 import { DemoBody, DemoBodyOwnProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
@@ -7,6 +7,7 @@ import { DemoThunkDispatch } from "../../store";
 import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
 import { Spinner } from "../ui/Spinner";
+import { ShareToast } from "../demoDisplay/ShareToast";
 
 export type DemoOwnProps = DemoBodyOwnProps;
 
@@ -31,11 +32,12 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
     render() {
         const { loading } = this.props;
 
-        return <Page>
+        return <Layout>
             <Spinner show={loading} />
+            <ShareToast />
             <Sidebar {...this.props} />
             <DemoBody {...this.props} />
-        </Page>;
+        </Layout>;
     }
 }
 

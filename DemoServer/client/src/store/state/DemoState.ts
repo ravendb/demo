@@ -30,6 +30,7 @@ export type DemoState = ParametersState
         demoSlug: string;
         demo: DemoDto;
         finishedLoadingDemo: boolean;
+        showShareMessage: boolean;
     }
 
 export function getCurrentWalkthroughIndex(state: DemoState): number {

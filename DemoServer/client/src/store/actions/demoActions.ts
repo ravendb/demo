@@ -6,6 +6,7 @@ import { DemoDto } from "../../models/dtos";
 import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
 import { updateProgress } from "./progressActions";
+import clipboardCopy = require("clipboard-copy");
 
 const service = new DemoService();
 
@@ -67,11 +68,17 @@ export interface ChangeDemoParams {
     value: any;
 }
 
+export interface ToggleDemoShareMessage {
+    type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE,
+    show: boolean;
+}
+
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
-    | InitDemoParams | ChangeDemoParams;
+    | InitDemoParams | ChangeDemoParams
+    | ToggleDemoShareMessage;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {
@@ -213,4 +220,18 @@ export function changeDemoParams(name: string, value: any): ChangeDemoParams {
         name,
         value
     };
+}
+
+export function toggleDemoShareMessage(show: boolean): ToggleDemoShareMessage {
+    return {
+        type: "DEMO_TOGGLE_SHARE_MESSAGE",
+        show
+    }
+}
+
+export function shareDemo(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch) => {
+        clipboardCopy(window.location.href);
+        dispatch(toggleDemoShareMessage(true));
+    }
 }

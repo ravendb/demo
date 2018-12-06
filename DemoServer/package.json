@@ -4,6 +4,7 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap.native": "^2.0.24",
     "bootstrap.native-loader": "^1.0.7",
+    "clipboard-copy": "^2.0.1",
     "connected-react-router": "^4.5.0",
     "font-awesome": "^4.7.0",
     "markdowndeep": "^1.6.12",
