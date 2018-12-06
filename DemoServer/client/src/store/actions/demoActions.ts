@@ -108,7 +108,12 @@ export function getMetadata(category: string, demo: string): DemoThunkAction {
         try {
             const result = await service.getMetadata(category, demo);
             dispatch(getMetadataSuccess(result));
-            dispatch(setPrerequisites());
+            
+            if (result.nonInteractive) {
+                dispatch(setPrerequisitesSuccess());
+            } else {
+                dispatch(setPrerequisites());
+            }
         } catch (error) {
             dispatch(apiError(error));
             dispatch(getMetadataFailure(error))
