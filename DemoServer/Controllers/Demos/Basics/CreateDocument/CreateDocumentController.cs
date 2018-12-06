@@ -1,11 +1,7 @@
-﻿using System;
-using DemoServer.Utils;
+﻿using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-#region Usings
-using Raven.Client.Documents;
-#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
@@ -24,20 +20,9 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             var contactName = runParams.ContactName;
             var contactTitle = runParams.ContactTitle;
 
-            #region Demo
+            #region Demo 
+            
             #region Step_1
-            //TODO remove wt step
-            //var documentStore = new DocumentStore
-            //{
-            //    Urls = new[] { serverUrl }, 
-            //    Database = databaseName
-            //};
-
-            //documentStore.Initialize();
-            #endregion
-
-            #region Step_2
-            // Define the object to be stored 
             var newCompany = new Company
             {
                 Name = companyName,
@@ -50,18 +35,14 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             };
             #endregion
 
-            #region Step_3
-            // Open the session for work
+            #region Step_2
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
-                #region Step_4
-                // Store the new company entity in the session
+                #region Step_3
                 session.Store(newCompany);
                 #endregion
-                
-                #region Step_5
-                // Save the entity as a document in the database
+                #region Step_4
                 session.SaveChanges();
                 #endregion
             }

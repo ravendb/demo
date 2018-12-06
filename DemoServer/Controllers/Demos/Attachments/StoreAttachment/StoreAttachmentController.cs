@@ -1,11 +1,9 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
-using Raven.Client.Documents;
 using System.IO;
 #endregion
 
@@ -45,41 +43,25 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
 
             #region Demo
-            #region Step_1
-            //TODO remove wt step
-            //// Init the Document Store
-            //var documentStore = new DocumentStore
-            //{
-            //    Urls = new[] { serverUrl }, 
-            //    Database = databaseName
-            //};
-
-            //documentStore.Initialize();
-            #endregion
-
-            // Set the demo file path 
+            
             string attachmentFile1 = Path.Combine(DemoPath, attachment1); 
             string attachmentFile2 = Path.Combine(DemoPath, attachment2);
           
-            #region Step_2
-            // Open the session for work
+            #region Step_1
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             
-            #region Step_3 
-            // Open binary stream for the attachments files
+            #region Step_2 
             using (var fileStream1 = System.IO.File.Open(attachmentFile1, FileMode.Open))
             using (var fileStream2 = System.IO.File.Open(attachmentFile2, FileMode.Open))
             #endregion
             {
-                #region Step_4
-                // Attach the files to the document
+                #region Step_3
                 session.Advanced.Attachments.Store(documentId, attachmentFile1, fileStream1, attachmentType1);
                 session.Advanced.Attachments.Store(documentId, attachmentFile2, fileStream2, attachmentType2);
                 #endregion 
                 
-                #region Step_5
-                // Save the changes
+                #region Step_4
                 session.SaveChanges();
                 #endregion
             }

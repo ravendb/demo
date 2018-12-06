@@ -3,9 +3,6 @@ using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-#region Usings
-using Raven.Client.Documents;
-#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
@@ -36,34 +33,20 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             var companyName = runParams.CompanyName;
 
             #region Demo
+            
             #region Step_1
-            //TODO remove wt step
-            //var documentStore = new DocumentStore
-            //{
-            //    Urls = new[] { serverUrl }, 
-            //    Database = databaseName
-            //};
-
-            //documentStore.Initialize();
-            #endregion
-
-            #region Step_2
-            // Open the session for work
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
-                #region Step_3
-                // Load the document 
+                #region Step_2
                 var company = session.Load<Company>(DocumentId);
                 #endregion
                 
-                #region Step_4
-                // Update the data 
+                #region Step_3
                 company.Name = companyName;
                 #endregion
                 
-                #region Step_5
-                // Save the entity as a document in the database
+                #region Step_4
                 session.SaveChanges();
                 #endregion
             }

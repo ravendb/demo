@@ -3,7 +3,7 @@
     "SourceFileName": "EditDocumentController.cs",
     "Title": "Edit Document",
     "DescriptionLines": [
-        "Edit a document that is already stored in the database.<br>",
+        "**Edit a document** that is already stored in the database.<br>",
         "You will load an existing document from the Document Store, update it and save it back."
     ],
 
@@ -47,18 +47,11 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the Document Store",
-            "Slug": "step-1",
-            "DemoLink": {
-                "Url": "advanced/create-database#step-1",
-                "Title": "Create Database Demo"
-            }
-        },
-        {
             "Title": "Open a Session",
-            "Slug" : "step-2",
+            "Slug" : "step-1",
             "DescriptionLines": [
-                "Once the document store is defined, direct communication with the database is done through the `Session`.<br>",
+                "Direct communication with the database is done through the `Session` that is on the Document Store object.",
+                "",
                 "The `Session` tracks the changes done to your entity objects.",
                 "",
                 "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.",
@@ -85,7 +78,7 @@
         },
         {
             "Title": "Load an existing document",
-            "Slug" : "step-3",
+            "Slug" : "step-2",
             "DescriptionLines": [
                 "Load an existing document from the document store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.",
@@ -108,15 +101,16 @@
         },
         {
             "Title": "Edit your data",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [ "Edit the C# entity data" ],
             "Assets": []
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
-                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.<br>",
+                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.",
+                "",
                 "If any changes were made, that entity will be persisted to the database, in the related document.",
                 "",
                 "The session sends the changes to the server as a single remote call that completes transactionally."

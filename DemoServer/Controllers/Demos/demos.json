@@ -5,6 +5,7 @@
             "directory": "Basics"
         },
         "demos": [
+            "TheDocumentStore",
             "CreateDocument",
             "EditDocument",
             "DeleteDocument"

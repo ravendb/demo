@@ -1,0 +1,210 @@
+{
+    "Slug": "the-document-store",
+    "SourceFileName": "TheDocumentStoreController.cs",
+    "Title": "The Document Store",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Document Store** is the main Client API object that establishes the communication between your client application and the RavenDB server.",
+        "",
+        "It exposes methods to perform operations against an associated server instance,",        
+        "holding the configuration, topology, cache and any customizations that you might have applied.",
+        "",
+        "A single instance of a Document Store (singleton pattern) should be used per the lifetime of the application."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Singleton Pattern",
+            "Type" : "link",
+            "Url"  : "http://csharpindepth.com/articles/general/singleton.aspx"
+        },
+        {
+            "Title": "What is a Document Store",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
+        },
+        {
+            "Title": "Creating a document store",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+        },
+        {
+            "Title": "Setting up RavenDB",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/start/getting-started"
+        },
+        {
+            "Title": "Your first RavenDB program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#your-first-ravendb-program"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the DocumentStoreHolder class",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "The `DocumentStoreHolder` class holds a single instance of the Document Store object that will be used across your client application.",
+                "",
+                "In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
+                "",
+                "* Session",
+                "* Operations",
+                "* Bulk Insert",
+                "* Changes API",
+                "* Data Subscriptions"
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                },
+                {
+                    "Title": "What is a Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
+                },
+                {
+                    "Title": "Creating a document store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "The private _store variable",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "The private static variable `_store` will hold a reference to the single instance created of the Document Store.",
+                "",
+                "Usage of “Lazy” ensures that the Document Store is only created once,",
+                "without you having to worry about double locking or explicit thread safety issues."
+            ],
+            "Assets": [
+                {
+                    "Title": "Singleton Pattern",
+                    "Type" : "link",
+                    "Url"  : "http://csharpindepth.com/articles/general/singleton.aspx"
+                }
+            ]
+        },
+        {
+            "Title": "Create the document store configuration",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "Method CreateDocumentStore() returns a configured `DocumentStore` object that is used to initialize the __store_ variable in the previous step."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Configure the DocumentStore Object",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "At this point, before initializing the Document Store (in step 5), the following info can be configured:",
+                "",
+                "* URLs",
+                "* Database",
+                "* Certificate",
+                "* Conventions",
+                "",
+                " The **Urls** property specifies a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "Note:Do not open a DocumentStore using URL addresses that point to nodes outside your cluster",
+                "",
+                "The **Database** property specifies the database name this Document Store will work against.",
+                "",
+                "Various settings and behaviors can be customized with the **Conventions** property, as well as the client **Certificate**,",
+                "which is used to authenticate the client to the RavenDB server.",
+                "",
+                "*Remember to:* dispose the DocumentStore object when exiting the client application."
+                
+            ],
+            "Assets": [                
+                {
+                    "Title": "Setup a Default Database",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/setting-up-default-database"
+                },
+                {
+                    "Title": "Server URL",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/core-configuration#serverurl"
+                },
+                {
+                    "Title": "Conventions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#conventions"
+                },
+                {
+                    "Title": "Certificates introduction",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch13/Ch13.md#introduction-to-transport-level-security-and-authentication"
+                }
+            ]
+        },
+        {
+            "Title": "Initialize the Document Store object",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "This will instantiate a communication channel between your application and the RavenDB server instance."
+            ],
+            "Assets": [
+                {
+                    "Title": "Creating a document store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "The public store property",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "The public static `Store`variable holds reference to the single created instance.",
+                "",
+                "The rest of your client code can now access the Document Store using the **DocumentStoreHolder.Store** static property for:",
+                "",
+                "* Opening a Session",
+                "* Defining indexes", 
+                "* Bulk documents actions", 
+                "* Operations handling", 
+                "* Subscription tasks management", 
+                "* Exporting & Importing database data."
+            ],
+            "Assets": [
+                {
+                    "Title": "What is Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+                },
+                {
+                    "Title": "What are Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/what-are-indexes"
+                },
+                {
+                    "Title": "Bulk Insert Operation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations"
+                },
+                {
+                    "Title": "What are Data Subscriptions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/data-subscriptions/what-are-data-subscriptions"
+                },
+                {
+                    "Title": "Export & Import data with Sumuggler",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/smuggler/what-is-smuggler"
+                }
+            ]
+        }
+    ]
+}

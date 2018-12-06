@@ -4,7 +4,6 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
-using Raven.Client.Documents;
 using Raven.Client.Exceptions;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
@@ -31,30 +30,22 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
             var databaseName = DatabaseName.For(UserId);
 
             #region Demo
-            #region Step_1
-            //TODO remove wt step
-            //// Init the Document Store
-            //var documentStore = new DocumentStore
-            //{
-            //    Urls = new[] { serverUrl }, // For example: serverUrl = "http://localhost:8080"
-            //    Database = databaseName
-            //};
             
-            //documentStore.Initialize();
-            #endregion
-
-            #region Step_2
             try
             {
-                // Create the new database
+                #region Step_1
                 var databaseRecord = new DatabaseRecord(databaseName);
-                DocumentStoreHolder.Store.Maintenance.Server.Send(new CreateDatabaseOperation(databaseRecord));
+                var createDatabaseOperation = new CreateDatabaseOperation(databaseRecord);
+                #endregion
+                
+                #region Step_2
+                DocumentStoreHolder.Store.Maintenance.Server.Send(createDatabaseOperation);
+                #endregion
             }
             catch (ConcurrencyException)
             {
                 // Database already exists
             }
-            #endregion
             #endregion
             
             return Ok($"Database {databaseName} was created successfully");

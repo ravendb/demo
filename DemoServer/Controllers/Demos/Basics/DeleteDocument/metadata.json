@@ -3,7 +3,7 @@
     "SourceFileName": "DeleteDocumentController.cs",
     "Title": "Delete Document",
     "DescriptionLines": [
-        "Delete a document from the database."
+        "**Delete a document** from the database."
     ],
 
     "Assets": [
@@ -21,24 +21,16 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the Document Store",
+            "Title": "Open a Session",
             "Slug": "step-1",
             "DemoLink": {
-                "Url": "advanced/create-database#step-1",
-                "Title": "Create Database Demo"
-            }
-        },
-        {
-            "Title": "Open a Session",
-            "Slug": "step-2",
-            "DemoLink": {
-                "Url": "basics/create-document#step-3",
+                "Url": "basics/create-document#step-2",
                 "Title": "Create Document Demo"
             }
         },
         {
-            "Title": "Mark entity to be deleted",
-            "Slug" : "step-3",
+            "Title": "Mark the entity to be deleted",
+            "Slug" : "step-2",
             "DescriptionLines": [
                 "Mark the entity to be deleted from the `Session`.<br>",
                 "The document is actually deleted from the database only when `SaveChanges()` is called later on.",
@@ -47,8 +39,9 @@
                 "",
                 "* When using the above `Delete()` overload the document is deleted with no concurrency checks.",
                 "* A _Concurrency Exception_ can be thrown only when using the following `Delete()` overloads:",
-                "     `void Delete<T>(T entity);`",
-                "     `void Delete(string id, string expectedChangeVector);`"
+                "",
+                "     * `void Delete<T>(T entity);`",
+                "     * `void Delete(string id, string expectedChangeVector);`"
             ],
             "Assets": [
                 {
@@ -65,7 +58,7 @@
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "The document is deleted from the database now when calling `SaveChanges()`.<br>",                
                 "The session sends the changes to the server as a single remote call that completes transactionally."

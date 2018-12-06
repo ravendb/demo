@@ -1,5 +1,6 @@
-type Basic = "DEMO_CreateDocument" | 
-             "DEMO_EditDocument"   |
+type Basic = "DEMO_TheDocumentStore" |
+             "DEMO_CreateDocument"   |
+             "DEMO_EditDocument"     |
              "DEMO_DeleteDocument";
 
 type Attachments = "DEMO_StoreAttachment";

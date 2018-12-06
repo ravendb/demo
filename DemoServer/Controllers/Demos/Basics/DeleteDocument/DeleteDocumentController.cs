@@ -1,12 +1,8 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-#region Usings
-using Raven.Client.Documents;
-#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
@@ -37,29 +33,16 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
 
             #region Demo
+            
             #region Step_1
-            //TODO remove wt step
-            //var documentStore = new DocumentStore
-            //{
-            //    Urls = new[] { serverUrl }, 
-            //    Database = databaseName
-            //};
-
-            //documentStore.Initialize();
-            #endregion
-
-            #region Step_2
-            // Open the session for work
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
-                #region Step_3
-                // Mark the entity to be deleted in the session
+                #region Step_2
                 session.Delete(documentId);
                 #endregion
                 
-                #region Step_4
-                // Document is deleted upon saving the changes
+                #region Step_3
                 session.SaveChanges();
                 #endregion
             }

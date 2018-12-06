@@ -17,6 +17,11 @@ const basicsCategory: Category = {
     title: "Basics",
     demos: [
         {
+            slug: "the-document-store",
+            title: "The Document Store",
+            type: "DEMO_TheDocumentStore"
+        },
+        {
             slug: "create-document",
             title: "Create Document",
             type: "DEMO_CreateDocument"

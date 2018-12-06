@@ -3,7 +3,7 @@
     "SourceFileName": "CreateDocumentController.cs",
     "Title": "Create Document",
     "DescriptionLines": [
-        "Create a new C# entity and save it as a document in the Database.",
+        "**Create a new C# entity and save it as a document** in the Database.",
         "The document will be stored in the RavenDB database in as JSON format object.",
         "",
         "The JSON structure is set according to the C# object model passed to the Session.",
@@ -60,16 +60,8 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the Document Store",
-            "Slug" : "step-1",
-            "DemoLink": {
-                "Url": "advanced/create-database#step-1",
-                "Title":  "Create Database Demo" 
-            }
-        },
-        {
             "Title": "Create a new C# object to be saved",
-            "Slug" : "step-2",
+            "Slug" : "step-1",
             "DescriptionLines": [
                 "Define the C# object to be saved.",
                 "",
@@ -98,9 +90,10 @@
         },
         {
             "Title": "Open a Session",
-            "Slug" : "step-3",
+            "Slug" : "step-2",
             "DescriptionLines": [
-                "Once the document store is defined, direct communication with the database is done through the `Session`.<br>",
+                "Direct communication with the database is done through the `Session` that is on the Document Store object",
+                "",
                 "The `Session` tracks the changes done to your entity objects.",
                 "",
                 "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.",
@@ -122,12 +115,17 @@
                     "Title": "Opening a Session",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+                },
+                {
+                    "Title": "What is a Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
                 }
             ]
         },
         {
             "Title": "Store the new company object in the Session",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "Associate the new entity with the `Session` with the `Store` command.<br>",
                 "The actual 'save' is done later - when `SaveChanges()` is called.",
@@ -150,7 +148,7 @@
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "The `SaveChanges()` call will check the session state for all changes (i.e. a new entity was added).<br>",
                 "It will then send those changes to the server as a single remote call that will complete transactionally.",

@@ -3,7 +3,7 @@
     "SourceFileName": "StoreAttachmentController.cs",
     "Title": "Store Attachment",
     "DescriptionLines": [
-        "Attachments are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
+        "**Attachments** are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
         "",
         "A document can have any number of attachments, and an attachment has no size limit."
     ],
@@ -38,24 +38,16 @@
 
     "Walkthroughs": [
         {
-            "Title": "Initialize the Document Store",
+            "Title": "Open a Session",
             "Slug": "step-1",
             "DemoLink": {
-                "Url": "advanced/create-database#step-1",
-                "Title": "Create Database Demo"
-            }
-        },
-        {
-            "Title": "Open a Session",
-            "Slug": "step-2",
-            "DemoLink": {
-                "Url": "basics/create-document#step-3",
+                "Url": "basics/create-document#step-2",
                 "Title": "Create Document Demo"
             }
         },
         {
             "Title": "Open a binary stream for the file",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "Open a binary stream for the attachment file.<br>",
                 "It will be used in the following `Store()` method."
@@ -70,7 +62,7 @@
         },
         {
             "Title": "Store the attachments on the document",
-            "Slug": "step-4",
+            "Slug": "step-3",
             "DescriptionLines": [
                 "Attach the attachments on to the document within the session.<br>",
                 "Specify the document ID, or pass the explicit document entity to the `Store()` method.",
@@ -92,7 +84,7 @@
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "When executing `SaveChanges()`, the document and all of its attachments are sent to the server in a single transaction call.",
                 "Both the document and all its attachments will be saved, or both will fail.",

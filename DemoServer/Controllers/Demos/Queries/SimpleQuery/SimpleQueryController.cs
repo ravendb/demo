@@ -2,8 +2,6 @@
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-#region Usings
-#endregion
 
 namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
 {
