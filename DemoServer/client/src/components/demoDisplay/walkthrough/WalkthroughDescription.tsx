@@ -16,7 +16,7 @@ function DemoLinkDisplay(props: DemoLinkDisplayProps) {
     const { url, title } = props;
     const fullUrl = `demos/${url}`;
     return <>
-        Learn more in <a href={fullUrl}>{title}</a>
+        See step explanation in <a href={fullUrl}>{title}</a>
     </>;
 }
 

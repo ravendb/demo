@@ -25,6 +25,14 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             Address = "1 Plaza Center"
         };
 
+        private async Task SetRunPrerequisites(string documentId, string attachment1, string attachment2)
+        {
+            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
+
+            DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
+            DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
+         }
+        
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
@@ -36,11 +44,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             var attachmentType1 = runParams.AttachmentType1;
             var attachmentType2 = runParams.AttachmentType2;
             
-            // Verify here (and not in SetDemoPrerequisites) since demo can be run multiple times with diff params
-            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
-
-            DatabaseAccessor.EnsureFileExists(DemoPath, attachment1, 100);
-            DatabaseAccessor.EnsureFileExists(DemoPath, attachment2, 200);
+           await SetRunPrerequisites(documentId, attachment1, attachment2);
 
             #region Demo
             

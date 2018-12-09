@@ -5,8 +5,10 @@ type Basic = "DEMO_TheDocumentStore" |
 
 type Attachments = "DEMO_StoreAttachment";
 
+type Revisions = "DEMO_EnableRevisions";
+
 type Queries = "DEMO_SimpleQuery";
 
 type Advanced = "DEMO_CreateDatabase"
 
-export type DemoType = Basic | Attachments | Queries | Advanced;
+export type DemoType = Basic | Attachments | Revisions | Queries | Advanced;

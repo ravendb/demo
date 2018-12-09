@@ -75,9 +75,22 @@ const advancedCategory: Category = {
     ]
 };
 
+const revisionsCategory: Category = {
+    slug: "revisions",
+    title: "Revisions",
+    demos: [
+        {
+            slug: "enable-revisions",
+            title: "Enable Revisions",
+            type: "DEMO_EnableRevisions"
+        }
+    ]
+};
+
 export const categoryList: Category[] = [
     basicsCategory,
     attachmentsCategory,
+    revisionsCategory,
     queriesCategory,
     advancedCategory
 ];

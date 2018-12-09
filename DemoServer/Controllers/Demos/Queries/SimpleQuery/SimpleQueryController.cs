@@ -17,14 +17,11 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleQuery
         {
             #region Demo
             
-            // TO BE IMPLEMENTED
-            // I only added this demo to see how 2 categories will look like in main page
+            // Query Demo - TO BE IMPLEMENTED
 
             #endregion region
             
-            return Ok("Query OK");
+            return Ok("Query Demo - TO BE IMPLEMENTED");
         }
-
-       
     }
 }

@@ -5,6 +5,7 @@ import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
+import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { SimpleQueryDemo } from "./queries/SimpleQueryDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
@@ -50,6 +51,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         // Category Attachments
         case "DEMO_StoreAttachment":
             return <StoreAttachmentDemo />;
+
+        // Category Revisions
+        case "DEMO_EnableRevisions":
+            return <EnableRevisionsDemo />;
             
         // Category Queries
         case "DEMO_SimpleQuery":

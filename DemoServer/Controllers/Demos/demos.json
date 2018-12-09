@@ -22,6 +22,15 @@
     },
     {
         "category": {
+            "slug": "revisions",
+            "directory": "Revisions"
+        },
+        "demos": [
+            "EnableRevisions"
+        ]
+    },
+    {
+        "category": {
             "slug": "queries",
             "directory": "Queries"
         },

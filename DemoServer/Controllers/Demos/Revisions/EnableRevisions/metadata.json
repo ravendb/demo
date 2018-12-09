@@ -1,0 +1,119 @@
+{
+    "Slug": "enable-revisions",
+    "SourceFileName": "EnableRevisionsController.cs",
+    "Title": "Enable Revisions",
+    "DescriptionLines": [
+        "**Document Revisions** are snapshots of a document that are taken over time per document change.",
+        "",
+        "Once created, revisions are immutable and are useful when you need to track document changes.",
+        "",
+        "Document revisions are not enabled by default.<br>",
+        "This demo shows how to enable the feature."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+        },
+        {
+            "Title": "Document Revisions",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+        },
+        {
+            "Title": "What are revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/revisions/what-are-revisions"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create the revisions configuration object",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "The `RevisionsConfiguration` object specifies the default revision configuration for all the collections in the database,",
+                "and for specific revisions configuration per collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Configuring Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                },
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                }
+            ]
+        },
+        {
+            "Title": "Define default revisions values for all collections",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "Set `Default` with the default values for _all_ the collections in the database.<br>",
+                "Values can be overridden per collection, as shown in the next step",
+                "",
+                "* _Disabled_ - Enable or disable the revisions feature.",
+                "* _PurgeOnDelete_ - Configure deletion of the revisions upon the parent document deletion.",
+                "* _MinimumRevisionsToKeep_ - Comfigure number of revisions to keep. Only the latest 5 revision will be kept.",
+                "* _MinimumRevisionAgeToKeep_ - Configure the revisions retention time. Revision will not be kept after 14 days."
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Revisions Configuration",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
+                },
+                {
+                    "Title": "Configuring Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                }
+            ]
+        },
+        {
+            "Title": "Define specific revisions values per collection",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "Set `Collections` with revisions values per specific collections.<br>",
+                "These values will override the default configuration from the previous step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Revisions Configuration",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
+                },
+                {
+                    "Title": "Configuring Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                }
+            ]
+        },
+        {
+            "Title": "Set the revisions configuration in the Document Store",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "Upon enabling the revision feature, a revision will be created for every change made to the document."
+            ],
+            "Assets": [
+                {
+                    "Title": "Configuring Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                },
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                }
+            ]
+        }
+    ]
+}
