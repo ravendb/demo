@@ -23,7 +23,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var documentId = runParams.documentID;
+            var documentId = runParams.DocumentId;
             initialCompanyDocument.Id = documentId;
             
             // Verify document exists here (and not in SetDemoPrerequisites) since:
@@ -60,7 +60,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 
         public class RunParams
         {
-            public string documentID { get; set; }
+            public string DocumentId { get; set; }
         }
     }
 }

@@ -7,6 +7,8 @@ import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
 import { updateProgress } from "./progressActions";
 import clipboardCopy = require("clipboard-copy");
+import { FilesCache } from "../../utils/FilesCache";
+import { FormFile } from "../../utils/ApiClient";
 
 const service = new DemoService();
 
@@ -68,6 +70,12 @@ export interface ChangeDemoParams {
     value: any;
 }
 
+export interface ChangeDemoFileParam {
+    type: actionTypes.DEMO_PARAMS_CHANGE_FILE;
+    name: string;
+    file: File;
+}
+
 export interface ToggleDemoShareMessage {
     type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE,
     show: boolean;
@@ -77,7 +85,7 @@ export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSu
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
-    | InitDemoParams | ChangeDemoParams
+    | InitDemoParams | ChangeDemoParams | ChangeDemoFileParam
     | ToggleDemoShareMessage;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
@@ -186,17 +194,32 @@ function runDemoSuccess(results: object): RunDemoSuccess {
 export function runDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const { demos } = getState();
-        const { categorySlug, demoSlug, parameters, demo } = demos;
+        const { categorySlug, demoSlug, parameters, demo, attachmentNamesToUpload } = demos;
 
         if (demo.nonInteractive) {
             return;
         }
 
-        dispatch(runDemoRequest());
         const demoService = createDemoService(demoSlug);
+
+        dispatch(runDemoRequest());
         try {
             const dto = toDemoParamsDto(parameters);
-            const result = await demoService.run(dto);
+            let result: object = null;
+
+            if (attachmentNamesToUpload.length > 0) {
+                const fileEntries = FilesCache.getForKeys(attachmentNamesToUpload);
+
+                const toUpload: FormFile[] = fileEntries.map(x => ({
+                    name: x.key,
+                    file: x.value
+                }));
+
+                result = await demoService.runWithFiles(dto, toUpload);
+            } else {
+                result = await demoService.run(dto);
+            }
+
             dispatch(runDemoSuccess(result));
             dispatch(updateProgress(categorySlug, demoSlug));
         } catch (error) {
@@ -225,6 +248,14 @@ export function changeDemoParams(name: string, value: any): ChangeDemoParams {
         name,
         value
     };
+}
+
+export function changeDemoFileParam(name: string, file: File): ChangeDemoFileParam {
+    return {
+        type: "DEMO_PARAMS_CHANGE_FILE",
+        name,
+        file
+    }
 }
 
 export function toggleDemoShareMessage(show: boolean): ToggleDemoShareMessage {

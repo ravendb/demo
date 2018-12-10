@@ -1,43 +1,31 @@
-import * as reqwest from "reqwest";
+import Axios, * as axios from "axios";
 import { DemoStorage } from "./localStorage/DemoStorage";
+import { AxiosResponse } from "axios";
 
 const userIdHeader = "DemoUser-ID";
 
-interface RequestOptions {
-    method?: string;
-    headers?: Object;
-    data?: string | Object;
-    type?: string;
-    contentType?: string;
-    crossOrigin?: boolean;
-    success?: (response: any) => void;
-    error?: (error: any) => void;
-    complete?: (response: any) => void;
-    jsonpCallback?: string;
+export interface FormFile {
+    name: string;
+    file: File;
 }
 
 export class ApiClient {
-    private static async toPromise<T>(reqwestPromise: Reqwest.ReqwestPromise<any>): Promise<T> {
-        return Promise.resolve(reqwestPromise);
-    }
-
-    private static prepareRequest(options: RequestOptions, relativeUrl: string): Reqwest.ReqwestPromise<any> {
+    private static prepareRequest<T>(config: axios.AxiosRequestConfig, relativeUrl: string): Promise<T> {
         const url = this.getApiUrl(relativeUrl);
-        const headers = {
-            [userIdHeader]: DemoStorage.getUserId()
-        };
+        let headers = config.headers || {};
+        headers = { ...headers, [userIdHeader]: DemoStorage.getUserId() };
 
-        let req = reqwest({
-            ...options,
-            url,
-            headers
-        }).then(function (response) {
-            const userId = req.request.getResponseHeader(userIdHeader);
+        let req = Axios({...config,
+            headers,
+            url
+        }).then((response: AxiosResponse<T>) => {
+            const userId = response.headers && response.headers[userIdHeader];
             if (!!userId) {
                 DemoStorage.setUserId(userId);
             }
-            return response;
+            return response.data;
         });
+
         return req;
     }
 
@@ -46,30 +34,47 @@ export class ApiClient {
     }
 
     static async postEmpty(relativeUrl: string): Promise<any> {
-        var req = this.prepareRequest({
+        return this.prepareRequest({
             method: 'post',
-            contentType: 'application/json'
+            data: this.getFormData({})
         }, relativeUrl);
+    }
 
-        return this.toPromise(req);
+    private static getFormData(data: any): FormData {
+        const formData = new FormData();
+
+        for (const key of Object.keys(data)) {
+            formData.append(key, data[key]);
+        }
+
+        return formData;
     }
 
     static async post<TInput, TOutput>(relativeUrl: string, data: TInput): Promise<TOutput> {
-        var req = this.prepareRequest({
-            method: 'post',
-            type: 'json',
-            data: data
-        }, relativeUrl);
+        const formData = this.getFormData(data);
 
-        return this.toPromise<TOutput>(req);
+        return this.prepareRequest<TOutput>({
+            method: 'post',
+            data: formData
+        }, relativeUrl);
+    }
+
+    static async postWithFiles<TInput, TOutput>(relativeUrl: string, data: TInput, files: FormFile[]): Promise<TOutput> {
+        const formData = this.getFormData(data);
+
+        files.forEach(x => {
+            formData.append(x.name, x.file);
+        });
+
+        return this.prepareRequest<TOutput>({
+            method: 'post',
+            data: formData
+        }, relativeUrl);
     }
 
     static async get<TOutput>(relativeUrl: string): Promise<TOutput> {
-        var req = this.prepareRequest({
-            method: 'get',
-            contentType: 'application/json'
+        return this.prepareRequest<TOutput>({
+            method: 'get'
         }, relativeUrl);
-
-        return this.toPromise<TOutput>(req);
     }
 }

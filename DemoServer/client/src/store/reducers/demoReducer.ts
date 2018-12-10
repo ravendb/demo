@@ -3,6 +3,7 @@ import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
+import { FilesCache } from "../../utils/FilesCache";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -14,6 +15,7 @@ const initialState: DemoState = {
     showResultsPanel: false,
     loadingRunResults: false,
     parameters: [],
+    attachmentNamesToUpload: [],
     runResults: null,
     showShareMessage: false
 };
@@ -58,9 +60,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             });
 
         case "DEMO_RUN_SUCCESS":
+            FilesCache.clear();
             return modifyState(state, s => {
                 s.loadingRunResults = false;
                 s.runResults = action.results;
+                s.attachmentNamesToUpload = [];
             });
 
         case "DEMO_RUN_FAILURE":
@@ -83,6 +87,17 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                 s.parameters = s.parameters.map(x => x.name === action.name
                     ? { ...x, value: action.value }
                     : x);
+            });
+
+        case "DEMO_PARAMS_CHANGE_FILE":
+            return modifyState(state, s => {
+                const { name, file } = action;
+                FilesCache.addOrUpdate(name, file);
+
+                const alreadyStored = s.attachmentNamesToUpload.find(x => x === name);
+                if (!alreadyStored) {
+                    s.attachmentNamesToUpload.push(name);
+                }
             });
 
         case "DEMO_TOGGLE_SHARE_MESSAGE":

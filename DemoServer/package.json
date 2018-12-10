@@ -1,6 +1,7 @@
 {
   "scripts": {},
   "dependencies": {
+    "axios": "^0.18.0",
     "bootstrap-sass": "^3.3.7",
     "bootstrap.native": "^2.0.24",
     "bootstrap.native-loader": "^1.0.7",
@@ -18,7 +19,6 @@
     "redux": "^4.0.0",
     "redux-devtools-extension": "^2.13.5",
     "redux-thunk": "^2.3.0",
-    "reqwest": "^2.0.5",
     "ts-debounce": "^0.3.2",
     "ts-deepcopy": "^0.1.4"
   },

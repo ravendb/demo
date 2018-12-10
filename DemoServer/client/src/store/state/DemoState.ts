@@ -4,6 +4,7 @@ import { ParameterPair } from "../../models/demoModels";
 
 interface ParametersState {
     parameters: ParameterPair[];
+    attachmentNamesToUpload: string[];
 }
 
 interface PrerequisitesState {

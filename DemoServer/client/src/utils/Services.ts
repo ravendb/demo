@@ -1,4 +1,4 @@
-import { ApiClient } from "./ApiClient";
+import { ApiClient, FormFile } from "./ApiClient";
 import { DemoDto, DemoParamsDto, DemoVersionDto } from "../models/dtos";
 
 export interface PagedList<T> {
@@ -24,6 +24,10 @@ abstract class Service {
 
     protected async post<TInput, TOutput>(url: string, data: TInput): Promise<TOutput> {
         return ApiClient.post<TInput, TOutput>(this.fullUrl(url), data);
+    }
+
+    protected async postWithFiles<TInput, TOutput>(url: string, data: TInput, files: FormFile[]): Promise<TOutput> {
+        return ApiClient.postWithFiles<TInput, TOutput>(this.fullUrl(url), data, files);
     }
 }
 
@@ -56,5 +60,9 @@ export class RunDemoService extends Service {
 
     async run(dto: DemoParamsDto): Promise<object> {
         return this.post<DemoParamsDto, object>("run", dto);
+    }
+
+    async runWithFiles(dto: DemoParamsDto, files: FormFile[]): Promise<object> {
+        return this.postWithFiles<DemoParamsDto, object>("run", dto, files);
     }
 }
