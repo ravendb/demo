@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using DemoServer.Utils.Cache;
 using Raven.Client.Documents;
+using Raven.Client.Documents.BulkInsert;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Session;
 using Raven.Client.Exceptions;
@@ -15,6 +17,8 @@ namespace DemoServer.Utils.Database
 {
     public class DatabaseAccessor
     {
+        #region DocumentStore & Session
+
         private readonly DocumentStoreCache _documentStoreCache;
 
         public DatabaseAccessor(DocumentStoreCache documentStoreCache)
@@ -28,6 +32,14 @@ namespace DemoServer.Utils.Database
             var documentStore = _documentStoreCache.GetEntry(userId);
             return documentStore.OpenAsyncSession(databaseName);
         }
+
+        private IDocumentStore GetDocumentStore(Guid userId)
+        {
+            return _documentStoreCache.GetEntry(userId);
+        }
+        #endregion
+
+        #region Database
 
         public void EnsureUserDatabaseExists(Guid userId)
         {
@@ -66,28 +78,6 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
-        {
-            using (var session = GetSession(userId))
-            {
-                var doc = await session.LoadAsync<T>(documentId);
-                if (doc == null)
-                {
-                    await session.StoreAsync(document, documentId);
-                    await session.SaveChangesAsync();
-                }
-            }
-        }
-        
-        public async Task SaveDocument<T>(Guid userId, T document) 
-        {
-            using (var session = GetSession(userId))
-            {
-                await session.StoreAsync(document);
-                await session.SaveChangesAsync();
-            }
-        }
-
         public async Task ResetDatabase(Guid userId)
         {
             await DeleteDatabase(userId);
@@ -106,6 +96,46 @@ namespace DemoServer.Utils.Database
             return documentStore.Maintenance.Server.SendAsync(operation);
         }
 
+        #endregion
+
+        #region Documents & Collections
+
+        public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
+        {
+            using (var session = GetSession(userId))
+            {
+                var doc = await session.LoadAsync<T>(documentId);
+                if (doc == null)
+                {
+                    await session.StoreAsync(document, documentId);
+                    await session.SaveChangesAsync();
+                }
+            }
+        }
+
+        public async Task BulkInsertDocuments<T>(Guid userId, IList<T>documentsToStore) {
+
+            using (BulkInsertOperation bulkInsert = GetDocumentStore(userId).BulkInsert())
+            {
+                foreach (var doc in documentsToStore)
+                {
+                    await bulkInsert.StoreAsync(doc);
+                }
+            } 
+        }
+        
+        public async Task SaveDocument<T>(Guid userId, T document) 
+        {
+            using (var session = GetSession(userId))
+            {
+                await session.StoreAsync(document);
+                await session.SaveChangesAsync();
+            }
+        }
+        #endregion
+       
+        #region Files & Directories
+        
         public void EnsureFileExists(string filePath, string fileName, int size)
         {
             var neededFile = Path.Combine(filePath, fileName);
@@ -130,5 +160,6 @@ namespace DemoServer.Utils.Database
             if (Directory.Exists(directoryPath) == false)
                 Directory.CreateDirectory(directoryPath);
         }
+        #endregion
     }
 }

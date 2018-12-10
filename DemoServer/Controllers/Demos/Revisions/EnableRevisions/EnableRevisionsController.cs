@@ -19,7 +19,7 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
         }
        
         [HttpPost]
-        public async Task<IActionResult> Run(RunParams runParams)
+        public IActionResult Run(RunParams runParams)
         {
             var collection1 = runParams.Collection1;
             var collection2 = runParams.Collection2;

@@ -48,33 +48,11 @@
     "Walkthroughs": [
         {
             "Title": "Open a Session",
-            "Slug" : "step-1",
-            "DescriptionLines": [
-                "Direct communication with the database is done through the `Session` that is on the Document Store object.",
-                "",
-                "The `Session` tracks the changes done to your entity objects.",
-                "",
-                "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.",
-                "",
-                "**Note:** be sure to wrap the Session variable in a `'using'` statement to ensure proper disposal."
-            ],
-            "Assets": [
-                {
-                    "Title": "The Document Session",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
-                },
-                {
-                    "Title": "What is a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-                },
-                {
-                    "Title": "Opening a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
-                }
-            ]
+            "Slug": "step-1",
+            "DemoLink": {
+                "Url": "basics/create-document#step-2",
+                "Title": "Create Document Demo"
+            }
         },
         {
             "Title": "Load an existing document",

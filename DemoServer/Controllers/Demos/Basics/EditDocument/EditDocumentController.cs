@@ -55,7 +55,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             return Ok($"Document {DocumentId} was edited successfully");
         }
 
-        public class Company
+        private class Company
         {
             public string Id { get; set; }
             public string Name { get; set; }
@@ -63,7 +63,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             public Contact Contact { get; set; }
         }
 
-        public class Contact
+        private class Contact
         {
             public string Name { get; set; }
             public string Title { get; set; }

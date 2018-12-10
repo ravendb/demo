@@ -6,7 +6,7 @@ const resultsCreator = () => <>
     <ResultText />
 </>;
 
-export const SimpleQueryDemo = () => <Demo
+export const QueryOnCollectionDemo = () => <Demo
     paramDefinitions = { [] }
     resultsComponents = { resultsCreator }
 />;

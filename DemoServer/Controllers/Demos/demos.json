@@ -35,7 +35,7 @@
             "directory": "Queries"
         },
         "demos": [
-            "SimpleQuery"
+            "QueryOnCollection"
         ]
     },
     {

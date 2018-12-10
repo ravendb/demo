@@ -1,0 +1,93 @@
+{
+    "Slug": "query-on-collection",
+    "SourceFileName": "QueryOnCollectionController.cs",
+    "Title": "Query on Collection",
+    "DescriptionLines": [
+        "RavenDB has a rich set of queries options available.",
+        "**Query on a Collection** is a simple query that returns _all_ the entities in the specified collection.<br>",
+        "No index is created as no filtering is applied."
+    ],
+
+    "Assets": [
+        {
+            "Title": "How to Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "Querying Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "Query on a Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+        },
+        {
+            "Title": "What is a Collection",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Open a Session",
+            "Slug": "step-1",
+            "DemoLink": {
+                "Url": "basics/create-document#step-2",
+                "Title": "Create Document Demo"
+            }
+        },
+        {
+            "Title": "Perform a query on a collection",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Execute a query on collection `Companies` using the LINQ syntax.<br>",
+                "  The results will include _all_ the entities from this collection.",
+                "",
+                "* No index is created When querying on a collection without any filtering.",
+                "",
+                "* The documents returned by the Query operation are 'loaded' to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "How to Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "Query on a Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+                },
+                {
+                    "Title": "What is a Collection",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+                },
+                {
+                    "Title": "LINQ",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                }
+            ]
+        }
+    ]
+}

@@ -7,7 +7,7 @@ type Attachments = "DEMO_StoreAttachment";
 
 type Revisions = "DEMO_EnableRevisions";
 
-type Queries = "DEMO_SimpleQuery";
+type Queries = "DEMO_QueryOnCollection";
 
 type Advanced = "DEMO_CreateDatabase"
 

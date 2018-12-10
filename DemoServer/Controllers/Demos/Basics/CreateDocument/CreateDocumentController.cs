@@ -51,14 +51,14 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             return Ok("The document was created successfully");
         }
 
-        public class Company
+        private class Company
         {
             public string Name { get; set; }
             public string Phone { get; set; }
             public Contact Contact { get; set; }
         }
 
-        public class Contact
+        private class Contact
         {
             public string Name { get; set; }
             public string Title { get; set; }

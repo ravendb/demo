@@ -51,7 +51,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             return Ok($"Document {documentId} was deleted successfully");
         }
 
-        public class Company
+        private class Company
         {
             public string Id { get; set; }
             public string Name { get; set; }
