@@ -4,9 +4,9 @@
     "Title": "The Document Store",
     "NonInteractive":  true,
     "DescriptionLines": [
-        "**The Document Store** is the main Client API object that establishes the communication between your client application and the RavenDB server.",
+        "**The Document Store** is the main Client API object that establishes the communication between your client application and RavenDB server.",
         "",
-        "It exposes methods to perform operations against an associated server instance,",        
+        "It is the single access point to a particular RavenDB cluster, exposing methods to perform operations against the associated server instances,",
         "holding the configuration, topology, cache and any customizations that you might have applied.",
         "",
         "A single instance of a Document Store (singleton pattern) should be used per the lifetime of the application."

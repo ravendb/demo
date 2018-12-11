@@ -4,7 +4,9 @@
     "Title": "Query on Collection",
     "DescriptionLines": [
         "RavenDB has a rich set of queries options available.",
+        "",
         "**Query on a Collection** is a simple query that returns _all_ the entities in the specified collection.<br>",
+        "",
         "No index is created as no filtering is applied."
     ],
 
@@ -46,7 +48,7 @@
             }
         },
         {
-            "Title": "Perform a query on a collection",
+            "Title": "A simple collection query",
             "Slug": "step-2",
             "DescriptionLines": [
                 "* Execute a query on collection `Companies` using the LINQ syntax.<br>",

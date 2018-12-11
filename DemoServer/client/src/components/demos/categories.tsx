@@ -22,6 +22,11 @@ const basicsCategory: Category = {
             type: "DEMO_TheDocumentStore"
         },
         {
+            slug: "the-session",
+            title: "The Session",
+            type: "DEMO_TheSession"
+        },
+        {
             slug: "create-document",
             title: "Create Document",
             type: "DEMO_CreateDocument"

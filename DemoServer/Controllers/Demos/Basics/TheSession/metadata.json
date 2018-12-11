@@ -1,0 +1,110 @@
+{
+    "Slug": "the-session",
+    "SourceFileName": "TheSessionController.cs",
+    "Title": "The Session",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Session**, also called 'document session', is the primary way your client code interacts with RavenDB.",
+        "",
+        "The session is a unit of work that represents a single business transaction against a particular database,",
+        "managing change tracking for all the entities that it has either loaded or stored."
+    ],
+
+    "Assets": [
+        {
+            "Title": "The Document Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Open the Session",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "Direct communication with the database is done through the `Session`.<br>",
+                "Start by obtaining a new Session object from the Document Store.",
+                "",
+                "Any change made to the documents loaded to the Session will be tracked by the Session.<br>",
+                "These changes will be persisted to the database when calling SaveChanges() later on.",
+                "",
+                "**Note**: be sure to wrap the Session variable in a _'using'_ statement to ensure proper disposal.",
+                "",
+                "A single session has a configurable number of requests that can be made to the server.<br>",
+                "Design your code - use multiple sessions as needed."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+                },
+                {
+                    "Title": "What is a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+                },
+                {
+                    "Title": "Opening a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+                },
+                {
+                    "Title": "The Document Store - TODO",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
+                }
+            ]
+        },
+        {
+            "Title": "Work on your documents",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "Perform needed operations on your documents, e.g. store a new document, modify an existing document, Query your database, etc.",
+                "Any such operation 'loads' these documents entities to the Session for tracking.",
+                "",
+                "You don’t need to manually track the changes to these entities and decide what needs to be saved and what doesn’t.",
+                "The Session will do it for you.",
+                "",
+                "The Session tracks the loaded document entities (both the document body and its metadata) - any change made will be sent back to the server when SaveChanges() is called later on."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Store Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                },
+                {
+                    "Title": "Storing Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "The `SaveChanges()` call checks the Session state for all changes made (e.g. a new entity was added).",
+                "",
+                "These changes are sent to the server as a single remote call that will complete transactionally.<br>",
+                "In other words, either all changes are saved as a single unit or none of them are.",
+                "",
+                "The SaveChanges() is the only time when RavenDB client sends updates to the server, so you will experience a reduced number of network calls."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}

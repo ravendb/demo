@@ -6,6 +6,7 @@
         },
         "demos": [
             "TheDocumentStore",
+            "TheSession",
             "CreateDocument",
             "EditDocument",
             "DeleteDocument"

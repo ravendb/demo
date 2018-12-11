@@ -1,6 +1,7 @@
 import * as React from "react";
 import { CreateDatabaseDemo } from "./advanced/CreateDatabaseDemo";
 import { TheDocumentStoreDemo } from "./basics/TheDocumentStoreDemo";
+import { TheSessionDemo } from "./basics/TheSessionDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
@@ -41,6 +42,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         // Category Basics
         case "DEMO_TheDocumentStore":
             return <TheDocumentStoreDemo />;
+        case "DEMO_TheSession":
+            return <TheSessionDemo />;
         case "DEMO_CreateDocument":
             return <CreateDocumentDemo />;
         case "DEMO_EditDocument":
