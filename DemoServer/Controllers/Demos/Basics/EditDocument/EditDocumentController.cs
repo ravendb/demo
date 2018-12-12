@@ -24,7 +24,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         protected override Task SetDemoPrerequisites()
         {
-            return DatabaseAccessor.SaveDocument(UserId, InitialCompany); 
+            return DatabaseAccessor.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
         }
 
         [HttpPost]

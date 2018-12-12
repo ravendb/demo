@@ -6,6 +6,7 @@ using DemoServer.Utils.Conventions;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Raven.Client.Documents.Session;
 
 namespace DemoServer.Controllers.Demos
 {
@@ -39,5 +40,7 @@ namespace DemoServer.Controllers.Demos
 
         protected DocumentStoreHolderWrapper DocumentStoreHolder =>
             new DocumentStoreHolderWrapper(_documentStoreCache, UserId);
+
+        protected IAsyncDocumentSession OpenAsyncSession() => DatabaseAccessor.OpenAsyncSession(UserId);
     }
 }

@@ -19,22 +19,25 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOnCollection
 
         private async Task SetRunPrerequisites()
         {
-            IList<Company> results = DocumentStoreHolder.Store.OpenSession().Query<Company>()
-                .ToList();
-        
-            // Create some documents if collection is empty
-            if (results.Count == 0)
+            bool anyCompanyExists;
+
+            using (var session = OpenAsyncSession())
             {
-                IList<Company> documentsToStore = new List<Company>()
+                anyCompanyExists = session.Query<Company>().Any();
+            }
+
+            if (anyCompanyExists == false)
+            {
+                var documentsToStore = new List<Company>
                 {
-                    new Company() {Id = "Companies/1", Name = "Name1", Phone = "Phone1"},
-                    new Company() {Id = "Companies/2", Name = "Name2", Phone = "Phone2"},
-                    new Company() {Id = "Companies/3", Name = "Name3", Phone = "Phone3"},
-                    new Company() {Id = "Companies/4", Name = "Name4", Phone = "Phone4"},
-                    new Company() {Id = "Companies/5", Name = "Name5", Phone = "Phone5"}
+                    new Company {Id = "Companies/1", Name = "Name1", Phone = "Phone1"},
+                    new Company {Id = "Companies/2", Name = "Name2", Phone = "Phone2"},
+                    new Company {Id = "Companies/3", Name = "Name3", Phone = "Phone3"},
+                    new Company {Id = "Companies/4", Name = "Name4", Phone = "Phone4"},
+                    new Company {Id = "Companies/5", Name = "Name5", Phone = "Phone5"}
                 }; 
                 
-                await DatabaseAccessor.BulkInsertDocuments<Company>(UserId, documentsToStore); 
+                await DatabaseAccessor.BulkInsertDocuments(UserId, documentsToStore); 
             }
         }
         
@@ -58,7 +61,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOnCollection
             #endregion 
             
             //TODO: How to show results ?
-            return Ok($"Employee collection query results are: ...  TODO: Show Query Results ..."); 
+            return Ok("Employee collection query results are: ...  TODO: Show Query Results ..."); 
         }
         
         private class Company
