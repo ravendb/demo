@@ -1,2 +1,4 @@
-export type TextParameterType = "text" | "date" | "number";
-export type ParameterType = TextParameterType | "file";
+export type TextInputType = "text" | "date" | "number";
+export type InputType = TextInputType | "file";
+
+export type TextInputDataType = "integer" | "float";

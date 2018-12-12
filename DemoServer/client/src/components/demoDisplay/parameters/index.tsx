@@ -1,34 +1,30 @@
 import * as React from "react";
+import { connect } from "react-redux";
 import { ParameterPair } from "../../../models/demoModels";
 import { DemoThunkDispatch } from "../../../store";
-import { connect } from "react-redux";
-import { changeDemoParams, initDemoParams, changeDemoFileParam } from "../../../store/actions/demoActions";
-import { TextParameter, FileUploadParameter } from "./parameterItems";
-import { TextParameterType } from "./parameterTypes";
+import { initDemoParams } from "../../../store/actions/demoActions";
+import { TextParameterOwnProps, TextParameter } from "./TextParameter";
+import { FileUploadParameterOwnProps, FileUploadParameter } from "./FileUploadParameter";
 
-export type TextParameterItem = {
-    name: string;
-    type: TextParameterType;
-    datatype?: "integer" | "float";
-    placeholder: string;
+type TextParameterItem = TextParameterOwnProps & {
+    paramKind: "text-param";
 }
 
-export interface FileUploadParameterItem {
-    name: string;
+type FileUploadParameterItem = FileUploadParameterOwnProps & {
+    paramKind: "file-upload-param";
 }
+
+export type ParamDefinition = TextParameterItem | FileUploadParameterItem;
 
 export interface ParameterOwnProps {
-    paramDefinitions?: TextParameterItem[];
-    fileUploadDefinitions?: FileUploadParameterItem[];
+    paramDefinitions?: ParamDefinition[];
 }
 
-interface ParameterDispatchProps {
+interface DispatchProps {
     initParams: (parameters: ParameterPair[]) => void;
-    handleValueChange: (paramName: string, value: any) => void;
-    handleFileChange: (paramName: string, file: File) => void;
 }
 
-type ParametersProps = ParameterOwnProps & ParameterDispatchProps;
+type ParametersProps = ParameterOwnProps & DispatchProps;
 
 function toParameterPair({ name, placeholder }: TextParameterItem): ParameterPair {
     return {
@@ -46,50 +42,36 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
         }
     }
 
-    textParameter(item: TextParameterItem, index: number) {
-        const { name } = item;
-        const { handleValueChange } = this.props;
+    renderParameter(paramDefinition: ParamDefinition, index: number) {
+        const { name } = paramDefinition;
+        const key = `parameter_${name}_${index}`;
 
-        return <TextParameter {...item}
-            onValueChange={v => handleValueChange(name, v)}
-            key={`parameter_${name}_${index}`}
-        />;
-    }
+        switch (paramDefinition.paramKind) {
+            case "text-param":
+                return <TextParameter {...paramDefinition} key={key} />;
+            
+            case "file-upload-param":
+                return <FileUploadParameter {...paramDefinition} key={key} />;
+        }
 
-    fileUploadParameter(item: FileUploadParameterItem, index: number) {
-        const { name } = item;
-        const { handleFileChange } = this.props;
-
-        return <FileUploadParameter {...item}
-            onFileChange={f => handleFileChange(name, f)}
-            key={`parameter_${name}_${index}`}
-        />;
+        return null;
     }
 
     render() {
-        const { paramDefinitions, fileUploadDefinitions } = this.props;
-        if (!paramDefinitions && !fileUploadDefinitions) {
+        const { paramDefinitions } = this.props;
+        if (!paramDefinitions) {
             return null;
         }
 
         return <div className="parameters">
-            {paramDefinitions && paramDefinitions.map((x, i) => this.textParameter(x, i))}
-            {fileUploadDefinitions && fileUploadDefinitions.map((x, i) => this.fileUploadParameter(x, i))}
+            {paramDefinitions.map((x, i) => this.renderParameter(x, i))}
         </div>;
     }
 }
 
-function mapStateToProps() {
-    return {
-    };
-}
-
-function mapDispatchToProps(dispatch: DemoThunkDispatch): ParameterDispatchProps {
-    return {
-        initParams: (parameters: ParameterPair[]) => dispatch(initDemoParams(parameters)),
-        handleValueChange: (paramName: string, value: any) => dispatch(changeDemoParams(paramName, value)),
-        handleFileChange: (paramName: string, file: File) => dispatch(changeDemoFileParam(paramName, file))
-    };
-}
-
-export const Parameters = connect<{}, ParameterDispatchProps, ParameterOwnProps>(mapStateToProps, mapDispatchToProps)(ParametersDisplay);
+export const Parameters = connect<{}, DispatchProps, ParameterOwnProps>(
+    () => ({}),
+    (dispatch: DemoThunkDispatch): DispatchProps => ({
+        initParams: (parameters: ParameterPair[]) => dispatch(initDemoParams(parameters))
+    })
+)(ParametersDisplay);

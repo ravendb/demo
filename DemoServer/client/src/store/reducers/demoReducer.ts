@@ -60,11 +60,9 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             });
 
         case "DEMO_RUN_SUCCESS":
-            FilesCache.clear();
             return modifyState(state, s => {
                 s.loadingRunResults = false;
                 s.runResults = action.results;
-                s.attachmentNamesToUpload = [];
             });
 
         case "DEMO_RUN_FAILURE":
@@ -78,8 +76,10 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             });
 
         case "DEMO_PARAMS_INIT":
+            FilesCache.clear();
             return modifyState(state, s => {
                 s.parameters = action.parameters;
+                s.attachmentNamesToUpload = [];
             });
 
         case "DEMO_PARAMS_CHANGE":

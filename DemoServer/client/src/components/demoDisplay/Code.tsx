@@ -23,7 +23,7 @@ export class CodeDisplay extends React.Component<CodeProps, {}> {
             return null;
         }
 
-        const [ usings, mainCode] = sliceIntoTwo(sourceCode, usingsLastLine);
+        const [usings, mainCode] = sliceIntoTwo(sourceCode, usingsLastLine);
         const linesStart = usingsLastLine + 1;
 
         const code = highlightLinesRange
@@ -35,7 +35,7 @@ export class CodeDisplay extends React.Component<CodeProps, {}> {
             </CodePreview>;
 
         return <div className="demo-code">
-            <Usings language={language}>{usings}</Usings>
+            {usings && <Usings language={language}>{usings}</Usings>}
             {code}
         </div>;
     }

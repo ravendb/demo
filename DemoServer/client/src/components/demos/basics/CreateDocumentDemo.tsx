@@ -2,16 +2,14 @@ import * as React from "react";
 import { Demo } from "../Demo";
 import { DocumentCreated } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <>
-    <DocumentCreated />   
-</>;
+const resultsCreator = () => <DocumentCreated />;
 
 export const CreateDocumentDemo = () => <Demo
     paramDefinitions = {[
-        { type: "text", name: "companyName", placeholder: "Hibernating Rhinos" },
-        { type: "text", name: "companyPhone", placeholder: "(+972)52-5486969" },
-        { type: "text", name: "contactName", placeholder: "Contact Name Holder" },
-        { type: "text", name: "contactTitle", placeholder: "Contact Title Holder" }
+        { inputType: "text", name: "companyName", placeholder: "Hibernating Rhinos", paramKind: "text-param" },
+        { inputType: "text", name: "companyPhone", placeholder: "(+972)52-5486969", paramKind: "text-param" },
+        { inputType: "text", name: "contactName", placeholder: "Contact Name Holder", paramKind: "text-param" },
+        { inputType: "text", name: "contactTitle", placeholder: "Contact Title Holder", paramKind: "text-param" }
     ]}
     resultsComponents = { resultsCreator }
 />;

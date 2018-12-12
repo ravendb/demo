@@ -19,6 +19,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="client\favicon.ico" />
+    <Content Include="DemoResources\raven_logo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="Controllers\Demos\demos.json">

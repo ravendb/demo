@@ -1,15 +1,10 @@
 import * as React from "react";
 
-export interface FileInputStateProps {
+export interface FileInputProps {
     className?: string;
     disabled?: boolean;
-}
-
-export interface FileInputDispatchProps {
     onFileChange: (file: File) => void;
 }
-
-export type FileInputProps = FileInputStateProps & FileInputDispatchProps;
 
 export class FileInput extends React.Component<FileInputProps, {}> {
     constructor(props) {
