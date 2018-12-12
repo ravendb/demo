@@ -42,12 +42,17 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             AttachmentWrapper attachment;
 
             if (runParams.Attachment == null)
+            {
                 attachment = new LocalFileAttachmentWrapper(DefaultFilePath);
+            }
             else
+            {
+                FileValidator.Check(runParams.Attachment);
                 attachment = new FormFileAttachmentWrapper(runParams.Attachment);
+            }
 
             #region Demo
-           
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #region Step_1 
             using (var stream = attachment.OpenStream())
