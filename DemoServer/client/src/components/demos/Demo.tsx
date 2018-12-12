@@ -7,7 +7,8 @@ import { DemoThunkDispatch } from "../../store";
 import { getMetadata } from "../../store/actions/demoActions";
 import { connect } from "react-redux";
 import { Spinner } from "../ui/Spinner";
-import { ShareToast } from "../demoDisplay/ShareToast";
+import { ShareToast } from "../demoDisplay/toasts/ShareToast";
+import { InvalidFileToast } from "../demoDisplay/toasts/InvalidFileToast";
 
 export type DemoOwnProps = DemoBodyOwnProps;
 
@@ -35,6 +36,7 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
         return <Layout>
             <Spinner show={loading} />
             <ShareToast />
+            <InvalidFileToast />
             <Sidebar {...this.props} />
             <DemoBody {...this.props} />
         </Layout>;

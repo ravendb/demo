@@ -15,7 +15,7 @@ class ToastDisplay extends React.Component<ToastDisplayProps, {}> {
     }
 }
 
-const displayDuration = 3500;
+const defaultDisplayDuration = 3500;
 
 export interface ToastStateProps {
     show: boolean;
@@ -25,7 +25,11 @@ export interface ToastDispatchProps {
     hideToast: () => void;
 }
 
-export type ToastProps = ToastStateProps & ToastDispatchProps;
+export interface ToastOwnProps {
+    displayDuration?: number;
+}
+
+export type ToastProps = ToastStateProps & ToastDispatchProps & ToastOwnProps;
 
 export class Toast extends React.Component<ToastProps, {}> {
     private timerId: any;
@@ -53,11 +57,14 @@ export class Toast extends React.Component<ToastProps, {}> {
     }
 
     fadeOut() {
+        const { displayDuration } = this.props;
+        const duration = displayDuration || defaultDisplayDuration;
+
         this.timerId = setTimeout(() => {
             if (this.props) {
                 this.props.hideToast();
             }
-        }, displayDuration);
+        }, duration);
     }
 
     render() {

@@ -16,6 +16,10 @@ export class FilesCache {
         }
     }
 
+    static remove(key: string) {
+        this.files = this.files.filter(x => x.key !== key);
+    }
+
     static getForKeys(keys: string[]): FilesCacheEntry[] {
         return this.files.filter(x => keys.indexOf(x.key) >= 0);
     }

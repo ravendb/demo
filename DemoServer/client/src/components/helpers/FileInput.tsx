@@ -21,7 +21,6 @@ export class FileInput extends React.Component<FileInputProps, {}> {
 
     render() {
         const { disabled, className } = this.props;
-
         return <input type="file" className={className} onChange={this.handleFileChange} disabled={disabled} />;
     }
 }

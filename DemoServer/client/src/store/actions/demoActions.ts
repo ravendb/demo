@@ -76,6 +76,10 @@ export interface ChangeDemoFileParam {
     file: File;
 }
 
+export interface HideInvalidUploadMessage {
+    type: actionTypes.DEMO_HIDE_INVALID_UPLOAD_MESSAGE;
+}
+
 export interface ToggleDemoShareMessage {
     type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE,
     show: boolean;
@@ -86,6 +90,7 @@ export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSu
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | InitDemoParams | ChangeDemoParams | ChangeDemoFileParam
+    | HideInvalidUploadMessage
     | ToggleDemoShareMessage;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
@@ -255,19 +260,25 @@ export function changeDemoFileParam(name: string, file: File): ChangeDemoFilePar
         type: "DEMO_PARAMS_CHANGE_FILE",
         name,
         file
-    }
+    };
+}
+
+export function hideInvalidUploadMessage(): HideInvalidUploadMessage {
+    return {
+        type: "DEMO_HIDE_INVALID_UPLOAD_MESSAGE"
+    };
 }
 
 export function toggleDemoShareMessage(show: boolean): ToggleDemoShareMessage {
     return {
         type: "DEMO_TOGGLE_SHARE_MESSAGE",
         show
-    }
+    };
 }
 
 export function shareDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch) => {
         clipboardCopy(window.location.href);
         dispatch(toggleDemoShareMessage(true));
-    }
+    };
 }

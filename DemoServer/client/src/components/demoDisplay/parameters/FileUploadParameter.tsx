@@ -4,28 +4,41 @@ import { ParameterFileInput } from "./parameterInputs";
 import { ParameterLabel } from "./ParameterLabel";
 import { DemoThunkDispatch } from "../../../store";
 import { changeDemoFileParam } from "../../../store/actions/demoActions";
+import { AppState } from "../../../store/state";
 
 export interface FileUploadParameterOwnProps {
     name: string;
+}
+
+interface StateProps {
+    validationError?: string;
 }
 
 interface DispatchProps {
     handleFileChange: (paramName: string, file: File) => void;
 }
 
-type Props = DispatchProps & FileUploadParameterOwnProps;
+type Props = StateProps & DispatchProps & FileUploadParameterOwnProps;
 
 function FileUploadParameterComponent(props: Props) {
-    const { name, handleFileChange } = props;
+    const { name, handleFileChange, validationError } = props;
 
     return <div className="parameter">
         <ParameterFileInput {...props} onFileChange={f => handleFileChange(name, f)} />
         <ParameterLabel {...props} />
+        {!!validationError && <div>{validationError}</div>}
     </div>;
 }
 
-export const FileUploadParameter = connect<{}, DispatchProps, FileUploadParameterOwnProps>(
-    () => ({}),
+export const FileUploadParameter = connect<StateProps, DispatchProps, FileUploadParameterOwnProps>(
+    ({ demos }: AppState, ownProps: FileUploadParameterOwnProps): StateProps => {
+        const { name } = ownProps;
+        const error = demos.fileParamsValidationErrors.find(x => x.paramName === name);
+
+        return {
+            validationError: error && error.error
+        }
+    },
     (dispatch: DemoThunkDispatch): DispatchProps => ({
         handleFileChange: (paramName: string, file: File) => dispatch(changeDemoFileParam(paramName, file))
     })
