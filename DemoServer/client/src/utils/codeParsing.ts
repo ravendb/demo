@@ -1,4 +1,8 @@
 export function sliceIntoTwo(text: string, pivotLineNum: number): string[] {
+    if (pivotLineNum === 0) {
+        return ["", text];
+    }
+
     const newLineRegex = /\r?\n/gm;
 
     let i = 1;
