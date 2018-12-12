@@ -3,6 +3,7 @@ import { DemoStorage } from "./localStorage/DemoStorage";
 import { AxiosResponse } from "axios";
 
 const userIdHeader = "DemoUser-ID";
+const userIdHeaderLowerCase = userIdHeader.toLowerCase();
 
 export interface FormFile {
     name: string;
@@ -13,13 +14,18 @@ export class ApiClient {
     private static prepareRequest<T>(config: axios.AxiosRequestConfig, relativeUrl: string): Promise<T> {
         const url = this.getApiUrl(relativeUrl);
         let headers = config.headers || {};
-        headers = { ...headers, [userIdHeader]: DemoStorage.getUserId() };
+        const userId = DemoStorage.getUserId();
+
+        if (!!userId) {
+            headers = { ...headers, [userIdHeader]: userId };
+        }
 
         let req = Axios({...config,
             headers,
             url
         }).then((response: AxiosResponse<T>) => {
-            const userId = response.headers && response.headers[userIdHeader];
+            const userId = response.headers[userIdHeaderLowerCase] || response.headers[userIdHeader];
+            
             if (!!userId) {
                 DemoStorage.setUserId(userId);
             }

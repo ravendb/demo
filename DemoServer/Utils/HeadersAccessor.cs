@@ -18,7 +18,11 @@ namespace DemoServer.Utils
         public Guid GetUserIdFromRequest()
         {
             var value = GetRequestHeader(HeaderKeys.DemoUserId);
-            Guid.TryParse(value, out var result);
+
+            if (string.IsNullOrEmpty(value))
+                throw new InvalidOperationException($"There was no {HeaderKeys.DemoUserId} entry in header.");
+
+            var result = Guid.Parse(value);
             return result;
         }
     }
