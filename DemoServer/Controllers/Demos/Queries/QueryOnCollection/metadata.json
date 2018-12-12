@@ -40,18 +40,10 @@
 
     "Walkthroughs": [
         {
-            "Title": "Open a Session",
-            "Slug": "step-1",
-            "DemoLink": {
-                "Url": "basics/create-document#step-2",
-                "Title": "Create Document Demo"
-            }
-        },
-        {
             "Title": "A simple collection query",
-            "Slug": "step-2",
+            "Slug": "step-1",
             "DescriptionLines": [
-                "* Execute a query on collection `Companies` using the LINQ syntax.<br>",
+                "* Execute a query on collection _Companies_ using the `session.Query()` LINQ syntax.<br>",
                 "  The results will include _all_ the entities from this collection.",
                 "",
                 "* No index is created When querying on a collection without any filtering.",

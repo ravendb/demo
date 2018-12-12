@@ -47,18 +47,17 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
                 attachment = new FormFileAttachmentWrapper(runParams.Attachment);
 
             #region Demo
-            #region Step_1
+           
             using (var session = DocumentStoreHolder.Store.OpenSession())
-            #endregion
-            #region Step_2 
+            #region Step_1 
             using (var stream = attachment.OpenStream())
             #endregion
             {
-                #region Step_3
+                #region Step_2
                 session.Advanced.Attachments.Store(documentId, attachmentName, stream, contentType);
                 #endregion 
                 
-                #region Step_4
+                #region Step_3
                 session.SaveChanges();
                 #endregion
             }

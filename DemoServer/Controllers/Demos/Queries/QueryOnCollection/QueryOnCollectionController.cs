@@ -48,11 +48,9 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOnCollection
             
             #region Demo
             
-            #region Step_1
             using (var session = DocumentStoreHolder.Store.OpenSession())
-            #endregion
             {
-                #region Step_2
+                #region Step_1
                 IList<Company> results = session.Query<Company>()
                     .ToList();
                 #endregion

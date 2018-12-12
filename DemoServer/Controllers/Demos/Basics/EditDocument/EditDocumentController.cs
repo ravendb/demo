@@ -34,19 +34,17 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
             #region Demo
             
-            #region Step_1
             using (var session = DocumentStoreHolder.Store.OpenSession())
-            #endregion
             {
-                #region Step_2
+                #region Step_1
                 var company = session.Load<Company>(DocumentId);
                 #endregion
                 
-                #region Step_3
+                #region Step_2
                 company.Name = companyName;
                 #endregion
                 
-                #region Step_4
+                #region Step_3
                 session.SaveChanges();
                 #endregion
             }

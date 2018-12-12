@@ -34,15 +34,13 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 
             #region Demo
             
-            #region Step_1
             using (var session = DocumentStoreHolder.Store.OpenSession())
-            #endregion
             {
-                #region Step_2
+                #region Step_1
                 session.Delete(documentId);
                 #endregion
                 
-                #region Step_3
+                #region Step_2
                 session.SaveChanges();
                 #endregion
             }

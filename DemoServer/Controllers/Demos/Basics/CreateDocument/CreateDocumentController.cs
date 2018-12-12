@@ -35,14 +35,12 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             };
             #endregion
 
-            #region Step_2
             using (var session = DocumentStoreHolder.Store.OpenSession())
-            #endregion
             {
-                #region Step_3
+                #region Step_2
                 session.Store(newCompany);
                 #endregion
-                #region Step_4
+                #region Step_3
                 session.SaveChanges();
                 #endregion
             }

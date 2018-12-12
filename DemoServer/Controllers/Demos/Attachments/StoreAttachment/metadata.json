@@ -38,19 +38,11 @@
 
     "Walkthroughs": [
         {
-            "Title": "Open a Session",
-            "Slug": "step-1",
-            "DemoLink": {
-                "Url": "basics/create-document#step-2",
-                "Title": "Create Document Demo"
-            }
-        },
-        {
             "Title": "Open a binary stream for the file",
-            "Slug": "step-2",
+            "Slug": "step-1",
             "DescriptionLines": [
                 "Open a binary stream for the attachment file.<br>",
-                "It will be used in the following `Store()` method."
+                "It will be used in the `Store()` method in the next step."
             ],
             "Assets": [
                 {
@@ -62,12 +54,12 @@
         },
         {
             "Title": "Store the attachments on the document",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "Attach the attachments on to the document within the session.<br>",
                 "Specify the document ID, or pass the explicit document entity to the `Store()` method.",
                 "",
-                "The actual save action on the server is done when `SaveChanges()` is called later on."
+                "The actual save action on the server is done when SaveChanges() is called later on."
             ],
             "Assets": [
                 {
@@ -84,7 +76,7 @@
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "When executing `SaveChanges()`, the document and all of its attachments are sent to the server in a single transaction call.",
                 "Both the document and all its attachments will be saved, or both will fail.",

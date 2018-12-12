@@ -89,48 +89,13 @@
             ]
         },
         {
-            "Title": "Open a Session",
+            "Title": "Store the new company object in the Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "Direct communication with the database is done through the `Session` that is on the Document Store object",
+                "Associate the new entity with the `session.Store()` command.<br>",
+                "Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
                 "",
-                "The `Session` tracks the changes done to your entity objects.",
-                "",
-                "Any change made to your entities is persisted to the database when calling `SaveChanges()` later on.",
-                "",
-                "**Note**: be sure to wrap the `Session` variable in a `'using'` statement to ensure proper disposal."
-            ],
-            "Assets": [
-                {
-                    "Title": "The Document Session",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
-                },
-                {
-                    "Title": "What is a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-                },
-                {
-                    "Title": "Opening a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
-                },
-                {
-                    "Title": "What is a Document Store",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
-                }
-            ]
-        },
-        {
-            "Title": "Store the new company object in the Session",
-            "Slug" : "step-3",
-            "DescriptionLines": [
-                "Associate the new entity with the `Session` with the `Store` command.<br>",
-                "The actual 'save' is done later - when `SaveChanges()` is called.",
-                "",
-                "However, the `Store` command will give the new entity an ID immediately,<br>",
+                "However, the `Store()` command will give the new entity an ID _immediately_,<br>",
                 "so you can refer to it in other documents that you'll save in the same batch."
             ],
             "Assets": [
@@ -148,12 +113,13 @@
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "The `SaveChanges()` call will check the session state for all changes (i.e. a new entity was added).<br>",
+                "The `SaveChanges()` call will check the session state for all changes made. Here a new entity was added.<br>",
+                "",
                 "It will then send those changes to the server as a single remote call that will complete transactionally.",
                 "",
-                "In other words, either all the changes are saved as a single unit or none of them are."
+                "Once SaveChanges() returns, the new document is persisted to the database"
             ],
             "Assets": [
                 {

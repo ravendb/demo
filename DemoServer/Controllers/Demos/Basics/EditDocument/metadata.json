@@ -47,16 +47,8 @@
 
     "Walkthroughs": [
         {
-            "Title": "Open a Session",
-            "Slug": "step-1",
-            "DemoLink": {
-                "Url": "basics/create-document#step-2",
-                "Title": "Create Document Demo"
-            }
-        },
-        {
             "Title": "Load an existing document",
-            "Slug" : "step-2",
+            "Slug" : "step-1",
             "DescriptionLines": [
                 "Load an existing document from the document store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.",
@@ -79,17 +71,17 @@
         },
         {
             "Title": "Edit your data",
-            "Slug" : "step-3",
+            "Slug" : "step-2",
             "DescriptionLines": [ "Edit the C# entity data" ],
             "Assets": []
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "When calling `SaveChanges()`, the loaded entity is compared with the entity as it was when loaded from the database.",
+                "When calling `SaveChanges()`, the entity state in the Session is compared with its state as it was when first loaded to the Session from the database.",
                 "",
-                "If any changes were made, that entity will be persisted to the database, in the related document.",
+                "If any changes were made, the new state of the entity will be persisted to the database in the related document.",
                 "",
                 "The session sends the changes to the server as a single remote call that completes transactionally."
 
