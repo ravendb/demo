@@ -8,7 +8,7 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
     public class CreateDocumentController : DemoCodeController
     {
         public CreateDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
@@ -21,7 +21,6 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             var contactTitle = runParams.ContactTitle;
 
             #region Demo 
-            
             #region Step_1
             var newCompany = new Company
             {

@@ -2,11 +2,8 @@ import * as React from "react";
 import { Demo } from "../Demo";
 import { DocumentCreated } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <>
-    <DocumentCreated />   
-</>;
+const resultsCreator = () => <DocumentCreated />;
 
 export const TheSessionDemo = () => <Demo
-    paramDefinitions = { [] }
     resultsComponents = { resultsCreator }
 />;

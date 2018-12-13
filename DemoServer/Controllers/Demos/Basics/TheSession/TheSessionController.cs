@@ -1,22 +1,10 @@
-﻿using DemoServer.Utils;
-using DemoServer.Utils.Cache;
-using DemoServer.Utils.Database;
-using Microsoft.AspNetCore.Mvc;
-
-namespace DemoServer.Controllers.Demos.Basics.TheSession
+﻿namespace DemoServer.Controllers.Demos.Basics.TheSession
 {
-    public class TheSessionController : DemoCodeController
+    public class TheSessionController
     {
-        public TheSessionController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
-        {
-        }
-
-        [HttpPost]
-        public IActionResult Run()
+        public void Run()
         {
             #region Demo
-            
             #region Step_1
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #endregion
@@ -36,8 +24,6 @@ namespace DemoServer.Controllers.Demos.Basics.TheSession
                 #endregion
             }
             #endregion
-
-            return Ok("OK"); 
         }
     }
 }

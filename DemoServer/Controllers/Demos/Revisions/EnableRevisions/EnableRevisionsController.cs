@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -14,7 +13,7 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
     public class EnableRevisionsController : DemoCodeController
     {
         public EnableRevisionsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
        

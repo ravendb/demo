@@ -11,7 +11,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
         private const string DocumentId = "companies/1-A";
 
         public EditDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
@@ -24,7 +24,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         protected override Task SetDemoPrerequisites()
         {
-            return DatabaseAccessor.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
+            return DatabaseSetup.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
         }
 
         [HttpPost]

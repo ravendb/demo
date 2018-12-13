@@ -6,7 +6,6 @@ using DemoServer.Utils.Conventions;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.Filters;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Documents.Session;
 
 namespace DemoServer.Controllers.Demos
 {
@@ -17,20 +16,20 @@ namespace DemoServer.Controllers.Demos
         private readonly HeadersAccessor _headersAccessor;
         private readonly DocumentStoreCache _documentStoreCache;
 
-        protected readonly DatabaseAccessor DatabaseAccessor;
+        protected readonly DatabaseSetup DatabaseSetup;
 
-        protected DemoCodeController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache, DatabaseAccessor databaseAccessor)
+        protected DemoCodeController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache, DatabaseSetup databaseSetup)
         {
             _headersAccessor = headersAccessor;
             _documentStoreCache = documentStoreCache;
 
-            DatabaseAccessor = databaseAccessor;
+            DatabaseSetup = databaseSetup;
         }
 
         [HttpPost]
         public async Task SetPrerequisites()
         {
-            DatabaseAccessor.EnsureUserDatabaseExists(UserId);
+            DatabaseSetup.EnsureUserDatabaseExists(UserId);
             await SetDemoPrerequisites();
         }
 
@@ -40,7 +39,5 @@ namespace DemoServer.Controllers.Demos
 
         protected DocumentStoreHolderWrapper DocumentStoreHolder =>
             new DocumentStoreHolderWrapper(_documentStoreCache, UserId);
-
-        protected IAsyncDocumentSession OpenAsyncSession() => DatabaseAccessor.OpenAsyncSession(UserId);
     }
 }

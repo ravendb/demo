@@ -3,6 +3,7 @@ using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
+
 #region Usings
 using System.Collections.Generic;
 using System.Linq;
@@ -13,32 +14,22 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOnCollection
     public class QueryOnCollectionController : DemoCodeController
     {
         public QueryOnCollectionController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
         private async Task SetRunPrerequisites()
         {
-            bool anyCompanyExists;
-
-            using (var session = OpenAsyncSession())
+            var documentsToStore = new List<Company>
             {
-                anyCompanyExists = session.Query<Company>().Any();
-            }
+                new Company {Id = "Companies/1", Name = "Name1", Phone = "Phone1"},
+                new Company {Id = "Companies/2", Name = "Name2", Phone = "Phone2"},
+                new Company {Id = "Companies/3", Name = "Name3", Phone = "Phone3"},
+                new Company {Id = "Companies/4", Name = "Name4", Phone = "Phone4"},
+                new Company {Id = "Companies/5", Name = "Name5", Phone = "Phone5"}
+            };
 
-            if (anyCompanyExists == false)
-            {
-                var documentsToStore = new List<Company>
-                {
-                    new Company {Id = "Companies/1", Name = "Name1", Phone = "Phone1"},
-                    new Company {Id = "Companies/2", Name = "Name2", Phone = "Phone2"},
-                    new Company {Id = "Companies/3", Name = "Name3", Phone = "Phone3"},
-                    new Company {Id = "Companies/4", Name = "Name4", Phone = "Phone4"},
-                    new Company {Id = "Companies/5", Name = "Name5", Phone = "Phone5"}
-                }; 
-                
-                await DatabaseAccessor.BulkInsertDocuments(UserId, documentsToStore); 
-            }
+            await DatabaseSetup.EnsureCollectionExists(UserId, documentsToStore);
         }
         
         [HttpPost]

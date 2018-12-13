@@ -14,7 +14,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         private const string DefaultFilePath = ".//DemoResources//raven_logo.png";
 
         public StoreAttachmentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
@@ -27,7 +27,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
 
         protected override async Task SetDemoPrerequisites()
         {
-            await DatabaseAccessor.EnsureDocumentExists(UserId, DefaultDocumentId, InitialCompanyDocument);
+            await DatabaseSetup.EnsureDocumentExists(UserId, DefaultDocumentId, InitialCompanyDocument);
         }
 
         [HttpPost]
@@ -73,7 +73,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
 
         private async Task SetRunPrerequisites(string documentId)
         {
-            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, InitialCompanyDocument);
+            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, InitialCompanyDocument);
         }
     }
     

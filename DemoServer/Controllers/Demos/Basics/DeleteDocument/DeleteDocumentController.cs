@@ -9,7 +9,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
     public class DeleteDocumentController : DemoCodeController
     {
         public DeleteDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
@@ -30,7 +30,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             //    demo can be run multiple times -or-
             //    document to be deleted can come from demo parameters
             
-            await DatabaseAccessor.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
+            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
 
             #region Demo
             

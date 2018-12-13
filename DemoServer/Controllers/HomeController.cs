@@ -17,16 +17,16 @@ namespace DemoServer.Controllers
         private readonly DemoContainer _demoContainer;
         private readonly HeadersAccessor _headersAccessor;
         private readonly DatabaseLinks _databaseLinks;
-        private readonly DatabaseAccessor _databaseAccessor;
+        private readonly DatabaseSetup _databaseSetup;
         private readonly ILogger _logger;
 
         public HomeController(DemoContainer demoContainer, HeadersAccessor headersAccessor, DatabaseLinks databaseLinks,
-            DatabaseAccessor databaseAccessor, ILogger<HomeController> logger)
+            DatabaseSetup databaseSetup, DatabaseAccessor databaseAccessor, ILogger<HomeController> logger)
         {
             _demoContainer = demoContainer;
             _headersAccessor = headersAccessor;
+            _databaseSetup = databaseSetup;
             _databaseLinks = databaseLinks;
-            _databaseAccessor = databaseAccessor;
             _logger = logger;
         }
 
@@ -64,7 +64,7 @@ namespace DemoServer.Controllers
         [Route("reset-database")]
         public async Task<IActionResult> ResetDatabase()
         {
-            await _databaseAccessor.ResetDatabase(UserId);
+            await _databaseSetup.ResetDatabase(UserId);
             return Ok();
         }
     }

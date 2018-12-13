@@ -28,19 +28,7 @@ namespace DemoServer.Utils.Database
             return documentStore.OpenAsyncSession(databaseName);
         }
 
-        private IDocumentStore GetDocumentStore(Guid userId) => _documentStoreCache.GetEntry(userId);
-
-        public void EnsureUserDatabaseExists(Guid userId)
-        {
-            var documentStore = _documentStoreCache.GetEntry(userId);
-
-            if (DoesDatabaseExist(documentStore))
-                return;
-
-            CreateDatabase(documentStore);
-        }
-
-        private bool DoesDatabaseExist(IDocumentStore documentStore)
+        public bool DoesDatabaseExist(IDocumentStore documentStore)
         {
             try
             {
@@ -53,7 +41,7 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        private void CreateDatabase(IDocumentStore documentStore)
+        public void CreateDatabase(IDocumentStore documentStore)
         {
             try
             {
@@ -67,12 +55,6 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public async Task ResetDatabase(Guid userId)
-        {
-            await DeleteDatabase(userId);
-            EnsureUserDatabaseExists(userId);
-        }
-
         public Task DeleteDatabase(Guid userId)
         {
             var documentStore = _documentStoreCache.GetEntry(userId);
@@ -80,28 +62,15 @@ namespace DemoServer.Utils.Database
             return documentStore.Maintenance.Server.SendAsync(operation);
         }
 
-        public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
+        public async Task BulkInsertDocuments<T>(Guid userId, IDocumentStore documentStore, IEnumerable<T> documentsToStore)
         {
-            using (var session = OpenAsyncSession(userId))
-            {
-                var doc = await session.LoadAsync<T>(documentId);
-                if (doc == null)
-                {
-                    await session.StoreAsync(document, documentId);
-                    await session.SaveChangesAsync();
-                }
-            }
-        }
-
-        public async Task BulkInsertDocuments<T>(Guid userId, IList<T>documentsToStore) {
-
-            using (var bulkInsert = GetDocumentStore(userId).BulkInsert())
+            using (var bulkInsert = documentStore.BulkInsert())
             {
                 foreach (var doc in documentsToStore)
                 {
                     await bulkInsert.StoreAsync(doc);
                 }
-            } 
+            }
         }
     }
 }

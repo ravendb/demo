@@ -59,7 +59,7 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
 
     render() {
         const { paramDefinitions } = this.props;
-        if (!paramDefinitions) {
+        if (!paramDefinitions || paramDefinitions.length == 0) {
             return null;
         }
 

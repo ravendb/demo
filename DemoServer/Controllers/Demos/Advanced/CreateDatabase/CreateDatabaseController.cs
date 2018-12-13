@@ -14,7 +14,7 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
     public class CreateDatabaseController : DemoCodeController
     {
         public CreateDatabaseController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseAccessor databaseAccessor) : base(headersAccessor, documentStoreCache, databaseAccessor)
+            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
 
