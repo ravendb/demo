@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { expand, collapse } from "../../utils/collapse";
 
 interface CollapseProps {
@@ -33,9 +34,7 @@ export class Collapse extends React.Component<CollapseProps, {}> {
 
     render() {
         const { id, children, className } = this.props;
-        const effectiveClassName = className
-            ? "collapse " + className
-            : "collapse";
+        const effectiveClassName = classNames("collapse", className);
             
         return <div id={id} className={effectiveClassName}>
             {children}

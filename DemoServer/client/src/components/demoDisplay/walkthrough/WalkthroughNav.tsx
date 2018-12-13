@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
 import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough } from "../../../store/helpers/walkthroughUrls";
 import { WalkthroughProgress } from "./WalkthroughProgress";
@@ -17,11 +18,9 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
     }
 
     navButton(url: string, text: string, btnClass: string) {
-        let className = "walkthrough-nav ";
-        if (!url) {
-            className += "disabled ";
-        }
-        className += btnClass;
+        const className = classNames("walkthrough-nav", {
+            "disabled": !url
+        }, btnClass);
 
         return <a href={url || null} role="button" className={className}>{text}</a>;
     }

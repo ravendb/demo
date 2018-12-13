@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 
 interface ToastDisplayProps {
     show: boolean;
@@ -7,9 +8,10 @@ interface ToastDisplayProps {
 class ToastDisplay extends React.Component<ToastDisplayProps, {}> {
     render() {
         const { show, children } = this.props;
-        const className = show
-            ? "toast active"
-            : "toast";
+
+        const className = classNames("toast", {
+            "active": show
+        });
 
         return <div className={className}>{children}</div>;
     }

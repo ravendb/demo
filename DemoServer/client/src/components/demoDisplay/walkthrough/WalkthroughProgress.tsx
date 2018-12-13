@@ -1,5 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
+import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
 import { getCurrentWalkthroughIndex } from "../../../store/state/DemoState";
 import { geWalkthroughUrls } from "../../../store/helpers/walkthroughUrls";
@@ -11,9 +12,10 @@ interface ProgressItemProps {
 
 const ProgressItem = (props: ProgressItemProps) => {
     const { active, url } = props;
-    const className = active
-        ? "item active"
-        : "item";
+
+    const className = classNames("item", {
+        "active": active
+    });
 
     return <a href={url} className={className}></a>
 }

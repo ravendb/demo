@@ -6,10 +6,6 @@ import { connect } from "react-redux";
 import { getFirstWalkthroughUrl } from "../../../store/helpers/walkthroughUrls";
 import { IconPlay, IconStudio, IconLearn } from "../../helpers/icons";
 
-interface NavPanelOwnProps {
-    resultsElementId?: string;
-}
-
 interface NavPanelStateProps {
     categorySlug: string;
     demoSlug: string;
@@ -22,7 +18,7 @@ interface NavPanelDispatchProps {
     onRunScriptClicked: () => void;
 }
 
-type NavPanelProps = NavPanelOwnProps & NavPanelStateProps & NavPanelDispatchProps;
+type NavPanelProps = NavPanelStateProps & NavPanelDispatchProps;
 
 class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     handleRunScriptClick() {
@@ -45,21 +41,18 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     runScriptButton() {
-        const { resultsElementId } = this.props;
-
         return <button id="runScript" className="fab collapsed" type="button"
-            data-toggle="collapse" data-target={`#${resultsElementId}`}
             onClick={() => this.handleRunScriptClick()}>
             <IconPlay /> Run script
         </button>;
     }
 
     render() {
-        const { resultsElementId, hideRunButton } = this.props;
+        const { hideRunButton } = this.props;
         return <div className="fab-container">
             {this.studioButton()}
             {this.walkthroughButton()}
-            {resultsElementId && !hideRunButton && this.runScriptButton()}
+            {!hideRunButton && this.runScriptButton()}
         </div>;
     }
 }
@@ -83,4 +76,4 @@ function mapDispatchToProps(dispatch: DemoThunkDispatch): NavPanelDispatchProps 
     };
 }
 
-export const NavPanel = connect<NavPanelStateProps, NavPanelDispatchProps, NavPanelOwnProps>(mapStateToProps, mapDispatchToProps)(NavPanelComponent);
+export const NavPanel = connect<NavPanelStateProps, NavPanelDispatchProps, {}>(mapStateToProps, mapDispatchToProps)(NavPanelComponent);

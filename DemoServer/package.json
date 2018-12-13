@@ -5,6 +5,7 @@
     "bootstrap-sass": "^3.3.7",
     "bootstrap.native": "^2.0.24",
     "bootstrap.native-loader": "^1.0.7",
+    "classnames": "^2.2.6",
     "clipboard-copy": "^2.0.1",
     "connected-react-router": "^4.5.0",
     "font-awesome": "^4.7.0",
@@ -23,6 +24,7 @@
     "ts-deepcopy": "^0.1.4"
   },
   "devDependencies": {
+    "@types/classnames": "^2.2.6",
     "@types/moment": "^2.13.0",
     "@types/node": "^9.4.1",
     "@types/prismjs": "^1.9.0",

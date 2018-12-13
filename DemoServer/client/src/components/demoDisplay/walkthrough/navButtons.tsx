@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { IconLeft, IconRight, IconCancel } from "../../helpers/icons";
 
 interface NavButtonProps {
@@ -12,11 +13,10 @@ interface WithLinkProps {
 class NavButton extends React.Component<NavButtonProps & WithLinkProps> {
     render() {
         const { url, btnClass, children } = this.props;
-        let className = "walkthrough-nav ";
-        if (!url) {
-            className += "disabled ";
-        }
-        className += btnClass;
+
+        const className = classNames("walkthrough-nav", {
+            "disabled": !url
+        }, btnClass);
 
         return <a href={url || null} role="button" className={className}>
             {children}

@@ -5,10 +5,6 @@ import { Dispatch } from "redux";
 import { hideResults } from "../../../store/actions/demoActions";
 import { Collapse } from "../../helpers/Collapse";
 
-interface OwnProps {
-    elementId: string;
-}
-
 interface StateProps {
     showPanel: boolean;
     loadingResults: boolean;
@@ -18,11 +14,11 @@ interface DispatchProps {
     hidePanel: () => void;
 }
 
-type ResultsPanelProps = OwnProps & StateProps & DispatchProps;
+type ResultsPanelProps = StateProps & DispatchProps;
 
 class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
     render() {
-        const { elementId, loadingResults, children, hidePanel, showPanel } = this.props;
+        const { loadingResults, children, hidePanel, showPanel } = this.props;
         return <Collapse id="results-panel" className="results-container" show={showPanel}>
             <div className="results">
                 <div className="flex-horizontal margin-bottom">
@@ -58,7 +54,7 @@ class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
     }
 }
 
-export const ResultsPanel = connect<StateProps, DispatchProps, OwnProps>(
+export const ResultsPanel = connect<StateProps, DispatchProps, {}>(
     ({ demos }: AppState) => {
         return {
             loadingResults: demos.loadingRunResults,

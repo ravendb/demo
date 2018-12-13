@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 
 interface SpinnerProps {
     show: boolean;
@@ -81,7 +82,7 @@ export class Spinner extends React.Component<SpinnerProps, SpinnerState> {
     }
 
     render() {
-        const className = `spinner ${this.getClassName()}`;
+        const className = classNames("spinner", this.getClassName());
         return <div className={className}></div>;
     }
 }

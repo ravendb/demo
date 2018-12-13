@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { Language, languageToDisplay } from "../../../models/commonModels";
 
 interface LanguageSelectProps {
@@ -9,8 +10,11 @@ export class LanguageSelect extends React.Component<LanguageSelectProps, {}> {
     button(language: Language) {
         const { selected } = this.props;
         const active = language === selected;
-        const activeClassName = active ? " active" : "";
-        const className = "btn" + activeClassName;
+
+        const className = classNames("btn", {
+            "active": active
+        });
+
         return <button className={className}>{languageToDisplay(language)}</button>
     }
 

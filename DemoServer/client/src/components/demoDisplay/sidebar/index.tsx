@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { Controls } from "./Controls";
 import { Heading } from "./Heading";
 import { LanguageSelect } from "./LanguageSelect";
@@ -38,9 +39,12 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
     render() {
         const { title, selectedLanguage } = this.props;
         const { sidebarCollapsed } = this.state;
-        const customClass = sidebarCollapsed ? "small" : "";
 
-        return <div id="sidebar" className={`sidebar ${customClass}`}>
+        const sidebarClassName = classNames("sidebar", {
+            "small": sidebarCollapsed
+        });
+
+        return <div id="sidebar" className={sidebarClassName}>
             <Controls toggleCollapse={this.handleToggleCollapse} />
             <div className="sidebar-body">
                 <Heading text={title} />

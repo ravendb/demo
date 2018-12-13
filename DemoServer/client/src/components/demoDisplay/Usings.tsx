@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { Language } from "../../models/commonModels";
 import { CodePreview } from "../helpers/CodePreview";
 import { Collapse } from "../helpers/Collapse";
@@ -43,9 +44,10 @@ export class Usings extends React.Component<UsingsProps, UsingsState> {
     render() {
         const { language, children } = this.props;
         const { expand } = this.state;
-        const buttonClass = expand
-            ? "folding"
-            : "folding collapsed";
+    
+        const buttonClass = classNames("folding", {
+            "collapsed": !expand
+        });
 
         return <div>
             <a className={buttonClass} role="button" onClick={this.toggleCollapse}>

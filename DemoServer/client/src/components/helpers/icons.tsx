@@ -10,8 +10,7 @@ export const Icon = (props: IconProps) => {
         return null;
     }
 
-    const className = `icon-${name}`;
-    return <i className={className}></i>;
+    return <i className={`icon-${name}`}></i>;
 }
 
 export type IconName = "left" | "right" | "cancel" | "settings" | "learn" | "play" | "studio";

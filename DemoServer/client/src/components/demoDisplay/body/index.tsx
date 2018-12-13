@@ -1,4 +1,5 @@
 import * as React from "react";
+import * as classNames from "classnames";
 import { Parameters, ParameterOwnProps } from "../parameters";
 import { Code } from "../Code";
 import { NavPanel } from "./NavPanel";
@@ -20,16 +21,18 @@ type DemoBodyProps = DemoBodyStateProps & DemoBodyOwnProps;
 class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
     render() {
         const { resultsComponents, showWalkthrough } = this.props;
-        const resultsId = "results";
-        const demoBodyContainerClass = showWalkthrough ? "walkthrough-active" : "";
+
+        const className = classNames({
+            "walkthrough-active": showWalkthrough
+        });
 
         return <div className="demo-body">
-            <div id="demo-body-container" className={demoBodyContainerClass}>
+            <div id="demo-body-container" className={className}>
                 {showWalkthrough && <WalkthroughOverlay />}
                 <Parameters {...this.props} />
                 <Code />
-                <NavPanel resultsElementId={resultsId} />
-                <ResultsPanel elementId={resultsId}>
+                <NavPanel />
+                <ResultsPanel>
                     {resultsComponents && resultsComponents()}
                 </ResultsPanel>
             </div>
