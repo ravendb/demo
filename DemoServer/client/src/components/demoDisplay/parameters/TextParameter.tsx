@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ParameterTextInput } from "./parameterInputs";
 import { ParameterLabel } from "./ParameterLabel";
 import { DemoThunkDispatch } from "../../../store";
-import { changeDemoParams } from "../../../store/actions/demoActions";
+import { changeDemoParams } from "../../../store/actions/parametersActions";
 import { TextInputType, TextInputDataType } from "./parameterTypes";
 
 export interface TextParameterOwnProps {

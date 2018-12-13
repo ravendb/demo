@@ -3,7 +3,7 @@ import { DemoThunkAction } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/Services";
 import { DemoDto } from "../../models/dtos";
-import { ParameterPair, toDemoParamsDto } from "../../models/demoModels";
+import { toDemoParamsDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
 import { updateProgress } from "./progressActions";
 import clipboardCopy = require("clipboard-copy");
@@ -59,27 +59,6 @@ export interface HideResults {
     type: actionTypes.DEMO_HIDE_RESULTS;
 }
 
-export interface InitDemoParams {
-    type: actionTypes.DEMO_PARAMS_INIT;
-    parameters: ParameterPair[];
-}
-
-export interface ChangeDemoParams {
-    type: actionTypes.DEMO_PARAMS_CHANGE;
-    name: string;
-    value: any;
-}
-
-export interface ChangeDemoFileParam {
-    type: actionTypes.DEMO_PARAMS_CHANGE_FILE;
-    name: string;
-    file: File;
-}
-
-export interface HideInvalidUploadMessage {
-    type: actionTypes.DEMO_HIDE_INVALID_UPLOAD_MESSAGE;
-}
-
 export interface ToggleDemoShareMessage {
     type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE,
     show: boolean;
@@ -89,8 +68,6 @@ export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSu
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
-    | InitDemoParams | ChangeDemoParams | ChangeDemoFileParam
-    | HideInvalidUploadMessage
     | ToggleDemoShareMessage;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
@@ -198,8 +175,9 @@ function runDemoSuccess(results: object): RunDemoSuccess {
 
 export function runDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
-        const { demos } = getState();
-        const { categorySlug, demoSlug, parameters, demo, attachmentNamesToUpload } = demos;
+        const { demos, params } = getState();
+        const { categorySlug, demoSlug, demo } = demos;
+        const { parameters, attachmentNamesToUpload } = params;
 
         if (demo.nonInteractive) {
             return;
@@ -237,35 +215,6 @@ export function runDemo(): DemoThunkAction {
 export function hideResults(): HideResults {
     return {
         type: "DEMO_HIDE_RESULTS"
-    };
-}
-
-export function initDemoParams(parameters: ParameterPair[]): InitDemoParams {
-    return {
-        type: "DEMO_PARAMS_INIT",
-        parameters
-    };
-}
-
-export function changeDemoParams(name: string, value: any): ChangeDemoParams {
-    return {
-        type: "DEMO_PARAMS_CHANGE",
-        name,
-        value
-    };
-}
-
-export function changeDemoFileParam(name: string, file: File): ChangeDemoFileParam {
-    return {
-        type: "DEMO_PARAMS_CHANGE_FILE",
-        name,
-        file
-    };
-}
-
-export function hideInvalidUploadMessage(): HideInvalidUploadMessage {
-    return {
-        type: "DEMO_HIDE_INVALID_UPLOAD_MESSAGE"
     };
 }
 

@@ -1,18 +1,5 @@
 import { Language } from "../../models/commonModels";
 import { DemoDto, DemoWalkthroughDto } from "../../models/dtos";
-import { ParameterPair } from "../../models/demoModels";
-
-interface FileParamValidationError {
-    paramName: string;
-    error: string;
-}
-
-interface ParametersState {
-    parameters: ParameterPair[];
-    attachmentNamesToUpload: string[];
-    showInvalidUploadMessage: boolean;
-    fileParamsValidationErrors: FileParamValidationError[];
-}
 
 interface PrerequisitesState {
     finishedSettingPrerequisites: boolean;
@@ -28,8 +15,7 @@ interface WalkthroughState {
     currentWalkthroughSlug?: string;
 }
 
-export type DemoState = ParametersState
-    & RunResultsState
+export type DemoState = RunResultsState
     & WalkthroughState
     & PrerequisitesState
     & {

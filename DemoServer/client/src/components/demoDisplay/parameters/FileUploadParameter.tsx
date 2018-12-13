@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ParameterFileInput } from "./parameterInputs";
 import { ParameterLabel } from "./ParameterLabel";
 import { DemoThunkDispatch } from "../../../store";
-import { changeDemoFileParam } from "../../../store/actions/demoActions";
+import { changeDemoFileParam } from "../../../store/actions/parametersActions";
 import { AppState } from "../../../store/state";
 
 export interface FileUploadParameterOwnProps {
@@ -31,9 +31,9 @@ function FileUploadParameterComponent(props: Props) {
 }
 
 export const FileUploadParameter = connect<StateProps, DispatchProps, FileUploadParameterOwnProps>(
-    ({ demos }: AppState, ownProps: FileUploadParameterOwnProps): StateProps => {
+    ({ params }: AppState, ownProps: FileUploadParameterOwnProps): StateProps => {
         const { name } = ownProps;
-        const error = demos.fileParamsValidationErrors.find(x => x.paramName === name);
+        const error = params.fileParamsValidationErrors.find(x => x.paramName === name);
 
         return {
             validationError: error && error.error
