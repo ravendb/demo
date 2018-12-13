@@ -29,7 +29,7 @@ namespace DemoServer.Controllers.Demos
         [HttpPost]
         public async Task SetPrerequisites()
         {
-            DatabaseSetup.EnsureUserDatabaseExists(UserId);
+            await DatabaseSetup.EnsureUserDatabaseExists(UserId);
             await SetDemoPrerequisites();
         }
 

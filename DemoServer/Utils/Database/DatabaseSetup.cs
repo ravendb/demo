@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using DemoServer.Models;
 using DemoServer.Utils.Cache;
 using Raven.Client.Documents;
 
@@ -19,20 +20,35 @@ namespace DemoServer.Utils.Database
 
         private IDocumentStore GetDocumentStore(Guid userId) => _documentStoreCache.GetEntry(userId);
 
-        public void EnsureUserDatabaseExists(Guid userId)
+        public async Task EnsureUserDatabaseExists(Guid userId)
         {
             var documentStore = _documentStoreCache.GetEntry(userId);
 
-            if (_databaseAccessor.DoesDatabaseExist(documentStore))
-                return;
+            if (_databaseAccessor.DoesDatabaseExist(documentStore) == false)
+                _databaseAccessor.CreateDatabase(documentStore);
 
-            _databaseAccessor.CreateDatabase(documentStore);
+            await UpdateDemoStats(userId);
+        }
+
+        private async Task UpdateDemoStats(Guid userId)
+        {
+            using (var session = _databaseAccessor.OpenAsyncSession(userId))
+            {
+                var demoStats = await session.LoadAsync<DemoStats>(DemoStats.DocumentId);
+
+                if (demoStats == null)
+                    await session.StoreAsync(new DemoStats());
+                else
+                    demoStats.UpdateLastAccess();
+
+                await session.SaveChangesAsync();
+            }
         }
 
         public async Task ResetDatabase(Guid userId)
         {
             await _databaseAccessor.DeleteDatabase(userId);
-            EnsureUserDatabaseExists(userId);
+            await EnsureUserDatabaseExists(userId);
         }
 
         public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
