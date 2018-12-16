@@ -27,16 +27,6 @@
             "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
         },
         {
-            "Title": "The Document Session",
-            "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
-        },
-        {
-            "Title": "What is a Session",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-        },
-        {
             "Title": "The Store Command",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
@@ -47,14 +37,19 @@
             "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
         },
         {
-            "Title": "The SaveChanges Command",
+            "Title": "Document Identifier Generation",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
         },
         {
-            "Title": "Saving Changes",
+            "Title": "Working with Document Identifier",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+        },
+        {
+            "Title": "How to Get Document ID",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
         }
     ],
 

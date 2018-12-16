@@ -7,22 +7,7 @@
         "You will load an existing document from the Document Store, update it and save it back."
     ],
 
-    "Assets": [
-        {
-            "Title": "The Document Session",
-            "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
-        },
-        {
-            "Title": "What is a Session",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-        },
-        {
-            "Title": "Opening a Session",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
-        },
+    "Assets": [        
         {
             "Title": "Loading Entities",
             "Type" : "link",
@@ -32,16 +17,6 @@
             "Title": "The Load Command",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#load"
-        },
-        {
-            "Title": "The SaveChanges Command",
-            "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
-        },
-        {
-            "Title": "Saving Changes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
         }
     ],
 

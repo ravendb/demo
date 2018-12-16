@@ -11,9 +11,29 @@
 
     "Assets": [
         {
-            "Title": "Querying - Basics",
+            "Title": "How to Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "Querying Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "Query on a Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+        },
+        {
+            "Title": "LINQ",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
         }
     ],
 
@@ -23,7 +43,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Query for a document from the _Employees_ collection using the `session.Query()` LINQ syntax.<br>",
-                "  The results will include only this document.",
+                "  Specify the document ID in the 'Where' clause - the results will include only this document.",
                 "",
                 "* No index is created - the raw collection documents are used as the source for this query.",
                 "",

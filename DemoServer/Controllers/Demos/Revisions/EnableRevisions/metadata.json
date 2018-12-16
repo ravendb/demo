@@ -39,7 +39,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "Configuring Revisions",
+                    "Title": "Revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
                 },
@@ -65,12 +65,12 @@
             ],
             "Assets": [
                 {
-                    "Title": "Revisions Configuration",
+                    "Title": "What are revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
                 },
                 {
-                    "Title": "Configuring Revisions",
+                    "Title": "Revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
                 }
@@ -85,12 +85,12 @@
             ],
             "Assets": [
                 {
-                    "Title": "Revisions Configuration",
+                    "Title": "What are revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
                 },
                 {
-                    "Title": "Configuring Revisions",
+                    "Title": "Revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
                 }
@@ -104,7 +104,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "Configuring Revisions",
+                    "Title": "Revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
                 },

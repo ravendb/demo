@@ -19,6 +19,11 @@
             "Url"  : "http://csharpindepth.com/articles/general/singleton.aspx"
         },
         {
+            "Title": "The Document Store",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+        },
+        {
             "Title": "What is a Document Store",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"

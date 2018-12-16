@@ -35,6 +35,11 @@
             "Title": "What is a Collection",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+        },
+        {
+            "Title": "LINQ",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
         }
     ],
 
