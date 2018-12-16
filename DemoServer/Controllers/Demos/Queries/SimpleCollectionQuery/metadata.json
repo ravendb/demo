@@ -1,7 +1,7 @@
 {
-    "Slug": "query-on-collection",
-    "SourceFileName": "QueryOnCollectionController.cs",
-    "Title": "Query on Collection",
+    "Slug": "simple-collection-query",
+    "SourceFileName": "SimpleCollectionQueryController.cs",
+    "Title": "Simple Collection Query",
     "DescriptionLines": [
         "RavenDB has a rich set of queries options available.",
         "",
@@ -48,7 +48,7 @@
                 "",
                 "* No index is created When querying on a collection without any filtering.",
                 "",
-                "* The documents returned by the Query operation are 'loaded' to the session."
+                "* The entities returned by the Query operation are 'loaded' to the session."
             ],
             "Assets": [
                 {

@@ -52,6 +52,7 @@
             "DescriptionLines": [
                 "Load an existing document from the document store using `session.Load()`.<br>",
                 "The loaded document is added to the internal entities map (dictionary) that the session manages.",
+                "In this example, document 'companies/1-A' is loaded.",
                 "",
                 "The session will track all changes that will be made to this entity,<br>",
                 "so that when `SaveChanges()` is called later on, the entity will be persisted to the data store only if it was changed."

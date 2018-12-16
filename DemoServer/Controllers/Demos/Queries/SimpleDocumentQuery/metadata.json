@@ -1,0 +1,61 @@
+{
+    "Slug": "simple-document-query",
+    "SourceFileName": "SimpleDocumentQueryController.cs",
+    "Title": "Simple Document Query",
+    "DescriptionLines": [
+        "Use the simple **Document Query** to get a specific document from the database.",
+        "",
+        "Similar to the simple collection query, no index is created.",
+        "RavenDB uses the raw collection documents as the source for this query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying - Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "A simple document query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Query for a document from the _Employees_ collection using the `session.Query()` LINQ syntax.<br>",
+                "  The results will include only this document.",
+                "",
+                "* No index is created - the raw collection documents are used as the source for this query.",
+                "",
+                "* The entity returned by the Query is 'loaded' to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "How to Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "Query on a Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+                },
+                {
+                    "Title": "LINQ",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                }
+            ]
+        }
+    ]
+}

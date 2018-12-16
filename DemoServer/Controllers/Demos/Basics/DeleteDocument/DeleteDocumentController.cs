@@ -20,17 +20,19 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             Phone = "(+972)52-5486969"
         };
 
+
+        private async Task SetRunPrerequisites(string documentId)
+        {
+            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
+        }
+        
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
             var documentId = runParams.DocumentId;
             initialCompanyDocument.Id = documentId;
             
-            // Verify document exists here (and not in SetDemoPrerequisites) since:
-            //    demo can be run multiple times -or-
-            //    document to be deleted can come from demo parameters
-            
-            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
+            await SetRunPrerequisites(documentId);
 
             #region Demo
             

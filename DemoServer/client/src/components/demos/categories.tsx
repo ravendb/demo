@@ -61,9 +61,14 @@ const queriesCategory: Category = {
     title: "Queries",
     demos: [
         {
-            slug: "query-on-collection",
-            title: "Query On Collection",
-            type: "DEMO_QueryOnCollection"
+            slug: "simple-collection-query",
+            title: "Simple Collection Query",
+            type: "DEMO_SimpleCollectionQuery"
+        },
+        {
+            slug: "simple-document-query",
+            title: "Simple Document Query",
+            type: "DEMO_SimpleDocumentQuery"
         }
     ]
 };

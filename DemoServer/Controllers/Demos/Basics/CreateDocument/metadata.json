@@ -68,7 +68,10 @@
                 "The C# class name determines the collection to which the document will belong to in the database.<br>",
                 "Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
-                "The C# class properties determine the document JSON structure in the database."
+                "The C# class properties determine the document JSON structure in the database.",
+                "",
+                "_Note:_ Having an 'Id' field property in the class definition is not mandatory.<br>",
+                "The Session will assign an Id for the entity that is stored, and this Id can be fetched later at any time."
             ],
             "Assets": [
                 {
@@ -95,8 +98,9 @@
                 "Associate the new entity with the `session.Store()` command.<br>",
                 "Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
                 "",
-                "However, the `Store()` command will give the new entity an ID _immediately_,<br>",
-                "so you can refer to it in other documents that you'll save in the same batch."
+                "However, the `Store()` command will _immediately_ assign an ID to the new entity,<br>",
+                "so you can refer to it in other documents that you'll save in the same batch.<br>",
+                "See how to get this ID in the next step."
             ],
             "Assets": [
                 {
@@ -112,8 +116,33 @@
             ]
         },
         {
-            "Title": "Save the changes",
+            "Title": "The new document ID is immediately available",
             "Slug" : "step-3",
+            "DescriptionLines": [
+                "The session takes care of generating the identifiers automatically.<br>",
+                "`GetDocumentId()` can be used to get the Id that was assigned to the new stored entity."
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Identifier Generation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                },
+                {
+                    "Title": "Working with Document Identifier",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+                },
+                {
+                    "Title": "How to Get Document ID",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "The `SaveChanges()` call will check the session state for all changes made. Here a new entity was added.<br>",
                 "",

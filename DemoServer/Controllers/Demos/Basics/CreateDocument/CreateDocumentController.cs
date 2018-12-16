@@ -1,4 +1,5 @@
-﻿using DemoServer.Utils;
+﻿using System;
+using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,8 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             var contactName = runParams.ContactName;
             var contactTitle = runParams.ContactTitle;
 
+            string theNewDocumentId;
+
             #region Demo 
             #region Step_1
             var newCompany = new Company
@@ -39,13 +42,18 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
                 #region Step_2
                 session.Store(newCompany);
                 #endregion
+                
                 #region Step_3
+                theNewDocumentId = session.Advanced.GetDocumentId(newCompany);
+                #endregion
+                
+                #region Step_4
                 session.SaveChanges();
                 #endregion
             }
             #endregion
 
-            return Ok("The document was created successfully");
+            return Ok($"Document {theNewDocumentId} was created successfully");
         }
 
         private class Company

@@ -7,7 +7,8 @@ import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
-import { QueryOnCollectionDemo } from "./queries/QueryOnCollectionDemo";
+import { SimpleCollectionQueryDemo } from "./queries/SimpleCollectionQueryDemo";
+import { SimpleDocumentQueryDemo } from "./queries/SimpleDocumentQueryDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -60,8 +61,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <EnableRevisionsDemo />;
             
         // Category Queries
-        case "DEMO_QueryOnCollection":
-            return <QueryOnCollectionDemo />;
+        case "DEMO_SimpleCollectionQuery":
+            return <SimpleCollectionQueryDemo />;
+        case "DEMO_SimpleDocumentQuery":
+            return <SimpleDocumentQueryDemo />;
         
         // Category Advanced
         case "DEMO_CreateDatabase":

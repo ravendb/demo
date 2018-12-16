@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -9,11 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.QueryOnCollection
+namespace DemoServer.Controllers.Demos.Queries.SimpleCollectionQuery
 {
-    public class QueryOnCollectionController : DemoCodeController
+    public class SimpleCollectionQueryController : DemoCodeController
     {
-        public QueryOnCollectionController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+        public SimpleCollectionQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
