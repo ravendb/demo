@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using DemoServer.Models;
+using DemoCommon.Models;
 using DemoServer.Utils.Cache;
 using Raven.Client.Documents;
 

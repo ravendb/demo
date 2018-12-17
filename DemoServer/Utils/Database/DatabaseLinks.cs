@@ -1,10 +1,12 @@
 ﻿using System;
+using DemoCommon.Models;
+using DemoCommon.Utils;
 
 namespace DemoServer.Utils.Database
 {
     public class DatabaseLinks
     {
-        private readonly Settings.DatabaseSettings _databaseSettings;
+        private readonly DatabaseSettings _databaseSettings;
 
         public DatabaseLinks(Settings settings)
         {

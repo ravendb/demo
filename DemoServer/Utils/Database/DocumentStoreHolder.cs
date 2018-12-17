@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Security.Cryptography.X509Certificates;
+using DemoCommon.Models;
 using Raven.Client.Documents;
 
 namespace DemoServer.Utils.Database
 {
     public class DocumentStoreHolder
     {
-        private readonly Settings.DatabaseSettings _databaseSettings;
+        private readonly DatabaseSettings _databaseSettings;
 
         public DocumentStoreHolder(Settings settings)
         {

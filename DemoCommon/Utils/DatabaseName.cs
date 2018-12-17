@@ -1,10 +1,10 @@
 ﻿using System;
 
-namespace DemoServer.Utils.Database
+namespace DemoCommon.Utils
 {
     public static class DatabaseName
     {
-        private const string UserDatabasePrefix = "User-";
+        public const string UserDatabasePrefix = "User-";
 
         public static string For(Guid userId) => $"{UserDatabasePrefix}{userId.ToString()}";
     }

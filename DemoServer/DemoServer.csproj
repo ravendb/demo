@@ -50,6 +50,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\DemoCommon\DemoCommon.csproj" />
     <ProjectReference Include="..\DemoParser\DemoParser.csproj" />
   </ItemGroup>
 
