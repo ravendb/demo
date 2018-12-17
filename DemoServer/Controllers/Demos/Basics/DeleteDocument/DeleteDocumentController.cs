@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -49,13 +50,6 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             #endregion
             
             return Ok($"Document {documentId} was deleted successfully");
-        }
-
-        private class Company
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Phone { get; set; }
         }
 
         public class RunParams

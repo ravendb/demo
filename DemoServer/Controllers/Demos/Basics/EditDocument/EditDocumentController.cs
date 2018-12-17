@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -8,7 +9,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
     public class EditDocumentController : DemoCodeController
     {
-        private const string DocumentId = "companies/1-A"; // TODO... hard code in code so use will see !
+        private const string DocumentId = "companies/1-A"; 
 
         public EditDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
@@ -53,20 +54,6 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             #endregion
             
             return Ok($"Document {DocumentId} was edited successfully");
-        }
-
-        private class Company
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Phone { get; set; }
-            public Contact Contact { get; set; }
-        }
-
-        private class Contact
-        {
-            public string Name { get; set; }
-            public string Title { get; set; }
         }
 
         public class RunParams

@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Attachments;
 using DemoServer.Utils.Cache;
@@ -22,7 +23,10 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         {
             Id = DefaultDocumentId,
             Name = "Company Name",
-            Address = "1 Plaza Center"
+            Address = new Address()
+            {
+                Line1 = "1 Plaza Center"
+            }
         };
 
         private async Task SetRunPrerequisites(string documentId)
@@ -70,13 +74,6 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
           
             return Ok($"Attachment {attachmentName} was stored successfully on document {documentId}");
         }
-    }
-    
-    public class Company
-    {
-        public string Id { get; set; }
-        public string Name { get; set; }
-        public string Address { get; set; }
     }
     
     public class RunParams

@@ -1,5 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -23,11 +23,11 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleCollectionQuery
         {
             var documentsToStore = new List<Company>
             {
-                new Company {Id = "Companies/1", Name = "Name1", Phone = "Phone1"},
-                new Company {Id = "Companies/2", Name = "Name2", Phone = "Phone2"},
-                new Company {Id = "Companies/3", Name = "Name3", Phone = "Phone3"},
-                new Company {Id = "Companies/4", Name = "Name4", Phone = "Phone4"},
-                new Company {Id = "Companies/5", Name = "Name5", Phone = "Phone5"}
+                new Company {Id = "companies/1", Name = "Name1", Phone = "Phone1"},
+                new Company {Id = "companies/2", Name = "Name2", Phone = "Phone2"},
+                new Company {Id = "companies/3", Name = "Name3", Phone = "Phone3"},
+                new Company {Id = "companies/4", Name = "Name4", Phone = "Phone4"},
+                new Company {Id = "companies/5", Name = "Name5", Phone = "Phone5"}
             };
 
             await DatabaseSetup.EnsureCollectionExists(UserId, documentsToStore);
@@ -52,13 +52,6 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleCollectionQuery
             
             //TODO: How to show results ?
             return Ok("Employee collection query results are: ...  TODO: Show Query Results ..."); 
-        }
-        
-        private class Company
-        {
-            public string Id { get; set; }
-            public string Name { get; set; }
-            public string Phone { get; set; }
         }
     }
 }

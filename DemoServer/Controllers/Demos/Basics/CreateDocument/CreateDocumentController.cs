@@ -1,4 +1,4 @@
-﻿using System;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -54,19 +54,6 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
             #endregion
 
             return Ok($"Document {theNewDocumentId} was created successfully");
-        }
-
-        private class Company
-        {
-            public string Name { get; set; }
-            public string Phone { get; set; }
-            public Contact Contact { get; set; }
-        }
-
-        private class Contact
-        {
-            public string Name { get; set; }
-            public string Title { get; set; }
         }
 
         public class RunParams
