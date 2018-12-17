@@ -25,7 +25,10 @@ namespace DemoServer.Utils.Database
             var documentStore = _documentStoreCache.GetEntry(userId);
 
             if (_databaseAccessor.DoesDatabaseExist(documentStore) == false)
-                _databaseAccessor.CreateDatabase(documentStore);
+            {
+                await _databaseAccessor.CreateDatabase(documentStore);
+                await _databaseAccessor.CreateSampleData(documentStore);
+            }
 
             await UpdateDemoStats(userId);
         }

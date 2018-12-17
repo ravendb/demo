@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using DemoCommon.Utils;
 using DemoServer.Utils.Cache;
+using DemoServer.Utils.Database.Operations;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Documents.Session;
@@ -42,18 +43,24 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public void CreateDatabase(IDocumentStore documentStore)
+        public async Task CreateDatabase(IDocumentStore documentStore)
         {
             try
             {
                 var databaseRecord = new DatabaseRecord(documentStore.Database);
                 var operation = new CreateDatabaseOperation(databaseRecord);
-                documentStore.Maintenance.Server.Send(operation);
+                await documentStore.Maintenance.Server.SendAsync(operation);
             }
             catch (ConcurrencyException)
             {
                 // The database was already created before calling CreateDatabaseOperation
             }
+        }
+
+        public Task CreateSampleData(IDocumentStore documentStore)
+        {
+            var operation = new CreateSampleDataOperation();
+            return documentStore.Maintenance.SendAsync(operation);
         }
 
         public Task DeleteDatabase(Guid userId)
