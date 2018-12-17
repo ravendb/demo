@@ -21,7 +21,7 @@ namespace DemoServer.Controllers
         private readonly ILogger _logger;
 
         public HomeController(DemoContainer demoContainer, HeadersAccessor headersAccessor, DatabaseLinks databaseLinks,
-            DatabaseSetup databaseSetup, DatabaseAccessor databaseAccessor, ILogger<HomeController> logger)
+            DatabaseSetup databaseSetup, ILogger<HomeController> logger)
         {
             _demoContainer = demoContainer;
             _headersAccessor = headersAccessor;

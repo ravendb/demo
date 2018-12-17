@@ -52,7 +52,6 @@ namespace DemoServer
 
             services.AddScoped<DocumentStoreCache>();
             services.AddScoped<HeadersAccessor>();
-            services.AddScoped<DatabaseAccessor>();
             services.AddScoped<DatabaseSetup>();
             services.AddScoped<DatabaseLinks>();
         }

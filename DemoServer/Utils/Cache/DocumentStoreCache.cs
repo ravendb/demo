@@ -1,5 +1,6 @@
 ﻿using System;
 using DemoCommon.Utils;
+using DemoCommon.Utils.Database;
 using DemoServer.Utils.Database;
 using Microsoft.Extensions.Caching.Memory;
 using Raven.Client.Documents;

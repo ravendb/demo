@@ -24,7 +24,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         private async Task SetRunPrerequisites()
         {
-            DatabaseSetup.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
+            await DatabaseSetup.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
         }
 
         [HttpPost]

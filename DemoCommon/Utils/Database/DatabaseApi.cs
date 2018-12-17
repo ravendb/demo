@@ -1,35 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using DemoCommon.Utils;
-using DemoServer.Utils.Cache;
-using DemoServer.Utils.Database.Operations;
+using DemoCommon.Utils.Database.Operations;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
-using Raven.Client.Documents.Session;
 using Raven.Client.Exceptions;
 using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
 using Raven.Client.ServerWide.Operations;
 
-namespace DemoServer.Utils.Database
+namespace DemoCommon.Utils.Database
 {
-    public class DatabaseAccessor
+    public class DatabaseApi
     {
-        private readonly DocumentStoreCache _documentStoreCache;
-
-        public DatabaseAccessor(DocumentStoreCache documentStoreCache)
-        {
-            _documentStoreCache = documentStoreCache;
-        }
-
-        public IAsyncDocumentSession OpenAsyncSession(Guid userId)
-        {
-            var databaseName = DatabaseName.For(userId);
-            var documentStore = _documentStoreCache.GetEntry(userId);
-            return documentStore.OpenAsyncSession(databaseName);
-        }
-
         public bool DoesDatabaseExist(IDocumentStore documentStore)
         {
             try
@@ -63,14 +45,15 @@ namespace DemoServer.Utils.Database
             return documentStore.Maintenance.SendAsync(operation);
         }
 
-        public Task DeleteDatabase(Guid userId)
+        public Task DeleteDatabase(IDocumentStore documentStore, string databaseName)
         {
-            var documentStore = _documentStoreCache.GetEntry(userId);
-            var operation = new DeleteDatabasesOperation(documentStore.Database, hardDelete: true);
+            var operation = new DeleteDatabasesOperation(databaseName, hardDelete: true);
             return documentStore.Maintenance.Server.SendAsync(operation);
         }
 
-        public async Task BulkInsertDocuments<T>(Guid userId, IDocumentStore documentStore, IEnumerable<T> documentsToStore)
+        public Task DeleteDatabase(IDocumentStore documentStore) => DeleteDatabase(documentStore, documentStore.Database);
+
+        public async Task BulkInsertDocuments<T>(IDocumentStore documentStore, IEnumerable<T> documentsToStore)
         {
             using (var bulkInsert = documentStore.BulkInsert())
             {
@@ -79,6 +62,27 @@ namespace DemoServer.Utils.Database
                     await bulkInsert.StoreAsync(doc);
                 }
             }
+        }
+
+        public async Task<List<string>> GetDatabaseNames(IDocumentStore documentStore)
+        {
+            const int pageSize = 50;
+            var results = new List<string>();
+
+            string[] dbNames;
+            var start = 0;
+
+            do
+            {
+                var operation = new GetDatabaseNamesOperation(start, pageSize);
+                dbNames = await documentStore.Maintenance.Server.SendAsync(operation);
+
+                results.AddRange(dbNames);
+                start += pageSize;
+            }
+            while (dbNames.Length > 0);
+
+            return results;
         }
     }
 }

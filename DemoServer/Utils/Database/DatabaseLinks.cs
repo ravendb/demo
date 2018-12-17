@@ -1,6 +1,7 @@
 ﻿using System;
 using DemoCommon.Models;
 using DemoCommon.Utils;
+using DemoCommon.Utils.Database;
 
 namespace DemoServer.Utils.Database
 {

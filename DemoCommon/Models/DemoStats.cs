@@ -10,11 +10,6 @@ namespace DemoCommon.Models
 
         public DateTime LastAccessedUtc { get; private set; }
 
-        public DemoStats()
-        {
-            LastAccessedUtc = DateTime.UtcNow;
-        }
-
         public void UpdateLastAccess() => LastAccessedUtc = DateTime.UtcNow;
     }
 }

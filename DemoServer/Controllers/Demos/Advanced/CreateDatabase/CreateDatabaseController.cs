@@ -1,5 +1,5 @@
 ﻿using System.Threading.Tasks;
-using DemoCommon.Utils;
+using DemoCommon.Utils.Database;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;

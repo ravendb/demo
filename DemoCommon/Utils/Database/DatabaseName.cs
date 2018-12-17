@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DemoCommon.Utils
+namespace DemoCommon.Utils.Database
 {
     public static class DatabaseName
     {

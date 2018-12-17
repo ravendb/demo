@@ -4,7 +4,7 @@ using Raven.Client.Documents.Operations;
 using Raven.Client.Http;
 using Sparrow.Json;
 
-namespace DemoServer.Utils.Database.Operations
+namespace DemoCommon.Utils.Database.Operations
 {
     public class CreateSampleDataOperation : IMaintenanceOperation
     {
