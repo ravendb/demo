@@ -3,21 +3,22 @@ import * as classNames from "classnames";
 
 interface ToastDisplayProps {
     show: boolean;
+    className?: string;
 }
 
 class ToastDisplay extends React.Component<ToastDisplayProps, {}> {
     render() {
-        const { show, children } = this.props;
+        const { show, children, className } = this.props;
 
-        const className = classNames("toast", {
+        const effectiveClassName = classNames("toast", {
             "active": show
-        });
+        }, className);
 
-        return <div className={className}>{children}</div>;
+        return <div className={effectiveClassName}>{children}</div>;
     }
 }
 
-const defaultDisplayDuration = 3500;
+const defaultDisplayDuration = 5000;
 
 export interface ToastStateProps {
     show: boolean;
@@ -29,6 +30,7 @@ export interface ToastDispatchProps {
 
 export interface ToastOwnProps {
     displayDuration?: number;
+    className?: string;
 }
 
 export type ToastProps = ToastStateProps & ToastDispatchProps & ToastOwnProps;

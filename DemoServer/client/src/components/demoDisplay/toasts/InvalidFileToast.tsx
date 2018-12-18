@@ -7,8 +7,8 @@ import { Dispatch } from "redux";
 import { hideInvalidUploadMessage } from "../../../store/actions/parametersActions";
 
 function InvalidFileToastComponent(props: ToastProps) {
-    return <Toast {...props} displayDuration={7000}>
-        This file cannot be uploaded. It is too large (more than {fileSizeLimitMB} MB).
+    return <Toast {...props} className="danger">
+        <i className="icon-warning"></i> This file cannot be uploaded. It is too large (more than {fileSizeLimitMB} MB).
     </Toast>;
 }
 

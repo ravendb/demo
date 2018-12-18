@@ -1,4 +1,17 @@
-﻿.parameters {
+﻿%message-shared {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid $gray-dark;
+    font-weight: 900;
+    font-size: 21px;
+    height: $gutter;
+    width: 270px;
+    padding: 1px 0px;
+    display: block;
+    line-height: 30px;
+}
+
+.parameters {
     display: flex;
     flex-wrap: wrap;
     //position: sticky;
@@ -86,12 +99,7 @@
     }
 
     .parameter-input {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid $gray-dark;
-        font-weight: 900;
-        font-size: 21px;
-        height: $gutter;
+        @extend %message-shared;
     }
 
     .parameter-label {
@@ -157,5 +165,52 @@
                 content: 'TIME';
             }
         }
+    }
+}
+
+
+.validation-error {
+    margin-top: $gutter-xxs;
+    background-color: $brand-primary;
+    color: $gray-lighter;
+    padding: $gutter-xxs $gutter-sm;
+    font-size: 12px;
+    line-height: 12px;
+    border-radius: 2px;
+}
+
+input[type=file] {
+	opacity: 0;
+	overflow: hidden;
+    position: absolute;
+    cursor: pointer;
+    
+    &+.fileInput-label {
+        @extend %message-shared;
+        
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        pointer-events: none;
+
+        &::before {
+            content: "\e912";
+            font-family: 'icomoon' !important;
+            speak: none;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            text-transform: none;
+            //line-height: 1;
+            /* Better Font Rendering =========== */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin-right: $gutter-xxs;
+        }
+    }
+
+    &:focus+.fileInput-label, {
+        outline: 1px dotted #000;
+        outline: -webkit-focus-ring-color auto 5px;
     }
 }

@@ -638,10 +638,19 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
     left: 50%;
     top: 30px;
 
-
     &.active {
         visibility: visible;
-        -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s forwards;
-        animation: fadein 0.5s, fadeout 0.5s 2.5s forwards;
+        -webkit-animation: fadein 0.5s, fadeout 0.5s 4s forwards;
+        animation: fadein 0.5s, fadeout 0.5s 4s forwards;
+    }
+
+    &.danger {
+        color: $gray-lighter;
+        background-color: $brand-danger;
+    }
+
+    &.warning {
+        color: $gray-lighter;
+        background-color: $brand-warning;
     }
 }
