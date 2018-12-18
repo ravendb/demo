@@ -37,7 +37,8 @@
         },
         "demos": [
             "SimpleCollectionQuery",
-            "SimpleDocumentQuery"
+            "SimpleDocumentQuery",
+            "FilteringQueryResults"
         ]
     },
     {

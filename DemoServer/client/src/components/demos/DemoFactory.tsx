@@ -9,6 +9,7 @@ import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { SimpleCollectionQueryDemo } from "./queries/SimpleCollectionQueryDemo";
 import { SimpleDocumentQueryDemo } from "./queries/SimpleDocumentQueryDemo";
+import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -65,6 +66,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <SimpleCollectionQueryDemo />;
         case "DEMO_SimpleDocumentQuery":
             return <SimpleDocumentQueryDemo />;
+        case "DEMO_FilteringQueryResults":
+            return <FilteringQueryResultsDemo />;
         
         // Category Advanced
         case "DEMO_CreateDatabase":

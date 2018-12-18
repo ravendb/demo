@@ -33,7 +33,7 @@
         {
             "Title": "LINQ",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
         }
     ],
 
@@ -42,12 +42,12 @@
             "Title": "A simple document query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Query for a document from the _Employees_ collection using the `session.Query()` LINQ syntax.<br>",
+                "* Query for a document from the _Employees_ collection using `session.Query()` LINQ method syntax.<br>",
                 "  Specify the document ID in the 'Where' clause - the results will include only this document.",
                 "",
                 "* No index is created - the raw collection documents are used as the source for this query.",
                 "",
-                "* The entity returned by the Query is 'loaded' to the session."
+                "* The entity returned by the query is 'loaded' to the session."
             ],
             "Assets": [
                 {
@@ -73,7 +73,7 @@
                 {
                     "Title": "LINQ",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
                 }
             ]
         }

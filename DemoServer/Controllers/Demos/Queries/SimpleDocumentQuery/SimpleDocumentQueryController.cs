@@ -41,8 +41,8 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleDocumentQuery
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var documentQuery = session.Query<Employee>().Where(x => x.Id == employeeDocumentId);
-                var employee = documentQuery.FirstOrDefault();
+                var query = session.Query<Employee>().Where(x => x.Id == employeeDocumentId);
+                var employee = query.FirstOrDefault();
                 #endregion
             }
             

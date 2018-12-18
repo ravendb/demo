@@ -69,6 +69,11 @@ const queriesCategory: Category = {
             slug: "simple-document-query",
             title: "Simple Document Query",
             type: "DEMO_SimpleDocumentQuery"
+        },
+        {
+            slug: "filtering-query-results",
+            title: "Filtering Query Results",
+            type: "DEMO_FilteringQueryResults"
         }
     ]
 };

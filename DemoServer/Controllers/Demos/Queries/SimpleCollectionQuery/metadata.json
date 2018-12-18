@@ -39,7 +39,7 @@
         {
             "Title": "LINQ",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
         }
     ],
 
@@ -48,7 +48,7 @@
             "Title": "A simple collection query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Execute a query on collection _Companies_ using the `session.Query()` LINQ syntax.<br>",
+                "* Execute a query on collection _Companies_ using `session.Query()` LINQ method syntax.<br>",
                 "  The results will include _all_ the entities from this collection.",
                 "",
                 "* No index is created When querying on a collection without any filtering.",
@@ -84,7 +84,7 @@
                 {
                     "Title": "LINQ",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
                 }
             ]
         }

@@ -26,7 +26,7 @@ class AssetLinksComponent extends React.Component<AssetsProps, {}> {
     render() {
         const { items } = this.props;
         return <>
-            <h2>Assets</h2>
+            <h2>Related Links</h2>
             <hr />
             <ul className="list-withIcons">
                 {items.map((x, i) => this.displayItem(x, i))}

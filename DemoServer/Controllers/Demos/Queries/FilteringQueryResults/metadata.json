@@ -1,0 +1,93 @@
+{
+    "Slug": "filtering-query-results",
+    "SourceFileName": "FilteringQueryResultsController.cs",
+    "Title": "FilteringQueryResults",
+    "DescriptionLines": [
+        "A query can specify some conditions so that the server will **filter the documents returned**.",
+        "Only the matching records will be returned by the server.",
+        "",  
+        "Query the database by using any of:",
+        "<p>* Session.Query (shown in this demo)<br>",
+        "* Sesion.Advanced.DocumentQuery<br>",
+        "* session.Advanced.RawQuery (using RQL)</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying: Filtering",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "How to Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "LINQ",
+            "Type" : "link",
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
+        },
+        {
+            "Title": "RQL",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/query-vs-document-query"
+        },
+        {
+            "Title": "Auto indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Filter query results",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Using the `session.Query()` LINQ method syntax, this example queries for documents from the _Employees_ collection that match the following criteria:<br><br>",
+                "  Employee's first name is either 'Anne' or 'John'<br>",
+                "  OR<br>",
+                "  Employee's country is as specified by the param, AND territories count is > 2, AND employee's title starts with 'Sales'.<br>",
+                "",
+                "* More filtering options are available - see related links.",
+                "",
+                "* If there is no existing index that can answer this query, RavenDB will create a matching Auto-Index.",
+                "",
+                "* The entities returned by the query are 'loaded' to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Filtering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "How to Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Auto indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"  
+                }
+            ]
+        }
+    ]
+}
