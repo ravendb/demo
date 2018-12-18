@@ -25,7 +25,6 @@ function FileUploadParameterComponent(props: Props) {
 
     return <div className="parameter">
         <ParameterFileInput {...props} onFileChange={f => handleFileChange(name, f)} />
-        <label className="fileInput-label">Choose file</label>
         <ParameterLabel {...props} />
         {!!validationError && <div className="validation-error">{validationError}</div>}
     </div>;
