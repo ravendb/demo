@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-refresh:before, .icon-reload:before {
+    content: "\e913";
+}
+
 .icon-studio:before {
     content: "\e910";
 }
