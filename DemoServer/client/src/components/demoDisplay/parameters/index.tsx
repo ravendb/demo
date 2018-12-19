@@ -63,8 +63,14 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
             return null;
         }
 
-        return <div className="parameters">
-            {paramDefinitions.map((x, i) => this.renderParameter(x, i))}
+        return <div className="parameters-container">
+            <div className="bg-warning padding padding-sm">
+                <i className="icon-warning margin-right margin-xs"></i>
+                Caution: uploaded files will be stored in a public database.
+            </div>
+            <div className="parameters">        
+                {paramDefinitions.map((x, i) => this.renderParameter(x, i))}
+            </div>
         </div>;
     }
 }

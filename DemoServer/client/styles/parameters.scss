@@ -11,14 +11,17 @@
     line-height: 30px;
 }
 
+.parameters-container {
+    margin: $gutter $gutter 0;
+    top: 0;
+    left: $gutter;
+
 .parameters {
     display: flex;
     flex-wrap: wrap;
     //position: sticky;
-    top: 0;
-    left: $gutter;
+    
     background-color: $gray-darker;
-    margin: $gutter $gutter 0;
     padding: $gutter-xs;
     z-index: $zindex-parameters;
 
@@ -166,6 +169,7 @@
             }
         }
     }
+}
 }
 
 

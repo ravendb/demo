@@ -59,8 +59,32 @@ a {
     }
 }
 
+$directions: ('top', 'right', 'down', 'left');
+
+@each $direction in $directions {
+    .margin-#{$direction} {
+        margin-#{$direction}: $gutter;
+
+        &.margin-sm {
+            margin-#{$direction}: $gutter-sm;
+        }
+
+        &.margin-xs {
+            margin-#{$direction}: $gutter-xs;
+        }
+    }
+}
+
 .padding {
     padding: $gutter;
+
+    &.padding-sm {
+        padding: $gutter-sm;
+    }
+
+    &.padding-xs {
+        padding: $gutter-xs;
+    }
 }
 
 hr {
@@ -653,4 +677,9 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
         color: $gray-lighter;
         background-color: $brand-warning;
     }
+}
+
+.bg-warning {
+    background-color: rgba($brand-warning, .2);
+    color: $brand-warning;
 }
