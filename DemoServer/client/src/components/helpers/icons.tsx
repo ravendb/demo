@@ -13,7 +13,7 @@ export const Icon = (props: IconProps) => {
     return <i className={`icon-${name}`}></i>;
 }
 
-export type IconName = "left" | "right" | "cancel" | "settings" | "learn" | "play" | "studio";
+export type IconName = "left" | "right" | "cancel" | "settings" | "learn" | "play" | "studio" | "reload";
 
 export const IconLeft = () => <Icon name="left" />;
 export const IconRight = () => <Icon name="right" />;
@@ -22,3 +22,4 @@ export const IconSettings = () => <Icon name="settings" />;
 export const IconLearn = () => <Icon name="learn" />;
 export const IconPlay = () => <Icon name="play" />;
 export const IconStudio = () => <Icon name="studio" />;
+export const IconReload = () => <Icon name="reload" />;
