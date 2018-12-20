@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.SimpleCollectionQuery
+namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
 {
-    public class SimpleCollectionQueryController : DemoCodeController
+    public class FullCollectionQueryController : DemoCodeController
     {
-        public SimpleCollectionQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+        public FullCollectionQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
@@ -43,15 +43,18 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleCollectionQuery
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                IList<Company> results = session.Query<Company>()
-                    .ToList();
+                var fullCollectionQuery = session.Query<Company>();
+                #endregion
+                
+                #region Step_2
+                var collectionResults = fullCollectionQuery.ToList();
                 #endregion
             }
             
             #endregion 
             
             //TODO: How to show results ?
-            return Ok("Employee collection query results are: ...  TODO: Show Query Results ..."); 
+            return Ok("The documents in the Company collection are: ...  TODO: Show Query Results ..."); 
         }
     }
 }

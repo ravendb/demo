@@ -1,11 +1,11 @@
 {
-    "Slug": "simple-collection-query",
-    "SourceFileName": "SimpleCollectionQueryController.cs",
-    "Title": "Simple Collection Query",
+    "Slug": "full-collection-query",
+    "SourceFileName": "FullCollectionQueryController.cs",
+    "Title": "Full Collection Query",
     "DescriptionLines": [
         "RavenDB has a rich set of queries options available.",
         "",
-        "**Query on a Collection** is a simple query that returns _all_ the entities in the specified collection.<br>",
+        "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
         "",
         "No index is created as no filtering is applied."
     ],
@@ -37,23 +37,23 @@
             "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
         },
         {
-            "Title": "LINQ",
+            "Title": "LINQ queries",
             "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
         }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "A simple collection query",
+            "Title": "Define the full collection query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Execute a query on collection _Companies_ using `session.Query()` LINQ method syntax.<br>",
-                "  The results will include _all_ the entities from this collection.",
+                "* Use `session.Query<Company>()` to define a query on collection 'Company'.<br>",
+                "  The results will include _all_ documents from this collection.",
                 "",
-                "* No index is created When querying on a collection without any filtering.",
+                "* No index will be created when querying on a just the collection without any filtering.",
                 "",
-                "* The entities returned by the Query operation are 'loaded' to the session."
+                "* _Note_: A full collection query can be an expensive operation, as all documents need to be retrieved from the server and sent over the network."
             ],
             "Assets": [
                 {
@@ -84,7 +84,24 @@
                 {
                     "Title": "LINQ",
                     "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The 'fullCollectionQuery' variable only stores the query command.<br>",
+                "  Execute the query by calling `ToList()`.",
+                "",
+                "* When executed, the entities returned by the Query operation are 'loaded' to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
                 }
             ]
         }

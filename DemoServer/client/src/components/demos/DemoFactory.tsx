@@ -7,9 +7,10 @@ import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
-import { SimpleCollectionQueryDemo } from "./queries/SimpleCollectionQueryDemo";
-import { SimpleDocumentQueryDemo } from "./queries/SimpleDocumentQueryDemo";
+import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
+import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
+import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -62,12 +63,14 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <EnableRevisionsDemo />;
             
         // Category Queries
-        case "DEMO_SimpleCollectionQuery":
-            return <SimpleCollectionQueryDemo />;
-        case "DEMO_SimpleDocumentQuery":
-            return <SimpleDocumentQueryDemo />;
+        case "DEMO_FullCollectionQuery":
+            return <FullCollectionQueryDemo />;
+        case "DEMO_QueryByDocumentId":
+            return <QueryByDocumentIdDemo />;
         case "DEMO_FilteringQueryResults":
             return <FilteringQueryResultsDemo />;
+        case "DEMO_ProjectingIndividualFields":
+            return <ProjectingIndividualFieldsDemo />;
         
         // Category Advanced
         case "DEMO_CreateDatabase":

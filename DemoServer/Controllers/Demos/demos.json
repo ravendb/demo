@@ -36,9 +36,10 @@
             "directory": "Queries"
         },
         "demos": [
-            "SimpleCollectionQuery",
-            "SimpleDocumentQuery",
-            "FilteringQueryResults"
+            "FullCollectionQuery",
+            "QueryByDocumentId",
+            "FilteringQueryResults",
+            "ProjectingIndividualFields"
         ]
     },
     {

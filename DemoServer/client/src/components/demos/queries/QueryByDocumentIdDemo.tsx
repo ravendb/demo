@@ -4,7 +4,7 @@ import { ResultText  } from "../../demoDisplay/results/resultItems";
 
 const resultsCreator = () => <ResultText />;
 
-export const SimpleDocumentQueryDemo = () => <Demo
+export const QueryByDocumentIdDemo = () => <Demo
     paramDefinitions = {[
         { inputType: "text", name: "employeeDocumentID", placeholder: "employees/1-a", paramKind: "text-param" }
     ]}

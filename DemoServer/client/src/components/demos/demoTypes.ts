@@ -8,9 +8,10 @@ type Attachments = "DEMO_StoreAttachment";
 
 type Revisions = "DEMO_EnableRevisions";
 
-type Queries = "DEMO_SimpleCollectionQuery" |
-               "DEMO_SimpleDocumentQuery"   |
-               "DEMO_FilteringQueryResults";
+type Queries = "DEMO_FullCollectionQuery"   |
+               "DEMO_QueryByDocumentId"     |
+               "DEMO_FilteringQueryResults" |
+               "DEMO_ProjectingIndividualFields";
 
 type Advanced = "DEMO_CreateDatabase"
 

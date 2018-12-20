@@ -61,19 +61,24 @@ const queriesCategory: Category = {
     title: "Queries",
     demos: [
         {
-            slug: "simple-collection-query",
-            title: "Simple Collection Query",
-            type: "DEMO_SimpleCollectionQuery"
+            slug: "full-collection-query",
+            title: "Full Collection Query",
+            type: "DEMO_FullCollectionQuery"
         },
         {
-            slug: "simple-document-query",
-            title: "Simple Document Query",
-            type: "DEMO_SimpleDocumentQuery"
+            slug: "query-by-document-id",
+            title: "Query by Document ID",
+            type: "DEMO_QueryByDocumentId"
         },
         {
             slug: "filtering-query-results",
             title: "Filtering Query Results",
             type: "DEMO_FilteringQueryResults"
+        },
+        {
+            slug: "projecting-individual-fields",
+            title: "Projecting Individual Fields",
+            type: "DEMO_ProjectingIndividualFields"
         }
     ]
 };

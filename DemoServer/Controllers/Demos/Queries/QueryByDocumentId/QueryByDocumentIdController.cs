@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.SimpleDocumentQuery
+namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
 {
-    public class SimpleDocumentQueryController : DemoCodeController
+    public class QueryByDocumentIdController : DemoCodeController
     {
-        public SimpleDocumentQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+        public QueryByDocumentIdController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
@@ -41,8 +41,11 @@ namespace DemoServer.Controllers.Demos.Queries.SimpleDocumentQuery
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var query = session.Query<Employee>().Where(x => x.Id == employeeDocumentId);
-                var employee = query.FirstOrDefault();
+                var queryByDocumentId = session.Query<Employee>().Where(x => x.Id == employeeDocumentId);
+                #endregion
+                
+                #region Step_2
+                var employee = queryByDocumentId.FirstOrDefault();
                 #endregion
             }
             

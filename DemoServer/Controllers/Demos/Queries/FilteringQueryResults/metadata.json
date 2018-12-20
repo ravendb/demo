@@ -29,9 +29,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
         },
         {
-            "Title": "LINQ",
+            "Title": "LINQ queries",
             "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
         },
         {
             "Title": "RQL",

@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
+namespace DemoServer.Controllers.Demos.Queries.ProjectingQueryResultsBasic
 {
-    public class FilteringQueryResultsController : DemoCodeController
+    public class ProjectingIndividualFieldsController : DemoCodeController
     {
-        public FilteringQueryResultsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+        public ProjectingIndividualFieldsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
@@ -20,23 +20,24 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var country = runParams.Country;
-            
             #region Demo
-            
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var query = session.Query<Employee>().Where( x =>
-                                x.FirstName.In("Anne", "John")  ||
-                               (x.Address.Country == country    &&
-                                x.Territories.Count > 2         &&
-                                x.Title.StartsWith("Sales")));
+                var projectedQuery = session.Query<Company>()
+                #endregion 
+                #region Step_2
+                    .Select(x => new {
+                          CompanyName = x.Name,
+                          City = x.Address.City,
+                          Country = x.Address.Country,
+                    });
+                #endregion
                 
-                var employee = query.ToList();
+                #region Step_3
+                var projectedResults = projectedQuery.ToList();
                 #endregion
             }
-            
             #endregion 
             
             //TODO: How to show results ?
