@@ -12,3 +12,10 @@ export function ParameterLabel(props: ParameterLabelProps) {
         <div className="type"></div>
     </div>;
 }
+
+export const FileUploadWarning = () => (
+    <div className="bg-warning padding padding-sm">
+        <i className="icon-warning margin-right margin-xs"></i>
+        Caution: uploaded files will be stored in a public database.
+    </div>
+);

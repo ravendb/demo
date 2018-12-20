@@ -5,6 +5,7 @@ import { DemoThunkDispatch } from "../../../store";
 import { initDemoParams } from "../../../store/actions/parametersActions";
 import { TextParameterOwnProps, TextParameter } from "./TextParameter";
 import { FileUploadParameterOwnProps, FileUploadParameter } from "./FileUploadParameter";
+import { FileUploadWarning } from "./misc";
 
 type TextParameterItem = TextParameterOwnProps & {
     paramKind: "text-param";
@@ -42,6 +43,12 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
         }
     }
 
+    isAnyFileUpload() {
+        const { paramDefinitions } = this.props;
+        const fileUploads = paramDefinitions.filter(x => x.paramKind === "file-upload-param");
+        return fileUploads && fileUploads.length > 0;
+    }
+
     renderParameter(paramDefinition: ParamDefinition, index: number) {
         const { name } = paramDefinition;
         const key = `parameter_${name}_${index}`;
@@ -63,11 +70,10 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
             return null;
         }
 
+        const isAnyFileUpload = this.isAnyFileUpload();
+
         return <div className="parameters-container">
-            <div className="bg-warning padding padding-sm">
-                <i className="icon-warning margin-right margin-xs"></i>
-                Caution: uploaded files will be stored in a public database.
-            </div>
+            { isAnyFileUpload && <FileUploadWarning /> }
             <div className="parameters">        
                 {paramDefinitions.map((x, i) => this.renderParameter(x, i))}
             </div>

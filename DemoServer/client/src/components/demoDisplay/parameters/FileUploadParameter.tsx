@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { ParameterFileInput } from "./parameterInputs";
-import { ParameterLabel } from "./ParameterLabel";
+import { ParameterLabel } from "./misc";
 import { DemoThunkDispatch } from "../../../store";
 import { changeDemoFileParam } from "../../../store/actions/parametersActions";
 import { AppState } from "../../../store/state";
