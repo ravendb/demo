@@ -35,11 +35,12 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
 
         case "@@router/LOCATION_CHANGE":
             return modifyState(state, s => {
-                const params = matchDemoWithWalkthroughPath(action) || matchDemoPath(action);
-                if (params) {
-                    s.categorySlug = params.category;
-                    s.demoSlug = params.demo;
-                    s.currentWalkthroughSlug = params.wtSlug;
+                const pathParams = matchDemoWithWalkthroughPath(action) || matchDemoPath(action);
+                
+                if (pathParams) {
+                    s.categorySlug = pathParams.category;
+                    s.demoSlug = pathParams.demo;
+                    s.currentWalkthroughSlug = pathParams.wtSlug;
                 }
             });
 

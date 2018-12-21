@@ -14,7 +14,7 @@ export class FileInput extends React.Component<FileInputProps, State> {
     constructor(props) {
         super(props);
 
-        this.state = { labelText: "Choose file" };
+        this.state = { labelText: "Choose file (optional)" };
 
         this.handleFileChange = this.handleFileChange.bind(this);
     }

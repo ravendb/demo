@@ -56,7 +56,3 @@ export function getUrlWithoutWalkthrough(state: DemoState): string {
         demo: demoSlug
     });
 }
-
-export function getWalkthroughStepsCount(state: DemoState): number {   
-    return getWalkthroughsCount(state);   
-}

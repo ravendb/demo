@@ -2,15 +2,16 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
-import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough, getWalkthroughStepsCount } from "../../../store/helpers/walkthroughUrls";
+import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough } from "../../../store/helpers/walkthroughUrls";
 import { WalkthroughProgress } from "./WalkthroughProgress";
 import { NextButton, PreviousButton, CloseButton } from "./navButtons";
+import { getWalkthroughsCount } from "../../../store/state/DemoState";
 
 interface Props {
     previousUrl: string;
     nextUrl: string;
     closeUrl: string;
-    stepsCount: number;
+    showProgressNav: boolean;
 }
 
 class WalkthroughNavComponent extends React.Component<Props, {}> {
@@ -27,18 +28,18 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
     }
 
     render() {
-        const { previousUrl, nextUrl, closeUrl, stepsCount } = this.props;
+        const { previousUrl, nextUrl, closeUrl, showProgressNav } = this.props;
 
         return <div className="walkthrough-header">
             <h1><i className="icon-learn"></i> CODE WALKTHROUGH</h1>
-            <div className="flex-grow"></div>            
-            
+            <div className="flex-grow"></div>
+
             <div className="walkthrough-nav-container">
-                { stepsCount > 1 &&
+                {showProgressNav &&
                     <>
-                    < PreviousButton url={previousUrl} />
-                    < WalkthroughProgress />
-                    < NextButton url={nextUrl} />
+                        <PreviousButton url={previousUrl} />
+                        <WalkthroughProgress />
+                        <NextButton url={nextUrl} />
                     </>
                 }
                 <CloseButton url={closeUrl} />
@@ -52,12 +53,14 @@ export const WalkthroughNav = connect<Props>(
         const previousUrl = getPreviousWalkthroughUrl(demos);
         const nextUrl = getNextWalkthroughUrl(demos);
         const closeUrl = getUrlWithoutWalkthrough(demos);
-        const stepsCount = getWalkthroughStepsCount(demos);
+        const stepsCount = getWalkthroughsCount(demos);
+        const showProgressNav = stepsCount > 1;
+
         return {
             nextUrl,
             previousUrl,
             closeUrl,
-            stepsCount
+            showProgressNav
         }
     }
 )(WalkthroughNavComponent);
