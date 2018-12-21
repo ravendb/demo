@@ -6,8 +6,8 @@ import { CodeHighlight } from "../helpers/CodeHighlight";
 import { sliceIntoTwo } from "../../utils/codeParsing";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
-import { getCurrentWalkthrough } from "../../store/state/DemoState";
 import { LinesRangeDto } from "../../models/dtos";
+import { selectActiveWalkthrough } from "../../store/selectors/walkthroughs";
 
 export interface CodeProps {
     language: Language;
@@ -43,7 +43,8 @@ export class CodeDisplay extends React.Component<CodeProps, {}> {
 
 function mapStateToProps({ demos }: AppState): CodeProps {
     const { demo: dto } = demos;
-    const wt = getCurrentWalkthrough(demos);
+    const wt = selectActiveWalkthrough(demos);
+    
     return {
         language: demos.language,
         sourceCode: dto && dto.sourceCode,

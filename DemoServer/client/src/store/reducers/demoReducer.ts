@@ -3,6 +3,7 @@ import { DemoAction } from "../actions/demoActions";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
+import { DemoEntry, WalkthroughEntry } from "../state/models";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -17,6 +18,14 @@ const initialState: DemoState = {
     showShareMessage: false
 };
 
+const getActiveWalkthroughs = (walkthroughs: WalkthroughEntry[], slug: string) => walkthroughs.map(w =>
+    (w.slug === slug)
+        ? { ...w, isActive: true }
+        : { ...w, isActive: false }
+);
+
+const getAllInactiveWalkthroughs = (walkthroughs: WalkthroughEntry[]) => walkthroughs.map(w => ({ ...w, isActive: false }));
+
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
         case "DEMO_GET_METADATA_REQUEST":
@@ -25,7 +34,7 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "DEMO_GET_METADATA_SUCCESS":
             return modifyState(state, s => {
                 s.finishedLoadingDemo = true;
-                s.demo = action.result
+                s.demo = action.result as DemoEntry;
             });
 
         case "DEMO_GET_METADATA_FAILURE":
@@ -36,11 +45,17 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "@@router/LOCATION_CHANGE":
             return modifyState(state, s => {
                 const pathParams = matchDemoWithWalkthroughPath(action) || matchDemoPath(action);
-                
+                const { demo } = s;
+
+                if (demo && demo.walkthroughs) {
+                    demo.walkthroughs = (pathParams && pathParams.wtSlug)
+                        ? getActiveWalkthroughs(demo.walkthroughs, pathParams.wtSlug)
+                        : getAllInactiveWalkthroughs(demo.walkthroughs);
+                }
+
                 if (pathParams) {
                     s.categorySlug = pathParams.category;
                     s.demoSlug = pathParams.demo;
-                    s.currentWalkthroughSlug = pathParams.wtSlug;
                 }
             });
 

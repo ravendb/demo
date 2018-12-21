@@ -1,11 +1,11 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { getCurrentWalkthrough, getCurrentWalkthroughIndex} from "../../../store/state/DemoState";
 import { Markdown } from "../../helpers/Markdown";
 import { DemoLinkDto } from "../../../models/dtos";
 import { IconRight, IconCancel } from "../../helpers/icons";
-import { getUrlWithoutWalkthrough, geWalkthroughUrls} from "../../../store/helpers/walkthroughUrls";
+import { selectUrlWithoutWalkthrough, selectNextWalkthroughUrl } from "../../../store/selectors/walkthroughUrls";
+import { selectActiveWalkthrough, selectWalkthroughCount } from "../../../store/selectors/walkthroughs";
 
 interface DemoLinkDisplayProps {
     url: string;
@@ -50,7 +50,7 @@ function WalkthroughDescriptionComponent(props: Props) {
             {
                 stepNumber === numberOfSteps.toString()
                     ? <a href={closeUrl} className="nextStep"> Close <IconCancel /></a>
-                    : <a href={nextStepUrl} className="nextStep"> Next Step <IconRight/></a>
+                    : <a href={nextStepUrl} className="nextStep"> Next Step <IconRight /></a>
             }
         </footer>
     </div>;
@@ -58,14 +58,11 @@ function WalkthroughDescriptionComponent(props: Props) {
 
 export const WalkthroughDescription = connect<Props>(
     ({ demos }: AppState): Props => {
+        const wt = selectActiveWalkthrough(demos);
 
-        const wt = getCurrentWalkthrough(demos);
-        const currentWtIndex = getCurrentWalkthroughIndex(demos);
-        
-        const wtUrls = geWalkthroughUrls(demos);
-        const nextStepUrl = wtUrls[currentWtIndex+1];
-        const numberOfSteps = wtUrls.length;
-        const closeUrl = getUrlWithoutWalkthrough(demos);
+        const nextStepUrl = selectNextWalkthroughUrl(demos);
+        const numberOfSteps = selectWalkthroughCount(demos);
+        const closeUrl = selectUrlWithoutWalkthrough(demos);
 
         if (!wt) {
             return {

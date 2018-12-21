@@ -3,7 +3,7 @@ import { AppState } from "../../../store/state";
 import { DemoThunkDispatch } from "../../../store";
 import { runDemo } from "../../../store/actions/demoActions";
 import { connect } from "react-redux";
-import { getFirstWalkthroughUrl } from "../../../store/helpers/walkthroughUrls";
+import { selectFirstWalkthroughUrl } from "../../../store/selectors/walkthroughUrls";
 import { IconPlay, IconStudio, IconLearn } from "../../helpers/icons";
 
 interface NavPanelStateProps {
@@ -64,7 +64,7 @@ function mapStateToProps({ demos }: AppState): NavPanelStateProps {
     return {
         categorySlug,
         demoSlug,
-        firstWtUrl: getFirstWalkthroughUrl(demos),
+        firstWtUrl: selectFirstWalkthroughUrl(demos),
         studioUrl,
         hideRunButton: nonInteractive
     };

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { DemoAssetDto } from "../../../models/dtos";
 import { AssetIcon } from "../../ui/AssetIcon";
 import { AppState } from "../../../store/state";
-import { getCurrentWalkthrough } from "../../../store/state/DemoState";
+import { selectActiveWalkthrough } from "../../../store/selectors/walkthroughs";
 
 interface AssetProps {
     dto: DemoAssetDto;
@@ -40,7 +40,7 @@ function WalkthroughAssetsComponent(props: Props) {
 
 export const WalkthroughAssets = connect<Props>(
     ({ demos }: AppState): Props => {
-        const wt = getCurrentWalkthrough(demos);
+        const wt = selectActiveWalkthrough(demos);
         return {
             assets: wt && wt.assets
         };

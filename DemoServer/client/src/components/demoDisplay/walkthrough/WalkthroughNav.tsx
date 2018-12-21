@@ -2,10 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
-import { getPreviousWalkthroughUrl, getNextWalkthroughUrl, getUrlWithoutWalkthrough } from "../../../store/helpers/walkthroughUrls";
+import { selectPreviousWalkthroughUrl, selectNextWalkthroughUrl, selectUrlWithoutWalkthrough } from "../../../store/selectors/walkthroughUrls";
 import { WalkthroughProgress } from "./WalkthroughProgress";
 import { NextButton, PreviousButton, CloseButton } from "./navButtons";
-import { getWalkthroughsCount } from "../../../store/state/DemoState";
+import { selectWalkthroughCount } from "../../../store/selectors/walkthroughs";
 
 interface Props {
     previousUrl: string;
@@ -50,10 +50,10 @@ class WalkthroughNavComponent extends React.Component<Props, {}> {
 
 export const WalkthroughNav = connect<Props>(
     ({ demos }: AppState): Props => {
-        const previousUrl = getPreviousWalkthroughUrl(demos);
-        const nextUrl = getNextWalkthroughUrl(demos);
-        const closeUrl = getUrlWithoutWalkthrough(demos);
-        const stepsCount = getWalkthroughsCount(demos);
+        const previousUrl = selectPreviousWalkthroughUrl(demos);
+        const nextUrl = selectNextWalkthroughUrl(demos);
+        const closeUrl = selectUrlWithoutWalkthrough(demos);
+        const stepsCount = selectWalkthroughCount(demos);
         const showProgressNav = stepsCount > 1;
 
         return {

@@ -42,8 +42,11 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
 
 export const DemoBody = connect<DemoBodyStateProps, {}, DemoBodyOwnProps>(
     ({ demos }: AppState): DemoBodyStateProps => {
+        const { demo } = demos;
+        const isAnyActiveWalkthrough = demo && demo.walkthroughs && !!demo.walkthroughs.find(x => x.isActive);
+
         return {
-            showWalkthrough: !!demos.currentWalkthroughSlug
+            showWalkthrough: isAnyActiveWalkthrough
         };
     }
 )(DemoBodyComponent);

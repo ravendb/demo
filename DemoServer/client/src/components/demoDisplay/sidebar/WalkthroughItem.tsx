@@ -1,26 +1,27 @@
 import * as React from "react";
-import { connect } from "react-redux";
+import { createSelector } from "reselect"
 import * as classNames from "classnames";
+import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { getCurrentWalkthroughIndex } from "../../../store/state/DemoState";
+import { DemoState } from "../../../store/state/DemoState";
+import { selectWalkthroughUrls } from "../../../store/selectors/walkthroughUrls";
 
-interface SelectedItem {
-    selectedItemStep: number;
-}
-
-interface ListItem {
-    listItemStep: number;
+interface StateProps {
     title: string;
     url: string;
+    isActive: boolean;
 }
 
-type Props = SelectedItem & ListItem;
+interface OwnProps {
+    index: number;
+}
+
+type Props = StateProps & OwnProps;
 
 class WalkthroughItemComponent extends React.Component<Props> {
 
     render() {
-        const { selectedItemStep, listItemStep } = this.props;
-        const isActive = selectedItemStep === listItemStep;
+        const { isActive } = this.props;
 
         const className = classNames({
             "active": isActive
@@ -34,10 +35,36 @@ class WalkthroughItemComponent extends React.Component<Props> {
     }
 }
 
-export const WalkthroughItem = connect<SelectedItem>(
-    ({ demos }: AppState): SelectedItem => {
-        return {
-            selectedItemStep: getCurrentWalkthroughIndex(demos)
-        }
+const selectWalkthrough = (state: DemoState, ownProps: OwnProps): StateProps => {
+    const { demo } = state;
+    const { index } = ownProps;
+    const wt = demo && demo.walkthroughs && demo.walkthroughs[index];
+
+    if (!wt) {
+        return null;
     }
-)(WalkthroughItemComponent);
+
+    const urls = selectWalkthroughUrls(state);
+    return {
+        isActive: wt.isActive,
+        title: wt.title,
+        url: urls[index]
+    }
+};
+
+const makeSelectWalkthrough = () => {
+    return createSelector(
+        [selectWalkthrough],
+        (walkthrough) => walkthrough
+    )
+};
+
+const makeMapStatetoProps = () => {
+    const getWalkthrough = makeSelectWalkthrough();
+    const mapStateToProps = ({ demos }: AppState, props: OwnProps): StateProps => {
+        return getWalkthrough(demos, props);
+    }
+    return mapStateToProps;
+}
+
+export const WalkthroughItem = connect<StateProps, {}, OwnProps>(makeMapStatetoProps)(WalkthroughItemComponent);

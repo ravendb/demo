@@ -2,8 +2,8 @@ import * as React from "react";
 import { connect } from "react-redux";
 import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
-import { getCurrentWalkthroughIndex } from "../../../store/state/DemoState";
-import { geWalkthroughUrls } from "../../../store/helpers/walkthroughUrls";
+import { selectWalkthroughUrls } from "../../../store/selectors/walkthroughUrls";
+import { selectActiveWalkthroughIndex } from "../../../store/selectors/walkthroughs";
 
 interface ProgressItemProps {
     active: boolean;
@@ -52,8 +52,8 @@ class WalkthroughProgressComponent extends React.Component<Props, {}> {
 
 export const WalkthroughProgress = connect<Props>(
     ({ demos }: AppState): Props => {
-        const currentWtIndex = getCurrentWalkthroughIndex(demos);
-        const wtUrls = geWalkthroughUrls(demos);
+        const currentWtIndex = selectActiveWalkthroughIndex(demos);
+        const wtUrls = selectWalkthroughUrls(demos);
         return {
             currentStep: currentWtIndex + 1,
             walkthroughUrls: wtUrls
