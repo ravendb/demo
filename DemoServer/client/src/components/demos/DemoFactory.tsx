@@ -11,6 +11,7 @@ import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
 import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
+import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -71,7 +72,9 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <FilteringQueryResultsDemo />;
         case "DEMO_ProjectingIndividualFields":
             return <ProjectingIndividualFieldsDemo />;
-        
+        case "DEMO_ProjectingUsingFunctions":
+            return <ProjectingUsingFunctionsDemo />;
+            
         // Category Advanced
         case "DEMO_CreateDatabase":
             return <CreateDatabaseDemo />;   

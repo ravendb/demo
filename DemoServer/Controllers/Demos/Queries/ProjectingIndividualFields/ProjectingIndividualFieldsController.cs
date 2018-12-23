@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.ProjectingQueryResultsBasic
+namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
 {
     public class ProjectingIndividualFieldsController : DemoCodeController
     {

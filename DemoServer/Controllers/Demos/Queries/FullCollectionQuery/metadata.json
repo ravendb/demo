@@ -57,6 +57,11 @@
             ],
             "Assets": [
                 {
+                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
                     "Title": "How to Query",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
@@ -95,7 +100,7 @@
                 "* The 'fullCollectionQuery' variable only stores the query command.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
-                "* When executed, the entities returned by the Query operation are 'loaded' to the session."
+                "* When executed, the entities returned by the Query operation are _'loaded'_ to the session."
             ],
             "Assets": [
                 {

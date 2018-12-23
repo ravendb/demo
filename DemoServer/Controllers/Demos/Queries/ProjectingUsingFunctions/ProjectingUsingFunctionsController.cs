@@ -1,18 +1,20 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
+
 #region Usings
 using Raven.Client.Documents.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
+namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
 {
-    public class FilteringQueryResultsController : DemoCodeController
+    public class ProjectingUsingFunctionsController : DemoCodeController
     {
-        public FilteringQueryResultsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
+        public ProjectingUsingFunctionsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
         }
@@ -20,29 +22,31 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var country = runParams.Country;
-            
             #region Demo
             
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var filteredQuery = session.Query<Employee>()
+                var projectedQueryWithFunctions = (from employee in session.Query<Employee>()
                 #endregion
+                
                 #region Step_2
-                      .Where( x =>
-                                x.FirstName.In("Anne", "John")  ||
-                                
-                               (x.Address.Country == country    &&
-                                x.Territories.Count > 2         &&
-                                x.Title.StartsWith("Sales")));
+                    let formatTitle = (Func<Employee, string>)(e => "Title: " + e.Title)
+                    let formatName = (Func<Employee, string>)(e => "Name: " + e.FirstName + " " + e.LastName)
                 #endregion
                 
                 #region Step_3
-                var employee = filteredQuery.ToList();
+                    select new
+                    {
+                       Title = formatTitle(employee),
+                       Name = formatName(employee)
+                    });
+                #endregion
+
+                #region Step_4
+                var projectedResults = projectedQueryWithFunctions.ToList();
                 #endregion
             }
-            
             #endregion 
             
             //TODO: How to show results ?

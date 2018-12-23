@@ -39,11 +39,30 @@
 
     "Walkthroughs": [
         {
-            "Title": "Define a query by document ID",
+            "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Query for a specific document from the _Employees_ collection using `session.Query().Where()` method.<br>",
-                "  Specify the document ID in the 'Where' clause - the results will include only this document.",
+                "Define a query on the _Employees_ collection using the `session.Query()` LINQ _method_ syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Query by document ID",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Use `Where()` to query for a specific document from the _Employees_ collection.<br>",
+                "  Specify the document ID - the results will include only this document.",
                 "",
                 "* No index will be created - the raw collection documents are used as the source for this query."
             ],
@@ -72,12 +91,12 @@
         },
         {
             "Title": "Execute the query",
-            "Slug": "step-2",
+            "Slug": "step-3",
             "DescriptionLines": [
                 "* The 'queryByDocumentId' variable only stores the query command.<br>",
                 "  Execute the query by calling `FirstOrDefault()` to get the matching document.",
                 "",
-                "* When executed, the entity returned by the Query operation is 'loaded' to the session."
+                "* When executed, the entity returned by the Query operation is _'loaded'_ to the session."
             ],
             "Assets": [
                 {

@@ -41,10 +41,13 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var queryByDocumentId = session.Query<Employee>().Where(x => x.Id == employeeDocumentId);
+                var queryByDocumentId = session.Query<Employee>()
+                #endregion
+                #region Step_2
+                      .Where(x => x.Id == employeeDocumentId);
                 #endregion
                 
-                #region Step_2
+                #region Step_3
                 var employee = queryByDocumentId.FirstOrDefault();
                 #endregion
             }

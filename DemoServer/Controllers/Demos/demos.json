@@ -39,7 +39,8 @@
             "FullCollectionQuery",
             "QueryByDocumentId",
             "FilteringQueryResults",
-            "ProjectingIndividualFields"
+            "ProjectingIndividualFields",
+            "ProjectingUsingFunctions"
         ]
     },
     {

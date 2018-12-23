@@ -4,13 +4,14 @@
     "Title": "Projecting Individual Fields",
     "DescriptionLines": [
         "**Projections** are used in a query when you need to **retrieve only specific document fields** from the server, instead of the whole, full document.",
-        "(When projections are not defined - the full document content is returned.)", 
-        "",        
-        "With projections, the returned objects shape can be customized to your client needs.",
+        "(When projections are Not defined - the full document content is returned).<br>",
+        "This reduces the amount of data sent over the network and is useful when only partial data is needed.",
+        "",       
+        "The returned entities field names can be customized to suit your needs.",
         "",
-        "The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
+        "The output projected entities returned by the query are Not tracked by the Session, as they are Not full documents.",
         "",
-        "Projections are applied at the last stage in the query pipeline - after documents have been filtered, sorted, paged, etc."
+        "Projections are applied at the last stage in the query pipeline - after documents have been processed, filtered, sorted and paged."
     ],
 
     "Assets": [
@@ -46,7 +47,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "Define a query on the _Companies_ collection Using the `session.Query()` LINQ method syntax."
+                "Define a query on the _Companies_ collection Using the `session.Query()` LINQ _method_ syntax."
             ],
             "Assets": [
                 {
@@ -65,10 +66,7 @@
                 "* Field names ( _CompanyName_ , _City_ & _Country_ ) can be customized.<br>",
                 "  The entities returned will have only these fields.",
                 "",
-                "* Calling Select() does not trigger index creation, only Filtering actions can.",
-                "",
-                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
-                "  And, any changes made to them will Not be sent to the server upon calling SaveChanges()."
+                "* Calling Select() does Not trigger any index creation."
             ],
             "Assets": [
                 {
@@ -97,8 +95,12 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "The 'projectedQuery' variable only stores the query command.<br>",
-                "Execute the query by calling `ToList()`."
+                "* The 'projectedQuery' variable only stores the query command.<br>",
+                "  Execute the query by calling `ToList()`.",
+                "",
+                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
+                "",
+                "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
             ],
             "Assets": [
                 {

@@ -1,0 +1,130 @@
+{
+    "Slug": "projecting-using-functions",
+    "SourceFileName": "ProjectingUsingFunctionsController.cs",
+    "Title": "Projecting Using Functions",
+    "DescriptionLines": [
+        "**The projected query fields can be further processed by using functions.**",
+        "The declared functions are used inside the projected object literal expression in the 'Select()' method.",
+        "",
+        "These functions are executed on the server side.<br>",
+        "Be aware their execution time does Not time out the query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Projection with 'let' - query on collection",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+        },
+        {
+            "Title": "Projection with 'let' - query on index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+        },
+        {
+            "Title": "Projecting With Object Literals",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-with-object-literals"
+        },
+        {
+            "Title": "Query Timeout Configuration",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "Define a query on the _Employees_ collection Using the `session.Query()` LINQ _query_ syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Define the functions",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "Define the functions that will process the needed document fields.",
+                "",
+                "_formatTitle_ will process the document 'Title' field.<br>",
+                "_formatName_  will process the 'FirstName' & 'LastName' document fields."
+            ],
+            "Assets": [
+                {
+                    "Title": "Projection with 'let' - query on collection",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+                },
+                {
+                    "Title": "Projection with 'let' - query on index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+                }
+            ]
+        },
+        {
+            "Title": "Define the projection",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `Select()` to select the fields that will be returned for each document.",
+                "",      
+                "* Function 'formatTitle' is used to generate the 'Title' field value.<br>",
+                "  Function 'formatName' is used to generate the 'Name' field value."
+            ],
+            "Assets": [
+                {
+                    "Title": "Projection with 'let' - query on collection",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+                },
+                {
+                    "Title": "Projection with 'let' - query on index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+                },
+                {
+                    "Title": "Projecting With Object Literals",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-with-object-literals"
+                },
+                {
+                    "Title": "Query Timeout Configuration",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* The 'projectedResults' variable only stores the query command.<br>",
+                "  Execute the query by calling `ToList()`.",
+                "",
+                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
+                "",
+                "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        }
+    ]
+}

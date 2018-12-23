@@ -79,6 +79,11 @@ const queriesCategory: Category = {
             slug: "projecting-individual-fields",
             title: "Projecting Individual Fields",
             type: "DEMO_ProjectingIndividualFields"
+        },
+        {
+            slug: "projecting-using-functions",
+            title: "Projecting Using Functions",
+            type: "DEMO_ProjectingUsingFunctions"
         }
     ]
 };

@@ -52,10 +52,29 @@
 
     "Walkthroughs": [
         {
-            "Title": "Filter query results",
+            "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Using the `session.Query()` LINQ method syntax, this example queries for documents from the _Employees_ collection that match the following criteria:<br><br>",
+                "Define a query on the _Employees_ collection Using the `session.Query()` LINQ _method_ syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Filter the results",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:<br><br>",
                 "  Employee's first name is either 'Anne' or 'John'<br>",
                 "  OR<br>",
                 "  Employee's country is as specified by the param, AND territories count is > 2, AND employee's title starts with 'Sales'.<br>",
@@ -63,8 +82,7 @@
                 "* More filtering options are available - see related links.",
                 "",
                 "* If there is no existing index that can answer this query, RavenDB will create a matching Auto-Index.",
-                "",
-                "* The entities returned by the query are 'loaded' to the session."
+                ""
             ],
             "Assets": [
                 {
@@ -86,6 +104,23 @@
                     "Title": "Auto indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"  
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'filteredQuery' variable only stores the query command.<br>",
+                "  Execute the query by calling `ToList()`.",
+                "",
+                "* The entities returned by the query are _'loaded'_ to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
                 }
             ]
         }
