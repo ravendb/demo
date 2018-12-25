@@ -1,0 +1,187 @@
+{
+    "Slug": "query-overview",
+    "SourceFileName": "QueryOverviewController.cs",
+    "Title": "Query Overview",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "RavenDB has rich querying and indexing support.",
+        "",
+        "**Query the database to find documents that match a particular predicate**.",
+        "The server will return only the matching documents.",
+        "",
+        "The returned documents are loaded and tracked by the Session (except for projections).",       
+        "",
+        "From the Session, query the database by using any of:",
+        "<p>* Session.Query (shown in this demo)<br>",
+        "* Sesion.Advanced.DocumentQuery<br>",
+        "* session.Advanced.RawQuery (using RQL)</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "How to Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "Querying - Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+        },        
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+        },
+        {
+            "Title": "LINQ queries",
+            "Type" : "link",
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+        },
+        {
+            "Title": "RQL",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/query-vs-document-query"
+        },
+        {
+            "Title": "Auto indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* A query can be defined just on a _collection_, or on an _index_ as well.",
+                "",
+                "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
+                "  The 'query optimizer' will create such index on the fly if needed. (see _auto-indexes_).",
+                "",
+                "* In this demo, a query is defined on the 'Employees' collection using the `session.Query()` LINQ _method_ syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "How to Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying - Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+                },
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                },
+                {
+                    "Title": "Auto indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Define query criteria",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the query criteria by which the server will filter the documents returned",
+                "",
+                "* Available actions that can be used: (see specific demos per action for details)",
+                "",
+                "    * _Where()_ - Filter by documents fields properties",
+                "    * _Search()_ - Filter by text",
+                "    * _Include()_ - Include related documents",
+                "    * _Statistics()_ - Get query stats",
+                "    * _OrderBy()_ - Sort the results",
+                "    * _Select()_ - Customize the resulting entities fields (Projections)",
+                "    * _Skip()_ & _Take()_ - Paging the results",
+                "",
+                "* _Note_:<br>",
+                "  Computations cannot be defined in a query.<br>",
+                "  Use a 'static index' for computations."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying - Filtering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                },
+                {
+                    "Title": "Querying - Searching",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching"
+                },                
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Query statistics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                },
+                {
+                    "Title": "Querying - Sorting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/sorting"
+                },
+                {
+                    "Title": "Querying - Projections",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections"
+                },
+                {
+                    "Title": "Querying - Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'queryDefinition' variable only stores the query definition.<br>",
+                "  Execute the query by calling `ToList()`, or any one of many methods that forces immediate execution.",
+                "",
+                "* Note: Queries are timed out after a defined (configurable) time period.",
+                "",
+                "* The entities returned by the query are _'loaded'_ and tracked by the session.<br>",
+                "  (The only exception are projections. Projected entities are not tracked by the session.)"
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        }
+    ]
+}

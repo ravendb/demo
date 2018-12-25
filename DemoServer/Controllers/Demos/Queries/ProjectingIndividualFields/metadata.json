@@ -47,13 +47,18 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "Define a query on the _Companies_ collection Using the `session.Query()` LINQ _method_ syntax."
+                "* Define a query on the _Companies_ collection Using the `session.Query()` LINQ _method_ syntax."
             ],
             "Assets": [
                 {
-                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
                     "Type" : "link",
                     "Url"  : "todo..."
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
                 }
             ]
         },
@@ -95,10 +100,11 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The 'projectedQuery' variable only stores the query command.<br>",
+                "* The 'projectedQuery' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
-                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
+                "* The output projected entities returned by the query are Not tracked by the Session,<br>",
+                "  as they are not full documents.",
                 "",
                 "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
             ],

@@ -4,10 +4,9 @@ using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-
 #region Usings
-using System.Collections.Generic;
 using System.Linq;
+using System.Collections.Generic;
 #endregion
 
 namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery

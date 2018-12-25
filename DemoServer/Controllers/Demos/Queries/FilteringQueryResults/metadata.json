@@ -1,15 +1,11 @@
 {
     "Slug": "filtering-query-results",
     "SourceFileName": "FilteringQueryResultsController.cs",
-    "Title": "FilteringQueryResults",
+    "Title": "Filtering Query Results",
     "DescriptionLines": [
-        "A query can specify some conditions so that the server will **filter the documents returned**.",
-        "Only the matching records will be returned by the server.",
-        "",  
-        "Query the database by using any of:",
-        "<p>* Session.Query (shown in this demo)<br>",
-        "* Sesion.Advanced.DocumentQuery<br>",
-        "* session.Advanced.RawQuery (using RQL)</p>"
+        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "",
+        "Only the matching records will be returned by the server."
     ],
 
     "Assets": [
@@ -55,11 +51,11 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "Define a query on the _Employees_ collection Using the `session.Query()` LINQ _method_ syntax."
+                "* Define a query on the _Employees_ collection Using the `session.Query()` LINQ _method_ syntax."
             ],
             "Assets": [
                 {
-                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
                     "Type" : "link",
                     "Url"  : "todo..."
                 },
@@ -71,13 +67,15 @@
             ]
         },
         {
-            "Title": "Filter the results",
+            "Title": "Define the filtering conditions",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* This example queries for documents from the _Employees_ collection that match the following criteria:<br><br>",
-                "  Employee's first name is either 'Anne' or 'John'<br>",
-                "  OR<br>",
-                "  Employee's country is as specified by the param, AND territories count is > 2, AND employee's title starts with 'Sales'.<br>",
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:",
+                "     * Employee's first name is either 'Anne' or 'John'<br>",
+                "       OR<br>",
+                "     * Employee's country is as specified by the param,<br>", 
+                "       AND territories count is > 2,<br>",
+                "       AND employee's title starts with 'Sales'.",
                 "",
                 "* More filtering options are available - see related links.",
                 "",
@@ -111,7 +109,7 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The 'filteredQuery' variable only stores the query command.<br>",
+                "* The 'filteredQuery' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
                 "* The entities returned by the query are _'loaded'_ to the session."

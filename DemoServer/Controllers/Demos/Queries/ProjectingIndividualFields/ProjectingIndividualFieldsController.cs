@@ -1,10 +1,10 @@
-﻿using System.Linq;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
+using System.Linq;
 using Raven.Client.Documents.Linq;
 #endregion
 

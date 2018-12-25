@@ -38,11 +38,11 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "Define a query on the _Employees_ collection Using the `session.Query()` LINQ _query_ syntax."
+                "* Define a query on the _Employees_ collection Using the `session.Query()` LINQ _query_ syntax."
             ],
             "Assets": [
                 {
-                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
                     "Type" : "link",
                     "Url"  : "todo..."
                 },
@@ -57,10 +57,11 @@
             "Title": "Define the functions",
             "Slug": "step-2",
             "DescriptionLines": [
-                "Define the functions that will process the needed document fields.",
+                "* Define the functions that will process the needed document fields.<br>",
+                "  The functions will be used in the 'Select()' method in the next step.",
                 "",
-                "_formatTitle_ will process the document 'Title' field.<br>",
-                "_formatName_  will process the 'FirstName' & 'LastName' document fields."
+                "* _formatTitle_ will process the document 'Title' field.<br>",
+                "  _formatName_  will process the 'FirstName' & 'LastName' document fields."
             ],
             "Assets": [
                 {
@@ -111,10 +112,11 @@
             "Title": "Execute the query",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The 'projectedResults' variable only stores the query command.<br>",
+                "* The 'projectedResults' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
-                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.",
+                "* The output projected entities returned by the query are Not tracked by the Session,<br>",
+                "  as they are not full documents.",
                 "",
                 "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
             ],

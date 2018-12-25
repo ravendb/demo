@@ -3,8 +3,6 @@
     "SourceFileName": "FullCollectionQueryController.cs",
     "Title": "Full Collection Query",
     "DescriptionLines": [
-        "RavenDB has a rich set of queries options available.",
-        "",
         "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
         "",
         "No index is created as no filtering is applied."
@@ -57,7 +55,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
                     "Type" : "link",
                     "Url"  : "todo..."
                 },
@@ -97,10 +95,10 @@
             "Title": "Execute the query",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The 'fullCollectionQuery' variable only stores the query command.<br>",
-                "  Execute the query by calling `ToList()`.",
+                "* The 'fullCollectionQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `ToList()`, or any one of many methods that forces immediate execution.",
                 "",
-                "* When executed, the entities returned by the Query operation are _'loaded'_ to the session."
+                "* The entities returned by the Query operation are _'loaded'_ to the session."
             ],
             "Assets": [
                 {

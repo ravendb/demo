@@ -12,6 +12,7 @@ import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
+import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -64,6 +65,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <EnableRevisionsDemo />;
             
         // Category Queries
+        case "DEMO_QueryOverview":
+            return <QueryOverviewDemo />;
         case "DEMO_FullCollectionQuery":
             return <FullCollectionQueryDemo />;
         case "DEMO_QueryByDocumentId":

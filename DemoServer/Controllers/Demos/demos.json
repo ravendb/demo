@@ -36,6 +36,7 @@
             "directory": "Queries"
         },
         "demos": [
+            "QueryOverview",
             "FullCollectionQuery",
             "QueryByDocumentId",
             "FilteringQueryResults",

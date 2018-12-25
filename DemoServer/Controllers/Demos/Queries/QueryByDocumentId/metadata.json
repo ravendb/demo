@@ -42,11 +42,11 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "Define a query on the _Employees_ collection using the `session.Query()` LINQ _method_ syntax."
+                "* Define a query on the _Employees_ collection using the `session.Query()` LINQ _method_ syntax."
             ],
             "Assets": [
                 {
-                    "Title": "The Query - TODO: add link to The Query Demo itself !",
+                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
                     "Type" : "link",
                     "Url"  : "todo..."
                 },
@@ -58,7 +58,7 @@
             ]
         },
         {
-            "Title": "Query by document ID",
+            "Title": "Define the document ID to query by",
             "Slug": "step-2",
             "DescriptionLines": [
                 "* Use `Where()` to query for a specific document from the _Employees_ collection.<br>",
@@ -93,10 +93,10 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The 'queryByDocumentId' variable only stores the query command.<br>",
+                "* The 'queryByDocumentId' variable only stores the query definition.<br>",
                 "  Execute the query by calling `FirstOrDefault()` to get the matching document.",
                 "",
-                "* When executed, the entity returned by the Query operation is _'loaded'_ to the session."
+                "* The entity returned by the Query operation is _'loaded'_ to the session."
             ],
             "Assets": [
                 {

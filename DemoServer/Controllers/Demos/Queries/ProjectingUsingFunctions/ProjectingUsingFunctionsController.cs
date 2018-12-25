@@ -1,14 +1,13 @@
-﻿using System;
-using System.Linq;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-
 #region Usings
-using Raven.Client.Documents.Linq;
+using System;
+using System.Linq;
 #endregion
+
 
 namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
 {
@@ -20,7 +19,7 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
         }
         
         [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        public IActionResult Run()
         {
             #region Demo
             
@@ -51,11 +50,6 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
             
             //TODO: How to show results ?
             return Ok($"Query results are: ... TODO: Show Query Results ..."); 
-        }
-        
-        public class RunParams
-        {
-            public string Country { get; set; }
         }
     }
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using DemoServer.Utils;
-using DemoServer.Utils.Cache;
-using DemoServer.Utils.Database;
-using Raven.Client.Documents;
-
-#region Demo
+﻿#region Demo
 #region Step_1
 public class DocumentStoreHolder
 #endregion
