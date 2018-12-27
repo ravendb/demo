@@ -12,6 +12,8 @@ import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
+import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
+import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
@@ -44,7 +46,7 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
     const demoType = getDemoType(categorySlug, demoSlug);
 
     switch (demoType) {
-        // Category Basics
+        // Category: Basics
         case "DEMO_TheDocumentStore":
             return <TheDocumentStoreDemo />;
         case "DEMO_TheSession":
@@ -56,15 +58,15 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         case "DEMO_DeleteDocument":
             return <DeleteDocumentDemo />;
 
-        // Category Attachments
+        // Category: Attachments
         case "DEMO_StoreAttachment":
             return <StoreAttachmentDemo />;
 
-        // Category Revisions
+        // Category: Revisions
         case "DEMO_EnableRevisions":
             return <EnableRevisionsDemo />;
             
-        // Category Queries
+        // Category: Queries
         case "DEMO_QueryOverview":
             return <QueryOverviewDemo />;
         case "DEMO_FullCollectionQuery":
@@ -77,8 +79,14 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <ProjectingIndividualFieldsDemo />;
         case "DEMO_ProjectingUsingFunctions":
             return <ProjectingUsingFunctionsDemo />;
+
+        // Category: Static Indexes
+        case "DEMO_StaticIndexesOverview":
+            return <StaticIndexesOverviewDemo />;
+        case "DEMO_MapIndex":
+            return <MapIndexDemo />;
             
-        // Category Advanced
+        // Category: Advanced
         case "DEMO_CreateDatabase":
             return <CreateDatabaseDemo />;   
     }

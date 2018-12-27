@@ -93,6 +93,23 @@ const queriesCategory: Category = {
     ]
 };
 
+const staticIndexesCategory: Category = {
+    slug: "static-indexes",
+    title: "Static Indexes",
+    demos: [
+        {
+            slug: "static-indexes-overview",
+            title: "Static Indexes Overview",
+            type: "DEMO_StaticIndexesOverview"
+        },
+        {
+            slug: "map-index",
+            title: "Map Index",
+            type: "DEMO_MapIndex"
+        }
+    ]
+};
+
 const advancedCategory: Category = {
     slug: "advanced",
     title: "Advanced",
@@ -122,5 +139,6 @@ export const categoryList: Category[] = [
     attachmentsCategory,
     revisionsCategory,
     queriesCategory,
+    staticIndexesCategory,
     advancedCategory
 ];

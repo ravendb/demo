@@ -15,6 +15,9 @@ type Queries = "DEMO_QueryOverview"              |
                "DEMO_ProjectingIndividualFields" |
                "DEMO_ProjectingUsingFunctions";
 
+type StaticIndexes = "DEMO_StaticIndexesOverview" |
+                     "DEMO_MapIndex";
+
 type Advanced = "DEMO_CreateDatabase"
 
-export type DemoType = Basic | Attachments | Revisions | Queries | Advanced;
+export type DemoType = Basic | Attachments | Revisions | Queries | StaticIndexes | Advanced;
