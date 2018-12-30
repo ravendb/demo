@@ -50,15 +50,14 @@
             "Title": "Define the DocumentStoreHolder class",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "The `DocumentStoreHolder` class holds a single instance of the Document Store object that will be used across your client application.",
+                "* The `DocumentStoreHolder` class holds a single instance of the Document Store object that will be used across your client application.",
                 "",
-                "In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
-                "",
-                "* Session",
-                "* Operations",
-                "* Bulk Insert",
-                "* Changes API",
-                "* Data Subscriptions"
+                "* In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
+                "  * Session",
+                "  * Operations",
+                "  * Bulk Insert",
+                "  * Changes API",
+                "  * Data Subscriptions"
             ],
             "Assets": [
                 {
@@ -82,10 +81,10 @@
             "Title": "The private _store variable",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "The private static variable `_store` will hold a reference to the single instance created of the Document Store.",
+                "* The private static variable `_store` will hold a reference to the single instance created of the Document Store.",
                 "",
-                "Usage of “Lazy” ensures that the Document Store is only created once,",
-                "without you having to worry about double locking or explicit thread safety issues."
+                "* Usage of 'Lazy' ensures that the Document Store is only created once,",
+                "  without you having to worry about double locking or explicit thread safety issues."
             ],
             "Assets": [
                 {
@@ -99,7 +98,7 @@
             "Title": "Create the document store configuration",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "Method CreateDocumentStore() returns a configured `DocumentStore` object that is used to initialize the __store_ variable in the previous step."
+                "* Method CreateDocumentStore() returns a configured `DocumentStore` object that is used to initialize the __store_ variable in the previous step."
             ],
             "Assets": []
         },
@@ -107,25 +106,21 @@
             "Title": "Configure the DocumentStore Object",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "At this point, before initializing the Document Store (in step 5), the following info can be configured:",
+                "* At this point, before initializing the Document Store (in step 5), the following info can be configured:",
                 "",
-                "* URLs",
-                "* Database",
-                "* Certificate",
-                "* Conventions",
+                "  * _URLs_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.",
                 "",
-                " The **Urls** property specifies a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
-                "Note:Do not open a DocumentStore using URL addresses that point to nodes outside your cluster",
+                "  * _Database_ - Specify the database name this Document Store will work against.",
                 "",
-                "The **Database** property specifies the database name this Document Store will work against.",
+                "  * _Certificate_ - Specify the Client Certificate which is used to authenticate the client to the RavenDB server.",
                 "",
-                "Various settings and behaviors can be customized with the **Conventions** property, as well as the client **Certificate**,",
-                "which is used to authenticate the client to the RavenDB server.",
+                "  * _Conventions_ - Customize various settings and behaviors.",
                 "",
-                "*Remember to:* dispose the DocumentStore object when exiting the client application."
+                "* Remember to: Dispose the DocumentStore object when exiting the client application."
                 
             ],
-            "Assets": [                
+            "Assets": [
                 {
                     "Title": "Setup a Default Database",
                     "Type" : "link",
@@ -152,7 +147,7 @@
             "Title": "Initialize the Document Store object",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
                 "This will instantiate a communication channel between your application and the RavenDB server instance."
             ],
             "Assets": [
@@ -167,16 +162,15 @@
             "Title": "The public store property",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "The public static `Store`variable holds reference to the single created instance.",
+                "* The public static `Store`variable holds reference to the single created instance.",
                 "",
-                "The rest of your client code can now access the Document Store using the **DocumentStoreHolder.Store** static property for:",
-                "",
-                "* Opening a Session",
-                "* Defining indexes", 
-                "* Bulk documents actions", 
-                "* Operations handling", 
-                "* Subscription tasks management", 
-                "* Exporting & Importing database data."
+                "* The rest of your client code can now access the Document Store using the _DocumentStoreHolder.Store_ static property for:",
+                "  * Opening a Session",
+                "  * Defining indexes", 
+                "  * Bulk documents actions", 
+                "  * Operations handling", 
+                "  * Subscription tasks management", 
+                "  * Exporting & Importing database data."
             ],
             "Assets": [
                 {

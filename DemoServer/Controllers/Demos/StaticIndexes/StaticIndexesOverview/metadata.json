@@ -73,7 +73,7 @@
                 "",
                 "* The generic parameters passed define:<br>",
                 "    * The source collection for the index<br>",
-                "    * The shape of the resulting index entries (see 'Result' class in the next step).",
+                "    * The shape of the resulting index-fields (see 'Result' class in the next step).",
                 "",
                 "* In the above example, a Map index is created on the 'Employees' collection."
             ],
@@ -104,14 +104,14 @@
             "Title": "The index Result class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The Result class defines the _index entries_ - the fields that will be indexed.<br>",
-                "  Later on, a query can be made on these index entries.",
+                "* The Result class defines the _index-fields_ - the fields that will be indexed.<br>",
+                "  Later on, a query can be made on these index-fields.",
                 "",
-                "* The _content_ for each index entry is configured in the index constructor (see next step).",
+                "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
                 "* Note: It is not required for this class to be nested within the index class.",
                 "",
-                "* In the above index, field 'lastName' is indexed and will be queryable."
+                "* In the above index, field 'LastName' is indexed and will be queryable."
             ],
             "Assets": [
                 {
@@ -135,19 +135,19 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The constructor Map function defines the content for each index entry - <br>",
-                "  **what fields from the document will compose each index entry.**",
+                "* _The constructor Map function defines the content for each index-field_ - <br>",
+                "  what fields from the document will compose each index-field.",
                 "",
-                "* This is the place where computations can be used on the document fields data,<br>",
-                "  and multiple document fields can be combined into one index entry.<br>",
+                "* _This is the place where computations can be used on the document fields data_,<br>",
+                "  and multiple document fields can be combined into one index-field.<br>",
                 "  Note: Use only pure functions, so that the index definition will always produce the same output for the same input.",
                 "",
-                "* You can define:<br>",
+                "* _You can define_:<br>",
                 "      One Map on a single collection (Map Index)<br>",
                 "      Multiple Maps on multiple collections (Multi-Map Index).<br>",
                 "      A Reduce function (Map-Reduce or Multi-Map-Reduce indexes).",
                 "",                
-                "* Additional indexing options, per index entry, that can be defined _inside the Map function_ are:<br>",
+                "* _Additional indexing options, per index-field, that can be defined inside the Map function are_:<br>",
                 "   Index spatial data<br>",
                 "   Index dynamic fields<br>",
                 "   Index hierarchical data<br>",
@@ -156,12 +156,12 @@
                 "   Index counters & attachments names<br>",
                 "   Index data from a related document<br>",
                 "   Index data from the document's metadata<br>",
-                "   Use LINQ extensions, such as: reverse, pareseint, and more",
+                "   Use LINQ extensions, such as: reverse, parseint, and more",
                 "",
-                "* Other indexing options available _within the constructor_ are:<br>",
+                "* _Other indexing options available within the constructor are_:<br>",
                 "   Store fields - store data within the index<br>",
                 "   Use Analyzers - enable a Full Text Search on a field<br>",
-                "   Use additional code - allow the index definiton to use more functions<br>",
+                "   Use additional code - allow the index definition to use more functions<br>",
                 "   Configure Suggestions - allow RavenDB to suggest results"
             ],
             "Assets": [
@@ -217,9 +217,15 @@
             "Slug" : "step-5",
             "DescriptionLines": [
                 "* Now you can query the database using the defined index - <br>",
-                "  **search for documents that match a query whose criteria is based on the index entries.**",
+                "  i.e. _search for documents that match a query whose criteria is based on the index-fields._",
                 "",
-                "* The above query results will include all documents from the 'Employees' collection whose 'lastName' is 'SomeName'."
+                "* The generic params passed to the query are the result type and index class.",
+                "",
+                "* The above query is filtering on the index-field 'LastName'.<br>",
+                "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'.",
+                "",
+                "* Note the usage of _OfType()_, which converts the type being used in the where clause (the results type) to the collection type (Employee).",
+                "  While the results type allows for a strongly typed query, the server returns the actual documents entities objects."
             ],
             "Assets": [
                 {

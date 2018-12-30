@@ -58,15 +58,15 @@
             "Title": "Create a new C# object to be saved",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "Define the C# object to be saved.",
+                "* Define the C# object to be saved.",
                 "",
-                "The C# class name determines the collection to which the document will belong to in the database.<br>",
-                "Collections are used to group documents together so that it is convenient to apply some operation to them.",
+                "* _The C# class name_ determines the collection to which the document will belong to in the database.<br>",
+                "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
-                "The C# class properties determine the document JSON structure in the database.",
+                "* _The C# class properties_ determine the document JSON structure in the database.",
                 "",
-                "_Note:_ Having an 'Id' field property in the class definition is not mandatory.<br>",
-                "The Session will assign an Id for the entity that is stored, and this Id can be fetched later at any time."
+                "* Note: Having an 'Id' field property in the class definition is not mandatory.<br>",
+                "  The Session will assign an Id for the entity that is stored, and this Id can be fetched later at any time."
             ],
             "Assets": [
                 {
@@ -90,12 +90,12 @@
             "Title": "Store the new company object in the Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "Associate the new entity with the `session.Store()` command.<br>",
-                "Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
+                "* Associate the new entity with the Session `Store()` command.<br>",
+                "  Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
                 "",
-                "However, the `Store()` command will _immediately_ assign an ID to the new entity,<br>",
-                "so you can refer to it in other documents that you'll save in the same batch.<br>",
-                "See how to get this ID in the next step."
+                "* However, the Store() command will _immediately_ assign an ID to the new entity,<br>",
+                "  so you can refer to it in other documents that you'll save in the same batch.<br>",
+                "  See how to get this ID in the next step."
             ],
             "Assets": [
                 {
@@ -114,8 +114,8 @@
             "Title": "The new document ID is immediately available",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "The session takes care of generating the identifiers automatically.<br>",
-                "`GetDocumentId()` can be used to get the Id that was assigned to the new stored entity."
+                "* The Session takes care of generating the document identifier automatically.<br>",
+                "  `GetDocumentId()` can be used to get the Id that was assigned to the new stored entity."
             ],
             "Assets": [
                 {
@@ -139,11 +139,12 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "The `SaveChanges()` call will check the session state for all changes made. Here a new entity was added.<br>",
+                "* The `SaveChanges()` call will check the Session state for all changes made.<br>",
+                "  In the above example, a new company document was added to the database.",
                 "",
-                "It will then send those changes to the server as a single remote call that will complete transactionally.",
+                "* The Session will then send those changes to the server as a single remote call that will complete transactionally.",
                 "",
-                "Once SaveChanges() returns, the new document is persisted to the database"
+                "* Once SaveChanges() returns, the new document is persisted to the database."
             ],
             "Assets": [
                 {

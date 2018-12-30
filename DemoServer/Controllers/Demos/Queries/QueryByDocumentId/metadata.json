@@ -42,7 +42,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the _Employees_ collection using the `session.Query()` LINQ _method_ syntax."
+                "* Define a query on the 'Employees' collection using the Session `Query()` LINQ method syntax."
             ],
             "Assets": [
                 {
@@ -61,7 +61,7 @@
             "Title": "Define the document ID to query by",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Use `Where()` to query for a specific document from the _Employees_ collection.<br>",
+                "* Use `Where()` to query for a specific document from the 'Employees' collection.<br>",
                 "  Specify the document ID - the results will include only this document.",
                 "",
                 "* No index will be created - the raw collection documents are used as the source for this query."
@@ -95,6 +95,8 @@
             "DescriptionLines": [
                 "* The 'queryByDocumentId' variable only stores the query definition.<br>",
                 "  Execute the query by calling `FirstOrDefault()` to get the matching document.",
+                "",
+                "* The 'employee' variable will hold the resulting matching document entity.",
                 "",
                 "* The entity returned by the Query operation is _'loaded'_ to the session."
             ],

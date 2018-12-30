@@ -26,7 +26,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
             #region Step_2
             public class Result
             {
-                public string lastName { get; set; }
+                public string LastName { get; set; }
             }
             #endregion
             
@@ -41,6 +41,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
             #endregion
         }
         
+        //TODO: Split the demo region to 2 parts, so that we have more control over what is shown !
         [HttpPost]
         public void Run()
         {
@@ -52,7 +53,8 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
             {
                 #region Step_5
                 var queryOnIndex = session.Query<Employees_ByLastName.Result, Employees_ByLastName>()
-                      .Where(x => x.lastName == "SomeName")
+                      .Where(employee => employee.LastName == "SomeName")
+                      .OfType<Employee>()
                       .ToList();
                 #endregion
             }

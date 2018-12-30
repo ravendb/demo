@@ -18,7 +18,7 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
         }
         
         [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        public IActionResult Run()
         {
             #region Demo
             using (var session = DocumentStoreHolder.Store.OpenSession())
@@ -42,11 +42,6 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
             
             //TODO: How to show results ?
             return Ok($"Query results are: ... TODO: Show Query Results ..."); 
-        }
-        
-        public class RunParams
-        {
-            public string Country { get; set; }
         }
     }
 }

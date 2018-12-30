@@ -24,13 +24,13 @@
             "Title": "Mark the entity to be deleted",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "Mark the entity to be deleted with `session.Delete()`.<br>",
-                "The document is actually deleted from the database only when SaveChanges() is called later on.",
+                "* Mark the entity to be deleted with the Session `Delete()` command.<br>",
+                "  The document is actually deleted from the database only when SaveChanges() is called later on.",
                 "",
-                "**Note:**",
+                "_Note_:",
                 "",
-                "* When using the above `Delete()` overload the document is deleted with no concurrency checks.",
-                "* A _Concurrency Exception_ can be thrown only when using the following `Delete()` overloads:",
+                "* When using Delete() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following overloads:",
                 "",
                 "     * void Delete<T>(T entity);",
                 "     * void Delete(string id, string expectedChangeVector);"
@@ -52,8 +52,9 @@
             "Title": "Save the changes",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "The document is deleted from the database upon calling `SaveChanges()`.<br>",
-                "The session sends the changes to the server as a single remote call that completes transactionally."
+                "* The document is deleted from the database upon calling `SaveChanges()`.",
+                "",
+                "* The Session sends the changes to the server as a single remote call that completes transactionally."
 
             ],
             "Assets": [

@@ -3,12 +3,171 @@
     "SourceFileName": "MapIndexController.cs",
     "Title": "Map Index",
     "DescriptionLines": [
-        "Map index - TODO..."
+        "A **Map index** is a simple index containing a Map function (LINQ based or Javascript) defined on one specific collection.",
+        "",
+        "The Map function indicates what should be indexed from the document, and how it should be indexed, as the function allows to compute the indexed value."
     ],
 
     "Assets": [
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+        },
+        {
+            "Title": "Create Map Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-index"
+        },
+        {
+            "Title": "Map Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+        },
+        {
+            "Title": "Static Indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+        },
+        {
+            "Title": "Working with Indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+        },
+        {
+            "Title": "Creating and Deploying Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        }
     ],
 
-    "Walkthroughs": [ 
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
+                "",
+                "* The generic params:<br>",
+                "    * _Employee_ - The source collection for the index will be the 'Employees' collection<br>",
+                "    * _Employees_ImportantDetails.Result_ - The index-fields shape."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview: TODO: add link to Static Indexes Overview Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Result class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the _index-fields_. These fields will be indexed and can be queried on.",
+                "",
+                "* The _content_ for each index-field is configured in the index constructor (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The _Map function_ defines the index-fields content - which fields from the 'Employee' entity will compose each index-field.",
+                "  Any computations or logic can be applied here, e.g.:",
+                "",
+                "  * FullName - combining 2 fields ('FirstName' & 'LastName')",
+                "  * Country - indexing nested data ('Country' is nested under 'Address')",
+                "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
+                "  * NumberOfTerritories - applying logic (using Count)",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "  i.e. terms 'USA' & 'UK' are indexed for the index-field 'Country', along with the relevant matching documents IDs."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query the database using the index",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria ('USA' & 'startYear')", 
+                "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
+                "",
+                "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
+                "  and have started working after 'startYear'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
     ]
 }

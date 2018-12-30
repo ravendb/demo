@@ -38,9 +38,9 @@
             "Title": "Create a database operation",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "Provide an instance of a `DatabaseRecord` object containing the database name and configuration to the `CreateDatabaseOperation`.",
+                "* Provide an instance of a `DatabaseRecord` object containing the database name and configuration to the `CreateDatabaseOperation`.",
                 "",
-                "The database replication factor can be specified when initializing the CreateDatabaseOperation, otherwise the default is 1."
+                "* The database replication factor can be specified when initializing the CreateDatabaseOperation, otherwise the default is 1."
             ],
             "Assets": [
                 {
@@ -64,9 +64,9 @@
             "Title": "Create the database in RavenDB server",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "Send the CreateDatabaseOperation to the Document Store object for database creation.",
+                "* Send the CreateDatabaseOperation to the Document Store object for database creation.",
                 "",
-                "Note: an exception is thrown if the database already exists."
+                "* Note: an exception is thrown if the database already exists."
             ],
             "Assets": [
                 {

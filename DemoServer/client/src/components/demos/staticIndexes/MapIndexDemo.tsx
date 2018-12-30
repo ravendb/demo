@@ -4,6 +4,9 @@ import { ResultText  } from "../../demoDisplay/results/resultItems";
 
 const resultsCreator = () => <ResultText />;
 
-export const MapIndexDemo = () => <Demo   
+export const MapIndexDemo = () => <Demo
+    paramDefinitions = {[
+        { inputType: "number", name: "startYear", placeholder: "1993", paramKind: "text-param" }
+    ]}    
     resultsComponents = { resultsCreator }
 />;

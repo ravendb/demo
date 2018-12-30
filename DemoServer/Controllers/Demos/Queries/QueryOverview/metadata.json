@@ -68,9 +68,9 @@
                 "* A query can be defined just on a _collection_, or on an _index_ as well.",
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see _auto-indexes_).",
+                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
                 "",
-                "* In this demo, a query is defined on the 'Employees' collection using the `session.Query()` LINQ _method_ syntax."
+                "* In this demo, a query is defined on the 'Employees' collection using the Session `Query()` LINQ method syntax."
             ],
             "Assets": [
                 {
@@ -168,12 +168,14 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* The 'queryDefinition' variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any one of many methods that forces immediate execution.",
+                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
                 "",
-                "* Note: Queries are timed out after a defined (configurable) time period.",
+                "* The 'queryResults' variable will hold all the document entities that matched the query definition.",
                 "",
-                "* The entities returned by the query are _'loaded'_ and tracked by the session.<br>",
-                "  (The only exception are projections. Projected entities are not tracked by the session.)"
+                "* The entities returned by the query are _'loaded'_ and tracked by the Session.<br>",
+                "  (The only exception are projections. Projected entities are Not tracked by the Session.)",
+                "",
+                "* Note: Queries are timed out after a defined (configurable) time period."
             ],
             "Assets": [
                 {

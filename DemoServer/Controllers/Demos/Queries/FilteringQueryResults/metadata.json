@@ -5,7 +5,7 @@
     "DescriptionLines": [
         "**Filter the documents** by specifying some conditions on the **document fields** properties",
         "",
-        "Only the matching records will be returned by the server."
+        "Only the matching documents will be returned by the server."
     ],
 
     "Assets": [
@@ -51,7 +51,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the _Employees_ collection Using the `session.Query()` LINQ _method_ syntax."
+                "* Define a query on the 'Employees' collection Using the Session `Query()` LINQ method syntax."
             ],
             "Assets": [
                 {
@@ -111,6 +111,8 @@
             "DescriptionLines": [
                 "* The 'filteredQuery' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
+                "",
+                "* The 'filteredEmployees' variable will hold the resulting matching document entities.",
                 "",
                 "* The entities returned by the query are _'loaded'_ to the session."
             ],

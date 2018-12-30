@@ -38,7 +38,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the _Employees_ collection Using the `session.Query()` LINQ _query_ syntax."
+                "* Define a query on the 'Employees' collection Using the Session `Query()` LINQ query syntax."
             ],
             "Assets": [
                 {
@@ -114,6 +114,8 @@
             "DescriptionLines": [
                 "* The 'projectedResults' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
+                "",
+                "* The 'projectedResults' variable will hold the resulting matching entities.",
                 "",
                 "* The output projected entities returned by the query are Not tracked by the Session,<br>",
                 "  as they are not full documents.",

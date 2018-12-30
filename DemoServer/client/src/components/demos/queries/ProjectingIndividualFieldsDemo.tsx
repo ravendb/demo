@@ -4,9 +4,6 @@ import { ResultText  } from "../../demoDisplay/results/resultItems";
 
 const resultsCreator = () => <ResultText />;
 
-export const ProjectingIndividualFieldsDemo = () => <Demo
-    paramDefinitions = {[
-        { inputType: "text", name: "country", placeholder: "USA", paramKind: "text-param" }
-    ]}
+export const ProjectingIndividualFieldsDemo = () => <Demo   
     resultsComponents = { resultsCreator }
 />;

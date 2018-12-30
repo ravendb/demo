@@ -39,7 +39,7 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
                 #endregion
                 
                 #region Step_3
-                var employee = filteredQuery.ToList();
+                var filteredEmployees = filteredQuery.ToList();
                 #endregion
             }
             
