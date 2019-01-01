@@ -56,6 +56,18 @@ const attachmentsCategory: Category = {
     ]
 };
 
+const revisionsCategory: Category = {
+    slug: "revisions",
+    title: "Revisions",
+    demos: [
+        {
+            slug: "enable-revisions",
+            title: "Enable Revisions",
+            type: "DEMO_EnableRevisions"
+        }
+    ]
+};
+
 const queriesCategory: Category = {
     slug: "queries",
     title: "Queries",
@@ -110,6 +122,18 @@ const staticIndexesCategory: Category = {
     ]
 };
 
+const textSearch: Category = {
+    slug: "text-search",
+    title: "Text Search",
+    demos: [
+        {
+            slug: "full-text-search-with-static-index",
+            title: "Full Text Search with Static Index",
+            type: "DEMO_FullTextSearchWithStaticIndex"
+        }
+    ]
+};
+
 const advancedCategory: Category = {
     slug: "advanced",
     title: "Advanced",
@@ -122,23 +146,12 @@ const advancedCategory: Category = {
     ]
 };
 
-const revisionsCategory: Category = {
-    slug: "revisions",
-    title: "Revisions",
-    demos: [
-        {
-            slug: "enable-revisions",
-            title: "Enable Revisions",
-            type: "DEMO_EnableRevisions"
-        }
-    ]
-};
-
 export const categoryList: Category[] = [
     basicsCategory,
     attachmentsCategory,
     revisionsCategory,
     queriesCategory,
     staticIndexesCategory,
+    textSearch,
     advancedCategory
 ];

@@ -14,6 +14,7 @@ import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFi
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
+import { FullTextSearchWithStaticIndexDemo } from "./textSearch/FullTextSearchWithStaticIndexDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
@@ -85,6 +86,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <StaticIndexesOverviewDemo />;
         case "DEMO_MapIndex":
             return <MapIndexDemo />;
+
+        // Category: Text Search
+        case "DEMO_FullTextSearchWithStaticIndex":
+            return <FullTextSearchWithStaticIndexDemo />;
             
         // Category: Advanced
         case "DEMO_CreateDatabase":

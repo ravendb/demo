@@ -1,0 +1,201 @@
+{
+    "Slug": "full-text-search-with-static-index",
+    "SourceFileName": "FullTextSearchWithStaticIndexController.cs",
+    "Title": "Full Text Search with Static Index",
+    "DescriptionLines": [
+        "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
+        "",
+        "Use a static index to define which document field will be searchable.",
+        "A query on this indexed field will result in documents that contain the term in that field.",
+        "",
+        "This demo will query for a specific food term in the 'Description' field of the 'Categories' collection documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Full text searching",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+        },
+        {
+            "Title": "Full text indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+        },       
+        {
+            "Title": "How the index actually works",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+        },
+        {
+            "Title": "Analyzers",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
+        },
+        {
+            "Title": "Querying - Searching",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching#static-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`. ",
+                "",
+                "* The generic params:<br>",
+                "    * _Category_ - The source collection for the index will be the 'Categories' collection<br>",
+                "    * _Categories_DescriptionText.Result_ - The index-fields shape."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview: TODO: add link to Static Indexes Overview Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Result class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the index field(s). These fields will be indexed and can be queried on.",
+                "",
+                "* Index field _'categoryDescription'_ is defined here.<br>", 
+                "  Its content is configured in the next steps, within the index constructor."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Define the Map function.",
+                "",
+                "* Index-field _'categoryDescription'_ will take its content from the document _'Description'_ field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Configure full-text search",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Use `indexes.Add()`, with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'categoryDescription'.",
+                "",
+                "* During the indexing process, the field is Not indexed a single value.<br>",
+                "  Instead, the field's text content is broken into distinct tokens (terms).",
+                "",
+                "* Indexing the content as individual terms, and Not as one text item, allows you to search for documents that contain any of these terms.",
+                "",
+                "* Note: The way the text block is tokenized is determined by the analyzer used.<br>",
+                "        With the above syntax, The underlying analyzer used by RavenDB is the 'StandardAnalyzer'.<br>",
+                "        You can specify other analyzers or customize your own. Learn more in the related links."
+            ],
+            "Assets": [
+                {
+                    "Title": "Full text searching",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+                },
+                {
+                    "Title": "Full text indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+                },
+                {
+                    "Title": "How the index actually works",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+                },
+                {
+                    "Title": "Analyzers",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
+                }
+            ]
+        },
+        {
+            "Title": "Search for documents with a specific term",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Now you can search for documents from collection 'Categories' that contain a specific term.",
+                "",
+                "* The query results will be only those documents that contain the value of 'someFood' within their 'Description' field.",
+                "",
+                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
+    ]
+}

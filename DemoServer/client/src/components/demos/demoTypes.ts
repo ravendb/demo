@@ -18,6 +18,8 @@ type Queries = "DEMO_QueryOverview"              |
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
                      "DEMO_MapIndex";
 
+type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
+
 type Advanced = "DEMO_CreateDatabase"
 
-export type DemoType = Basic | Attachments | Revisions | Queries | StaticIndexes | Advanced;
+export type DemoType = Basic | Attachments | Revisions | Queries | StaticIndexes | TextSearch | Advanced;

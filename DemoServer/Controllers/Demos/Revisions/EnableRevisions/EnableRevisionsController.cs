@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using DemoServer.Utils;
+﻿using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
+using System;
+using System.Collections.Generic;
 using Raven.Client.Documents.Operations.Revisions;
 #endregion
 
