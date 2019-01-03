@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -149,6 +150,8 @@ namespace DemoParser.CodeParsing
 
             public string Code { get; set; }
             public List<LinesRange> WalkthroughRanges { get; set; }
+
+            public int LineCount => Code.Split(Environment.NewLine).Length;
         }
     }
 }

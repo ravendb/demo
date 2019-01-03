@@ -1,0 +1,51 @@
+﻿using Raven.Client.Documents;
+using Raven.Client.Exceptions;
+var serverURL = "http://localhost:8080";
+var databaseName = "Demo";
+
+var documentStore = new DocumentStore
+{
+    Urls = new[] { serverURL },
+    Database = databaseName
+};
+
+documentStore.Initialize();
+
+try
+{
+    documentStore.Maintenance.Server.Send(new CreateDatabaseOperation(new DatabaseRecord(databaseName)));
+}
+catch (ConcurrencyException)
+{
+    // Database already exists
+}
+
+var newCompany = new Company
+{
+    Name = "Hibernating Rhinos",
+    Phone = "(+972)052-5933777",
+    Contact = new Contact
+    {
+        Name = "Ayende",
+        Title = "CEO"
+    }
+};
+
+using (var session = documentStore.OpenSession())
+{
+    session.Store(newCompany);
+    session.SaveChanges();
+}
+
+public class Company
+{
+    public string Name { get; set; }
+    public string Phone { get; set; }
+    public Contact Contact { get; set; }
+}
+
+public class Contact
+{
+    public string Name { get; set; }
+    public string Title { get; set; }
+}

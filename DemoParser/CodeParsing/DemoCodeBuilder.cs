@@ -18,6 +18,8 @@ namespace DemoParser.CodeParsing
         private readonly CodeSlicer _codeSlicer;
         private readonly RegionContainer _regions;
 
+        private int _lineCountOffset;
+
         private DemoCodeBuilder(string filePath, List<CodeRegion> regions)
         {
             _filePath = filePath;
@@ -47,6 +49,8 @@ namespace DemoParser.CodeParsing
 
             _outputCode.Append(usingsCode.Code);
             _outputDemo.UsingsLastLine = usingsCode.LineCount;
+            _lineCountOffset += usingsCode.LineCount;
+
             return this;
         }
 
@@ -59,22 +63,30 @@ namespace DemoParser.CodeParsing
 
         public DemoCodeBuilder SetDemoBody()
         {
-            var demoRegion = _regions.Demo;
+            var demoRegions = _regions.Demos;
 
-            if (demoRegion == null)
+            if (demoRegions == null || demoRegions.Count == 0)
                 throw new InvalidOperationException($"Region {RegionNames.Demo} was not found.");
 
+            foreach (var demoRegion in demoRegions)
+                AppendDemoRegion(demoRegion);
+
+            return this;
+        }
+
+        private void AppendDemoRegion(CodeRegion demoRegion)
+        {
             var demoCode = _codeSlicer.CopyCodeWithWalkthroughs(new CodeSlicer.CodeWithWalkthroughsInput
             {
                 Start = demoRegion.LineStart,
                 End = demoRegion.LineEnd,
-                LineCountOffset = _outputDemo.UsingsLastLine
+                LineCountOffset = _lineCountOffset
             });
 
             _outputCode.Append(demoCode.Code);
+            _lineCountOffset += demoCode.LineCount;
 
             CopyWalkthroughs(demoCode.WalkthroughRanges);
-            return this;
         }
 
         private void CopyWalkthroughs(List<LinesRange> walkthroughRanges)

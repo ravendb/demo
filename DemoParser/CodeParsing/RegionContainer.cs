@@ -15,17 +15,24 @@ namespace DemoParser.CodeParsing
             _regions = regions;
 
             Usings = GetRegionByName(RegionNames.Usings);
-            Demo = GetRegionByName(RegionNames.Demo);
+            Demos = GetMultipleRegionsByName(RegionNames.Demo);
             Walk = GetRegionsByPrefix(RegionNames.WalkthroughPrefix);
         }
 
         public CodeRegion Usings { get; }
-        public CodeRegion Demo { get; }
+        public List<CodeRegion> Demos { get; }
         public List<CodeRegion> Walk { get; }
 
         private CodeRegion GetRegionByName(string name)
         {
             return _regions.SingleOrDefault(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase));
+        }
+
+        private List<CodeRegion> GetMultipleRegionsByName(string name)
+        {
+            return _regions
+                .Where(x => string.Equals(x.Name, name, StringComparison.OrdinalIgnoreCase))
+                .ToList();
         }
 
         private List<CodeRegion> GetRegionsByPrefix(string prefix)

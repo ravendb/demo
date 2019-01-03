@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Compile Remove="DemoCodeBuilderTests\Input.cs" />
+    <Compile Remove="DemoCodeBuilderTests\MultipleDemoRegions\Input.cs" />
+    <Compile Remove="DemoCodeBuilderTests\SingleDemoRegion\Input.cs" />
     <Compile Remove="FileHashTests\Input_Changed.cs" />
     <Compile Remove="FileHashTests\Input_Identical.cs" />
     <Compile Remove="FileHashTests\Input_Initial.cs" />
@@ -15,6 +17,7 @@
     <Compile Remove="MockSrc\CSharp\Basics\Demo102\Demo102Controller.cs" />
     <Compile Remove="MockSrc\CSharp\Indexing\Demo201\Demo201Controller.cs" />
     <Compile Remove="RegionParserTests\Input.cs" />
+    <Compile Remove="RegionParserTests\MultipleDemoRegionsInput.cs" />
     <Compile Remove="TokenizerTests\Input.cs" />
   </ItemGroup>
 
@@ -28,6 +31,12 @@
     <Content Include="FileHashTests\Input_Identical.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="RegionParserTests\MultipleDemoRegionsInput.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <None Include="DemoCodeBuilderTests\MultipleDemoRegions\Input.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="MockSrc\CSharp\Basics\Demo102\Demo102Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -40,7 +49,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="DemoCodeBuilderTests\Input.cs">
+    <None Include="DemoCodeBuilderTests\SingleDemoRegion\Input.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="MockSrc\CSharp\Basics\Demo101\Demo101Controller.cs">
@@ -75,7 +84,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="DemoCodeBuilderTests\ExpectedOutput.txt">
+    <None Update="DemoCodeBuilderTests\MultipleDemoRegions\ExpectedOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DemoCodeBuilderTests\SingleDemoRegion\ExpectedOutput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\Basics\Demo102\metadata.json">
