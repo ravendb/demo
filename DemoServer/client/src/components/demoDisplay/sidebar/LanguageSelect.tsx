@@ -19,10 +19,11 @@ export class LanguageSelect extends React.Component<LanguageSelectProps, {}> {
     }
 
     render() {
-        return <div className="language-select">
-            {this.button("csharp")}
-            {this.button("java")}
-            {this.button("python")}
-        </div>;
+        return null;
+        // return <div className="language-select">
+        //     {this.button("csharp")}
+        //     {this.button("java")}
+        //     {this.button("python")}
+        // </div>;
     }
 }
