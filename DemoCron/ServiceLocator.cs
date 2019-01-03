@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using DemoCommon.Utils.Database;
 using DemoCron.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -12,10 +13,7 @@ namespace DemoCron
     {
         private static ServiceProvider Provider { get; set; }
 
-        public static T Resolve<T>()
-        {
-            return (T)Provider.GetService(typeof(T));
-        }
+        public static T Resolve<T>() => (T)Provider.GetService(typeof(T));
 
         public static object Resolve(Type t)
         {
@@ -45,6 +43,7 @@ namespace DemoCron
 
             serviceCollection.AddSingleton<Startup>();
             serviceCollection.AddSingleton<DocumentStoreHolder>();
+            serviceCollection.AddSingleton(_ => new DatabaseName(settings.Database, conferenceMode: false));
 
             serviceCollection.AddScoped<DeleteUnusedDatabasesTask>();
 

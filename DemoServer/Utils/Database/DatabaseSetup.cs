@@ -14,17 +14,19 @@ namespace DemoServer.Utils.Database
         private readonly DatabaseApi _databaseApi = new DatabaseApi();
 
         private readonly DocumentStoreCache _documentStoreCache;
+        private readonly DatabaseName _databaseName;
 
-        public DatabaseSetup(DocumentStoreCache documentStoreCache)
+        public DatabaseSetup(DocumentStoreCache documentStoreCache, DatabaseName databaseName)
         {
             _documentStoreCache = documentStoreCache;
+            _databaseName = databaseName;
         }
 
         private IDocumentStore GetDocumentStore(Guid userId) => _documentStoreCache.GetEntry(userId);
 
         private IAsyncDocumentSession OpenAsyncSession(Guid userId)
         {
-            var databaseName = DatabaseName.For(userId);
+            var databaseName = _databaseName.For(userId);
             var documentStore = _documentStoreCache.GetEntry(userId);
             return documentStore.OpenAsyncSession(databaseName);
         }

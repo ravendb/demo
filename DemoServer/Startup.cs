@@ -1,4 +1,5 @@
-﻿using DemoServer.Utils;
+﻿using DemoCommon.Utils.Database;
+using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Builder;
@@ -49,6 +50,7 @@ namespace DemoServer
             var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>());
             services.AddSingleton(demoContainer);
             services.AddSingleton<DocumentStoreHolder>();
+            services.AddSingleton(_ => new DatabaseName(settings.Database, settings.ConferenceMode));
 
             services.AddScoped<DocumentStoreCache>();
             services.AddScoped<HeadersAccessor>();

@@ -1,6 +1,5 @@
 ﻿using System;
 using DemoCommon.Models;
-using DemoCommon.Utils;
 using DemoCommon.Utils.Database;
 
 namespace DemoServer.Utils.Database
@@ -8,9 +7,11 @@ namespace DemoServer.Utils.Database
     public class DatabaseLinks
     {
         private readonly DatabaseSettings _databaseSettings;
+        private readonly DatabaseName _databaseName;
 
-        public DatabaseLinks(Settings settings)
+        public DatabaseLinks(Settings settings, DatabaseName databaseName)
         {
+            _databaseName = databaseName;
             _databaseSettings = settings.Database;
         }
 
@@ -20,7 +21,7 @@ namespace DemoServer.Utils.Database
 
         public string ToDocuments(Guid userId)
         {
-            var databaseName = DatabaseName.For(userId);
+            var databaseName = _databaseName.For(userId);
             return $"{StudioUrl}#databases/documents?&database={databaseName}";
         }
     }

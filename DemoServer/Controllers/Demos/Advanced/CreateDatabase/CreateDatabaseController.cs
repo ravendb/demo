@@ -14,9 +14,12 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
 {
     public class CreateDatabaseController : DemoCodeController
     {
+        private readonly DatabaseName _databaseName;
+
         public CreateDatabaseController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+            DatabaseSetup databaseSetup, DatabaseName databaseName) : base(headersAccessor, documentStoreCache, databaseSetup)
         {
+            _databaseName = databaseName;
         }
 
         protected override Task SetDemoPrerequisites()
@@ -28,7 +31,7 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
         [HttpPost]
         public IActionResult Run()
         {
-            var databaseName = DatabaseName.For(UserId);
+            var databaseName = _databaseName.For(UserId);
 
             #region Demo
             
