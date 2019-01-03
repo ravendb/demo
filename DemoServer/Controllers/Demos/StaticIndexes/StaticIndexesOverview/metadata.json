@@ -143,9 +143,9 @@
                 "  Note: Use only pure functions, so that the index definition will always produce the same output for the same input.",
                 "",
                 "* _You can define_:<br>",
-                "      One Map on a single collection (Map Index)<br>",
-                "      Multiple Maps on multiple collections (Multi-Map Index).<br>",
-                "      A Reduce function (Map-Reduce or Multi-Map-Reduce indexes).",
+                "      * One Map on a single collection (Map Index)",
+                "      * Multiple Maps on multiple collections (Multi-Map Index)",
+                "      * A Reduce function (Map-Reduce or Multi-Map-Reduce indexes)",
                 "",                
                 "* _Additional indexing options, per index-field, that can be defined inside the Map function are_:<br>",
                 "   Index spatial data<br>",
@@ -189,7 +189,8 @@
                 "* Use the `Execute()` method to deploy the index to the server.",
                 "",
                 "* Once the index is deployed, the server will start the _'indexing process'_,",
-                "  in which the index iterates over the documents, building a map between the terms derived from the document fields indexed and the actual documents that contain them.",
+                "  in which the index iterates over the documents, building a map between the terms derived from the document fields indexed and the actual documents that contain them.<br>",
+                "  In the case of a Map-Recude index, a second stage is applied where the mapped entries are reduced to some aggregated value.",
                 "",
                 "* After the first indexing run, the index will keep this map current without re-processing the entire data,",
                 "  and will only update the relevant details upon any update/change to any document related to the index."
@@ -216,16 +217,17 @@
             "Title": "Query the database using the index",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Now you can query the database using the defined index - <br>",
-                "  i.e. _search for documents that match a query whose criteria is based on the index-fields._",
+                "* Now you can query the database using the defined index:",
+                "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
+                "     * _Query for an aggregated value_ (Map-Reduce index)",
                 "",
                 "* The generic params passed to the query are the result type and index class.",
                 "",
-                "* The above query is filtering on the index-field 'LastName'.<br>",
-                "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'.",
-                "",
-                "* Note the usage of _OfType()_, which converts the type being used in the where clause (the results type) to the collection type (Employee).",
-                "  While the results type allows for a strongly typed query, the server returns the actual documents entities objects."
+                "* The above query example is on a Map typed index.<br>",
+                "  The query is filtering on the index-field 'LastName'.<br>",
+                "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'.<br><br>",
+                "  Note the usage of _OfType()_, which converts the type being used in the where clause (the 'Result' type) to the collection type (Employee).",
+                "  While the 'Result' type allows for a strongly typed query in the client, the server returns the actual documents entities objects."
             ],
             "Assets": [
                 {

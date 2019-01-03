@@ -16,7 +16,8 @@ type Queries = "DEMO_QueryOverview"              |
                "DEMO_ProjectingUsingFunctions";
 
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
-                     "DEMO_MapIndex";
+                     "DEMO_MapIndex"              |
+                     "DEMO_MapReduceIndex";
 
 type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
 

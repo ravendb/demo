@@ -48,7 +48,7 @@
                 "",
                 "* The generic params:<br>",
                 "    * _Category_ - The source collection for the index will be the 'Categories' collection<br>",
-                "    * _Categories_DescriptionText.Result_ - The index-fields shape."
+                "    * _Categories_DescriptionText.Result_ - The shape of the resulting index-fields (see next step)"
             ],
             "Assets": [
                 {

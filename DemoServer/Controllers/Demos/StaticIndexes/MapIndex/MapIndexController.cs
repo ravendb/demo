@@ -37,7 +37,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             public Employees_ImportantDetails()
             {
                 Map = employees => from employee in employees
-                    select new
+                    select new Result
                     {
                        FullName = employee.FirstName + " " + employee.LastName,
                        Country = employee.Address.Country,

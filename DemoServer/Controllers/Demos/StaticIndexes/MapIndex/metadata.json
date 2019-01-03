@@ -3,7 +3,9 @@
     "SourceFileName": "MapIndexController.cs",
     "Title": "Map Index",
     "DescriptionLines": [
-        "A **Map index** is a simple index containing a Map function (LINQ based or Javascript) defined on one specific collection.",
+        "A **Map index** allows you to query the database for documents that satisfy a certain condition.",
+        "",
+        "The Map index is a simple index containing a single Map function (LINQ based or Javascript) defined on one specific collection.",
         "",
         "The Map function indicates what should be indexed from the document, and how it should be indexed, as the function allows to compute the indexed value."
     ],
@@ -50,7 +52,7 @@
                 "",
                 "* The generic params:<br>",
                 "    * _Employee_ - The source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ImportantDetails.Result_ - The index-fields shape."
+                "    * _Employees_ImportantDetails.Result_ - The shape of the resulting index-fields (see next step)"
             ],
             "Assets": [
                 {
@@ -79,7 +81,7 @@
             "Title": "The index Result class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Define the _index-fields_. These fields will be indexed and can be queried on.",
+                "* The Result class defines the _index-fields_. These fields will be indexed and can be queried on.",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step)."
             ],
@@ -109,12 +111,14 @@
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
                 "  * FullName - combining 2 fields ('FirstName' & 'LastName')",
-                "  * Country - indexing nested data ('Country' is nested under 'Address')",
+                "  * Country - indexing nested field data ('Country' is nested under 'Address')",
                 "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
                 "  * NumberOfTerritories - applying logic (using Count)",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
-                "  i.e. terms 'USA' & 'UK' are indexed for the index-field 'Country', along with the relevant matching documents IDs."
+                "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."
             ],
             "Assets": [
                 {
@@ -135,7 +139,7 @@
             ]
         },
         {
-            "Title": "Query the database using the index",
+            "Title": "Query for documents",
             "Slug" : "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",

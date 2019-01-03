@@ -118,6 +118,11 @@ const staticIndexesCategory: Category = {
             slug: "map-index",
             title: "Map Index",
             type: "DEMO_MapIndex"
+        },
+        {
+            slug: "map-reduce-index",
+            title: "Map Reduce Index",
+            type: "DEMO_MapReduceIndex"
         }
     ]
 };

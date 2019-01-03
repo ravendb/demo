@@ -51,7 +51,8 @@
         },
         "demos": [
             "StaticIndexesOverview",
-            "MapIndex"
+            "MapIndex",
+            "MapReduceIndex"
         ]
     },
     {

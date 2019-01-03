@@ -25,7 +25,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
             #region Step_2
             public class Result
             {
-                public string categoryDescription { get; set; }
+                public string CategoryDescription { get; set; }
             }
             #endregion
            
@@ -33,14 +33,14 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
             {
                 #region Step_3
                 Map = categories => from category in categories
-                    select new
+                    select new Result
                     {
-                        categoryDescription = category.Description
+                        CategoryDescription = category.Description
                     };
                 #endregion
                 
                 #region Step_4
-                Indexes.Add(x => x.categoryDescription, FieldIndexing.Search);
+                Indexes.Add(x => x.CategoryDescription, FieldIndexing.Search);
                 #endregion
             }
         }
@@ -56,7 +56,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
             {
                 #region Step_5
                 var categoriesWithSomeFood = session.Query<Categories_DescriptionText.Result, Categories_DescriptionText>()
-                       .Where(x => x.categoryDescription == someFood)
+                       .Where(x => x.CategoryDescription == someFood)
                        .OfType<Category>()
                        .ToList();
                 #endregion
