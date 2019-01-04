@@ -11,8 +11,8 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
     {
         private const string DocumentId = "companies/1-A"; 
 
-        public EditDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public EditDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
 
@@ -25,7 +25,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         private async Task SetRunPrerequisites()
         {
-            await DatabaseSetup.EnsureDocumentExists(UserId, DocumentId, InitialCompany);
+            await DatabaseSetup.EnsureUserDocumentExists(UserId, DocumentId, InitialCompany);
         }
 
         [HttpPost]

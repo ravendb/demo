@@ -64,7 +64,7 @@ namespace DemoServer.Controllers
         [Route("reset-database")]
         public async Task<IActionResult> ResetDatabase()
         {
-            await _databaseSetup.ResetDatabase(UserId);
+            await _databaseSetup.ResetUserDatabase(UserId);
             return Ok();
         }
     }

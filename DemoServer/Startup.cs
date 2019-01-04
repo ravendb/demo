@@ -52,7 +52,9 @@ namespace DemoServer
             services.AddSingleton<DocumentStoreHolder>();
             services.AddSingleton(_ => new DatabaseName(settings.Database, settings.ConferenceMode));
 
-            services.AddScoped<DocumentStoreCache>();
+            services.AddScoped<UserStoreCache>();
+            services.AddScoped<MediaStoreCache>();
+
             services.AddScoped<HeadersAccessor>();
             services.AddScoped<DatabaseSetup>();
             services.AddScoped<DatabaseLinks>();

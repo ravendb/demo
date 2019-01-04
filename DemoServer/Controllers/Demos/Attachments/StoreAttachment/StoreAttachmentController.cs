@@ -14,8 +14,8 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         private const string DefaultDocumentId = "companies/2-A";
         private const string DefaultFilePath = ".//DemoResources//raven_logo.png";
 
-        public StoreAttachmentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public StoreAttachmentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
 
@@ -31,7 +31,7 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
 
         private async Task SetRunPrerequisites(string documentId)
         {
-            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, InitialCompanyDocument);
+            await DatabaseSetup.EnsureUserDocumentExists(UserId, documentId, InitialCompanyDocument);
         }
 
         [HttpPost]

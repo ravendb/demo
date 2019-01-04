@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
 {
     public class MapReduceIndexController : DemoCodeController
     {
-        public MapReduceIndexController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public MapReduceIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
         

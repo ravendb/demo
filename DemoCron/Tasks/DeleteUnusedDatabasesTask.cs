@@ -36,8 +36,11 @@ namespace DemoCron.Tasks
 
         private async Task<IEnumerable<string>> GetUserDatabaseNames()
         {
+            var userDbPrefix = $"{DatabaseName.UserDatabasePrefix}-";
+            var mediaDbPrefix = $"{DatabaseName.MediaDatabasePrefix}-";
+
             var dbNames = await _databaseApi.GetDatabaseNames(DocumentStore);
-            return dbNames.Where(x => x.StartsWith(DatabaseName.UserDatabasePrefix));
+            return dbNames.Where(x => x.StartsWith(userDbPrefix) || x.StartsWith(mediaDbPrefix));
         }
 
         private async Task ProcessDatabase(string databaseName)

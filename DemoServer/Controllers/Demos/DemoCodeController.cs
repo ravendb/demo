@@ -14,14 +14,14 @@ namespace DemoServer.Controllers.Demos
     public abstract class DemoCodeController : Controller
     {
         private readonly HeadersAccessor _headersAccessor;
-        private readonly DocumentStoreCache _documentStoreCache;
+        private readonly UserStoreCache _userStoreCache;
 
         protected readonly DatabaseSetup DatabaseSetup;
 
-        protected DemoCodeController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache, DatabaseSetup databaseSetup)
+        protected DemoCodeController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, DatabaseSetup databaseSetup)
         {
             _headersAccessor = headersAccessor;
-            _documentStoreCache = documentStoreCache;
+            _userStoreCache = userStoreCache;
 
             DatabaseSetup = databaseSetup;
         }
@@ -38,6 +38,6 @@ namespace DemoServer.Controllers.Demos
         protected Guid UserId => _headersAccessor.GetUserIdFromRequest();
 
         protected DocumentStoreHolderWrapper DocumentStoreHolder =>
-            new DocumentStoreHolderWrapper(_documentStoreCache, UserId);
+            new DocumentStoreHolderWrapper(_userStoreCache, UserId);
     }
 }

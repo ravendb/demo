@@ -9,8 +9,8 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
     public class DeleteDocumentController : DemoCodeController
     {
-        public DeleteDocumentController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public DeleteDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
 
@@ -24,7 +24,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 
         private async Task SetRunPrerequisites(string documentId)
         {
-            await DatabaseSetup.EnsureDocumentExists(UserId, documentId, initialCompanyDocument);
+            await DatabaseSetup.EnsureUserDocumentExists(UserId, documentId, initialCompanyDocument);
         }
         
         [HttpPost]

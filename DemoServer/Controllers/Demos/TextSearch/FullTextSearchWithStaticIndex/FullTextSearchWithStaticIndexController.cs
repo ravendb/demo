@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -12,10 +13,13 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
 {
     public class FullTextSearchWithStaticIndexController : DemoCodeController
     {
-        public FullTextSearchWithStaticIndexController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public FullTextSearchWithStaticIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
+
+        protected override Task SetDemoPrerequisites() => DatabaseSetup.EnsureMediaDatabaseExists(UserId);
+
         #region Demo
         
         #region Step_1

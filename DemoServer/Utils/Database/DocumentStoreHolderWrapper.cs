@@ -6,10 +6,10 @@ namespace DemoServer.Utils.Database
 {
     public class DocumentStoreHolderWrapper
     {
-        private readonly DocumentStoreCache _documentStoreCache;
+        private readonly UserStoreCache _documentStoreCache;
         private readonly Guid _userId;
 
-        public DocumentStoreHolderWrapper(DocumentStoreCache documentStoreCache, Guid userId)
+        public DocumentStoreHolderWrapper(UserStoreCache documentStoreCache, Guid userId)
         {
             _documentStoreCache = documentStoreCache;
             _userId = userId;

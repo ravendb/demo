@@ -1,8 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Threading.Tasks;
 using DemoCommon.Utils.Database.Operations;
 using Raven.Client.Documents;
 using Raven.Client.Documents.Operations;
+using Raven.Client.Documents.Smuggler;
 using Raven.Client.Exceptions;
 using Raven.Client.Exceptions.Database;
 using Raven.Client.ServerWide;
@@ -83,6 +86,13 @@ namespace DemoCommon.Utils.Database
             while (dbNames.Length > 0);
 
             return results;
+        }
+
+        public async Task ImportDump(IDocumentStore store, Stream dumpStream)
+        {
+            var importOptions = new DatabaseSmugglerImportOptions();
+            var operation = await store.Smuggler.ImportAsync(importOptions, dumpStream);
+            await operation.WaitForCompletionAsync(TimeSpan.FromMinutes(1));
         }
     }
 }

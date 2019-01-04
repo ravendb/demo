@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
 {
     public class EnableRevisionsController : DemoCodeController
     {
-        public EnableRevisionsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public EnableRevisionsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
        

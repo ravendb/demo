@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
 {
     public class FilteringQueryResultsController : DemoCodeController
     {
-        public FilteringQueryResultsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public FilteringQueryResultsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
         

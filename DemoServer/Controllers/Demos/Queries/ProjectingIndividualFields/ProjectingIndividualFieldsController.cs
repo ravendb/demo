@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
 {
     public class ProjectingIndividualFieldsController : DemoCodeController
     {
-        public ProjectingIndividualFieldsController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public ProjectingIndividualFieldsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
         

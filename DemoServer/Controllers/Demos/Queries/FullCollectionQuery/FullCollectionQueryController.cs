@@ -13,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
 {
     public class FullCollectionQueryController : DemoCodeController
     {
-        public FullCollectionQueryController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public FullCollectionQueryController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
 
@@ -29,7 +29,7 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
                 new Company {Id = "companies/5", Name = "Name5", Phone = "Phone5"}
             };
 
-            await DatabaseSetup.EnsureCollectionExists(UserId, documentsToStore);
+            await DatabaseSetup.EnsureUserCollectionExists(UserId, documentsToStore);
         }
         
         [HttpPost]

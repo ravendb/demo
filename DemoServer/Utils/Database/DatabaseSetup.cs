@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Threading.Tasks;
 using DemoCommon.Models;
 using DemoCommon.Utils.Database;
 using DemoServer.Utils.Cache;
 using Raven.Client.Documents;
-using Raven.Client.Documents.Session;
 
 namespace DemoServer.Utils.Database
 {
@@ -13,27 +14,18 @@ namespace DemoServer.Utils.Database
     {
         private readonly DatabaseApi _databaseApi = new DatabaseApi();
 
-        private readonly DocumentStoreCache _documentStoreCache;
-        private readonly DatabaseName _databaseName;
+        private readonly UserStoreCache _userStoreCache;
+        private readonly MediaStoreCache _mediaStoreCache;
 
-        public DatabaseSetup(DocumentStoreCache documentStoreCache, DatabaseName databaseName)
+        public DatabaseSetup(UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache)
         {
-            _documentStoreCache = documentStoreCache;
-            _databaseName = databaseName;
-        }
-
-        private IDocumentStore GetDocumentStore(Guid userId) => _documentStoreCache.GetEntry(userId);
-
-        private IAsyncDocumentSession OpenAsyncSession(Guid userId)
-        {
-            var databaseName = _databaseName.For(userId);
-            var documentStore = _documentStoreCache.GetEntry(userId);
-            return documentStore.OpenAsyncSession(databaseName);
+            _userStoreCache = userStoreCache;
+            _mediaStoreCache = mediaStoreCache;
         }
 
         public async Task EnsureUserDatabaseExists(Guid userId)
         {
-            var documentStore = _documentStoreCache.GetEntry(userId);
+            var documentStore = _userStoreCache.GetEntry(userId);
 
             if (_databaseApi.DoesDatabaseExist(documentStore) == false)
             {
@@ -41,12 +33,35 @@ namespace DemoServer.Utils.Database
                 await _databaseApi.CreateSampleData(documentStore);
             }
 
-            await UpdateDemoStats(userId);
+            await UpdateDemoStats(documentStore);
         }
 
-        private async Task UpdateDemoStats(Guid userId)
+        public async Task EnsureMediaDatabaseExists(Guid userId)
         {
-            using (var session = OpenAsyncSession(userId))
+            var documentStore = _mediaStoreCache.GetEntry(userId);
+
+            if (_databaseApi.DoesDatabaseExist(documentStore) == false)
+            {
+                await _databaseApi.CreateDatabase(documentStore);
+
+                using (var dumpStream = GetMediaDump())
+                {
+                    await _databaseApi.ImportDump(documentStore, dumpStream);
+                }
+            }
+
+            await UpdateDemoStats(documentStore);
+        }
+
+        private Stream GetMediaDump()
+        {
+            var assembly = Assembly.GetExecutingAssembly();
+            return assembly.GetManifestResourceStream("DemoServer.Data.media_subset.ravendbdump");
+        }
+
+        private async Task UpdateDemoStats(IDocumentStore documentStore)
+        {
+            using (var session = documentStore.OpenAsyncSession())
             {
                 var demoStats = await session.LoadAsync<DemoStats>(DemoStats.DocumentId);
 
@@ -63,21 +78,23 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public Task DeleteDatabase(Guid userId)
+        public Task DeleteUserDatabase(Guid userId)
         {
-            var documentStore = GetDocumentStore(userId);
+            var documentStore = _userStoreCache.GetEntry(userId);
             return _databaseApi.DeleteDatabase(documentStore);
         }
 
-        public async Task ResetDatabase(Guid userId)
+        public async Task ResetUserDatabase(Guid userId)
         {
-            await DeleteDatabase(userId);
+            await DeleteUserDatabase(userId);
             await EnsureUserDatabaseExists(userId);
         }
 
-        public async Task EnsureDocumentExists<T>(Guid userId, string documentId, T document)
+        public async Task EnsureUserDocumentExists<T>(Guid userId, string documentId, T document)
         {
-            using (var session = OpenAsyncSession(userId))
+            var documentStore = _userStoreCache.GetEntry(userId);
+
+            using (var session = documentStore.OpenAsyncSession())
             {
                 var doc = await session.LoadAsync<T>(documentId);
                 if (doc == null)
@@ -88,9 +105,11 @@ namespace DemoServer.Utils.Database
             }
         }
 
-        public async Task EnsureCollectionExists<TDocument>(Guid userId, IEnumerable<TDocument> defaultDocuments)
+        public async Task EnsureUserCollectionExists<TDocument>(Guid userId, IEnumerable<TDocument> defaultDocuments)
         {
-            using (var session = OpenAsyncSession(userId))
+            var documentStore = _userStoreCache.GetEntry(userId);
+
+            using (var session = documentStore.OpenAsyncSession())
             {
                 var anyDocumentExists = await session.Query<TDocument>().AnyAsync();
 
@@ -98,7 +117,6 @@ namespace DemoServer.Utils.Database
                     return;
             }
 
-            var documentStore = GetDocumentStore(userId);
             await _databaseApi.BulkInsertDocuments(documentStore, defaultDocuments);
         }
     }

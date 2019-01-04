@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
 {
     public class QueryByDocumentIdController : DemoCodeController
     {
-        public QueryByDocumentIdController(HeadersAccessor headersAccessor, DocumentStoreCache documentStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, documentStoreCache, databaseSetup)
+        public QueryByDocumentIdController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
         {
         }
 
@@ -27,7 +27,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
         
         private async Task SetRunPrerequisites(string employeeDocumentId)
         {
-            await DatabaseSetup.EnsureDocumentExists(UserId, employeeDocumentId, initialCompanyDocument);
+            await DatabaseSetup.EnsureUserDocumentExists(UserId, employeeDocumentId, initialCompanyDocument);
         }
         
         [HttpPost]
