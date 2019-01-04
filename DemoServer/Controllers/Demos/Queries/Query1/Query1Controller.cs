@@ -43,9 +43,6 @@ namespace DemoServer.Controllers.Demos.Queries.Query1
                     where employee.Address.Country == country
                     select employee;
 
-                // TODO @tomtom
-                // - add link to indexes list for conference to show indexes merging
-
                 result = query.FirstOrDefault();
             }
             #endregion

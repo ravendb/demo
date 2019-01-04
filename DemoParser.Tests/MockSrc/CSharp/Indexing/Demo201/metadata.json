@@ -3,7 +3,8 @@
     "SourceFileName": "Demo201Controller.cs",
     "Title": "Demo201 Title",
     "NonInteractive": true,
-    "WorkOnMediaDatabase": true,
+    "StudioLinkToMediaDatabase": true,
+    "StudioLinkToIndexList": true,
     "DescriptionLines": [ "This is the description of demo201" ],
 
     "Assets": [

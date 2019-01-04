@@ -16,7 +16,9 @@ namespace DemoParser.Models
 
         public bool NonInteractive { get; set; }
 
-        public bool WorkOnMediaDatabase { get; set; }
+        public bool StudioLinkToMediaDatabase { get; set; }
+
+        public bool StudioLinkToIndexList { get; set; }
 
         public string Hash { get; set; }
 

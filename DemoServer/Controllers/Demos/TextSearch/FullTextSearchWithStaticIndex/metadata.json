@@ -2,7 +2,7 @@
     "Slug": "full-text-search-with-static-index",
     "SourceFileName": "FullTextSearchWithStaticIndexController.cs",
     "Title": "Full Text Search with Static Index",
-    "WorkOnMediaDatabase": true,
+    "StudioLinkToMediaDatabase": true,
     "DescriptionLines": [
         "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
         "",

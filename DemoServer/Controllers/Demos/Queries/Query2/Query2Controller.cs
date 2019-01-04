@@ -44,9 +44,6 @@ namespace DemoServer.Controllers.Demos.Queries.Query2
                     where employee.FirstName == firstName
                     select employee;
 
-                // TODO @tomtom
-                // - add link to indexes list for conference to show indexes merging
-
                 result = query.FirstOrDefault();
             }
             #endregion 

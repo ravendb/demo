@@ -19,13 +19,21 @@ namespace DemoServer.Utils.Database
 
         private string StudioUrl => $"{FirstDatabaseUrl}/studio/index.html";
 
+        private string GetDocumentsUrl(string databaseName) => $"{StudioUrl}#databases/documents?&database={databaseName}";
+
+        private string GetIndexesUrl(string databaseName) => $"{StudioUrl}#databases/indexes?&database={databaseName}";
+
         public string ToUserDocuments(Guid userId)
         {
             var databaseName = _databaseName.For(userId);
             return GetDocumentsUrl(databaseName);
         }
 
-        private string GetDocumentsUrl(string databaseName) => $"{StudioUrl}#databases/documents?&database={databaseName}";
+        public string ToUserIndexes(Guid userId)
+        {
+            var databaseName = _databaseName.For(userId);
+            return GetIndexesUrl(databaseName);
+        }
 
         public string ToMediaDocuments(Guid userId)
         {

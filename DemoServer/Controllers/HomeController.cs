@@ -65,9 +65,16 @@ namespace DemoServer.Controllers
             }
         }
 
-        private string GetStudioUrl(Demo demo) => demo.WorkOnMediaDatabase
-            ? _databaseLinks.ToMediaDocuments(UserId)
-            : _databaseLinks.ToUserDocuments(UserId);
+        private string GetStudioUrl(Demo demo)
+        {
+            if (demo.StudioLinkToMediaDatabase)
+                return _databaseLinks.ToMediaDocuments(UserId);
+
+            if (demo.StudioLinkToIndexList)
+                return _databaseLinks.ToUserIndexes(UserId);
+
+            return _databaseLinks.ToUserDocuments(UserId);
+        }
 
         [HttpPost]
         [Route("reset-database")]
