@@ -6,7 +6,8 @@ const resultsCreator = () => <ResultText />;
 
 export const EditDocumentDemo = () => <Demo
     paramDefinitions = {[
-        { inputType: "text", name: "companyName", placeholder: "New Company Name", paramKind: "text-param" }
+        { inputType: "number", name: "pricePerUnit", placeholder: "New price per unit", paramKind: "text-param" },
+        { inputType: "text", name: "phone", placeholder: "New phone number", paramKind: "text-param" }
     ]}
     resultsComponents = {resultsCreator}
 />;
