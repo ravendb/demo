@@ -38,7 +38,8 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
             await SetRunPrerequisites();
             
             #region Demo
-            
+            List<Company> collectionResults;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
@@ -46,14 +47,13 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
                 #endregion
                 
                 #region Step_2
-                var collectionResults = fullCollectionQuery.ToList();
+                collectionResults = fullCollectionQuery.ToList();
                 #endregion
             }
             
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok("The documents in the Company collection are: ...  TODO: Show Query Results ..."); 
+            return Ok(collectionResults);
         }
     }
 }

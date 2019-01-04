@@ -18,7 +18,6 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
         }
         
         #region Demo
-        
         #region Step_1
         public class Employees_ByCountry : AbstractIndexCreationTask<Employee, Employees_ByCountry.Result>
             #endregion
@@ -72,7 +71,6 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
                 #endregion
             }
            
-            //TODO: Split the demo region to 2 parts, so that we have more control over what is shown !
             return Ok($"Number of employees from : {country.ToUpper()} is: {numberOfEmployeesFromCountry}"); 
         }
         #endregion

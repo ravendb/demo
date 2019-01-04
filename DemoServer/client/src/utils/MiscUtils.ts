@@ -10,6 +10,14 @@ export function toTitleCase(s: string) {
     });
 };
 
+export const capitalizeFirstLetter = (s: string): string => {
+    if (!s) {
+        return s;
+    }
+
+    return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
 function formatConvertedDate(converter, format = 'YYYY-MM-DD HH:mm') {
     return date => formatMomentDate(converter(date), format);
 }

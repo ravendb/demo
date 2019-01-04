@@ -1,4 +1,14 @@
 import * as React from "react";
 import { Demo } from "../Demo";
+import { ResultTable } from "../../demoDisplay/results/resultItems";
 
-export const QueryOverviewDemo = () => <Demo />;
+const resultsCreator = () => <ResultTable
+    fields={[
+        "firstName",
+        "lastName"
+    ]}
+/>;
+
+export const QueryOverviewDemo = () => <Demo
+    resultsComponents={resultsCreator}
+/>;

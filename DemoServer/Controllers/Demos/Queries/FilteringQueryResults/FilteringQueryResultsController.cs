@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Collections.Generic;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -23,7 +24,8 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
             var country = runParams.Country;
             
             #region Demo
-            
+            List<Employee> filteredEmployees;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
@@ -39,14 +41,12 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
                 #endregion
                 
                 #region Step_3
-                var filteredEmployees = filteredQuery.ToList();
+                filteredEmployees = filteredQuery.ToList();
                 #endregion
             }
-            
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok($"Query results are: ... TODO: Show Query Results ..."); 
+            return Ok(filteredEmployees);
         }
         
         public class RunParams

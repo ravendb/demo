@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Collections.Generic;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -27,14 +28,14 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
         }
         
         [HttpPost]
-        public void Run()
+        public IActionResult Run()
         {
             #region Demo
-            
+            List<EmployeeName> queryResults;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-
                 QueryStatistics statistics;
 
                 var query = session.Query<Employee>()
@@ -53,11 +54,12 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
                  #endregion
                 
                 #region Step_3
-                var queryResults = query.ToList();
+                queryResults = query.ToList();
                 #endregion
             }
-            
             #endregion
+
+            return Ok(queryResults);
         }
     }
 }

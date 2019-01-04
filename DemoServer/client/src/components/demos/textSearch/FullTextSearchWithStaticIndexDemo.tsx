@@ -1,12 +1,20 @@
 import * as React from "react";
 import { Demo } from "../Demo";
-import { ResultText } from "../../demoDisplay/results/resultItems";
+import { ResultTable } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <ResultText />;
+const resultsCreator = () => <ResultTable
+    fields={[
+        "id",
+        "artist",
+        "trackId",
+        "title",
+        "timeStamp"
+    ]}
+/>;
 
 export const FullTextSearchWithStaticIndexDemo = () => <Demo
-    paramDefinitions = {[
+    paramDefinitions={[
         { inputType: "text", name: "searchTerm", placeholder: "Fabolous", paramKind: "text-param" }
     ]}
-    resultsComponents = { resultsCreator }
+    resultsComponents={resultsCreator}
 />;

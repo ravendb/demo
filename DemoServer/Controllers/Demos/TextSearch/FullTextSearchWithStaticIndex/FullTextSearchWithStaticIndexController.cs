@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
@@ -23,7 +24,6 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
         protected override Task SetDemoPrerequisites() => DatabaseSetup.EnsureMediaDatabaseExists(UserId);
 
         #region Demo
-        
         #region Step_1
         public class LastFmAnalyzed : AbstractIndexCreationTask<LastFm, LastFmAnalyzed.Result>
             #endregion
@@ -64,11 +64,12 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
             var searchTerm = runParams.SearchTerm;
             
             new LastFmAnalyzed().Execute(DocumentStoreHolder.MediaStore);
+            List<LastFm> results;
          
             using (var session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 #region Step_5
-                var results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
+                results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
                     .Take(20)
                     .Search(x => x.Query, searchTerm)
                     .As<LastFm>()
@@ -76,9 +77,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
                 #endregion
             }
             
-            //TODO 1: How to show results ? 
-            //TODO 2: Split the demo region to 2 parts, so that we have more control over what is shown !
-            return Ok("Query results are: ... TODO: Show Query Results ..."); 
+            return Ok(results);
         }
         #endregion
         

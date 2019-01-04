@@ -1,9 +1,17 @@
 import * as React from "react";
 import { Demo } from "../Demo";
-import { ResultText  } from "../../demoDisplay/results/resultItems";
+import { ResultTable } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <ResultText />;
+const resultsCreator = () => <ResultTable
+    fields={[
+        "id",
+        "externalId",
+        "name",
+        "phone",
+        "fax"
+    ]}
+/>;
 
 export const FullCollectionQueryDemo = () => <Demo
-    resultsComponents = { resultsCreator }
+    resultsComponents={resultsCreator}
 />;

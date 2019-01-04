@@ -1,6 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
+import { capitalizeFirstLetter } from "../../../utils/miscUtils";
 
 export const DocumentCreated = () => (
     <div className="text-center">
@@ -27,3 +28,65 @@ export const ResultText = connect<ResultTextProps>(
         }
     }
 )(ResultTextDisplay);
+
+interface ResultTableStateProps {
+    results: any[];
+}
+
+interface ResultTableOwnProps {
+    fields: string[];
+}
+
+type ResultTableProps = ResultTableStateProps & ResultTableOwnProps;
+
+class ResultTableDisplay extends React.Component<ResultTableProps, {}> {
+    columnHeader = (field: string) => <th key={field}>{capitalizeFirstLetter(field)}</th>;
+    cell = (text: string, index: number) => <td key={`${index}_${text}`}>{text}</td>;
+
+    row = (result: any, index: number) => {
+        const { fields: columns } = this.props;
+
+        return <tr key={index}>
+            {columns.map((x, i) => this.cell(result[x], i))}
+        </tr>;
+    }
+
+    render() {
+        const { fields, results } = this.props;
+
+        return <div className="results-table">
+            <table>
+                <thead>
+                    <tr>
+                        {fields && fields.map(this.columnHeader)}
+                    </tr>
+                </thead>
+                <tbody>
+                    {results && results.map((x, i) => this.row(x, i))}
+                </tbody>
+            </table>
+        </div>;
+    }
+}
+
+export const ResultTable = connect<ResultTableStateProps, {}, ResultTableOwnProps>(
+    ({ demos }: AppState): ResultTableStateProps => {
+        const { runResults } = demos;
+
+        if (!runResults) {
+            return {
+                results: []
+            };
+        }
+
+        if (runResults instanceof Array) {
+            return {
+                results: runResults
+            };
+        }
+
+        return {
+            results: [ runResults ]
+        };
+    }
+)(ResultTableDisplay);

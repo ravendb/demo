@@ -21,35 +21,33 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
         [HttpPost]
         public IActionResult Run()
         {
+            object projectedResults;
+
             #region Demo
-            
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var projectedQueryWithFunctions = (from employee in session.Query<Employee>()
+                var projectedQueryWithFunctions = from employee in session.Query<Employee>()
                 #endregion
-                
                 #region Step_2
                     let formatTitle = (Func<Employee, string>)(e => "Title: " + e.Title)
                     let formatName = (Func<Employee, string>)(e => "Name: " + e.FirstName + " " + e.LastName)
                 #endregion
-                
                 #region Step_3
                     select new
                     {
                        Title = formatTitle(employee),
                        Name = formatName(employee)
-                    });
+                    };
                 #endregion
 
                 #region Step_4
-                var projectedResults = projectedQueryWithFunctions.ToList();
+                projectedResults = projectedQueryWithFunctions.ToList();
                 #endregion
             }
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok($"Query results are: ... TODO: Show Query Results ..."); 
+            return Ok(projectedResults);
         }
     }
 }

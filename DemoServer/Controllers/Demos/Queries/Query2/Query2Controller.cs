@@ -33,7 +33,8 @@ namespace DemoServer.Controllers.Demos.Queries.Query2
             var firstName = runParams.FirstName;
 
             #region Demo
-            
+            Employee result;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 QueryStatistics stats;
@@ -46,13 +47,11 @@ namespace DemoServer.Controllers.Demos.Queries.Query2
                 // TODO @tomtom
                 // - add link to indexes list for conference to show indexes merging
 
-                var result = query.FirstOrDefault();
+                result = query.FirstOrDefault();
             }
-            
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok("The documents in the Company collection are: ...  TODO: Show Query Results ..."); 
+            return Ok(result);
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Collections.Generic;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -20,6 +21,8 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
         [HttpPost]
         public IActionResult Run()
         {
+            object projectedResults;
+
             #region Demo
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -35,13 +38,12 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingIndividualFields
                 #endregion
                 
                 #region Step_3
-                var projectedResults = projectedQuery.ToList();
+                projectedResults = projectedQuery.ToList();
                 #endregion
             }
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok($"Query results are: ... TODO: Show Query Results ..."); 
+            return Ok(projectedResults); 
         }
     }
 }

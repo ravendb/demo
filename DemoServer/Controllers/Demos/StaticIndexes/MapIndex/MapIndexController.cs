@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Collections.Generic;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -18,7 +19,6 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
         }
         
         #region Demo
-        
         #region Step_1
         public class Employees_ImportantDetails : AbstractIndexCreationTask<Employee, Employees_ImportantDetails.Result>
             #endregion
@@ -54,11 +54,13 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             var startYear = runParams.StartYear;
            
             new Employees_ImportantDetails().Execute(DocumentStoreHolder.Store);
-         
+
+            List<Employee> employeesFromUSA;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_4
-                var employeesFromUSA = session.Query<Employees_ImportantDetails.Result, Employees_ImportantDetails>()
+                employeesFromUSA = session.Query<Employees_ImportantDetails.Result, Employees_ImportantDetails>()
                        .Where(employee => employee.Country == "USA" &&
                                           employee.WorkingInCompanySince > startYear)
                        .OfType<Employee>()
@@ -66,9 +68,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
                 #endregion
             }
             
-            //TODO 1: How to show results ? 
-            //TODO 2: Split the demo region to 2 parts, so that we have more control over what is shown !
-            return Ok($"Query results are: ... TODO: Show Query Results ..."); 
+            return Ok(employeesFromUSA);
         }
         #endregion
         

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DemoCommon.Models;
-using DemoServer.Controllers.Demos.Attachments.StoreAttachment;
+using DemoServer.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -33,6 +32,7 @@ namespace DemoServer.Controllers.Demos.Queries.Query1
             var country = runParams.Country;
 
             #region Demo
+            Employee result;
             
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -46,13 +46,11 @@ namespace DemoServer.Controllers.Demos.Queries.Query1
                 // TODO @tomtom
                 // - add link to indexes list for conference to show indexes merging
 
-                var result = query.FirstOrDefault();
+                result = query.FirstOrDefault();
             }
-            
-            #endregion 
-            
-            //TODO: How to show results ?
-            return Ok("The documents in the Company collection are: ...  TODO: Show Query Results ..."); 
+            #endregion
+
+            return Ok(result);
         }
     }
 }

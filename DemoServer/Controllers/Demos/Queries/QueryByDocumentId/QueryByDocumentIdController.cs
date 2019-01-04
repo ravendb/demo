@@ -17,27 +17,14 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
         {
         }
 
-        private Employee initialCompanyDocument => new Employee
-        {
-            Id = "employees/1-A",
-            FirstName = "Ayende",
-            LastName = "Rahien",
-            HomePhone = "(+972)52-5486969"
-        };
-        
-        private async Task SetRunPrerequisites(string employeeDocumentId)
-        {
-            await DatabaseSetup.EnsureUserDocumentExists(UserId, employeeDocumentId, initialCompanyDocument);
-        }
-        
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
             var employeeDocumentId = runParams.EmployeeDocumentId;
-            await SetRunPrerequisites(employeeDocumentId);
-            
+
             #region Demo
-            
+            Employee employee;
+
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
@@ -48,14 +35,12 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
                 #endregion
                 
                 #region Step_3
-                var employee = queryByDocumentId.FirstOrDefault();
+                employee = queryByDocumentId.FirstOrDefault();
                 #endregion
             }
-            
             #endregion 
             
-            //TODO: How to show results ?
-            return Ok($"Document {employeeDocumentId} details are: ... TODO: Show Query Results ..."); 
+            return Ok(employee);
         }
         
         public class RunParams
