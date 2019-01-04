@@ -4,13 +4,13 @@ import { AppState } from "../../../store/state";
 import { WalkthroughItem } from "./WalkthroughItem";
 import { selectWalkthroughCount } from "../../../store/selectors/walkthroughs";
 
-interface WalkthroughProps {
+interface Props {
     itemsCount: number;
 }
 
 const getIndexedArray = (count: number) => [...Array(count).keys()];
 
-class WalkthroughLinksComponent extends React.Component<WalkthroughProps> {
+class WalkthroughLinksComponent extends React.Component<Props> {
 
     renderWalkthroughItem = (index: number) => {        
         return <WalkthroughItem key={index} index={index} />;
@@ -18,7 +18,7 @@ class WalkthroughLinksComponent extends React.Component<WalkthroughProps> {
     
     render() {
         const { itemsCount } = this.props;
-        
+
         return <>
             <h2>Walkthrough</h2>
             <hr />
@@ -30,9 +30,10 @@ class WalkthroughLinksComponent extends React.Component<WalkthroughProps> {
 }
 
 
-export const WalkthroughLinks = connect<WalkthroughProps, {}, {}>(
-    ({ demos }: AppState): WalkthroughProps => {
+export const WalkthroughLinks = connect<Props, {}, {}>(
+    ({ demos }: AppState): Props => {
         const itemsCount = selectWalkthroughCount(demos);
+
         return {
             itemsCount
         };

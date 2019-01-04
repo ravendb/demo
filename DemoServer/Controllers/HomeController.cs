@@ -18,15 +18,17 @@ namespace DemoServer.Controllers
         private readonly HeadersAccessor _headersAccessor;
         private readonly DatabaseLinks _databaseLinks;
         private readonly DatabaseSetup _databaseSetup;
+        private readonly Settings _settings;
         private readonly ILogger _logger;
 
         public HomeController(DemoContainer demoContainer, HeadersAccessor headersAccessor, DatabaseLinks databaseLinks,
-            DatabaseSetup databaseSetup, ILogger<HomeController> logger)
+            DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger)
         {
             _demoContainer = demoContainer;
             _headersAccessor = headersAccessor;
             _databaseSetup = databaseSetup;
             _databaseLinks = databaseLinks;
+            _settings = settings;
             _logger = logger;
         }
 
@@ -50,6 +52,7 @@ namespace DemoServer.Controllers
                 var demo = _demoContainer.GetDemo(categoryName, demoName);
                 var dto = DemoDto.FromModel(demo);
                 dto.StudioUrl = _databaseLinks.ToDocuments(UserId);
+                dto.ConferenceMode = _settings.ConferenceMode;
 
                 return Ok(dto);
             }

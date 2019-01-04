@@ -14,4 +14,5 @@ export interface DemoEntry {
     walkthroughs: WalkthroughEntry[];
     nonInteractive: boolean;
     studioUrl: string;
+    conferenceMode: boolean;
 }

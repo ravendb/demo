@@ -35,6 +35,7 @@ export interface DemoDto {
     walkthroughs: DemoWalkthroughDto[];
     nonInteractive: boolean;
     studioUrl: string;
+    conferenceMode: boolean;
 }
 
 export interface DemoParamsDto {

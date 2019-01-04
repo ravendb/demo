@@ -12,6 +12,7 @@ interface NavPanelStateProps {
     firstWtUrl?: string;
     studioUrl?: string;
     hideRunButton: boolean;
+    hideWalkthroughButton: boolean;
 }
 
 interface NavPanelDispatchProps {
@@ -48,10 +49,10 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     }
 
     render() {
-        const { hideRunButton } = this.props;
+        const { hideRunButton, hideWalkthroughButton } = this.props;
         return <div className="fab-container">
             {this.studioButton()}
-            {this.walkthroughButton()}
+            {!hideWalkthroughButton && this.walkthroughButton()}
             {!hideRunButton && this.runScriptButton()}
         </div>;
     }
@@ -61,12 +62,15 @@ function mapStateToProps({ demos }: AppState): NavPanelStateProps {
     const { categorySlug, demoSlug, demo } = demos;
     const nonInteractive = demo && demo.nonInteractive;
     const studioUrl = !nonInteractive && demo && demo.studioUrl;
+    const conferenceMode = demo && demo.conferenceMode;
+
     return {
         categorySlug,
         demoSlug,
         firstWtUrl: selectFirstWalkthroughUrl(demos),
         studioUrl,
-        hideRunButton: nonInteractive
+        hideRunButton: nonInteractive,
+        hideWalkthroughButton: conferenceMode
     };
 }
 

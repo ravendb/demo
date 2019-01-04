@@ -10,16 +10,17 @@ import { Language } from "../../../models/commonModels";
 import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
-interface SidebarProps {
+interface Props {
     title: string;
     selectedLanguage: Language;
+    conferenceMode: boolean;
 }
 
-interface SidebarDisplayState {
+interface State {
     sidebarCollapsed: boolean;
 }
 
-export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplayState> {
+export class SidebarDisplay extends React.Component<Props, State> {
     constructor(props) {
         super(props);
 
@@ -37,7 +38,7 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
     }
 
     render() {
-        const { title, selectedLanguage } = this.props;
+        const { title, selectedLanguage, conferenceMode } = this.props;
         const { sidebarCollapsed } = this.state;
 
         const sidebarClassName = classNames("sidebar", {
@@ -49,20 +50,25 @@ export class SidebarDisplay extends React.Component<SidebarProps, SidebarDisplay
             <div className="sidebar-body">
                 <Heading text={title} />
                 <LanguageSelect selected={selectedLanguage} />
-                <Description />
-                <WalkthroughLinks />
-                <AssetLinks />
+                
+                {!conferenceMode && <>
+                    <WalkthroughLinks />
+                    <AssetLinks />
+                    <Description />
+                </>}
             </div>
         </div>;
     }
 }
 
-function mapStateToProps({ demos }: AppState): SidebarProps {
+function mapStateToProps({ demos }: AppState): Props {
     const { language, demo } = demos;
+
     return {
         title: demo && demo.title,
-        selectedLanguage: language
+        selectedLanguage: language,
+        conferenceMode: demo && demo.conferenceMode
     };
 }
 
-export const Sidebar = connect<SidebarProps>(mapStateToProps)(SidebarDisplay);
+export const Sidebar = connect<Props>(mapStateToProps)(SidebarDisplay);
