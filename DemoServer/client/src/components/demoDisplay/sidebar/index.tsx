@@ -52,9 +52,9 @@ export class SidebarDisplay extends React.Component<Props, State> {
                 <LanguageSelect selected={selectedLanguage} />
                 
                 {!conferenceMode && <>
+                    <Description />
                     <WalkthroughLinks />
                     <AssetLinks />
-                    <Description />
                 </>}
             </div>
         </div>;

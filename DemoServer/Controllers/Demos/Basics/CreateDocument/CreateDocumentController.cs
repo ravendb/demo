@@ -16,52 +16,57 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var companyName = runParams.CompanyName;
-            var companyPhone = runParams.CompanyPhone;
-            var contactName = runParams.ContactName;
-            var contactTitle = runParams.ContactTitle;
-
-            string theNewDocumentId;
+            var supplierName = runParams.SupplierName;
+            var supplierPhone = runParams.SupplierPhone;
+            var productName = runParams.ProductName;
 
             #region Demo 
             #region Step_1
-            var newCompany = new Company
+            var supplier = new Supplier
             {
-                Name = companyName,
-                Phone = companyPhone,
-                Contact = new Contact
-                {
-                    Name = contactName,
-                    Title = contactTitle
-                }
+                Name = supplierName,
+                Phone = supplierPhone
+            };
+
+            var category = new Category
+            {
+                Name = "Videos",
+                Description = "DVD, Bluray etc."
+            };
+
+            var product = new Product
+            {
+                Name = productName
             };
             #endregion
 
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_2
-                session.Store(newCompany);
+                session.Store(supplier);
+                session.Store(category);
                 #endregion
-                
+
                 #region Step_3
-                theNewDocumentId = session.Advanced.GetDocumentId(newCompany);
+                product.Supplier = supplier.Id;
+                product.Category = category.Id;
+                session.Store(product);
                 #endregion
-                
+
                 #region Step_4
                 session.SaveChanges();
                 #endregion
             }
             #endregion
 
-            return Ok($"Document {theNewDocumentId} was created successfully");
+            return Ok($"Document {product.Id} was created successfully");
         }
 
         public class RunParams
         {
-            public string CompanyName { get; set; }
-            public string CompanyPhone { get; set; }
-            public string ContactName { get; set; }
-            public string ContactTitle { get; set; }
+            public string SupplierName { get; set; }
+            public string SupplierPhone { get; set; }
+            public string ProductName { get; set; }
         }
     }
 }

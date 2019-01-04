@@ -44,6 +44,9 @@ namespace DemoServer.Utils.Database
                 store.Conventions.RequestTimeout = TimeSpan.FromSeconds(_databaseSettings.RequestsTimeoutInSec.Value);
             }
 
+            store.OnBeforeQuery += (sender, args) =>
+                args.QueryCustomization.WaitForNonStaleResults(TimeSpan.FromSeconds(30));
+
             return store.Initialize();
         }
     }
