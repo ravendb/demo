@@ -2,6 +2,8 @@
     "Slug": "DEMO201",
     "SourceFileName": "Demo201Controller.cs",
     "Title": "Demo201 Title",
+    "NonInteractive": true,
+    "WorkOnMediaDatabase": true,
     "DescriptionLines": [ "This is the description of demo201" ],
 
     "Assets": [

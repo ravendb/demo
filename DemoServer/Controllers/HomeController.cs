@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using DemoParser.Models;
 using DemoServer.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Database;
@@ -51,7 +52,8 @@ namespace DemoServer.Controllers
             {
                 var demo = _demoContainer.GetDemo(categoryName, demoName);
                 var dto = DemoDto.FromModel(demo);
-                dto.StudioUrl = _databaseLinks.ToDocuments(UserId);
+
+                dto.StudioUrl = GetStudioUrl(demo);
                 dto.ConferenceMode = _settings.ConferenceMode;
 
                 return Ok(dto);
@@ -62,6 +64,10 @@ namespace DemoServer.Controllers
                 return NotFound();
             }
         }
+
+        private string GetStudioUrl(Demo demo) => demo.WorkOnMediaDatabase
+            ? _databaseLinks.ToMediaDocuments(UserId)
+            : _databaseLinks.ToUserDocuments(UserId);
 
         [HttpPost]
         [Route("reset-database")]

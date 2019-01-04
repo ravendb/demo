@@ -19,10 +19,18 @@ namespace DemoServer.Utils.Database
 
         private string StudioUrl => $"{FirstDatabaseUrl}/studio/index.html";
 
-        public string ToDocuments(Guid userId)
+        public string ToUserDocuments(Guid userId)
         {
             var databaseName = _databaseName.For(userId);
-            return $"{StudioUrl}#databases/documents?&database={databaseName}";
+            return GetDocumentsUrl(databaseName);
+        }
+
+        private string GetDocumentsUrl(string databaseName) => $"{StudioUrl}#databases/documents?&database={databaseName}";
+
+        public string ToMediaDocuments(Guid userId)
+        {
+            var databaseName = _databaseName.MediaFor(userId);
+            return GetDocumentsUrl(databaseName);
         }
     }
 }

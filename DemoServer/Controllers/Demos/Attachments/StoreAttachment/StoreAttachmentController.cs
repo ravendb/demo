@@ -57,7 +57,6 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             }
 
             #region Demo
-
             using (var session = DocumentStoreHolder.Store.OpenSession())
             #region Step_1 
             using (var stream = attachment.OpenStream())

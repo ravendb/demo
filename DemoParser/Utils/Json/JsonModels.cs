@@ -41,6 +41,8 @@ namespace DemoParser.Utils.Json
 
         public bool NonInteractive { get; set; }
 
+        public bool WorkOnMediaDatabase { get; set; }
+
         public List<JsonDemoAsset> Assets { get; set; }
 
         public List<JsonDemoWalkthrough> Walkthroughs { get; set; }
