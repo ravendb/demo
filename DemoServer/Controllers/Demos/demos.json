@@ -38,6 +38,7 @@
         "demos": [
             "QueryOverview",
             "Query1",
+            "Query2",
             "FullCollectionQuery",
             "QueryByDocumentId",
             "FilteringQueryResults",

@@ -14,7 +14,8 @@ type Queries = "DEMO_QueryOverview"              |
                "DEMO_FilteringQueryResults"      |
                "DEMO_ProjectingIndividualFields" |
                "DEMO_ProjectingUsingFunctions"   |
-               "DEMO_Query1";
+               "DEMO_Query1" |
+               "DEMO_Query2";
 
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
                      "DEMO_MapIndex"              |
