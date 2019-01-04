@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
 {
     public class QueryByDocumentIdController : DemoCodeController
     {
-        public QueryByDocumentIdController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public QueryByDocumentIdController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

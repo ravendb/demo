@@ -15,7 +15,8 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         private const string DefaultFilePath = ".//DemoResources//raven_logo.png";
 
         public StoreAttachmentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+            MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache,
+            mediaStoreCache, databaseSetup)
         {
         }
 

@@ -9,8 +9,8 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
     public class DeleteDocumentController : DemoCodeController
     {
-        public DeleteDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public DeleteDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

@@ -6,7 +6,7 @@ const resultsCreator = () => <ResultText />;
 
 export const FullTextSearchWithStaticIndexDemo = () => <Demo
     paramDefinitions = {[
-        { inputType: "text", name: "someFood", placeholder: "pasta", paramKind: "text-param" }
+        { inputType: "text", name: "searchTerm", placeholder: "Fabolous", paramKind: "text-param" }
     ]}
     resultsComponents = { resultsCreator }
 />;

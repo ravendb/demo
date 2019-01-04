@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
 {
     public class StaticIndexesOverviewController : DemoCodeController
     {
-        public StaticIndexesOverviewController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public StaticIndexesOverviewController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

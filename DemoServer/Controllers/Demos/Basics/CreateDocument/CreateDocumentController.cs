@@ -8,8 +8,8 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
     public class CreateDocumentController : DemoCodeController
     {
-        public CreateDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public CreateDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

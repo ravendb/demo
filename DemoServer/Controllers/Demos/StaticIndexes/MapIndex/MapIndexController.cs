@@ -12,8 +12,8 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
 {
     public class MapIndexController : DemoCodeController
     {
-        public MapIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public MapIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

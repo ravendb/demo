@@ -6,15 +6,19 @@ namespace DemoServer.Utils.Database
 {
     public class DocumentStoreHolderWrapper
     {
-        private readonly UserStoreCache _documentStoreCache;
+        private readonly UserStoreCache _userStoreCache;
+        private readonly MediaStoreCache _mediaStoreCache;
         private readonly Guid _userId;
 
-        public DocumentStoreHolderWrapper(UserStoreCache documentStoreCache, Guid userId)
+        public DocumentStoreHolderWrapper(UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache, Guid userId)
         {
-            _documentStoreCache = documentStoreCache;
+            _userStoreCache = userStoreCache;
+            _mediaStoreCache = mediaStoreCache;
             _userId = userId;
         }
 
-        public IDocumentStore Store => _documentStoreCache.GetEntry(_userId);
+        public IDocumentStore Store => _userStoreCache.GetEntry(_userId);
+
+        public IDocumentStore MediaStore => _mediaStoreCache.GetEntry(_userId);
     }
 }

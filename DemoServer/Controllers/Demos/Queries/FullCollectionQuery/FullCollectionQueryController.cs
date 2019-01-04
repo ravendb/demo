@@ -13,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
 {
     public class FullCollectionQueryController : DemoCodeController
     {
-        public FullCollectionQueryController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public FullCollectionQueryController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

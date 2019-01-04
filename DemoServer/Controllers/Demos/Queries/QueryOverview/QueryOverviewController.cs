@@ -11,8 +11,8 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
 {
     public class QueryOverviewController : DemoCodeController
     {
-        public QueryOverviewController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public QueryOverviewController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

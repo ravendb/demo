@@ -13,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
 {
     public class ProjectingUsingFunctionsController : DemoCodeController
     {
-        public ProjectingUsingFunctionsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public ProjectingUsingFunctionsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

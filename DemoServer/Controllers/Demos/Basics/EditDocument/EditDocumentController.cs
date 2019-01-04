@@ -11,8 +11,8 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
     {
         private const string DocumentId = "companies/1-A"; 
 
-        public EditDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, databaseSetup)
+        public EditDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

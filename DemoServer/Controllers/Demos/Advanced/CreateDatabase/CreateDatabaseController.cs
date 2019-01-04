@@ -16,8 +16,8 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
     {
         private readonly DatabaseName _databaseName;
 
-        public CreateDatabaseController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            DatabaseSetup databaseSetup, DatabaseName databaseName) : base(headersAccessor, userStoreCache, databaseSetup)
+        public CreateDatabaseController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup, DatabaseName databaseName) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
             _databaseName = databaseName;
         }
