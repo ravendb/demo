@@ -281,6 +281,7 @@ hr {
     min-height: 100%;
     display: flex;
     flex-direction: column;
+    max-width: 100%;
 }
 
 #preview-source-code {
@@ -738,5 +739,37 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
         height: 100%;
         background-color: rgba($gray-base, .7);
         z-index: $zindex-error + 1;
+    }
+}
+
+.results-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+    max-height: 50vh;
+
+    table {
+        width: 100%;
+        max-width: 100%;
+        background-color: transparent;
+        border: none;
+        border-collapse: collapse;
+
+        td, th {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid $gray-darker;
+        }
+
+        thead th {
+            vertical-align: bottom;
+            border-bottom: 2px solid $gray-darker;
+            color: $gray-lighter;
+        }
+
+
     }
 }
