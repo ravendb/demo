@@ -12,6 +12,7 @@ import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
+import { Query1Demo } from "./queries/Query1Demo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
@@ -81,6 +82,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <ProjectingIndividualFieldsDemo />;
         case "DEMO_ProjectingUsingFunctions":
             return <ProjectingUsingFunctionsDemo />;
+        case "DEMO_Query1":
+            return <Query1Demo />;
 
         // Category: Static Indexes
         case "DEMO_StaticIndexesOverview":

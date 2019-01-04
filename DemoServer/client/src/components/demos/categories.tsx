@@ -78,6 +78,11 @@ const queriesCategory: Category = {
             type: "DEMO_QueryOverview"
         },
         {
+            slug: "query1",
+            title: "Query I",
+            type: "DEMO_Query1"
+        },
+        {
             slug: "full-collection-query",
             title: "Full Collection Query",
             type: "DEMO_FullCollectionQuery"

@@ -13,7 +13,8 @@ type Queries = "DEMO_QueryOverview"              |
                "DEMO_QueryByDocumentId"          |
                "DEMO_FilteringQueryResults"      |
                "DEMO_ProjectingIndividualFields" |
-               "DEMO_ProjectingUsingFunctions";
+               "DEMO_ProjectingUsingFunctions"   |
+               "DEMO_Query1";
 
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
                      "DEMO_MapIndex"              |

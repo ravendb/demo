@@ -40,7 +40,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
                 var query = session.Query<Employee>()
                 #endregion
                 #region Step_2
-                    .Where(x => x.FirstName == "Robert" || x.Address.Country == "UK")
+                    .Where(x => x.FirstName == "Robert" || x.Title == "Sales Representative")
                     .Include(x => x.ReportsTo)
                     .Statistics(out statistics)
                     .OrderByDescending(x => x.HiredAt)
