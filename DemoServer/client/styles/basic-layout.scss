@@ -274,6 +274,28 @@ hr {
     }
 }
 
+#selectDemo {
+    background-color: $gray-darker;
+    display: block;
+    text-align: center;
+    padding: $gutter-xxs $gutter;
+    width: 400px;
+    color: $gray-light;
+    font-weight: 900;
+    border: none;
+
+    option {
+        height: 30px;
+
+        &[disabled] {
+            margin: 10px 0;
+            padding: 10px 0;
+            text-transform: uppercase;
+            font-size: 10px; 
+        }
+    }
+}
+
 #demo-body-container {
     position: absolute;
     padding: .1px;

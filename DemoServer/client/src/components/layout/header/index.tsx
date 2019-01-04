@@ -28,7 +28,36 @@ export class Header extends React.Component<{}, {}> {
                 </a>
             </div>
             <div className="flex-grow"></div>
-            <div className="progress"></div>
+            <div>
+                <select id="selectDemo">
+                    <option disabled>Basics</option>
+                    <option>The Document Store</option>
+                    <option>The Session</option>
+                    <option>Create Document</option>
+                    <option>Edit Document</option>
+                    <option>Delete Document</option>
+                    <option disabled>Attachments</option>
+                    <option>Store Attachment</option>
+                    <option disabled>Revisions</option>
+                    <option>Enable Revisions</option>
+                    <option disabled>Queries</option>
+                    <option>Query Overview</option>
+                    <option>Full Collection Query</option>
+                    <option>Query by Document ID</option>
+                    <option>Filtering Query Results</option>
+                    <option>Projecting Individual Fields</option>
+                    <option>Projecting Using Functions</option>
+                    <option disabled>Static Indexes</option>
+                    <option>Static Indexes Overview</option>
+                    <option>Map Index</option>
+                    <option>Map Reduce Index</option>
+                    <option disabled>Text Search</option>
+                    <option>Full Text Search with Static Index</option>
+                    <option disabled>Advanced</option>
+                    <option>Create Database</option>
+                </select>
+            </div>
+            <div className="flex-grow"></div>
             <div id="settings-dropdown" className="dropdown">
                 <a className="settings" data-toggle="dropdown">
                     <IconSettings />
