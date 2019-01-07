@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
+using System.Collections.Generic;
+using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
@@ -51,13 +52,12 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var startYear = runParams.StartYear;
-           
+            int startYear = runParams.StartYear;
+            List<Employee> employeesFromUSA;
+            
             new Employees_ImportantDetails().Execute(DocumentStoreHolder.Store);
 
-            List<Employee> employeesFromUSA;
-
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_4
                 employeesFromUSA = session.Query<Employees_ImportantDetails.Result, Employees_ImportantDetails>()

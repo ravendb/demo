@@ -80,7 +80,8 @@
             "Title": "Define the projection",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Use `Select()` to select the fields that will be returned for each document.",
+                "* Use `Select()` to select the fields that will be returned for each document.<br>",
+                "  TODO: explain better since I added a typed class",
                 "",      
                 "* Function 'formatTitle' is used to generate the 'Title' field value.<br>",
                 "  Function 'formatName' is used to generate the 'Name' field value."

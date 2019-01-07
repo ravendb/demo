@@ -1,14 +1,13 @@
-﻿using System.Collections.Generic;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Documents;
-using Raven.Client.Documents.Session;
-
 #region Usings
 using System.Linq;
+using System.Collections.Generic;
+using Raven.Client.Documents;
+using Raven.Client.Documents.Session;
 #endregion
 
 namespace DemoServer.Controllers.Demos.Queries.QueryOverview
@@ -33,12 +32,12 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
             #region Demo
             List<EmployeeName> queryResults;
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
                 QueryStatistics statistics;
 
-                var query = session.Query<Employee>()
+                IQueryable<EmployeeName> query = session.Query<Employee>()
                 #endregion
                 #region Step_2
                     .Where(x => x.FirstName == "Robert" || x.Title == "Sales Representative")

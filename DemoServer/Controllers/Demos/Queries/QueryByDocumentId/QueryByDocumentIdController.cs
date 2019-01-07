@@ -5,6 +5,7 @@ using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
+using Raven.Client.Documents.Session;
 #endregion
 
 namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
@@ -19,15 +20,15 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var employeeDocumentId = runParams.EmployeeDocumentId;
+            string employeeDocumentId = runParams.EmployeeDocumentId;
 
             #region Demo
             Employee employee;
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var queryByDocumentId = session.Query<Employee>()
+                IQueryable<Employee> queryByDocumentId = session.Query<Employee>()
                 #endregion
                 #region Step_2
                       .Where(x => x.Id == employeeDocumentId);

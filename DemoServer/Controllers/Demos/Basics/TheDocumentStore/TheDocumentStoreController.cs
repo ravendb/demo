@@ -12,10 +12,10 @@ public class DocumentStoreHolder
     #endregion
     {
         #region Step_4
-        var serverURL = "http://localhost:8080";
-        var databaseName = "YourDatabaseName";
+        string serverURL = "http://localhost:8080";
+        string databaseName = "YourDatabaseName";
 
-        var documentStore = new DocumentStore
+        IDocumentStore documentStore = new DocumentStore
         {
             Urls = new[] {serverURL},
             Database = databaseName

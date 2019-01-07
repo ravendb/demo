@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System;
 using System.Linq;
+using Raven.Client.Documents.Session;
 #endregion
 
 
@@ -18,23 +19,31 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
         {
         }
         
+        private class EmployeeDetails
+        {
+            public string Title { get; set; }
+            public string Name { get; set; }
+        }
+        
         [HttpPost]
         public IActionResult Run()
         {
             object projectedResults;
 
             #region Demo
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var projectedQueryWithFunctions = from employee in session.Query<Employee>()
+                IQueryable<EmployeeDetails> projectedQueryWithFunctions = from employee in session.Query<Employee>()
                 #endregion
+                
                 #region Step_2
                     let formatTitle = (Func<Employee, string>)(e => "Title: " + e.Title)
                     let formatName = (Func<Employee, string>)(e => "Name: " + e.FirstName + " " + e.LastName)
                 #endregion
+                
                 #region Step_3
-                    select new
+                    select new EmployeeDetails
                     {
                        Title = formatTitle(employee),
                        Name = formatName(employee)

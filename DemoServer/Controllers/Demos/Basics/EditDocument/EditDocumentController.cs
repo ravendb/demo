@@ -1,9 +1,11 @@
-﻿using System.Threading.Tasks;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
+#region Usings
+using Raven.Client.Documents.Session;
+#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
@@ -19,24 +21,23 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var pricePerUnit = runParams.PricePerUnit;
-            var phone = runParams.Phone;
+            decimal pricePerUnit = runParams.PricePerUnit;
+            string phone = runParams.Phone;
 
             #region Demo
             
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var product = session
+                Product product = session
                     .Include<Product>(x => x.Supplier)
                     .Load<Product>("products/34-A");
 
-                var supplier = session.Load<Supplier>(product.Supplier);
+                Supplier supplier = session.Load<Supplier>(product.Supplier);
                 #endregion
                 
                 #region Step_2
                 product.PricePerUnit = pricePerUnit;
-
                 supplier.Phone = phone;
                 #endregion
                 

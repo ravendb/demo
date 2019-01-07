@@ -6,7 +6,7 @@
         {
             #region Demo
             #region Step_1
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             #endregion
             {
                 #region Step_2

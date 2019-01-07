@@ -3,6 +3,9 @@ using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
+#region Usings
+using Raven.Client.Documents.Session;
+#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
@@ -16,31 +19,31 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var supplierName = runParams.SupplierName;
-            var supplierPhone = runParams.SupplierPhone;
-            var productName = runParams.ProductName;
+            string supplierName = runParams.SupplierName;
+            string supplierPhone = runParams.SupplierPhone;
+            string productName = runParams.ProductName;
 
             #region Demo 
             #region Step_1
-            var supplier = new Supplier
+            Supplier supplier = new Supplier
             {
                 Name = supplierName,
                 Phone = supplierPhone
             };
 
-            var category = new Category
+            Category category = new Category
             {
                 Name = "Videos",
                 Description = "DVD, Bluray etc."
             };
 
-            var product = new Product
+            Product product = new Product
             {
                 Name = productName
             };
             #endregion
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_2
                 session.Store(supplier);

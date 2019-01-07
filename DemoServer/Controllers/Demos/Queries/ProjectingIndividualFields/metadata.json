@@ -69,7 +69,8 @@
                 "* Use `Select()` to select the fields that will be returned for each document.",
                 "",                
                 "* Field names ( _CompanyName_ , _City_ & _Country_ ) can be customized.<br>",
-                "  The entities returned will have only these fields.",
+                "  The entities returned will have only these fields.<br>",
+                "  TODO... explain better since I added a typed class...",
                 "",
                 "* Calling Select() does Not trigger any index creation."
             ],

@@ -4,6 +4,9 @@ using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
+#region Usings
+using Raven.Client.Documents.Session;
+#endregion
 
 namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
 {
@@ -30,14 +33,14 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var documentId = runParams.DocumentId;
+            string documentId = runParams.DocumentId;
             initialCompanyDocument.Id = documentId;
             
             await SetRunPrerequisites(documentId);
 
             #region Demo
             
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
                 session.Delete(documentId);

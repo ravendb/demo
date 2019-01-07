@@ -6,6 +6,10 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+#region Usings
+using System.IO;
+using Raven.Client.Documents.Session;
+#endregion
 
 namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
 {
@@ -38,12 +42,12 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            var documentId = runParams.DocumentId ?? DefaultDocumentId;
+            string documentId = runParams.DocumentId ?? DefaultDocumentId;
 
             await SetRunPrerequisites(documentId);
 
-            var attachmentName = runParams.AttachmentName;
-            var contentType = runParams.ContentType;
+            string attachmentName = runParams.AttachmentName;
+            string contentType = runParams.ContentType;
             AttachmentWrapper attachment;
 
             if (runParams.Attachment == null)
@@ -57,9 +61,9 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
             }
 
             #region Demo
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             #region Step_1 
-            using (var stream = attachment.OpenStream())
+            using (Stream stream = attachment.OpenStream())
             #endregion
             {
                 #region Step_2

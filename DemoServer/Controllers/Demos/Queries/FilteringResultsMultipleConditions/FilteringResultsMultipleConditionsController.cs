@@ -1,12 +1,13 @@
-﻿using System.Collections.Generic;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
+using System.Collections.Generic;
 using Raven.Client.Documents.Linq;
+using Raven.Client.Documents.Session;
 #endregion
 
 namespace DemoServer.Controllers.Demos.Queries.FilteringResultsMultipleConditions
@@ -21,12 +22,12 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringResultsMultipleCondition
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var country = runParams.Country;
+            string country = runParams.Country;
             
             #region Demo
             List<Employee> filteredEmployees;
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
                 IQueryable<Employee> filteredQuery = session.Query<Employee>()

@@ -5,6 +5,8 @@ using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
+using Raven.Client.Documents.Linq;
+using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
@@ -61,10 +63,10 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
            
             new Employees_ByCountry().Execute(DocumentStoreHolder.Store);
          
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                var queryResult = session.Query<Employees_ByCountry.Result, Employees_ByCountry>()
+                Employees_ByCountry.Result queryResult = session.Query<Employees_ByCountry.Result, Employees_ByCountry>()
                       .FirstOrDefault(x => x.Country == country);
                     
                 numberOfEmployeesFromCountry = queryResult?.CountryCount ?? 0;

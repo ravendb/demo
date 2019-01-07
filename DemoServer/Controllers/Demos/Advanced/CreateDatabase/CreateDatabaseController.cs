@@ -31,15 +31,15 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
         [HttpPost]
         public IActionResult Run()
         {
-            var databaseName = _databaseName.For(UserId);
+            string databaseName = _databaseName.For(UserId);
 
             #region Demo
             
             try
             {
                 #region Step_1
-                var databaseRecord = new DatabaseRecord(databaseName);
-                var createDatabaseOperation = new CreateDatabaseOperation(databaseRecord);
+                DatabaseRecord databaseRecord = new DatabaseRecord(databaseName);
+                CreateDatabaseOperation createDatabaseOperation = new CreateDatabaseOperation(databaseRecord);
                 #endregion
                 
                 #region Step_2

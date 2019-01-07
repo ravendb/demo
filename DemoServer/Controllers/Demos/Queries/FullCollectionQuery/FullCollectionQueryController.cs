@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
 using System.Collections.Generic;
+using Raven.Client.Documents.Session;
 #endregion
 
 namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
@@ -20,7 +21,7 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
 
         private async Task SetRunPrerequisites()
         {
-            var documentsToStore = new List<Company>
+            List<Company> documentsToStore = new List<Company>
             {
                 new Company {Id = "companies/1", Name = "Name1", Phone = "Phone1"},
                 new Company {Id = "companies/2", Name = "Name2", Phone = "Phone2"},
@@ -40,10 +41,10 @@ namespace DemoServer.Controllers.Demos.Queries.FullCollectionQuery
             #region Demo
             List<Company> collectionResults;
 
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var fullCollectionQuery = session.Query<Company>();
+                IQueryable<Company> fullCollectionQuery = session.Query<Company>();
                 #endregion
                 
                 #region Step_2

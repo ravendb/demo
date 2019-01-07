@@ -1,11 +1,12 @@
-﻿using System.Collections.Generic;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
+using System.Collections.Generic;
+using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
@@ -44,16 +45,16 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
         [HttpPost]
         public IActionResult Run()
         {
+            List<Employee> queryResults;
+            
             #region Step_4
             new Employees_ByLastName().Execute(DocumentStoreHolder.Store);
             #endregion
-
-            List<Employee> queryResults;
             
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                var queryOnIndex = session.Query<Employees_ByLastName.Result, Employees_ByLastName>()
+                IQueryable<Employee> queryOnIndex = session.Query<Employees_ByLastName.Result, Employees_ByLastName>()
                       .Where(employee => employee.LastName == "SomeName")
                       .OfType<Employee>();
 

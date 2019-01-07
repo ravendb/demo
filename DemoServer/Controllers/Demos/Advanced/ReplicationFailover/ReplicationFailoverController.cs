@@ -4,6 +4,9 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
+#region Usings
+using Raven.Client.Documents.Session;
+#endregion
 
 namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
 {
@@ -24,11 +27,11 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
 
             private static IDocumentStore CreateDocumentStore()
             {
-                var machineName = string.IsNullOrEmpty(MachineName)
+                string machineName = string.IsNullOrEmpty(MachineName)
                     ? Environment.MachineName
                     : MachineName;
 
-                var documentStore = new DocumentStore
+                IDocumentStore documentStore = new DocumentStore
                 {
                     Urls = new[] { "http://" + machineName + ":8080" },
                     Database = "Demo",
@@ -47,12 +50,12 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var id = runParams.Id;
+            string id = runParams.Id;
             FailoverStoreHolder.MachineName = runParams.MachineName;
 
             dynamic results;
 
-            using (var session = FailoverStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = FailoverStoreHolder.Store.OpenSession())
             {
                 results = session.Load<dynamic>(id);
             }

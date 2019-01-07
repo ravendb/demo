@@ -1,14 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
-
 #region Usings
 using System.Linq;
+using System.Collections.Generic;
+using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
@@ -60,12 +60,12 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var searchTerm = runParams.SearchTerm;
+            string searchTerm = runParams.SearchTerm;
+            List<LastFm> results;
             
             new LastFmAnalyzed().Execute(DocumentStoreHolder.MediaStore);
-            List<LastFm> results;
          
-            using (var session = DocumentStoreHolder.MediaStore.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 #region Step_5
                 results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()

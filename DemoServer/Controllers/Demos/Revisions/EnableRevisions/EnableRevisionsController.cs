@@ -20,13 +20,13 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var collection1 = runParams.Collection1;
-            var collection2 = runParams.Collection2;
+            string collection1 = runParams.Collection1;
+            string collection2 = runParams.Collection2;
 
             #region Demo
           
             #region Step_1
-            var myRevisionsConfiguration = new RevisionsConfiguration
+            RevisionsConfiguration myRevisionsConfiguration = new RevisionsConfiguration
             #endregion
             {
                 #region Step_2
@@ -49,7 +49,7 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
             };
            
             #region Step_4
-            var revisionsConfigurationOperation = new ConfigureRevisionsOperation(myRevisionsConfiguration);
+            ConfigureRevisionsOperation revisionsConfigurationOperation = new ConfigureRevisionsOperation(myRevisionsConfiguration);
             DocumentStoreHolder.Store.Maintenance.Send(revisionsConfigurationOperation);
             #endregion
             #endregion

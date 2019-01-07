@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
 using Raven.Client.Documents.Linq;
+using Raven.Client.Documents.Session;
 #endregion
 
 namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex2
@@ -25,10 +26,10 @@ namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex2
             #region Demo
             Employee employeeResult;
             
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var findEmployeeQuery = session.Query<Employee>()
+                IQueryable<Employee> findEmployeeQuery = session.Query<Employee>()
                     .Where(x => x.Address.Country == country &&
                                 x.Title.StartsWith("Sales"));
                 #endregion
