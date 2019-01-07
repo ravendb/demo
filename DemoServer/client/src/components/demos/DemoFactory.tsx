@@ -12,11 +12,11 @@ import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
-import { Query1Demo } from "./queries/Query1Demo";
-import { Query2Demo } from "./queries/Query2Demo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
+import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
+import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { FullTextSearchWithStaticIndexDemo } from "./textSearch/FullTextSearchWithStaticIndexDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
@@ -89,11 +89,7 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         case "DEMO_ProjectingIndividualFields":
             return <ProjectingIndividualFieldsDemo />;
         case "DEMO_ProjectingUsingFunctions":
-            return <ProjectingUsingFunctionsDemo />;
-        case "DEMO_Query1":
-            return <Query1Demo />;
-        case "DEMO_Query2":
-            return <Query2Demo />;
+            return <ProjectingUsingFunctionsDemo />;       
 
         // Category: Static Indexes
         case "DEMO_StaticIndexesOverview":
@@ -103,6 +99,12 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         case "DEMO_MapReduceIndex":
             return <MapReduceIndexDemo />;
 
+        // Category: Auto Indexes
+        case "DEMO_AutoMapIndex1":
+            return <AutoMapIndex1Demo />;
+        case "DEMO_AutoMapIndex2":
+            return <AutoMapIndex2Demo />;
+            
         // Category: Text Search
         case "DEMO_FullTextSearchWithStaticIndex":
             return <FullTextSearchWithStaticIndexDemo />;

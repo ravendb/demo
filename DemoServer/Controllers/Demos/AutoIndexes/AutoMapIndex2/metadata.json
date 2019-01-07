@@ -1,0 +1,30 @@
+{
+    "Slug": "auto-map-index2",
+    "SourceFileName": "AutoMapIndex2Controller.cs",
+    "Title": "Auto Map Index II",
+    "DescriptionLines": [" todo... "],
+    
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query without a specific index",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                " todo... "
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                " todo...."
+            ],
+            "Assets": [               
+            ]
+        }
+    ]
+}

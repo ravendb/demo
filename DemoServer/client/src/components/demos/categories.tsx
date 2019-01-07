@@ -78,16 +78,6 @@ const queriesCategory: Category = {
             type: "DEMO_QueryOverview"
         },
         {
-            slug: "query1",
-            title: "Query I",
-            type: "DEMO_Query1"
-        },
-        {
-            slug: "query2",
-            title: "Query II",
-            type: "DEMO_Query2"
-        },
-        {
             slug: "full-collection-query",
             title: "Full Collection Query",
             type: "DEMO_FullCollectionQuery"
@@ -137,6 +127,23 @@ const staticIndexesCategory: Category = {
     ]
 };
 
+const autoIndexesCategory: Category = {
+    slug: "auto-indexes",
+    title: "Auto Indexes",
+    demos: [
+        {
+            slug: "auto-map-index1",
+            title: "Auto Map Index I",
+            type: "DEMO_AutoMapIndex1"
+        },
+        {
+            slug: "auto-map-index2",
+            title: "Auto Map Index II",
+            type: "DEMO_AutoMapIndex2"
+        }
+    ]
+};
+
 const textSearch: Category = {
     slug: "text-search",
     title: "Text Search",
@@ -172,6 +179,7 @@ export const categoryList: Category[] = [
     revisionsCategory,
     queriesCategory,
     staticIndexesCategory,
+    autoIndexesCategory,
     textSearch,
     advancedCategory
 ];

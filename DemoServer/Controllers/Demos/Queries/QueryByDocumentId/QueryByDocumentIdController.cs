@@ -1,5 +1,4 @@
-﻿using System.Threading.Tasks;
-using DemoCommon.Models;
+﻿using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -18,7 +17,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
         }
 
         [HttpPost]
-        public async Task<IActionResult> Run(RunParams runParams)
+        public IActionResult Run(RunParams runParams)
         {
             var employeeDocumentId = runParams.EmployeeDocumentId;
 

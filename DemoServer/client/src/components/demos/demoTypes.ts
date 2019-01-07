@@ -13,17 +13,25 @@ type Queries = "DEMO_QueryOverview"              |
                "DEMO_QueryByDocumentId"          |
                "DEMO_FilteringQueryResults"      |
                "DEMO_ProjectingIndividualFields" |
-               "DEMO_ProjectingUsingFunctions"   |
-               "DEMO_Query1" |
-               "DEMO_Query2";
+               "DEMO_ProjectingUsingFunctions";
 
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
                      "DEMO_MapIndex"              |
                      "DEMO_MapReduceIndex";
+
+type AutoIndexes = "DEMO_AutoMapIndex1" |
+                   "DEMO_AutoMapIndex2";
 
 type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
 
 type Advanced = "DEMO_ReplicationFailover"
                 |"DEMO_CreateDatabase";
 
-export type DemoType = Basic | Attachments | Revisions | Queries | StaticIndexes | TextSearch | Advanced;
+export type DemoType = Basic |
+                       Attachments |
+                       Revisions |
+                       Queries |
+                       StaticIndexes |
+                       AutoIndexes |
+                       TextSearch |
+                       Advanced;

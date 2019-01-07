@@ -1,4 +1,4 @@
-﻿import * as React from "react";
+import * as React from "react";
 import { Demo } from "../Demo";
 import { ResultTable } from "../../demoDisplay/results/resultItems";
 
@@ -13,9 +13,9 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const Query1Demo = () => <Demo
+export const AutoMapIndex1Demo = () => <Demo
     paramDefinitions={[
-        { inputType: "text", name: "country", placeholder: "USA", paramKind: "text-param" }
+        { inputType: "text", name: "firstName", placeholder: "Steven", paramKind: "text-param" }
     ]}
     resultsComponents={resultsCreator}
 />;

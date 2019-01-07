@@ -36,9 +36,7 @@
             "directory": "Queries"
         },
         "demos": [
-            "QueryOverview",
-            "Query1",
-            "Query2",
+            "QueryOverview",           
             "FullCollectionQuery",
             "QueryByDocumentId",
             "FilteringQueryResults",
@@ -55,6 +53,16 @@
             "StaticIndexesOverview",
             "MapIndex",
             "MapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "auto-indexes",
+            "directory": "AutoIndexes"
+        },
+        "demos": [
+            "AutoMapIndex1",
+            "AutoMapIndex2"
         ]
     },
     {

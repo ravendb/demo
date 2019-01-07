@@ -17,7 +17,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
         }
 
         [HttpPost]
-        public async Task<IActionResult> Run(RunParams runParams)
+        public IActionResult Run(RunParams runParams)
         {
             var pricePerUnit = runParams.PricePerUnit;
             var phone = runParams.Phone;

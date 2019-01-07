@@ -68,6 +68,8 @@
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
                 "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
+                
+                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",                
                 "",
                 "* In this demo, a query is defined on the 'Employees' collection using the Session `Query()` LINQ method syntax."
             ],

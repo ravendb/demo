@@ -1,0 +1,42 @@
+{
+    "Slug": "auto-map-index1",
+    "SourceFileName": "AutoMapIndex1Controller.cs",
+    "Title": "Auto Map Index I",
+    "DescriptionLines": [
+        "All queries in RavenDB use an index. ",
+        "",
+        "An **Auto Index** is created when a query does Not specify which index to use, and when there isn't any existing auto-index that can answer the query.",
+        "",
+        "Queries that do not specify an index are called<br> **dynamic queries**."
+    ],
+    
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a dynamic query",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define a query without specifying a specific index.<br>",
+                "",
+                "* Adding filtering to a query, using `where()` or `search()`, without specifying a specific index will make the _query_ _optimizer_ analyze the query to see if an index that can answer the query exists.",
+                "  todo... explain this better !!  ",
+                "",
+                "* When an index is not specified (query on collection) and filtering is not applied, an auto index is not created. using an existing built in index. todo... explain this better !!"
+            ],
+            "Assets": [                
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                " todo.... "
+
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}
