@@ -47,7 +47,7 @@ export class SidebarDisplay extends React.Component<Props, State> {
         });
 
         return <div id="sidebar" className={sidebarClassName}>
-            <Controls toggleCollapse={this.handleToggleCollapse} />
+            <Controls toggleCollapse={!conferenceMode && this.handleToggleCollapse} />
             <div className="sidebar-body">
                 <Heading text={title} />
                 <LanguageSelect selected={selectedLanguage} />

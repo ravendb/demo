@@ -32,10 +32,10 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
                 <Parameters {...this.props} />
                 <Code />
                 <div className="footer-container">
-                <NavPanel />
-                <ResultsPanel>
-                    {resultsComponents && resultsComponents()}
-                </ResultsPanel>
+                    <NavPanel />
+                    <ResultsPanel>
+                        {resultsComponents && resultsComponents()}
+                    </ResultsPanel>
                 </div>
             </div>
         </div>;
