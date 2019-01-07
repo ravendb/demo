@@ -21,6 +21,9 @@ export interface ParameterPair {
 
 export function toDemoParamsDto(parameters: ParameterPair[]): DemoParamsDto {
     return parameters.reduce((acc, current) => {
-        return {...acc, [current.name]: current.value}
+        if (current.value) {
+            return { ...acc, [current.name]: current.value };
+        }
+        return acc;
     }, {});
 }

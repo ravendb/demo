@@ -154,6 +154,11 @@ const advancedCategory: Category = {
     title: "Advanced",
     demos: [
         {
+            slug: "replication-failover",
+            title: "Replication Failover",
+            type: "DEMO_ReplicationFailover"
+        },
+        {
             slug: "create-database",
             title: "Create Database",
             type: "DEMO_CreateDatabase"

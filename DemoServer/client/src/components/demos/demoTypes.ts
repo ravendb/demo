@@ -23,6 +23,7 @@ type StaticIndexes = "DEMO_StaticIndexesOverview" |
 
 type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
 
-type Advanced = "DEMO_CreateDatabase"
+type Advanced = "DEMO_ReplicationFailover"
+                |"DEMO_CreateDatabase";
 
 export type DemoType = Basic | Attachments | Revisions | Queries | StaticIndexes | TextSearch | Advanced;

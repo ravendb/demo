@@ -16,8 +16,13 @@ interface ResultTextProps {
 
 const ResultTextDisplay = (props: ResultTextProps) => {
     const { text } = props;
+
     return <div className="text-center">
-        <h2>{text}</h2>
+        <h2>{
+            (typeof text === "string")
+                ? text
+                : JSON.stringify(text)
+        }</h2>
     </div>;
 };
 
@@ -86,7 +91,7 @@ export const ResultTable = connect<ResultTableStateProps, {}, ResultTableOwnProp
         }
 
         return {
-            results: [ runResults ]
+            results: [runResults]
         };
     }
 )(ResultTableDisplay);

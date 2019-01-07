@@ -22,6 +22,7 @@ import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
+import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
 
 const DemoNotFound = () => {
     return <>
@@ -101,6 +102,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <FullTextSearchWithStaticIndexDemo />;
             
         // Category: Advanced
+        case "DEMO_ReplicationFailover":
+            return <ReplicationFailoverDemo />;
         case "DEMO_CreateDatabase":
             return <CreateDatabaseDemo />;   
     }
