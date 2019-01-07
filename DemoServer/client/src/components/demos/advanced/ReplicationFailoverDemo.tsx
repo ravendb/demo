@@ -7,7 +7,7 @@ const resultsCreator = () => <ResultText />;
 export const ReplicationFailoverDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "machineName", placeholder: null, paramKind: "text-param" },
-        { inputType: "text", name: "id", placeholder: "Users/1", paramKind: "text-param" }
+        { inputType: "text", name: "id", placeholder: "employees/1-A", paramKind: "text-param" }
     ]}
     resultsComponents={resultsCreator}
 />;

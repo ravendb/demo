@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Threading.Tasks;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using Raven.Client.Documents;
 
 namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
@@ -17,40 +15,44 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
         {
         }
 
-        public class RunParams
-        {
-            public string Id { get; set; }
-            public string MachineName { get; set; }
-        }
-
         #region Demo
-        private IDocumentStore GetDocumentStore(string machineName)
+        public class FailoverStoreHolder
         {
-            if (string.IsNullOrEmpty(machineName))
-                machineName = Environment.MachineName;
+            public static string MachineName { get; set; }
 
-            var documentStore = new DocumentStore
+            private static readonly Lazy<IDocumentStore> _store = new Lazy<IDocumentStore>(CreateDocumentStore);
+
+            private static IDocumentStore CreateDocumentStore()
             {
-                Urls = new[] { "http://" + machineName + ":8080" },
-                Database = "Demo"
-            };
+                var machineName = string.IsNullOrEmpty(MachineName)
+                    ? Environment.MachineName
+                    : MachineName;
 
-            documentStore.Initialize();
-            documentStore.SetRequestTimeout(TimeSpan.FromSeconds(1));
+                var documentStore = new DocumentStore
+                {
+                    Urls = new[] { "http://" + machineName + ":8080" },
+                    Database = "Demo",
+                };
 
-            return documentStore;
+
+                documentStore.Initialize();
+                documentStore.SetRequestTimeout(TimeSpan.FromSeconds(1));
+
+                return documentStore;
+            }
+
+            public static IDocumentStore Store => _store.Value;
         }
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var machineName = runParams.MachineName;
             var id = runParams.Id;
+            FailoverStoreHolder.MachineName = runParams.MachineName;
 
             dynamic results;
 
-            using (var store = GetDocumentStore(machineName))
-            using (var session = store.OpenSession())
+            using (var session = FailoverStoreHolder.Store.OpenSession())
             {
                 results = session.Load<dynamic>(id);
             }
@@ -58,5 +60,11 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
             return Ok(results);
         }
         #endregion
+    }
+
+    public class RunParams
+    {
+        public string Id { get; set; }
+        public string MachineName { get; set; }
     }
 }
