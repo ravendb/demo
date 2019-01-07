@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Demo } from "../Demo";
-import { JsonResults } from "../../demoDisplay/results/resultItems";
+import { JsonResult } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <JsonResults id="replication-json-results" />;
+const resultsCreator = () => <JsonResult id="replication-json-results" />;
 
 export const ReplicationFailoverDemo = () => <Demo
     paramDefinitions={[

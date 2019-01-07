@@ -1,17 +1,8 @@
 import * as React from "react";
 import { Demo } from "../Demo";
-import { ResultTable } from "../../demoDisplay/results/resultItems";
+import { JsonResult } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <ResultTable
-    fields={[
-        "id",
-        "lastName",
-        "firstName",
-        "title",
-        "homePhone",
-        "extension"
-    ]}
-/>;
+const resultsCreator = () => <JsonResult id="json-results" />;
 
 export const AutoMapIndex1Demo = () => <Demo
     paramDefinitions={[

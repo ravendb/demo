@@ -94,17 +94,17 @@ export const ResultTable = connect<ResultTableStateProps, {}, ResultTableOwnProp
     }
 )(ResultTableDisplay);
 
-interface JsonResultsDisplayStateProps {
+interface JsonResultDisplayStateProps {
     content: any;
 }
 
-interface JsonResultsDisplayOwnProps {
+interface JsonResultDisplayOwnProps {
     id: string;
 }
 
-type JsonResultsDisplayProps = JsonResultsDisplayStateProps & JsonResultsDisplayOwnProps;
+type JsonResultDisplayProps = JsonResultDisplayStateProps & JsonResultDisplayOwnProps;
 
-class JsonResultsDisplay extends React.Component<JsonResultsDisplayProps, {}> {
+class JsonResultDisplay extends React.Component<JsonResultDisplayProps, {}> {
     componentDidMount() {
         this.highlightSyntax();
     }
@@ -139,8 +139,8 @@ class JsonResultsDisplay extends React.Component<JsonResultsDisplayProps, {}> {
     }
 }
 
-export const JsonResults = connect<JsonResultsDisplayStateProps, {}, JsonResultsDisplayOwnProps>(
-    ({ demos }: AppState): JsonResultsDisplayStateProps => {
+export const JsonResult = connect<JsonResultDisplayStateProps, {}, JsonResultDisplayOwnProps>(
+    ({ demos }: AppState): JsonResultDisplayStateProps => {
         const { runResults } = demos;
 
         const content = (typeof runResults === "string")
@@ -149,4 +149,4 @@ export const JsonResults = connect<JsonResultsDisplayStateProps, {}, JsonResults
 
         return { content };
     }
-)(JsonResultsDisplay);
+)(JsonResultDisplay);
