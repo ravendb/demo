@@ -31,10 +31,12 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
                 {showWalkthrough && <WalkthroughOverlay />}
                 <Parameters {...this.props} />
                 <Code />
+                <div className="footer-container">
                 <NavPanel />
                 <ResultsPanel>
                     {resultsComponents && resultsComponents()}
                 </ResultsPanel>
+                </div>
             </div>
         </div>;
     }

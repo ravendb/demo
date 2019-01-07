@@ -185,6 +185,13 @@ hr {
     overflow-y: auto;
     overflow-x: hidden;
 
+    &.conference {
+        transition: none !important;
+        .sidebar-body {
+            transition: none !important;
+        }
+    }
+
     .sidebar-body {
         padding: $gutter-lg;
         width: $sidebar-width - ($gutter-lg*2);
@@ -322,12 +329,15 @@ hr {
         position: relative;
     }
 
-    .results-container {
+    .footer-container {
         bottom: 0;
         left: $gutter-xs;
         position: sticky;
-        overflow: hidden;
         z-index: $zindex-results;
+    }
+
+    .results-container {
+        overflow: hidden;
         margin: 0 $gutter-xs;
         //transition: height .35s $global-easing-ino-out !important;
         .results-speed {
@@ -380,9 +390,9 @@ hr {
 
 .fab-container {
     z-index: $zindex-fabs;
-    position: fixed;
+    position: absolute;
     right: $gutter;
-    bottom: $gutter;
+    top: -46px;
     font-size: 11px;
 
     .fab {
