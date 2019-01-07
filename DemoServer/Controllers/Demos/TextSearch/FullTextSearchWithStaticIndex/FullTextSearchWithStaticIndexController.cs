@@ -45,7 +45,6 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
                         {
                             song.Artist,
                             song.TimeStamp,
-                            song.Tags,
                             song.Title,
                             song.TrackId
                         }
@@ -70,8 +69,8 @@ namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
             {
                 #region Step_5
                 results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
-                    .Take(20)
                     .Search(x => x.Query, searchTerm)
+                    .Take(20)
                     .As<LastFm>()
                     .ToList();
                 #endregion

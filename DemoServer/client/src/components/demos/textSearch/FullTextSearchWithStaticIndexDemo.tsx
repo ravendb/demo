@@ -14,7 +14,7 @@ const resultsCreator = () => <ResultTable
 
 export const FullTextSearchWithStaticIndexDemo = () => <Demo
     paramDefinitions={[
-        { inputType: "text", name: "searchTerm", placeholder: "Fabolous", paramKind: "text-param" }
+        { inputType: "text", name: "searchTerm", placeholder: "Floyd", paramKind: "text-param" }
     ]}
     resultsComponents={resultsCreator}
 />;
