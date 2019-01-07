@@ -7,7 +7,7 @@ const resultsCreator = () => <JsonResult id="replication-json-results" />;
 export const ReplicationFailoverDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "machineName", placeholder: "localhost", paramKind: "text-param" },
-        { inputType: "text", name: "id", placeholder: "employees/1-A", paramKind: "text-param" }
+        { inputType: "text", name: "id", placeholder: "Users/1", paramKind: "text-param" }
     ]}
     resultsComponents={resultsCreator}
 />;

@@ -42,7 +42,7 @@ export class SidebarDisplay extends React.Component<Props, State> {
         const { sidebarCollapsed } = this.state;
 
         const sidebarClassName = classNames("sidebar", {
-            "small": sidebarCollapsed
+            "small": sidebarCollapsed || conferenceMode
         });
 
         return <div id="sidebar" className={sidebarClassName}>
