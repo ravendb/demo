@@ -23,6 +23,7 @@ import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
+import { DemoType } from "./demoTypes";
 
 const DemoNotFound = () => {
     return <>
@@ -31,14 +32,19 @@ const DemoNotFound = () => {
     </>;
 }
 
-function getDemoType(categorySlug: string, demoSlug: string) {
+function getDemoType(categorySlug: string, demoSlug: string): DemoType {
     var category = categoryList.find(x => x.slug === categorySlug);
     if (!category || !category.demos) {
         return null;
     }
 
     var demo = category.demos.find(x => x.slug == demoSlug);
-    return demo && demo.type;
+
+    if (demo) {
+        return demo.type;
+    }
+
+    return null;
 }
 
 interface DemoFactoryProps {

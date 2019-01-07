@@ -9,6 +9,7 @@ import { updateProgress } from "./progressActions";
 import clipboardCopy = require("clipboard-copy");
 import { FilesCache } from "../../utils/FilesCache";
 import { FormFile } from "../../utils/ApiClient";
+import { DemoType } from "../../components/demos/demoTypes";
 
 const service = new DemoService();
 
@@ -60,15 +61,21 @@ export interface HideResults {
 }
 
 export interface ToggleDemoShareMessage {
-    type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE,
+    type: actionTypes.DEMO_TOGGLE_SHARE_MESSAGE;
     show: boolean;
+}
+
+export interface GoToDemo {
+    type: actionTypes.DEMO_GO_TO_DEMO;
+    destination: DemoType;
 }
 
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
-    | ToggleDemoShareMessage;
+    | ToggleDemoShareMessage
+    | GoToDemo;
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {
@@ -229,5 +236,12 @@ export function shareDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch) => {
         clipboardCopy(window.location.href);
         dispatch(toggleDemoShareMessage(true));
+    };
+}
+
+export function goToDemo(destination: DemoType): GoToDemo {
+    return {
+        type: "DEMO_GO_TO_DEMO",
+        destination
     };
 }

@@ -4,6 +4,7 @@ import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
+import { getDemoUrlForType } from "../selectors/urls";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -92,6 +93,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             return modifyState(state, s => {
                 s.showShareMessage = action.show;
             });
+
+        case "DEMO_GO_TO_DEMO":
+            const url = getDemoUrlForType(action.destination);
+            location.replace(url);
+            return state;
     }
 
     return state;

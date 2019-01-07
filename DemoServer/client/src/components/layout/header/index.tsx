@@ -3,6 +3,7 @@ import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
 import { IconSettings } from "../../helpers/icons";
 import { MainPageDropdownItems } from "./MainPageDropdownItems";
 import { DemoPageDropdownItems } from "./DemoPageDropdownItems";
+import { SelectDemoDropdown } from "./SelectDemoDropdown";
 
 export class Header extends React.Component<{}, {}> {
     dropdown: HTMLElement;
@@ -21,6 +22,8 @@ export class Header extends React.Component<{}, {}> {
     }
 
     render() {
+        const isOnMainPage = this.isOnMainPage();
+
         return <div className="header">
             <div>
                 <a href="/" className="logo">
@@ -28,42 +31,14 @@ export class Header extends React.Component<{}, {}> {
                 </a>
             </div>
             <div className="flex-grow"></div>
-            <div>
-                <select id="selectDemo">
-                    <option disabled>Basics</option>
-                    <option>The Document Store</option>
-                    <option>The Session</option>
-                    <option>Create Document</option>
-                    <option>Edit Document</option>
-                    <option>Delete Document</option>
-                    <option disabled>Attachments</option>
-                    <option>Store Attachment</option>
-                    <option disabled>Revisions</option>
-                    <option>Enable Revisions</option>
-                    <option disabled>Queries</option>
-                    <option>Query Overview</option>
-                    <option>Full Collection Query</option>
-                    <option>Query by Document ID</option>
-                    <option>Filtering Query Results</option>
-                    <option>Projecting Individual Fields</option>
-                    <option>Projecting Using Functions</option>
-                    <option disabled>Static Indexes</option>
-                    <option>Static Indexes Overview</option>
-                    <option>Map Index</option>
-                    <option>Map Reduce Index</option>
-                    <option disabled>Text Search</option>
-                    <option>Full Text Search with Static Index</option>
-                    <option disabled>Advanced</option>
-                    <option>Create Database</option>
-                </select>
-            </div>
+            {!isOnMainPage && <SelectDemoDropdown />}
             <div className="flex-grow"></div>
             <div id="settings-dropdown" className="dropdown">
                 <a className="settings" data-toggle="dropdown">
                     <IconSettings />
                 </a>
                 <div className="dropdown-menu placement-right">
-                    {this.isOnMainPage()
+                    {isOnMainPage
                         ? <MainPageDropdownItems />
                         : <DemoPageDropdownItems />
                     }

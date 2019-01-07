@@ -1,6 +1,6 @@
 import { DemoType } from "./demoTypes";
 
-interface DemoInfo {
+export interface DemoInfo {
     slug: string;
     title: string;
     type: DemoType;
