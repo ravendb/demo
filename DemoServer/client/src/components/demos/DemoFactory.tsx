@@ -9,7 +9,8 @@ import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
 import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
-import { FilteringQueryResultsDemo } from "./queries/FilteringQueryResultsDemo";
+import { FilteringResultsBasicsDemo } from "./queries/FilteringResultsBasicsDemo";
+import { FilteringResultsMultipleConditionsDemo } from "./queries/FilteringResultsMultipleConditionsDemo";
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
@@ -84,8 +85,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <FullCollectionQueryDemo />;
         case "DEMO_QueryByDocumentId":
             return <QueryByDocumentIdDemo />;
-        case "DEMO_FilteringQueryResults":
-            return <FilteringQueryResultsDemo />;
+        case "DEMO_FilteringResultsBasics":
+            return <FilteringResultsBasicsDemo />;
+        case "DEMO_FilteringResultsMultipleConditions":
+            return <FilteringResultsMultipleConditionsDemo />;
         case "DEMO_ProjectingIndividualFields":
             return <ProjectingIndividualFieldsDemo />;
         case "DEMO_ProjectingUsingFunctions":

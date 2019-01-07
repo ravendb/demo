@@ -1,7 +1,7 @@
 {
-    "Slug": "filtering-query-results",
-    "SourceFileName": "FilteringQueryResultsController.cs",
-    "Title": "Filtering Query Results",
+    "Slug": "filtering-results-basics",
+    "SourceFileName": "FilteringResultsBasicsController.cs",
+    "Title": "Filtering Results - Basics",
     "DescriptionLines": [
         "**Filter the documents** by specifying some conditions on the **document fields** properties",
         "",
@@ -67,20 +67,15 @@
             ]
         },
         {
-            "Title": "Define the filtering conditions",
+            "Title": "Define a filtering condition",
             "Slug": "step-2",
             "DescriptionLines": [
                 "* This example queries for documents from the _Employees_ collection that match the following criteria:",
-                "     * Employee's first name is either 'Anne' or 'John'<br>",
-                "       OR<br>",
-                "     * Employee's country is as specified by the param,<br>", 
-                "       AND territories count is > 2,<br>",
-                "       AND employee's title starts with 'Sales'.",
+                "     * Employee's first name is 'Anne'",
                 "",
                 "* More filtering options are available - see related links.",
                 "",
-                "* If there is no existing index that can answer this query, RavenDB will create a matching Auto-Index.",
-                ""
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing auto-index that can answer this query (see auto-indexes)."
             ],
             "Assets": [
                 {

@@ -8,11 +8,12 @@ type Attachments = "DEMO_StoreAttachment";
 
 type Revisions = "DEMO_EnableRevisions";
 
-type Queries = "DEMO_QueryOverview"              | 
-               "DEMO_FullCollectionQuery"        |
-               "DEMO_QueryByDocumentId"          |
-               "DEMO_FilteringQueryResults"      |
-               "DEMO_ProjectingIndividualFields" |
+type Queries = "DEMO_QueryOverview"                      | 
+               "DEMO_FullCollectionQuery"                |
+               "DEMO_QueryByDocumentId"                  |
+               "DEMO_FilteringResultsBasics"             |
+               "DEMO_FilteringResultsMultipleConditions" |
+               "DEMO_ProjectingIndividualFields"         |
                "DEMO_ProjectingUsingFunctions";
 
 type StaticIndexes = "DEMO_StaticIndexesOverview" |
@@ -24,14 +25,14 @@ type AutoIndexes = "DEMO_AutoMapIndex1" |
 
 type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
 
-type Advanced = "DEMO_ReplicationFailover"
-                |"DEMO_CreateDatabase";
+type Advanced = "DEMO_ReplicationFailover" |
+                "DEMO_CreateDatabase";
 
-export type DemoType = Basic |
-                       Attachments |
-                       Revisions |
-                       Queries |
+export type DemoType = Basic         |
+                       Attachments   |
+                       Revisions     |
+                       Queries       |
                        StaticIndexes |
-                       AutoIndexes |
-                       TextSearch |
+                       AutoIndexes   |
+                       TextSearch    |
                        Advanced;

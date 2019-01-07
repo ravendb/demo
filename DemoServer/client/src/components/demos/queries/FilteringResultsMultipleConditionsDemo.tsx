@@ -13,7 +13,7 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const FilteringQueryResultsDemo = () => <Demo
+export const FilteringResultsMultipleConditionsDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "country", placeholder: "USA", paramKind: "text-param" }
     ]}

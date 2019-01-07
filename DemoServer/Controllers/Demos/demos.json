@@ -39,7 +39,8 @@
             "QueryOverview",           
             "FullCollectionQuery",
             "QueryByDocumentId",
-            "FilteringQueryResults",
+            "FilteringResultsBasics",
+            "FilteringResultsMultipleConditions",
             "ProjectingIndividualFields",
             "ProjectingUsingFunctions"
         ]

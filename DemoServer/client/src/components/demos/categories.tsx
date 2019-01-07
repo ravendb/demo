@@ -88,9 +88,14 @@ const queriesCategory: Category = {
             type: "DEMO_QueryByDocumentId"
         },
         {
-            slug: "filtering-query-results",
-            title: "Filtering Query Results",
-            type: "DEMO_FilteringQueryResults"
+            slug: "filtering-results-basics",
+            title: "Filtering Results - Basics",
+            type: "DEMO_FilteringResultsBasics"
+        },
+        {
+            slug: "filtering-results-multiple-conditions",
+            title: "Filtering Results - Multiple Conditions",
+            type: "DEMO_FilteringResultsMultipleConditions"
         },
         {
             slug: "projecting-individual-fields",

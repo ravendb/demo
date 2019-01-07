@@ -9,11 +9,11 @@ using System.Linq;
 using Raven.Client.Documents.Linq;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
+namespace DemoServer.Controllers.Demos.Queries.FilteringResultsMultipleConditions
 {
-    public class FilteringQueryResultsController : DemoCodeController
+    public class FilteringResultsMultipleConditions : DemoCodeController
     {
-        public FilteringQueryResultsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public FilteringResultsMultipleConditions(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
@@ -29,15 +29,15 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringQueryResults
             using (var session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                var filteredQuery = session.Query<Employee>()
-                #endregion
-                #region Step_2
-                      .Where( x =>
-                                x.FirstName.In("Anne", "John")  ||
+                IQueryable<Employee> filteredQuery = session.Query<Employee>()
+                    #endregion
+                    #region Step_2
+                    .Where( x =>
+                        x.FirstName.In("Anne", "John")  ||
                                 
-                               (x.Address.Country == country    &&
-                                x.Territories.Count > 2         &&
-                                x.Title.StartsWith("Sales")));
+                        (x.Address.Country == country    &&
+                         x.Territories.Count > 2         &&
+                         x.Title.StartsWith("Sales")));
                 #endregion
                 
                 #region Step_3
