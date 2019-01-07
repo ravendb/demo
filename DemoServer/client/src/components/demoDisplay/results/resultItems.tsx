@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { capitalizeFirstLetter } from "../../../utils/miscUtils";
 
+const Prism = window["Prism"] as any;
+
 export const DocumentCreated = () => (
     <div className="text-center">
         <img src="../img/file-added.png" />
@@ -18,11 +20,7 @@ const ResultTextDisplay = (props: ResultTextProps) => {
     const { text } = props;
 
     return <div className="text-center">
-        <h2>{
-            (typeof text === "string")
-                ? text
-                : JSON.stringify(text)
-        }</h2>
+        <h2>{text}</h2>
     </div>;
 };
 
@@ -95,3 +93,60 @@ export const ResultTable = connect<ResultTableStateProps, {}, ResultTableOwnProp
         };
     }
 )(ResultTableDisplay);
+
+interface JsonResultsDisplayStateProps {
+    content: any;
+}
+
+interface JsonResultsDisplayOwnProps {
+    id: string;
+}
+
+type JsonResultsDisplayProps = JsonResultsDisplayStateProps & JsonResultsDisplayOwnProps;
+
+class JsonResultsDisplay extends React.Component<JsonResultsDisplayProps, {}> {
+    componentDidMount() {
+        this.highlightSyntax();
+    }
+
+    componentDidUpdate() {
+        this.highlightSyntax();
+    }
+
+    highlightSyntax() {
+        const { id } = this.props;
+        const element = document.getElementById(id);
+
+        if (element) {
+            Prism.highlightAllUnder(element, false);
+        }
+    }
+
+    render() {
+        const { id, content } = this.props;
+
+        if (content) {
+            return <pre id={id} className="line-numbers">
+                <code className="language-json">
+                    {content}
+                </code>
+            </pre>;
+        }
+
+        return <div className="text-center">
+            <h2>NO RESULTS</h2>
+        </div>;
+    }
+}
+
+export const JsonResults = connect<JsonResultsDisplayStateProps, {}, JsonResultsDisplayOwnProps>(
+    ({ demos }: AppState): JsonResultsDisplayStateProps => {
+        const { runResults } = demos;
+
+        const content = (typeof runResults === "string")
+            ? runResults
+            : JSON.stringify(runResults, null, 4);
+
+        return { content };
+    }
+)(JsonResultsDisplay);
