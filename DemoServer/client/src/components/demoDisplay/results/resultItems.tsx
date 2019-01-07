@@ -126,7 +126,7 @@ class JsonResultDisplay extends React.Component<JsonResultDisplayProps, {}> {
         const { id, content } = this.props;
 
         if (content) {
-            return <pre id={id} className="line-numbers">
+            return <pre id={id} className="line-numbers results-json">
                 <code className="language-json">
                     {content}
                 </code>

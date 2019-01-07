@@ -764,14 +764,22 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
     }
 }
 
-.results-table {
+.results-json, .results-table {
     display: block;
-    width: 100%;
     overflow-x: auto;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;
     max-height: 50vh;
+}
+
+.results-json {
+    overflow: auto !important;
+    background-color: $gray-darker !important;
+}
+
+.results-table {
+    width: 100%;
 
     table {
         width: 100%;

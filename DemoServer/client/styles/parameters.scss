@@ -15,13 +15,18 @@
     margin: $gutter $gutter 0;
     top: 0;
     left: $gutter;
+    background-color: $gray-darker;
+
+    .parameters-header {
+        margin: $gutter-xs $gutter-xs*2 -1*$gutter-sm;
+    }
 
 .parameters {
     display: flex;
     flex-wrap: wrap;
     //position: sticky;
     
-    background-color: $gray-darker;
+    
     padding: $gutter-xs;
     z-index: $zindex-parameters;
 
