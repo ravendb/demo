@@ -2,6 +2,7 @@
     "Slug": "auto-map-index1",
     "SourceFileName": "AutoMapIndex1Controller.cs",
     "Title": "Auto Map Index I",
+    "StudioLinkToIndexList": true,
     "DescriptionLines": [
         "All queries in RavenDB use an index. ",
         "",
