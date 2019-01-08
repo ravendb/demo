@@ -54,7 +54,7 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
             #endregion
             #endregion
           
-            return Ok($"Revisions on {collection1} & {collection2} collections were successfully enabled");
+            return Ok($"Revisions on {collection1} & {collection2} collections were successfully defined");
         }
     }
 
