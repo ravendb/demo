@@ -9,9 +9,10 @@ const resultsCreator = () => <>
 
 export const CreateDocumentDemo = () => <Demo
     paramDefinitions = {[
-        { inputType: "text", name: "supplierName", placeholder: "Hibernating Rhinos", paramKind: "text-param" },
-        { inputType: "text", name: "supplierPhone", placeholder: "(+972)52-5486969", paramKind: "text-param" },
-        { inputType: "text", name: "productName", placeholder: "Beverly Hills Cop", paramKind: "text-param" }
+        { inputType: "text", name: "companyName", placeholder: "Hibernating Rhinos", paramKind: "text-param" },
+        { inputType: "text", name: "companyPhone", placeholder: "(+972)52-5486969", paramKind: "text-param" },
+        { inputType: "text", name: "contactName", placeholder: "New Contact Name", paramKind: "text-param" },
+        { inputType: "text", name: "contactTitle", placeholder: "New Contact Title", paramKind: "text-param" }
     ]}
     resultsComponents = { resultsCreator }
 />;

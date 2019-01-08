@@ -5,6 +5,7 @@ import { TheSessionDemo } from "./basics/TheSessionDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
+import { RelatedDocumentsDemo } from "./basics/RelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
@@ -70,6 +71,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <EditDocumentDemo />;
         case "DEMO_DeleteDocument":
             return <DeleteDocumentDemo />;
+        case "DEMO_RelatedDocuments":
+            return <RelatedDocumentsDemo />;
 
         // Category: Attachments
         case "DEMO_StoreAttachment":

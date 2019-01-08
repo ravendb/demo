@@ -115,7 +115,7 @@
             "Slug" : "step-3",
             "DescriptionLines": [
                 "* The Session takes care of generating the document identifier automatically.<br>",
-                "  `GetDocumentId()` can be used to get the Id that was assigned to the new stored entity."
+                "  The new stored entity ID is now available and can be used."
             ],
             "Assets": [
                 {

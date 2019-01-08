@@ -1,0 +1,50 @@
+{
+    "Slug": "related-documents",
+    "SourceFileName": "RelatedDocumentsController.cs",
+    "Title": "Related Documents",
+    "DescriptionLines": [
+        "todo..."
+    ],
+
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a new C# object to be saved",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Store the new company object in the Session",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "The new document ID is immediately available",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}

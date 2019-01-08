@@ -1,11 +1,12 @@
 ﻿﻿using System.Collections.Generic;
- using DemoCommon.Models;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using Microsoft.AspNetCore.Mvc;
-#region Usings
+ #region Usings
 using System.Linq;
+using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
@@ -49,12 +50,12 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var searchTerm = runParams.SearchTerm;
+            string searchTerm = runParams.SearchTerm;
             List<Category> categoriesWithSearchTerm;
                 
             new Categories_DescriptionText().Execute(DocumentStoreHolder.Store);
          
-            using (var session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
                 categoriesWithSearchTerm = session.Query<Categories_DescriptionText.Result, Categories_DescriptionText>()

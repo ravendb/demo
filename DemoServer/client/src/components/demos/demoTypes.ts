@@ -2,7 +2,8 @@ type Basic = "DEMO_TheDocumentStore" |
              "DEMO_TheSession"       | 
              "DEMO_CreateDocument"   |
              "DEMO_EditDocument"     |
-             "DEMO_DeleteDocument";
+             "DEMO_DeleteDocument"   |
+             "DEMO_RelatedDocuments";
 
 type Attachments = "DEMO_StoreAttachment";
 

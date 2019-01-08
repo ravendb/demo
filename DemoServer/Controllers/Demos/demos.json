@@ -9,7 +9,8 @@
             "TheSession",
             "CreateDocument",
             "EditDocument",
-            "DeleteDocument"
+            "DeleteDocument",
+            "RelatedDocuments"
         ]
     },
     {

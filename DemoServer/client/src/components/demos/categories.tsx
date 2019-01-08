@@ -40,6 +40,11 @@ const basicsCategory: Category = {
             slug: "delete-document",
             title: "Delete Document",
             type: "DEMO_DeleteDocument"
+        },
+        {
+            slug: "related-documents",
+            title: "Related Documents",
+            type: "DEMO_RelatedDocuments"
         }
     ]
 };
