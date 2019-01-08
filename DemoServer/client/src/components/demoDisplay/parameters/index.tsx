@@ -72,12 +72,12 @@ class ParametersDisplay extends React.Component<ParametersProps, {}> {
 
         const isAnyFileUpload = this.isAnyFileUpload();
 
-        return <div className="parameters-container">
-            <h2 className="parameters-header">PARAMETERS</h2>
-            { isAnyFileUpload && <FileUploadWarning /> }
+        return <div className="parameters-container">            
+            <h3 className="parameters-header">PARAMETERS</h3>
             <div className="parameters">        
                 {paramDefinitions.map((x, i) => this.renderParameter(x, i))}
             </div>
+            { isAnyFileUpload && <FileUploadWarning /> }
         </div>;
     }
 }

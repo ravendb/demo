@@ -44,7 +44,7 @@ class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
                     </div>
                 </div>
 
-                <div className="text-center padding">
+                <div className="text-center">
                     {loadingResults
                         ? "LOADING RESULTS..."
                         : children}

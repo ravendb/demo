@@ -18,7 +18,10 @@
     background-color: $gray-darker;
 
     .parameters-header {
-        margin: $gutter-xs $gutter-xs*2 -1*$gutter-sm;
+        background-color: $gray-dark;
+        padding: $gutter-xxs $gutter-xs*2;
+        margin-top: 0;
+        margin-bottom:  0;
     }
 
 .parameters {
