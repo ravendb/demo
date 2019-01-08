@@ -3,7 +3,8 @@ type Basic = "DEMO_TheDocumentStore" |
              "DEMO_CreateDocument"   |
              "DEMO_EditDocument"     |
              "DEMO_DeleteDocument"   |
-             "DEMO_RelatedDocuments";
+             "DEMO_RelatedDocuments" |
+             "DEMO_IncludeDocumentsWhenLoading";
 
 type Attachments = "DEMO_StoreAttachment";
 

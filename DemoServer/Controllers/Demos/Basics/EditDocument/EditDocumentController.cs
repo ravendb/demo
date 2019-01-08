@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -11,34 +12,42 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 {
     public class EditDocumentController : DemoCodeController
     {
-        private const string DocumentId = "products/34-A";
+        private const string DocumentId = "companies/5-A"; 
 
         public EditDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 
-        [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        private Company InitialCompany => new Company
         {
-            decimal pricePerUnit = runParams.PricePerUnit;
-            string phone = runParams.Phone;
+            Id = DocumentId,
+            Name = "Company Name",
+            Phone = "(+972)52-5486969"
+        };
+        
+        private async Task SetRunPrerequisites()
+        {
+            await DatabaseSetup.EnsureUserDocumentExists(UserId, DocumentId, InitialCompany);
+        }
+        
+        [HttpPost]
+        public async Task<IActionResult> Run(RunParams runParams)
+        {
+            string companyName = runParams.CompanyName;
+            
+            await SetRunPrerequisites();
 
             #region Demo
             
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                Product product = session
-                    .Include<Product>(x => x.Supplier)
-                    .Load<Product>("products/34-A");
-
-                Supplier supplier = session.Load<Supplier>(product.Supplier);
+                Company company = session.Load<Company>("companies/5-A");
                 #endregion
                 
                 #region Step_2
-                product.PricePerUnit = pricePerUnit;
-                supplier.Phone = phone;
+                company.Name = companyName;
                 #endregion
                 
                 #region Step_3
@@ -52,9 +61,7 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
 
         public class RunParams
         {
-            public decimal PricePerUnit { get; set; }
-
-            public string Phone { get; set; }
+            public string CompanyName { get; set; }
         }
     }
 }

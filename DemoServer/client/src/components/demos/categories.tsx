@@ -45,6 +45,11 @@ const basicsCategory: Category = {
             slug: "related-documents",
             title: "Related Documents",
             type: "DEMO_RelatedDocuments"
+        },
+        {
+            slug: "include-documents-when-loading",
+            title: "Include Documents When Loading",
+            type: "DEMO_IncludeDocumentsWhenLoading"
         }
     ]
 };

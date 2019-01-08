@@ -10,7 +10,8 @@
             "CreateDocument",
             "EditDocument",
             "DeleteDocument",
-            "RelatedDocuments"
+            "RelatedDocuments",
+            "IncludeDocumentsWhenLoading"
         ]
     },
     {
