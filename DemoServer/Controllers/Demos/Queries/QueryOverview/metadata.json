@@ -2,6 +2,7 @@
     "Slug": "query-overview",
     "SourceFileName": "QueryOverviewController.cs",
     "Title": "Query Overview",
+    "NonInteractive":  true,
     "DescriptionLines": [
         "RavenDB has rich querying and indexing support.",
         "",

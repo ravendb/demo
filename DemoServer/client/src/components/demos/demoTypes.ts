@@ -9,7 +9,8 @@ type Attachments = "DEMO_StoreAttachment";
 
 type Revisions = "DEMO_EnableRevisions";
 
-type Queries = "DEMO_QueryOverview"                      | 
+type Queries = "DEMO_QueryOverview"                      |
+               "DEMO_QueryExample"                       |
                "DEMO_FullCollectionQuery"                |
                "DEMO_QueryByDocumentId"                  |
                "DEMO_FilteringResultsBasics"             |

@@ -1,0 +1,41 @@
+{
+    "Slug": "query-example",
+    "SourceFileName": "QueryExampleController.cs",
+    "Title": "Query Example",
+    "DescriptionLines": [
+        "todo..."
+    ],
+
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Define query criteria",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}

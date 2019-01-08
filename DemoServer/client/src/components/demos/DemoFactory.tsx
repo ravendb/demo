@@ -8,6 +8,8 @@ import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { RelatedDocumentsDemo } from "./basics/RelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
+import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
+import { QueryExampleDemo } from "./queries/QueryExampleDemo";
 import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
 import { QueryByDocumentIdDemo } from "./queries/QueryByDocumentIdDemo";
 import { FilteringResultsBasicsDemo } from "./queries/FilteringResultsBasicsDemo";
@@ -21,7 +23,6 @@ import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
-import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
@@ -85,6 +86,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         // Category: Queries
         case "DEMO_QueryOverview":
             return <QueryOverviewDemo />;
+        case "DEMO_QueryExample":
+            return <QueryExampleDemo />;
         case "DEMO_FullCollectionQuery":
             return <FullCollectionQueryDemo />;
         case "DEMO_QueryByDocumentId":

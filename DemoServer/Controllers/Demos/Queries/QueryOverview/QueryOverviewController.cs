@@ -6,7 +6,6 @@ using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
 using System.Collections.Generic;
-using Raven.Client.Documents;
 using Raven.Client.Documents.Session;
 #endregion
 
@@ -19,46 +18,35 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
         {
         }
 
-        public class EmployeeName
-        {
-            public string FirstName { get; set; }
-
-            public string LastName { get; set; }
-        }
-        
         [HttpPost]
-        public IActionResult Run()
+        public void Run()
         {
             #region Demo
-            List<EmployeeName> queryResults;
-
+            
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                QueryStatistics statistics;
-
-                IQueryable<EmployeeName> query = session.Query<Employee>()
+                IQueryable<Employee> queryDefinition = session.Query<Employee>();
                 #endregion
+
                 #region Step_2
-                    .Where(x => x.FirstName == "Robert" || x.Title == "Sales Representative")
-                    .Include(x => x.ReportsTo)
-                    .Statistics(out statistics)
-                    .OrderByDescending(x => x.HiredAt)
-                    .Select(x => new EmployeeName
-                    {
-                        FirstName = x.FirstName,
-                        LastName = x.LastName
-                    })
-                    .Take(10);
-                 #endregion
+                // Define actions such as:
+                    
+                // Filter documents by documents fields
+                // Filter documents by text criteria 
+                // Include related documents
+                // Get the query stats
+                // Sort results 
+                // Customise the returned entity fields (Projections)
+                // Control results paging  
+                #endregion
                 
                 #region Step_3
-                queryResults = query.ToList();
+                List<Employee> queryResults = queryDefinition.ToList();
                 #endregion
             }
+            
             #endregion
-
-            return Ok(queryResults);
         }
     }
 }
