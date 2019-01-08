@@ -12,7 +12,7 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const FullTextSearchWithStaticIndexDemo = () => <Demo
+export const FTSWithStaticIndexMultipleFieldsDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "searchTerm", placeholder: "Floyd", paramKind: "text-param" }
     ]}

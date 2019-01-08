@@ -12,11 +12,11 @@ using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
-namespace DemoServer.Controllers.Demos.TextSearch.FullTextSearchWithStaticIndex
+namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFields
 {
-    public class FullTextSearchWithStaticIndexController : DemoCodeController
+    public class FTSWithStaticIndexMultipleFieldsController : DemoCodeController
     {
-        public FullTextSearchWithStaticIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public FTSWithStaticIndexMultipleFieldsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }

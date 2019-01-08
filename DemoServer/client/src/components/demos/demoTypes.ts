@@ -23,7 +23,8 @@ type StaticIndexes = "DEMO_StaticIndexesOverview" |
 type AutoIndexes = "DEMO_AutoMapIndex1" |
                    "DEMO_AutoMapIndex2";
 
-type TextSearch = "DEMO_FullTextSearchWithStaticIndex";
+type TextSearch = "DEMO_FTSWithStaticIndexSingleField" |
+                  "DEMO_FTSWithStaticIndexMultipleFields"; 
 
 type Advanced = "DEMO_ReplicationFailover" |
                 "DEMO_CreateDatabase";

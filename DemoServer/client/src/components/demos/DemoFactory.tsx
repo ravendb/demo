@@ -18,7 +18,8 @@ import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
-import { FullTextSearchWithStaticIndexDemo } from "./textSearch/FullTextSearchWithStaticIndexDemo";
+import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
+import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { categoryList } from "./categories";
 import { AppState } from "../../store/state";
@@ -109,8 +110,10 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
             return <AutoMapIndex2Demo />;
             
         // Category: Text Search
-        case "DEMO_FullTextSearchWithStaticIndex":
-            return <FullTextSearchWithStaticIndexDemo />;
+        case "DEMO_FTSWithStaticIndexSingleField":
+            return <FTSWithStaticIndexSingleFieldDemo />;
+        case "DEMO_FTSWithStaticIndexMultipleFields":
+            return <FTSWithStaticIndexMultipleFieldsDemo />;
             
         // Category: Advanced
         case "DEMO_ReplicationFailover":

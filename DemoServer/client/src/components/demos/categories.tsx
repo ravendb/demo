@@ -154,9 +154,14 @@ const textSearch: Category = {
     title: "Text Search",
     demos: [
         {
-            slug: "full-text-search-with-static-index",
-            title: "Full Text Search with Static Index",
-            type: "DEMO_FullTextSearchWithStaticIndex"
+            slug: "fts-with-static-index-single-field",
+            title: "FTS with Static Index - Single Field",
+            type: "DEMO_FTSWithStaticIndexSingleField"
+        },
+        {
+            slug: "fts-with-static-index-multiple-fields",
+            title: "FTS with Static Index - Multiple Fields",
+            type: "DEMO_FTSWithStaticIndexMultipleFields"
         }
     ]
 };

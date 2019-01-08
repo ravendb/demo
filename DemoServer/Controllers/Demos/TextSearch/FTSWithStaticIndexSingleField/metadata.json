@@ -1,8 +1,7 @@
 {
-    "Slug": "full-text-search-with-static-index",
-    "SourceFileName": "FullTextSearchWithStaticIndexController.cs",
-    "Title": "Full Text Search with Static Index",
-    "StudioLinkToMediaDatabase": true,
+    "Slug": "fts-with-static-index-single-field",
+    "SourceFileName": "FTSWithStaticIndexSingleFieldController.cs",
+    "Title": "Full Text Search with Static Index - Single Field",
     "DescriptionLines": [
         "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
         "",
@@ -22,7 +21,7 @@
             "Title": "Full text indexes",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
-        },       
+        },
         {
             "Title": "How the index actually works",
             "Type" : "link",
@@ -45,7 +44,7 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`. ",
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
                 "",
                 "* The generic params:<br>",
                 "    * _Category_ - The source collection for the index will be the 'Categories' collection<br>",
@@ -80,7 +79,7 @@
             "DescriptionLines": [
                 "* Define the index field(s). These fields will be indexed and can be queried on.",
                 "",
-                "* Index field _'categoryDescription'_ is defined here.<br>", 
+                "* Index field _'categoryDescription'_ is defined here.<br>",
                 "  Its content is configured in the next steps, within the index constructor."
             ],
             "Assets": [
@@ -171,7 +170,7 @@
             "DescriptionLines": [
                 "* Now you can search for documents from collection 'Categories' that contain a specific term.",
                 "",
-                "* The query results will be only those documents that contain the value of 'someFood' within their 'Description' field.",
+                "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
                 "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms."
             ],

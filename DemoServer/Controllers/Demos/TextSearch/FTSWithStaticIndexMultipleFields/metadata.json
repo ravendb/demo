@@ -1,0 +1,60 @@
+{
+    "Slug": "fts-with-static-index-multiple-fields",
+    "SourceFileName": "FTSWithStaticIndexMultipleFieldsController.cs",
+    "Title": "Full Text Search with Static Index - Multiple Fields",
+    "StudioLinkToMediaDatabase": true,
+    "DescriptionLines": [
+        "todo...."
+    ],
+
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "The index Result class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Configure full-text search",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Search for documents with a specific term",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "todo..."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}

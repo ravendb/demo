@@ -72,7 +72,8 @@
             "directory": "TextSearch"
         },
         "demos": [
-            "FullTextSearchWithStaticIndex"
+            "FTSWithStaticIndexSingleField",
+            "FTSWithStaticIndexMultipleFields"
         ]
     },
     {
