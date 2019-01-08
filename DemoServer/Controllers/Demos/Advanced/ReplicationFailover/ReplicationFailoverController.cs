@@ -37,7 +37,6 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
                     Database = "Demo",
                 };
 
-
                 documentStore.Initialize();
                 documentStore.SetRequestTimeout(TimeSpan.FromSeconds(1));
 
@@ -46,12 +45,16 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
 
             public static IDocumentStore Store => _store.Value;
         }
+        #endregion
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
             string id = runParams.Id;
-            FailoverStoreHolder.MachineName = runParams.MachineName;
+            var machineName = runParams.MachineName;
+
+            #region Demo
+            FailoverStoreHolder.MachineName = machineName;
 
             dynamic results;
 
@@ -59,10 +62,10 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
             {
                 results = session.Load<dynamic>(id);
             }
+            #endregion
 
             return Ok(results);
         }
-        #endregion
     }
 
     public class RunParams

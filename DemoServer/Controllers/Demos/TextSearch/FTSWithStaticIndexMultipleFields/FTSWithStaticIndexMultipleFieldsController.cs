@@ -21,8 +21,6 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
         {
         }
 
-        protected override Task SetDemoPrerequisites() => DatabaseSetup.EnsureMediaDatabaseExists(UserId);
-
         #region Demo
         #region Step_1
         public class LastFmAnalyzed : AbstractIndexCreationTask<LastFm, LastFmAnalyzed.Result>
@@ -56,14 +54,21 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
                 #endregion
             }
         }
-        
+        #endregion
+
+        protected override async Task SetDemoPrerequisites()
+        {
+            await DatabaseSetup.EnsureMediaDatabaseExists(UserId);
+            await new LastFmAnalyzed().ExecuteAsync(DocumentStoreHolder.MediaStore);
+        }
+
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
             string searchTerm = runParams.SearchTerm;
+
+            #region Demo
             List<LastFm> results;
-            
-            new LastFmAnalyzed().Execute(DocumentStoreHolder.MediaStore);
          
             using (IDocumentSession session = DocumentStoreHolder.MediaStore.OpenSession())
             {
@@ -75,10 +80,10 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
                     .ToList();
                 #endregion
             }
-            
+            #endregion
+
             return Ok(results);
         }
-        #endregion
         
         public class RunParams
         {

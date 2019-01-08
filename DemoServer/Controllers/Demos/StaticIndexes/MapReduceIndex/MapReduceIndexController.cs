@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -54,15 +55,17 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
                 #endregion
             }
         }
-        
+        #endregion
+
+        protected override Task SetDemoPrerequisites() => new Employees_ByCountry().ExecuteAsync(DocumentStoreHolder.Store);
+
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
             string country = runParams.Country;
-            int numberOfEmployeesFromCountry; 
-           
-            new Employees_ByCountry().Execute(DocumentStoreHolder.Store);
-         
+            int numberOfEmployeesFromCountry;
+
+            #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
@@ -72,10 +75,10 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
                 numberOfEmployeesFromCountry = queryResult?.CountryCount ?? 0;
                 #endregion
             }
-           
+            #endregion
+
             return Ok($"Number of employees from : {country.ToUpper()} is: {numberOfEmployeesFromCountry}"); 
         }
-        #endregion
         
         public class RunParams
         {

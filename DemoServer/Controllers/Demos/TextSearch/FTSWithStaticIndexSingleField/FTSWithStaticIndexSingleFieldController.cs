@@ -1,5 +1,6 @@
 ﻿﻿using System.Collections.Generic;
-using DemoCommon.Models;
+ using System.Threading.Tasks;
+ using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -18,8 +19,8 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
+
         #region Demo
-        
         #region Step_1
         public class Categories_DescriptionText : AbstractIndexCreationTask<Category, Categories_DescriptionText.Result>
             #endregion
@@ -46,14 +47,17 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
                 #endregion
             }
         }
-        
+        #endregion
+
+        protected override Task SetDemoPrerequisites() => new Categories_DescriptionText().ExecuteAsync(DocumentStoreHolder.Store);
+
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
             string searchTerm = runParams.SearchTerm;
+
+            #region Demo
             List<Category> categoriesWithSearchTerm;
-                
-            new Categories_DescriptionText().Execute(DocumentStoreHolder.Store);
          
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -64,10 +68,10 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
                        .ToList();
                 #endregion
             }
-            
+            #endregion
+
             return Ok(categoriesWithSearchTerm); 
         }
-        #endregion
         
         public class RunParams
         {

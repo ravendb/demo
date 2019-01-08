@@ -15,16 +15,17 @@ namespace DemoParser.CodeParsing
         private readonly Output _outputDemo = new Output();
 
         private readonly string _filePath;
-        private readonly CodeSlicer _codeSlicer;
         private readonly RegionContainer _regions;
 
         private int _lineCountOffset;
+        private int _walkthroughCountOffset;
+
+        private CodeSlicer CodeSlicer => new CodeSlicer(_filePath, _regions);
 
         private DemoCodeBuilder(string filePath, List<CodeRegion> regions)
         {
             _filePath = filePath;
             _regions = new RegionContainer(regions);
-            _codeSlicer = new CodeSlicer(filePath, _regions);
         }
 
         public static DemoCodeBuilder Initialize(string filePath)
@@ -41,7 +42,7 @@ namespace DemoParser.CodeParsing
             if (usingsRegion == null)
                 return this;
 
-            var usingsCode = _codeSlicer.CopyUsings(new LinesRange
+            var usingsCode = CodeSlicer.CopyUsings(new LinesRange
             {
                 Start = usingsRegion.LineStart,
                 End = usingsRegion.LineEnd
@@ -68,15 +69,22 @@ namespace DemoParser.CodeParsing
             if (demoRegions == null || demoRegions.Count == 0)
                 throw new InvalidOperationException($"Region {RegionNames.Demo} was not found.");
 
-            foreach (var demoRegion in demoRegions)
-                AppendDemoRegion(demoRegion);
+            for (var i = 0; i < demoRegions.Count; i++)
+            {
+                if (i > 0)
+                    AppendEmptyLineBeforeDemoRegion();
+
+                AppendDemoRegion(demoRegions[i]);
+            }
 
             return this;
         }
 
+        private void AppendEmptyLineBeforeDemoRegion() => _outputCode.Append(Environment.NewLine);
+
         private void AppendDemoRegion(CodeRegion demoRegion)
         {
-            var demoCode = _codeSlicer.CopyCodeWithWalkthroughs(new CodeSlicer.CodeWithWalkthroughsInput
+            var demoCode = CodeSlicer.CopyCodeWithWalkthroughs(new CodeSlicer.CodeWithWalkthroughsInput
             {
                 Start = demoRegion.LineStart,
                 End = demoRegion.LineEnd,
@@ -93,18 +101,20 @@ namespace DemoParser.CodeParsing
         {
             var walkRegions = _regions.Walk;
 
-            for (var i = 0; i < walkRegions.Count; i++)
+            for (var i = 0; i < walkthroughRanges.Count; i++)
             {
                 var range = walkthroughRanges[i];
 
                 var walkthrough = new WalkthroughOutput
                 {
                     Range = range,
-                    RegionName = walkRegions[i].Name
+                    RegionName = walkRegions[_walkthroughCountOffset + i].Name
                 };
 
                 _outputDemo.Walkthroughs.Add(walkthrough);
             }
+
+            _walkthroughCountOffset += walkthroughRanges.Count;
         }
 
         public Output Build()

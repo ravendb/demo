@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
@@ -48,14 +49,17 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             }
             #endregion
         }
-        
+        #endregion
+
+        protected override Task SetDemoPrerequisites() => new Employees_ImportantDetails().ExecuteAsync(DocumentStoreHolder.Store);
+
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
             int startYear = runParams.StartYear;
+
+            #region Demo
             List<Employee> employeesFromUSA;
-            
-            new Employees_ImportantDetails().Execute(DocumentStoreHolder.Store);
 
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
@@ -67,10 +71,10 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
                        .ToList();
                 #endregion
             }
-            
+            #endregion
+
             return Ok(employeesFromUSA);
         }
-        #endregion
         
         public class RunParams
         {

@@ -41,10 +41,12 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
             }
             #endregion
         }
-        
+        #endregion
+
         [HttpPost]
         public IActionResult Run()
         {
+            #region Demo
             List<Employee> queryResults;
             
             #region Step_4
@@ -61,9 +63,9 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
                 queryResults = queryOnIndex.ToList();
                 #endregion
             }
+            #endregion
 
             return Ok(queryResults);
         }
-        #endregion
     }
 }

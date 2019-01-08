@@ -76,6 +76,37 @@ namespace DemoParser.Tests.DemoCodeBuilderTests.MultipleDemoRegions
         }
 
         [Fact]
+        public void SetsCorrectRanges_ForFirstRegionWalkthroughs()
+        {
+            var result = GetBuilder()
+                .SetUsings()
+                .SetDemoBody()
+                .Build();
+
+            var resultWalkthroughs = result.Walkthroughs;
+
+            AsserWalkthroughRange(6, 10, resultWalkthroughs[0]);
+            AsserWalkthroughRange(12, 12, resultWalkthroughs[1]);
+            AsserWalkthroughRange(14, 21, resultWalkthroughs[2]);
+            AsserWalkthroughRange(34, 34, resultWalkthroughs[3]);
+            AsserWalkthroughRange(36, 37, resultWalkthroughs[4]);
+        }
+
+        [Fact]
+        public void SetsCorrectRanges_ForAdditionalWalkthroughs()
+        {
+            var result = GetBuilder()
+                .SetUsings()
+                .SetDemoBody()
+                .Build();
+
+            var resultWalkthroughs = result.Walkthroughs;
+
+            AsserWalkthroughRange(43, 44, resultWalkthroughs[5]);
+            AsserWalkthroughRange(49, 50, resultWalkthroughs[6]);
+        }
+
+        [Fact]
         public void CalculatesFileHash()
         {
             var result = GetBuilder()
