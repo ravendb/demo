@@ -15,18 +15,27 @@
     margin: $gutter $gutter 0;
     top: 0;
     left: $gutter;
-    background-color: $gray-darker;
+    display: flex;
+    flex-direction: column;
+
 
     .parameters-header {
-        background-color: $gray-dark;
-        padding: $gutter-xxs $gutter-xs*2;
+        background-color: $gray-darker;
+        padding: $gutter-xxs $gutter-xs*2 0;
         margin-top: 0;
-        margin-bottom:  0;
+        margin-bottom:  -4px;
+        align-self: flex-start;
+        color: $gray-light;
+        font-size: 12px;
+        font-weight: normal;
+        letter-spacing: .15em;
+
     }
 
 .parameters {
     display: flex;
     flex-wrap: wrap;
+    background-color: $gray-darker;
     //position: sticky;
     
     

@@ -12,6 +12,7 @@
     height: 90px;
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 
     h1 {
         margin: 0;
