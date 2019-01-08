@@ -6,8 +6,8 @@ const resultsCreator = () => <ResultText />;
 
 export const IncludeDocumentsWhenLoadingDemo = () => <Demo
     paramDefinitions = {[
-        { inputType: "number", name: "pricePerUnit", placeholder: "New price per unit", paramKind: "text-param" },
-        { inputType: "text", name: "phone", placeholder: "New phone number", paramKind: "text-param" }
+        { inputType: "number", name: "pricePerUnit", placeholder: "12", paramKind: "text-param" },
+        { inputType: "text", name: "phone", placeholder: "(+972)52-5486969", paramKind: "text-param" }
     ]}
     resultsComponents = {resultsCreator}
 />;
