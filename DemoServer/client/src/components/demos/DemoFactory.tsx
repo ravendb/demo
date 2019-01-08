@@ -9,6 +9,7 @@ import { RelatedDocumentsDemo } from "./basics/RelatedDocumentsDemo";
 import { IncludeDocumentsWhenLoadingDemo } from "./basics/IncludeDocumentsWhenLoadingDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
+import { GetRevisionsDemo } from "./revisions/GetRevisionsDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
 import { QueryExampleDemo } from "./queries/QueryExampleDemo";
 import { FullCollectionQueryDemo } from "./queries/FullCollectionQueryDemo";
@@ -85,6 +86,8 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
         // Category: Revisions
         case "DEMO_EnableRevisions":
             return <EnableRevisionsDemo />;
+        case "DEMO_GetRevisions":
+            return <GetRevisionsDemo />;
             
         // Category: Queries
         case "DEMO_QueryOverview":

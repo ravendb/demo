@@ -74,6 +74,11 @@ const revisionsCategory: Category = {
             slug: "enable-revisions",
             title: "Enable Revisions",
             type: "DEMO_EnableRevisions"
+        },
+        {
+            slug: "get-revisions",
+            title: "Get Revisions",
+            type: "DEMO_GetRevisions"
         }
     ]
 };

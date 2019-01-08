@@ -8,7 +8,8 @@ type Basic = "DEMO_TheDocumentStore" |
 
 type Attachments = "DEMO_StoreAttachment";
 
-type Revisions = "DEMO_EnableRevisions";
+type Revisions = "DEMO_EnableRevisions" |
+                 "DEMO_GetRevisions";
 
 type Queries = "DEMO_QueryOverview"                      |
                "DEMO_QueryExample"                       |

@@ -6,8 +6,8 @@ const resultsCreator = () => <ResultText />;
 
 export const EnableRevisionsDemo = () => <Demo
     paramDefinitions = {[
-        { inputType: "text", name: "collection1", placeholder: "Companies", paramKind: "text-param" },
-        { inputType: "text", name: "collection2", placeholder: "Orders", paramKind: "text-param" }
+        { inputType: "text", name: "collection1", placeholder: "Orders", paramKind: "text-param" },
+        { inputType: "text", name: "collection2", placeholder: "Companies", paramKind: "text-param" }
     ]}
     resultsComponents = { resultsCreator }
 />;
