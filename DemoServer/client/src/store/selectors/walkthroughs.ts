@@ -2,12 +2,17 @@ import { createSelector } from "reselect";
 import { DemoState } from "../state/DemoState";
 import { WalkthroughEntry } from "../state/models";
 
-export const selectWalkthroughs = (state: DemoState): WalkthroughEntry[] => {
+const getWalkthroughs = (state: DemoState): WalkthroughEntry[] => {
     const { demo } = state;
     return (demo && demo.walkthroughs)
         ? demo.walkthroughs
         : [];
 };
+
+export const selectWalkthroughs = createSelector(
+    [getWalkthroughs],
+    (walkthroughs) => walkthroughs
+);
 
 export const selectIsAnyWalkthrough = createSelector(
     [selectWalkthroughs],

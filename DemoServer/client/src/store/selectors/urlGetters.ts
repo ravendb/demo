@@ -11,7 +11,7 @@ export interface DemoSlugs {
 
 const getDemoForType = (demoType: DemoType, category: Category) => category.demos.find(x => x.type === demoType);
 
-function getDemoSlugsForType(demoType: DemoType): DemoSlugs {
+const getDemoSlugsForType = (demoType: DemoType): DemoSlugs => {
     for (let category of categoryList) {
         const demoMatch = getDemoForType(demoType, category);
 
@@ -26,12 +26,12 @@ function getDemoSlugsForType(demoType: DemoType): DemoSlugs {
     return null;
 }
 
-function getDemoUrl(slugs: DemoSlugs): string {
+const getDemoUrl = (slugs: DemoSlugs): string => {
     const { category, demo } = slugs;
 
     return createDemoWithWalkthroughPath({
         category,
-        demo,
+        demo
     });
 }
 

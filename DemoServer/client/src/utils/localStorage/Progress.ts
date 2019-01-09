@@ -1,13 +1,16 @@
 import { UserProgress, DemoProgress } from "../../models/progress";
 import { DemoStorage } from "./DemoStorage";
 import { DemoVersionDto } from "../../models/dtos";
+import { DemoVersionInfo } from "../../store/selectors/demos";
 
 export class Progress {
     static get(): UserProgress {
         return DemoStorage.getUserProgress();
     }
 
-    static save(category: string, demo: string, demoHash: string) {
+    static save(versionInfo: DemoVersionInfo) {
+        const { category, demo, demoHash } = versionInfo;
+
         let progress = DemoStorage.getUserProgress();
 
         if (!progress) {

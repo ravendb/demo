@@ -5,7 +5,7 @@ import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
-import { getVersions } from "../../store/actions/progressActions";
+import { getVersions } from "../../store/actions/demoActions";
 
 interface HomeStateProps {
     progress: UserProgress;
@@ -43,9 +43,9 @@ class HomeDisplay extends React.Component<HomeProps, {}> {
 }
 
 export const Home = connect<HomeStateProps, HomeDispatchProps, {}>(
-    ({ progress }: AppState): HomeStateProps => {
+    ({ demos }: AppState): HomeStateProps => {
         return {
-            progress: progress.userProgress
+            progress: demos.userProgress
         }
     },
     (dispatch: DemoThunkDispatch): HomeDispatchProps => {

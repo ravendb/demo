@@ -1,6 +1,6 @@
 import { createSelector } from "reselect"
 import { selectWalkthroughs, selectFirstWalkthrough, selectPreviousWalkthrough, selectNextWalkthrough } from "./walkthroughs";
-import { getDemoSlugs, getWalkthroughUrl } from "./urls";
+import { getDemoSlugs, getWalkthroughUrl } from "./urlGetters";
 import { createDemoWithoutWalkthroughPath } from "../../utils/paths";
 
 export const selectFirstWalkthroughUrl = createSelector(

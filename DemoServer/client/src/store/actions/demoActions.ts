@@ -1,15 +1,16 @@
 import * as actionTypes from "./actionTypes";
+import clipboardCopy = require("clipboard-copy");
 import { DemoThunkAction } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/Services";
-import { DemoDto } from "../../models/dtos";
+import { DemoDto, DemoVersionDto } from "../../models/dtos";
 import { toDemoParamsDto } from "../../models/demoModels";
 import { DemoThunkDispatch } from "../";
-import { updateProgress } from "./progressActions";
-import clipboardCopy = require("clipboard-copy");
 import { FilesCache } from "../../utils/FilesCache";
 import { FormFile } from "../../utils/ApiClient";
 import { DemoType } from "../../components/demos/demoTypes";
+import { Progress } from "../../utils/localStorage/Progress";
+import { selectDemoVersionInfo } from "../selectors/demos";
 
 const service = new DemoService();
 
@@ -70,12 +71,49 @@ export interface GoToDemo {
     destination: DemoType;
 }
 
+export interface GetVersionsRequest {
+    type: actionTypes.DEMO_GET_VERSIONS_REQUEST;
+}
+
+export interface GetVersionsSuccess {
+    type: actionTypes.DEMO_GET_VERSIONS_SUCCESS;
+    results: DemoVersionDto[];
+}
+
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | ToggleDemoShareMessage
-    | GoToDemo;
+    | GoToDemo
+    | GetVersionsRequest | GetVersionsSuccess;
+
+function getVersionsRequest(): GetVersionsRequest {
+    return {
+        type: "DEMO_GET_VERSIONS_REQUEST"
+    };
+}
+
+function getVersionsSuccess(results: DemoVersionDto[]): GetVersionsSuccess {
+    return {
+        type: "DEMO_GET_VERSIONS_SUCCESS",
+        results
+    };
+}
+
+export function getVersions(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch) => {
+        dispatch(getVersionsRequest());
+        try {
+            const results = await service.getVersions();
+
+            Progress.updateDemoVersions(results);
+            dispatch(getVersionsSuccess(results));
+        } catch (error) {
+            dispatch(apiError(error));
+        }
+    }
+}
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
     return {
@@ -105,7 +143,7 @@ export function getMetadata(category: string, demo: string): DemoThunkAction {
         try {
             const result = await service.getMetadata(category, demo);
             dispatch(getMetadataSuccess(result));
-            
+
             if (result.nonInteractive) {
                 dispatch(setPrerequisitesSuccess());
             } else {
@@ -182,8 +220,9 @@ function runDemoSuccess(results: object): RunDemoSuccess {
 
 export function runDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
-        const { demos, params } = getState();
-        const { categorySlug, demoSlug, demo } = demos;
+        const state = getState();
+        const { demos, params } = state;
+        const { demoSlug, demo } = demos;
         const { parameters, attachmentNamesToUpload } = params;
 
         if (demo.nonInteractive) {
@@ -210,8 +249,10 @@ export function runDemo(): DemoThunkAction {
                 result = await demoService.run(dto);
             }
 
+            const saveProgressParams = selectDemoVersionInfo(demos);
+            Progress.save(saveProgressParams);
+
             dispatch(runDemoSuccess(result));
-            dispatch(updateProgress(categorySlug, demoSlug));
         } catch (error) {
             dispatch(apiError(error));
             dispatch(runDemoFailure(error));

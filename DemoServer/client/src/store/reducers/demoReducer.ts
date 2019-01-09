@@ -4,7 +4,8 @@ import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
-import { getDemoUrlForType } from "../selectors/urls";
+import { getDemoUrlForType } from "../selectors/urlGetters";
+import { Progress } from "../../utils/localStorage/Progress";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -16,7 +17,9 @@ const initialState: DemoState = {
     showResultsPanel: false,
     loadingRunResults: false,
     runResults: null,
-    showShareMessage: false
+    showShareMessage: false,
+    userProgress: null,
+    demoVersions: []
 };
 
 const getActiveWalkthroughs = (walkthroughs: WalkthroughEntry[], slug: string) => walkthroughs.map(w =>
@@ -29,6 +32,17 @@ const getAllInactiveWalkthroughs = (walkthroughs: WalkthroughEntry[]) => walkthr
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
+        case "DEMO_GET_VERSIONS_REQUEST":
+            return modifyState(state, s => {
+                s.userProgress = Progress.get();
+            });
+
+        case "DEMO_GET_VERSIONS_SUCCESS":
+            return modifyState(state, s => {
+                s.demoVersions = action.results;
+                s.userProgress = Progress.get();
+            });
+
         case "DEMO_GET_METADATA_REQUEST":
             return modifyState(state, s => s.finishedLoadingDemo = false);
 
@@ -77,6 +91,7 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             return modifyState(state, s => {
                 s.loadingRunResults = false;
                 s.runResults = action.results;
+                s.userProgress = Progress.get();
             });
 
         case "DEMO_RUN_FAILURE":
