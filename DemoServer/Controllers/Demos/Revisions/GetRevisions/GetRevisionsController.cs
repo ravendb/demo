@@ -22,6 +22,7 @@ namespace DemoServer.Controllers.Demos.Revisions.GetRevisions
         public IActionResult Run()
         {
             #region Demo
+            #region Step_1
             RevisionsConfiguration myRevisionsConfiguration = new RevisionsConfiguration
             {
                Default = new RevisionsCollectionConfiguration
@@ -32,22 +33,25 @@ namespace DemoServer.Controllers.Demos.Revisions.GetRevisions
           
             ConfigureRevisionsOperation revisionsConfigurationOperation = new ConfigureRevisionsOperation(myRevisionsConfiguration);
             DocumentStoreHolder.Store.Maintenance.Send(revisionsConfigurationOperation);
+            #endregion
 
             List<Company> revisions;
                 
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
-                #region Step_1
-                
+                #region Step_2
                 Company company = session.Load<Company>("companies/7-A");
 
                 company.Name = "Name 1";
+                session.CountersFor("companies/7-A").Increment("MyCounter", 100);
                 session.SaveChanges();
                 
                 company.Name = "Name 2";
                 company.Phone = "052-1234-567";
                 session.SaveChanges();
-
+                #endregion
+                
+                #region Step_3
                 revisions = session
                     .Advanced
                     .Revisions

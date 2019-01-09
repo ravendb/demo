@@ -3,20 +3,104 @@
     "SourceFileName": "GetRevisionsController.cs",
     "Title": "Get Revisions",
     "DescriptionLines": [
-        "todo..."
+        "When **Revisions** are enabled, a revision for a document will be created upon:",
+        "<p>* Modifying document body<br>",
+        "* Modifying document metadata<br>",
+        "* Adding or removing attachments<br>",
+        "* Creating or deleting counters</p>",
+        "",
+        "The revisions created for a document can be retrieved from the server."
     ],
 
     "Assets": [
+        {
+            "Title": "Revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+        },
+        {
+            "Title": "Document Revisions",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+        },
+        {
+            "Title": "What are revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/revisions/what-are-revisions"
+        }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "todo...",
+            "Title": "Enable revisions",
             "Slug": "step-1",
             "DescriptionLines": [
-                "todo..."
+                "* Document revisions are Not enabled by default.",
+                "",
+                "* The above code will enable the revisions feature for _all_ the database collections.",
+                "",
+                "* Learn more in the _Enable Revisions Demo_."
             ],
             "Assets": [
+                {
+                    "Title": "Enable Revisions Demo: TODO: add link to Enable Revisions Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                }
+            ]
+        },
+        {
+            "Title": "Modify a document",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Make any needed modifications to your document.",
+                "",
+                "* Per each call to `SaveChanges()`, the document is saved in the database.<br>",
+                "  A revision with the document's current content will be created on the server if content is different than what exists on the database.",
+                "",
+                "* The above example will generate 2 new revisions for document 'companies/7-A'.<br>",
+                "  One with a Name & Counter change, and one with a Name & Phone change."
+            ],
+            "Assets": [
+                {
+                    "Title": "Edit Document Demo: TODO: add link to Edit Docuement Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Create Document Demo: TODO: add link to Create Docuement Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                }
+            ]
+        },
+        {
+            "Title": "Get the revisions created",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use the advanced method `GetFor<T>()` to fetch the revisions created.<br>",
+                "  Use the advanced method `GetMetadataFor<T>()` to fetch the revisions metadata.",
+                "",
+                "* The 'revisions' variable will contain a list of revisions for document 'companies/7-A' (the body content, not the metadata)",
+                "",
+                "* Note: The revision content itself cannot be modified on the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                },
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                },
+                {
+                    "Title": "What are revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/revisions/what-are-revisions"
+                }
             ]
         }
     ]

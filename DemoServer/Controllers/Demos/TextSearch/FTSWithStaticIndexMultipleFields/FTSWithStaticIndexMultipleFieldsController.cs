@@ -24,7 +24,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
         #region Demo
         #region Step_1
         public class LastFmAnalyzed : AbstractIndexCreationTask<LastFm, LastFmAnalyzed.Result>
-            #endregion
+        #endregion
         {
             #region Step_2
             public class Result

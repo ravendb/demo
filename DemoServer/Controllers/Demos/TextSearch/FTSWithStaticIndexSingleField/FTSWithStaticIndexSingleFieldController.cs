@@ -23,7 +23,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
         #region Demo
         #region Step_1
         public class Categories_DescriptionText : AbstractIndexCreationTask<Category, Categories_DescriptionText.Result>
-            #endregion
+        #endregion
         {
             #region Step_2
             public class Result

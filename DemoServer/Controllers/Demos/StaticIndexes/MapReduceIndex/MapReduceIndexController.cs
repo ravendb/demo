@@ -23,7 +23,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
         #region Demo
         #region Step_1
         public class Employees_ByCountry : AbstractIndexCreationTask<Employee, Employees_ByCountry.Result>
-            #endregion
+        #endregion
         {
             #region Step_2
             public class Result

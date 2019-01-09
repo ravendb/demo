@@ -5,7 +5,7 @@
     "DescriptionLines": [
         "**Document Revisions** are snapshots of a document that are taken over time per document change.",
         "",
-        "Once created, revisions are immutable and are useful when you need to track document changes.",
+        "Once created, revisions are immutable and are useful when you need to track the changes made to the document.",
         "",
         "Document revisions are not enabled by default.<br>",
         "This demo shows how to enable the feature."
