@@ -38,7 +38,7 @@ export const selectWalkthroughCount = createSelector(
 
 export const selectIsLastWalkthroughActive = createSelector(
     [selectWalkthroughs, selectIsAnyWalkthrough],
-    (walkthroughs, anyWt) => anyWt
+    (walkthroughs, anyWt): boolean => anyWt
         ? walkthroughs[walkthroughs.length - 1].isActive
         : false
 );

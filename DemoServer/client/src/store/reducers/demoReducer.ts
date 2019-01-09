@@ -6,6 +6,8 @@ import { DemoState } from "../state/DemoState";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
 import { getDemoUrlForType } from "../selectors/urlGetters";
 import { Progress } from "../../utils/localStorage/Progress";
+import { selectIsLastWalkthroughActive } from "../selectors/walkthroughs";
+import { selectDemoVersionInfo } from "../selectors/demos";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -66,6 +68,13 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                     demo.walkthroughs = (pathParams && pathParams.wtSlug)
                         ? getActiveWalkthroughs(demo.walkthroughs, pathParams.wtSlug)
                         : getAllInactiveWalkthroughs(demo.walkthroughs);
+                }
+
+                const isLastWalkthroughActive = selectIsLastWalkthroughActive(s);
+                
+                if (isLastWalkthroughActive) {
+                    const demoVersionInfo = selectDemoVersionInfo(s);
+                    Progress.save(demoVersionInfo);
                 }
 
                 if (pathParams) {
