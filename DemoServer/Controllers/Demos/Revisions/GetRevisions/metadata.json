@@ -78,10 +78,14 @@
             "Title": "Get the revisions created",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Use the advanced method `GetFor<T>()` to fetch the revisions created.<br>",
-                "  Use the advanced method `GetMetadataFor<T>()` to fetch the revisions metadata.",
+                "* Use the advanced method `GetFor<T>()` to get all revisions created.<br>",
+                "  Use the advanced method `GetMetadataFor<T>()` to get the revisions metadata.",
                 "",
-                "* The 'revisions' variable will contain a list of revisions for document 'companies/7-A' (the body content, not the metadata)",
+                "* Specific revisions can be fetched by their change-vector, or by a specific date.<br>",
+                "  Learn more in the online documentation.",
+                "",
+                "* The 'revisions' variable will contain a list of revisions for document 'companies/7-A'<br>",
+                "  (with body content, not metadata).",
                 "",
                 "* Note: The revision content itself cannot be modified on the server."
             ],

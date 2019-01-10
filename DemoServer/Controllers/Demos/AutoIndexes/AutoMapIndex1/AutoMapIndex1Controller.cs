@@ -26,7 +26,6 @@ namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex1
             Employee employeeResult;
             
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
-               
             {
                 #region Step_1
                 IQueryable<Employee> findEmployeeQuery = session.Query<Employee>()

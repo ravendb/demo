@@ -3,28 +3,105 @@
     "SourceFileName": "AutoMapIndex2Controller.cs",
     "Title": "Auto Map Index II",
     "StudioLinkToIndexList": true,
-    "DescriptionLines": [" todo... "],
-    
+    "DescriptionLines": [
+        "**Auto-Indexes** are created in such a way that they provide answers not just to the current dynamic query,",
+        "but also to queries about fields that were previously queried on (in the same collection)."
+    ],
+
     "Assets": [
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+        },
+        {
+            "Title": "Querying - Query Optimizer",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+        },
+        {
+            "Title": "Quering Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
+        },
+        {
+            "Title": "Basic dynamic Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        },
+        {
+            "Title": "Indexes Types",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/studio/database/indexes/indexes-overview#indexes-types"
+        },
+        {
+            "Title": "Creating and managing indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#creating-and-managing-indexes"
+        }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Define a query without a specific index",
+            "Title": "Define a dynamic query",
             "Slug" : "step-1",
             "DescriptionLines": [
-                " todo... "
+                "* Define a query with a filtering action, without specifying a specific index.<br>",
+                "",
+                "* The above query is defined on the 'Employees' collection with no index specified.",
+                "",
+                "* Documents returned by this query will be filtered by their _Address.Country_ & _Title_ fields values."
             ],
             "Assets": [
+                {
+                    "Title": "Querying Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
+                },
+                {
+                    "Title": "Basic dynamic Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                }
             ]
         },
         {
-            "Title": "Execute the query",
+            "Title": "Execute the dynamic query",
             "Slug" : "step-2",
             "DescriptionLines": [
-                " todo...."
+                "* Upon query execution, the _query-optimizer_ analyzes the query to see if an _auto-index_ that can answer the query already exists,",
+                "",
+                "* If there is No auto-index defined on the'Employees' collection,<br>",
+                "  => a new auto-indexed will be created.",
+                "",
+                "* If there is an existing auto-index that:",
+                "   - is defined on the 'Employees' collection AND",
+                "   - has both fields 'Country' & 'Title' indexed<br>",
+                "  => then it will be used and No new auto-index will be created.",
+                "",
+                "* If there is an existing auto-index that:",
+                "   - is defined on the 'Employees' collection BUT",
+                "   - has other fields indexed<br>",
+                "  => then the query-optimizer will create a new auto-index on this collection,<br>",
+                "     _merging the previously defined index-fields with the new ones_.",
+                "",
+                "* Once the newly created auto-index is done 'indexing' the data, the old index is removed in favor of the new one.",
+                "",
+                "* If you have run Demo Auto-Map-Index-I prior to this one, then",
+                "  executing the above query will result in a new auto-index by the name: _Auto/Employees/ByAddress.CountryAndFirstNameAndTitle_.<br>",
+                "  The previous index: _Auto/Employees/ByFirstName_ will be removed."
             ],
-            "Assets": [               
+            "Assets": [
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                },
+                {
+                    "Title": "Querying - Query Optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+                }
             ]
         }
     ]
