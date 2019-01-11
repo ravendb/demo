@@ -13,6 +13,7 @@ const initialState: DemoState = {
     language: "csharp",
     categorySlug: "",
     demoSlug: "",
+    wtSlug: null,
     demo: null,
     finishedLoadingDemo: false,
     finishedSettingPrerequisites: false,
@@ -31,6 +32,27 @@ const getActiveWalkthroughs = (walkthroughs: WalkthroughEntry[], slug: string) =
 );
 
 const getAllInactiveWalkthroughs = (walkthroughs: WalkthroughEntry[]) => walkthroughs.map(w => ({ ...w, isActive: false }));
+
+const updateWalkthroughAndProgress = (state: DemoState) => {
+    const { demo, wtSlug } = state;
+
+    if (!demo) {
+        return;
+    }
+
+    if (demo.walkthroughs) {
+        demo.walkthroughs = wtSlug
+            ? getActiveWalkthroughs(demo.walkthroughs, wtSlug)
+            : getAllInactiveWalkthroughs(demo.walkthroughs);
+    }
+
+    const isLastWalkthroughActive = selectIsLastWalkthroughActive(state);
+    
+    if (isLastWalkthroughActive) {
+        const demoVersionInfo = selectDemoVersionInfo(state);
+        Progress.save(demoVersionInfo);
+    }
+}
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
@@ -52,6 +74,8 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             return modifyState(state, s => {
                 s.finishedLoadingDemo = true;
                 s.demo = action.result as DemoEntry;
+
+                updateWalkthroughAndProgress(s);
             });
 
         case "DEMO_GET_METADATA_FAILURE":
@@ -62,25 +86,14 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "@@router/LOCATION_CHANGE":
             return modifyState(state, s => {
                 const pathParams = matchDemoWithWalkthroughPath(action) || matchDemoPath(action);
-                const { demo } = s;
-
-                if (demo && demo.walkthroughs) {
-                    demo.walkthroughs = (pathParams && pathParams.wtSlug)
-                        ? getActiveWalkthroughs(demo.walkthroughs, pathParams.wtSlug)
-                        : getAllInactiveWalkthroughs(demo.walkthroughs);
-                }
-
-                const isLastWalkthroughActive = selectIsLastWalkthroughActive(s);
-                
-                if (isLastWalkthroughActive) {
-                    const demoVersionInfo = selectDemoVersionInfo(s);
-                    Progress.save(demoVersionInfo);
-                }
 
                 if (pathParams) {
                     s.categorySlug = pathParams.category;
                     s.demoSlug = pathParams.demo;
+                    s.wtSlug = pathParams.wtSlug;
                 }
+
+                updateWalkthroughAndProgress(s);
             });
 
         case "DEMO_SET_PREREQUISITES_REQUEST":

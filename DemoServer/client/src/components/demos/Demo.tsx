@@ -25,9 +25,26 @@ export interface DemoDispatchProps {
 export type DemoProps = DemoStateProps & DemoOwnProps & DemoDispatchProps;
 
 export class DemoDisplay extends React.Component<DemoProps, {}> {
-    componentDidMount() {
+    downloadMetadata() {
         const { loadMetadata, categorySlug, demoSlug } = this.props;
         loadMetadata(categorySlug, demoSlug);
+    }
+
+    componentDidMount() {
+        const { categorySlug, demoSlug } = this.props;
+
+        if (categorySlug && demoSlug) {
+            this.downloadMetadata();
+        }
+    }
+
+    componentDidUpdate(prevProps: DemoProps) {
+        const { categorySlug: prevCategory, demoSlug: prevDemo } = prevProps;
+        const { categorySlug, demoSlug } = this.props;
+
+        if (categorySlug !== prevCategory || demoSlug !== prevDemo) {
+            this.downloadMetadata();
+        }
     }
 
     render() {

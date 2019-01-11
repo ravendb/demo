@@ -25,11 +25,8 @@ import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
-import { categoryList } from "./categories";
-import { AppState } from "../../store/state";
-import { connect } from "react-redux";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
-import { DemoType } from "./demoTypes";
+import { getDemoType } from "../../store/selectors/demos";
 
 const DemoNotFound = () => {
     return <>
@@ -38,28 +35,18 @@ const DemoNotFound = () => {
     </>;
 }
 
-function getDemoType(categorySlug: string, demoSlug: string): DemoType {
-    var category = categoryList.find(x => x.slug === categorySlug);
-    if (!category || !category.demos) {
-        return null;
-    }
-
-    var demo = category.demos.find(x => x.slug == demoSlug);
-
-    if (demo) {
-        return demo.type;
-    }
-
-    return null;
-}
-
 interface DemoFactoryProps {
     categorySlug: string;
     demoSlug: string;
 }
 
-function DemoFactoryComponent(props: DemoFactoryProps) {
+export const DemoFactory = (props: DemoFactoryProps) => {
     const { categorySlug, demoSlug } = props;
+
+    if (!categorySlug && !demoSlug) {
+        return null;
+    }
+
     const demoType = getDemoType(categorySlug, demoSlug);
 
     switch (demoType) {
@@ -136,13 +123,3 @@ function DemoFactoryComponent(props: DemoFactoryProps) {
 
     return <DemoNotFound />;
 }
-
-function mapStateToProps({ demos }: AppState): DemoFactoryProps {
-    const { categorySlug, demoSlug } = demos;
-    return {
-        categorySlug,
-        demoSlug
-    };
-}
-
-export const DemoFactory = connect<DemoFactoryProps>(mapStateToProps)(DemoFactoryComponent);

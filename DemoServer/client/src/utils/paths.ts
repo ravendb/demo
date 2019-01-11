@@ -25,6 +25,7 @@ function createMatcher<T>(pattern: string) {
 }
 
 export const matchDemoPath = createMatcher<DemoPathParams>(demoPath);
+
 export const matchDemoWithWalkthroughPath = (action: LocationChangeAction): DemoPathParams => {
     const urlMatch = matchDemoPath(action);
     const hash = getHash(action);

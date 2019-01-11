@@ -8,9 +8,7 @@ export interface DemoVersionInfo extends DemoSlugs {
     demoHash: string;
 }
 
-const getDemoType = (state: DemoState): DemoType => {
-    const { categorySlug, demoSlug } = state;
-
+export const getDemoType = (categorySlug: string, demoSlug: string): DemoType => {
     var category = categoryList.find(x => x.slug === categorySlug);
     if (!category || !category.demos) {
         return null;
@@ -23,6 +21,11 @@ const getDemoType = (state: DemoState): DemoType => {
     }
 
     return null;
+};
+
+export const getDemoTypeFromState = (state: DemoState): DemoType => {
+    const { categorySlug, demoSlug } = state;
+    return getDemoType(categorySlug, demoSlug);
 };
 
 const getDemoHash = (state: DemoState): string => {
@@ -38,7 +41,7 @@ const selectDemoHash = createSelector(
 );
 
 export const selectDemoType = createSelector(
-    [getDemoType],
+    [getDemoTypeFromState],
     (demoType) => demoType
 );
 

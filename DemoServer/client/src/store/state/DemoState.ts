@@ -3,6 +3,12 @@ import { DemoEntry } from "./models";
 import { UserProgress } from "../../models/progress";
 import { DemoVersionDto } from "../../models/dtos";
 
+interface SlugsState {
+    categorySlug: string;
+    demoSlug: string;
+    wtSlug?: string;
+}
+
 interface ProgressState {
     userProgress: UserProgress;
     demoVersions: DemoVersionDto[];
@@ -21,10 +27,9 @@ interface RunResultsState {
 export type DemoState = RunResultsState
     & PrerequisitesState
     & ProgressState
+    & SlugsState
     & {
         language: Language;
-        categorySlug: string;
-        demoSlug: string;
         demo: DemoEntry;
         finishedLoadingDemo: boolean;
         showShareMessage: boolean;
