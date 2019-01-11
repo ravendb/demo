@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { DemoAssetDto } from "../../../models/dtos";
-import { AssetIcon } from "../../ui/AssetIcon";
 import { AppState } from "../../../store/state";
 import { selectActiveWalkthrough } from "../../../store/selectors/walkthroughs";
+import { AssetLink } from "../../helpers/AssetLink";
 
 interface AssetProps {
     dto: DemoAssetDto;
@@ -13,9 +13,8 @@ class Asset extends React.Component<AssetProps, {}> {
     render() {
         const { dto } = this.props;
 
-        const { title, url } = dto;
         return <li>
-            <AssetIcon {...dto} /> <a href={url} target="_blank">{title}</a>
+            <AssetLink {...dto} />
         </li>;
     }
 }

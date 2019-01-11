@@ -71,9 +71,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
                 },
                 {
-                    "Title": "The Document Store - TODO: add link to the Document Store Demo itself !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "The Document Store",
+                    "Type" : "demo",
+                    "Url"  : "/basics/the-document-store"
                 }
             ]
         },

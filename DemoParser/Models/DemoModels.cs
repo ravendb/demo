@@ -46,7 +46,8 @@ namespace DemoParser.Models
     {
         Link,
         Downloadable,
-        Document
+        Document,
+        Demo
     }
 
     public class DemoWalkthrough

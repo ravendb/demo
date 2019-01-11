@@ -1,4 +1,4 @@
-export type AssetType = "Link" | "Downloadable" | "Document";
+export type AssetType = "Link" | "Downloadable" | "Document" | "Demo";
 
 export interface DemoAssetDto {
     type: AssetType;

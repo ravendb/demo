@@ -2,7 +2,7 @@ import * as React from "react";
 import { AssetType, DemoAssetDto } from "../../../models/dtos";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { AssetIcon } from "../../ui/AssetIcon";
+import { AssetLink } from "../../helpers/AssetLink";
 
 export interface AssetsItem {
     url: string;
@@ -15,11 +15,11 @@ interface AssetsProps {
 }
 
 class AssetLinksComponent extends React.Component<AssetsProps, {}> {
-    displayItem(item: AssetsItem, index: number) {
-        const { url, title } = item;
+    private displayItem(item: AssetsItem, index: number) {
+        const { title } = item;
 
         return <li key={`asset_${title}${index}`}>
-            <AssetIcon {...item} /> <a href={url} target="_blank">{title}</a>
+            <AssetLink {...item} />
         </li>;
     }
 

@@ -14,6 +14,9 @@ export class AssetIcon extends React.Component<AssetIconProps, {}> {
             case "Downloadable":
                 return "download";
 
+            case "Demo":
+                return "demo";
+
             case "Link":
             default:
                 return "link";
