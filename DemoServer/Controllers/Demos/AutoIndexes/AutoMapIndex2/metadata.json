@@ -54,6 +54,11 @@
             ],
             "Assets": [
                 {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/auto-indexes/auto-map-index1"
+                },
+                {
                     "Title": "Querying Basics",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"

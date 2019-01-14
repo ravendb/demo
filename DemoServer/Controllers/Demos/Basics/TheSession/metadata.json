@@ -71,7 +71,7 @@
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
                 },
                 {
-                    "Title": "The Document Store",
+                    "Title": "The Document Store Demo",
                     "Type" : "demo",
                     "Url"  : "/basics/the-document-store"
                 }

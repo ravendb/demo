@@ -56,9 +56,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Static Indexes Overview: TODO: add link to Static Indexes Overview Demo !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",

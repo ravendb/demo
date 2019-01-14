@@ -33,10 +33,12 @@ namespace DemoServer.Controllers.Demos.Basics.RelatedDocuments
 
             Category category = new Category
             {
-                Name = "Videos",
-                Description = "DVD, Bluray etc."
+                Name = "NoSQL Databases",
+                Description = "Non-relational databases"
             };
-
+            #endregion
+            
+            #region Step_2
             Product product = new Product
             {
                 Name = productName
@@ -45,19 +47,21 @@ namespace DemoServer.Controllers.Demos.Basics.RelatedDocuments
 
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
-                #region Step_2
+                #region Step_3
                 session.Store(supplier);
                 session.Store(category);
                 #endregion
 
-                #region Step_3
+                #region Step_4
                 product.Supplier = supplier.Id;
                 product.Category = category.Id;
-                
+                #endregion
+
+                #region Step_5
                 session.Store(product);
                 #endregion
 
-                #region Step_4
+                #region Step_6
                 session.SaveChanges();
                 #endregion
             }

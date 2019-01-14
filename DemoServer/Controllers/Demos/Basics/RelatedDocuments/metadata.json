@@ -3,47 +3,204 @@
     "SourceFileName": "RelatedDocumentsController.cs",
     "Title": "Related Documents",
     "DescriptionLines": [
-        "todo..."
+        "A document can reference any other document from the database by storing the referenced document ID in the document.",
+        "",
+        "Referenced documents are called: **Related Documents**."
     ],
 
     "Assets": [
+        {
+            "Title": "Working with multiple documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+        },
+        {
+            "Title": "Indexing Related Documents",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+        },
+        {
+            "Title": "Loading and including related documents in a query",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#loading-and-including-related-documents"
+        },
+        {
+            "Title": "Document Identifier Generation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+        },
+        {
+            "Title": "HiLo Algorithm",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+        },
+        {
+            "Title": "Client-side identifier generation (hilo)",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+        }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Create a new C# object to be saved",
+            "Title": "Create C# entities - Related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "todo..."
+                "* Create the related document entities that will be stored and referenced.",
+                "",
+                "* Each document should be is independent, isolated and coherent.",
+                "",
+                "* 'supplier' & 'category' will be stored & referenced in the next steps."
             ],
             "Assets": [
+                {
+                    "Title": "Create Document Demo: TODO: add link to Create Document Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                }
             ]
         },
         {
-            "Title": "Store the new company object in the Session",
+            "Title": "Create C# entity - Primary document",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "todo..."
+                "* Create the primary document entity that will reference the other documents"               
             ],
             "Assets": [
+                {
+                    "Title": "Create Document Demo: TODO: add link to Create Document Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                }
             ]
         },
         {
-            "Title": "The new document ID is immediately available",
+            "Title": "Store - related documents",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "todo..."
+                "* `Store()` the related 'supplier' & 'category' documents in the Session.",
+                "",
+                "* The store request will be sent to the server only later with the SaveChanges() call.<br>",
+                "  But, the moment we return from Store(), the RavenDB client ensures that we have a _valid ID_ ready to be used for the stored document.",
+                "",
+                "* This ID can be used for referencing - see next step."
             ],
             "Assets": [
+                {
+                    "Title": "Create Document Demo: TODO: add link to Create Document Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "The Session: TODO: add link to The Session Demo !",
+                    "Type" : "link",
+                    "Url"  : "todo..."
+                },
+                {
+                    "Title": "Document Identifier Generation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                },
+                {
+                    "Title": "HiLo Algorithm",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+                },
+                {
+                    "Title": "Client-side identifier generation (hilo)",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+                }
+            ]
+        },
+        {
+            "Title": "Reference the related documents",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Create a reference between the primary document and the related documents.<br>",
+                "  A reference to another document is a string property that contains the ID of the related document.",
+                "",
+                "* _supplier.Id_ & _category.Id_ contain the related documents IDs that were generated by the RavenDB client in the previous step.",
+                "",
+                "* Note: Documents in RavenDB have no schema.<br>",
+                "  You are free to modify the structure of a document however you like.<br>",
+                "  Here we are able to add the 'Supplier' & 'Category' properties to the document, even though they were not previously defined on the C# object."
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Identifier Generation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                },
+                {
+                    "Title": "HiLo Algorithm",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+                },
+                {
+                    "Title": "Client-side identifier generation (hilo)",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+                }
+            ]
+        },
+        {
+            "Title": "Store - primary document",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "Store the primary document itself in the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/create-document"
+                }
             ]
         },
         {
             "Title": "Save the changes",
-            "Slug" : "step-4",
+            "Slug" : "step-6",
             "DescriptionLines": [
-                "todo..."
+                "* When calling `SaveChanges()`, all 3 documents will be created in the database:<br>",
+                "  the 'supplier', the 'category', and the 'product' document which references them."
             ],
             "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/create-document"
+                },
+                {
+                    "Title": "The Session Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/the-session"
+                }
             ]
         }
     ]

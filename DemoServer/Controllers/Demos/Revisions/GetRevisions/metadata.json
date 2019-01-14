@@ -43,9 +43,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Enable Revisions Demo: TODO: add link to Enable Revisions Demo !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "Enable Revisions Demo",
+                    "Type" : "demo",
+                    "Url"  : "/revisions/enable-revisions"
                 }
             ]
         },
@@ -63,14 +63,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "Edit Document Demo: TODO: add link to Edit Docuement Demo !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "Edit Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document"
                 },
                 {
-                    "Title": "Create Document Demo: TODO: add link to Create Docuement Demo !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/create-document"
                 }
             ]
         },

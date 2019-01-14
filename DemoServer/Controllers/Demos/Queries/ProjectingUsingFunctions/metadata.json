@@ -42,9 +42,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Query Overview: TODO: add link to Query Overview Demo !",
-                    "Type" : "link",
-                    "Url"  : "todo..."
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
                 },
                 {
                     "Title": "LINQ Query & Method Syntax",
