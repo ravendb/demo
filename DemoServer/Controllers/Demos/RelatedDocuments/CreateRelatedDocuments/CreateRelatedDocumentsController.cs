@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Session;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Basics.RelatedDocuments
+namespace DemoServer.Controllers.Demos.RelatedDocuments.CreateRelatedDocuments
 {
-    public class RelatedDocumentsController : DemoCodeController
+    public class CreateRelatedDocumentsController : DemoCodeController
     {
-        public RelatedDocumentsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public CreateRelatedDocumentsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }

@@ -40,16 +40,23 @@ const basicsCategory: Category = {
             slug: "delete-document",
             title: "Delete Document",
             type: "DEMO_DeleteDocument"
+        }
+    ]
+};
+
+const relatedDocumentsCategory: Category = {
+    slug: "related-documents",
+    title: "Related Documents",
+    demos: [
+        {
+            slug: "create-related-documents",
+            title: "Create Related Documents",
+            type: "DEMO_CreateRelatedDocuments"
         },
         {
-            slug: "related-documents",
-            title: "Related Documents",
-            type: "DEMO_RelatedDocuments"
-        },
-        {
-            slug: "include-documents-when-loading",
-            title: "Include Documents When Loading",
-            type: "DEMO_IncludeDocumentsWhenLoading"
+            slug: "load-related-documents",
+            title: "Load Related Documents",
+            type: "DEMO_LoadRelatedDocuments"
         }
     ]
 };
@@ -205,6 +212,7 @@ const advancedCategory: Category = {
 
 export const categoryList: Category[] = [
     basicsCategory,
+    relatedDocumentsCategory,
     attachmentsCategory,
     revisionsCategory,
     queriesCategory,

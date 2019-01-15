@@ -9,9 +9,17 @@
             "TheSession",
             "CreateDocument",
             "EditDocument",
-            "DeleteDocument",
-            "RelatedDocuments",
-            "IncludeDocumentsWhenLoading"
+            "DeleteDocument"
+        ]
+    },
+    {
+        "category": {
+            "slug": "related-documents",
+            "directory": "RelatedDocuments"
+        },
+        "demos": [
+            "CreateRelatedDocuments",
+            "LoadRelatedDocuments"
         ]
     },
     {

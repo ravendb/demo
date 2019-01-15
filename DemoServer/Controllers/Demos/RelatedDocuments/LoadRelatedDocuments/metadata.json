@@ -1,0 +1,148 @@
+{
+    "Slug": "load-related-documents",
+    "SourceFileName": "LoadRelatedDocumentsController.cs",
+    "Title": "Load Related Documents",
+    "DescriptionLines": [
+        "**Related documents can be loaded** to the Session from the database when loading the document that references them.",
+        "",
+        "Retrieving a document along with its related documents will occur in a single remote call to the server when using **Include()**.",
+        "",
+        "Using 'Include()' reduces the number of network round trips when working with complex data."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Create Related Documents Demo",
+            "Type" : "demo",
+            "Url"  : "/related-documents/create-related-documents"
+        },
+        {
+            "Title": "Documents relationships - Include",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+        },
+        {
+            "Title": "Working with multiple documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Load a document - Include related documents",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Use `Include()`to instruct the server to send the related document to the client when loading the primary document.<br>",
+                "  The document whose ID is specified in the 'Supplier' field of document 'products/34-A' will be sent to the Session upon the Load() command in the following line.",
+                "",
+                "* Now `Load()` the primary document ('products/34-A') from the database.",
+                "    * _The primary document is loaded_ to the session.",
+                "    * _The related document is sent_ to the session (not loaded).",
+                "    * _Both docs are added_ to the Session's internal entities map for tracking changes that will be made to these documents.",
+                "",
+                "* Variable 'product' will hold the 'products/34-A' document entity.",
+                "",
+                "* Note:",
+                "  * In order to work and modify the related document you still need to make a separate `Load()` call.",
+                "    This load call will Not go to the server, the document will be retrieved directly from Session (see next step).",
+                "  * Multiple Include() calls can be made to fetch more than one related document.",
+                "  * Include is Not recursive, it cannot be used to include documents that are referenced by the included documents."
+            ],
+            "Assets": [
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Load the related document",
+            "Slug" : "step-2",
+            "DescriptionLines": [ 
+                "* Call `Load()` on the related document (product.Supplier) in order to access it.<br>",
+                "",
+                "* No trip to the server is made, as the related document is retrieved directly from the Session.",
+                "",
+                "* variable 'supplier' will hold the related document entity."
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Edit document and related document",
+            "Slug" : "step-3",
+            "DescriptionLines": [ 
+                "* Edit the primary 'product' document and the related 'supplier' document.",
+                "",
+                "* Both documents are tracked by the Session.<br>",
+                "  These changes will be persisted to the database upon the next SaveChanges() call."
+            ],
+            "Assets": [
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Call `SaveChanges()` to save modifications.<br>",
+                "",
+                "* Changes made to both the primary document and the related document will be saved to the database."
+            ],
+            "Assets": [
+                {
+                    "Title": "Save changes (The Session Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        }
+    ]
+}

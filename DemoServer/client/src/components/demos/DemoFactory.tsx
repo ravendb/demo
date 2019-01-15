@@ -5,8 +5,8 @@ import { TheSessionDemo } from "./basics/TheSessionDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
 import { EditDocumentDemo } from "./basics/EditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
-import { RelatedDocumentsDemo } from "./basics/RelatedDocumentsDemo";
-import { IncludeDocumentsWhenLoadingDemo } from "./basics/IncludeDocumentsWhenLoadingDemo";
+import { CreateRelatedDocumentsDemo } from "./relatedDocuments/CreateRelatedDocumentsDemo";
+import { LoadRelatedDocumentsDemo } from "./relatedDocuments/LoadRelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { GetRevisionsDemo } from "./revisions/GetRevisionsDemo";
@@ -60,12 +60,14 @@ export const DemoFactory = (props: DemoFactoryProps) => {
         case "DEMO_EditDocument":
             return <EditDocumentDemo />;
         case "DEMO_DeleteDocument":
-            return <DeleteDocumentDemo />;
-        case "DEMO_RelatedDocuments":
-            return <RelatedDocumentsDemo />;
-        case "DEMO_IncludeDocumentsWhenLoading":
-            return <IncludeDocumentsWhenLoadingDemo />;
+            return <DeleteDocumentDemo />;        
 
+        // Category: Related Documents
+        case "DEMO_CreateRelatedDocuments":
+            return <CreateRelatedDocumentsDemo />;
+        case "DEMO_LoadRelatedDocuments":
+            return <LoadRelatedDocumentsDemo />;
+            
         // Category: Attachments
         case "DEMO_StoreAttachment":
             return <StoreAttachmentDemo />;

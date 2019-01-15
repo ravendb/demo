@@ -2,9 +2,10 @@ type Basic = "DEMO_TheDocumentStore" |
              "DEMO_TheSession"       | 
              "DEMO_CreateDocument"   |
              "DEMO_EditDocument"     |
-             "DEMO_DeleteDocument"   |
-             "DEMO_RelatedDocuments" |
-             "DEMO_IncludeDocumentsWhenLoading";
+             "DEMO_DeleteDocument";
+
+type RelatedDocuments = "DEMO_CreateRelatedDocuments" |
+                        "DEMO_LoadRelatedDocuments";
 
 type Attachments = "DEMO_StoreAttachment";
 
@@ -33,11 +34,12 @@ type TextSearch = "DEMO_FTSWithStaticIndexSingleField" |
 type Advanced = "DEMO_ReplicationFailover" |
                 "DEMO_CreateDatabase";
 
-export type DemoType = Basic         |
-                       Attachments   |
-                       Revisions     |
-                       Queries       |
-                       StaticIndexes |
-                       AutoIndexes   |
-                       TextSearch    |
+export type DemoType = Basic            |
+                       RelatedDocuments |
+                       Attachments      |
+                       Revisions        |
+                       Queries          |
+                       StaticIndexes    |
+                       AutoIndexes      |
+                       TextSearch       |
                        Advanced;

@@ -45,6 +45,7 @@
     <_ContentIncludedByDefault Remove="wwwroot\css\styles.min.css" />
     <_ContentIncludedByDefault Remove="Controllers\Demos\Queries\Demo102\metadata.json" />
     <_ContentIncludedByDefault Remove="Controllers\Demos\Queries\StaticIndexQuery\metadata.json" />
+    <_ContentIncludedByDefault Remove="Controllers\Demos\Basics\IncludeDocumentsWhenLoading\metadata.json" />
   </ItemGroup>
 
   <ItemGroup>

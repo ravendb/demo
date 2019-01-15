@@ -7,13 +7,13 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Session;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Basics.IncludeDocumentsWhenLoading
+namespace DemoServer.Controllers.Demos.RelatedDocuments.LoadRelatedDocuments
 {
-    public class IncludeDocumentsWhenLoadingController : DemoCodeController
+    public class LoadRelatedDocumentsController : DemoCodeController
     {
         private const string DocumentId = "products/34-A";
 
-        public IncludeDocumentsWhenLoadingController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public LoadRelatedDocumentsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
@@ -32,16 +32,18 @@ namespace DemoServer.Controllers.Demos.Basics.IncludeDocumentsWhenLoading
                 Product product = session
                     .Include<Product>(x => x.Supplier)
                     .Load<Product>("products/34-A");
-
-                Supplier supplier = session.Load<Supplier>(product.Supplier);
                 #endregion
                 
                 #region Step_2
+                Supplier supplier = session.Load<Supplier>(product.Supplier);
+                #endregion
+                
+                #region Step_3
                 product.PricePerUnit = pricePerUnit;
                 supplier.Phone = phone;
                 #endregion
                 
-                #region Step_3
+                #region Step_4
                 session.SaveChanges();
                 #endregion
             }

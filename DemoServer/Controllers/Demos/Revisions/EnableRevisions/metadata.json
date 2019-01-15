@@ -59,7 +59,7 @@
                 "",
                 "  * _Disabled_ - Enable or disable the revisions feature.",
                 "  * _PurgeOnDelete_ - Configure deletion of the revisions upon the parent document deletion.",
-                "  * _MinimumRevisionsToKeep_ - Comfigure number of revisions to keep. Only the latest 5 revision will be kept.",
+                "  * _MinimumRevisionsToKeep_ - Configure number of revisions to keep. Only the latest 5 revision will be kept.",
                 "  * _MinimumRevisionAgeToKeep_ - Configure the revisions retention time. Revision will not be kept after 14 days."
                 
             ],
