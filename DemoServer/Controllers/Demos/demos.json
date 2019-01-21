@@ -19,7 +19,8 @@
         },
         "demos": [
             "CreateRelatedDocuments",
-            "LoadRelatedDocuments"
+            "LoadRelatedDocuments",
+            "QueryRelatedDocuments"
         ]
     },
     {

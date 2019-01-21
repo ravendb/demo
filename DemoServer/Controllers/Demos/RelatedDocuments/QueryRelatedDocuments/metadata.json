@@ -1,0 +1,131 @@
+{
+    "Slug": "query-related-documents",
+    "SourceFileName": "QueryRelatedDocumentsController.cs",
+    "Title": "Query Related Documents",
+    "DescriptionLines": [
+        "**A query can ask the server to include related documents** in its response to the query.",
+        "",
+        "The included related documents will be loaded to the session in addition to the resulting query documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Create Related Documents Demo",
+            "Type" : "demo",
+            "Url"  : "/related-documents/create-related-documents"
+        },
+        {
+            "Title": "Load Related Documents Demo",
+            "Type" : "demo",
+            "Url"  : "/related-documents/load-related-documents"
+        },
+        {
+            "Title": "Documents relationships - Include",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+        },
+        {
+            "Title": "Working with multiple documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Make a query - Include related documents",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Use `Include()` to instruct the server to send the related 'Products' documents to the client, in addition to the resulting 'Order' documents that are queried on.<br>",
+                "  Both the resulting query documents and the related documents are added to the Session's internal entities map for tracking changes.",
+                "",
+                "* Variable _'shippedOrders'_ will hold a list of 'Orders' documents whose 'ShippedAt' field is Not null.",
+                "",
+                "* _The related 'Products' documents_, whose ID is specified in the 'Product' fields under 'Lines' within the 'Orders' documents, will be loaded to the Session.",
+                "",
+                "* Note:<br>",
+                "  Since the query is not using an index and filtering is applied, an auto-index will be created if no matching auto-index already exists."
+            ],
+            "Assets": [
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Filtering Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Loop on the resulting documents",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Loop on the resulting Orders documents.<br>",
+                "  For each Order document, retrieve its related documents IDs from the 'Lines' object.",
+                "",
+                "* Each related Product document can be accessed and modified - see next step"
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Edit the related documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Call `Load()` on a related Product document in order to access it.<br>",
+                "  No trip to the server is made, as the related document is retrieved directly from the Session.",
+                "",
+                "* variable 'product' will hold the related document entity.",
+                "* Any field on the Product document can be modified, e.g. the 'UnitsOnOrder' field.",
+                "",
+                "* The related product documents are tracked by the Session.<br>",
+                "  The above modifications will be persisted to the database upon the next SaveChanges() call."
+            ],
+            "Assets": [
+                {
+                    "Title": "Documents relationships - Include",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Call `SaveChanges()` to save modifications.<br>",
+                "",
+                "* Changes made to the related products documents will be saved to the database."
+            ],
+            "Assets": [
+                {
+                    "Title": "Save changes (The Session Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/basics/edit-document#step-1"
+                }
+            ]
+        }
+    ]
+}

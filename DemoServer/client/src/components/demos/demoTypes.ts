@@ -5,7 +5,8 @@ type Basic = "DEMO_TheDocumentStore" |
              "DEMO_DeleteDocument";
 
 type RelatedDocuments = "DEMO_CreateRelatedDocuments" |
-                        "DEMO_LoadRelatedDocuments";
+                        "DEMO_LoadRelatedDocuments"   |
+                        "DEMO_QueryRelatedDocuments";
 
 type Attachments = "DEMO_StoreAttachment";
 
