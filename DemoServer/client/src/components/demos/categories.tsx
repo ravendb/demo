@@ -62,6 +62,11 @@ const relatedDocumentsCategory: Category = {
             slug: "query-related-documents",
             title: "Query Related Documents",
             type: "DEMO_QueryRelatedDocuments"
+        },
+        {
+            slug: "index-related-documents",
+            title: "Index Related Documents",
+            type: "DEMO_IndexRelatedDocuments"
         }
     ]
 };

@@ -8,6 +8,7 @@ import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { CreateRelatedDocumentsDemo } from "./relatedDocuments/CreateRelatedDocumentsDemo";
 import { LoadRelatedDocumentsDemo } from "./relatedDocuments/LoadRelatedDocumentsDemo";
 import { QueryRelatedDocumentsDemo } from "./relatedDocuments/QueryRelatedDocumentsDemo";
+import { IndexRelatedDocumentsDemo } from "./relatedDocuments/IndexRelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { GetRevisionsDemo } from "./revisions/GetRevisionsDemo";
@@ -70,6 +71,8 @@ export const DemoFactory = (props: DemoFactoryProps) => {
             return <LoadRelatedDocumentsDemo />;
         case "DEMO_QueryRelatedDocuments":
             return <QueryRelatedDocumentsDemo />;
+        case "DEMO_IndexRelatedDocuments":
+            return <IndexRelatedDocumentsDemo />;
             
         // Category: Attachments
         case "DEMO_StoreAttachment":

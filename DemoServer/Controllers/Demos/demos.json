@@ -20,7 +20,8 @@
         "demos": [
             "CreateRelatedDocuments",
             "LoadRelatedDocuments",
-            "QueryRelatedDocuments"
+            "QueryRelatedDocuments",
+            "IndexRelatedDocuments"
         ]
     },
     {

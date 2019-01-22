@@ -20,7 +20,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.QueryRelatedDocuments
         }
 
         [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        public IActionResult Run()
         {
             #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
@@ -54,13 +54,6 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.QueryRelatedDocuments
             #endregion
             
             return Ok($"The Product Documents were updated successfully");
-        }
-
-        public class RunParams
-        {
-            public decimal PricePerUnit { get; set; }
-
-            public string Phone { get; set; }
         }
     }
 }
