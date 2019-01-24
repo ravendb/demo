@@ -36,12 +36,12 @@ namespace DemoServer.Controllers
         private Guid UserId => _userId.Get();
 
         [HttpGet]
-        [Route("get-versions")]
-        public IActionResult GetDemoVersions()
+        [Route("get-context")]
+        public IActionResult GetDemoContext()
         {
             var categories = _demoContainer.GetCategories();
 
-            var dto = new MainPageDto
+            var dto = new DemoContextDto
             {
                 Categories = categories,
                 ConferenceMode = _settings.ConferenceMode

@@ -1,8 +1,8 @@
 import * as React from "react";
-import { AssetType, DemoAssetDto } from "../../../models/dtos";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { AssetLink } from "../../helpers/AssetLink";
+import { AssetType, DemoAssetDto } from "../../../models/dtos/demo";
 
 export interface AssetsItem {
     url: string;

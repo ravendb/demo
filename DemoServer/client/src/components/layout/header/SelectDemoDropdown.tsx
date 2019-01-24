@@ -2,10 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { CategorySlug, DemoSlug } from "../../../models/slugs";
-import { MainPageCategoryDto, MainPageDemoDto } from "../../../models/dtos";
+import { CategoryHeaderDto, DemoHeaderDto } from "../../../models/dtos/context";
 import { getDemoUrlForType } from "../../../store/selectors/urlGetters";
 import { push } from "connected-react-router";
-import { getVersions } from "../../../store/actions/demoActions";
+import { getContext } from "../../../store/actions/demoActions";
 import { DemoThunkDispatch } from "../../../store";
 
 interface SlugPair {
@@ -16,11 +16,11 @@ interface SlugPair {
 interface StateProps {
     currentCategory?: CategorySlug;
     currentDemo?: DemoSlug;
-    categories: MainPageCategoryDto[];
+    categories: CategoryHeaderDto[];
 }
 
 interface DispatchProps {
-    loadData: () => void;
+    loadContext: () => void;
     goToDemo: (category: CategorySlug, demo: DemoSlug) => void;
 }
 
@@ -34,7 +34,7 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
     }
 
     componentDidMount() {
-        const { categories, loadData } = this.props;
+        const { categories, loadContext: loadData } = this.props;
 
         if (!categories || categories.length === 0) {
             loadData();
@@ -62,12 +62,12 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         this.props.goToDemo(category, demo);
     }
 
-    private getDemo = (categorySlug: CategorySlug, demo: MainPageDemoDto) => {
+    private getDemo = (categorySlug: CategorySlug, demo: DemoHeaderDto) => {
         const value = this.fromPathSlugsToValue(categorySlug, demo.slug);
         return <option key={demo.slug} value={value}>{demo.title}</option>;
     }
 
-    private getCategory = (category: MainPageCategoryDto) => {
+    private getCategory = (category: CategoryHeaderDto) => {
         const { title, demos } = category;
 
         return <React.Fragment key={title}>
@@ -101,7 +101,7 @@ function mapStateToProps({ demos }: AppState): StateProps {
 
 function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
     return {
-        loadData: () => dispatch(getVersions()),
+        loadContext: () => dispatch(getContext()),
     
         goToDemo: (category: CategorySlug, demo: DemoSlug) => {
             const url = getDemoUrlForType(category, demo);

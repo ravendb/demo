@@ -1,6 +1,6 @@
 import * as React from "react";
-import { AssetType } from "../../models/dtos";
 import { AssetIcon } from "../ui/AssetIcon";
+import { AssetType } from "../../models/dtos/demo";
 
 export interface AssetsItem {
     url: string;

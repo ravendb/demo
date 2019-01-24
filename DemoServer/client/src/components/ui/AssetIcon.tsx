@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AssetType } from "../../models/dtos";
+import { AssetType } from "../../models/dtos/demo";
 
 interface AssetIconProps {
     type: AssetType;

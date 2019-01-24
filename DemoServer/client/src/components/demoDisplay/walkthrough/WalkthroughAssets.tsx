@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { DemoAssetDto } from "../../../models/dtos";
 import { AppState } from "../../../store/state";
 import { selectActiveWalkthrough } from "../../../store/selectors/walkthroughs";
 import { AssetLink } from "../../helpers/AssetLink";
+import { DemoAssetDto } from "../../../models/dtos/demo";
 
 interface AssetProps {
     dto: DemoAssetDto;

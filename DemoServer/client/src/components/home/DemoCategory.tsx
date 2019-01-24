@@ -2,10 +2,10 @@ import * as React from "react";
 import { DemoItem } from "./DemoItem";
 import { DemoProgress } from "../../models/progress";
 import { DemoWithProgress } from "../../models/demo";
-import { MainPageCategoryDto } from "../../models/dtos";
+import { CategoryHeaderDto } from "../../models/dtos/context";
 
 interface DemoCategoryProps {
-    category: MainPageCategoryDto;
+    category: CategoryHeaderDto;
     completedDemos: DemoProgress[];
 }
 

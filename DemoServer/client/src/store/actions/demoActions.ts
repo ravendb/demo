@@ -3,13 +3,14 @@ import clipboardCopy = require("clipboard-copy");
 import { DemoThunkAction } from ".";
 import { apiError } from "./errorActions";
 import { DemoService, RunDemoService } from "../../utils/api/Services";
-import { DemoDto, MainPageCategoryDto } from "../../models/dtos";
+import { CategoryHeaderDto } from "../../models/dtos/context";
 import { toDemoParamsDto } from "../../models/demo";
 import { DemoThunkDispatch } from "../";
 import { FilesCache } from "../../utils/FilesCache";
 import { FormFile } from "../../utils/api/ApiClient";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectDemoVersionInfo } from "../selectors/demos";
+import { DemoDto } from "../../models/dtos/demo";
 
 const service = new DemoService();
 
@@ -65,13 +66,13 @@ export interface ToggleDemoShareMessage {
     show: boolean;
 }
 
-export interface GetVersionsRequest {
-    type: actionTypes.DEMO_GET_VERSIONS_REQUEST;
+export interface GetContextRequest {
+    type: actionTypes.DEMO_GET_CONTEXT_REQUEST;
 }
 
-export interface GetVersionsSuccess {
-    type: actionTypes.DEMO_GET_VERSIONS_SUCCESS;
-    demoVersions: MainPageCategoryDto[];
+export interface GetContextSuccess {
+    type: actionTypes.DEMO_GET_CONTEXT_SUCCESS;
+    categories: CategoryHeaderDto[];
     conferenceMode: boolean;
 }
 
@@ -80,39 +81,39 @@ export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSu
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | ToggleDemoShareMessage
-    | GetVersionsRequest | GetVersionsSuccess;
+    | GetContextRequest | GetContextSuccess;
 
-function getVersionsRequest(): GetVersionsRequest {
+function getContextRequest(): GetContextRequest {
     return {
-        type: "DEMO_GET_VERSIONS_REQUEST"
+        type: "DEMO_GET_CONTEXT_REQUEST"
     };
 }
 
-function getVersionsSuccess(demoVersions: MainPageCategoryDto[], conferenceMode: boolean): GetVersionsSuccess {
+function getContextSuccess(demoVersions: CategoryHeaderDto[], conferenceMode: boolean): GetContextSuccess {
     return {
-        type: "DEMO_GET_VERSIONS_SUCCESS",
-        demoVersions,
+        type: "DEMO_GET_CONTEXT_SUCCESS",
+        categories: demoVersions,
         conferenceMode
     };
 }
 
-export function getVersions(): DemoThunkAction {
+export function getContext(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const state = getState();
         const { demos } = state;
 
-        if (demos.loadingMainPage) {
+        if (demos.loadingContext) {
             return;
         }
 
-        dispatch(getVersionsRequest());
-        
+        dispatch(getContextRequest());
+
         try {
-            const results = await service.getVersions();
+            const results = await service.getDemoContext();
             const { categories, conferenceMode } = results;
 
             Progress.updateDemoVersions(categories);
-            dispatch(getVersionsSuccess(categories, conferenceMode));
+            dispatch(getContextSuccess(categories, conferenceMode));
         } catch (error) {
             dispatch(apiError(error));
         }

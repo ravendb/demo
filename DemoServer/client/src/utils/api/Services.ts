@@ -1,5 +1,7 @@
 import { ApiClient, FormFile } from "./ApiClient";
-import { DemoDto, DemoParamsDto, MainPageDto } from "../../models/dtos";
+import { DemoContextDto } from "../../models/dtos/context";
+import { DemoDto } from "../../models/dtos/demo";
+import { DemoParamsDto } from "../../models/dtos/params";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -36,8 +38,8 @@ export class DemoService extends Service {
         super("/demo");
     }
 
-    async getVersions(): Promise<MainPageDto> {
-        return this.get<MainPageDto>("get-versions");
+    async getDemoContext(): Promise<DemoContextDto> {
+        return this.get<DemoContextDto>("get-context");
     }
 
     async getMetadata(category: string, demo: string): Promise<DemoDto> {

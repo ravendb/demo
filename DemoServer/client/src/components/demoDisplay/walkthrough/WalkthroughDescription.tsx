@@ -2,10 +2,10 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { Markdown } from "../../helpers/Markdown";
-import { DemoLinkDto } from "../../../models/dtos";
 import { IconRight, IconCancel } from "../../helpers/icons";
 import { selectUrlWithoutWalkthrough, selectNextWalkthroughUrl } from "../../../store/selectors/walkthroughUrls";
 import { selectActiveWalkthrough, selectWalkthroughCount } from "../../../store/selectors/walkthroughs";
+import { DemoLinkDto } from "../../../models/dtos/demo";
 
 interface DemoLinkDisplayProps {
     url: string;

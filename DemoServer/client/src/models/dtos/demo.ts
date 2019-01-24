@@ -1,5 +1,3 @@
-import { DemoSlug, CategorySlug } from "./slugs";
-
 export type AssetType = "Link" | "Downloadable" | "Document" | "Demo";
 
 export interface DemoAssetDto {
@@ -37,25 +35,4 @@ export interface DemoDto {
     walkthroughs: DemoWalkthroughDto[];
     nonInteractive: boolean;
     studioUrl: string;
-}
-
-export interface DemoParamsDto {
-    [key:string]: any;
-}
-
-export interface MainPageDemoDto {
-    slug: DemoSlug;
-    title: string;
-    hash: string;
-}
-
-export interface MainPageCategoryDto {
-    slug: CategorySlug;
-    title: string;
-    demos: MainPageDemoDto[];    
-}
-
-export interface MainPageDto {
-    categories: MainPageCategoryDto[];
-    conferenceMode: boolean;
 }

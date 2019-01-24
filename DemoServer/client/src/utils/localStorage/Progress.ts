@@ -1,7 +1,7 @@
 import { UserProgress, DemoProgress } from "../../models/progress";
 import { DemoStorage } from "./DemoStorage";
 import { DemoVersionInfo } from "../../store/selectors/demos";
-import { MainPageCategoryDto } from "../../models/dtos";
+import { CategoryHeaderDto } from "../../models/dtos/context";
 
 export class Progress {
     static get(): UserProgress {
@@ -31,13 +31,13 @@ export class Progress {
         DemoStorage.setUserProgress(progress);
     }
 
-    private static isUpToDate(progress: DemoProgress, categories: MainPageCategoryDto[]): boolean {
+    private static isUpToDate(progress: DemoProgress, categories: CategoryHeaderDto[]): boolean {
         const currentCategory = categories.find(c => c.slug === progress.category);
         const currentDemo = currentCategory && currentCategory.demos && currentCategory.demos.find(d => d.slug === progress.demo);
         return currentDemo && currentDemo.hash === progress.demoHash;
     }
 
-    static updateDemoVersions(categories: MainPageCategoryDto[]) {
+    static updateDemoVersions(categories: CategoryHeaderDto[]) {
         let progress = DemoStorage.getUserProgress();
 
         if (!progress || !progress.completedDemos) {

@@ -22,7 +22,7 @@ const initialState: DemoState = {
     showShareMessage: false,
     userProgress: null,
     categories: [],
-    loadingMainPage: false,
+    loadingContext: false,
     conferenceMode: false
 };
 
@@ -57,19 +57,19 @@ const updateWalkthroughAndProgress = (state: DemoState) => {
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
-        case "DEMO_GET_VERSIONS_REQUEST":
+        case "DEMO_GET_CONTEXT_REQUEST":
             return modifyState(state, s => {
                 s.userProgress = Progress.get();
-                s.loadingMainPage = true;
+                s.loadingContext = true;
             });
 
-        case "DEMO_GET_VERSIONS_SUCCESS":
+        case "DEMO_GET_CONTEXT_SUCCESS":
             return modifyState(state, s => {
-                const { demoVersions, conferenceMode } = action;
-                s.categories = demoVersions;
+                const { categories, conferenceMode } = action;
+                s.categories = categories;
                 s.conferenceMode = conferenceMode;
                 s.userProgress = Progress.get();
-                s.loadingMainPage = false;
+                s.loadingContext = false;
             });
 
         case "DEMO_GET_METADATA_REQUEST":

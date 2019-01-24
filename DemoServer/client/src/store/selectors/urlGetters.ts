@@ -1,7 +1,7 @@
 import { DemoState } from "../state/DemoState";
 import { createDemoWithWalkthroughPath } from "../../utils/paths";
-import { DemoWalkthroughDto } from "../../models/dtos";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
+import { DemoWalkthroughDto } from "../../models/dtos/demo";
 
 export interface DemoPathSlugs {
     category: CategorySlug;

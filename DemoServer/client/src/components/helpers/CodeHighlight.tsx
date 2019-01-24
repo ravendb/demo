@@ -2,7 +2,7 @@ import * as React from "react";
 import { addHighlightHook, removeHighlightHook } from "../../utils/highlight";
 import { addResizeListener, removeResizeListener } from "../../utils/resize";
 import { Language } from "../../models/common";
-import { LinesRangeDto } from "../../models/dtos";
+import { LinesRangeDto } from "../../models/dtos/demo";
 
 const Prism = window["Prism"] as any;
 

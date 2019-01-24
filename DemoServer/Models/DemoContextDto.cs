@@ -3,7 +3,7 @@ using DemoServer.Utils;
 
 namespace DemoServer.Models
 {
-    public class MainPageDto
+    public class DemoContextDto
     {
         public List<DemoContainer.CategoryResult> Categories { get; set; }
 

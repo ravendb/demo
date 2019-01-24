@@ -6,8 +6,8 @@ import { CodeHighlight } from "../helpers/CodeHighlight";
 import { sliceIntoTwo } from "../../utils/codeParsing";
 import { AppState } from "../../store/state";
 import { connect } from "react-redux";
-import { LinesRangeDto } from "../../models/dtos";
 import { selectActiveWalkthrough } from "../../store/selectors/walkthroughs";
+import { LinesRangeDto } from "../../models/dtos/demo";
 
 export interface CodeProps {
     language: Language;

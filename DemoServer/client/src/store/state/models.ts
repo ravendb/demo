@@ -1,4 +1,4 @@
-import { DemoAssetDto, DemoWalkthroughDto } from "../../models/dtos";
+import { DemoWalkthroughDto, DemoAssetDto } from "../../models/dtos/demo";
 
 export interface WalkthroughEntry extends DemoWalkthroughDto {
     isActive: boolean;

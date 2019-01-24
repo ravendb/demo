@@ -1,4 +1,4 @@
-import { DemoParamsDto } from "./dtos";
+import { DemoParamsDto } from "./dtos/params";
 
 export interface Demo {
     slug: string;
