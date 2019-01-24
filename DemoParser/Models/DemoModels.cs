@@ -20,6 +20,8 @@ namespace DemoParser.Models
 
         public bool StudioLinkToIndexList { get; set; }
 
+        public bool ConferenceOnly { get; set; }
+
         public string Hash { get; set; }
 
         public int UsingsLastLine { get; set; }

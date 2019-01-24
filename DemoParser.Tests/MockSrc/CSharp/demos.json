@@ -1,6 +1,7 @@
 [{
         "category": {
             "slug": "Basics",
+            "title": "Basics",
             "directory": "Basics"
         },
         "demos": [
@@ -10,8 +11,8 @@
     },
     {
         "category": {
-
             "slug": "IndEXing",
+            "title": "Indexing",
             "directory": "Indexing"
         },
         "demos": [

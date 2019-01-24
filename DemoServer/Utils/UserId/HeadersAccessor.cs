@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Http;
 
-namespace DemoServer.Utils
+namespace DemoServer.Utils.UserId
 {
     public class HeadersAccessor
     {
@@ -15,15 +15,14 @@ namespace DemoServer.Utils
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public Guid GetUserIdFromRequest()
+        public Guid? GetUserIdFromRequest()
         {
             var value = GetRequestHeader(HeaderKeys.DemoUserId);
 
             if (string.IsNullOrEmpty(value))
-                throw new InvalidOperationException($"There was no {HeaderKeys.DemoUserId} entry in header.");
+                return null;
 
-            var result = Guid.Parse(value);
-            return result;
+            return Guid.Parse(value);
         }
     }
 }

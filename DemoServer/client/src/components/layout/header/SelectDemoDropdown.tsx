@@ -1,18 +1,27 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { categoryList, Category, DemoInfo } from "../../demos/categories";
-import { DemoType } from "../../demos/demoTypes";
-import { selectDemoType } from "../../../store/selectors/demos";
+import { CategorySlug, DemoSlug } from "../../../models/slugs";
+import { MainPageCategoryDto, MainPageDemoDto } from "../../../models/dtos";
+import { getDemoUrlForType } from "../../../store/selectors/urlGetters";
+import { push } from "connected-react-router";
+import { getVersions } from "../../../store/actions/demoActions";
 import { DemoThunkDispatch } from "../../../store";
-import { goToDemo } from "../../../store/actions/demoActions";
+
+interface SlugPair {
+    category: CategorySlug;
+    demo: DemoSlug;
+}
 
 interface StateProps {
-    currentValue?: DemoType;
+    currentCategory?: CategorySlug;
+    currentDemo?: DemoSlug;
+    categories: MainPageCategoryDto[];
 }
 
 interface DispatchProps {
-    goToDemo: (type: DemoType) => void;
+    loadData: () => void;
+    goToDemo: (category: CategorySlug, demo: DemoSlug) => void;
 }
 
 type Props = StateProps & DispatchProps;
@@ -24,46 +33,84 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         this.goToDemo = this.goToDemo.bind(this);
     }
 
+    componentDidMount() {
+        const { categories, loadData } = this.props;
+
+        if (!categories || categories.length === 0) {
+            loadData();
+        }
+    }
+
+    private fromPathSlugsToValue(category: CategorySlug, demo: DemoSlug): string {
+        return `${category}/${demo}`;
+    }
+
+    private fromValueToPathSlugs(value: string): SlugPair {
+        const split = value && value.split("/");
+
+        return split && split.length >= 2 && {
+            category: split[0] as CategorySlug,
+            demo: split[1] as DemoSlug
+        };
+    }
+
     private goToDemo(event: any) {
-        const value = event.target.value as DemoType;
-        this.props.goToDemo(value);
+        const value = event.target.value as string;
+        const slugs = this.fromValueToPathSlugs(value);
+
+        const { category, demo } = slugs;
+        this.props.goToDemo(category, demo);
     }
 
-    private getDemo = (demo: DemoInfo) => {
-        return <option key={demo.type} value={demo.type}>{demo.title}</option>;
+    private getDemo = (categorySlug: CategorySlug, demo: MainPageDemoDto) => {
+        const value = this.fromPathSlugsToValue(categorySlug, demo.slug);
+        return <option key={demo.slug} value={value}>{demo.title}</option>;
     }
 
-    private getCategory = (category: Category) => {
+    private getCategory = (category: MainPageCategoryDto) => {
         const { title, demos } = category;
 
         return <React.Fragment key={title}>
             <option disabled>{title}</option>
-            {demos.map(this.getDemo)}
+            {demos.map(x => this.getDemo(category.slug, x))}
         </React.Fragment>;
     }
 
     render() {
-        const { currentValue } = this.props;
+        const { categories, currentCategory, currentDemo } = this.props;
+        const currentValue = this.fromPathSlugsToValue(currentCategory, currentDemo);
+        const show = !!categories && categories.length > 0;
 
-        return <div>
+        return show && <div>
             <select id="selectDemo" value={currentValue || ""} onChange={this.goToDemo}>
-                {categoryList.map(this.getCategory)}
+                {categories.map(this.getCategory)}
             </select>
         </div>;
     }
 }
 
-export const SelectDemoDropdown = connect<StateProps, DispatchProps>(
-    ({ demos }: AppState): StateProps => {
-        const demoType = selectDemoType(demos);
+function mapStateToProps({ demos }: AppState): StateProps {
+    const { categories, categorySlug, demoSlug } = demos;
 
-        return {
-            currentValue: demoType
-        };
-    },
-    (dispatch: DemoThunkDispatch): DispatchProps => {
-        return {
-            goToDemo: (type: DemoType) => dispatch(goToDemo(type))
+    return {
+        categories,
+        currentCategory: categorySlug,
+        currentDemo: demoSlug
+    };
+}
+
+function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
+    return {
+        loadData: () => dispatch(getVersions()),
+    
+        goToDemo: (category: CategorySlug, demo: DemoSlug) => {
+            const url = getDemoUrlForType(category, demo);
+            return dispatch(push(url));
         }
-    }
+    };
+}
+
+export const SelectDemoDropdown = connect<StateProps, DispatchProps>(
+    mapStateToProps,
+    mapDispatchToProps
 )(SelectDemoDropdownComponent);

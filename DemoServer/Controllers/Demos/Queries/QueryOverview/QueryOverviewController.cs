@@ -1,7 +1,7 @@
 ﻿using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
@@ -13,8 +13,8 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
 {
     public class QueryOverviewController : DemoCodeController
     {
-        public QueryOverviewController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public QueryOverviewController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

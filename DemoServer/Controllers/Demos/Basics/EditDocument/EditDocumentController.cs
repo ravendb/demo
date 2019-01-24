@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents.Session;
@@ -14,8 +14,8 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
     {
         private const string DocumentId = "companies/5-A"; 
 
-        public EditDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public EditDocumentController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

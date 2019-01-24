@@ -1,6 +1,6 @@
 import * as React from "react";
 import * as classNames from "classnames";
-import { Language } from "../../models/commonModels";
+import { Language } from "../../models/common";
 import { CodePreview } from "../helpers/CodePreview";
 import { Collapse } from "../helpers/Collapse";
 

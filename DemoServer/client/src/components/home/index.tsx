@@ -1,56 +1,73 @@
 import * as React from "react";
-import { Category, categoryList } from "../demos/categories";
 import { connect } from "react-redux";
 import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
 import { getVersions } from "../../store/actions/demoActions";
+import { Spinner } from "../ui/Spinner";
+import { MainPageCategoryDto } from "../../models/dtos";
 
-interface HomeStateProps {
+interface StateProps {
     progress: UserProgress;
+    loading: boolean;
+    categories: MainPageCategoryDto[];
 }
 
-interface HomeDispatchProps {
+interface DispatchProps {
     getDemoVersions: () => void;
 }
 
-type HomeProps = HomeStateProps & HomeDispatchProps;
+type Props = StateProps & DispatchProps;
 
-class HomeDisplay extends React.Component<HomeProps, {}> {
+class HomeComponent extends React.Component<Props, {}> {
+
     componentDidMount() {
-        const { getDemoVersions } = this.props;
-        getDemoVersions();
+        this.props.getDemoVersions();
     }
 
-    getCategoryElement(category: Category, index: number) {
+    getCategoryElement(category: MainPageCategoryDto, index: number) {
         const { progress } = this.props;
         const completedForCategory = progress
             && progress.completedDemos
             && progress.completedDemos.filter(x => x.category === category.slug);
 
-        return <DemoCategory category={category} key={`demo_category_${index}`} completedDemos={completedForCategory} />
+        return <DemoCategory key={`demo_category_${index}`}
+            category={category}
+            completedDemos={completedForCategory}
+        />;
+    }
+
+    demoList() {
+        const { categories } = this.props;
+
+        return <div className="demo-list">
+            {categories.map((x, i) => this.getCategoryElement(x, i))}
+        </div>;
     }
 
     render() {
+        const { loading } = this.props;
+
         return <>
             <div className="header-image"><h1>Dive into RavenDB</h1></div>
-            <div className="demo-list">
-                {categoryList.map((x, i) => this.getCategoryElement(x, i))}
-            </div>
+            <Spinner show={loading} />
+            {!loading && this.demoList()}
         </>;
     }
 }
 
-export const Home = connect<HomeStateProps, HomeDispatchProps, {}>(
-    ({ demos }: AppState): HomeStateProps => {
+export const Home = connect<StateProps, DispatchProps, {}>(
+    ({ demos }: AppState): StateProps => {
+        const { userProgress, loadingMainPage, categories } = demos;
+
         return {
-            progress: demos.userProgress
-        }
+            progress: userProgress,
+            loading: loadingMainPage,
+            categories
+        };
     },
-    (dispatch: DemoThunkDispatch): HomeDispatchProps => {
-        return {
-            getDemoVersions: () => dispatch(getVersions())
-        }
-    }
-)(HomeDisplay);
+    (dispatch: DemoThunkDispatch): DispatchProps => ({
+        getDemoVersions: () => dispatch(getVersions())
+    })
+)(HomeComponent);

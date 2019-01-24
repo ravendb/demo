@@ -2,7 +2,8 @@
     {
         "category": {
             "slug": "basics",
-            "directory": "Basics"
+            "directory": "Basics",
+            "title": "Basics"
         },
         "demos": [
             "TheDocumentStore",
@@ -15,7 +16,8 @@
     {
         "category": {
             "slug": "related-documents",
-            "directory": "RelatedDocuments"
+            "directory": "RelatedDocuments",
+            "title": "Related Documents"
         },
         "demos": [
             "CreateRelatedDocuments",
@@ -27,7 +29,8 @@
     {
         "category": {
             "slug": "attachments",
-            "directory": "Attachments"
+            "directory": "Attachments",
+            "title": "Attachments"
         },
         "demos": [
             "StoreAttachment"
@@ -36,7 +39,8 @@
     {
         "category": {
             "slug": "revisions",
-            "directory": "Revisions"
+            "directory": "Revisions",
+            "title": "Revisions"
         },
         "demos": [
             "EnableRevisions",
@@ -46,7 +50,8 @@
     {
         "category": {
             "slug": "queries",
-            "directory": "Queries"
+            "directory": "Queries",
+            "title": "Queries"
         },
         "demos": [
             "QueryOverview",
@@ -62,7 +67,8 @@
     {
         "category": {
             "slug": "static-indexes",
-            "directory": "StaticIndexes"
+            "directory": "StaticIndexes",
+            "title": "Static Indexes"
         },
         "demos": [
             "StaticIndexesOverview",
@@ -73,7 +79,8 @@
     {
         "category": {
             "slug": "auto-indexes",
-            "directory": "AutoIndexes"
+            "directory": "AutoIndexes",
+            "title": "Auto Indexes"
         },
         "demos": [
             "AutoMapIndex1",
@@ -83,7 +90,8 @@
     {
         "category": {
             "slug": "text-search",
-            "directory": "TextSearch"
+            "directory": "TextSearch",
+            "title": "Text Search"
         },
         "demos": [
             "FTSWithStaticIndexSingleField",
@@ -93,7 +101,8 @@
     {
         "category": {
             "slug": "advanced",
-            "directory": "Advanced"
+            "directory": "Advanced",
+            "title": "Advanced"
         },
         "demos": [
             "ReplicationFailover",

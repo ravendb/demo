@@ -10,15 +10,18 @@ namespace DemoServer.Utils
     public class DemoContainer
     {
         private readonly ILogger _logger;
+        private readonly Settings _settings;
 
         public readonly Dictionary<DemoLanguage, List<DemoCategory>> Categories =
             new Dictionary<DemoLanguage, List<DemoCategory>>();
 
         private const DemoLanguage SupportedLanguage = DemoLanguage.CSharp;
 
-        private DemoContainer(string demoSourceFolder, ILogger<DemoContainer> logger)
+        private DemoContainer(string demoSourceFolder, ILogger<DemoContainer> logger, Settings settings)
         {
             _logger = logger;
+            _settings = settings;
+
             var language = SupportedLanguage;
 
             var parserSettings = new ParserSettings
@@ -40,10 +43,8 @@ namespace DemoServer.Utils
             }
         }
 
-        public static DemoContainer Initialize(string demoSourceFolder, ILogger<DemoContainer> logger)
-        {
-            return new DemoContainer(demoSourceFolder, logger);
-        }
+        public static DemoContainer Initialize(string demoSourceFolder, ILogger<DemoContainer> logger, Settings settings) =>
+            new DemoContainer(demoSourceFolder, logger, settings);
 
         public Demo GetDemo(string categoryName, string demoName)
         {
@@ -64,32 +65,50 @@ namespace DemoServer.Utils
             return demo;
         }
 
-        public List<DemoVersionEntry> GetDemoVersions()
+        public List<CategoryResult> GetCategories()
         {
             var categoriesForLanguage = Categories[SupportedLanguage];
-            return GetDemoVersionsFor(categoriesForLanguage).ToList();
+
+            var results = categoriesForLanguage.Select(ToCategoryResult).ToList();
+            return results;
         }
 
-        private IEnumerable<DemoVersionEntry> GetDemoVersionsFor(IEnumerable<DemoCategory> categories)
+        private CategoryResult ToCategoryResult(DemoCategory category)
         {
-            foreach (var category in categories)
+            var conferenceMode = _settings.ConferenceMode;
+
+            var demos = category.Demos
+                .Where(x => conferenceMode || x.ConferenceOnly == false)
+                .Select(ToDemoResult)
+                .ToList();
+
+            return new CategoryResult
             {
-                foreach (var demo in category.Demos)
-                {
-                    yield return new DemoVersionEntry
-                    {
-                        Category = category.Slug,
-                        Demo = demo.Slug,
-                        Hash = demo.Hash
-                    };
-                }
-            }
+                Slug = category.Slug,
+                Title = category.Title,
+                Demos = demos
+            };
         }
 
-        public class DemoVersionEntry
+        private DemoResult ToDemoResult(Demo demo) => new DemoResult
         {
-            public string Category { get; set; }
-            public string Demo { get; set; }
+            Slug = demo.Slug,
+            Hash = demo.Hash,
+            Title = demo.Title
+        };
+
+        public class CategoryResult
+        {
+            public string Slug { get; set; }
+            public string Title { get; set; }
+
+            public List<DemoResult> Demos { get; set; }
+        }
+
+        public class DemoResult
+        {
+            public string Slug { get; set; }
+            public string Title { get; set; }
             public string Hash { get; set; }
         }
     }

@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { ParameterPair } from "../../../models/demoModels";
+import { ParameterPair } from "../../../models/demo";
 import { DemoThunkDispatch } from "../../../store";
 import { initDemoParams } from "../../../store/actions/parametersActions";
 import { TextParameterOwnProps, TextParameter } from "./TextParameter";

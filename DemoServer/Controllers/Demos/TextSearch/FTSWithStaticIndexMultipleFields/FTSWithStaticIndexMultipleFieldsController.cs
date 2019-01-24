@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 #region Usings
@@ -16,8 +16,8 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
 {
     public class FTSWithStaticIndexMultipleFieldsController : DemoCodeController
     {
-        public FTSWithStaticIndexMultipleFieldsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public FTSWithStaticIndexMultipleFieldsController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

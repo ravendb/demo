@@ -2,13 +2,12 @@ import * as actionTypes from "./actionTypes";
 import clipboardCopy = require("clipboard-copy");
 import { DemoThunkAction } from ".";
 import { apiError } from "./errorActions";
-import { DemoService, RunDemoService } from "../../utils/Services";
-import { DemoDto, DemoVersionDto } from "../../models/dtos";
-import { toDemoParamsDto } from "../../models/demoModels";
+import { DemoService, RunDemoService } from "../../utils/api/Services";
+import { DemoDto, MainPageCategoryDto } from "../../models/dtos";
+import { toDemoParamsDto } from "../../models/demo";
 import { DemoThunkDispatch } from "../";
 import { FilesCache } from "../../utils/FilesCache";
-import { FormFile } from "../../utils/ApiClient";
-import { DemoType } from "../../components/demos/demoTypes";
+import { FormFile } from "../../utils/api/ApiClient";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectDemoVersionInfo } from "../selectors/demos";
 
@@ -66,18 +65,14 @@ export interface ToggleDemoShareMessage {
     show: boolean;
 }
 
-export interface GoToDemo {
-    type: actionTypes.DEMO_GO_TO_DEMO;
-    destination: DemoType;
-}
-
 export interface GetVersionsRequest {
     type: actionTypes.DEMO_GET_VERSIONS_REQUEST;
 }
 
 export interface GetVersionsSuccess {
     type: actionTypes.DEMO_GET_VERSIONS_SUCCESS;
-    results: DemoVersionDto[];
+    demoVersions: MainPageCategoryDto[];
+    conferenceMode: boolean;
 }
 
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
@@ -85,7 +80,6 @@ export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSu
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | ToggleDemoShareMessage
-    | GoToDemo
     | GetVersionsRequest | GetVersionsSuccess;
 
 function getVersionsRequest(): GetVersionsRequest {
@@ -94,21 +88,31 @@ function getVersionsRequest(): GetVersionsRequest {
     };
 }
 
-function getVersionsSuccess(results: DemoVersionDto[]): GetVersionsSuccess {
+function getVersionsSuccess(demoVersions: MainPageCategoryDto[], conferenceMode: boolean): GetVersionsSuccess {
     return {
         type: "DEMO_GET_VERSIONS_SUCCESS",
-        results
+        demoVersions,
+        conferenceMode
     };
 }
 
 export function getVersions(): DemoThunkAction {
-    return async (dispatch: DemoThunkDispatch) => {
+    return async (dispatch: DemoThunkDispatch, getState) => {
+        const state = getState();
+        const { demos } = state;
+
+        if (demos.loadingMainPage) {
+            return;
+        }
+
         dispatch(getVersionsRequest());
+        
         try {
             const results = await service.getVersions();
+            const { categories, conferenceMode } = results;
 
-            Progress.updateDemoVersions(results);
-            dispatch(getVersionsSuccess(results));
+            Progress.updateDemoVersions(categories);
+            dispatch(getVersionsSuccess(categories, conferenceMode));
         } catch (error) {
             dispatch(apiError(error));
         }
@@ -277,12 +281,5 @@ export function shareDemo(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch) => {
         clipboardCopy(window.location.href);
         dispatch(toggleDemoShareMessage(true));
-    };
-}
-
-export function goToDemo(destination: DemoType): GoToDemo {
-    return {
-        type: "DEMO_GO_TO_DEMO",
-        destination
     };
 }

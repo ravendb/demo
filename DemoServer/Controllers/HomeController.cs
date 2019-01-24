@@ -1,47 +1,53 @@
 ﻿using System;
-using System.Linq;
 using System.Threading.Tasks;
 using DemoParser.Models;
 using DemoServer.Models;
 using DemoServer.Utils;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.Filters;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace DemoServer.Controllers
 {
     [Route("demo")]
-    [AddUserIdToHeader]
+    [ServiceFilter(typeof(AddUserIdToResponseHeaderAttribute))]
     public class HomeController : Controller
     {
         private readonly DemoContainer _demoContainer;
-        private readonly HeadersAccessor _headersAccessor;
+        private readonly UserIdContainer _userId;
         private readonly DatabaseLinks _databaseLinks;
         private readonly DatabaseSetup _databaseSetup;
         private readonly Settings _settings;
         private readonly ILogger _logger;
 
-        public HomeController(DemoContainer demoContainer, HeadersAccessor headersAccessor, DatabaseLinks databaseLinks,
+        public HomeController(DemoContainer demoContainer, UserIdContainer userId, DatabaseLinks databaseLinks,
             DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger)
         {
             _demoContainer = demoContainer;
-            _headersAccessor = headersAccessor;
+            _userId = userId;
             _databaseSetup = databaseSetup;
             _databaseLinks = databaseLinks;
             _settings = settings;
             _logger = logger;
         }
 
-        private Guid UserId => _headersAccessor.GetUserIdFromRequest();
+        private Guid UserId => _userId.Get();
 
         [HttpGet]
         [Route("get-versions")]
         public IActionResult GetDemoVersions()
         {
-            var versions = _demoContainer.GetDemoVersions();
-            var dtos = versions.Select(DemoVersionDto.FromEntry).ToList();
-            return Ok(dtos);
+            var categories = _demoContainer.GetCategories();
+
+            var dto = new MainPageDto
+            {
+                Categories = categories,
+                ConferenceMode = _settings.ConferenceMode
+            };
+
+            return Ok(dto);
         }
 
         [HttpGet]
@@ -54,7 +60,6 @@ namespace DemoServer.Controllers
                 var dto = DemoDto.FromModel(demo);
 
                 dto.StudioUrl = GetStudioUrl(demo);
-                dto.ConferenceMode = _settings.ConferenceMode;
 
                 return Ok(dto);
             }

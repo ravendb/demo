@@ -1,7 +1,7 @@
 ﻿using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Documents.Session;
@@ -11,8 +11,8 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
 {
     public class CreateDocumentController : DemoCodeController
     {
-        public CreateDocumentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public CreateDocumentController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

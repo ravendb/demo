@@ -15,6 +15,8 @@ namespace DemoParser.Utils.Json
         public string Slug { get; set; }
 
         public string Directory { get; set; }
+
+        public string Title { get; set; }
     }
 
     internal class JsonMetadata
@@ -44,6 +46,8 @@ namespace DemoParser.Utils.Json
         public bool StudioLinkToMediaDatabase { get; set; }
 
         public bool StudioLinkToIndexList { get; set; }
+
+        public bool ConferenceOnly { get; set; }
 
         public List<JsonDemoAsset> Assets { get; set; }
 

@@ -1,7 +1,7 @@
 ﻿using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
@@ -13,7 +13,8 @@ namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex1
 {
     public class AutoMapIndex1Controller : DemoCodeController
     {
-        public AutoMapIndex1Controller(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public AutoMapIndex1Controller(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

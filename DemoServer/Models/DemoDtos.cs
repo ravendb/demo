@@ -22,7 +22,6 @@ namespace DemoServer.Models
         public List<DemoAssetDto> Assets { get; set; }
         public List<DemoWalkthroughDto> Walkthroughs { get; set; }
         public string StudioUrl { get; set; }
-        public bool ConferenceMode { get; set; }
 
         public static DemoDto FromModel(Demo demo)
         {

@@ -1,7 +1,7 @@
 import { UserProgress, DemoProgress } from "../../models/progress";
 import { DemoStorage } from "./DemoStorage";
-import { DemoVersionDto } from "../../models/dtos";
 import { DemoVersionInfo } from "../../store/selectors/demos";
+import { MainPageCategoryDto } from "../../models/dtos";
 
 export class Progress {
     static get(): UserProgress {
@@ -31,19 +31,20 @@ export class Progress {
         DemoStorage.setUserProgress(progress);
     }
 
-    private static isUpToDate(progress: DemoProgress, currentVersions: DemoVersionDto[]): boolean {
-        const current = currentVersions.find(c => c.category === progress.category && c.demo === progress.demo);
-        return current && current.hash === progress.demoHash;
+    private static isUpToDate(progress: DemoProgress, categories: MainPageCategoryDto[]): boolean {
+        const currentCategory = categories.find(c => c.slug === progress.category);
+        const currentDemo = currentCategory && currentCategory.demos && currentCategory.demos.find(d => d.slug === progress.demo);
+        return currentDemo && currentDemo.hash === progress.demoHash;
     }
 
-    static updateDemoVersions(currentVersions: DemoVersionDto[]) {
+    static updateDemoVersions(categories: MainPageCategoryDto[]) {
         let progress = DemoStorage.getUserProgress();
 
         if (!progress || !progress.completedDemos) {
             return;
         }
 
-        progress.completedDemos = progress.completedDemos.filter(x => this.isUpToDate(x, currentVersions));
+        progress.completedDemos = progress.completedDemos.filter(x => this.isUpToDate(x, categories));
         DemoStorage.setUserProgress(progress);
     }
 }

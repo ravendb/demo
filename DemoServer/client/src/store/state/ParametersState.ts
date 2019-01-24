@@ -1,4 +1,4 @@
-import { ParameterPair } from "../../models/demoModels";
+import { ParameterPair } from "../../models/demo";
 
 interface FileParamValidationError {
     paramName: string;

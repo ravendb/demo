@@ -43,7 +43,8 @@ namespace DemoParser
             {
                 Slug = category.Slug.ToLower(),
                 Directory = folderName,
-                Demos = demos
+                Demos = demos,
+                Title = category.Title
             };
         }
 

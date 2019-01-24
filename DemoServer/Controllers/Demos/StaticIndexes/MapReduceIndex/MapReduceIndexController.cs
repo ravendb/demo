@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
@@ -15,8 +15,8 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
 {
     public class MapReduceIndexController : DemoCodeController
     {
-        public MapReduceIndexController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public MapReduceIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

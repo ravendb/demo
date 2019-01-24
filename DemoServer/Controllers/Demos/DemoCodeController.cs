@@ -1,28 +1,28 @@
 ﻿using System;
 using System.Threading.Tasks;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Conventions;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.Filters;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DemoServer.Controllers.Demos
 {
     [ExecuteDemoRoute]
-    [AddUserIdToHeader]
+    [ServiceFilter(typeof(AddUserIdToResponseHeaderAttribute))]
     public abstract class DemoCodeController : Controller
     {
-        private readonly HeadersAccessor _headersAccessor;
+        private readonly UserIdContainer _userId;
         private readonly UserStoreCache _userStoreCache;
         private readonly MediaStoreCache _mediaStoreCache;
 
         protected readonly DatabaseSetup DatabaseSetup;
 
-        protected DemoCodeController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+        protected DemoCodeController(UserIdContainer userId, UserStoreCache userStoreCache,
             MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup)
         {
-            _headersAccessor = headersAccessor;
+            _userId= userId;
             _userStoreCache = userStoreCache;
             _mediaStoreCache = mediaStoreCache;
 
@@ -38,7 +38,7 @@ namespace DemoServer.Controllers.Demos
 
         protected virtual Task SetDemoPrerequisites() => Task.CompletedTask;
 
-        protected Guid UserId => _headersAccessor.GetUserIdFromRequest();
+        protected Guid UserId => _userId.Get();
 
         protected DocumentStoreHolderWrapper DocumentStoreHolder =>
             new DocumentStoreHolderWrapper(_userStoreCache, _mediaStoreCache, UserId);

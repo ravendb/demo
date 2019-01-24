@@ -1,7 +1,7 @@
 ﻿using System;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents;
 #region Usings
@@ -12,9 +12,9 @@ namespace DemoServer.Controllers.Demos.Advanced.ReplicationFailover
 {
     public class ReplicationFailoverController : DemoCodeController
     {
-        public ReplicationFailoverController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
+        public ReplicationFailoverController(UserIdContainer userId, UserStoreCache userStoreCache,
             MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup)
-            : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+            : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

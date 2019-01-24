@@ -11,6 +11,8 @@ namespace DemoParser.Models
 
         public string Slug { get; set; }
 
+        public string Title { get; set; }
+
         public string Directory { get; set; }
 
         public List<Demo> Demos { get; set; }

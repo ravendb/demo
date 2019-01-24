@@ -28,7 +28,7 @@ import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
-import { getDemoType } from "../../store/selectors/demos";
+import { CategorySlug, DemoSlug } from "../../models/slugs";
 
 const DemoNotFound = () => {
     return <>
@@ -37,97 +37,149 @@ const DemoNotFound = () => {
     </>;
 }
 
-interface DemoFactoryProps {
-    categorySlug: string;
-    demoSlug: string;
+interface Props {
+    categorySlug: CategorySlug;
+    demoSlug: DemoSlug;
 }
 
-export const DemoFactory = (props: DemoFactoryProps) => {
-    const { categorySlug, demoSlug } = props;
+export class DemoFactory extends React.Component<Props, {}> {
 
-    if (!categorySlug && !demoSlug) {
+    getBasicsDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "the-document-store":
+                return <TheDocumentStoreDemo />;
+            case "the-session":
+                return <TheSessionDemo />;
+            case "create-document":
+                return <CreateDocumentDemo />;
+            case "edit-document":
+                return <EditDocumentDemo />;
+            case "delete-document":
+                return <DeleteDocumentDemo />;
+        }
+    }
+
+    getRelatedDocumentsDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "create-related-documents":
+                return <CreateRelatedDocumentsDemo />;
+            case "load-related-documents":
+                return <LoadRelatedDocumentsDemo />;
+            case "query-related-documents":
+                return <QueryRelatedDocumentsDemo />;
+            case "index-related-documents":
+                return <IndexRelatedDocumentsDemo />;
+        }
+    }
+
+    getAttachmentsDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "store-attachment":
+                return <StoreAttachmentDemo />;
+        }
+    }
+
+    getRevisionsDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "enable-revisions":
+                return <EnableRevisionsDemo />;
+            case "get-revisions":
+                return <GetRevisionsDemo />;
+        }
+    }
+
+    getQueriesDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "query-overview":
+                return <QueryOverviewDemo />;
+            case "query-example":
+                return <QueryExampleDemo />;
+            case "full-collection-query":
+                return <FullCollectionQueryDemo />;
+            case "query-by-document-id":
+                return <QueryByDocumentIdDemo />;
+            case "filtering-results-basics":
+                return <FilteringResultsBasicsDemo />;
+            case "filtering-results-multiple-conditions":
+                return <FilteringResultsMultipleConditionsDemo />;
+            case "projecting-individual-fields":
+                return <ProjectingIndividualFieldsDemo />;
+            case "projecting-using-functions":
+                return <ProjectingUsingFunctionsDemo />;
+        }
+    }
+
+    getStaticIndexesDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "static-indexes-overview":
+                return <StaticIndexesOverviewDemo />;
+            case "map-index":
+                return <MapIndexDemo />;
+            case "map-reduce-index":
+                return <MapReduceIndexDemo />;
+        }
+    }
+
+    getAutoIndexesDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "auto-map-index1":
+                return <AutoMapIndex1Demo />;
+            case "auto-map-index2":
+                return <AutoMapIndex2Demo />;
+        }
+    }
+
+    getTextSearchDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "fts-with-static-index-single-field":
+                return <FTSWithStaticIndexSingleFieldDemo />;
+            case "fts-with-static-index-multiple-fields":
+                return <FTSWithStaticIndexMultipleFieldsDemo />;
+        }
+    }
+
+    getAdvancedDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "replication-failover":
+                return <ReplicationFailoverDemo />;
+            case "create-database":
+                return <CreateDatabaseDemo />;
+        }
+    }
+
+    getDemoForCategory(categorySlug: CategorySlug, demoSlug: DemoSlug) {
+        switch (categorySlug) {
+            case "basics":
+                return this.getBasicsDemo(demoSlug);
+            case "related-documents":
+                return this.getRelatedDocumentsDemo(demoSlug);
+            case "attachments":
+                return this.getAttachmentsDemo(demoSlug);
+            case "revisions":
+                return this.getRevisionsDemo(demoSlug);
+            case "queries":
+                return this.getQueriesDemo(demoSlug);
+            case "static-indexes":
+                return this.getStaticIndexesDemo(demoSlug);
+            case "auto-indexes":
+                return this.getAutoIndexesDemo(demoSlug);
+            case "text-search":
+                return this.getTextSearchDemo(demoSlug);
+            case "advanced":
+                return this.getAdvancedDemo(demoSlug);
+        }
+
         return null;
     }
 
-    const demoType = getDemoType(categorySlug, demoSlug);
+    render() {
+        const { categorySlug, demoSlug } = this.props;
 
-    switch (demoType) {
-        // Category: Basics
-        case "DEMO_TheDocumentStore":
-            return <TheDocumentStoreDemo />;
-        case "DEMO_TheSession":
-            return <TheSessionDemo />;
-        case "DEMO_CreateDocument":
-            return <CreateDocumentDemo />;
-        case "DEMO_EditDocument":
-            return <EditDocumentDemo />;
-        case "DEMO_DeleteDocument":
-            return <DeleteDocumentDemo />;        
+        if (!categorySlug && !demoSlug) {
+            return null;
+        }
 
-        // Category: Related Documents
-        case "DEMO_CreateRelatedDocuments":
-            return <CreateRelatedDocumentsDemo />;
-        case "DEMO_LoadRelatedDocuments":
-            return <LoadRelatedDocumentsDemo />;
-        case "DEMO_QueryRelatedDocuments":
-            return <QueryRelatedDocumentsDemo />;
-        case "DEMO_IndexRelatedDocuments":
-            return <IndexRelatedDocumentsDemo />;
-            
-        // Category: Attachments
-        case "DEMO_StoreAttachment":
-            return <StoreAttachmentDemo />;
-
-        // Category: Revisions
-        case "DEMO_EnableRevisions":
-            return <EnableRevisionsDemo />;
-        case "DEMO_GetRevisions":
-            return <GetRevisionsDemo />;
-            
-        // Category: Queries
-        case "DEMO_QueryOverview":
-            return <QueryOverviewDemo />;
-        case "DEMO_QueryExample":
-            return <QueryExampleDemo />;
-        case "DEMO_FullCollectionQuery":
-            return <FullCollectionQueryDemo />;
-        case "DEMO_QueryByDocumentId":
-            return <QueryByDocumentIdDemo />;
-        case "DEMO_FilteringResultsBasics":
-            return <FilteringResultsBasicsDemo />;
-        case "DEMO_FilteringResultsMultipleConditions":
-            return <FilteringResultsMultipleConditionsDemo />;
-        case "DEMO_ProjectingIndividualFields":
-            return <ProjectingIndividualFieldsDemo />;
-        case "DEMO_ProjectingUsingFunctions":
-            return <ProjectingUsingFunctionsDemo />;       
-
-        // Category: Static Indexes
-        case "DEMO_StaticIndexesOverview":
-            return <StaticIndexesOverviewDemo />;
-        case "DEMO_MapIndex":
-            return <MapIndexDemo />;
-        case "DEMO_MapReduceIndex":
-            return <MapReduceIndexDemo />;
-
-        // Category: Auto Indexes
-        case "DEMO_AutoMapIndex1":
-            return <AutoMapIndex1Demo />;
-        case "DEMO_AutoMapIndex2":
-            return <AutoMapIndex2Demo />;
-            
-        // Category: Text Search
-        case "DEMO_FTSWithStaticIndexSingleField":
-            return <FTSWithStaticIndexSingleFieldDemo />;
-        case "DEMO_FTSWithStaticIndexMultipleFields":
-            return <FTSWithStaticIndexMultipleFieldsDemo />;
-            
-        // Category: Advanced
-        case "DEMO_ReplicationFailover":
-            return <ReplicationFailoverDemo />;
-        case "DEMO_CreateDatabase":
-            return <CreateDatabaseDemo />;   
+        const demo = this.getDemoForCategory(categorySlug, demoSlug);
+        return demo || <DemoNotFound />;
     }
-
-    return <DemoNotFound />;
 }

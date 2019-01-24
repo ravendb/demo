@@ -1,11 +1,12 @@
 import { matchPath } from "react-router-dom";
 import { LocationChangeAction } from "connected-react-router";
+import { CategorySlug, DemoSlug } from "../models/slugs";
 
 export const demoPath = '/demos/:category/:demo';
 
 export interface DemoPathParams {
-    category: string;
-    demo: string;
+    category: CategorySlug;
+    demo: DemoSlug;
     wtSlug?: string;
 }
 

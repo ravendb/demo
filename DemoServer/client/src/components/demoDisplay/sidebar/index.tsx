@@ -6,7 +6,7 @@ import { LanguageSelect } from "./LanguageSelect";
 import { Description } from "./Description";
 import { WalkthroughLinks } from "./WalkthroughLinks";
 import { AssetLinks } from "./AssetLinks";
-import { Language } from "../../../models/commonModels";
+import { Language } from "../../../models/common";
 import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
@@ -63,12 +63,12 @@ export class SidebarDisplay extends React.Component<Props, State> {
 }
 
 function mapStateToProps({ demos }: AppState): Props {
-    const { language, demo } = demos;
+    const { language, demo, conferenceMode } = demos;
 
     return {
         title: demo && demo.title,
         selectedLanguage: language,
-        conferenceMode: demo && demo.conferenceMode
+        conferenceMode
     };
 }
 

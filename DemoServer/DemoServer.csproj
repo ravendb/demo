@@ -36,7 +36,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="tsconfig.json" />
-    <None Include="tsconfig.prod.json" />
     <None Include="tslint.json" />
     <None Include="compilerconfig.json" />
   </ItemGroup>

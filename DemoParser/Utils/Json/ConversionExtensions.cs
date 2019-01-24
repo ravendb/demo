@@ -12,14 +12,22 @@ namespace DemoParser.Utils.Json
             var demo = new Demo();
             demo.Title = json.Title;
             demo.DescriptionHtml = ConvertToDescription(json.DescriptionLines);
-            demo.NonInteractive = json.NonInteractive;
-            demo.StudioLinkToMediaDatabase = json.StudioLinkToMediaDatabase;
-            demo.StudioLinkToIndexList = json.StudioLinkToIndexList;
+
             demo.Assets = json.Assets.Select(ToModel).ToList();
             demo.Walkthroughs = json.Walkthroughs.Select(ToModel).ToList();
             demo.Slug = json.Slug.ToLower();
 
+            CopyOptionalFields(from: json, to: demo);
+
             return demo;
+        }
+
+        private static void CopyOptionalFields(JsonMetadata from, Demo to)
+        {
+            to.NonInteractive = from.NonInteractive;
+            to.StudioLinkToMediaDatabase = from.StudioLinkToMediaDatabase;
+            to.StudioLinkToIndexList = from.StudioLinkToIndexList;
+            to.ConferenceOnly = from.ConferenceOnly;
         }
 
         private static DemoWalkthrough ToModel(JsonDemoWalkthrough json)

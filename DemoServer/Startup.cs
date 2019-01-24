@@ -2,6 +2,8 @@
 using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.Filters;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -47,7 +49,8 @@ namespace DemoServer
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
 
-            var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>());
+            var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>(), settings);
+            
             services.AddSingleton(demoContainer);
             services.AddSingleton<DocumentStoreHolder>();
             services.AddSingleton(_ => new DatabaseName(settings.Database, settings.ConferenceMode));
@@ -56,8 +59,10 @@ namespace DemoServer
             services.AddScoped<MediaStoreCache>();
 
             services.AddScoped<HeadersAccessor>();
+            services.AddScoped<UserIdContainer>();
             services.AddScoped<DatabaseSetup>();
             services.AddScoped<DatabaseLinks>();
+            services.AddScoped<AddUserIdToResponseHeaderAttribute>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)

@@ -2,6 +2,7 @@
     "Slug": "replication-failover",
     "SourceFileName": "ReplicationFailoverController.cs",
     "Title": "Replication Failover",
+    "ConferenceOnly": true,
     "DescriptionLines": [],
     "Assets": [],
     "Walkthroughs": []

@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DemoCommon.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
@@ -15,8 +15,8 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
 {
     public class IndexRelatedDocumentsController : DemoCodeController
     {
-        public IndexRelatedDocumentsController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public IndexRelatedDocumentsController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         

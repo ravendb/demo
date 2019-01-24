@@ -4,15 +4,14 @@ import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoState } from "../state/DemoState";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
-import { getDemoUrlForType } from "../selectors/urlGetters";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectIsLastWalkthroughActive } from "../selectors/walkthroughs";
 import { selectDemoVersionInfo } from "../selectors/demos";
 
 const initialState: DemoState = {
     language: "csharp",
-    categorySlug: "",
-    demoSlug: "",
+    categorySlug: null,
+    demoSlug: null,
     wtSlug: null,
     demo: null,
     finishedLoadingDemo: false,
@@ -22,7 +21,9 @@ const initialState: DemoState = {
     runResults: null,
     showShareMessage: false,
     userProgress: null,
-    demoVersions: []
+    categories: [],
+    loadingMainPage: false,
+    conferenceMode: false
 };
 
 const getActiveWalkthroughs = (walkthroughs: WalkthroughEntry[], slug: string) => walkthroughs.map(w =>
@@ -59,12 +60,16 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "DEMO_GET_VERSIONS_REQUEST":
             return modifyState(state, s => {
                 s.userProgress = Progress.get();
+                s.loadingMainPage = true;
             });
 
         case "DEMO_GET_VERSIONS_SUCCESS":
             return modifyState(state, s => {
-                s.demoVersions = action.results;
+                const { demoVersions, conferenceMode } = action;
+                s.categories = demoVersions;
+                s.conferenceMode = conferenceMode;
                 s.userProgress = Progress.get();
+                s.loadingMainPage = false;
             });
 
         case "DEMO_GET_METADATA_REQUEST":
@@ -130,11 +135,6 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
             return modifyState(state, s => {
                 s.showShareMessage = action.show;
             });
-
-        case "DEMO_GO_TO_DEMO":
-            const url = getDemoUrlForType(action.destination);
-            location.replace(url);
-            return state;
     }
 
     return state;

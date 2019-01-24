@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Language } from "../../models/commonModels";
+import { Language } from "../../models/common";
 import { Usings } from "./Usings";
 import { CodePreview } from "../helpers/CodePreview";
 import { CodeHighlight } from "../helpers/CodeHighlight";

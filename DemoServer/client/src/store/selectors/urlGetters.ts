@@ -1,46 +1,20 @@
 import { DemoState } from "../state/DemoState";
 import { createDemoWithWalkthroughPath } from "../../utils/paths";
 import { DemoWalkthroughDto } from "../../models/dtos";
-import { DemoType } from "../../components/demos/demoTypes";
-import { categoryList, Category } from "../../components/demos/categories";
+import { CategorySlug, DemoSlug } from "../../models/slugs";
 
-export interface DemoSlugs {
-    category: string;
-    demo: string;
+export interface DemoPathSlugs {
+    category: CategorySlug;
+    demo: DemoSlug;
 }
 
-const getDemoForType = (demoType: DemoType, category: Category) => category.demos.find(x => x.type === demoType);
-
-const getDemoSlugsForType = (demoType: DemoType): DemoSlugs => {
-    for (let category of categoryList) {
-        const demoMatch = getDemoForType(demoType, category);
-
-        if (demoMatch) {
-            return {
-                category: category.slug,
-                demo: demoMatch.slug
-            };
-        }
-    }
-
-    return null;
-}
-
-const getDemoUrl = (slugs: DemoSlugs): string => {
-    const { category, demo } = slugs;
-
-    return createDemoWithWalkthroughPath({
+export const getDemoUrlForType = (category: CategorySlug, demo: DemoSlug): string =>
+    createDemoWithWalkthroughPath({
         category,
         demo
     });
-}
 
-export function getDemoUrlForType(demoType: DemoType) {
-    const demoSlugs = getDemoSlugsForType(demoType);
-    return getDemoUrl(demoSlugs);
-}
-
-export function getWalkthroughUrl(slugs: DemoSlugs, wt: DemoWalkthroughDto): string {
+export function getWalkthroughUrl(slugs: DemoPathSlugs, wt: DemoWalkthroughDto): string {
     if (!wt) {
         return null;
     }
@@ -53,7 +27,7 @@ export function getWalkthroughUrl(slugs: DemoSlugs, wt: DemoWalkthroughDto): str
     });
 }
 
-export const getDemoSlugs = (state: DemoState): DemoSlugs => {
+export const getDemoSlugs = (state: DemoState): DemoPathSlugs => {
     const { demoSlug, categorySlug } = state;
 
     return {

@@ -1,25 +1,24 @@
-﻿using System;
+﻿using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc.Filters;
 
 namespace DemoServer.Utils.Filters
 {
-    public class AddUserIdToHeaderAttribute : ResultFilterAttribute
+    public class AddUserIdToResponseHeaderAttribute : ResultFilterAttribute
     {
-        public override void OnResultExecuting(ResultExecutingContext context)
+        private readonly UserIdContainer _userId;
+
+        public AddUserIdToResponseHeaderAttribute(UserIdContainer userId)
         {
-            var userIdFromRequest = GetHeaderFromRequest(context, HeaderKeys.DemoUserId);
-
-            Guid.TryParse(userIdFromRequest, out var userId);
-            if (userId == Guid.Empty)
-                userId = Guid.NewGuid();
-
-            SetValueInHeaders(context, HeaderKeys.DemoUserId, userId.ToString());
+            _userId = userId;
         }
 
-        private string GetHeaderFromRequest(ResultExecutingContext context, string key) =>
-            context.HttpContext.Request.Headers[key];
+        public override void OnResultExecuting(ResultExecutingContext context)
+        {
+            var userIdToSet = _userId.Get();
+            SetValueInResponseHeaders(context, HeaderKeys.DemoUserId, userIdToSet.ToString());
+        }
 
-        private void SetValueInHeaders(ResultExecutingContext context, string key, string value) =>
+        private void SetValueInResponseHeaders(ResultExecutingContext context, string key, string value) =>
             context.HttpContext.Response.Headers[key] = value;
     }
 }

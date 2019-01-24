@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import { ParameterPair } from "../../models/demoModels";
+import { ParameterPair } from "../../models/demo";
 
 export interface InitDemoParams {
     type: actionTypes.PARAMS_INIT;

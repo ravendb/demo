@@ -1,8 +1,8 @@
 ﻿using System.Threading.Tasks;
 using DemoCommon.Utils.Database;
-using DemoServer.Utils;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using Raven.Client.Exceptions;
@@ -16,8 +16,8 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
     {
         private readonly DatabaseName _databaseName;
 
-        public CreateDatabaseController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup, DatabaseName databaseName) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public CreateDatabaseController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup, DatabaseName databaseName) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
             _databaseName = databaseName;
         }

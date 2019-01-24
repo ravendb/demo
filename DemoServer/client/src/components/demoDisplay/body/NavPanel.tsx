@@ -59,10 +59,9 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, demo } = demos;
+    const { categorySlug, demoSlug, demo, conferenceMode } = demos;
     const nonInteractive = demo && demo.nonInteractive;
     const studioUrl = !nonInteractive && demo && demo.studioUrl;
-    const conferenceMode = demo && demo.conferenceMode;
 
     return {
         categorySlug,

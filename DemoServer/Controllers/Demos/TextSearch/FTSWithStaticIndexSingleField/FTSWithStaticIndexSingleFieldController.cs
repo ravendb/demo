@@ -1,9 +1,9 @@
 ﻿﻿using System.Collections.Generic;
- using System.Threading.Tasks;
- using DemoCommon.Models;
-using DemoServer.Utils;
+using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
  #region Usings
 using System.Linq;
@@ -15,8 +15,8 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
 {
     public class FTSWithStaticIndexSingleFieldController : DemoCodeController
     {
-        public FTSWithStaticIndexSingleFieldController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
-            DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache, mediaStoreCache, databaseSetup)
+        public FTSWithStaticIndexSingleFieldController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+            DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
 

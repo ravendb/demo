@@ -1,17 +1,18 @@
-import { Language } from "../../models/commonModels";
+import { Language } from "../../models/common";
 import { DemoEntry } from "./models";
 import { UserProgress } from "../../models/progress";
-import { DemoVersionDto } from "../../models/dtos";
+import { MainPageCategoryDto } from "../../models/dtos";
+import { CategorySlug, DemoSlug } from "../../models/slugs";
 
 interface SlugsState {
-    categorySlug: string;
-    demoSlug: string;
+    categorySlug: CategorySlug;
+    demoSlug: DemoSlug;
     wtSlug?: string;
 }
 
 interface ProgressState {
     userProgress: UserProgress;
-    demoVersions: DemoVersionDto[];
+    categories: MainPageCategoryDto[];
 }
 
 interface PrerequisitesState {
@@ -33,4 +34,6 @@ export type DemoState = RunResultsState
         demo: DemoEntry;
         finishedLoadingDemo: boolean;
         showShareMessage: boolean;
+        loadingMainPage: boolean;
+        conferenceMode: boolean;
     };

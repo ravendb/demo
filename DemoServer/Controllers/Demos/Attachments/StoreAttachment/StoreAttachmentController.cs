@@ -4,6 +4,7 @@ using DemoServer.Utils;
 using DemoServer.Utils.Attachments;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
@@ -18,8 +19,8 @@ namespace DemoServer.Controllers.Demos.Attachments.StoreAttachment
         private const string DefaultDocumentId = "companies/2-A";
         private const string DefaultFilePath = ".//DemoResources//raven_logo.png";
 
-        public StoreAttachmentController(HeadersAccessor headersAccessor, UserStoreCache userStoreCache,
-            MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup) : base(headersAccessor, userStoreCache,
+        public StoreAttachmentController(UserIdContainer userId, UserStoreCache userStoreCache,
+            MediaStoreCache mediaStoreCache, DatabaseSetup databaseSetup) : base(userId, userStoreCache,
             mediaStoreCache, databaseSetup)
         {
         }

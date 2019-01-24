@@ -17,6 +17,7 @@ namespace DemoParser.Tests
 
             var firstResult = result[0];
             Assert.False(string.IsNullOrEmpty(firstResult.Slug));
+            Assert.False(string.IsNullOrEmpty(firstResult.Title));
             Assert.False(string.IsNullOrEmpty(firstResult.Directory));
         }
 
@@ -86,6 +87,34 @@ namespace DemoParser.Tests
             AssertAllDemos(result, d => AssertIsLowercase(d.Slug));
         }
 
+        [Fact]
+        public void SetsOptionalFieldsToFalse_IfNotPresent()
+        {
+            var result = Act(DefaultSettings);
+            var demo = GetDemo(result, "basics", "demo101");
+
+            Assert.NotNull(demo);
+
+            Assert.False(demo.NonInteractive);
+            Assert.False(demo.StudioLinkToMediaDatabase);
+            Assert.False(demo.StudioLinkToIndexList);
+            Assert.False(demo.ConferenceOnly);
+        }
+
+        [Fact]
+        public void SetsOptionalFieldsToTrue_IfPresent()
+        {
+            var result = Act(DefaultSettings);
+            var demo = GetDemo(result, "indexing", "demo201");
+
+            Assert.NotNull(demo);
+
+            Assert.True(demo.NonInteractive);
+            Assert.True(demo.StudioLinkToMediaDatabase);
+            Assert.True(demo.StudioLinkToIndexList);
+            Assert.True(demo.ConferenceOnly);
+        }
+
         private ParserSettings DefaultSettings => new ParserSettings
         {
             SourceCodeFolder = "MockSrc\\CSharp",
@@ -97,6 +126,14 @@ namespace DemoParser.Tests
             var parser = new Parser(settings);
             var result = parser.Run().ToList();
             return result;
+        }
+
+        private Demo GetDemo(IEnumerable<DemoCategory> results, string categorySlug, string demoSlug)
+        {
+            var category = results.Single(x => string.Equals(x.Slug, categorySlug, StringComparison.OrdinalIgnoreCase));
+            var demo = category.Demos.Single(x => string.Equals(x.Slug, demoSlug, StringComparison.OrdinalIgnoreCase));
+
+            return demo;
         }
 
         private void AssertAllDemos(List<DemoCategory> result, Action<Demo> demoAssertion)
