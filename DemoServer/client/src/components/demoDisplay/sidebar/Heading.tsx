@@ -1,14 +1,46 @@
 import * as React from "react";
+import { connect } from "react-redux";
+import { AppState } from "../../../store/state";
+import { Dispatch } from "redux";
+import { IconLeft } from "../../helpers/icons";
+import { goToMainPage } from "../../../store/actions/navigationActions";
 
-interface HeadingProps {
-    text: string;
+interface StateProps {
+    title: string;
 }
 
-export function Heading(props: HeadingProps) {
-    const { text } = props;
+interface DispatchProps {
+    goToMainPage: () => void;
+}
+
+type Props = StateProps & DispatchProps;
+
+function HeadingComponent(props: Props) {
+    const { title, goToMainPage } = props;
 
     return <div className="sidebar-heading">
-        <a href="/" className="back-button"><i className="icon-left"></i></a>
-        <h1>{text}</h1>
+        <a onClick={goToMainPage} className="back-button">
+            <IconLeft />
+        </a>
+        <h1>{title}</h1>
     </div>;
 }
+
+function mapStateToProps({ demos }: AppState): StateProps {
+    const { demo } = demos;
+
+    return {
+        title: demo && demo.title
+    };
+}
+
+function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
+    return {
+        goToMainPage: () => dispatch(goToMainPage())
+    };
+}
+
+export const Heading = connect<StateProps, DispatchProps, {}>(
+    mapStateToProps,
+    mapDispatchToProps
+)(HeadingComponent);

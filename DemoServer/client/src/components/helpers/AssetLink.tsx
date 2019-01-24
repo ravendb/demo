@@ -1,6 +1,13 @@
 import * as React from "react";
 import { AssetIcon } from "../ui/AssetIcon";
 import { AssetType } from "../../models/dtos/demo";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { goToDemoAssetPage } from "../../store/actions/navigationActions";
+
+function isDemoType(type: AssetType): boolean {
+    return type === "Demo";
+}
 
 export interface AssetsItem {
     url: string;
@@ -8,25 +15,47 @@ export interface AssetsItem {
     type: AssetType;
 }
 
-interface AssetAnchorProps {
+interface AssetAnchorOwnProps {
     url: string;
     title: string;
     type: AssetType;
 }
 
-const AssetAnchor = (props: AssetAnchorProps) => {
-    const { url, title, type } = props;
-
-    const isDemoLink = type === "Demo";
-
-    const effectiveUrl = isDemoLink
-        ? `/demos${url}`
-        : url;
-
-    return <a href={effectiveUrl} target={isDemoLink ? null : "_blank"}>{title}</a>;
+interface AssetAnchorDispatchProps {
+    goToDemoPage?: () => void;
 }
 
-type AssetLinkProps = AssetAnchorProps;
+type AssetAnchorProps = AssetAnchorDispatchProps & AssetAnchorOwnProps;
+
+const AssetAnchorComponent = (props: AssetAnchorProps) => {
+    const { url, title, type, goToDemoPage } = props;
+
+    const isDemoLink = isDemoType(type);
+
+    return isDemoLink
+        ? <a onClick={goToDemoPage}>{title}</a>
+        : <a href={url} target="_blank">{title}</a>;
+}
+
+function mapDispatchToProps(dispatch: Dispatch, ownProps: AssetAnchorOwnProps): AssetAnchorDispatchProps {
+    const { type, url } = ownProps;
+    const isDemoLink = isDemoType(type);
+
+    if (!isDemoLink) {
+        return {};
+    }
+
+    return {
+        goToDemoPage: () => dispatch(goToDemoAssetPage(url))
+    };
+}
+
+const AssetAnchor = connect<{}, AssetAnchorDispatchProps, AssetAnchorOwnProps>(
+    () => ({}),
+    mapDispatchToProps
+)(AssetAnchorComponent);
+
+type AssetLinkProps = AssetAnchorOwnProps;
 
 export const AssetLink = (props: AssetLinkProps) => <>
     <AssetIcon {...props} /> <AssetAnchor {...props} />

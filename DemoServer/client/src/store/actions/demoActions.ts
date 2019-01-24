@@ -76,12 +76,17 @@ export interface GetContextSuccess {
     conferenceMode: boolean;
 }
 
+interface RefreshProgress {
+    type: actionTypes.DEMO_REFRESH_PROGRESS;
+}
+
 export type DemoAction = GetMetadataRequest | GetMetadataFailure | GetMetadataSuccess
     | SetPrerequisitesRequest | SetPrerequisitesFailure | SetPrerequisitesSuccess
     | RunDemoRequest | RunDemoFailure | RunDemoSuccess
     | HideResults
     | ToggleDemoShareMessage
-    | GetContextRequest | GetContextSuccess;
+    | GetContextRequest | GetContextSuccess
+    | RefreshProgress;
 
 function getContextRequest(): GetContextRequest {
     return {
@@ -97,12 +102,24 @@ function getContextSuccess(demoVersions: CategoryHeaderDto[], conferenceMode: bo
     };
 }
 
+function refreshProgress(): RefreshProgress {
+    return {
+        type: "DEMO_REFRESH_PROGRESS"
+    };
+}
+
 export function getContext(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const state = getState();
         const { demos } = state;
+        const { loadingContext, categories } = demos;
 
-        if (demos.loadingContext) {
+        if (loadingContext) {
+            return;
+        }
+
+        if (!!categories && categories.length) {
+            dispatch(refreshProgress());
             return;
         }
 
@@ -145,6 +162,7 @@ function getMetadataSuccess(result: DemoDto): GetMetadataSuccess {
 export function getMetadata(category: string, demo: string): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch) => {
         dispatch(getMetadataRequest(category, demo));
+        
         try {
             const result = await service.getMetadata(category, demo);
             dispatch(getMetadataSuccess(result));

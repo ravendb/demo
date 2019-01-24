@@ -4,8 +4,15 @@ import { IconSettings } from "../../helpers/icons";
 import { MainPageDropdownItems } from "./MainPageDropdownItems";
 import { DemoPageDropdownItems } from "./DemoPageDropdownItems";
 import { SelectDemoDropdown } from "./SelectDemoDropdown";
+import { connect } from "react-redux";
+import { Dispatch } from "redux";
+import { goToMainPage } from "../../../store/actions/navigationActions";
 
-export class Header extends React.Component<{}, {}> {
+interface DispatchProps {
+    goToMainPage: () => void;
+}
+
+class HeaderComponent extends React.Component<DispatchProps, {}> {
     dropdown: HTMLElement;
 
     componentDidMount() {
@@ -22,11 +29,12 @@ export class Header extends React.Component<{}, {}> {
     }
 
     render() {
+        const { goToMainPage } = this.props;
         const isOnMainPage = this.isOnMainPage();
 
         return <div className="header">
             <div>
-                <a href="/" className="logo">
+                <a className="logo" onClick={goToMainPage}>
                     <img src="../img/logo.svg" alt="RavenDB Demo" />
                 </a>
             </div>
@@ -47,3 +55,14 @@ export class Header extends React.Component<{}, {}> {
         </div>;
     }
 }
+
+function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
+    return {
+        goToMainPage: () => dispatch(goToMainPage())
+    };
+}
+
+export const Header = connect<{}, DispatchProps, {}>(
+    () => ({}),
+    mapDispatchToProps
+)(HeaderComponent);

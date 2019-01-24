@@ -48,7 +48,7 @@ const updateWalkthroughAndProgress = (state: DemoState) => {
     }
 
     const isLastWalkthroughActive = selectIsLastWalkthroughActive(state);
-    
+
     if (isLastWalkthroughActive) {
         const demoVersionInfo = selectDemoVersionInfo(state);
         Progress.save(demoVersionInfo);
@@ -70,6 +70,11 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
                 s.conferenceMode = conferenceMode;
                 s.userProgress = Progress.get();
                 s.loadingContext = false;
+            });
+
+        case "DEMO_REFRESH_PROGRESS":
+            return modifyState(state, s => {
+                s.userProgress = Progress.get();
             });
 
         case "DEMO_GET_METADATA_REQUEST":

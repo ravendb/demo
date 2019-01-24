@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { CategorySlug, DemoSlug } from "../../../models/slugs";
 import { CategoryHeaderDto, DemoHeaderDto } from "../../../models/dtos/context";
-import { getDemoUrlForType } from "../../../store/selectors/urlGetters";
-import { push } from "connected-react-router";
 import { getContext } from "../../../store/actions/demoActions";
 import { DemoThunkDispatch } from "../../../store";
+import { goToDemoPage } from "../../../store/actions/navigationActions";
 
 interface SlugPair {
     category: CategorySlug;
@@ -104,8 +103,7 @@ function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
         loadContext: () => dispatch(getContext()),
     
         goToDemo: (category: CategorySlug, demo: DemoSlug) => {
-            const url = getDemoUrlForType(category, demo);
-            return dispatch(push(url));
+            return dispatch(goToDemoPage(category, demo));
         }
     };
 }

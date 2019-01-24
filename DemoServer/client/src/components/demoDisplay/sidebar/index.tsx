@@ -11,7 +11,6 @@ import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
 interface Props {
-    title: string;
     selectedLanguage: Language;
     conferenceMode: boolean;
 }
@@ -38,7 +37,7 @@ export class SidebarDisplay extends React.Component<Props, State> {
     }
 
     render() {
-        const { title, selectedLanguage, conferenceMode } = this.props;
+        const { selectedLanguage, conferenceMode } = this.props;
         const { sidebarCollapsed } = this.state;
 
         const sidebarClassName = classNames("sidebar", {
@@ -49,7 +48,7 @@ export class SidebarDisplay extends React.Component<Props, State> {
         return <div id="sidebar" className={sidebarClassName}>
             <Controls toggleCollapse={!conferenceMode && this.handleToggleCollapse} />
             <div className="sidebar-body">
-                <Heading text={title} />
+                <Heading />
                 <LanguageSelect selected={selectedLanguage} />
                 
                 {!conferenceMode && <>
@@ -63,10 +62,9 @@ export class SidebarDisplay extends React.Component<Props, State> {
 }
 
 function mapStateToProps({ demos }: AppState): Props {
-    const { language, demo, conferenceMode } = demos;
+    const { language, conferenceMode } = demos;
 
     return {
-        title: demo && demo.title,
         selectedLanguage: language,
         conferenceMode
     };
