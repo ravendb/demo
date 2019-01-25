@@ -1,5 +1,5 @@
 import { createSelector } from "reselect";
-import { DemoState } from "../state/DemoState";
+import { DemoState } from "../state/demo";
 import { WalkthroughEntry } from "../state/models";
 
 const getWalkthroughs = (state: DemoState): WalkthroughEntry[] => {

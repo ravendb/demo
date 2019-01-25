@@ -4,7 +4,7 @@ import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
 import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
-import { getContext } from "../../store/actions/demoActions";
+import { getContext } from "../../store/actions/demo";
 import { Spinner } from "../ui/Spinner";
 import { CategoryHeaderDto } from "../../models/dtos/context";
 

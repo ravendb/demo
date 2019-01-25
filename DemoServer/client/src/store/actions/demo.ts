@@ -1,11 +1,11 @@
 import * as actionTypes from "./actionTypes";
 import clipboardCopy = require("clipboard-copy");
 import { DemoThunkAction } from ".";
-import { apiError } from "./errorActions";
+import { apiError } from "./error";
 import { DemoService, RunDemoService } from "../../utils/api/Services";
 import { CategoryHeaderDto } from "../../models/dtos/context";
 import { toDemoParamsDto } from "../../models/demo";
-import { DemoThunkDispatch } from "../";
+import { DemoThunkDispatch } from "..";
 import { FilesCache } from "../../utils/FilesCache";
 import { FormFile } from "../../utils/api/ApiClient";
 import { Progress } from "../../utils/localStorage/Progress";

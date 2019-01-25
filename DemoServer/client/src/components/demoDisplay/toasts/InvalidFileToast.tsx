@@ -4,7 +4,7 @@ import { Toast, ToastProps, ToastStateProps, ToastDispatchProps } from "../../ui
 import { fileSizeLimitMB } from "../../../utils/fileUtils";
 import { AppState } from "../../../store/state";
 import { Dispatch } from "redux";
-import { hideInvalidUploadMessage } from "../../../store/actions/parametersActions";
+import { hideInvalidUploadMessage } from "../../../store/actions/parameters";
 
 function InvalidFileToastComponent(props: ToastProps) {
     return <Toast {...props} className="danger">

@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "lint": "tslint client/src/**/*.ts"
+    "lint": "tslint client/src/**/*.ts client/src/**/*.tsx"
   },
   "dependencies": {
     "axios": "^0.18.0",

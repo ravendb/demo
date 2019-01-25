@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ParameterFileInput } from "./parameterInputs";
 import { ParameterLabel } from "./misc";
 import { DemoThunkDispatch } from "../../../store";
-import { changeDemoFileParam } from "../../../store/actions/parametersActions";
+import { changeDemoFileParam } from "../../../store/actions/parameters";
 import { AppState } from "../../../store/state";
 
 export interface FileUploadParameterOwnProps {

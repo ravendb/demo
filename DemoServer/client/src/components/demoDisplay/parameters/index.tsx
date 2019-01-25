@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { ParameterPair } from "../../../models/demo";
 import { DemoThunkDispatch } from "../../../store";
-import { initDemoParams } from "../../../store/actions/parametersActions";
+import { initDemoParams } from "../../../store/actions/parameters";
 import { TextParameterOwnProps, TextParameter } from "./TextParameter";
 import { FileUploadParameterOwnProps, FileUploadParameter } from "./FileUploadParameter";
 import { FileUploadWarning } from "./misc";

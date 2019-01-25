@@ -1,4 +1,4 @@
-import { DemoState } from "../state/DemoState";
+import { DemoState } from "../state/demo";
 import { createDemoWithWalkthroughPath } from "../../utils/paths";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
 import { DemoWalkthroughDto } from "../../models/dtos/demo";

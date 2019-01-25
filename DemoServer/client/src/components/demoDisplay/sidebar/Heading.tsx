@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { Dispatch } from "redux";
 import { IconLeft } from "../../helpers/icons";
-import { goToMainPage } from "../../../store/actions/navigationActions";
+import { goToMainPage } from "../../../store/actions/navigation";
 
 interface StateProps {
     title: string;

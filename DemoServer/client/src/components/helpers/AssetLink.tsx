@@ -3,7 +3,7 @@ import { AssetIcon } from "../ui/AssetIcon";
 import { AssetType } from "../../models/dtos/demo";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { goToDemoAssetPage } from "../../store/actions/navigationActions";
+import { goToDemoAssetPage } from "../../store/actions/navigation";
 
 function isDemoType(type: AssetType): boolean {
     return type === "Demo";

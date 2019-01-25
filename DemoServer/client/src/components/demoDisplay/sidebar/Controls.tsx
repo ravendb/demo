@@ -2,7 +2,7 @@ import * as React from "react";
 import { IconLeft, IconCollapse, IconExpand } from "../../helpers/icons";
 import { Dispatch } from "redux";
 import { connect } from "react-redux";
-import { goToMainPage } from "../../../store/actions/navigationActions";
+import { goToMainPage } from "../../../store/actions/navigation";
 
 interface DispatchProps {
     goToMainPage: () => void;

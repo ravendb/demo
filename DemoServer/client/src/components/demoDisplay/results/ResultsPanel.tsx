@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { Dispatch } from "redux";
-import { hideResults } from "../../../store/actions/demoActions";
+import { hideResults } from "../../../store/actions/demo";
 import { Collapse } from "../../helpers/Collapse";
 
 interface StateProps {

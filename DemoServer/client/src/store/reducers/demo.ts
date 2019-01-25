@@ -1,8 +1,8 @@
 import { modifyState } from "../state";
-import { DemoAction } from "../actions/demoActions";
+import { DemoAction } from "../actions/demo";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
-import { DemoState } from "../state/DemoState";
+import { DemoState } from "../state/demo";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectIsLastWalkthroughActive } from "../selectors/walkthroughs";

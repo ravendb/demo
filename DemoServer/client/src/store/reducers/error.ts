@@ -1,6 +1,6 @@
 import { modifyState } from "../state";
-import { ErrorAction } from "../actions/errorActions";
-import { ErrorState } from "../state/ErrorState";
+import { ErrorAction } from "../actions/error";
+import { ErrorState } from "../state/error";
 
 export function errorReducer(state: ErrorState = { error: null }, action: ErrorAction): ErrorState {
     switch (action.type) {

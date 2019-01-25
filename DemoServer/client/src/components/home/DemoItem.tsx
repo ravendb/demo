@@ -3,7 +3,7 @@ import * as classNames from "classnames";
 import { DemoWithProgress } from "../../models/demo";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { goToDemoPage } from "../../store/actions/navigationActions";
+import { goToDemoPage } from "../../store/actions/navigation";
 
 interface DispatchProps {
     goToDemoPage: () => void;

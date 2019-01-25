@@ -3,7 +3,7 @@ import { createSelector } from "reselect"
 import * as classNames from "classnames";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { DemoState } from "../../../store/state/DemoState";
+import { DemoState } from "../../../store/state/demo";
 import { selectWalkthroughUrls } from "../../../store/selectors/walkthroughUrls";
 
 interface StateProps {
@@ -67,4 +67,6 @@ const makeMapStatetoProps = () => {
     return mapStateToProps;
 }
 
-export const WalkthroughItem = connect<StateProps, {}, OwnProps>(makeMapStatetoProps)(WalkthroughItemComponent);
+export const WalkthroughItem = connect<StateProps, {}, OwnProps>(
+    makeMapStatetoProps
+)(WalkthroughItemComponent);

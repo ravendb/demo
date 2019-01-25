@@ -4,7 +4,7 @@ import { Sidebar } from "../demoDisplay/sidebar";
 import { DemoBody, DemoBodyOwnProps } from "../demoDisplay/body";
 import { AppState } from "../../store/state";
 import { DemoThunkDispatch } from "../../store";
-import { getMetadata } from "../../store/actions/demoActions";
+import { getMetadata } from "../../store/actions/demo";
 import { connect } from "react-redux";
 import { Spinner } from "../ui/Spinner";
 import { ShareToast } from "../demoDisplay/toasts/ShareToast";
@@ -77,4 +77,7 @@ function mapDispatchToProps(dispatch: DemoThunkDispatch): DemoDispatchProps {
     };
 }
 
-export const Demo = connect<DemoStateProps, DemoDispatchProps, DemoOwnProps>(mapStateToProps, mapDispatchToProps)(DemoDisplay);
+export const Demo = connect<DemoStateProps, DemoDispatchProps, DemoOwnProps>(
+    mapStateToProps,
+    mapDispatchToProps
+)(DemoDisplay);

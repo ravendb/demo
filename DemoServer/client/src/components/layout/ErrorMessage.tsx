@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../store/state";
 import { Dispatch } from "redux";
 import { IconReload } from "../helpers/icons";
-import { reloadOnApiError } from "../../store/actions/errorActions";
+import { reloadOnApiError } from "../../store/actions/error";
 
 interface StateProps {
     show: boolean;
@@ -15,7 +15,7 @@ interface DispatchProps {
 
 type Props = StateProps & DispatchProps;
 
-const ErrorMessageDisplay = (props: Props) => {
+const ErrorMessageComponent = (props: Props) => {
     const { show, onReload } = props;
 
     return show && <div id="errorMessage">
@@ -39,4 +39,4 @@ export const ErrorMessage = connect<StateProps, DispatchProps, {}>(
     (dispatch: Dispatch): DispatchProps => ({
         onReload: () => dispatch(reloadOnApiError())
     })
-)(ErrorMessageDisplay);
+)(ErrorMessageComponent);

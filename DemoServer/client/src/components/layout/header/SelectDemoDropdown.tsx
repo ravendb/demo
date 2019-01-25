@@ -3,9 +3,9 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { CategorySlug, DemoSlug } from "../../../models/slugs";
 import { CategoryHeaderDto, DemoHeaderDto } from "../../../models/dtos/context";
-import { getContext } from "../../../store/actions/demoActions";
+import { getContext } from "../../../store/actions/demo";
 import { DemoThunkDispatch } from "../../../store";
-import { goToDemoPage } from "../../../store/actions/navigationActions";
+import { goToDemoPage } from "../../../store/actions/navigation";
 
 interface SlugPair {
     category: CategorySlug;
@@ -29,10 +29,10 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
     constructor(props) {
         super(props);
 
-        this.goToDemo = this.goToDemo.bind(this);
+        this._goToDemo = this._goToDemo.bind(this);
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         const { categories, loadContext: loadData } = this.props;
 
         if (!categories || categories.length === 0) {
@@ -40,11 +40,11 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         }
     }
 
-    private fromPathSlugsToValue(category: CategorySlug, demo: DemoSlug): string {
+    private _fromPathSlugsToValue(category: CategorySlug, demo: DemoSlug): string {
         return `${category}/${demo}`;
     }
 
-    private fromValueToPathSlugs(value: string): SlugPair {
+    private _fromValueToPathSlugs(value: string): SlugPair {
         const split = value && value.split("/");
 
         return split && split.length >= 2 && {
@@ -53,16 +53,16 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         };
     }
 
-    private goToDemo(event: any) {
+    private _goToDemo(event: any) {
         const value = event.target.value as string;
-        const slugs = this.fromValueToPathSlugs(value);
+        const slugs = this._fromValueToPathSlugs(value);
 
         const { category, demo } = slugs;
         this.props.goToDemo(category, demo);
     }
 
     private getDemo = (categorySlug: CategorySlug, demo: DemoHeaderDto) => {
-        const value = this.fromPathSlugsToValue(categorySlug, demo.slug);
+        const value = this._fromPathSlugsToValue(categorySlug, demo.slug);
         return <option key={demo.slug} value={value}>{demo.title}</option>;
     }
 
@@ -75,13 +75,13 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         </React.Fragment>;
     }
 
-    render() {
+    public render() {
         const { categories, currentCategory, currentDemo } = this.props;
-        const currentValue = this.fromPathSlugsToValue(currentCategory, currentDemo);
+        const currentValue = this._fromPathSlugsToValue(currentCategory, currentDemo);
         const show = !!categories && categories.length > 0;
 
         return show && <div>
-            <select id="selectDemo" value={currentValue || ""} onChange={this.goToDemo}>
+            <select id="selectDemo" value={currentValue || ""} onChange={this._goToDemo}>
                 {categories.map(this.getCategory)}
             </select>
         </div>;

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Toast, ToastProps, ToastStateProps, ToastDispatchProps } from "../../ui/Toast";
 import { AppState } from "../../../store/state";
 import { Dispatch } from "redux";
-import { toggleDemoShareMessage } from "../../../store/actions/demoActions";
+import { toggleDemoShareMessage } from "../../../store/actions/demo";
 
 function ShareToastComponent(props: ToastProps) {
     return <Toast {...props}>Link has been copied to clipboard</Toast>;

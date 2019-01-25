@@ -1,36 +1,42 @@
 import * as React from "react";
 import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
-import { IconSettings } from "../../helpers/icons";
-import { MainPageDropdownItems } from "./MainPageDropdownItems";
-import { DemoPageDropdownItems } from "./DemoPageDropdownItems";
 import { SelectDemoDropdown } from "./SelectDemoDropdown";
 import { connect } from "react-redux";
 import { Dispatch } from "redux";
-import { goToMainPage } from "../../../store/actions/navigationActions";
+import { goToMainPage } from "../../../store/actions/navigation";
+import { AppState } from "../../../store/state";
+import { selectIsOnMainPage } from "../../../store/selectors/router";
+import { SettingsMenu } from "./settings/SettingsMenu";
+
+interface StateProps {
+    isOnMainPage: boolean;
+}
 
 interface DispatchProps {
     goToMainPage: () => void;
 }
 
-class HeaderComponent extends React.Component<DispatchProps, {}> {
-    dropdown: HTMLElement;
+type Props = StateProps & DispatchProps;
 
-    componentDidMount() {
+class HeaderComponent extends React.Component<Props, {}> {
+    private dropdown: HTMLElement;
+
+    public componentDidMount() {
         this.dropdown = document.getElementById("settings-dropdown");
-        this.dropdown && bsn.Dropdown(this.dropdown);
+
+        if (this.dropdown) {
+            bsn.Dropdown(this.dropdown);
+        }
     }
 
-    componentWillUnmount() {
-        this.dropdown && bsn.Dropdown(this.dropdown, "dispose");
+    public componentWillUnmount() {
+        if (this.dropdown) {
+            bsn.Dropdown(this.dropdown, "dispose");
+        }
     }
 
-    isOnMainPage() {
-        return window.location.pathname === "/";
-    }
-
-    render() {
-        const { goToMainPage } = this.props;
-        const isOnMainPage = this.isOnMainPage();
+    public render() {
+        const { isOnMainPage, goToMainPage } = this.props;
 
         return <div className="header">
             <div>
@@ -41,19 +47,14 @@ class HeaderComponent extends React.Component<DispatchProps, {}> {
             <div className="flex-grow"></div>
             {!isOnMainPage && <SelectDemoDropdown />}
             <div className="flex-grow"></div>
-            <div id="settings-dropdown" className="dropdown">
-                <a className="settings" data-toggle="dropdown">
-                    <IconSettings />
-                </a>
-                <div className="dropdown-menu placement-right">
-                    {isOnMainPage
-                        ? <MainPageDropdownItems />
-                        : <DemoPageDropdownItems />
-                    }
-                </div>
-            </div>
+            <SettingsMenu />
         </div>;
     }
+}
+
+function mapStateToProps({ router }: AppState): StateProps {
+    const isOnMainPage = selectIsOnMainPage(router);
+    return { isOnMainPage };
 }
 
 function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
@@ -62,7 +63,7 @@ function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
     };
 }
 
-export const Header = connect<{}, DispatchProps, {}>(
-    () => ({}),
+export const Header = connect<StateProps, DispatchProps, {}>(
+    mapStateToProps,
     mapDispatchToProps
 )(HeaderComponent);

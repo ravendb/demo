@@ -1,7 +1,7 @@
 import * as React from "react";
 import { AppState } from "../../../store/state";
 import { DemoThunkDispatch } from "../../../store";
-import { runDemo } from "../../../store/actions/demoActions";
+import { runDemo } from "../../../store/actions/demo";
 import { connect } from "react-redux";
 import { selectFirstWalkthroughUrl } from "../../../store/selectors/walkthroughUrls";
 import { IconPlay, IconStudio, IconLearn } from "../../helpers/icons";
@@ -79,4 +79,7 @@ function mapDispatchToProps(dispatch: DemoThunkDispatch): NavPanelDispatchProps 
     };
 }
 
-export const NavPanel = connect<NavPanelStateProps, NavPanelDispatchProps, {}>(mapStateToProps, mapDispatchToProps)(NavPanelComponent);
+export const NavPanel = connect<NavPanelStateProps, NavPanelDispatchProps, {}>(
+    mapStateToProps,
+    mapDispatchToProps
+)(NavPanelComponent);

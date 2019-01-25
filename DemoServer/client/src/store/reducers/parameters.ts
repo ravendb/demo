@@ -1,6 +1,6 @@
 import { modifyState } from "../state";
-import { ParametersState } from "../state/ParametersState";
-import { ParametersAction } from "../actions/parametersActions";
+import { ParametersState } from "../state/parameters";
+import { ParametersAction } from "../actions/parameters";
 import { FilesCache } from "../../utils/FilesCache";
 import { isInvalidFileSize, fileSizeLimitMB } from "../../utils/fileUtils";
 
