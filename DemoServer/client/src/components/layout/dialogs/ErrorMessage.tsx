@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import { AppState } from "../../store/state";
+import { AppState } from "../../../store/state";
 import { Dispatch } from "redux";
-import { IconReload } from "../helpers/icons";
-import { reloadOnApiError } from "../../store/actions/error";
+import { reloadOnApiError } from "../../../store/actions/error";
+import { Dialog, ReloadButton, ButtonPanel } from "./Dialog";
 
 interface StateProps {
     show: boolean;
@@ -18,19 +18,14 @@ type Props = StateProps & DispatchProps;
 const ErrorMessageComponent = (props: Props) => {
     const { show, onReload } = props;
 
-    return show && <div id="errorMessage">
-        <div className="message">
-            <h2>Oops... :(</h2>
-            <p>An error occurred, please reload and try again.</p>
-            <div className="text-center margin-top">
-                <button className="btn btn-default" onClick={onReload}>
-                    <IconReload /> Reload
-                </button>
-            </div>
-        </div>
-        <div className="overlay"></div>
-    </div>;
-}
+    return <Dialog show={show}>
+        <h2>Oops... :(</h2>
+        <p>An error occurred, please reload and try again.</p>
+        <ButtonPanel>
+            <ReloadButton onClick={onReload}/>
+        </ButtonPanel>
+    </Dialog>;
+};
 
 export const ErrorMessage = connect<StateProps, DispatchProps, {}>(
     ({ error }: AppState): StateProps => ({

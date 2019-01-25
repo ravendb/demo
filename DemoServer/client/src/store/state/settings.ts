@@ -1,4 +1,5 @@
 export interface SettingsState {
-    showResetDatabaseConfirm: boolean;
-    showResetProgressConfirm: boolean;
+    showResetDatabaseDialog: boolean;
+    resettingDatabase: boolean;
+    showResetProgressDialog: boolean;
 }

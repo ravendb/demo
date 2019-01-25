@@ -1,15 +1,24 @@
 import * as React from "react";
 import { Header } from "./header";
-import { ErrorMessage } from "./ErrorMessage";
+import { ErrorMessage } from "./dialogs/ErrorMessage";
+import { ResetDatabaseConfirm } from "./dialogs/ResetDatabaseConfirm";
+import { ResetProgressConfirm } from "./dialogs/ResetProgressConfirm";
 
 interface LayoutProps {
     noContainer?: boolean;
 }
 
 export class Layout extends React.Component<LayoutProps, {}> {
-    displayName = Layout.name
 
-    render() {
+    private _dialogs() {
+        return <>
+            <ErrorMessage />
+            <ResetDatabaseConfirm />
+            <ResetProgressConfirm />
+        </>;
+    }
+
+    public render() {
         const { noContainer, children } = this.props;
 
         const body = noContainer
@@ -21,7 +30,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
         return <>
             <Header />
             {body}
-            <ErrorMessage />
+            {this._dialogs()}
         </>;
     }
 }

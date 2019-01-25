@@ -102,7 +102,7 @@ function getContextSuccess(demoVersions: CategoryHeaderDto[], conferenceMode: bo
     };
 }
 
-function refreshProgress(): RefreshProgress {
+export function refreshProgress(): RefreshProgress {
     return {
         type: "DEMO_REFRESH_PROGRESS"
     };

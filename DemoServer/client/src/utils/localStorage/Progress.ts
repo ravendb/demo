@@ -4,19 +4,23 @@ import { DemoVersionInfo } from "../../store/selectors/demos";
 import { CategoryHeaderDto } from "../../models/dtos/context";
 
 export class Progress {
-    static get(): UserProgress {
+    public static get(): UserProgress {
         return DemoStorage.getUserProgress();
     }
 
-    static save(versionInfo: DemoVersionInfo) {
+    private static _getEmptyProgress(): UserProgress {
+        return {
+            completedDemos: []
+        };
+    }
+
+    public static save(versionInfo: DemoVersionInfo) {
         const { category, demo, demoHash } = versionInfo;
 
         let progress = DemoStorage.getUserProgress();
 
         if (!progress) {
-            progress = {
-                completedDemos: []
-            };
+            progress = this._getEmptyProgress();
         }
 
         if (!progress.completedDemos) {
@@ -31,7 +35,12 @@ export class Progress {
         DemoStorage.setUserProgress(progress);
     }
 
-    private static isUpToDate(progress: DemoProgress, categories: CategoryHeaderDto[]): boolean {
+    public static reset() {
+        const progress = this._getEmptyProgress();
+        DemoStorage.setUserProgress(progress);
+    }
+
+    private static _isUpToDate(progress: DemoProgress, categories: CategoryHeaderDto[]): boolean {
         const currentCategory = categories.find(c => c.slug === progress.category);
 
         const currentDemo = currentCategory
@@ -41,14 +50,14 @@ export class Progress {
         return currentDemo && currentDemo.hash === progress.demoHash;
     }
 
-    static updateDemoVersions(categories: CategoryHeaderDto[]) {
+    public static updateDemoVersions(categories: CategoryHeaderDto[]) {
         const progress = DemoStorage.getUserProgress();
 
         if (!progress || !progress.completedDemos) {
             return;
         }
 
-        progress.completedDemos = progress.completedDemos.filter(x => this.isUpToDate(x, categories));
+        progress.completedDemos = progress.completedDemos.filter(x => this._isUpToDate(x, categories));
         DemoStorage.setUserProgress(progress);
     }
 }

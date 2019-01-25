@@ -5,8 +5,6 @@ import { DemoFactory } from "./components/demos/DemoFactory";
 import { demoPath } from "./utils/paths";
 
 export default class App extends React.Component<{}, {}> {
-  displayName = App.name
-
   constructor(props) {
     super(props);
   }
@@ -16,7 +14,7 @@ export default class App extends React.Component<{}, {}> {
     demoSlug={routeParams.demo}
   />;
 
-  render() {
+  public render() {
     return <Switch>
       <Route exact path='/' component={HomePage} />
       <Route path={demoPath} render={props => this.getDemoFactory(props.match.params)} />
