@@ -2,11 +2,11 @@ import * as React from "react";
 import * as bsn from "bootstrap.native/dist/bootstrap-native-v4";
 import { SelectDemoDropdown } from "./SelectDemoDropdown";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 import { goToMainPage } from "../../../store/actions/navigation";
 import { AppState } from "../../../store/state";
 import { selectIsOnMainPage } from "../../../store/selectors/router";
 import { SettingsMenu } from "./settings/SettingsMenu";
+import { DemoThunkDispatch } from "../../../store";
 
 interface StateProps {
     isOnMainPage: boolean;
@@ -57,7 +57,7 @@ function mapStateToProps({ router }: AppState): StateProps {
     return { isOnMainPage };
 }
 
-function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
     return {
         goToMainPage: () => dispatch(goToMainPage())
     };

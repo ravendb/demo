@@ -1,7 +1,8 @@
 import { DemoParamsDto } from "./dtos/params";
+import { DemoSlug, CategorySlug } from "./slugs";
 
 export interface Demo {
-    slug: string;
+    slug: DemoSlug;
     title: string;
 }
 
@@ -10,7 +11,7 @@ export interface DemoWithProgress extends Demo {
 }
 
 export interface DemoCategory {
-    slug: string;
+    slug: CategorySlug;
     demos: DemoWithProgress[];
 }
 

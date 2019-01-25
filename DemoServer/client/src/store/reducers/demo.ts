@@ -7,6 +7,7 @@ import { DemoEntry, WalkthroughEntry } from "../state/models";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectIsLastWalkthroughActive } from "../selectors/walkthroughs";
 import { selectDemoVersionInfo } from "../selectors/demos";
+import { NavigationAction } from "../actions/navigation";
 
 const initialState: DemoState = {
     language: "csharp",
@@ -56,7 +57,9 @@ const updateWalkthroughAndProgress = (state: DemoState) => {
     }
 };
 
-export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
+export function demoReducer(state: DemoState = initialState,
+    action: DemoAction | LocationChangeAction | NavigationAction
+): DemoState {
     switch (action.type) {
         case "DEMO_GET_CONTEXT_REQUEST":
             return modifyState(state, s => {
@@ -140,6 +143,19 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
         case "DEMO_TOGGLE_SHARE_MESSAGE":
             return modifyState(state, s => {
                 s.showShareMessage = action.show;
+            });
+
+        case "NAVIGATION_WENT_TO_MAIN_PAGE":
+            return modifyState(state, s => {
+                s.demo = null;
+                s.showResultsPanel = false;
+                s.runResults = null;
+            });
+
+        case "NAVIGATION_WENT_TO_DEMO_PAGE":
+            return modifyState(state, s => {
+                s.showResultsPanel = false;
+                s.runResults = null;
             });
     }
 

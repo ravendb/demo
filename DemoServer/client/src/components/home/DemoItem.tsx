@@ -2,15 +2,16 @@ import * as React from "react";
 import * as classNames from "classnames";
 import { DemoWithProgress } from "../../models/demo";
 import { connect } from "react-redux";
-import { Dispatch } from "redux";
 import { goToDemoPage } from "../../store/actions/navigation";
+import { CategorySlug } from "../../models/slugs";
+import { DemoThunkDispatch } from "../../store";
 
 interface DispatchProps {
     goToDemoPage: () => void;
 }
 
 interface OwnProps {
-    category: string;
+    category: CategorySlug;
     demo: DemoWithProgress;
 }
 
@@ -29,7 +30,7 @@ function DemoItemComponent(props: Props) {
     </a>;
 }
 
-function mapDispatchToProps(dispatch: Dispatch, ownProps: OwnProps): DispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch, ownProps: OwnProps): DispatchProps {
     const { demo, category } = ownProps;
 
     return {

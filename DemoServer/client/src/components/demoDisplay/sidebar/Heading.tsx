@@ -1,9 +1,9 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { Dispatch } from "redux";
 import { IconLeft } from "../../helpers/icons";
 import { goToMainPage } from "../../../store/actions/navigation";
+import { DemoThunkDispatch } from "../../../store";
 
 interface StateProps {
     title: string;
@@ -34,7 +34,7 @@ function mapStateToProps({ demos }: AppState): StateProps {
     };
 }
 
-function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
     return {
         goToMainPage: () => dispatch(goToMainPage())
     };

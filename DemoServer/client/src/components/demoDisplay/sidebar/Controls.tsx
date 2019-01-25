@@ -1,8 +1,8 @@
 import * as React from "react";
 import { IconLeft, IconCollapse, IconExpand } from "../../helpers/icons";
-import { Dispatch } from "redux";
 import { connect } from "react-redux";
 import { goToMainPage } from "../../../store/actions/navigation";
+import { DemoThunkDispatch } from "../../../store";
 
 interface DispatchProps {
     goToMainPage: () => void;
@@ -28,7 +28,7 @@ function ControlsComponent(props: Props) {
     </div>;
 }
 
-function mapDispatchToProps(dispatch: Dispatch): DispatchProps {
+function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
     return {
         goToMainPage: () => dispatch(goToMainPage())
     };
