@@ -8,7 +8,7 @@ export function toTitleCase(s: string) {
     return s.replace(/\w\S*/g, function (txt) {
         return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
     });
-};
+}
 
 export const capitalizeFirstLetter = (s: string): string => {
     if (!s) {
@@ -16,21 +16,21 @@ export const capitalizeFirstLetter = (s: string): string => {
     }
 
     return s.charAt(0).toUpperCase() + s.slice(1);
-}
+};
 
-function formatConvertedDate(converter, format = 'YYYY-MM-DD HH:mm') {
+function formatConvertedDate(converter, format = "YYYY-MM-DD HH:mm") {
     return date => formatMomentDate(converter(date), format);
 }
 
-export function formatUtcDate(date, format = 'YYYY-MM-DD HH:mm') {
+export function formatUtcDate(date, format = "YYYY-MM-DD HH:mm") {
     return formatConvertedDate(fromUtcTime, format)(date);
 }
 
 const fromUtcTime = date => moment.utc(date).local();
 
-function formatMomentDate(momentDate: moment.Moment, format = 'YYYY-MM-DD HH:mm') {
-    if (format === 'short') {
-        format = 'YYYY-MM-DD';
+function formatMomentDate(momentDate: moment.Moment, format = "YYYY-MM-DD HH:mm") {
+    if (format === "short") {
+        format = "YYYY-MM-DD";
     } 
 
     return momentDate.format(format);

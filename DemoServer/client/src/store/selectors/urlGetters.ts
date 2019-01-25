@@ -34,4 +34,4 @@ export const getDemoSlugs = (state: DemoState): DemoPathSlugs => {
         category: categorySlug,
         demo: demoSlug
     };
-}
+};

@@ -134,7 +134,7 @@ export function getContext(): DemoThunkAction {
         } catch (error) {
             dispatch(apiError(error));
         }
-    }
+    };
 }
 
 function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
@@ -174,9 +174,9 @@ export function getMetadata(category: string, demo: string): DemoThunkAction {
             }
         } catch (error) {
             dispatch(apiError(error));
-            dispatch(getMetadataFailure(error))
+            dispatch(getMetadataFailure(error));
         }
-    }
+    };
 }
 
 const createDemoService = (demoSlug: string) => new RunDemoService(demoSlug);

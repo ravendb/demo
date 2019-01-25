@@ -1,5 +1,7 @@
 {
-  "scripts": {},
+  "scripts": {
+    "lint": "tslint client/src/**/*.ts"
+  },
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap-sass": "^3.3.7",
@@ -50,6 +52,9 @@
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
     "ts-loader": "^4.4.2",
+    "tslint": "^5.12.1",
+    "tslint-eslint-rules": "^5.4.0",
+    "tslint-microsoft-contrib": "^6.0.0",
     "typescript": "^3.0.3",
     "url-loader": "^0.6.2",
     "webpack": "^4.12.0",

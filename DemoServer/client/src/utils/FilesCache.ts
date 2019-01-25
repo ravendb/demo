@@ -7,7 +7,7 @@ export class FilesCache {
     private static files: FilesCacheEntry[] = [];
 
     static addOrUpdate(key: string, file: File) {
-        const registeredFile = this.files.find(x => x.key == key);
+        const registeredFile = this.files.find(x => x.key === key);
 
         if (registeredFile) {
             registeredFile.value = file;

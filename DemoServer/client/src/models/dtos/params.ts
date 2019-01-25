@@ -1,3 +1,3 @@
 export interface DemoParamsDto {
-    [key:string]: any;
+    [key: string]: any;
 }

@@ -25,7 +25,6 @@ export interface HideInvalidUploadMessage {
 export type ParametersAction = InitDemoParams | ChangeDemoParams | ChangeDemoFileParam
     | HideInvalidUploadMessage;
 
-
 export function initDemoParams(parameters: ParameterPair[]): InitDemoParams {
     return {
         type: "PARAMS_INIT",

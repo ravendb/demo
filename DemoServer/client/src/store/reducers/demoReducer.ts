@@ -32,7 +32,8 @@ const getActiveWalkthroughs = (walkthroughs: WalkthroughEntry[], slug: string) =
         : { ...w, isActive: false }
 );
 
-const getAllInactiveWalkthroughs = (walkthroughs: WalkthroughEntry[]) => walkthroughs.map(w => ({ ...w, isActive: false }));
+const getAllInactiveWalkthroughs = (walkthroughs: WalkthroughEntry[]) =>
+    walkthroughs.map(w => ({ ...w, isActive: false }));
 
 const updateWalkthroughAndProgress = (state: DemoState) => {
     const { demo, wtSlug } = state;
@@ -53,7 +54,7 @@ const updateWalkthroughAndProgress = (state: DemoState) => {
         const demoVersionInfo = selectDemoVersionInfo(state);
         Progress.save(demoVersionInfo);
     }
-}
+};
 
 export function demoReducer(state: DemoState = initialState, action: DemoAction | LocationChangeAction): DemoState {
     switch (action.type) {
@@ -133,7 +134,7 @@ export function demoReducer(state: DemoState = initialState, action: DemoAction 
 
         case "DEMO_HIDE_RESULTS":
             return modifyState(state, s => {
-                s.showResultsPanel = false
+                s.showResultsPanel = false;
             });
 
         case "DEMO_TOGGLE_SHARE_MESSAGE":

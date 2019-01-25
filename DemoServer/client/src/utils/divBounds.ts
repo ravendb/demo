@@ -18,5 +18,5 @@ export function getBoundsRelatedToOtherElement(element: HTMLElement, relativeTo:
         offsetBottom: Math.round(relativeRect.bottom - elRect.bottom),
         height: Math.round(elRect.height),
         width: Math.round(elRect.width)
-    }
+    };
 }

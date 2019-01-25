@@ -41,7 +41,7 @@ export class ApiClient {
 
     static async postEmpty(relativeUrl: string): Promise<any> {
         return this.prepareRequest({
-            method: 'post',
+            method: "post",
             data: this.getFormData({})
         }, relativeUrl);
     }
@@ -60,7 +60,7 @@ export class ApiClient {
         const formData = this.getFormData(data);
 
         return this.prepareRequest<TOutput>({
-            method: 'post',
+            method: "post",
             data: formData
         }, relativeUrl);
     }
@@ -73,14 +73,14 @@ export class ApiClient {
         });
 
         return this.prepareRequest<TOutput>({
-            method: 'post',
+            method: "post",
             data: formData
         }, relativeUrl);
     }
 
     static async get<TOutput>(relativeUrl: string): Promise<TOutput> {
         return this.prepareRequest<TOutput>({
-            method: 'get'
+            method: "get"
         }, relativeUrl);
     }
 }

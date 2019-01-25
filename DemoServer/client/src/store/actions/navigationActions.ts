@@ -11,7 +11,7 @@ export function goToDemoPage(category: string, demo: string) {
     });
 
     return push(url);
-};
+}
 
 export function goToDemoAssetPage(url: string) {
     if (!url || !url.length) {

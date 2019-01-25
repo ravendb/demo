@@ -33,12 +33,16 @@ export class Progress {
 
     private static isUpToDate(progress: DemoProgress, categories: CategoryHeaderDto[]): boolean {
         const currentCategory = categories.find(c => c.slug === progress.category);
-        const currentDemo = currentCategory && currentCategory.demos && currentCategory.demos.find(d => d.slug === progress.demo);
+
+        const currentDemo = currentCategory
+            && currentCategory.demos
+            && currentCategory.demos.find(d => d.slug === progress.demo);
+
         return currentDemo && currentDemo.hash === progress.demoHash;
     }
 
     static updateDemoVersions(categories: CategoryHeaderDto[]) {
-        let progress = DemoStorage.getUserProgress();
+        const progress = DemoStorage.getUserProgress();
 
         if (!progress || !progress.completedDemos) {
             return;

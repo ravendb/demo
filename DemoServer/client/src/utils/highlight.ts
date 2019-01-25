@@ -1,6 +1,6 @@
 import { DivBounds, getBoundsRelatedToOtherElement } from "./divBounds";
 
-const Prism = window["Prism"] as any;
+const prism = window["Prism"] as any;
 
 function getPixels(bounds: DivBounds, propSelect: (b: DivBounds) => number) {
     return propSelect(bounds).toString() + "px";
@@ -36,7 +36,7 @@ function exposeLineHighlights() {
     const codeBody = document.getElementById("demo-body-container");
     const lineHighlights = document.getElementsByClassName("line-highlight");
 
-    if (!lineHighlights || lineHighlights.length == 0) {
+    if (!lineHighlights || lineHighlights.length === 0) {
         return;
     }
 
@@ -59,9 +59,11 @@ function prismCompleteHook(env: any) {
 }
 
 export function addHighlightHook() {
-    Prism.hooks.add('complete', prismCompleteHook);
+    prism.hooks.add("complete", prismCompleteHook);
 }
 
 export function removeHighlightHook() {
-    Prism.hooks.remove && Prism.hooks.remove('complete', prismCompleteHook);
+    if (prism.hooks.remove) {
+        prism.hooks.remove("complete", prismCompleteHook);
+    }
 }
