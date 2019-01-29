@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { Dialog, ButtonPanel, CancelButton, ReloadButton } from "./Dialog";
+import { Dialog, ButtonPanel, CancelButton, AcceptButton } from "./Dialog";
 import { DemoThunkDispatch } from "../../../store";
 import { closeResetDatabaseDialog, resetDatabase } from "../../../store/actions/settings";
 
@@ -22,11 +22,14 @@ const ResetDatabaseConfirmComponent = (props: Props) => {
 
     return <Dialog show={show}>
         <h2>Reset Demo Database</h2>
-        <p>Are you sure you want to reset your demo database?</p>
-        <p>Your demo progress won't be affected.</p>
+        <p>
+            This will delete all custom data saved while using the demo, 
+            and revert individual demo database to its starting point.
+        </p>
+        <p>Your demo progress will not be affected.</p>
         <ButtonPanel>
             <CancelButton onClick={onCancel} disabled={buttonsDisabled} />
-            <ReloadButton text="Yes" onClick={onConfirm} disabled={buttonsDisabled} />
+            <AcceptButton text="Reset Demo Database" onClick={onConfirm} disabled={buttonsDisabled} />
         </ButtonPanel>
     </Dialog>;
 };

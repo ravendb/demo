@@ -21,7 +21,9 @@ export class Dialog extends React.Component<DialogProps, {}> {
 export class ButtonPanel extends React.Component<{}, {}> {
     public render() {
         return <div className="text-center margin-top">
-            {this.props.children}
+            <div className="btn-group">
+                {this.props.children}
+            </div>
         </div>;
     }
 }
@@ -36,7 +38,15 @@ export const CancelButton = (props: DialogButtonProps) => {
     const { text, onClick, disabled } = props;
 
     return <button className="btn btn-default" onClick={onClick} disabled={disabled}>
-        <IconCancel /> {text || "No"}
+        <IconCancel /> {text || "Cancel"}
+    </button>;
+};
+
+export const AcceptButton = (props: DialogButtonProps) => {
+    const { text, onClick, disabled } = props;
+
+    return <button className="btn btn-danger" onClick={onClick} disabled={disabled}>
+        <IconReload /> {text || "Yes"}
     </button>;
 };
 

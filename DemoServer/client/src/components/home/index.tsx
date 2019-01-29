@@ -22,11 +22,11 @@ type Props = StateProps & DispatchProps;
 
 class HomeComponent extends React.Component<Props, {}> {
 
-    componentDidMount() {
+    public componentDidMount() {
         this.props.getContext();
     }
 
-    getCategoryElement(category: CategoryHeaderDto, index: number) {
+    private _getCategoryElement(category: CategoryHeaderDto, index: number) {
         const { progress } = this.props;
         const completedForCategory = progress
             && progress.completedDemos
@@ -38,21 +38,21 @@ class HomeComponent extends React.Component<Props, {}> {
         />;
     }
 
-    demoList() {
+    private _demoList() {
         const { categories } = this.props;
 
         return <div className="demo-list">
-            {categories.map((x, i) => this.getCategoryElement(x, i))}
+            {categories.map((x, i) => this._getCategoryElement(x, i))}
         </div>;
     }
 
-    render() {
+    public render() {
         const { loading } = this.props;
 
         return <>
             <div className="header-image"><h1>Dive into RavenDB</h1></div>
             <Spinner show={loading} />
-            {!loading && this.demoList()}
+            {!loading && this._demoList()}
         </>;
     }
 }

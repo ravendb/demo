@@ -15,7 +15,7 @@ class MainSettingsItemsComponent extends React.Component<DispatchProps, {}> {
 
         return <>
             <a className="dropdown-item" onClick={resetDatabase}>Reset Demo Database</a>
-            <a className="dropdown-item" onClick={resetUserProgress}>Mark all demos as not run</a>
+            <a className="dropdown-item" onClick={resetUserProgress}>Mark all demos as not completed</a>
         </>;
     }
 }

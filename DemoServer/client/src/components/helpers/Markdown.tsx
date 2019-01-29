@@ -13,7 +13,7 @@ export class Markdown extends React.Component<{}, {}> {
         this.markdown.SafeMode = false;
     }
 
-    render() {
+    public render() {
         const { children } = this.props;
         if (!children) {
             return null;

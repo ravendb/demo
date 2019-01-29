@@ -104,6 +104,28 @@ hr {
     flex-grow: 1;
 }
 
+.btn-group {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: $gutter-xs/-2;
+
+    .btn {
+        margin: $gutter-xs/2;    
+    }
+}
+
+@mixin btn-variant($text-color, $background-color) {
+    background-color: $background-color;
+    color: $text-color;
+
+    &:hover, &:active {
+        background-color: saturate( darken( $background-color, 5% ), 0% );
+        color: saturate( lighten( $text-color, 10% ), 40% );
+    }
+}
+
 .btn {
     border: none;
     background-color: $gray-base;
@@ -118,27 +140,25 @@ hr {
         margin-right: $gutter-xxs;
     }
 
-    &:hover {
-        background-color: $gray-dark;
-        color: saturate( lighten( $brand-primary, 10% ), 40% );
-    }
-
-    &.active {
-        background-color: $brand-primary;
-        color: $gray-lighter;
-    }
-
     &.btn-primary {
+        @include btn-variant($gray-lighter, $brand-primary);
+    }
 
+    &.btn-danger {
+        @include btn-variant($gray-lighter, $brand-danger-dark);
+    }
+    
+    &.btn-success {
+        @include btn-variant($gray-darker, $brand-success-dark);
     }
 
     &.btn-default {
-        background-color: rgba($gray-lighter, .8);
-        color: $gray-dark;
+        @include btn-variant($gray-dark, rgba($gray-lighter, .8));
+    }
 
-        &:hover {
-            background-color: $gray-lighter;
-        }
+    &:disabled {
+        background-color: $gray !important;
+        color: $gray-light !important;
     }
 }
 
@@ -757,6 +777,7 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
         border-radius: 3px;
         box-shadow: 0px 5px 20px 0px #000;
         padding: $gutter;
+        max-width: 400px;
 
         h2 {
             margin: 0;
