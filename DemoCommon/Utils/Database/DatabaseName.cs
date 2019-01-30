@@ -14,7 +14,7 @@ namespace DemoCommon.Utils.Database
             _conferenceMode = conferenceMode;
         }
 
-        public const string UserDatabasePrefix = "User";
+        public const string UserDatabasePrefix = "DemoUser";
         public const string MediaDatabasePrefix = "Media";
 
         public string For(Guid userId) => _conferenceMode
