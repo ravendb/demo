@@ -22,9 +22,10 @@ export const AssetAnchor = (props: AssetAnchorProps) => {
     const { url, title, type } = props;
 
     const isDemoLink = isDemoType(type);
-    const effectiveUrl = isDemoLink ? `/demos${url}` : url;
 
-    return <a href={effectiveUrl} target="_blank">{title}</a>;
+    return isDemoLink
+        ? <a href={`/demos${url}`}>{title}</a>
+        : <a href={url} target="_blank">{title}</a>;
 };
 
 type AssetLinkProps = AssetAnchorProps;
