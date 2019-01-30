@@ -45,15 +45,3 @@ export function goToDemoPage(category: CategorySlug, demo: DemoSlug): DemoThunkA
         dispatch(wentToDemoPage(category, demo));
     };
 }
-
-export function goToDemoAssetPage(url: string) {
-    if (!url || !url.length) {
-        return;
-    }
-
-    const effectiveUrl = url[0] === "/"
-        ? `/demos${url}`
-        : `/demos/${url}`;
-        
-    return push(effectiveUrl);
-}

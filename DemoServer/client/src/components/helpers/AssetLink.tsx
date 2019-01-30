@@ -1,9 +1,6 @@
 import * as React from "react";
 import { AssetIcon } from "../ui/AssetIcon";
 import { AssetType } from "../../models/dtos/demo";
-import { connect } from "react-redux";
-import { Dispatch } from "redux";
-import { goToDemoAssetPage } from "../../store/actions/navigation";
 
 function isDemoType(type: AssetType): boolean {
     return type === "Demo";
@@ -15,47 +12,22 @@ export interface AssetsItem {
     type: AssetType;
 }
 
-interface AssetAnchorOwnProps {
+interface AssetAnchorProps {
     url: string;
     title: string;
     type: AssetType;
 }
 
-interface AssetAnchorDispatchProps {
-    goToDemoPage?: () => void;
-}
-
-type AssetAnchorProps = AssetAnchorDispatchProps & AssetAnchorOwnProps;
-
-const AssetAnchorComponent = (props: AssetAnchorProps) => {
-    const { url, title, type, goToDemoPage } = props;
+export const AssetAnchor = (props: AssetAnchorProps) => {
+    const { url, title, type } = props;
 
     const isDemoLink = isDemoType(type);
+    const effectiveUrl = isDemoLink ? `/demos${url}` : url;
 
-    return isDemoLink
-        ? <a onClick={goToDemoPage}>{title}</a>
-        : <a href={url} target="_blank">{title}</a>;
-}
+    return <a href={effectiveUrl} target="_blank">{title}</a>;
+};
 
-function mapDispatchToProps(dispatch: Dispatch, ownProps: AssetAnchorOwnProps): AssetAnchorDispatchProps {
-    const { type, url } = ownProps;
-    const isDemoLink = isDemoType(type);
-
-    if (!isDemoLink) {
-        return {};
-    }
-
-    return {
-        goToDemoPage: () => dispatch(goToDemoAssetPage(url))
-    };
-}
-
-const AssetAnchor = connect<{}, AssetAnchorDispatchProps, AssetAnchorOwnProps>(
-    () => ({}),
-    mapDispatchToProps
-)(AssetAnchorComponent);
-
-type AssetLinkProps = AssetAnchorOwnProps;
+type AssetLinkProps = AssetAnchorProps;
 
 export const AssetLink = (props: AssetLinkProps) => <>
     <AssetIcon {...props} /> <AssetAnchor {...props} />
