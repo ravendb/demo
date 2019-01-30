@@ -3,10 +3,27 @@
     "SourceFileName": "QueryExampleController.cs",
     "Title": "Query Example",
     "DescriptionLines": [
-        "todo..."
+        "This demo is an example of a<br>",
+        " **Query with Combined Features**.",
+        "",
+        "The query results will be:<br>",
+        "5 (or less) projected EmployeeDetails entities that match the filtering creiteria, ordered by descending hiring dates.",
+        "",
+        "The following features are used in this example:",
+        "<p>* Filtering data<br>",
+        "* Including a related document<br>",
+        "* Getting query statistics<br>",
+        "* Sorting query results<br>",
+        "* Projecting query results<br>",
+        "* Limiting the number of results</p>"
     ],
 
     "Assets": [
+        {
+            "Title": "Query Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/queries/query-overview"
+        }
     ],
 
     "Walkthroughs": [
@@ -14,27 +31,133 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "todo..."
+                "* Define a query on the 'Employees' collection Using the Session Query() LINQ method syntax."
             ],
             "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                }
             ]
         },
         {
-            "Title": "Define query criteria",
+            "Title": "Define a filtering condition",
             "Slug": "step-2",
             "DescriptionLines": [
-                "todo..."
+                "*  Query for documents from the Employees collection that match the following criteria:",
+                "     * Employee's first name is 'Steven' -or-",
+                "     * Employee's title is 'Sales Representative'",
+                "",
+                "* Only the matching documents will be returned by the server."
             ],
             "Assets": [
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Include related documents",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `Include()` to instruct the server to send the related document, whose ID is in the ReportsTo field, to the client.",
+                "",
+                "* The related document will be added to the Session's internal entities map for tracking changes."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/related-documents/create-related-documents"
+                },
+                {
+                    "Title": "Query Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Get query statistics",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* When the query returns, the 'statistics' variable will contain information such as:<br>",
+                "  query duration, total number of results, staleness state of results, the tag of a cluster node which responded to the query, etc."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo - TBD",
+                    "Type" : "demo",
+                    "Url"  : "/queries/update-me-later"
+                }
+            ]
+        },
+        {
+            "Title": "Sort query results",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Results will be sorted according to field 'HiredAt', in descending order."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting Query Results Demo - TBD",
+                    "Type" : "demo",
+                    "Url"  : "/queries/update-me-later"
+                }
+            ]
+        },
+        {
+            "Title": "Project query results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* Use `Select()` to retrieve only specific document fields from the server instead of the full 'Employee' document.",
+                "",
+                "* The entities returned by the query will have the structure of the custom class 'EmployeeDetails'.",
+                "",
+                "* The output projected 'EmployeeDetails' entities returned by the query are Not tracked by the Session, as they are Not full documents.",
+                "",
+                "* Note the usage of `RavenQuery.Load()` in order to retrieve data from a related document within the projection definition."
+            ],
+            "Assets": [
+                {
+                    "Title": "Projecting Individual Fields Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/projecting-individual-fields"
+                }
+            ]
+        },
+        {
+            "Title": "Limit number of results",
+            "Slug": "step-7",
+            "DescriptionLines": [
+                "* Use `Take()` to limit the number of results that are returned from the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Paging Query Results Demo - TBD",
+                    "Type" : "demo",
+                    "Url"  : "/queries/update-me-later"
+                }
             ]
         },
         {
             "Title": "Execute the query",
-            "Slug": "step-3",
+            "Slug": "step-8",
             "DescriptionLines": [
-                "todo..."
+                "* The 'queryResults' variable will hold the resulting 5 matching 'EmployeeDetails' entities, ordered by 'HiredAt' field value.",
+                "",
+                "* The output projected entities returned by the query are Not tracked by the Session, as they are not full documents.<br>",
+                "  Note: The included document (from the 'ReportsTo' field is loaded to the session for tracking."
             ],
             "Assets": [
+                {
+                    "Title": "Execute the Query - Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview#step-3"
+                }
             ]
         }
     ]

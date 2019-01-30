@@ -66,11 +66,10 @@
             "Title": "Define a projection",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Use `Select()` to select the fields that will be returned for each document.",
-                "",                
-                "* Field names ( _CompanyName_ , _City_ & _Country_ ) can be customized.<br>",
-                "  The entities returned will have only these fields.<br>",
-                "  TODO... explain better since I added a typed class...",
+                "* Use `Select()` to project partial document data from the server, instead of the full 'Company' document.",
+                "",
+                "* The entities returned by the query will have the structure of the custom class 'CompanyDetails'.<br>",
+                "  Data for fields _CompanyName_ , _City_ & _Country_  will be retrieved from the selected specified document fields.<br>",
                 "",
                 "* Calling Select() does Not trigger any index creation."
             ],

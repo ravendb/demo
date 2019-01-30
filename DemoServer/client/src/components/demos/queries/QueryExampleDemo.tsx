@@ -4,8 +4,10 @@ import { ResultTable } from "../../demoDisplay/results/resultItems";
 
 const resultsCreator = () => <ResultTable
     fields={[
-        "firstName",
-        "lastName"
+        "employeeName",
+        "title",
+        "hiredAt",
+        "managerName"        
     ]}
 />;
 
