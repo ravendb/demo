@@ -86,6 +86,8 @@ namespace DemoServer.Controllers
         public async Task<IActionResult> ResetDatabase()
         {
             await _databaseSetup.ResetUserDatabase(UserId);
+            await _databaseSetup.ResetMediaDatabase(UserId);
+
             return Ok();
         }
     }
