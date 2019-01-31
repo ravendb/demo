@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using DemoCommon.Models;
 using DemoCommon.Utils.Database;
 using DemoCron.Helpers;
+using Microsoft.Extensions.Logging;
 using Raven.Client.Documents;
 
 namespace DemoCron.Tasks
@@ -15,10 +16,12 @@ namespace DemoCron.Tasks
 
         private readonly DocumentStoreHolder _documentStoreHolder;
         private readonly TimeSpan _expirationSpan;
+        private readonly ILogger _logger;
 
-        public DeleteUnusedDatabasesTask(DocumentStoreHolder documentStoreHolder, Settings settings)
+        public DeleteUnusedDatabasesTask(DocumentStoreHolder documentStoreHolder, Settings settings, ILogger<DeleteUnusedDatabasesTask> logger)
         {
             _documentStoreHolder = documentStoreHolder;
+            _logger = logger;
 
             var expirationSettings = settings.DeleteUnusedDatabases.ExpirationSpan;
             _expirationSpan = expirationSettings.ToTimeSpan();
@@ -28,10 +31,14 @@ namespace DemoCron.Tasks
 
         public override async Task Run()
         {
+            _logger.LogInformation($"{nameof(DeleteUnusedDatabasesTask)} started.");
+
             var userDatabaseNames = await GetUserDatabaseNames();
 
             foreach (var dbName in userDatabaseNames)
                 await ProcessDatabase(dbName);
+
+            _logger.LogInformation($"{nameof(DeleteUnusedDatabasesTask)} finished.");
         }
 
         private async Task<IEnumerable<string>> GetUserDatabaseNames()
@@ -45,8 +52,13 @@ namespace DemoCron.Tasks
 
         private async Task ProcessDatabase(string databaseName)
         {
-            if (await IsDatabaseUnused(databaseName))
-                await _databaseApi.DeleteDatabase(DocumentStore, databaseName);
+            var isUnused = await IsDatabaseUnused(databaseName);
+
+            if (isUnused == false)
+                return;
+
+            _logger.LogInformation($"Removing database {databaseName}");
+            await _databaseApi.DeleteDatabase(DocumentStore, databaseName);
         }
 
         private async Task<bool> IsDatabaseUnused(string databaseName)
