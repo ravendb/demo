@@ -6,9 +6,8 @@ const resultsCreator = () => <ResultTable
     fields={[
         "id",
         "artist",
-        "trackId",
         "title",
-        "timeStamp"
+        "trackId",
     ]}
 />;
 

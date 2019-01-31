@@ -23,34 +23,34 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
 
         #region Demo
         #region Step_1
-        public class LastFmAnalyzed : AbstractIndexCreationTask<LastFm, LastFmAnalyzed.Result>
+        public class Song_TextData : AbstractIndexCreationTask<LastFm, Song_TextData.Result>
         #endregion
         {
             #region Step_2
             public class Result
             {
-                public string Query { get; set; }
+                public string SongData { get; set; }
             }
             #endregion
            
-            public LastFmAnalyzed()
+            public Song_TextData()
             {
                 #region Step_3
                 Map = songs => from song in songs
                     select new
                     {
-                        Query = new object[]
+                        SongData = new object[]
                         {
                             song.Artist,
-                            song.TimeStamp,
                             song.Title,
-                            song.TrackId
+                            song.Tags,
+                            song.TrackId,
                         }
                     };
                 #endregion
 
                 #region Step_4
-                Index(x => x.Query, FieldIndexing.Search);
+                Index(x => x.SongData, FieldIndexing.Search);
                 #endregion
             }
         }
@@ -59,7 +59,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
         protected override async Task SetDemoPrerequisites()
         {
             await DatabaseSetup.EnsureMediaDatabaseExists(UserId);
-            await new LastFmAnalyzed().ExecuteAsync(DocumentStoreHolder.MediaStore);
+            await new Song_TextData().ExecuteAsync(DocumentStoreHolder.MediaStore);
         }
 
         [HttpPost]
@@ -73,8 +73,8 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
             using (IDocumentSession session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 #region Step_5
-                results = session.Query<LastFmAnalyzed.Result, LastFmAnalyzed>()
-                    .Search(x => x.Query, searchTerm)
+                results = session.Query<Song_TextData.Result, Song_TextData>()
+                    .Search(x => x.SongData, searchTerm)
                     .Take(20)
                     .As<LastFm>()
                     .ToList();

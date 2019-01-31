@@ -47,8 +47,8 @@
                 "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
                 "",
                 "* The generic params:<br>",
-                "    * _Category_ - The source collection for the index will be the 'Categories' collection<br>",
-                "    * _Categories_DescriptionText.Result_ - The shape of the resulting index-fields (see next step)"
+                "    * _Category_ - indicates that the source collection for the index will be the 'Categories' collection<br>",
+                "    * _Categories_DescriptionText.Result_ - is the shape of the resulting index-fields (see next step)"
             ],
             "Assets": [
                 {
@@ -79,8 +79,8 @@
             "DescriptionLines": [
                 "* Define the index field(s). These fields will be indexed and can be queried on.",
                 "",
-                "* Index field _'categoryDescription'_ is defined here.<br>",
-                "  Its content is configured in the next steps, within the index constructor."
+                "* Index field _'CategoryDescription'_ is defined here.<br>",
+                "  Its content is configured in the next step, within the index constructor."
             ],
             "Assets": [
                 {
@@ -106,7 +106,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* Index-field _'categoryDescription'_ will take its content from the document _'Description'_ field."
+                "* Index-field _'CategoryDescription'_ will take its content from the document _'Description'_ field."
             ],
             "Assets": [
                 {
@@ -127,18 +127,18 @@
             ]
         },
         {
-            "Title": "Configure full-text search",
+            "Title": "Configure Full-Text Search",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Use `indexes.Add()`, with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'categoryDescription'.",
+                "* Use method `Index()` with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
                 "",
-                "* During the indexing process, the field is Not indexed a single value.<br>",
+                "* During the indexing process, the field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
                 "",
                 "* Indexing the content as individual terms, and Not as one text item, allows you to search for documents that contain any of these terms.",
                 "",
                 "* Note: The way the text block is tokenized is determined by the analyzer used.<br>",
-                "        With the above syntax, The underlying analyzer used by RavenDB is the 'StandardAnalyzer'.<br>",
+                "        With the above syntax, the underlying analyzer used by RavenDB is the 'StandardAnalyzer'.<br>",
                 "        You can specify other analyzers or customize your own. Learn more in the related links."
             ],
             "Assets": [
@@ -172,9 +172,14 @@
                 "",
                 "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
-                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms."
+                "* Note that the comparison is done against the indexed field 'CategoryDescription' which was broken into terms."
             ],
             "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/map-index#step-4"
+                },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",

@@ -51,8 +51,8 @@
                 "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
                 "",
                 "* The generic params:<br>",
-                "    * _Employee_ - The source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ImportantDetails.Result_ - The shape of the resulting index-fields (see next step)"
+                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
+                "    * _Employees_ImportantDetails.Result_ - is the shape of the resulting index-fields (see next step)"
             ],
             "Assets": [
                 {

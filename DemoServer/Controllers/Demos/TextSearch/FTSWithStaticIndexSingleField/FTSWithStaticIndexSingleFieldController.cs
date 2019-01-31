@@ -43,7 +43,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
                 #endregion
                 
                 #region Step_4
-                Indexes.Add(x => x.CategoryDescription, FieldIndexing.Search);
+                Index(x => x.CategoryDescription, FieldIndexing.Search);
                 #endregion
             }
         }
