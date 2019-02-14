@@ -49,7 +49,7 @@ namespace DemoServer
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
 
-            var demoContainer = DemoContainer.Initialize("Controllers\\Demos", LoggerFactory.CreateLogger<DemoContainer>(), settings);
+            var demoContainer = DemoContainer.Initialize(System.IO.Path.Combine("Controllers", "Demos"), LoggerFactory.CreateLogger<DemoContainer>(), settings);
             
             services.AddSingleton(demoContainer);
             services.AddSingleton<DocumentStoreHolder>();
