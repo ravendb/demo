@@ -30,10 +30,12 @@ namespace DemoServer.Controllers.Demos
         }
 
         [HttpPost]
-        public async Task SetPrerequisites()
+        public async Task<IActionResult> SetPrerequisites()
         {
             await DatabaseSetup.EnsureUserDatabaseExists(UserId);
             await SetDemoPrerequisites();
+
+            return Ok("done");
         }
 
         protected virtual Task SetDemoPrerequisites() => Task.CompletedTask;

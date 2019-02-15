@@ -88,7 +88,7 @@ namespace DemoServer.Controllers
             await _databaseSetup.ResetUserDatabase(UserId);
             await _databaseSetup.ResetMediaDatabase(UserId);
 
-            return Ok();
+            return Ok("done");
         }
     }
 }
