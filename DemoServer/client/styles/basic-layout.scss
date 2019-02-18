@@ -412,8 +412,9 @@ hr {
     z-index: $zindex-fabs;
     position: absolute;
     right: $gutter;
-    top: -46px;
+    top: -110px;
     font-size: 11px;
+    display: flex;
 
     .fab {
         border: none;
@@ -424,37 +425,41 @@ hr {
         font-size: 11px;
         position: relative;
         text-decoration: none;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        outline: none !important;
+        padding: 0;
 
         & + .fab {
-            margin-left: $gutter-sm;
+            margin-left: $gutter;
         }
 
         i {
             background-color: $gray-dark;
-            position: absolute;
-            left: 50%;
-            top: -60px;
             width: $gutter-lg;
             height: $gutter-lg;
             font-size: $gutter;
             line-height: $gutter-lg;
             text-align: center;
             border-radius: 50px;
-            transform: translateX(-50%);
             color: $gray-lighter;
             transition: transform .15s cubic-bezier(0, 0.5, 0.5, 1);
-            transform-origin: left;
+        }
+
+        span {
+            line-height: 11px;
+            margin-top: $gutter-xs;
         }
 
         &:hover {
             i {
-                transform: scale(1.3) translateX(-50%);
+                transform: scale(1.3) translateY(-15%);
             }
         }
 
         &#openStudio {
             i {
-                
             }
         }
 

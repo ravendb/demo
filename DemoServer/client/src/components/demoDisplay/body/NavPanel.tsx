@@ -30,21 +30,21 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     studioButton() {
         const { studioUrl } = this.props;
         return studioUrl && <a href={studioUrl} id="openStudio" className="fab" target="_blank">
-            <IconStudio /> Open in studio
+            <IconStudio /> <span>Open in studio</span>
         </a>;
     }
 
     walkthroughButton() {
         const { firstWtUrl } = this.props;
         return <a href={firstWtUrl} role="button" id="startWalkthrough" className="fab" >
-            <IconLearn /> Walkthrough
+            <IconLearn /> <span>Walkthrough</span>
         </a>;
     }
 
     runScriptButton() {
         return <button id="runScript" className="fab collapsed" type="button"
             onClick={() => this.handleRunScriptClick()}>
-            <IconPlay /> Run script
+            <IconPlay /> <span>Run script</span>
         </button>;
     }
 
