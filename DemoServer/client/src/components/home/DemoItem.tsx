@@ -27,7 +27,7 @@ function DemoItemComponent(props: Props) {
     const imageSrc = `../img/demo-icons/${category}/${demo.slug}.png`;
 
     return <a className={className} onClick={goToDemoPage} >
-        <img src={imageSrc} />
+        <div className="bkg"><img src={imageSrc} /></div>
         <div className="title">{demo.title}</div>
     </a>;
 }

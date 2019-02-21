@@ -1,5 +1,6 @@
 {
   "scripts": {
+    "webpack": "webpack",
     "lint": "tslint client/src/**/*.ts client/src/**/*.tsx"
   },
   "dependencies": {
