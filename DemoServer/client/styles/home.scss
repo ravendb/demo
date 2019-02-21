@@ -130,7 +130,7 @@
                 &.done {
                     position: relative;
 
-                    img {
+                    .bkg {
                         mix-blend-mode: luminosity;
                         opacity: .5;
                     }
