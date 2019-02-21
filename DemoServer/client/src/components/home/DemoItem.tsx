@@ -18,14 +18,16 @@ interface OwnProps {
 type Props = DispatchProps & OwnProps;
 
 function DemoItemComponent(props: Props) {
-    const { demo, goToDemoPage } = props;
+    const { category, demo, goToDemoPage } = props;
 
     const className = classNames("demo-item", {
         "done": demo.completed
     });
 
+    const imageSrc = `../img/demo-icons/${category}/${demo.slug}.png`;
+
     return <a className={className} onClick={goToDemoPage} >
-        <img src="../img/demo-item.png" />
+        <img src={imageSrc} />
         <div className="title">{demo.title}</div>
     </a>;
 }
