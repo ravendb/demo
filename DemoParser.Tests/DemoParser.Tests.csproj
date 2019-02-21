@@ -16,9 +16,17 @@
     <Compile Remove="MockSrc\CSharp\Basics\Demo101\Demo101Controller.cs" />
     <Compile Remove="MockSrc\CSharp\Basics\Demo102\Demo102Controller.cs" />
     <Compile Remove="MockSrc\CSharp\Indexing\Demo201\Demo201Controller.cs" />
+    <Compile Remove="RegionParserTests\Csharp\Input.cs" />
+    <Compile Remove="RegionParserTests\Csharp\MultipleDemoRegionsInput.cs" />
     <Compile Remove="RegionParserTests\Input.cs" />
     <Compile Remove="RegionParserTests\MultipleDemoRegionsInput.cs" />
+    <Compile Remove="TokenizerTests\Csharp\Input.cs" />
     <Compile Remove="TokenizerTests\Input.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="RegionParserTests\Java\MultipleDemoRegionsInput.java" />
+    <None Remove="TokenizerTests\Java\Input.java" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,7 +39,13 @@
     <Content Include="FileHashTests\Input_Identical.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="RegionParserTests\MultipleDemoRegionsInput.cs">
+    <Content Include="RegionParserTests\Csharp\MultipleDemoRegionsInput.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegionParserTests\Java\MultipleDemoRegionsInput.java">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="TokenizerTests\Java\Input.java">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="DemoCodeBuilderTests\MultipleDemoRegions\Input.cs">
@@ -40,10 +54,7 @@
     <None Include="MockSrc\CSharp\Basics\Demo102\Demo102Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <Content Include="RegionParserTests\Input.cs">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="TokenizerTests\Input.cs">
+    <Content Include="TokenizerTests\Csharp\Input.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
@@ -58,6 +69,11 @@
     <None Include="MockSrc\CSharp\Indexing\Demo201\Demo201Controller.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="RegionParserTests\Csharp\Input.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="RegionParserTests\Csharp\MultipleDemoRegionsInput.cs" />
+    <None Include="TokenizerTests\Csharp\Input.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -84,6 +100,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="DemoCodeBuilderTests\JavaRegions\ExpectedOutput.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="DemoCodeBuilderTests\JavaRegions\Input.java">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="DemoCodeBuilderTests\MultipleDemoRegions\ExpectedOutput.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -109,6 +131,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="MockSrc\CSharp\Indexing\demos.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="RegionParserTests\Java\Input.java">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

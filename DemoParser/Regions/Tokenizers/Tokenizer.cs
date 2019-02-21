@@ -3,12 +3,18 @@ using System.IO;
 using System.Text.RegularExpressions;
 using DemoParser.Utils;
 
-namespace DemoParser.Regions
+namespace DemoParser.Regions.Tokenizers
 {
     public class Tokenizer
     {
-        private static readonly Regex RegionStartFinder = new Regex(@"#region\s*([a-zA-z0-9]*)");
-        private static readonly Regex RegionEndFinder = new Regex(@"#endregion");
+        private readonly Regex _regionStartFinder;
+        private readonly Regex _regionEndFinder;
+
+        public Tokenizer(Regex regionStartFinder, Regex regionEndFinder)
+        {
+            _regionStartFinder = regionStartFinder;
+            _regionEndFinder = regionEndFinder;
+        }
 
         public IEnumerable<RegionToken> GetFromFile(string filePath)
         {
@@ -27,21 +33,21 @@ namespace DemoParser.Regions
                 if (token == null)
                     continue;
 
-                if (token.Type == RegionToken.TokenType.End)
+                if (token.Type == TokenType.End)
                     depth--;
 
                 token.LineNumber = lineCnt;
                 token.Depth = depth;
                 yield return token;
 
-                if (token.Type == RegionToken.TokenType.Start)
+                if (token.Type == TokenType.Start)
                     depth++;
             }
         }
 
         private RegionToken GetRegionStartMatch(string line)
         {
-            var match = RegionStartFinder.Match(line);
+            var match = _regionStartFinder.Match(line);
 
             if (!match.Success)
                 return null;
@@ -52,34 +58,17 @@ namespace DemoParser.Regions
             return new RegionToken
             {
                 Name = regionName,
-                Type = RegionToken.TokenType.Start
+                Type = TokenType.Start
             };
         }
 
         private RegionToken GetRegionEndMatch(string line)
         {
-            var match = RegionEndFinder.Match(line);
+            var match = _regionEndFinder.Match(line);
 
             return match.Success
-                ? new RegionToken { Type = RegionToken.TokenType.End }
+                ? new RegionToken { Type = TokenType.End }
                 : null;
-        }
-
-        public class RegionToken
-        {
-            public string Name { get; set; }
-
-            public int LineNumber { get; set; }
-
-            public TokenType Type { get; set; }
-
-            public int Depth { get; set; }
-
-            public enum TokenType
-            {
-                Start,
-                End
-            }
         }
     }
 }

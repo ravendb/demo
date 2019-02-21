@@ -62,8 +62,9 @@ namespace DemoParser
             var demoJson = _jsonImporter.GetMetadata(demoFolder);
             var codeFilePath = Path.Join(demoFolder, demoJson.SourceFileName);
             var demo = demoJson.ToDemo();
+            var language = _settings.Language;
 
-            var codeOutput = DemoCodeBuilder.Initialize(codeFilePath)
+            var codeOutput = DemoCodeBuilder.Initialize(codeFilePath, language)
                 .SetUsings()
                 .SetDemoBody()
                 .SetFileHash()

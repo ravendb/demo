@@ -1,0 +1,22 @@
+﻿import net.ravendb.client.documents.DocumentStore;
+import net.ravendb.client.documents.session.IDocumentSession;
+import net.ravendb.client.documents.session.QueryStatistics;
+import net.ravendb.client.primitives.Reference;
+public List<LastFm> createDocument(String searchTerm) {
+
+    try (IDocumentSession session = DocumentStoreHolder.getMediaStore().openSession()) {
+            
+        Reference<QueryStatistics> statsRef = new Reference<>();
+        List<LastFm> results = session.query(LastFmAnalyzed.Result.class, LastFmAnalyzed.class)
+                .statistics(statsRef)
+                .search("Query", searchTerm)
+                .ofType(LastFm.class)
+                .selectFields(LastFm.class, "Artist", "Tags", "TimeStamp", "Title", "TrackId")
+                .take(20)
+                .toList();
+
+        long serverTime = statsRef.value.getDurationInMs();
+
+        return results;
+    }
+}

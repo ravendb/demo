@@ -1,22 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using TokenType = DemoParser.Regions.Tokenizer.RegionToken.TokenType;
+using DemoParser.Regions.Tokenizers;
 
 namespace DemoParser.Regions
 {
     public class RegionParser
     {
-        private readonly Tokenizer _tokenizer = new Tokenizer();
-
         private readonly string _filePath;
+        private readonly Tokenizer _tokenizer;
 
-        public RegionParser(string filePath)
+        public RegionParser(string filePath, Tokenizer tokenizer)
         {
             _filePath = filePath;
+            _tokenizer = tokenizer;
         }
 
-        private List<Tokenizer.RegionToken> _tokens;
+        private List<RegionToken> _tokens;
 
         public IEnumerable<CodeRegion> GetRegions()
         {
@@ -38,7 +38,7 @@ namespace DemoParser.Regions
             }
         }
 
-        private CodeRegion GetRegionForStartToken(Tokenizer.RegionToken token, int tokenNum)
+        private CodeRegion GetRegionForStartToken(RegionToken token, int tokenNum)
         {
             var region = new CodeRegion
             {

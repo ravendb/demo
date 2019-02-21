@@ -1,12 +1,14 @@
 ﻿using System.IO;
 using DemoParser.CodeParsing;
+using DemoParser.Models;
 using Xunit;
 
 namespace DemoParser.Tests.DemoCodeBuilderTests
 {
     public abstract class DemoCodeBuilderTests
     {
-        protected DemoCodeBuilder GetBuilder(string filePath) => DemoCodeBuilder.Initialize(filePath);
+        protected DemoCodeBuilder GetBuilder(string filePath, DemoLanguage language)
+            => DemoCodeBuilder.Initialize(filePath, language);
 
         protected string GetExpectedOutput(string filePath) => File.ReadAllText(filePath);
 

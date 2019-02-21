@@ -1,12 +1,19 @@
 ﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using DemoParser.Models;
 using DemoParser.Regions;
+using DemoParser.Regions.Tokenizers;
 using Xunit;
 
-namespace DemoParser.Tests.RegionParserTests
+namespace DemoParser.Tests.RegionParserTests.Csharp
 {
-    public class RegionParserTests
+    public class JavaRegionParserTests
     {
+        private const string UsingsRegionName = "Usings";
+        private const string DemoRegionName = "Demo";
+        private const string WtStepRegionPrefix = "Step_";
+
         [Fact]
         public void RetrievesMultipleRegions()
         {
@@ -39,9 +46,9 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = Act();
 
-            Assert.Contains(result, x => x.Name == "Usings");
-            Assert.Contains(result, x => x.Name == "Demo");
-            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
+            Assert.Contains(result, x => x.Name == UsingsRegionName);
+            Assert.Contains(result, x => x.Name == DemoRegionName);
+            Assert.Contains(result, x => x.Name.StartsWith(WtStepRegionPrefix));
         }
 
         [Fact]
@@ -49,7 +56,7 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = Act();
 
-            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
+            Assert.Contains(result, x => x.Name.StartsWith(WtStepRegionPrefix));
         }
 
         [Fact]
@@ -84,9 +91,9 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = ActOnMultipleDemoRegions();
 
-            Assert.Contains(result, x => x.Name == "Usings");
-            Assert.Contains(result, x => x.Name == "Demo");
-            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
+            Assert.Contains(result, x => x.Name == UsingsRegionName);
+            Assert.Contains(result, x => x.Name == DemoRegionName);
+            Assert.Contains(result, x => x.Name.StartsWith(WtStepRegionPrefix));
         }
 
         [Fact]
@@ -94,7 +101,7 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = ActOnMultipleDemoRegions();
 
-            Assert.Contains(result, x => x.Name.StartsWith("Step_"));
+            Assert.Contains(result, x => x.Name.StartsWith(WtStepRegionPrefix));
         }
 
         [Fact]
@@ -102,20 +109,22 @@ namespace DemoParser.Tests.RegionParserTests
         {
             var result = ActOnMultipleDemoRegions();
 
-            var demoRegions = result.Where(x => x.Name == "Demo").ToList();
+            var demoRegions = result.Where(x => x.Name == DemoRegionName).ToList();
             Assert.Equal(3, demoRegions.Count);
         }
 
-        private const string DefaultFilePath = "RegionParserTests\\Input.cs";
-        private const string MultipleDemoRegionsPath = "RegionParserTests\\MultipleDemoRegionsInput.cs";
+        private static readonly string DefaultFilePath = Path.Join("RegionParserTests", "Java", "Input.java");
+        private static readonly string MultipleDemoRegionsPath = Path.Join("RegionParserTests", "Java", "MultipleDemoRegionsInput.java");
 
-        private List<CodeRegion> Act(string filePath = DefaultFilePath)
+        private List<CodeRegion> Act() => Act(DefaultFilePath);
+        private List<CodeRegion> ActOnMultipleDemoRegions() => Act(MultipleDemoRegionsPath);
+
+        private List<CodeRegion> Act(string filePath)
         {
-            var parser = new RegionParser(filePath);
+            var tokenizer = TokenizerFactory.GetFor(DemoLanguage.Java);
+            var parser = new RegionParser(filePath, tokenizer);
             var result = parser.GetRegions();
             return result.ToList();
         }
-
-        private List<CodeRegion> ActOnMultipleDemoRegions() => Act(MultipleDemoRegionsPath);
     }
 }

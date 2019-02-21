@@ -13,6 +13,7 @@
     <Content Remove="tsconfig.json" />
     <Content Remove="tsconfig.prod.json" />
     <Content Remove="tslint.json" />
+    <Compile Remove="AdditionalLanguages\**" />
     <Content Remove="wwwroot\dev\**" Condition="'$(Configuration)' == 'Release'" />
     <Compile Remove="Controllers\Demos\Basics\TheDocumentStore\TheDocumentStoreController.cs" />
     <Compile Remove="Controllers\Demos\Basics\TheSession\TheSessionController.cs" />

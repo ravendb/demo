@@ -1,12 +1,17 @@
-﻿using DemoParser.CodeParsing;
+﻿using System.IO;
+using DemoParser.CodeParsing;
+using DemoParser.Models;
 using Xunit;
 
 namespace DemoParser.Tests.DemoCodeBuilderTests.SingleDemoRegion
 {
     public class SingleDemoCodeBuilderTests : DemoCodeBuilderTests
     {
-        private DemoCodeBuilder GetBuilder() => GetBuilder("DemoCodeBuilderTests\\SingleDemoRegion\\Input.cs");
-        private string GetExpectedOutput() => GetExpectedOutput("DemoCodeBuilderTests\\SingleDemoRegion\\ExpectedOutput.txt");
+        private static readonly string InputPath = Path.Join("DemoCodeBuilderTests", "SingleDemoRegion", "Input.cs");
+        private static readonly string ExpectedOutputPath = Path.Join("DemoCodeBuilderTests", "SingleDemoRegion", "ExpectedOutput.txt");
+
+        private DemoCodeBuilder GetBuilder() => GetBuilder(InputPath, DemoLanguage.CSharp);
+        private string GetExpectedOutput() => GetExpectedOutput(ExpectedOutputPath);
 
         [Fact]
         public void BuildsUsings()

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using DemoParser.Models;
 using DemoParser.Regions;
+using DemoParser.Regions.Tokenizers;
 using DemoParser.Utils;
 
 namespace DemoParser.CodeParsing
@@ -28,9 +29,10 @@ namespace DemoParser.CodeParsing
             _regions = new RegionContainer(regions);
         }
 
-        public static DemoCodeBuilder Initialize(string filePath)
+        public static DemoCodeBuilder Initialize(string filePath, DemoLanguage language)
         {
-            var parser = new RegionParser(filePath);
+            var tokenizer = TokenizerFactory.GetFor(language);
+            var parser = new RegionParser(filePath, tokenizer);
             var regions = parser.GetRegions().ToList();
             return new DemoCodeBuilder(filePath, regions);
         }

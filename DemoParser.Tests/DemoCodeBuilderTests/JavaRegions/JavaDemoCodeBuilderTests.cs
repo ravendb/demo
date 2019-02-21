@@ -3,14 +3,14 @@ using DemoParser.CodeParsing;
 using DemoParser.Models;
 using Xunit;
 
-namespace DemoParser.Tests.DemoCodeBuilderTests.MultipleDemoRegions
+namespace DemoParser.Tests.DemoCodeBuilderTests.JavaRegions
 {
-    public class MultipleDemosCodeBuilderTests : DemoCodeBuilderTests
+    public class JavaDemoCodeBuilderTests : DemoCodeBuilderTests
     {
-        private static readonly string InputPath = Path.Combine("DemoCodeBuilderTests", "MultipleDemoRegions", "Input.cs");
-        private static readonly string ExpectedOutputPath = Path.Combine("DemoCodeBuilderTests", "MultipleDemoRegions", "ExpectedOutput.txt");
+        private static readonly string InputPath = Path.Join("DemoCodeBuilderTests", "JavaRegions", "Input.java");
+        private static readonly string ExpectedOutputPath = Path.Join("DemoCodeBuilderTests", "JavaRegions", "ExpectedOutput.txt");
 
-        private DemoCodeBuilder GetBuilder() => GetBuilder(InputPath, DemoLanguage.CSharp);
+        private DemoCodeBuilder GetBuilder() => GetBuilder(InputPath, DemoLanguage.Java);
         private string GetExpectedOutput() => GetExpectedOutput(ExpectedOutputPath);
 
         [Fact]
@@ -52,7 +52,7 @@ namespace DemoParser.Tests.DemoCodeBuilderTests.MultipleDemoRegions
             var resultWalkthroughs = result.Walkthroughs;
 
             Assert.NotEmpty(resultWalkthroughs);
-            Assert.Equal(7, resultWalkthroughs.Count);
+            Assert.Equal(3, resultWalkthroughs.Count);
 
             Assert.All(resultWalkthroughs, w => Assert.NotEmpty(w.RegionName));
         }
@@ -90,25 +90,9 @@ namespace DemoParser.Tests.DemoCodeBuilderTests.MultipleDemoRegions
 
             var resultWalkthroughs = result.Walkthroughs;
 
-            AsserWalkthroughRange(6, 10, resultWalkthroughs[0]);
-            AsserWalkthroughRange(12, 12, resultWalkthroughs[1]);
-            AsserWalkthroughRange(14, 21, resultWalkthroughs[2]);
-            AsserWalkthroughRange(34, 34, resultWalkthroughs[3]);
-            AsserWalkthroughRange(36, 37, resultWalkthroughs[4]);
-        }
-
-        [Fact]
-        public void SetsCorrectRanges_ForAdditionalWalkthroughs()
-        {
-            var result = GetBuilder()
-                .SetUsings()
-                .SetDemoBody()
-                .Build();
-
-            var resultWalkthroughs = result.Walkthroughs;
-
-            AsserWalkthroughRange(43, 44, resultWalkthroughs[5]);
-            AsserWalkthroughRange(49, 50, resultWalkthroughs[6]);
+            AsserWalkthroughRange(7, 7, resultWalkthroughs[0]);
+            AsserWalkthroughRange(9, 16, resultWalkthroughs[1]);
+            AsserWalkthroughRange(18, 18, resultWalkthroughs[2]);
         }
 
         [Fact]
