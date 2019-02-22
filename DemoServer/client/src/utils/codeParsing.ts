@@ -18,7 +18,7 @@ export function sliceIntoTwo(text: string, pivotLineNum: number): string[] {
     }
 
     const firstResult = text.substr(0, sliceIndex);
-    const secondResult = text.substr(sliceIndex + 2);
+    const secondResult = text.substr(sliceIndex + 1).trimLeft();
 
     return [firstResult, secondResult];
 }
