@@ -2,6 +2,7 @@ import { ApiClient, FormFile } from "./ApiClient";
 import { DemoContextDto } from "../../models/dtos/context";
 import { DemoDto } from "../../models/dtos/demo";
 import { DemoParamsDto } from "../../models/dtos/params";
+import { Language } from "../../models/common";
 
 export interface PagedList<T> {
     totalResults: number;
@@ -42,8 +43,8 @@ export class DemoService extends Service {
         return this._get<DemoContextDto>("get-context");
     }
 
-    public async getMetadata(category: string, demo: string): Promise<DemoDto> {
-        return this._get<DemoDto>(`get/${category}/${demo}`);
+    public async getMetadata(language: Language, category: string, demo: string): Promise<DemoDto> {
+        return this._get<DemoDto>(`get/${language}/${category}/${demo}`);
     }
 
     public async resetDatabase(): Promise<any> {

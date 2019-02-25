@@ -1,0 +1,105 @@
+{
+    "Slug": "create-document",
+    "SourceFileName": "CreateDocument.java",
+    "Title": "Create Document",
+    "DescriptionLines": [
+        "**Create a new JAVA entity and save it as a document** in the Database.",
+        "TODO"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+        },
+        {
+            "Title": "What is a Collection",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/client-api/faq/what-is-a-collection"
+        },
+        {
+            "Title": "Documents & Collections",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/studio/database/documents/documents-and-collections#documents-and-collections"
+        },
+        {
+            "Title": "The Store Command",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+        },
+        {
+            "Title": "Storing Entities",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/client-api/session/storing-entities"
+        },
+        {
+            "Title": "Document Identifier Generation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/server/kb/document-identifier-generation"
+        },
+        {
+            "Title": "Working with Document Identifier",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/client-api/document-identifiers/working-with-document-identifiers"
+        },
+        {
+            "Title": "How to Get Document ID",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/java/client-api/session/how-to/get-entity-id#syntax"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a new JAVA object to be saved",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define the JAVA object to be saved.",
+                "",
+                "TODO"
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                },
+                {
+                    "Title": "What is a Collection",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/java/client-api/faq/what-is-a-collection"
+                },
+                {
+                    "Title": "Documents & Collections",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/java/studio/database/documents/documents-and-collections#documents-and-collections"
+                }
+            ]
+        },
+        {
+            "Title": "Store the new company object in the Session",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Associate the new entity with the Session `Store()` command.<br>",
+                "  Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
+                "",
+                "* However, the Store() command will _immediately_ assign an ID to the new entity,<br>",
+                "  so you can refer to it in other documents that you'll save in the same batch.<br>",
+                "  See how to get this ID in the next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Store Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                },
+                {
+                    "Title": "Storing Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+                }
+            ]
+        }
+    ]
+}

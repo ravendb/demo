@@ -9,45 +9,46 @@ import { connect } from "react-redux";
 import { Spinner } from "../ui/Spinner";
 import { ShareToast } from "../demoDisplay/toasts/ShareToast";
 import { InvalidFileToast } from "../demoDisplay/toasts/InvalidFileToast";
+import { CategorySlug, DemoSlug } from "../../models/slugs";
 
 export type DemoOwnProps = DemoBodyOwnProps;
 
 export interface DemoStateProps {
-    categorySlug: string;
-    demoSlug: string;
+    categorySlug: CategorySlug;
+    demoSlug: DemoSlug;
     loading: boolean;
 }
 
 export interface DemoDispatchProps {
-    loadMetadata: (category: string, demo: string) => void;
+    loadMetadata: () => void;
 }
 
 export type DemoProps = DemoStateProps & DemoOwnProps & DemoDispatchProps;
 
 export class DemoDisplay extends React.Component<DemoProps, {}> {
-    downloadMetadata() {
-        const { loadMetadata, categorySlug, demoSlug } = this.props;
-        loadMetadata(categorySlug, demoSlug);
+
+    private _downloadMetadata() {
+        this.props.loadMetadata();
     }
 
-    componentDidMount() {
+    public componentDidMount() {
         const { categorySlug, demoSlug } = this.props;
 
         if (categorySlug && demoSlug) {
-            this.downloadMetadata();
+            this._downloadMetadata();
         }
     }
 
-    componentDidUpdate(prevProps: DemoProps) {
+    public componentDidUpdate(prevProps: DemoProps) {
         const { categorySlug: prevCategory, demoSlug: prevDemo } = prevProps;
         const { categorySlug, demoSlug } = this.props;
 
         if (categorySlug !== prevCategory || demoSlug !== prevDemo) {
-            this.downloadMetadata();
+            this._downloadMetadata();
         }
     }
 
-    render() {
+    public render() {
         const { loading } = this.props;
 
         return <Layout>
@@ -73,7 +74,7 @@ function mapStateToProps({ demos }: AppState): DemoStateProps {
 
 function mapDispatchToProps(dispatch: DemoThunkDispatch): DemoDispatchProps {
     return {
-        loadMetadata: (category: string, demo: string) => dispatch(getMetadata(category, demo))
+        loadMetadata: () => dispatch(getMetadata())
     };
 }
 

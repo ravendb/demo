@@ -1,7 +1,10 @@
-﻿using DemoCommon.Utils.Database;
-using DemoServer.Utils;
+﻿using System.Collections.Generic;
+using System.IO;
+using DemoCommon.Utils.Database;
+using DemoParser.Models;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.Demos;
 using DemoServer.Utils.Filters;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Builder;
@@ -16,6 +19,12 @@ namespace DemoServer
 {
     public class Startup
     {
+        private static readonly Dictionary<DemoLanguage, string> DemoCodePaths = new Dictionary<DemoLanguage, string>
+        {
+            {DemoLanguage.CSharp, Path.Combine("Controllers", "Demos")},
+            {DemoLanguage.Java, Path.Combine("AdditionalLanguages", "java", "src", "main", "java", "net", "ravendb", "demo")}
+        };
+
         public Startup(IConfiguration configuration, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             Configuration = configuration;
@@ -49,7 +58,7 @@ namespace DemoServer
                 configuration.RootPath = GetSpaOutputDir(HostingEnvironment);
             });
 
-            var demoContainer = DemoContainer.Initialize(System.IO.Path.Combine("Controllers", "Demos"), LoggerFactory.CreateLogger<DemoContainer>(), settings);
+            var demoContainer = DemoContainer.Initialize(DemoCodePaths, LoggerFactory.CreateLogger<DemoContainer>(), settings);
             
             services.AddSingleton(demoContainer);
             services.AddSingleton<DocumentStoreHolder>();

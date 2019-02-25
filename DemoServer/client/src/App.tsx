@@ -12,11 +12,11 @@ export default class App extends React.Component<{}, {}> {
   private getDemoFactory = (routeParams: any) => <DemoFactory
     categorySlug={routeParams.category}
     demoSlug={routeParams.demo}
-  />;
+  />
 
   public render() {
     return <Switch>
-      <Route exact path='/' component={HomePage} />
+      <Route exact path="/" component={HomePage} />
       <Route path={demoPath} render={props => this.getDemoFactory(props.match.params)} />
     </Switch>;
   }

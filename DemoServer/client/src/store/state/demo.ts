@@ -1,7 +1,7 @@
 import { Language } from "../../models/common";
 import { DemoEntry } from "./models";
 import { UserProgress } from "../../models/progress";
-import { CategoryHeaderDto } from "../../models/dtos/context";
+import { CategoryWithDemoVersions, CategoriesForLanguage } from "../../models/dtos/context";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
 
 interface SlugsState {
@@ -12,7 +12,12 @@ interface SlugsState {
 
 interface ProgressState {
     userProgress: UserProgress;
-    categories: CategoryHeaderDto[];
+    categoriesWithVersions: CategoryWithDemoVersions[];
+}
+
+interface ContextState {
+    categoriesForLanguages: CategoriesForLanguage[];
+    conferenceMode: boolean;
 }
 
 interface PrerequisitesState {
@@ -28,6 +33,7 @@ interface RunResultsState {
 export type DemoState = RunResultsState
     & PrerequisitesState
     & ProgressState
+    & ContextState
     & SlugsState
     & {
         language: Language;
@@ -35,5 +41,4 @@ export type DemoState = RunResultsState
         finishedLoadingDemo: boolean;
         showShareMessage: boolean;
         loadingContext: boolean;
-        conferenceMode: boolean;
     };

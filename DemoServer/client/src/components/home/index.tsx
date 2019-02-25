@@ -6,12 +6,12 @@ import { DemoCategory } from "./DemoCategory";
 import { UserProgress } from "../../models/progress";
 import { getContext } from "../../store/actions/demo";
 import { Spinner } from "../ui/Spinner";
-import { CategoryHeaderDto } from "../../models/dtos/context";
+import { CategoryWithDemoVersions } from "../../models/dtos/context";
 
 interface StateProps {
     progress: UserProgress;
     loading: boolean;
-    categories: CategoryHeaderDto[];
+    categories: CategoryWithDemoVersions[];
 }
 
 interface DispatchProps {
@@ -26,7 +26,7 @@ class HomeComponent extends React.Component<Props, {}> {
         this.props.getContext();
     }
 
-    private _getCategoryElement(category: CategoryHeaderDto, index: number) {
+    private _getCategoryElement(category: CategoryWithDemoVersions, index: number) {
         const { progress } = this.props;
         const completedForCategory = progress
             && progress.completedDemos
@@ -42,7 +42,7 @@ class HomeComponent extends React.Component<Props, {}> {
         const { categories } = this.props;
 
         return <div className="demo-list">
-            {categories.map((x, i) => this._getCategoryElement(x, i))}
+            {categories && categories.map((x, i) => this._getCategoryElement(x, i))}
         </div>;
     }
 
@@ -59,12 +59,12 @@ class HomeComponent extends React.Component<Props, {}> {
 
 export const Home = connect<StateProps, DispatchProps, {}>(
     ({ demos }: AppState): StateProps => {
-        const { userProgress, loadingContext: loadingMainPage, categories } = demos;
+        const { userProgress, loadingContext: loadingMainPage, categoriesWithVersions } = demos;
 
         return {
             progress: userProgress,
             loading: loadingMainPage,
-            categories
+            categories: categoriesWithVersions
         };
     },
     (dispatch: DemoThunkDispatch): DispatchProps => ({

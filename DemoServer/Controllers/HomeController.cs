@@ -2,8 +2,8 @@
 using System.Threading.Tasks;
 using DemoParser.Models;
 using DemoServer.Models;
-using DemoServer.Utils;
 using DemoServer.Utils.Database;
+using DemoServer.Utils.Demos;
 using DemoServer.Utils.Filters;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
@@ -39,11 +39,13 @@ namespace DemoServer.Controllers
         [Route("get-context")]
         public IActionResult GetDemoContext()
         {
-            var categories = _demoContainer.GetCategories();
+            var categoriesForLanguages = _demoContainer.GetCategoriesForLanguages();
+            var categoriesWithVersions = _demoContainer.GetCategoriesWithVersions();
 
             var dto = new DemoContextDto
             {
-                Categories = categories,
+                CategoriesForLanguages = categoriesForLanguages,
+                CategoriesWithVersions = categoriesWithVersions,
                 ConferenceMode = _settings.ConferenceMode
             };
 
@@ -51,12 +53,12 @@ namespace DemoServer.Controllers
         }
 
         [HttpGet]
-        [Route("get/{categoryName}/{demoName}")]
-        public IActionResult GetDemo(string categoryName, string demoName)
+        [Route("get/{language}/{categoryName}/{demoName}")]
+        public IActionResult GetDemo(DemoLanguage language, string categoryName, string demoName)
         {
             try
             {
-                var demo = _demoContainer.GetDemo(categoryName, demoName);
+                var demo = _demoContainer.GetDemo(language, categoryName, demoName);
                 var dto = DemoDto.FromModel(demo);
 
                 dto.StudioUrl = GetStudioUrl(demo);

@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Remove="AdditionalLanguages\java\src\main\java\net\ravendb\demo\demos.json" />
     <Content Remove="Controllers\Demos\demos.json" />
     <Content Remove="tsconfig.json" />
     <Content Remove="tsconfig.prod.json" />
@@ -30,6 +31,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <None Include="AdditionalLanguages\java\src\main\java\net\ravendb\demo\demos.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="Controllers\Demos\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

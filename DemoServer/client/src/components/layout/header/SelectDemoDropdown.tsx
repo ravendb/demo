@@ -2,7 +2,7 @@ import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { CategorySlug, DemoSlug } from "../../../models/slugs";
-import { CategoryHeaderDto, DemoHeaderDto } from "../../../models/dtos/context";
+import { DemoForLanguage, CategoryWithDemoVersions } from "../../../models/dtos/context";
 import { getContext } from "../../../store/actions/demo";
 import { DemoThunkDispatch } from "../../../store";
 import { goToDemoPage } from "../../../store/actions/navigation";
@@ -15,7 +15,7 @@ interface SlugPair {
 interface StateProps {
     currentCategory?: CategorySlug;
     currentDemo?: DemoSlug;
-    categories: CategoryHeaderDto[];
+    categories: CategoryWithDemoVersions[];
 }
 
 interface DispatchProps {
@@ -61,12 +61,12 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         this.props.goToDemo(category, demo);
     }
 
-    private getDemo = (categorySlug: CategorySlug, demo: DemoHeaderDto) => {
+    private getDemo = (categorySlug: CategorySlug, demo: DemoForLanguage) => {
         const value = this._fromPathSlugsToValue(categorySlug, demo.slug);
         return <option key={demo.slug} value={value}>{demo.title}</option>;
     }
 
-    private getCategory = (category: CategoryHeaderDto) => {
+    private getCategory = (category: CategoryWithDemoVersions) => {
         const { title, demos } = category;
 
         return <React.Fragment key={title}>
@@ -89,10 +89,10 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): StateProps {
-    const { categories, categorySlug, demoSlug } = demos;
+    const { categoriesWithVersions, categorySlug, demoSlug } = demos;
 
     return {
-        categories,
+        categories: categoriesWithVersions,
         currentCategory: categorySlug,
         currentDemo: demoSlug
     };

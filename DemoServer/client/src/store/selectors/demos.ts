@@ -7,9 +7,9 @@ export interface DemoVersionInfo extends DemoPathSlugs {
 }
 
 const getDemoHash = (state: DemoState): string => {
-    const { categorySlug, demoSlug, categories } = state;
+    const { categorySlug, demoSlug, categoriesWithVersions } = state;
 
-    const category = categories.find(x => x.slug === categorySlug);
+    const category = categoriesWithVersions.find(x => x.slug === categorySlug);
     const demo = category && category.demos && category.demos.find(x => x.slug === demoSlug);
     return demo && demo.hash;
 };

@@ -3,7 +3,7 @@ import clipboardCopy = require("clipboard-copy");
 import { DemoThunkAction } from ".";
 import { apiError } from "./error";
 import { DemoService, RunDemoService } from "../../utils/api/Services";
-import { CategoryHeaderDto } from "../../models/dtos/context";
+import { DemoContextDto } from "../../models/dtos/context";
 import { toDemoParamsDto } from "../../models/demo";
 import { DemoThunkDispatch } from "..";
 import { FilesCache } from "../../utils/FilesCache";
@@ -16,8 +16,6 @@ const service = new DemoService();
 
 export interface GetMetadataRequest {
     type: actionTypes.DEMO_GET_METADATA_REQUEST;
-    category: string;
-    demo: string;
 }
 
 export interface GetMetadataFailure {
@@ -72,8 +70,7 @@ export interface GetContextRequest {
 
 export interface GetContextSuccess {
     type: actionTypes.DEMO_GET_CONTEXT_SUCCESS;
-    categories: CategoryHeaderDto[];
-    conferenceMode: boolean;
+    result: DemoContextDto;
 }
 
 interface RefreshProgress {
@@ -94,11 +91,10 @@ function getContextRequest(): GetContextRequest {
     };
 }
 
-function getContextSuccess(demoVersions: CategoryHeaderDto[], conferenceMode: boolean): GetContextSuccess {
+function getContextSuccess(result: DemoContextDto): GetContextSuccess {
     return {
         type: "DEMO_GET_CONTEXT_SUCCESS",
-        categories: demoVersions,
-        conferenceMode
+        result
     };
 }
 
@@ -112,7 +108,7 @@ export function getContext(): DemoThunkAction {
     return async (dispatch: DemoThunkDispatch, getState) => {
         const state = getState();
         const { demos } = state;
-        const { loadingContext, categories } = demos;
+        const { loadingContext, categoriesWithVersions: categories } = demos;
 
         if (loadingContext) {
             return;
@@ -126,22 +122,20 @@ export function getContext(): DemoThunkAction {
         dispatch(getContextRequest());
 
         try {
-            const results = await service.getDemoContext();
-            const { categories, conferenceMode } = results;
+            const result = await service.getDemoContext();
+            const { categoriesWithVersions } = result;
 
-            Progress.updateDemoVersions(categories);
-            dispatch(getContextSuccess(categories, conferenceMode));
+            Progress.updateDemoVersions(categoriesWithVersions);
+            dispatch(getContextSuccess(result));
         } catch (error) {
             dispatch(apiError(error));
         }
     };
 }
 
-function getMetadataRequest(category: string, demo: string): GetMetadataRequest {
+function getMetadataRequest(): GetMetadataRequest {
     return {
-        type: "DEMO_GET_METADATA_REQUEST",
-        category,
-        demo
+        type: "DEMO_GET_METADATA_REQUEST"
     };
 }
 
@@ -159,12 +153,15 @@ function getMetadataSuccess(result: DemoDto): GetMetadataSuccess {
     };
 }
 
-export function getMetadata(category: string, demo: string): DemoThunkAction {
-    return async (dispatch: DemoThunkDispatch) => {
-        dispatch(getMetadataRequest(category, demo));
-        
+export function getMetadata(): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch, getState) => {
+        const { demos } = getState();
+        const { language, categorySlug, demoSlug } = demos;
+
+        dispatch(getMetadataRequest());
+
         try {
-            const result = await service.getMetadata(category, demo);
+            const result = await service.getMetadata(language, categorySlug, demoSlug);
             dispatch(getMetadataSuccess(result));
 
             if (result.nonInteractive) {

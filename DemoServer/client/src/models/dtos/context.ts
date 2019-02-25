@@ -1,18 +1,35 @@
 import { DemoSlug, CategorySlug } from "../slugs";
+import { Language } from "../common";
 
-export interface DemoHeaderDto {
+export interface DemoForLanguage {
+    slug: DemoSlug;
+    title: string;
+}
+
+export interface CategoryForLanguage {
+    slug: CategorySlug;
+    demos: DemoForLanguage[];    
+}
+
+export interface CategoriesForLanguage {
+    language: Language;
+    categories: CategoryForLanguage[];
+}
+
+export interface DemoWithVersion {
     slug: DemoSlug;
     title: string;
     hash: string;
 }
 
-export interface CategoryHeaderDto {
+export interface CategoryWithDemoVersions {
     slug: CategorySlug;
     title: string;
-    demos: DemoHeaderDto[];    
+    demos: DemoWithVersion[];
 }
 
 export interface DemoContextDto {
-    categories: CategoryHeaderDto[];
+    categoriesForLanguages: CategoriesForLanguage[];
+    categoriesWithVersions: CategoryWithDemoVersions[];
     conferenceMode: boolean;
 }
