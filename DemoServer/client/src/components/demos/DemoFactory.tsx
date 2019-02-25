@@ -44,7 +44,7 @@ interface Props {
 
 export class DemoFactory extends React.Component<Props, {}> {
 
-    getBasicsDemo(demoSlug: DemoSlug) {
+    private _getBasicsDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "the-document-store":
                 return <TheDocumentStoreDemo />;
@@ -59,7 +59,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getRelatedDocumentsDemo(demoSlug: DemoSlug) {
+    private _getRelatedDocumentsDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "create-related-documents":
                 return <CreateRelatedDocumentsDemo />;
@@ -72,14 +72,14 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getAttachmentsDemo(demoSlug: DemoSlug) {
+    private _getAttachmentsDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "store-attachment":
                 return <StoreAttachmentDemo />;
         }
     }
 
-    getRevisionsDemo(demoSlug: DemoSlug) {
+    private _getRevisionsDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "enable-revisions":
                 return <EnableRevisionsDemo />;
@@ -88,7 +88,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getQueriesDemo(demoSlug: DemoSlug) {
+    private _getQueriesDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "query-overview":
                 return <QueryOverviewDemo />;
@@ -109,7 +109,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getStaticIndexesDemo(demoSlug: DemoSlug) {
+    private _getStaticIndexesDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "static-indexes-overview":
                 return <StaticIndexesOverviewDemo />;
@@ -120,7 +120,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getAutoIndexesDemo(demoSlug: DemoSlug) {
+    private _getAutoIndexesDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "auto-map-index1":
                 return <AutoMapIndex1Demo />;
@@ -129,7 +129,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getTextSearchDemo(demoSlug: DemoSlug) {
+    private _getTextSearchDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "fts-with-static-index-single-field":
                 return <FTSWithStaticIndexSingleFieldDemo />;
@@ -138,7 +138,7 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getAdvancedDemo(demoSlug: DemoSlug) {
+    private _getAdvancedDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "replication-failover":
                 return <ReplicationFailoverDemo />;
@@ -147,39 +147,39 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
-    getDemoForCategory(categorySlug: CategorySlug, demoSlug: DemoSlug) {
+    private _getDemoForCategory(categorySlug: CategorySlug, demoSlug: DemoSlug) {
         switch (categorySlug) {
             case "basics":
-                return this.getBasicsDemo(demoSlug);
+                return this._getBasicsDemo(demoSlug);
             case "related-documents":
-                return this.getRelatedDocumentsDemo(demoSlug);
+                return this._getRelatedDocumentsDemo(demoSlug);
             case "attachments":
-                return this.getAttachmentsDemo(demoSlug);
+                return this._getAttachmentsDemo(demoSlug);
             case "revisions":
-                return this.getRevisionsDemo(demoSlug);
+                return this._getRevisionsDemo(demoSlug);
             case "queries":
-                return this.getQueriesDemo(demoSlug);
+                return this._getQueriesDemo(demoSlug);
             case "static-indexes":
-                return this.getStaticIndexesDemo(demoSlug);
+                return this._getStaticIndexesDemo(demoSlug);
             case "auto-indexes":
-                return this.getAutoIndexesDemo(demoSlug);
+                return this._getAutoIndexesDemo(demoSlug);
             case "text-search":
-                return this.getTextSearchDemo(demoSlug);
+                return this._getTextSearchDemo(demoSlug);
             case "advanced":
-                return this.getAdvancedDemo(demoSlug);
+                return this._getAdvancedDemo(demoSlug);
         }
 
         return null;
     }
 
-    render() {
+    public render() {
         const { categorySlug, demoSlug } = this.props;
 
         if (!categorySlug && !demoSlug) {
             return null;
         }
 
-        const demo = this.getDemoForCategory(categorySlug, demoSlug);
+        const demo = this._getDemoForCategory(categorySlug, demoSlug);
         return demo || <DemoNotFound />;
     }
 }

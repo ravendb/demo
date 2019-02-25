@@ -33,7 +33,7 @@ export const selectNextWalkthroughUrl = createSelector(
 export const selectUrlWithoutWalkthrough = createSelector(
     [getDemoSlugs],
     (demoSlugs) => {
-        const { category, demo } = demoSlugs;
-        return createDemoWithoutWalkthroughPath({ category, demo });
+        const { category, demo, language } = demoSlugs;
+        return createDemoWithoutWalkthroughPath({ category, demo, language });
     }
 );

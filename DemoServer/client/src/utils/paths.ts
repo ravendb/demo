@@ -1,10 +1,12 @@
 import { matchPath } from "react-router-dom";
 import { LocationChangeAction } from "connected-react-router";
 import { CategorySlug, DemoSlug } from "../models/slugs";
+import { Language } from "../models/common";
 
-export const demoPath = "/demos/:category/:demo";
+export const demoPath = "/demos/:language?/:category/:demo";
 
 export interface DemoPathParams {
+    language?: Language;
     category: CategorySlug;
     demo: DemoSlug;
     wtSlug?: string;
@@ -38,12 +40,18 @@ export const matchDemoWithWalkthroughPath = (action: LocationChangeAction): Demo
 };
 
 export function createDemoWithWalkthroughPath(pathParams: DemoPathParams): string {
-    const { category, demo, wtSlug } = pathParams;
+    const { category, demo, wtSlug, language } = pathParams;
     const wtPart = wtSlug ? `#${wtSlug}` : "";
-    return `/demos/${category}/${demo}${wtPart}`;
+
+    return language
+        ? `/demos/${language}/${category}/${demo}${wtPart}`
+        : `/demos/${category}/${demo}${wtPart}`;
 }
 
 export function createDemoWithoutWalkthroughPath(pathParams: DemoPathParams): string {
-    const { category, demo } = pathParams;
-    return `/demos/${category}/${demo}#`;
+    const { category, demo, language } = pathParams;
+
+    return language
+        ? `/demos/${language}/${category}/${demo}#`
+        : `/demos/${category}/${demo}#`;
 }

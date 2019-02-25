@@ -4,6 +4,8 @@ import { UserProgress } from "../../models/progress";
 import { CategoryWithDemoVersions, CategoriesForLanguage } from "../../models/dtos/context";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
 
+export const defaultLanguage: Language = "csharp";
+
 interface SlugsState {
     categorySlug: CategorySlug;
     demoSlug: DemoSlug;

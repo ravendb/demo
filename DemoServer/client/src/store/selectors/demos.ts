@@ -1,8 +1,11 @@
 import { createSelector } from "reselect";
 import { DemoState } from "../state/demo";
-import { getDemoSlugs, DemoPathSlugs } from "./urlGetters";
+import { getDemoSlugs } from "./urlGetters";
+import { CategorySlug, DemoSlug } from "../../models/slugs";
 
-export interface DemoVersionInfo extends DemoPathSlugs {
+export interface DemoVersionInfo {
+    category: CategorySlug;
+    demo: DemoSlug;
     demoHash: string;
 }
 
@@ -21,8 +24,9 @@ const selectDemoHash = createSelector(
 
 export const selectDemoVersionInfo = createSelector(
     [getDemoSlugs, selectDemoHash],
-    (demoSlugs, demoHash): DemoVersionInfo => ({
-        ...demoSlugs,
-        demoHash
-    })
+    (demoSlugs, demoHash): DemoVersionInfo => {
+        const { category, demo } = demoSlugs;
+
+        return { category, demo, demoHash };
+    }
 );

@@ -2,7 +2,7 @@ import { modifyState } from "../state";
 import { DemoAction } from "../actions/demo";
 import { LocationChangeAction } from "connected-react-router";
 import { matchDemoPath, matchDemoWithWalkthroughPath } from "../../utils/paths";
-import { DemoState } from "../state/demo";
+import { DemoState, defaultLanguage } from "../state/demo";
 import { DemoEntry, WalkthroughEntry } from "../state/models";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectIsLastWalkthroughActive } from "../selectors/walkthroughs";
@@ -10,7 +10,7 @@ import { selectDemoVersionInfo } from "../selectors/demos";
 import { NavigationAction } from "../actions/navigation";
 
 const initialState: DemoState = {
-    language: "csharp",
+    language: defaultLanguage,
     categorySlug: null,
     demoSlug: null,
     wtSlug: null,
@@ -109,6 +109,7 @@ export function demoReducer(state: DemoState = initialState,
                     s.categorySlug = pathParams.category;
                     s.demoSlug = pathParams.demo;
                     s.wtSlug = pathParams.wtSlug;
+                    s.language = pathParams.language || defaultLanguage;
                 }
 
                 updateWalkthroughAndProgress(s);
@@ -158,8 +159,11 @@ export function demoReducer(state: DemoState = initialState,
 
         case "NAVIGATION_WENT_TO_DEMO_PAGE":
             return modifyState(state, s => {
+                const { language } = action;
+
                 s.showResultsPanel = false;
                 s.runResults = null;
+                s.language = language || defaultLanguage;
             });
     }
 
