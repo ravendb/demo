@@ -39,7 +39,6 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             await SetRunPrerequisites(documentId);
 
             #region Demo
-            
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1

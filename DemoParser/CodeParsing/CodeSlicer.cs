@@ -74,6 +74,12 @@ namespace DemoParser.CodeParsing
                 }
 
                 var line = CopyCodeLine(i);
+                if (String.IsNullOrWhiteSpace(line) && i == startLine+1)
+                {
+                    // Ignore the empty line right after #region Demo (if line exists)
+                    continue;
+                }
+                
                 outputCode.AppendLine(line);
                 outputLineCnt++;
             }

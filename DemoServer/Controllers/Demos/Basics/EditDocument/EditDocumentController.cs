@@ -39,7 +39,6 @@ namespace DemoServer.Controllers.Demos.Basics.EditDocument
             await SetRunPrerequisites();
 
             #region Demo
-            
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1

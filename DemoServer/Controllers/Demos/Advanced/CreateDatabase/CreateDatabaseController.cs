@@ -34,7 +34,6 @@ namespace DemoServer.Controllers.Demos.Advanced.CreateDatabase
             string databaseName = _databaseName.For(UserId);
 
             #region Demo
-            
             try
             {
                 #region Step_1

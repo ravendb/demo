@@ -25,7 +25,6 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.LoadRelatedDocuments
             string phone = runParams.Phone;
 
             #region Demo
-            
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1

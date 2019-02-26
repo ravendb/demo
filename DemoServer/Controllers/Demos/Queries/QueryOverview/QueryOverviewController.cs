@@ -22,7 +22,6 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
         public void Run()
         {
             #region Demo
-            
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1

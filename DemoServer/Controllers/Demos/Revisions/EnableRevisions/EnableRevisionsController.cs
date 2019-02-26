@@ -24,7 +24,6 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
             string collection2 = runParams.Collection2;
 
             #region Demo
-          
             #region Step_1
             RevisionsConfiguration myRevisionsConfiguration = new RevisionsConfiguration
             #endregion
