@@ -6,12 +6,10 @@ import { LanguageSelect } from "./LanguageSelect";
 import { Description } from "./Description";
 import { WalkthroughLinks } from "./WalkthroughLinks";
 import { AssetLinks } from "./AssetLinks";
-import { Language } from "../../../models/common";
 import { AppState } from "../../../store/state";
 import { connect } from "react-redux";
 
 interface Props {
-    selectedLanguage: Language;
     conferenceMode: boolean;
 }
 
@@ -27,17 +25,17 @@ export class SidebarDisplay extends React.Component<Props, State> {
             sidebarCollapsed: false
         };
 
-        this.handleToggleCollapse = this.handleToggleCollapse.bind(this);
+        this._handleToggleCollapse = this._handleToggleCollapse.bind(this);
     }
 
-    handleToggleCollapse() {
+    private _handleToggleCollapse() {
         this.setState({
             sidebarCollapsed: !this.state.sidebarCollapsed
         });
     }
 
-    render() {
-        const { selectedLanguage, conferenceMode } = this.props;
+    public render() {
+        const { conferenceMode } = this.props;
         const { sidebarCollapsed } = this.state;
 
         const sidebarClassName = classNames("sidebar", {
@@ -46,11 +44,11 @@ export class SidebarDisplay extends React.Component<Props, State> {
         });
 
         return <div id="sidebar" className={sidebarClassName}>
-            <Controls toggleCollapse={!conferenceMode && this.handleToggleCollapse} />
+            <Controls toggleCollapse={!conferenceMode && this._handleToggleCollapse} />
             <div className="sidebar-body">
                 <Heading />
-                <LanguageSelect selected={selectedLanguage} />
-                
+                <LanguageSelect />
+
                 {!conferenceMode && <>
                     <Description />
                     <WalkthroughLinks />
@@ -62,12 +60,8 @@ export class SidebarDisplay extends React.Component<Props, State> {
 }
 
 function mapStateToProps({ demos }: AppState): Props {
-    const { language, conferenceMode } = demos;
-
-    return {
-        selectedLanguage: language,
-        conferenceMode
-    };
+    const { conferenceMode } = demos;
+    return { conferenceMode };
 }
 
 export const Sidebar = connect<Props>(mapStateToProps)(SidebarDisplay);

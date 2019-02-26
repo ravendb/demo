@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using DemoParser.Models;
 using DemoServer.Models;
@@ -42,9 +43,13 @@ namespace DemoServer.Controllers
             var categoriesForLanguages = _demoContainer.GetCategoriesForLanguages();
             var categoriesWithVersions = _demoContainer.GetCategoriesWithVersions();
 
+            var categoriesForLanguageDtos = categoriesForLanguages
+                .Select(CategoriesForLanguageDto.FromModel)
+                .ToList();
+
             var dto = new DemoContextDto
             {
-                CategoriesForLanguages = categoriesForLanguages,
+                CategoriesForLanguages = categoriesForLanguageDtos,
                 CategoriesWithVersions = categoriesWithVersions,
                 ConferenceMode = _settings.ConferenceMode
             };

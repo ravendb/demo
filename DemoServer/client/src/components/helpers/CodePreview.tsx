@@ -10,21 +10,21 @@ interface CodePreviewProps {
 }
 
 export class CodePreview extends React.Component<CodePreviewProps, {}> {
-    componentDidMount() {
-        this.highlightSyntax();
+    public componentDidMount() {
+        this._highlightSyntax();
     }
 
-    componentDidUpdate() {
-        this.highlightSyntax();
+    public componentDidUpdate() {
+        this._highlightSyntax();
     }
 
-    highlightSyntax() {
+    private _highlightSyntax() {
         const { id } = this.props;
         const element = document.getElementById(id);
         Prism.highlightAllUnder(element, false);
     }
 
-    render() {
+    public render() {
         const { id, language, linesStart, children } = this.props;
 
         return <pre id={id} className="line-numbers" data-start={linesStart}>

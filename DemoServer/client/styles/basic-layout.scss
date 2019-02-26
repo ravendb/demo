@@ -156,6 +156,10 @@ hr {
         @include btn-variant($gray-dark, rgba($gray-lighter, .8));
     }
 
+    &.active {
+        @include btn-variant($brand-primary, $gray-lighter);
+    }
+
     &:disabled {
         background-color: $gray !important;
         color: $gray-light !important;

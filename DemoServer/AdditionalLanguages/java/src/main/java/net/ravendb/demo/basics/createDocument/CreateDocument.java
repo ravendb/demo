@@ -1,6 +1,6 @@
 package net.ravendb.demo.basics;
 
-//region Imports
+//region Usings
 import net.ravendb.client.documents.DocumentStore;
 import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.client.documents.session.QueryStatistics;

@@ -2,6 +2,8 @@ import { createSelector } from "reselect";
 import { DemoState } from "../state/demo";
 import { getDemoSlugs } from "./urlGetters";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
+import { Language } from "../../models/common";
+import { CategoryForLanguage } from "../../models/dtos/context";
 
 export interface DemoVersionInfo {
     category: CategorySlug;
@@ -29,4 +31,45 @@ export const selectDemoVersionInfo = createSelector(
 
         return { category, demo, demoHash };
     }
+);
+
+function doCategoriesContainDemo(
+    categories: CategoryForLanguage[],
+    categorySlug: CategorySlug,
+    demoSlug: DemoSlug): boolean {
+
+    const category = categories
+        && categories.find(x => x.slug === categorySlug);
+
+    if (!category) {
+        return false;
+    }
+
+    const demo = category.demos && category.demos.find(x => x.slug === demoSlug);
+
+    return !!demo;
+}
+
+function getLanguagesForDemo(state: DemoState): Language[] {
+    const { categoriesForLanguages, categorySlug, demoSlug } = state;
+
+    const languages: Language[] = [];
+
+    for (const categoriesForLanguage of categoriesForLanguages) {
+
+        const categories = categoriesForLanguage.categories;
+
+        const containDemo = doCategoriesContainDemo(categories, categorySlug, demoSlug);
+
+        if (containDemo) {
+            languages.push(categoriesForLanguage.language);
+        }
+    }
+
+    return languages;
+}
+
+export const selectLanguagesForDemo = createSelector(
+    [getLanguagesForDemo],
+    (languages) => languages
 );

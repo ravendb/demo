@@ -1,8 +1,13 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import * as classNames from "classnames";
 import { AppState } from "../../../store/state";
-import { selectPreviousWalkthroughUrl, selectNextWalkthroughUrl, selectUrlWithoutWalkthrough } from "../../../store/selectors/walkthroughUrls";
+
+import {
+    selectPreviousWalkthroughUrl,
+    selectNextWalkthroughUrl,
+    selectUrlWithoutWalkthrough
+} from "../../../store/selectors/walkthroughUrls";
+
 import { WalkthroughProgress } from "./WalkthroughProgress";
 import { NextButton, PreviousButton, CloseButton } from "./navButtons";
 import { selectWalkthroughCount } from "../../../store/selectors/walkthroughs";
@@ -15,19 +20,8 @@ interface Props {
 }
 
 class WalkthroughNavComponent extends React.Component<Props, {}> {
-    constructor(props) {
-        super(props);
-    }
 
-    navButton(url: string, text: string, btnClass: string) {
-        const className = classNames("walkthrough-nav", {
-            "disabled": !url
-        }, btnClass);
-
-        return <a href={url || null} role="button" className={className}>{text}</a>;
-    }
-
-    render() {
+    public render() {
         const { previousUrl, nextUrl, closeUrl, showProgressNav } = this.props;
 
         return <div className="walkthrough-header">

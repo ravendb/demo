@@ -10,10 +10,12 @@ import { Spinner } from "../ui/Spinner";
 import { ShareToast } from "../demoDisplay/toasts/ShareToast";
 import { InvalidFileToast } from "../demoDisplay/toasts/InvalidFileToast";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
+import { Language } from "../../models/common";
 
 export type DemoOwnProps = DemoBodyOwnProps;
 
 export interface DemoStateProps {
+    language: Language;
     categorySlug: CategorySlug;
     demoSlug: DemoSlug;
     loading: boolean;
@@ -40,10 +42,10 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
     }
 
     public componentDidUpdate(prevProps: DemoProps) {
-        const { categorySlug: prevCategory, demoSlug: prevDemo } = prevProps;
-        const { categorySlug, demoSlug } = this.props;
+        const { categorySlug: prevCategory, demoSlug: prevDemo, language: prevLanguage } = prevProps;
+        const { categorySlug, demoSlug, language } = this.props;
 
-        if (categorySlug !== prevCategory || demoSlug !== prevDemo) {
+        if (categorySlug !== prevCategory || demoSlug !== prevDemo || language !== prevLanguage) {
             this._downloadMetadata();
         }
     }
@@ -62,10 +64,11 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): DemoStateProps {
-    const { categorySlug, demoSlug, finishedLoadingDemo, finishedSettingPrerequisites } = demos;
+    const { categorySlug, demoSlug, finishedLoadingDemo, finishedSettingPrerequisites, language } = demos;
     const finishedLoading = finishedLoadingDemo && finishedSettingPrerequisites;
 
     return {
+        language,
         categorySlug,
         demoSlug,
         loading: !finishedLoading

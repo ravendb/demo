@@ -16,6 +16,7 @@ export function getWalkthroughUrl(slugs: DemoPathSlugs, wt: DemoWalkthroughDto):
     }
 
     const { category, demo, language } = slugs;
+
     return createDemoWithWalkthroughPath({
         category,
         demo,
