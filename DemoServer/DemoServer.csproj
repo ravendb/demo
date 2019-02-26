@@ -82,6 +82,7 @@
     <ItemGroup>
       <DistFiles Include="wwwroot\dist\**" />
       <DistFiles Include="Controllers\Demos\**" />
+      <DistFiles Include="AdditionalLanguages\**" />
       <ResolvedFileToPublish Include="@(DistFiles->'%(FullPath)')" Exclude="@(ResolvedFileToPublish)">
         <RelativePath>%(DistFiles.Identity)</RelativePath>
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
