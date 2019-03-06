@@ -1,0 +1,216 @@
+{
+    "Slug": "sorting-query-results",
+    "SourceFileName": "SortingQueryResultsController.cs",
+    "Title": "Sorting Query Results",
+    "DescriptionLines": [
+        "**Query results can be sorted.**<br>",
+        "The sorting method is specified when issuing the query.<br>",
+        "Sorting is applied after the query filtering stage.<br>",
+        "Multiple sorting actions can be chained.",
+        "",
+        "You can order the query results by:<br>",
+        "<p>* A field value<br>",
+        "* The resulting documents' score<br>",
+        "* Aggregation values (in aggregation queries)<br>",
+        "* Geographical distance (in spatial queries)<br>",
+        "* Random ordering</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying: Sorting",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+        },
+        {
+            "Title": "Sorting query results",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+        },
+        {
+            "Title": "Indexes: Sorting & Collation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+        },
+        {
+            "Title": "Random Ordering",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+        },
+        {
+            "Title": "Order by Distance",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the Session `Query()` LINQ query syntax.",
+                "",
+                "* While this example relates to a _dynamic query_ where an auto-index is created,<br>",
+                "  sorting can also be applied when querying using a static index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Filter query results",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Filter the documents returned by applying some condition.<br>",
+                "  _Filtering is done prior to sorting_, which is applied in the next step.<br>",
+                "",               
+                "* When sorting without filtering, Ravendb will sort all of the resulting documents.<br>", 
+                "  _Applying filtering is recommended_, as it reduces the number of results RavenDB needs to sort when querying over a large set of data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Filtering Results - Basic Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/filtering-results-basics"
+                },
+                {
+                    "Title": "Querying: Filtering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                }
+            ]
+        },
+        {
+            "Title": "Primary sort by field value",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Specify the field to sort by.<br>",
+                "",
+                "* Options:<br>",
+                "  `OrderBy()` - Order documents by ascending field values.<br>",
+                "  `OrderByDescending()` - Order field values in descending order.",
+                "",
+                "* When sorting by field value - The order is computed according to the inferred field type.<br>",
+                "  Ordering type can be forced by explicitly passing an _OrderingType_ param to the 'OrderBy' methods.",
+                "  See example in the next step.",
+                "",
+                "* In the above example, the primary sorting of the documents returned by the query will be according to field _'UnitsInStock'_.",
+                "  The field values will be considered as _'Long'_ when ordering the values, since this field is an integer, and no other type was specified.",
+                "",
+                "* See related links for details about ordering by:<br>",
+                "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Sorting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+                },
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                },
+                {
+                    "Title": "Indexes: Sorting & Collation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+                },
+                {
+                    "Title": "Random Ordering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+                },
+                {
+                    "Title": "Order by Distance",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                }
+            ]
+        },
+        {
+            "Title": "Secondary sort by field value",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* _Multiple sorting actions_ can be chained.",
+                "  You can sort by one field and then perform a secondary sort on another field.",
+                "  Any combination of secondary sorting is possible as the index fields are indexed independently of one another.",
+                "",
+                "* There is no limit on the number of sorting actions that can be chained.<br>",
+                "  In the example, a secondary sort is done on the _Name_ field.",
+                "",
+                "* Options:<br>",
+                "  `ThenBy()` - Order by ascending values.<br>",
+                "  `ThenByDescending()` - Order values in descending order.",
+                "",
+                "* The order is computed according to the inferred field type, with strings defaulting to lexicographic order.",
+                "  In the above example, passing _OrderingType.AlphaNumeric_ will cause the digit characters in the string to be treated as numbers and not as text.<br>",
+                "",
+                "* You can override the ordering type with any of the following:<br>",
+                "    * OrderingType.String (lexicographic ordering)<br>",
+                "    * OrderingType.Long<br>",
+                "    * OrderingType.Double<br>" ,
+                "    * OrderingType.AlphaNumeric",
+                "",
+                "* See related links for details about ordering by:<br>",
+                "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Sorting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+                },
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                },
+                {
+                    "Title": "Indexes: Sorting & Collation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+                },
+                {
+                    "Title": "Random Ordering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+                },
+                {
+                    "Title": "Order by Distance",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `ToList()`.",
+                "",
+                "* _'sortedProducts'_ will contain a list of Product entities sorted by the number of units in stock in descending order,",
+                "  with a secondary sort on the product name.",
+                "",
+                "* The output entities returned by the query are tracked by the Session as usual.<br>"
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        }
+    ]
+}
