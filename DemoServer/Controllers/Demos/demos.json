@@ -62,7 +62,8 @@
             "FilteringResultsMultipleConditions",
             "ProjectingIndividualFields",
             "ProjectingUsingFunctions",
-            "SortingQueryResults"
+            "SortingQueryResults",
+            "PagingQueryResults"
         ]
     },
     {

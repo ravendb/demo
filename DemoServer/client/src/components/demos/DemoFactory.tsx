@@ -21,6 +21,7 @@ import { FilteringResultsMultipleConditionsDemo } from "./queries/FilteringResul
 import { ProjectingIndividualFieldsDemo } from "./queries/ProjectingIndividualFieldsDemo";
 import { ProjectingUsingFunctionsDemo } from "./queries/ProjectingUsingFunctionsDemo";
 import { SortingQueryResultsDemo } from "./queries/SortingQueryResultsDemo";
+import { PagingQueryResultsDemo } from "./queries/PagingQueryResultsDemo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
@@ -109,6 +110,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <ProjectingUsingFunctionsDemo />;
             case "sorting-query-results":
                 return <SortingQueryResultsDemo />;
+            case "paging-query-results":
+                return <PagingQueryResultsDemo />;
         }
     }
 

@@ -51,8 +51,8 @@
             "DescriptionLines": [
                 "* Define a query on the 'Products' collection using the Session `Query()` LINQ query syntax.",
                 "",
-                "* While this example relates to a _dynamic query_ where an auto-index is created,<br>",
-                "  sorting can also be applied when querying using a static index."
+                "* While this example relates to a dynamic query where an auto-index is created,<br>",
+                "  _sorting_ can also be applied when querying using a static index."
             ],
             "Assets": [
                 {

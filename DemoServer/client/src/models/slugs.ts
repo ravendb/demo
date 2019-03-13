@@ -22,7 +22,8 @@ type Queries = "query-overview"
     | "filtering-results-multiple-conditions"
     | "projecting-individual-fields"
     | "projecting-using-functions"
-    | "sorting-query-results";
+    | "sorting-query-results"
+    | "paging-query-results";
 
 type StaticIndexes = "static-indexes-overview"
     | "map-index"
