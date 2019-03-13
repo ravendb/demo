@@ -20,10 +20,8 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringResultsBasics
         }
         
         [HttpPost]
-        public IActionResult Run(RunParams runParams)
+        public IActionResult Run()
         {
-            string country = runParams.Country;
-            
             #region Demo
             List<Employee> filteredEmployees;
 
@@ -43,11 +41,6 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringResultsBasics
             #endregion 
             
             return Ok(filteredEmployees);
-        }
-        
-        public class RunParams
-        {
-            public string Country { get; set; }
         }
     }
 }

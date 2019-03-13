@@ -13,9 +13,6 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const FilteringResultsBasicsDemo = () => <Demo
-    paramDefinitions={[
-        { inputType: "text", name: "country", placeholder: "USA", paramKind: "text-param" }
-    ]}
+export const FilteringResultsBasicsDemo = () => <Demo   
     resultsComponents={resultsCreator}
 />;
