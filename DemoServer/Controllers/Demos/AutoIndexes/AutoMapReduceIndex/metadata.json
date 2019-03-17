@@ -1,0 +1,217 @@
+{
+    "Slug": "auto-map-reduce-index",
+    "SourceFileName": "AutoMapReduceIndexController.cs",
+    "Title": "Auto Map-Reduce Index",
+    "StudioLinkToIndexList": true,
+    "DescriptionLines": [
+        "An **Auto Map-Reduce index** is created if no index is specified when issuing a query that performs data aggregation computations.",
+        "",
+        "The Auto Map-Reduce Index will be created if there isn't any existing Auto Map-Reduce Index that can answer this dynamic query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Auto-Map-Index I Demo",
+            "Type" : "demo",
+            "Url"  : "/auto-indexes/auto-map-index1"
+        },
+        {
+            "Title": "Aggregation queries",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+        },
+        {
+            "Title": "MapReduce and Aggregations",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+        },
+        {
+            "Title": "Dynamic aggregation",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+        },
+        {
+            "Title": "Basic dynamic Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        },
+        {
+            "Title": "Dynamic group-by query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
+        },
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+        },
+        {
+            "Title": "Querying - Query Optimizer",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a dynamic query",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define a dynamic query (note - no index is specified).",
+                "",
+                "* The above query, defined on the 'Employees' collection,<br>",
+                "  will return _the number of employees in each country_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/auto-indexes/auto-map-index1"
+                },
+                {
+                    "Title": "Querying Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
+                },
+                {
+                    "Title": "Basic dynamic Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                }
+            ]
+        },
+        {
+            "Title": "Define what to Group-By",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Use `GroupBy()` to define the document field(s) on which to group by.",
+                "",
+                "* In the above, grouping is done on the document field _'Country'_.<br>",
+                "  'Country' will be the grouping key.",
+                "",
+                "* The computed results will be aggregated per country,<br>",
+                "  so that for each country you shall get its total number of employees."
+            ],
+            "Assets": [
+                {
+                    "Title": "Aggregation queries",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+                },
+                {
+                    "Title": "MapReduce and Aggregations",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                },
+                {
+                    "Title": "Dynamic aggregation",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+                },
+                {
+                    "Title": "Basic dynamic Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                },
+                {
+                    "Title": "Dynamic group by query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
+                }
+            ]
+        },
+        {
+            "Title": "Define the aggregation action",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Define the aggregation action - _the computation to be done per grouping key_.",
+                "",
+                "* Use `Select()` to define the structure of each result in the query result set.<br>",
+                "  _Each entry in the result set will contain the following info_:",
+                "    * The country name",
+                "    * The total number of employees in this country",
+                "",
+                "* Each 'Employee' document represents 1 employee.<br>",
+                "  Here we are counting the number of documents `g.Count()` that exist per unique country `g.Key`.",
+                "",
+                "* Note: the supported aggregation actions with a dynamic query are:<br>",
+                "  `Count()` & `Sum()`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Aggregation queries",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+                },
+                {
+                    "Title": "MapReduce and Aggregations",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                },
+                {
+                    "Title": "Dynamic aggregation",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+                },
+                {
+                    "Title": "Basic dynamic Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                },
+                {
+                    "Title": "Dynamic group by query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
+                },
+                {
+                    "Title": "Projecting Fields Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/projecting-individual-fields"
+                }
+            ]
+        },
+        {
+            "Title": "Define results order",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Optionally, the query result set can be sorted according to any one of the fields defined with the above 'Select()'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the dynamic query",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Upon query execution, the _query-optimizer_ will analyze the query to see if an Auto-Map-Reduce Index that can answer this query already exists.",
+                "",
+                "* If such Auto-Map-Reduce Index (Not static one...) is found, it will be used to fetch the results.<br>",
+                "  Else, the query-optimizer will create a new Auto-Map-Reduce Index that can answer this query.",
+                "",
+                "* With the above query, the following Auto-Map-Reduce Index will be created: _Auto/Employees/ByCountReducedByAddress.Country_.",
+                "",
+                "* The _numberOfEmployeesPerCountry_ variable will hold the query results set.<br>",
+                "  Each entry in the result set will contain a unique country and the total number of employees in it.",
+                "",
+                "* Note: the results are Not tracked by the session, as they are Not documents, but just data projected using 'Select()'."
+            ],
+            "Assets": [
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                },
+                {
+                    "Title": "Querying - Query Optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+                }
+            ]
+        }
+    ]
+}

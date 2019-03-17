@@ -86,7 +86,8 @@
         },
         "demos": [
             "AutoMapIndex1",
-            "AutoMapIndex2"
+            "AutoMapIndex2",
+            "AutoMapReduceIndex"
         ]
     },
     {

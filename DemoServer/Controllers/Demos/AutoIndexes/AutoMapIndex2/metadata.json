@@ -77,7 +77,7 @@
                 "* Upon query execution, the _query-optimizer_ analyzes the query to see if an _auto-index_ that can answer the query already exists,",
                 "",
                 "* If there is No auto-index defined on the'Employees' collection,<br>",
-                "  => a new auto-indexed will be created.",
+                "  => a new auto-index will be created.",
                 "",
                 "* If there is an existing auto-index that:",
                 "   - is defined on the 'Employees' collection AND",
@@ -92,7 +92,7 @@
                 "",
                 "* Once the newly created auto-index is done 'indexing' the data, the old index is removed in favor of the new one.",
                 "",
-                "* If you have run Demo Auto-Map-Index-I prior to this one, then",
+                "* If you have run Demo Auto-Map-Index-I prior to this Demo, then",
                 "  executing the above query will result in a new auto-index by the name: _Auto/Employees/ByAddress.CountryAndFirstNameAndTitle_.<br>",
                 "  The previous index: _Auto/Employees/ByFirstName_ will be removed."
             ],

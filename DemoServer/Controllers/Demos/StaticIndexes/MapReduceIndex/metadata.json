@@ -1,8 +1,8 @@
 {
     "Slug": "map-reduce-index",
     "SourceFileName": "MapReduceIndexController.cs",
-    "Title": "Map Reduce Index",
-    "DescriptionLines": [       
+    "Title": "Map-Reduce Index",
+    "DescriptionLines": [
         "**Complex data aggregation** computations can be performed with a **Map-Reduce index**.",
         "",
         "The aggregated value can be queried on with very little cost, as computations are done during the indexing phase, and Not at query time.",

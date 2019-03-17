@@ -27,6 +27,7 @@ import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
+import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
@@ -132,6 +133,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <AutoMapIndex1Demo />;
             case "auto-map-index2":
                 return <AutoMapIndex2Demo />;
+            case "auto-map-reduce-index":
+                return <AutoMapReduceIndexDemo />;
         }
     }
 

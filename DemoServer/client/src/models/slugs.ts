@@ -1,20 +1,25 @@
-type Basic = "the-document-store"
+type Basic = 
+      "the-document-store"
     | "the-session"
     | "create-document"
     | "edit-document"
     | "delete-document";
 
-type RelatedDocuments = "create-related-documents"
+type RelatedDocuments = 
+      "create-related-documents"
     | "load-related-documents"
     | "query-related-documents"
     | "index-related-documents";
 
-type Attachments = "store-attachment";
+type Attachments = 
+      "store-attachment";
 
-type Revisions = "enable-revisions"
+type Revisions = 
+      "enable-revisions"
     | "get-revisions";
 
-type Queries = "query-overview"
+type Queries = 
+      "query-overview"
     | "query-example"
     | "full-collection-query"
     | "query-by-document-id"
@@ -25,20 +30,26 @@ type Queries = "query-overview"
     | "sorting-query-results"
     | "paging-query-results";
 
-type StaticIndexes = "static-indexes-overview"
+type StaticIndexes = 
+      "static-indexes-overview"
     | "map-index"
     | "map-reduce-index";
 
-type AutoIndexes = "auto-map-index1"
-    | "auto-map-index2";
+type AutoIndexes = 
+      "auto-map-index1"
+    | "auto-map-index2"
+    | "auto-map-reduce-index";
 
-type TextSearch = "fts-with-static-index-single-field"
+type TextSearch = 
+      "fts-with-static-index-single-field"
     | "fts-with-static-index-multiple-fields";
 
-type Advanced = "replication-failover"
+type Advanced = 
+      "replication-failover"
     | "create-database";
 
-export type DemoSlug = Basic
+export type DemoSlug = 
+      Basic
     | RelatedDocuments
     | Attachments
     | Revisions
@@ -48,7 +59,8 @@ export type DemoSlug = Basic
     | TextSearch
     | Advanced;
 
-export type CategorySlug = "basics"
+export type CategorySlug = 
+      "basics"
     | "related-documents"
     | "attachments"
     | "revisions"
