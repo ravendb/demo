@@ -399,6 +399,22 @@ hr {
                 background-color: $gray-darker;
             }
         }
+
+        .open-results {
+            border: none;
+            background-color: $brand-primary;
+            padding: 10px;
+            margin: -$gutter-xs (-$gutter-xs) 0 $gutter-sm;
+            color: $gray-lighter;
+            text-transform: uppercase;
+            border-radius: 20px;
+            transition: background .2s $global-easing-in-out;
+            font-size: 12px;
+
+            &:hover {
+                background-color: fade-out($color: $gray-darker, $amount: 0.33)
+            }
+        }
     }
 
     .results {
