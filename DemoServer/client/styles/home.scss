@@ -100,7 +100,6 @@
             display: flex;
             flex-wrap: wrap;
             margin: -$gutter-xs;
-            align-items: flex-start;
 
             .demo-item {
                 display: flex;
@@ -114,10 +113,14 @@
 
                 .title {
                     line-break: loose;
-                    font-size: 18px;
+                    font-size: 16px;
                     text-align: center;
                     padding: 15px;
                     font-weight: bold;
+                    min-height: 40px;
+                    display: flex;
+                    align-items: center;
+                    margin: auto;
                 }
 
                 &:hover {
