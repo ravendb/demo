@@ -37,12 +37,13 @@ class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
                             <div>dummy data</div>
                         </div>
                     </div> */}
-
-                    <div>
-                        <button className="open-results">
-                            Open Results in Studio
-                            </button>
-                    </div>
+                  
+                    {/*<div>*/}
+                        {/* This button is commented out - until we handle issue HRINT-380 */}
+                        {/*<button className="open-results">*/}
+                            {/*Open Results in Studio*/}
+                            {/*</button>*/}
+                    {/*</div>*/}
 
                     <div>
                         <button className="minimize-results" onClick={hidePanel}>

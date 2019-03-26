@@ -6,7 +6,6 @@ using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
 #region Usings
 using System.Linq;
-using Raven.Client.Documents.Linq;
 using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
