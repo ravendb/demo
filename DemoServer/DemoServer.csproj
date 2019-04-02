@@ -31,9 +31,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="AdditionalLanguages\java\src\main\java\net\ravendb\demo\demos.json">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Controllers\Demos\demos.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -63,6 +60,10 @@
     <Content Update="NLog.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="AdditionalLanguages\java\src\main\go\Basics\createDocument\metadata.json" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition="'$(Configuration)' == 'Debug' And !Exists('wwwroot/dev/js')">

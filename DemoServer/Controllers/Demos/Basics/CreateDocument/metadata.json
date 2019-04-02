@@ -4,10 +4,10 @@
     "Title": "Create Document",
     "DescriptionLines": [
         "**Create a new C# entity and save it as a document** in the Database.",
-        "The document will be stored in the RavenDB database in as JSON format object.",
+        "The document will be stored in the RavenDB database as a JSON object.",
         "",
         "The JSON structure is set according to the C# object model passed to the Session.",
-        "(See the link about data modeling in the Assets below)"
+        "Learn more about data modeling in the Document Modeling chapter - see Related Links below."
     ],
 
     "Assets": [
@@ -58,14 +58,14 @@
             "Title": "Create a new C# object to be saved",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Define the C# object to be saved.",
+                "* Create the C# object to be saved.",
                 "",
                 "* _The C# class name_ determines the collection to which the document will belong to in the database.<br>",
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
                 "* _The C# class properties_ determine the document JSON structure in the database.",
                 "",
-                "* Note: Having an 'Id' field property in the class definition is not mandatory.<br>",
+                "* Note: Having an 'ID' field property in the class definition is Not mandatory.<br>",
                 "  The Session will assign an Id for the entity that is stored, and this Id can be fetched later at any time."
             ],
             "Assets": [
@@ -115,7 +115,13 @@
             "Slug" : "step-3",
             "DescriptionLines": [
                 "* The Session takes care of generating the document identifier automatically.<br>",
-                "  The new stored entity ID is now available and can be used."
+                "  The new stored entity ID is now available and can be used.",
+                "",
+                "* _If your C# class was defined with an 'ID' property_:<br>",
+                "  => You can get the new stored entity ID as shown in the above example.",
+                "",
+                "* _If your C# class was Not defined with an 'ID' property_:<br>",
+                "  => You can get the new stored entity using: `session.Advanced.GetDocumentId(newCompany)`"
             ],
             "Assets": [
                 {
@@ -129,7 +135,7 @@
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
                 },
                 {
-                    "Title": "How to Get Document ID",
+                    "Title": "How to Get Document ID when Class is defined w/o ID property",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
                 }

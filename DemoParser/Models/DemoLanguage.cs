@@ -4,6 +4,7 @@
     {
         CSharp,
         Java,
-        Python
+        Python,
+        Go
     }
 }

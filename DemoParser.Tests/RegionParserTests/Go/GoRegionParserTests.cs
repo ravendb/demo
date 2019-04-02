@@ -6,9 +6,9 @@ using DemoParser.Regions;
 using DemoParser.Regions.Tokenizers;
 using Xunit;
 
-namespace DemoParser.Tests.RegionParserTests.Java
+namespace DemoParser.Tests.RegionParserTests.Go
 {
-    public class JavaRegionParserTests
+    public class GoRegionParserTests
     {
         private const string UsingsRegionName = "Usings";
         private const string DemoRegionName = "Demo";
@@ -110,18 +110,18 @@ namespace DemoParser.Tests.RegionParserTests.Java
             var result = ActOnMultipleDemoRegions();
 
             var demoRegions = result.Where(x => x.Name == DemoRegionName).ToList();
-            Assert.Equal(3, demoRegions.Count);
+            Assert.Equal(2, demoRegions.Count);
         }
 
-        private static readonly string DefaultFilePath = Path.Join("RegionParserTests", "Java", "Input.java");
-        private static readonly string MultipleDemoRegionsPath = Path.Join("RegionParserTests", "Java", "MultipleDemoRegionsInput.java");
+        private static readonly string DefaultFilePath = Path.Join("RegionParserTests", "Go", "Input.go");
+        private static readonly string MultipleDemoRegionsPath = Path.Join("RegionParserTests", "Go", "MultipleDemoRegionsInput.go");
 
         private List<CodeRegion> Act() => Act(DefaultFilePath);
         private List<CodeRegion> ActOnMultipleDemoRegions() => Act(MultipleDemoRegionsPath);
 
         private List<CodeRegion> Act(string filePath)
         {
-            var tokenizer = TokenizerFactory.GetFor(DemoLanguage.Java);
+            var tokenizer = TokenizerFactory.GetFor(DemoLanguage.Go);
             var parser = new RegionParser(filePath, tokenizer);
             var result = parser.GetRegions();
             return result.ToList();

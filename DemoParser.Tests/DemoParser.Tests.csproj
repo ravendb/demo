@@ -27,6 +27,9 @@
   <ItemGroup>
     <None Remove="RegionParserTests\Java\MultipleDemoRegionsInput.java" />
     <None Remove="TokenizerTests\Java\Input.java" />
+    <None Update="RegionParserTests\Go\Input.go">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
   <ItemGroup>
@@ -40,6 +43,9 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="RegionParserTests\Csharp\MultipleDemoRegionsInput.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="RegionParserTests\Go\MultipleDemoRegionsInput.go">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="RegionParserTests\Java\MultipleDemoRegionsInput.java">

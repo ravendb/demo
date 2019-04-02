@@ -1,4 +1,4 @@
-export type Language = "csharp" | "java" | "python";
+export type Language = "csharp" | "java" | "python" | "go";
 
 export function languageToDisplay(language: Language) {
     switch (language) {
@@ -8,6 +8,8 @@ export function languageToDisplay(language: Language) {
             return "Java";
         case "python":
             return "Python";
+        case "go":
+            return "Go";
         default:
             return "???";
     }
