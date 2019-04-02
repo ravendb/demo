@@ -155,6 +155,8 @@ export function demoReducer(state: DemoState = initialState,
                 s.demo = null;
                 s.showResultsPanel = false;
                 s.runResults = null;
+                s.demoSlug = null;
+                s.categorySlug = null;
             });
 
         case "NAVIGATION_WENT_TO_DEMO_PAGE":

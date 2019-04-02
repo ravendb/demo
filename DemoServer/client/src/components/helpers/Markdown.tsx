@@ -1,17 +1,8 @@
 import * as React from "react";
-import * as markdowndeep from "markdowndeep";
 import { RawHtml } from "./RawHtml";
+import { getHtmlFromMarkdown } from "../../utils/codeParsing";
 
 export class Markdown extends React.Component<{}, {}> {
-    private readonly markdown: any;
-
-    constructor(props) {
-        super(props);
-
-        this.markdown = new markdowndeep.Markdown();
-        this.markdown.ExtraMode = true;
-        this.markdown.SafeMode = false;
-    }
 
     public render() {
         const { children } = this.props;
@@ -19,7 +10,7 @@ export class Markdown extends React.Component<{}, {}> {
             return null;
         }
 
-        const html = this.markdown.Transform(children);
+        const html = getHtmlFromMarkdown(children as string);
         return <RawHtml>{html}</RawHtml>;
     }
 }

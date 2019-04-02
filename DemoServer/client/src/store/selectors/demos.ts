@@ -73,3 +73,7 @@ export const selectLanguagesForDemo = createSelector(
     [getLanguagesForDemo],
     (languages) => languages
 );
+
+export function getDemoImageSrc(category: CategorySlug, demo: DemoSlug): string {
+    return `/img/demo-icons/${category}/${demo}.png`;
+}

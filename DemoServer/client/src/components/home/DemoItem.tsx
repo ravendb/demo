@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { goToDemoPage } from "../../store/actions/navigation";
 import { CategorySlug } from "../../models/slugs";
 import { DemoThunkDispatch } from "../../store";
+import { getDemoImageSrc } from "../../store/selectors/demos";
 
 interface DispatchProps {
     goToDemoPage: () => void;
@@ -24,7 +25,7 @@ function DemoItemComponent(props: Props) {
         "done": demo.completed
     });
 
-    const imageSrc = `../img/demo-icons/${category}/${demo.slug}.png`;
+    const imageSrc = getDemoImageSrc(category, demo.slug);
 
     return <a className={className} onClick={goToDemoPage} >
         <div className="bkg"><img src={imageSrc} /></div>

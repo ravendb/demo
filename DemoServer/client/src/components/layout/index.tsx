@@ -3,6 +3,7 @@ import { Header } from "./header";
 import { ErrorMessage } from "./dialogs/ErrorMessage";
 import { ResetDatabaseConfirm } from "./dialogs/ResetDatabaseConfirm";
 import { ResetProgressConfirm } from "./dialogs/ResetProgressConfirm";
+import { Metadata } from "./Metadata";
 
 interface LayoutProps {
     noContainer?: boolean;
@@ -28,6 +29,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
             </div>;
 
         return <>
+            <Metadata />
             <Header />
             {body}
             {this._dialogs()}

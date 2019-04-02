@@ -65,3 +65,18 @@ export function createDemoWithoutWalkthroughPath(pathParams: DemoPathParams): st
 
     return url;
 }
+
+export function createCanonicalRelativeUrl(pathParams: DemoPathParams): string {
+    const { category, demo } = pathParams;
+
+    if (!category || !demo) {
+        return "/";
+    }
+
+    return createDemoWithWalkthroughPath(pathParams);
+}
+
+export function createAbsoluteUrl(relativeUrl: string): string {
+    const absoluteUrl = new URL(relativeUrl, window.location.origin);
+    return absoluteUrl.href;
+}
