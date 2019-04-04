@@ -4,7 +4,7 @@
     "Title": "The Session",
     "NonInteractive":  true,
     "DescriptionLines": [
-        "**The Session**, also called 'Document Session', is the primary way your client code interacts with RavenDB.",
+        "**The Session**, which is derived from the Document Store, is the primary way your client code interacts with your RavenDB databases.",
         "",
         "The Session is a unit of work that represents a single business transaction against a particular database,",
         "managing change tracking for all the entities that it has either loaded or stored."
@@ -46,12 +46,14 @@
                 "* Direct communication with the database is done through the `Session`.<br>",
                 "  Start by obtaining a new Session object from the Document Store.",
                 "",
-                "* Any change made to the documents loaded to the Session will be tracked by the Session.<br>",
+                "* Any change made to the documents loaded to the Session will be _tracked_ by the Session.<br>",
                 "  These changes will be persisted to the database when calling SaveChanges() later on.",
                 "",
-                "* _Note_: be sure to wrap the Session variable in a _'using'_ statement to ensure proper disposal.",
+                "* _Note_:",
+                "  * Be sure to wrap the Session variable in a _'using'_ statement to ensure proper disposal.<br>",
+                "  * If no database is specified then the _default_ database (stored in the Document Store) is used.",
                 "",
-                "* A single Session has a configurable number of requests that can be made to the server.<br>",
+                "* A configurable _number of requests_ can be made within a single session to the server.<br>",
                 "  Design your code - use multiple Sessions as needed."
             ],
             "Assets": [
@@ -113,7 +115,7 @@
                 "* These changes are sent to the server as a single remote call that will complete transactionally.<br>",
                 "  In other words, either all changes are saved as a single unit or none of them are.",
                 "",
-                "* Once SaveChanges() returns, it is guranteed that the changes are persisted to the database.",
+                "* Once SaveChanges() returns, it is guaranteed that the changes are persisted to the database.",
                 "",
                 "* The SaveChanges() is the only time when RavenDB client sends updates to the server, so you will experience a reduced number of network calls."
             ],

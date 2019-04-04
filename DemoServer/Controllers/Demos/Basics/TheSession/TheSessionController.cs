@@ -6,7 +6,7 @@
         {
             #region Demo
             #region Step_1
-            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
+            using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession("databaseName"))
             #endregion
             {
                 #region Step_2

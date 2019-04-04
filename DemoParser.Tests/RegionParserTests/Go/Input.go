@@ -1,7 +1,6 @@
 ﻿//region Usings
 import { 
    "github.com/ravendb/ravendb-go-client"
-   "encoding/json"
 }  
 //endregion
   
@@ -26,7 +25,7 @@ func createDocument(companyName, companyPhone, contactName, contactTitle string)
     defer session.Close()
 
     //region Step_2
-    err = session.Store(newCompany)
+    err = session.Store(&newCompany)
     if err != nil {
         return err
     }

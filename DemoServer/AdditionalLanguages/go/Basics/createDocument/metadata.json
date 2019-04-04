@@ -37,7 +37,8 @@
                 "  The JSON serialization follows the standard GO rules.",
                 "",
                 "* Note: Having an 'ID' field property in the struct definition is Not mandatory.<br>",
-                "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time."
+                "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",
+                "  See step 3 for more details."
             ],
             "Assets": [
                 {
@@ -52,7 +53,9 @@
             "Slug" : "step-2",
             "DescriptionLines": [
                 "* Associate the new entity with the Session `Store()` command.<br>",
-                "  Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
+                "  Param must be a pointer to a struct.",
+                "",
+                "* Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
                 "",
                 "* However, the Store() command will _immediately_ assign an ID to the new entity,<br>",
                 "  so you can refer to it in other documents that you'll save in the same batch.<br>",
