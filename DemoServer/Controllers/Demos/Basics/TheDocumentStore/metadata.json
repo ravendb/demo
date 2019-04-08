@@ -113,7 +113,7 @@
                 "",
                 "  * _Database_ - Specify the default database name this Document Store will work against.",
                 "",
-                "  * _Certificate_ - Specify the Client Certificate which is used to authenticate the client to the RavenDB server.",
+                "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
                 "",
                 "  * _Conventions_ - Customize various settings and behaviors.",
                 "",
@@ -164,7 +164,7 @@
             "DescriptionLines": [
                 "* The public static `Store`variable holds reference to the single created instance.",
                 "",
-                "* The rest of your client code can now access the Document Store using the _DocumentStoreHolder.Store_ static property for:",
+                "* The rest of your client code can now access the Document Store using the _DocumentStoreHolder.Store_ static property for actions such as:",
                 "  * Opening a Session",
                 "  * Defining indexes", 
                 "  * Bulk documents actions", 

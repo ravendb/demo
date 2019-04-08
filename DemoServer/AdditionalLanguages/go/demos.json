@@ -5,7 +5,11 @@
             "directory": "Basics"
         },
         "demos": [
-            "createDocument"
+            "theDocumentStore",
+            "theSession",
+            "createDocument",
+            "editDocument",
+            "deleteDocument"
         ]
     }
 ]

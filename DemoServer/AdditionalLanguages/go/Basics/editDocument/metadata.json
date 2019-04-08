@@ -1,18 +1,13 @@
 {
     "Slug": "edit-document",
-    "SourceFileName": "EditDocumentController.cs",
+    "SourceFileName": "EditDocument.go",
     "Title": "Edit Document",
     "DescriptionLines": [
         "**Edit a document** that is already stored in the database.<br>",
         "You will load an existing document from the Document-Store, update it and save it back."
     ],
 
-    "Assets": [        
-        {
-            "Title": "Loading Entities",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
-        },
+    "Assets": [
         {
             "Title": "The Load Command",
             "Type" : "link",
@@ -27,18 +22,13 @@
             "DescriptionLines": [
                 "* Load an existing document from the Document Store using the Session `Load()` command.<br>",
                 "",
-                "* The loaded document is added to the internal entities map (dictionary) that the Session manages.<br>",
+                "* The loaded document is added to the internal registry of entities that the Session manages.<br>",
                 "  In this example, document 'companies/5-A' is loaded.",
                 "",
                 "* The session will _track_ all changes that will be made to this entity,",
                 "  so that when SaveChanges() is called later on, the entity will be persisted to the data store _only if_ it was changed."
             ],
             "Assets": [
-                {
-                    "Title": "Loading Entities",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
-                },
                 {
                     "Title": "The Load Command",
                     "Type" : "link",
@@ -49,7 +39,7 @@
         {
             "Title": "Edit your data",
             "Slug" : "step-2",
-            "DescriptionLines": [ "* Edit the C# entity data" ],
+            "DescriptionLines": [ "* Edit the entity data" ],
             "Assets": [
             ]
         },
@@ -69,11 +59,6 @@
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
-                },
-                {
-                    "Title": "Saving Changes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
                 }
             ]
         }

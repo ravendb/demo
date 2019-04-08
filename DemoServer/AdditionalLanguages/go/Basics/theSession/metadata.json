@@ -1,6 +1,6 @@
 {
     "Slug": "the-session",
-    "SourceFileName": "TheSessionController.cs",
+    "SourceFileName": "TheSession.go",
     "Title": "The Session",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -17,24 +17,9 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
         },
         {
-            "Title": "What is a Session",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-        },
-        {
-            "Title": "Opening a Session",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
-        },
-        {
             "Title": "The SaveChanges Command",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
-        },
-        {
-            "Title": "Saving Changes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
         }
     ],
 
@@ -49,9 +34,7 @@
                 "* Any change made to the documents loaded to the Session will be _tracked_ by the Session.<br>",
                 "  These changes will be persisted to the database when calling SaveChanges() later on.",
                 "",
-                "* _Note_:",
-                "  * Be sure to wrap the Session variable in a _'using'_ statement to ensure proper disposal.<br>",
-                "  * If no database is specified then the _default_ database (stored in the Document Store) is used."
+                "* If no database is specified then the _default_ database (stored in the Document Store) is used."
             ],
             "Assets": [
                 {
@@ -60,19 +43,9 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
                 },
                 {
-                    "Title": "What is a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
-                },
-                {
-                    "Title": "Opening a Session",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/opening-a-session"
-                },
-                {
                     "Title": "The Document Store Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/the-document-store"
+                    "Url"  : "/go/basics/the-document-store"
                 }
             ]
         },
@@ -97,11 +70,6 @@
                     "Title": "The Store Command",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
-                },
-                {
-                    "Title": "Storing Entities",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
                 }
             ]
         },
@@ -124,12 +92,16 @@
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
-                },
-                {
-                    "Title": "Saving Changes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
                 }
+            ]
+        },
+        {
+            "Title": "Close the session",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Make sure to `Close()` the session to free resources associated with it."
+            ],
+            "Assets": [
             ]
         }
     ]

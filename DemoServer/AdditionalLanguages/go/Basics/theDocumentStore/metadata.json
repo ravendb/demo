@@ -1,0 +1,140 @@
+{
+    "Slug": "the-document-store",
+    "SourceFileName": "TheDocumentStore.go",
+    "Title": "The Document Store",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Document Store** is the main Client API object that establishes the communication between your client application and the RavenDB cluster.",
+        "",
+        "It is the single access point to a particular cluster, exposing methods to perform operations against the associated server instances,",
+        "holding the configuration, topology, cache and any customizations that you might have applied.",
+        "",
+        "A single instance of a Document Store should be used per the lifetime of the application."
+    ],
+
+    "Assets": [
+        {
+            "Title": "The Document Store",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+        },
+        {
+            "Title": "Your first RavenDB program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#your-first-ravendb-program"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the global Document Store variable",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* The `globalDocumentStore` variable holds a single instance of the Document Store struct that will be used across your client application.",
+                "",
+                "* In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
+                "  * Session",
+                "  * Operations",
+                "  * Bulk Insert",
+                "  * Changes API",
+                "  * Data Subscriptions"
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "The create Document Store method",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Function `createDocumentStore()` returns a configured `ravendb.DocumentStore` object that is used to initialize the _globalDocumentStore_ variable from the previous step.",
+                "",
+                "* If a Document Store object already exists, the existing instance is returned.<br>",
+                "  Otherwise, a new Document Store instance is created."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Instantiate the Document Store",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Call `ravendb.NewDocumentStore()` to instantiate a Document Store object.",
+                "",
+                "* Provide the cluster URLs and a default database name.<br>",
+                "",
+                "  * _URLs_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.",
+                "",
+                "  * _Database_ - Specify the default database name this Document Store will work against.",
+                "",
+                "* Remember to: `Close()` the Document Store object when exiting the client application."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Configure client certificate (optional)",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Optionally, you can specify the Client Certificate which is used to authenticate the client to the RavenDB server.",
+                "",
+                "* `store.Certificate` => provide a *.pem client certificate ( *.crt + *.key )",
+                "",
+                "* `store.TrustStore` => provide the CA certificate of the client certificate ( *.crt )"
+            ],
+            "Assets": [
+                {
+                    "Title": "Certificates introduction",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch13/Ch13.md#introduction-to-transport-level-security-and-authentication"
+                }
+            ]
+        },
+        {
+            "Title": "Configure conventions (optional)",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Optionally, you can customize the _Conventions_ for various settings and behaviors."
+            ],
+            "Assets": [
+                {
+                    "Title": "Conventions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#conventions"
+                }
+            ]
+        },
+        {
+            "Title": "Initialize the Document Store",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "  This will instantiate a communication channel between your application and the RavenDB server instance."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Assign to the global Document Store variable",
+            "Slug" : "step-7",
+            "DescriptionLines": [
+                "",
+                "* The `globalDocumentStore` variable will hold a reference to the single created instance.",
+                "",
+                "* The rest of your client code can now access the Document Store using the globalDocumentStore for actions such as:",
+                "  * Opening a Session",
+                "  * Defining indexes",
+                "  * Bulk documents actions",
+                "  * Operations handling",
+                "  * Subscription tasks management",
+                "  * Exporting & Importing database data."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}

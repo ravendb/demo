@@ -1,0 +1,48 @@
+{
+    "Slug": "delete-document",
+    "SourceFileName": "DeleteDocument.go",
+    "Title": "Delete Document",
+    "DescriptionLines": [
+        "**Delete a document** from the database."
+    ],
+    
+    "Assets": [
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Mark the entity to be deleted",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Mark the entity to be deleted by calling the Session `DeleteByID()` command.<br>",
+                "  The document is actually deleted from the database only when SaveChanges() is called later on.",
+                "",             
+                "* When using DeleteByID() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
+                "",
+                "* A _Concurrency Exception_ can be thrown only with the following usage:",
+                "",
+                "     * Calling `Delete( entity interface{} )`",
+                "",
+                "     * Providing the `expectedChangeVector` param to the DeleteByID() method;"
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* The document is deleted from the database upon calling `SaveChanges()`.",
+                "",
+                "* The Session sends the changes to the server as a single remote call that completes transactionally."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                }
+            ]
+        }
+    ]
+}

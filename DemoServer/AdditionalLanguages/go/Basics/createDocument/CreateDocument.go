@@ -13,6 +13,7 @@ func main() {
     createDocumentStore()
     createDatabase()
     createDocument("aaa","bbb","ccc","ddd")
+    globalDocumentStore.Close()
 }
 
 func createDocumentStore() (*ravendb.DocumentStore, error) {
