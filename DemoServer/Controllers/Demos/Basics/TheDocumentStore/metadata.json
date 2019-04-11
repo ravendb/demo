@@ -9,6 +9,8 @@
         "It is the single access point to a particular cluster, exposing methods to perform operations against the associated server instances,",
         "holding the configuration, topology, cache and any customizations that you might have applied.",
         "",
+        "The Document Store is thread safe.",
+        "",
         "A single instance of a Document Store (singleton pattern) should be used per the lifetime of the application."
     ],
 
@@ -50,14 +52,19 @@
             "Title": "Define the DocumentStoreHolder class",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* The `DocumentStoreHolder` class holds a single instance of the Document Store object that will be used across your client application.",
+                "* The `DocumentStoreHolder` class holds a _single instance of the Document Store object_ that will be used across your client application.",
                 "",
-                "* In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
-                "  * Session",
-                "  * Operations",
-                "  * Bulk Insert",
-                "  * Changes API",
-                "  * Data Subscriptions"
+                "* In addition to configuring your database, your cluster topology and a client certificate,<br>",
+                "  the Document Store exposes methods to perform operations such as:",
+                "",
+                "  * Open a Session for database transactions",
+                "  * Create & deploy indexes",
+                "  * Bulk documents actions",
+                "  * Manage the server with low-level operations commands",
+                "  * Changes API - receive messages from the server",
+                "  * Perform custom actions in response to Session's events",
+                "  * Subscription tasks management",
+                "  * Export & Import database data."
             ],
             "Assets": [
                 {
@@ -81,10 +88,11 @@
             "Title": "The private _store variable",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* The private static variable `_store` will hold a reference to the single instance created of the Document Store.",
+                "* The private static variable `_store` will hold a reference to the single Document Store instance that will be created.",
+                "  The public _Store_ property (see step 6) will be used to access this instance.",
                 "",
-                "* Usage of 'Lazy' ensures that the Document Store is only created once,",
-                "  without you having to worry about double locking or explicit thread safety issues."
+                "* Use `Lazy<IDocumentStore>()` to initialize the Document Store lazily.<br>",
+                "  Method _CreateDocumentStore_ (passed as argument) will create the actual instance."
             ],
             "Assets": [
                 {
@@ -148,7 +156,10 @@
             "Slug" : "step-5",
             "DescriptionLines": [
                 "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
-                "This will instantiate a communication channel between your application and the RavenDB server instance."
+                "",
+                "* The Initialize() method will:",
+                "  * Verify that URLs field is set (not empty)",
+                "  * Freeze the Conventions. Conventions can't be set after calling Initialize()"
             ],
             "Assets": [
                 {
@@ -162,15 +173,9 @@
             "Title": "The public store property",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* The public static `Store`variable holds reference to the single created instance.",
+                "* The public static `Store` property can now be used to access the single Document Store instance.",
                 "",
-                "* The rest of your client code can now access the Document Store using the _DocumentStoreHolder.Store_ static property for actions such as:",
-                "  * Opening a Session",
-                "  * Defining indexes", 
-                "  * Bulk documents actions", 
-                "  * Operations handling", 
-                "  * Subscription tasks management", 
-                "  * Exporting & Importing database data."
+                "* Accessing `_store.Value` will force instance initialization only if it had Not been initialized yet."
             ],
             "Assets": [
                 {

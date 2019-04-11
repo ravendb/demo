@@ -32,12 +32,17 @@
             "DescriptionLines": [
                 "* The `globalDocumentStore` variable holds a single instance of the Document Store struct that will be used across your client application.",
                 "",
-                "* In addition to configuring your database & your cluster topology, the Document Store allows access to Client API features such as:",
-                "  * Session",
-                "  * Operations",
-                "  * Bulk Insert",
-                "  * Changes API",
-                "  * Data Subscriptions"
+                "* In addition to configuring your database, your cluster topology and a client certificate,<br>",
+                "  the Document Store exposes methods to perform operations such as:",
+                "",
+                "  * Open a Session for database transactions",
+                "  * Create & deploy indexes",
+                "  * Bulk documents actions",
+                "  * Manage the server with low-level operations commands",
+                "  * Changes API - receive messages from the server",
+                "  * Perform custom actions in response to Session's events",
+                "  * Subscription tasks management",
+                "  * Export & Import database data."
             ],
             "Assets": [
                 {
@@ -113,7 +118,10 @@
             "Slug" : "step-6",
             "DescriptionLines": [
                 "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
-                "  This will instantiate a communication channel between your application and the RavenDB server instance."
+                "",
+                "* The Initialize() method will:",
+                "  * Verify that URLs field is set (not empty)",
+                "  * Freeze the Conventions. Conventions can't be set after calling Initialize()"
             ],
             "Assets": [
             ]
@@ -122,16 +130,7 @@
             "Title": "Assign to the global Document Store variable",
             "Slug" : "step-7",
             "DescriptionLines": [
-                "",
-                "* The `globalDocumentStore` variable will hold a reference to the single created instance.",
-                "",
-                "* The rest of your client code can now access the Document Store using the globalDocumentStore for actions such as:",
-                "  * Opening a Session",
-                "  * Defining indexes",
-                "  * Bulk documents actions",
-                "  * Operations handling",
-                "  * Subscription tasks management",
-                "  * Exporting & Importing database data."
+                "* The `globalDocumentStore` variable can now be used to access to the single Document Store instance"
             ],
             "Assets": [
             ]
