@@ -4,6 +4,7 @@ import { ErrorState } from "./error";
 import { DemoState } from "./demo";
 import { ParametersState } from "./parameters";
 import { SettingsState } from "./settings";
+import { TrackingState } from "./tracking";
 
 export interface AppState {
     router: RouterState;
@@ -11,6 +12,7 @@ export interface AppState {
     demos: DemoState;
     params: ParametersState;
     settings: SettingsState;
+    tracking: TrackingState;
 }
 
 export function modifyState<S>(state: S, modify: (state: S) => void): S {

@@ -11,6 +11,7 @@ import { FormFile } from "../../utils/api/ApiClient";
 import { Progress } from "../../utils/localStorage/Progress";
 import { selectDemoVersionInfo } from "../selectors/demos";
 import { DemoDto } from "../../models/dtos/demo";
+import { initTrackingData } from "./tracking";
 
 const service = new DemoService();
 
@@ -123,10 +124,11 @@ export function getContext(): DemoThunkAction {
 
         try {
             const result = await service.getDemoContext();
-            const { categoriesWithVersions } = result;
+            const { categoriesWithVersions, googleTagManagerContainerId } = result;
 
             Progress.updateDemoVersions(categoriesWithVersions);
             dispatch(getContextSuccess(result));
+            dispatch(initTrackingData(googleTagManagerContainerId));
         } catch (error) {
             dispatch(apiError(error));
         }

@@ -4,6 +4,7 @@ import { ErrorMessage } from "./dialogs/ErrorMessage";
 import { ResetDatabaseConfirm } from "./dialogs/ResetDatabaseConfirm";
 import { ResetProgressConfirm } from "./dialogs/ResetProgressConfirm";
 import { Metadata } from "./Metadata";
+import { TrackingDialog } from "./tracking/TrackingDialog";
 
 interface LayoutProps {
     noContainer?: boolean;
@@ -16,6 +17,7 @@ export class Layout extends React.Component<LayoutProps, {}> {
             <ErrorMessage />
             <ResetDatabaseConfirm />
             <ResetProgressConfirm />
+            <TrackingDialog />
         </>;
     }
 

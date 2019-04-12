@@ -10,6 +10,8 @@ namespace DemoServer.Models
         public List<CategoryWithDemoVersions> CategoriesWithVersions { get; set; }
 
         public bool ConferenceMode { get; set; }
+
+        public string GoogleTagManagerContainerId { get; set; }
     }
 
     public class CategoriesForLanguageDto

@@ -6,11 +6,13 @@ import { demoReducer } from "./demo";
 import { AppState } from "../state";
 import { parametersReducer } from "./parameters";
 import { settingsReducer } from "./settings";
+import { trackingReducer } from "./tracking";
 
 export default (history: History) => combineReducers<AppState>({
     router: connectRouter(history),
     error: errorReducer,
     demos: demoReducer,
     params: parametersReducer,
-    settings: settingsReducer
+    settings: settingsReducer,
+    tracking: trackingReducer
 });

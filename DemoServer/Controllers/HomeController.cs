@@ -7,6 +7,7 @@ using DemoServer.Utils.Database;
 using DemoServer.Utils.Demos;
 using DemoServer.Utils.Filters;
 using DemoServer.Utils.UserId;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -22,9 +23,10 @@ namespace DemoServer.Controllers
         private readonly DatabaseSetup _databaseSetup;
         private readonly Settings _settings;
         private readonly ILogger _logger;
+        private readonly IHostingEnvironment _hostingEnv;
 
         public HomeController(DemoContainer demoContainer, UserIdContainer userId, DatabaseLinks databaseLinks,
-            DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger)
+            DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger, IHostingEnvironment hostingEnv)
         {
             _demoContainer = demoContainer;
             _userId = userId;
@@ -32,6 +34,7 @@ namespace DemoServer.Controllers
             _databaseLinks = databaseLinks;
             _settings = settings;
             _logger = logger;
+            _hostingEnv = hostingEnv;
         }
 
         private Guid UserId => _userId.Get();
@@ -47,11 +50,16 @@ namespace DemoServer.Controllers
                 .Select(CategoriesForLanguageDto.FromModel)
                 .ToList();
 
+            var googleTagManagerContainerId = _hostingEnv.IsDevelopment()
+                ? null
+                : _settings.GoogleTagManager?.ContainerId;
+
             var dto = new DemoContextDto
             {
                 CategoriesForLanguages = categoriesForLanguageDtos,
                 CategoriesWithVersions = categoriesWithVersions,
-                ConferenceMode = _settings.ConferenceMode
+                ConferenceMode = _settings.ConferenceMode,
+                GoogleTagManagerContainerId = googleTagManagerContainerId
             };
 
             return Ok(dto);
