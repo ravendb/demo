@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { giveTrackingConsent, withdrawTrackingConsent } from "../../../store/actions/tracking";
 import { DemoThunkDispatch } from "../../../store";
-import { IconSettings, IconBack } from "../../helpers/icons";
+import { IconSettings, IconLeft } from "../../helpers/icons";
 
 interface StateProps {
     show: boolean;
@@ -66,26 +66,26 @@ class TrackingDialogComponent extends React.Component<Props, State> {
         const wording = !showDetails ? "OK" : "Save & Close";
 
         return <button className="btn btn-primary" onClick={this._handleOkClick}>
-            <i className="icon-check" aria-hidden="true"></i> <span><strong>{wording}</strong></span>
+            <i className="icon-confirm" aria-hidden="true"></i> <span><strong>{wording}</strong></span>
         </button>;
     }
 
     private _advancedButton() {
-        return <button className="btn btn-default" onClick={this._handleAdvancedClick}>
+        return <button className="btn" onClick={this._handleAdvancedClick}>
             <IconSettings /> <span><strong>Advanced</strong></span>
         </button>;
     }
 
     private _backButton() {
         return <button className="btn btn-danger" onClick={this._handleBackClick}>
-            <IconBack /> Back
+            <IconLeft /> Back
         </button>;
     }
 
     private _defaultContent() {
         return <>
             <h4>
-                <i className="icon-shield margin-right margin-sm"></i> 
+                <i className="icon-shield margin-right margin-xs"></i> 
                 <span>Privacy Settings</span>
             </h4>
             <hr />
@@ -107,7 +107,7 @@ class TrackingDialogComponent extends React.Component<Props, State> {
 
         return <>
             <h4>
-                <i className="icon-settings margin-right margin-sm" aria-hidden="true"></i> Advanced Settings
+                <i className="icon-settings margin-right margin-xs" aria-hidden="true"></i> Advanced Settings
             </h4>
             <hr />
             <div className="checkbox">        

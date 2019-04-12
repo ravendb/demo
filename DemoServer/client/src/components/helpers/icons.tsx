@@ -29,4 +29,4 @@ export const IconReload = () => <Icon name="reload" />;
 export const IconCollapse = () => <Icon name="collapse" />;
 export const IconExpand = () => <Icon name="expand" />;
 export const IconCheck = () => <Icon name="check" />;
-export const IconBack = () => <Icon name="back" />;
+

@@ -20,6 +20,10 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-shield:before {
+    content: "\e915";
+}
+
 .icon-demo:before {
   content: "\e914";
 }

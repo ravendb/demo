@@ -859,3 +859,25 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
 
     }
 }
+
+.cookie-bar {
+    position: fixed;
+    bottom: $gutter;
+    right: $gutter;
+    max-width: 300px;
+    background-color: $gray-darker;
+    padding: $gutter-sm;
+
+    h4 {
+        margin-top: 0;
+    }
+
+    .checkbox label {
+        display: flex;
+        align-items: center;
+
+        input {
+            margin-right: $gutter-xs;
+        }
+    }
+}
