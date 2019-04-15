@@ -32,4 +32,5 @@ export interface DemoContextDto {
     categoriesForLanguages: CategoriesForLanguage[];
     categoriesWithVersions: CategoryWithDemoVersions[];
     conferenceMode: boolean;
+    googleTagManagerContainerId: string;
 }

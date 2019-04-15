@@ -6,9 +6,11 @@ import { ParametersAction } from "./parameters";
 import { CallHistoryMethodAction } from "connected-react-router";
 import { SettingsAction } from "./settings";
 import { NavigationAction } from "./navigation";
+import { TrackingAction } from "./tracking";
 
 export type Action = ErrorAction
     | DemoAction | ParametersAction | SettingsAction
-    | NavigationAction | CallHistoryMethodAction;
+    | NavigationAction | CallHistoryMethodAction
+    | TrackingAction;
 
 export type DemoThunkAction = ThunkAction<void, AppState, null, Action>;

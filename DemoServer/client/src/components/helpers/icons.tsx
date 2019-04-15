@@ -1,7 +1,7 @@
 import * as React from "react";
 
 interface IconProps {
-    name: IconName;
+    name: string;
 }
 
 export const Icon = (props: IconProps) => {
@@ -11,11 +11,7 @@ export const Icon = (props: IconProps) => {
     }
 
     return <i className={`icon-${name}`}></i>;
-}
-
-export type IconName = "left" | "right" | "cancel"
-    | "settings" | "learn" | "play" | "studio" | "reload"
-    | "collapse" | "expand";
+};
 
 export const IconLeft = () => <Icon name="left" />;
 export const IconRight = () => <Icon name="right" />;
@@ -27,3 +23,4 @@ export const IconStudio = () => <Icon name="studio" />;
 export const IconReload = () => <Icon name="reload" />;
 export const IconCollapse = () => <Icon name="collapse" />;
 export const IconExpand = () => <Icon name="expand" />;
+export const IconConfirm = () => <Icon name="confirm" />;
