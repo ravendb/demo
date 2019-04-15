@@ -5,7 +5,7 @@ import { DemoSlug, CategorySlug } from "../../models/slugs";
 import { DemoThunkAction } from ".";
 import { DemoThunkDispatch } from "..";
 import { Language } from "../../models/common";
-import { trackPageView } from "./tracking";
+import { trackRelativeUrlPageView } from "./tracking";
 
 interface WentToMainPage {
     type: actionTypes.NAVIGATION_WENT_TO_MAIN_PAGE;
@@ -37,7 +37,7 @@ export function goToMainPage(): DemoThunkAction {
 
         dispatch(push(url));
         dispatch(wentToMainPage());
-        dispatch(trackPageView(url));
+        dispatch(trackRelativeUrlPageView(url));
     };
 }
 
@@ -52,7 +52,7 @@ export function goToDemoPage(category: CategorySlug, demo: DemoSlug, language?: 
 
         dispatch(push(url));
         dispatch(wentToDemoPage(category, demo, language));
-        dispatch(trackPageView(url));
+        dispatch(trackRelativeUrlPageView(url));
     };
 }
 

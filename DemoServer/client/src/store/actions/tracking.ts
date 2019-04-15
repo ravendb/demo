@@ -91,7 +91,7 @@ export function withdrawTrackingConsent(): DemoThunkAction {
 }
 
 export function startTracking(googleTagManagerContainerId: string): DemoThunkAction {
-    return async (dispatch: DemoThunkDispatch) => {
+    return (dispatch: DemoThunkDispatch) => {
         if (!googleTagManagerContainerId) {
             return;
         }
@@ -99,18 +99,32 @@ export function startTracking(googleTagManagerContainerId: string): DemoThunkAct
         gtmInit(googleTagManagerContainerId);
 
         dispatch(enableTracking());
+        dispatch(trackCurrentLocationPageView());
     };
 }
 
-export function trackPageView(relativeUrl: string): DemoThunkAction {
-    return async (dispatch: DemoThunkDispatch, getState) => {
+export function trackCurrentLocationPageView(): DemoThunkAction {
+    return (dispatch: DemoThunkDispatch) => {
+        const url = window.location.href;
+        dispatch(trackPageView(url));
+    };
+}
+
+export function trackRelativeUrlPageView(relativeUrl: string): DemoThunkAction {
+    return (dispatch: DemoThunkDispatch, getState) => {
+        const absoluteUrl = createAbsoluteUrl(relativeUrl);
+        dispatch(trackPageView(absoluteUrl));
+    };
+}
+
+function trackPageView(url: string): DemoThunkAction {
+    return (dispatch: DemoThunkDispatch, getState) => {
         const { tracking } = getState();
 
         if (!tracking.enabled) {
             return;
         }
 
-        const absoluteUrl = createAbsoluteUrl(relativeUrl);
-        emitPageViewEvent(absoluteUrl);
+        emitPageViewEvent(url);
     };
 }
