@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { giveTrackingConsent, withdrawTrackingConsent } from "../../../store/actions/tracking";
 import { DemoThunkDispatch } from "../../../store";
-import { IconSettings, IconLeft } from "../../helpers/icons";
+import { IconSettings, IconLeft, IconConfirm } from "../../helpers/icons";
 
 interface StateProps {
     show: boolean;
@@ -66,7 +66,7 @@ class TrackingDialogComponent extends React.Component<Props, State> {
         const wording = !showDetails ? "OK" : "Save & Close";
 
         return <button className="btn btn-primary" onClick={this._handleOkClick}>
-            <i className="icon-confirm" aria-hidden="true"></i> <span><strong>{wording}</strong></span>
+            <IconConfirm /> <span><strong>{wording}</strong></span>
         </button>;
     }
 
@@ -93,9 +93,11 @@ class TrackingDialogComponent extends React.Component<Props, State> {
             <p>
                 <small className="text-muted">
                     Before closing this window and proceeding to the website please review our{" "}
-                    <a href="https://ravendb.net/terms"><strong>'Terms & Conditions'</strong></a>{" "}
+                    <a href="https://ravendb.net/terms" target="_blank"><strong>'Terms & Conditions'</strong></a>{" "}
                     and the{" "}
-                    <a href="https://ravendb.net/privacy-policy"><strong>'Privacy Policy'</strong></a> {" "}
+                    <a href="https://ravendb.net/privacy-policy" target="_blank">
+                        <strong>'Privacy Policy'</strong>
+                    </a> {" "}
                     for a better understanding of your rights and how we handle your personal data.
                 </small>
             </p>

@@ -7,3 +7,10 @@ export function gtmInit(tagManagerContainerId: string) {
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer',tagManagerContainerId);
 }
+
+export function emitPageViewEvent(url: string) {
+    (window as any).dataLayer.push({
+        'event': 'Pageview',
+        'url': url
+    });
+}

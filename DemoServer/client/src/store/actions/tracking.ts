@@ -2,7 +2,8 @@ import * as actionTypes from "./actionTypes";
 import { DemoThunkAction } from ".";
 import { DemoThunkDispatch } from "..";
 import { CookieJar } from "../../utils/cookies/CookieJar";
-import { gtmInit } from "../../libs/gtm";
+import { gtmInit, emitPageViewEvent } from "../../libs/gtm";
+import { createAbsoluteUrl } from "../../utils/paths";
 
 interface SaveGtmContainerId {
     type: actionTypes.TRACKING_SAVE_GTM_CONTAINER_ID;
@@ -98,5 +99,18 @@ export function startTracking(googleTagManagerContainerId: string): DemoThunkAct
         gtmInit(googleTagManagerContainerId);
 
         dispatch(enableTracking());
+    };
+}
+
+export function trackPageView(relativeUrl: string): DemoThunkAction {
+    return async (dispatch: DemoThunkDispatch, getState) => {
+        const { tracking } = getState();
+
+        if (!tracking.enabled) {
+            return;
+        }
+
+        const absoluteUrl = createAbsoluteUrl(relativeUrl);
+        emitPageViewEvent(absoluteUrl);
     };
 }

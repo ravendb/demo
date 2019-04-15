@@ -5,6 +5,7 @@ import { DemoSlug, CategorySlug } from "../../models/slugs";
 import { DemoThunkAction } from ".";
 import { DemoThunkDispatch } from "..";
 import { Language } from "../../models/common";
+import { trackPageView } from "./tracking";
 
 interface WentToMainPage {
     type: actionTypes.NAVIGATION_WENT_TO_MAIN_PAGE;
@@ -32,13 +33,17 @@ const wentToDemoPage = (category: CategorySlug, demo: DemoSlug, language?: Langu
 
 export function goToMainPage(): DemoThunkAction {
     return (dispatch: DemoThunkDispatch) => {
-        dispatch(push("/"));
+        const url = "/";
+
+        dispatch(push(url));
         dispatch(wentToMainPage());
+        dispatch(trackPageView(url));
     };
 }
 
 export function goToDemoPage(category: CategorySlug, demo: DemoSlug, language?: Language): DemoThunkAction {
     return (dispatch: DemoThunkDispatch) => {
+
         const url = createDemoWithWalkthroughPath({
             category,
             demo,
@@ -47,6 +52,7 @@ export function goToDemoPage(category: CategorySlug, demo: DemoSlug, language?: 
 
         dispatch(push(url));
         dispatch(wentToDemoPage(category, demo, language));
+        dispatch(trackPageView(url));
     };
 }
 
