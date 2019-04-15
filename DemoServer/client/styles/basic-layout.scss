@@ -136,6 +136,10 @@ hr {
     border-radius: 1px;
     cursor: pointer;
 
+    &:hover {
+        background-color: $gray-dark;
+    }
+
     i {
         margin-right: $gutter-xxs;
     }
@@ -862,11 +866,24 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
 
 .cookie-bar {
     position: fixed;
-    bottom: $gutter;
+    top: $gutter;
     right: $gutter;
     max-width: 300px;
     background-color: $gray-darker;
     padding: $gutter-sm;
+    z-index: $zindex-cookie-bar;
+
+    a {
+        text-decoration: none;
+
+        &:hover, {
+            color: $brand-primary;
+
+            strong {
+                color: inherit;
+            }
+        }
+    }
 
     h4 {
         margin-top: 0;
