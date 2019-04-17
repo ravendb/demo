@@ -3,7 +3,6 @@ import { DemoThunkAction } from ".";
 import { DemoThunkDispatch } from "..";
 import { CookieJar } from "../../utils/cookies/CookieJar";
 import { gtmInit, emitPageViewEvent } from "../../libs/gtm";
-import { createAbsoluteUrl } from "../../utils/paths";
 
 interface SaveGtmContainerId {
     type: actionTypes.TRACKING_SAVE_GTM_CONTAINER_ID;
@@ -105,19 +104,12 @@ export function startTracking(googleTagManagerContainerId: string): DemoThunkAct
 
 export function trackCurrentLocationPageView(): DemoThunkAction {
     return (dispatch: DemoThunkDispatch) => {
-        const url = window.location.href;
-        dispatch(trackPageView(url));
+        const url = window.location.pathname;
+        dispatch(trackRelativeUrlPageView(url));
     };
 }
 
-export function trackRelativeUrlPageView(relativeUrl: string): DemoThunkAction {
-    return (dispatch: DemoThunkDispatch, getState) => {
-        const absoluteUrl = createAbsoluteUrl(relativeUrl);
-        dispatch(trackPageView(absoluteUrl));
-    };
-}
-
-function trackPageView(url: string): DemoThunkAction {
+export function trackRelativeUrlPageView(url: string): DemoThunkAction {
     return (dispatch: DemoThunkDispatch, getState) => {
         const { tracking } = getState();
 
