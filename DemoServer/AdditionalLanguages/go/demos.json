@@ -11,5 +11,14 @@
             "editDocument",
             "deleteDocument"
         ]
+    },
+    {
+        "category": {
+            "slug": "related-documents",
+            "directory": "RelatedDocuments"
+        },
+        "demos": [
+            "createRelatedDocuments"
+        ]
     }
 ]

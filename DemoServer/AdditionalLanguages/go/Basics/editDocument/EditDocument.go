@@ -40,6 +40,7 @@ type Contact struct {
 
 //region Demo
 func editDocument(companyName string) error {
+
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err

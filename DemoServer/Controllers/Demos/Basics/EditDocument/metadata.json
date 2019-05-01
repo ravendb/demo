@@ -49,7 +49,12 @@
         {
             "Title": "Edit your data",
             "Slug" : "step-2",
-            "DescriptionLines": [ "* Edit the C# entity data" ],
+            "DescriptionLines": [ 
+                "* Edit the C# entity data",
+                "",
+                "* Note:  Documents in RavenDB have no schema.<br>",
+                "  You are free to modify the structure of a document however you like."
+            ],
             "Assets": [
             ]
         },

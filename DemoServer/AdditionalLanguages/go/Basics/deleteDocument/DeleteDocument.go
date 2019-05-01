@@ -28,6 +28,7 @@ func createDocumentStore() (*ravendb.DocumentStore, error) {
 
 //region Demo
 func deleteDocument(documentId string) error {
+
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
