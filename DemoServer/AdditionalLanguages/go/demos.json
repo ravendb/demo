@@ -18,7 +18,17 @@
             "directory": "RelatedDocuments"
         },
         "demos": [
-            "createRelatedDocuments"
+            "createRelatedDocuments",
+            "loadRelatedDocuments"
+        ]
+    },
+    {
+        "category": {
+            "slug": "attachments",
+            "directory": "Attachments"
+        },
+        "demos": [
+            "storeAttachment"
         ]
     }
 ]

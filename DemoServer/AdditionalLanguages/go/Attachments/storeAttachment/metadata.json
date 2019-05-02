@@ -1,6 +1,6 @@
 {
     "Slug": "store-attachment",
-    "SourceFileName": "StoreAttachmentController.cs",
+    "SourceFileName": "StoreAttachment.go",
     "Title": "Store Attachment",
     "DescriptionLines": [
         "**Attachments** are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
@@ -8,12 +8,7 @@
         "A document can have any number of attachments, and an attachment has no size limit."
     ],
 
-    "Assets": [  
-        {
-            "Title": "What are attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/what-are-attachments"
-        },
+    "Assets": [
         {
             "Title": "Attachments and binary data",
             "Type" : "link",
@@ -23,16 +18,6 @@
             "Title": "Working with attachments",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
-        },
-        {
-            "Title": "Storing attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
-        },
-        {
-            "Title": "Attachments Operations",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations#attachments"
         }
     ],
 
@@ -42,7 +27,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Open a binary stream for the attachment file.<br>",
-                "  It will be used in the `Store()` method in the next step."
+                "  It will be used in the `StoreByID()` method in the next step."
             ],
             "Assets": [
                 {
@@ -57,16 +42,12 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* Attach the attachment on to the document within the Session.<br>",
-                "  Specify the document ID, or pass the explicit document entity to the `Store()` method.",
+                "  Specify the document ID in the `StoreByID()`, <br>",
+                "  or pass the explicit document entity to the `Store()` method.",
                 "",
                 "* The actual save action on the server is done when SaveChanges() is called later on."
             ],
             "Assets": [
-                {
-                    "Title": "Storing attachments",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
-                },
                 {
                     "Title": "Working with attachments",
                     "Type" : "link",
@@ -88,11 +69,6 @@
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
-                },
-                {
-                    "Title": "Saving Changes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
                 }
             ]
         }

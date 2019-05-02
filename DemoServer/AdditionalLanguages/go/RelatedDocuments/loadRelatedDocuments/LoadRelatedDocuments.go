@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    createRelatedDocuments("someProductName","someSupplierName","somePhoneNumber")
+    loadRelatedDocuments(5.2, "050-123456")
     globalDocumentStore.Close()
 }
 
@@ -37,16 +37,6 @@ func createDatabase() {
     }
 }
 
-type Supplier struct {
-    ID string
-    Name string
-    Phone string
-}
-type Category struct {
-    ID string
-    Name string
-    Description string
-}
 type Product struct {
     Name string
     Supplier string
@@ -54,61 +44,53 @@ type Product struct {
     PricePerUnit float64
 }
 
-//region Demo
-func createRelatedDocuments(productName, supplierName, supplierPhone string) error {
+type Supplier struct {
+    ID string
+    Name string
+    Phone string
+}
 
-    //region Step_1
-    supplier := &Supplier {
-        Name:  supplierName,
-            Phone: supplierPhone,
-    }    
-    category := &Category {
-        Name:        "NoSQL Databases",
-        Description: "Non-relational databases",
-    }
-    //endregion    
-    //region Step_2
-    product := &Product{
-        Name: productName,
-    }    
-    //endregion
-    
+//region Demo
+func loadRelatedDocuments(pricePerUnit float64, phone string) error {
+
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
-
-    //region Step_3
-    err = session.Store(supplier)
-    if err != nil {
-        return err
-    }    
-    err = session.Store(category)
+    
+    //region Step_1
+    var product *Product
+    err = session.Include("supplier").
+                  Load(&product, "products/34-A")
     if err != nil {
         return err
     }
+    if product == nil {
+        return nil
+    }
+    //endregion
+
+    //region Step_2
+    var supplier *Supplier
+    err = session.Load(&supplier, product.Supplier)
+    if err != nil || supplier == nil {
+        return err
+    }
+    //endregion
+
+    //region Step_3
+    product.PricePerUnit = pricePerUnit
+    supplier.Phone = phone
     //endregion
 
     //region Step_4
-    product.Supplier = supplier.ID
-    product.Category = category.ID
-    //endregion
-
-    //region Step_5
-    err = session.Store(product)
-    if err != nil {
-        return err
-    }
-    //endregion
-     
-    //region Step_6
     err = session.SaveChanges()
     if err != nil {
         return err
     }
     //endregion
-  
-    return nil 
+
+    return nil
 }
 //endregion

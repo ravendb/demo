@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    createRelatedDocuments("someProductName","someSupplierName","somePhoneNumber")
+    storeAttachement("products/34-A","C:\temp\temp.jpg")
     globalDocumentStore.Close()
 }
 
@@ -37,78 +37,41 @@ func createDatabase() {
     }
 }
 
-type Supplier struct {
-    ID string
-    Name string
-    Phone string
-}
-type Category struct {
-    ID string
-    Name string
-    Description string
-}
-type Product struct {
-    Name string
-    Supplier string
-    Category string
-    PricePerUnit float64
-}
-
 //region Demo
-func createRelatedDocuments(productName, supplierName, supplierPhone string) error {
+func storeAttachement(documentID string, attachmentPath string) error {
 
     //region Step_1
-    supplier := &Supplier {
-        Name:  supplierName,
-            Phone: supplierPhone,
-    }    
-    category := &Category {
-        Name:        "NoSQL Databases",
-        Description: "Non-relational databases",
+    stream, err := os.Open(attachmentPath)
+    if err != nil {
+        return err
     }
-    //endregion    
-    //region Step_2
-    product := &Product{
-        Name: productName,
-    }    
+    defer stream.Close()
     //endregion
+ 
+    contentType := mime.TypeByExtension(filepath.Ext(attachmentPath))
+    attachmentName := filepath.Base(attachmentPath)
     
+
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
 
+    //region Step_2
+    err = session.Advanced().Attachments().StoreByID(documentID, attachmentName, stream, contentType)
+    if err != nil {
+        return err
+    }
+    //endregion
+ 
     //region Step_3
-    err = session.Store(supplier)
-    if err != nil {
-        return err
-    }    
-    err = session.Store(category)
-    if err != nil {
-        return err
-    }
-    //endregion
-
-    //region Step_4
-    product.Supplier = supplier.ID
-    product.Category = category.ID
-    //endregion
-
-    //region Step_5
-    err = session.Store(product)
-    if err != nil {
-        return err
-    }
-    //endregion
-     
-    //region Step_6
     err = session.SaveChanges()
     if err != nil {
         return err
     }
     //endregion
-  
-    return nil 
+    
+    return nil
 }
 //endregion
