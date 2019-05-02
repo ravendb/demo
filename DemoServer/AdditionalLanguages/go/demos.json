@@ -30,5 +30,15 @@
         "demos": [
             "storeAttachment"
         ]
+    },
+    {
+        "category": {
+            "slug": "revisions",
+            "directory": "Revisions"
+        },
+        "demos": [
+            "enableRevisions",
+            "getRevisions"
+        ]
     }
 ]

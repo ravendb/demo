@@ -1,6 +1,6 @@
 {
     "Slug": "enable-revisions",
-    "SourceFileName": "EnableRevisionsController.cs",
+    "SourceFileName": "EnableRevisions.go",
     "Title": "Enable Revisions",
     "DescriptionLines": [
         "**Document Revisions** are snapshots of a document that are taken over time per document change.",
@@ -31,30 +31,10 @@
 
     "Walkthroughs": [
         {
-            "Title": "Create the revisions configuration object",
+            "Title": "Define default revisions values for all collections",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* The `RevisionsConfiguration` object specifies the default revision configuration for all the collections in the database,",
-                "  and for specific revisions configuration per collection."
-            ],
-            "Assets": [
-                {
-                    "Title": "Revisions",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
-                },
-                {
-                    "Title": "Document Revisions",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
-                }
-            ]
-        },
-        {
-            "Title": "Define default revisions values for all collections",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* Set `Default` with the default values for _all_ the collections in the database.<br>",
+                "* Define default values for _all_ the collections in the database.<br>",
                 "  Values can be overridden per collection, as shown in the next step.",
                 "",
                 "  * _Disabled_ - Enable or disable the revisions feature.",
@@ -80,9 +60,9 @@
         },
         {
             "Title": "Define specific revisions values per collection",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
-                "* Set `Collections` with revisions values per specific collections.",
+                "* Define revisions values per specific collection.",
                 "",
                 "* These values will _override_ the default configuration from the previous step."
             ],
@@ -100,10 +80,32 @@
             ]
         },
         {
+            "Title": "Create the revisions configuration object",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Create a `RevisionsConfiguration` object.<br>",
+                "  Assign the _'defaultConfig'_ and the _'collections'_ that were defined in the previous steps.",
+                "",
+                "* The 'RevisionsConfiguration' will be used in the next step to set up the revisions configurations in the Document Store."
+            ],
+            "Assets": [
+                {
+                    "Title": "Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                },
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                }
+            ]
+        },
+        {
             "Title": "Set the revisions configuration in the Document Store",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Create a `ConfigureRevisionsOperation` and `Send()` it to the Document Store.",
+                "* Create a `NewConfigureRevisionsOperation` and `Send()` it to the Document Store.",
                 "",
                 "* Per collection, if 'Disabled' was set to false, then the revision feature will be enabled and a revision will be created for every document change."
             ],
