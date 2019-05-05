@@ -48,7 +48,8 @@
         },
         "demos": [
             "queryOverview",
-            "fullCollectionQuery"
+            "fullCollectionQuery",
+            "queryByDocumentId"
         ]
     }
 ]
