@@ -1,6 +1,6 @@
 {
     "Slug": "full-collection-query",
-    "SourceFileName": "FullCollectionQueryController.cs",
+    "SourceFileName": "FullCollectionQuery.go",
     "Title": "Full Collection Query",
     "DescriptionLines": [
         "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
@@ -10,16 +10,6 @@
 
     "Assets": [
         {
-            "Title": "How to Query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
-        },
-        {
-            "Title": "Querying Basics",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
-        },
-        {
             "Title": "Querying in RavenDB",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
@@ -28,11 +18,6 @@
             "Title": "Query on a Session",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
-        },
-        {
-            "Title": "What is a Collection",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
         },
         {
             "Title": "LINQ queries",
@@ -46,8 +31,10 @@
             "Title": "Define the full collection query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Use `Query<Company>()` to define a query on collection 'Companies'.<br>",
-                "  The results will include _all_ documents from this collection.",
+                "* Use `QueryCollectionForType()` to define a query on a collection that corresponds the type passed.",
+                "  The above query will be on 'Companies' collection which corresponds to the 'Company' type.<br>",
+                "",
+                "* The results will include _all_ documents from this collection.",
                 "",
                 "* No index will be created when querying on a just the collection without any filtering.",
                 "",
@@ -57,17 +44,7 @@
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
-                },
-                {
-                    "Title": "How to Query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
-                },
-                {
-                    "Title": "Querying Basics",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                    "Url"  : "/go/queries/query-overview"
                 },
                 {
                     "Title": "Querying in RavenDB",
@@ -78,11 +55,6 @@
                     "Title": "Query on a Session",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
-                },
-                {
-                    "Title": "What is a Collection",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
                 },
                 {
                     "Title": "LINQ",
@@ -96,7 +68,7 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* The 'fullCollectionQuery' variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or other method that forces immediate execution.",
+                "  Execute the query by calling `GetResults()`, or other method that forces immediate execution.",
                 "",
                 "* The 'collectionResults' variable will hold all the document entities in the 'Companies' collection.",
                 "",
