@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    queryByDocumentID("employees/8-A")
+    filteringQueryResultsBasics()
     globalDocumentStore.Close()
 }
 
@@ -45,7 +45,7 @@ type Employee struct {
 }
 
 //region Demo
-func queryByDocumentID(employeeDocumentID string) error {
+func queryFilterResultsMultipleConditions(country string) error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
@@ -55,16 +55,24 @@ func queryByDocumentID(employeeDocumentID string) error {
 
     //region Step_1
     queriedType := reflect.TypeOf(&Employee{})
-    queryByDocumentID := session.QueryCollectionForType(queriedType)
+    filteredQuery := session.QueryCollectionForType(queriedType)
     //endregion
     
     //region Step_2
-    queryByDocumentID = queryByDocumentID.Where("ID", "==", employeeDocumentID)
+    filteredQuery = filteredQuery.WhereIn("FirstName", []interface{}{"Anne", "John"})
+    filteredQuery = filteredQuery.OrElse()
+    {
+        filteredQuery = filteredQuery.OpenSubclause()
+        filteredQuery = filteredQuery.WhereEquals("Address.Country", country)
+        filteredQuery = filteredQuery.Where("Territories.Count", ">", 2)
+        filteredQuery = filteredQuery.WhereStartsWith("Title", "Sales")
+        filteredQuery = filteredQuery.CloseSubclause()
+    }
     //endregion
 
     //region Step_3
-    var employee *Employee
-    err = queryByDocumentID.Single(&employee)
+    var filteredEmployees []*Employee
+    err = filteredQuery.GetResults(&filteredEmployees)
     if err != nil {
         return err
     }

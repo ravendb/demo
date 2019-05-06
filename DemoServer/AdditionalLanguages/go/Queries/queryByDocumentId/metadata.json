@@ -51,7 +51,7 @@
             "Title": "Define the document ID to query by",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Use `WhereEquals()` to query for a specific document from the 'Employees' collection.<br>",
+                "* Use `Where()` to query for a specific document from the 'Employees' collection.<br>",
                 "  Specify the document ID - the results will include only this document.",
                 "",
                 "* No index will be created - the raw collection documents are used as the source for this query."

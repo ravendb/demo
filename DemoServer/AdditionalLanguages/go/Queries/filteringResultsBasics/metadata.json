@@ -1,0 +1,83 @@
+{
+    "Slug": "filtering-results-basics",
+    "SourceFileName": "FilteringResultsBasics.go",
+    "Title": "Filtering Results - Basics",
+    "DescriptionLines": [
+        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "",
+        "Only the matching documents will be returned by the server."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "LINQ queries",
+            "Type" : "link",
+            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection using the Session `QueryCollectionForType()`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/go/queries/query-overview"
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Define a filtering condition",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:",
+                "     * Employee's first name is 'Anne'",
+                "",
+                "* More filtering options are available - see related links.",
+                "",
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing auto-index that can answer this query (see auto-indexes)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'filteredQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `GetResults()`.",
+                "",
+                "* The 'filteredEmployees' variable will hold the resulting matching document entities.",
+                "",
+                "* The entities returned by the query are _'loaded'_ to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        }
+    ]
+}

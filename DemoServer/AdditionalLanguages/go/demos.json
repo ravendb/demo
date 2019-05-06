@@ -49,7 +49,9 @@
         "demos": [
             "queryOverview",
             "fullCollectionQuery",
-            "queryByDocumentId"
+            "queryByDocumentId",
+            "filteringResultsBasics",
+            "FilteringResultsMultipleConditions"
         ]
     }
 ]

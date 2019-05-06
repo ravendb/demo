@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    queryByDocumentID("employees/8-A")
+    filteringQueryResultsBasics()
     globalDocumentStore.Close()
 }
 
@@ -45,26 +45,26 @@ type Employee struct {
 }
 
 //region Demo
-func queryByDocumentID(employeeDocumentID string) error {
+func filteringQueryResultsBasics() error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
-
+    
     //region Step_1
     queriedType := reflect.TypeOf(&Employee{})
-    queryByDocumentID := session.QueryCollectionForType(queriedType)
+    filteredQuery := session.QueryCollectionForType(queriedType)
     //endregion
     
     //region Step_2
-    queryByDocumentID = queryByDocumentID.Where("ID", "==", employeeDocumentID)
+    filteredQuery = filteredQuery.Where("FirstName", "==", "Anne")
     //endregion
 
     //region Step_3
-    var employee *Employee
-    err = queryByDocumentID.Single(&employee)
+    var filteredEmployees []*Employee
+    err = filteredQuery.GetResults(&filteredEmployees)
     if err != nil {
         return err
     }
