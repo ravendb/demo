@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    queryFilterResultsMultipleConditions()
+    projectingIndividualFieldsInQuery()
     globalDocumentStore.Close()
 }
 
@@ -37,15 +37,24 @@ func createDatabase() {
     }
 }
 
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
+type Company struct {
+    ID      string
+    Name    string
+    Phone   string
+    Contact *Contact
+}
+type Contact struct {
+    Name  string
+    Title string
+}
+type CompanyDetails struct {
+    CompanyName string
+    City        string
+    Country     string
 }
 
 //region Demo
-func queryFilterResultsMultipleConditions(country string) error {
+func projectingIndividualFieldsInQuery() error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
@@ -54,30 +63,31 @@ func queryFilterResultsMultipleConditions(country string) error {
     defer session.Close()
 
     //region Step_1
-    queriedType := reflect.TypeOf(&Employee{})
-    filteredQuery := session.QueryCollectionForType(queriedType)
+    queriedType := reflect.TypeOf(&Company{})
+    projectedQuery := session.QueryCollectionForType(queriedType)
     //endregion
     
     //region Step_2
-    filteredQuery = filteredQuery.WhereIn("FirstName", []interface{}{"Anne", "John"})
-    filteredQuery = filteredQuery.OrElse()
-    {
-        filteredQuery = filteredQuery.OpenSubclause()
-        filteredQuery = filteredQuery.WhereEquals("Address.Country", country)
-        filteredQuery = filteredQuery.Where("Territories.Count", ">", 2)
-        filteredQuery = filteredQuery.WhereStartsWith("Title", "Sales")
-        filteredQuery = filteredQuery.CloseSubclause()
-    }
+    projectedType := reflect.TypeOf(&CompanyDetails{})
+    
+    fields := []string{"Name", "Address.City", "Address.Country"}
+    projections := []string{"CompanyName", "City", "Country"}
+    
+    queryData := &ravendb.QueryData{
+        Fields:      fields,
+        Projections: projections,
+    }    
+    projectedQuery = projectedQuery.SelectFieldsWithQueryData(projectedType, queryData)
     //endregion
-
+    
     //region Step_3
-    var filteredEmployees []*Employee
-    err = filteredQuery.GetResults(&filteredEmployees)
+    var projectedResults []*CompanyDetails
+    err = projectedQuery.GetResults(&projectedResults)
     if err != nil {
         return err
     }
     //endregion
-
+    
     return nil
 }
 //endregion
