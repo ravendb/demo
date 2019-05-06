@@ -40,15 +40,7 @@ export class DemoUrlBuilder {
 
     public build(): string {
 
-        const hasDefaultLanguage = !this._language || this._language === defaultLanguage;
-
-        const languagePart = hasDefaultLanguage
-            ? ""
-            : `/${this._language}`;
-
-        const demoPath = `/${this._category}/${this._demo}`;
-
-        const url = `/demos${languagePart}${demoPath}`;
+        const url = `/demos/${this._language || defaultLanguage}/${this._category}/${this._demo}`;
 
         if (this._emptyHash) {
             return `${url}#`;
