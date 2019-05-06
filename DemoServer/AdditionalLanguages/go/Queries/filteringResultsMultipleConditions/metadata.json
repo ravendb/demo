@@ -13,11 +13,6 @@
             "Title": "Querying in RavenDB",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
-        },
-        {
-            "Title": "LINQ queries",
-            "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
         }
     ],
 
@@ -33,11 +28,6 @@
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
                     "Url"  : "/go/queries/query-overview"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
                 }
             ]
         },
@@ -77,11 +67,6 @@
                 "* The entities returned by the query are _'loaded'_ to the session."
             ],
             "Assets": [
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-                }
             ]
         }
     ]

@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    projectingIndividualFieldsInQuery()
+    ProjectingUsingFunctions()
     globalDocumentStore.Close()
 }
 
@@ -37,25 +37,13 @@ func createDatabase() {
     }
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-type Contact struct {
-    Name  string
-    Title string
-}
-
 //region Demo
-type CompanyDetails struct {
-    CompanyName string
-    City        string
-    Country     string
+type EmployeeDetails struct {
+    FullName  string
+    Title     string
 }
 
-func projectingIndividualFieldsInQuery() error {
+func ProjectingUsingFunctions() error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
@@ -63,27 +51,26 @@ func projectingIndividualFieldsInQuery() error {
     }
     defer session.Close()
 
-    //region Step_1
-    queriedType := reflect.TypeOf(&Company{})
-    projectedQuery := session.QueryCollectionForType(queriedType)
-    //endregion
     
-    //region Step_2
-    projectedType := reflect.TypeOf(&CompanyDetails{})
-    
-    fields := []string{"Name", "Address.City", "Address.Country"}
-    projections := []string{"CompanyName", "City", "Country"}
-    
-    queryData := &ravendb.QueryData{
-        Fields:      fields,
-        Projections: projections,
-    }    
-    projectedQuery = projectedQuery.SelectFieldsWithQueryData(projectedType, queryData)
-    //endregion
-    
+    rawQueryString := `
+        //region Step_1
+        declare function output(employee) {
+            var formatName  = function(employee) { return "Full Name: " + employee.FirstName + " " + employee.LastName; };
+            var formatTitle = function(employee) { return "Title: " + employee.Title };
+            return { FullName : formatName(employee), Title : formatTitle(employee) };
+        }
+        //endregion
+        //region Step_2 
+        from Employees as employee select output(employee)`
+        //endregion
+
     //region Step_3
-    var projectedResults []*CompanyDetails
-    err = projectedQuery.GetResults(&projectedResults)
+    rawQuery := session.Advanced().RawQuery(rawQueryString)
+    //endregion
+
+    //region Step_4
+    var projectedResults []*EmployeeDetails
+    err = rawQuery.GetResults(&projectedResults)
     if err != nil {
         return err
     }

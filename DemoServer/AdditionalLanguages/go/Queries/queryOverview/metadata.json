@@ -22,11 +22,6 @@
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
-        },
-        {
-            "Title": "LINQ queries",
-            "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
         }
     ],
 
@@ -54,11 +49,6 @@
                     "Title": "The query optimizer",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
                 }
             ]
         },
@@ -100,11 +90,6 @@
                 "* Note: Queries are timed out after a defined (configurable) time period."
             ],
             "Assets": [
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-                }
             ]
         }
     ]

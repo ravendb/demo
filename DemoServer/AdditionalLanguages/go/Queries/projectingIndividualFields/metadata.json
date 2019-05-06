@@ -26,9 +26,9 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-results"
         },
         {
-            "Title": "LINQ queries",
-            "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+            "Title": "Query Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/go/queries/query-overview"
         }
     ],
 
@@ -44,11 +44,6 @@
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
                     "Url"  : "/go/queries/query-overview"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
                 }
             ]
         },
@@ -96,11 +91,6 @@
                 "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
             ],
             "Assets": [
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-                }
             ]
         }
     ]

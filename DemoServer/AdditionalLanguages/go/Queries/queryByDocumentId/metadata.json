@@ -19,11 +19,6 @@
             "Title": "Query on a Session",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
-        },
-        {
-            "Title": "LINQ",
-            "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/"
         }
     ],
 
@@ -39,11 +34,6 @@
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
                     "Url"  : "/go/queries/query-overview"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
                 }
             ]
         },
@@ -82,11 +72,6 @@
                 "* The entity returned by the Query operation is _'loaded'_ to the session."
             ],
             "Assets": [
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-                }
             ]
         }
     ]

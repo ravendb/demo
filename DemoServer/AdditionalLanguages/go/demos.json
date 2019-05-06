@@ -51,8 +51,9 @@
             "fullCollectionQuery",
             "queryByDocumentId",
             "filteringResultsBasics",
-            "FilteringResultsMultipleConditions",
-            "ProjectingIndividualFields"
+            "filteringResultsMultipleConditions",
+            "projectingIndividualFields",
+            "projectingUsingFunctions"
         ]
     }
 ]

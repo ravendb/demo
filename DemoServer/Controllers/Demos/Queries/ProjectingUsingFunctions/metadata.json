@@ -81,7 +81,7 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* Use `Select()` to select the fields that will be returned for each document.<br>",
-                "  TODO: explain better since I added a typed class",
+                "  The entities returned by the query will have the structure of the custom class _EmployeeDetails_.",
                 "",      
                 "* Function 'formatTitle' is used to generate the 'Title' field value.<br>",
                 "  Function 'formatName' is used to generate the 'Name' field value."
@@ -116,7 +116,7 @@
                 "* The 'projectedResults' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
-                "* The 'projectedResults' variable will hold the resulting matching entities.",
+                "* The _projectedResults_ variable will hold the resulting matching entities.",
                 "",
                 "* The output projected entities returned by the query are Not tracked by the Session,<br>",
                 "  as they are not full documents.",
