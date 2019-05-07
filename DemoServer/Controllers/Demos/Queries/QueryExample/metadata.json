@@ -7,7 +7,7 @@
         " **Query with Combined Features**.",
         "",
         "The query results will be:<br>",
-        "5 (or less) projected EmployeeDetails entities that match the filtering creiteria, ordered by descending hiring dates.",
+        "5 (or less) projected EmployeeDetails entities that match the filtering criteria, ordered by descending hiring dates.",
         "",
         "The following features are used in this example:",
         "<p>* Filtering data<br>",
@@ -63,7 +63,7 @@
             "Title": "Include related documents",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Use `Include()` to instruct the server to send the related document, whose ID is in the ReportsTo field, to the client.",
+                "* Use `Include()` to instruct the server to send the related document, whose ID is in the 'ReportsTo' field, to the client.",
                 "",
                 "* The related document will be added to the Session's internal entities map for tracking changes."
             ],
@@ -103,9 +103,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Sorting Query Results Demo - TBD",
+                    "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/update-me-later"
+                    "Url"  : "/queries/sorting-query-results"
                 }
             ]
         },
@@ -137,9 +137,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Paging Query Results Demo - TBD",
+                    "Title": "Paging Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/update-me-later"
+                    "Url"  : "/queries/paging-query-results"
                 }
             ]
         },

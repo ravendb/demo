@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    ProjectingUsingFunctions()
+    mapIndex(2000)
     globalDocumentStore.Close()
 }
 
@@ -38,39 +38,43 @@ func createDatabase() {
 }
 
 //region Demo
-type EmployeeDetails struct {
-    FullName  string
-    Title     string
-}
-
-func ProjectingUsingFunctions() error {
-
+func mapIndex(startYear int) error {
+        
+    //region Step_1
+    indexName := "Employees/ImportantDetails"
+    index := ravendb.NewIndexCreationTask(indexName)
+    //endregion
+    
+    //region Step_2
+    index.Map = `
+            docs.Employees.Select(e => new {
+                FullName = e.FirstName + " " + e.LastName,
+                Country = e.Address.Country,
+                WorkingInCompanySince = e.HiredAt.Year,
+                NumberOfTerritories = e.Territories.Count
+            }'
+    //endregion
+    
+    //region Step_3
+    err := index.Execute(globalDocumentStore, nil, "")
+    if err != nil {
+        return err
+    }
+    //endregion
+    
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
 
-    
-    rawQueryString := `
-        //region Step_1
-        declare function output(employee) {
-            var formatName  = function(employee) { return "Full Name: " + employee.FirstName + " " + employee.LastName; };
-            var formatTitle = function(employee) { return "Title: " + employee.Title };
-            return { FullName : formatName(employee), Title : formatTitle(employee) };
-        }
-        //endregion
-        //region Step_2 
-        from Employees as employee select output(employee)`
-        //endregion
-
-    //region Step_3
-    rawQuery := session.RawQuery(rawQueryString)
-    //endregion
-
     //region Step_4
-    var projectedResults []*EmployeeDetails
-    err = rawQuery.GetResults(&projectedResults)
+    query := session.QueryIndex(indexName)
+    query = query.Where("Country", "==", "USA")
+    query = query.Where("WorkingInCompanySince", ">", startYear)
+
+    var employeesFromUSA []*Employee
+    err = query.GetResults(&employeesFromUSA)
     if err != nil {
         return err
     }

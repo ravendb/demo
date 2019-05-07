@@ -55,5 +55,15 @@
             "projectingIndividualFields",
             "projectingUsingFunctions"
         ]
+    },
+    {
+        "category": {
+            "slug": "static-indexes",
+            "directory": "StaticIndexes"
+        },
+        "demos": [
+            "staticIndexesOverview",
+            "mapIndex"
+        ]
     }
 ]

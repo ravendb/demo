@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    ProjectingUsingFunctions()
+    staticIndexesOverview()
     globalDocumentStore.Close()
 }
 
@@ -38,39 +38,43 @@ func createDatabase() {
 }
 
 //region Demo
-type EmployeeDetails struct {
-    FullName  string
-    Title     string
-}
+func staticIndexesOverview() error {
 
-func ProjectingUsingFunctions() error {
+    //region Step_1
+    indexName := "Employees/ByLastName"
+    index := ravendb.NewIndexCreationTask(indexName)
+    //endregion
+    
+    //region Step_2
+    // Define:
+    //    Map(s) functions
+    //    Reduce function
+    //    Additional indexing options per field
+    //endregion
+    
+    //region Step_3
+    index.Map = "from e in docs.Employees select new { e.LastName }"
+    //endregion
+
+    //region Step_4
+    err := index.Execute(globalDocumentStore, nil, "")
+    if err != nil {
+        return err
+    }
+    //endregion
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
-
     
-    rawQueryString := `
-        //region Step_1
-        declare function output(employee) {
-            var formatName  = function(employee) { return "Full Name: " + employee.FirstName + " " + employee.LastName; };
-            var formatTitle = function(employee) { return "Title: " + employee.Title };
-            return { FullName : formatName(employee), Title : formatTitle(employee) };
-        }
-        //endregion
-        //region Step_2 
-        from Employees as employee select output(employee)`
-        //endregion
-
-    //region Step_3
-    rawQuery := session.RawQuery(rawQueryString)
-    //endregion
-
-    //region Step_4
-    var projectedResults []*EmployeeDetails
-    err = rawQuery.GetResults(&projectedResults)
+    //region Step_5
+    queryOnIndex := session.QueryIndex(indexName)
+    queryOnIndex = queryOnIndex.Where("LastName", "==", "SomeName")
+    
+    var queryResults []*Employee
+    err = queryOnIndex.GetResults(&queryResults)
     if err != nil {
         return err
     }

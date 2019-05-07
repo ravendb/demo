@@ -53,7 +53,7 @@
             "Title": "Set the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Pass the raw-query-string to the Session `Advanced().RawQuery()` method."
+                "* Pass the raw-query-string to the Session `RawQuery()` method."
             ],
             "Assets": [
             ]
