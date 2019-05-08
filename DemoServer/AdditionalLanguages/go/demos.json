@@ -48,6 +48,7 @@
         },
         "demos": [
             "queryOverview",
+            "queryExample",
             "fullCollectionQuery",
             "queryByDocumentId",
             "filteringResultsBasics",

@@ -29,8 +29,9 @@
             "DescriptionLines": [
                 "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object.",
                 "",
-                "* _formatName_  will process the 'FirstName' & 'LastName' document fields.<br>",
-                "  _formatTitle_ will process the document 'Title' field."
+                "* The above _output_ function returns a projected object literal that is computed from the following functions:",
+                "  * formatName -  process the 'FirstName' & 'LastName' document fields.<br>",
+                "  * formatTitle - process the document 'Title' field."
             ],
             "Assets": [
             ]

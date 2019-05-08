@@ -53,11 +53,11 @@
             "DescriptionLines": [
                 "* Use `SelectFieldsWithQueryData()` to project _partial document data_ from the server,<br>",
                 "  instead of the full 'Company' document.<br>",
-                "  * _projectedType_ - type of the custom class that is projected<br>",
+                "  * _projectedType_ - type of the custom struct that is projected<br>",
                 "  * _queryData.Fields_ - the fields to be retrieved from the 'Company' document<br>",
                 "  * _queryData.Projections_ - the new custom fields in which data is returned",
                 "",
-                "* The entities returned by the query will have the structure of the custom class 'CompanyDetails'.<br>",
+                "* The entities returned by the query will have the structure of the custom struct 'CompanyDetails'.<br>",
                 "  Data for Projections fields _CompanyName_ , _City_ & _Country_  will be retrieved from the specified matching document Fields",
                 "  ('Name', 'Address.City', 'Address.Country')",
                 "",

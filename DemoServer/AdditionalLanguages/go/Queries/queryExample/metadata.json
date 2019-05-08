@@ -1,6 +1,6 @@
 {
     "Slug": "query-example",
-    "SourceFileName": "QueryExampleController.cs",
+    "SourceFileName": "QueryExample.go",
     "Title": "Query Example",
     "DescriptionLines": [
         "This demo is an example of a<br>",
@@ -22,7 +22,7 @@
         {
             "Title": "Query Overview Demo",
             "Type" : "demo",
-            "Url"  : "/queries/query-overview"
+            "Url"  : "/go/queries/query-overview"
         }
     ],
 
@@ -31,13 +31,13 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the 'Employees' collection Using the Session Query() LINQ method syntax."
+                "* Define a query on the _Employees_ collection Using the Session `QueryCollectionForType()`."
             ],
             "Assets": [
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/go/queries/query-overview"
                 }
             ]
         },
@@ -55,7 +55,7 @@
                 {
                     "Title": "Filtering Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/filtering-results-basics"
+                    "Url"  : "/go/queries/filtering-results-basics"
                 }
             ]
         },
@@ -63,20 +63,20 @@
             "Title": "Include related documents",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Use `Include()` to instruct the server to send the related document, whose ID is in the 'ReportsTo' field, to the client.",
+                "* Use `Include()` to instruct the server to send a related document, whose ID is in the 'ReportsTo' field, to the client.",
                 "",
-                "* The related document will be added to the Session's internal entities map for tracking changes."
+                "* The related document will be added to the Session's internal cache of entities for tracking changes."
             ],
             "Assets": [
                 {
                     "Title": "Create Related Documents Demo",
                     "Type" : "demo",
-                    "Url"  : "/related-documents/create-related-documents"
+                    "Url"  : "/go/related-documents/create-related-documents"
                 },
                 {
                     "Title": "Query Related Documents Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/go/queries/query-overview"
                 }
             ]
         },
@@ -84,6 +84,8 @@
             "Title": "Get query statistics",
             "Slug": "step-4",
             "DescriptionLines": [
+                "* Use `Statistics()` to retrieve the query statistics.",
+                "",
                 "* When the query returns, the 'statistics' variable will contain information such as:<br>",
                 "  query duration, total number of results, staleness state of results, the tag of a cluster node which responded to the query, etc."
             ],
@@ -91,7 +93,7 @@
                 {
                     "Title": "Query Statistics Demo - TBD",
                     "Type" : "demo",
-                    "Url"  : "/queries/update-me-later"
+                    "Url"  : "/go/queries/update-me-later"
                 }
             ]
         },
@@ -105,7 +107,7 @@
                 {
                     "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/sorting-query-results"
+                    "Url"  : "/go/queries/sorting-query-results"
                 }
             ]
         },
@@ -113,19 +115,17 @@
             "Title": "Project query results",
             "Slug": "step-6",
             "DescriptionLines": [
-                "* Use `Select()` to retrieve only specific document fields from the server instead of the full 'Employee' document.",
+                "* Use `SelectFields()` to retrieve only specific document fields from the server instead of the full 'Employee' document.",
                 "",
-                "* The entities returned by the query will have the structure of the custom class 'EmployeeDetails'.",
+                "* The entities returned by the query will have the structure of the custom struct 'EmployeeDetails'.",
                 "",
-                "* The output projected 'EmployeeDetails' entities returned by the query are Not tracked by the Session, as they are Not full documents.",
-                "",
-                "* Note the usage of `RavenQuery.Load()` in order to retrieve data from a related document within the projection definition."
+                "* The output projected 'EmployeeDetails' entities returned by the query are Not tracked by the Session, as they are Not full documents."
             ],
             "Assets": [
                 {
                     "Title": "Projecting Individual Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/projecting-individual-fields"
+                    "Url"  : "/go/queries/projecting-individual-fields"
                 }
             ]
         },
@@ -139,7 +139,7 @@
                 {
                     "Title": "Paging Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/paging-query-results"
+                    "Url"  : "/go/queries/paging-query-results"
                 }
             ]
         },
@@ -148,7 +148,7 @@
             "Slug": "step-8",
             "DescriptionLines": [
                 "* The _query_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or other method that forces immediate execution.",
+                "  Execute the query by calling `GetResults()`, or other method that forces immediate execution.",
                 "",
                 "* The _queryResults_ variable will hold the resulting 5 matching 'EmployeeDetails' entities, ordered by 'HiredAt' field value.",
                 "",
@@ -159,7 +159,7 @@
                 {
                     "Title": "Execute the Query - Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview#step-3"
+                    "Url"  : "/go/queries/query-overview#step-3"
                 }
             ]
         }
