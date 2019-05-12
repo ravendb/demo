@@ -64,7 +64,18 @@
         },
         "demos": [
             "staticIndexesOverview",
-            "mapIndex"
+            "mapIndex",
+            "mapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "auto-indexes",
+            "directory": "AutoIndexes"
+        },
+        "demos": [
+            "AutoMapIndex1",
+            "AutoMapIndex2"
         ]
     }
 ]

@@ -1,6 +1,6 @@
 {
     "Slug": "auto-map-index1",
-    "SourceFileName": "AutoMapIndex1Controller.cs",
+    "SourceFileName": "AutoMapIndex1.go",
     "Title": "Auto Map Index I",
     "StudioLinkToIndexList": true,
     "DescriptionLines": [
@@ -16,26 +16,6 @@
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
-        },
-        {
-            "Title": "Querying - Query Optimizer",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
-        },
-        {
-            "Title": "Quering Basics",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
-        },
-        {
-            "Title": "Basic dynamic Query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-        },
-        {
-            "Title": "Indexes Types",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/studio/database/indexes/indexes-overview#indexes-types"
         },
         {
             "Title": "Creating and managing indexes",
@@ -61,16 +41,6 @@
                 "  RavenDB will generate an _auto-index_ for you - if needed (see next step)."
             ],
             "Assets": [
-                {
-                    "Title": "Querying Basics",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
-                },
-                {
-                    "Title": "Basic dynamic Query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                }
             ]
         },
         {
@@ -97,14 +67,9 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
                 },
                 {
-                    "Title": "Querying - Query Optimizer",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
-                },
-                {
                     "Title": "Auto-Map-Index II Demo",
                     "Type" : "demo",
-                    "Url"  : "/auto-indexes/auto-map-index2"
+                    "Url"  : "/go/auto-indexes/auto-map-index2"
                 }
             ]
         }

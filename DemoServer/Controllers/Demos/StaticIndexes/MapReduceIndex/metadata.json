@@ -183,7 +183,7 @@
             "Title": "Query for the aggregated value",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Using the Map-Reduce index, query the 'Employees' collection to find the number of employees from a specific country.",
+                "* Using the Map-Reduce index (`Employees_ByCountry`), query the 'Employees' collection to find the number of employees from a specific country.",
                 "",
                 "* RavenDB will search the index for a matching index-entry that has the queried country in its 'Country' property.",
                 "",
