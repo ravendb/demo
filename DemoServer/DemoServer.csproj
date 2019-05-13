@@ -46,8 +46,8 @@
     <PackageReference Include="Microsoft.AspNetCore.App" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="2.1.1" />
-    <PackageReference Include="NLog.Web.AspNetCore" Version="4.7.0" />
-    <PackageReference Include="RavenDB.Client" Version="4.1.5-nightly-20190225-0531" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.8.2" />
+    <PackageReference Include="RavenDB.Client" Version="4.2.0-rc-42008" />
   </ItemGroup>
 
   <ItemGroup>
