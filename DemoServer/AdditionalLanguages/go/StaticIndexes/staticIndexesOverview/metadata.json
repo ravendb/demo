@@ -49,13 +49,13 @@
             ]
         },
         {
-            "Title": "Define the index",
+            "Title": "Define the index - Options",
             "Slug": "step-2",
             "DescriptionLines": [
                 "* _You can define_:<br>",
-                "      * `Map` - One Map on a single collection (Map Index)",
-                "      * `Maps` - Multiple Maps on multiple collections (Multi-Map Index)",
-                "      * `Reduce` function (Map-Reduce or Multi-Map-Reduce indexes)",
+                "      * `index.Map` - One Map on a single collection (Map Index)",
+                "      * `index.Maps` - Multiple Maps on multiple collections (Multi-Map Index)",
+                "      * `index.Reduce` function (Map-Reduce or Multi-Map-Reduce indexes)",
                 "",
                 "* _Additional indexing options, per index-field, that can be defined inside the Map function are_:<br>",
                 "   Index spatial data<br>",
@@ -84,10 +84,11 @@
             "Title": "Define the index - Example",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* In the above example, a _Map index_ is defined on the 'Employees' collection.",
+                "* Set `index.Map` with the index definition string.<br>",
+                "  A _LINQ_ expression was used here defining a _Map index_ on the 'Employees' collection.<br>",
+                "  Note: a _JavaScript_ index definition can be used as well.",
                 "",
-                "* Field 'LastName' will be the _index-field_.<br>",
-                "  It is indexed and will be queryable.",
+                "* Field 'LastName' will be the _index-field_. It is indexed and will be queryable.",
                 "",
                 "* This is the place where computations can be used on the document fields data,",
                 "  and multiple document fields can be combined into one index-field.",
@@ -95,6 +96,11 @@
                 "* Note: Use only pure functions, so that the index definition will always produce the same output for the same input."
             ],
             "Assets": [
+                {
+                    "Title": "JavaScript Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/javascript-indexes"
+                }
             ]
         },
         {

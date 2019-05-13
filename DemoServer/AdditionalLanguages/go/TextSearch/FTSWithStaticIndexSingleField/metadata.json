@@ -1,0 +1,162 @@
+{
+    "Slug": "fts-with-static-index-single-field",
+    "SourceFileName": "FTSWithStaticIndexSingleField.go",
+    "Title": "Full Text Search with Static Index - Single Field",
+    "DescriptionLines": [
+        "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
+        "",
+        "Use a static index to define which document field will be searchable.",
+        "A query on this indexed field will result in documents that contain the term in that field.",
+        "",
+        "This demo will query for a specific food term in the 'Description' field of the 'Categories' collection documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Full text searching",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+        },
+        {
+            "Title": "Full text indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+        },
+        {
+            "Title": "How the index actually works",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index with `ravendb.NewIndexCreationTask()`"
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/go/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the index Map function",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Set `index.Map` with the index definition string.",
+                "",
+                "* A LINQ expression was used here defining a Map Index on the 'Categories' collection.<br>",
+                "  The index-fields from the index definition will be indexed and can be queried on.",
+                "",
+                "* Index-field _CategoryDescription_ will take its content from the 'Category' document 'Description' field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Configure Full-Text Search",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use method `Index()` with param _'FieldIndexingSearch'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
+                "",
+                "* During the indexing process, the field is Not indexed as a single value.<br>",
+                "  Instead, the field's text content is broken into distinct tokens (terms).",
+                "",
+                "* Indexing the content as individual terms, and Not as one text item, allows you to search for documents that contain any of these terms.",
+                "",
+                "* Note: The way the text block is tokenized is determined by the analyzer used.<br>",
+                "        With the above syntax, the underlying analyzer used by RavenDB is the 'StandardAnalyzer'.<br>",
+                "        You can specify other analyzers or customize your own. Learn more in the related links."
+            ],
+            "Assets": [
+                {
+                    "Title": "Full text searching",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+                },
+                {
+                    "Title": "Full text indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+                },
+                {
+                    "Title": "How the index actually works",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+                }
+            ]
+        },
+        {
+            "Title": "Deploy the index",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use the `Execute()` method to deploy the index to the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Search for documents with a specific term",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Now you can search for documents from collection 'Categories' that contain a specific term.",
+                "",
+                "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
+                "",
+                "* Note that the comparison is done against the indexed field 'CategoryDescription' which was broken into terms."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/go/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        }
+    ]
+}

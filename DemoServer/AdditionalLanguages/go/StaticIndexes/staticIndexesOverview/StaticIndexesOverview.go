@@ -47,8 +47,8 @@ func staticIndexesOverview() error {
     
     //region Step_2
     // Define:
-    //    Map(s) functions
-    //    Reduce function
+    //    index.Map(s) functions
+    //    index.Reduce function
     //    Additional indexing options per field
     //endregion
     

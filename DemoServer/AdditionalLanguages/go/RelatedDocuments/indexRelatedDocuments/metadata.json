@@ -64,10 +64,10 @@
             "Title": "Define the index Map function",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Set `index.Map` with the JavaScript index definition which defines the index-fields.",
+                "* Set `index.Map` with the index definition string.<br>",
+                "  A LINQ expression was used here defining a Map Index on the 'Products' collection.",
                 "",
-                "* This example defines a Map Index on the products collection.<br>",
-                "  Use `LoadDocument()` to load the related 'Category' document whose ID is specified by 'product.Category'.",
+                "* Use `LoadDocument()` to load the related 'Category' document whose ID is specified by 'product.Category'.",
                 "",
                 "* The index-field _CategoryName_ will contain the value of the 'Name' property from the related document.",
                 "",

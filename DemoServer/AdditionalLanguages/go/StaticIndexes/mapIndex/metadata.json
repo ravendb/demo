@@ -54,9 +54,11 @@
             "Title": "Define the index Map function",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Set `index.Map` with the JavaScript index definition.",
+                "* Set `index.Map` with the index definition string.<br>",
+                "  In the above example, a _LINQ_ expression was used .<br>",
+                "  Note: a _JavaScript_ index definition can be used as well.",
                 "",
-                "* The JavaScript index definition defines the _index-fields_ - which fields from the 'Employee' entity will compose each index-field.",
+                "* The index definition defines the _index-fields_ - which fields from the 'Employee' entity will compose each index-field.",
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
                 "* The following _index-fields_ are configured above:",
@@ -80,6 +82,11 @@
                     "Title": "Working with Indexes",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                },
+                {
+                    "Title": "JavaScript Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/javascript-indexes"
                 }
             ]
         },
