@@ -82,4 +82,24 @@ func mapIndex(startYear int) error {
     
     return nil
 }
+
+type Employee struct {
+    ID          string
+    LastName    string
+    FirstName   string
+    Title       string
+    Address     *Address
+    HiredAt     ravendb.Time
+    HomePhone   string
+    Extension   string
+    ReportsTo   string
+    Notes       []string
+    Territories []string
+}
+type Address struct {
+    Line1      string
+    Line2      string
+    City       string   
+    Country    string
+}
 //endregion

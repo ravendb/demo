@@ -37,26 +37,9 @@ func createDatabase() {
     }
 }
 
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
-    Birthday   ravendb.Time
-    HomePhone  string
-    Extension  string
-    HiredAt    ravendb.Time
-    ReportsTo  string
-}
+
 
 //region Demo
-type EmployeeDetails struct {
-    FirstName string 
-    LastName  string
-    Title     string
-    HiredAt   ravendb.Time
-}
-
 func queryExample() error {
 
     session, err := globalDocumentStore.OpenSession("")
@@ -116,5 +99,23 @@ func queryExample() error {
     //endregion
     
     return nil
+}
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
+    Birthday   ravendb.Time
+    HomePhone  string
+    Extension  string
+    HiredAt    ravendb.Time
+    ReportsTo  string
+}
+type EmployeeDetails struct {
+    FirstName string 
+    LastName  string
+    Title     string
+    HiredAt   ravendb.Time
 }
 //endregion

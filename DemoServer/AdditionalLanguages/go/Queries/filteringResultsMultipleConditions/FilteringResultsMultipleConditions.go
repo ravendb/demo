@@ -37,13 +37,6 @@ func createDatabase() {
     }
 }
 
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
-}
-
 //region Demo
 func queryFilterResultsMultipleConditions(country string) error {
 
@@ -79,5 +72,21 @@ func queryFilterResultsMultipleConditions(country string) error {
     //endregion
 
     return nil
+}
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
+    Address    *Address   
+    Territories []string
+}
+
+type Address struct {
+   Line1      string 
+   Line2      string
+   City       string
+   Country    string 
 }
 //endregion

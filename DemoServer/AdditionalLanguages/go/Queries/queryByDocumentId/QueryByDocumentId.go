@@ -37,13 +37,6 @@ func createDatabase() {
     }
 }
 
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
-}
-
 //region Demo
 func queryByDocumentID(employeeDocumentID string) error {
 
@@ -71,5 +64,12 @@ func queryByDocumentID(employeeDocumentID string) error {
     //endregion
 
     return nil
+}
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
 }
 //endregion

@@ -37,13 +37,6 @@ func createDatabase() {
     }
 }
 
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
-}
-
 //region Demo
 func queryOverview() error {
 
@@ -79,5 +72,12 @@ func queryOverview() error {
     //endregion
     
     return nil
+}
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
 }
 //endregion

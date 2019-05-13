@@ -38,13 +38,6 @@ func createDatabase() {
 }
 
 //region Demo
-type Employee struct {
-    ID         string
-    LastName   string
-    FirstName  string
-    Title      string
-}
-
 func autoMapIndex1(firstName string) error {
 
     session, err := globalDocumentStore.OpenSession("")
@@ -68,5 +61,12 @@ func autoMapIndex1(firstName string) error {
     //endregion
     
     return nil
+}
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
 }
 //endregion

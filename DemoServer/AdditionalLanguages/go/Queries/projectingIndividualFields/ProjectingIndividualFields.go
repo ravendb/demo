@@ -37,24 +37,7 @@ func createDatabase() {
     }
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-type Contact struct {
-    Name  string
-    Title string
-}
-
 //region Demo
-type CompanyDetails struct {
-    CompanyName string
-    City        string
-    Country     string
-}
-
 func projectingIndividualFieldsInQuery() error {
 
     session, err := globalDocumentStore.OpenSession("")
@@ -90,5 +73,21 @@ func projectingIndividualFieldsInQuery() error {
     //endregion
     
     return nil
+}
+
+type Company struct {
+    ID      string
+    Name    string
+    Phone   string
+    Contact *Contact
+}
+type Contact struct {
+    Name  string
+    Title string
+}
+type CompanyDetails struct {
+    CompanyName string
+    City        string
+    Country     string
 }
 //endregion

@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    loadRelatedDocuments(5.2, "050-123456")
+    queryRelatedDocuments()
     globalDocumentStore.Close()
 }
 
@@ -38,38 +38,45 @@ func createDatabase() {
 }
 
 //region Demo
-func loadRelatedDocuments(pricePerUnit float64, phone string) error {
+func queryRelatedDocuments() error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
-    
+
     //region Step_1
-    var product *Product
-    err = session.Include("supplier").
-                  Load(&product, "products/34-A")
+    queriedType := reflect.TypeOf(&Order{})
+    q := session.QueryCollectionForType(queriedType)
+    q = q.Include("Lines.Product")
+    q = q.WhereNotEquals("ShippedAt", nil)
+    
+    var shippedOrders []*Order
+    err = q.GetResults(&shippedOrders)
     if err != nil {
         return err
-    }
-    if product == nil {
-        return nil
     }
     //endregion
 
     //region Step_2
-    var supplier *Supplier
-    err = session.Load(&supplier, product.Supplier)
-    if err != nil || supplier == nil {
-        return err
+    for _, shippedOrder := range shippedOrders {
+        var productIDs []string
+        for _, line := range shippedOrder.Lines {
+            productIDs = append(productIDs, line.Product)
+        }
+    //endregion
+        for i, productID := range productIDs {
+            //region Step_3 
+            var product *Product
+            err = session.Load(&product, productID)
+            if err != nil {
+                return err
+            }
+            product.UnitsOnOrder += shippedOrder.Lines[i].Quantity
+            //endregion
+        }
     }
-    //endregion
-
-    //region Step_3
-    product.PricePerUnit = pricePerUnit
-    supplier.Phone = phone
-    //endregion
 
     //region Step_4
     err = session.SaveChanges()
@@ -81,17 +88,22 @@ func loadRelatedDocuments(pricePerUnit float64, phone string) error {
     return nil
 }
 
+type Order struct {
+    ID        string
+    Company   string
+    ShippedAt *ravendb.Time
+    Lines     []*OrderLine
+}
+type OrderLine struct {
+    Product      string
+    ProductName  string
+    Quantity     int
+}
 type Product struct {
-    ID string
+    ID   string
     Name string
     Supplier string
     Category string
-    PricePerUnit float64
-}
-
-type Supplier struct {
-    ID string
-    Name string
-    Phone string
+    UnitsOnOrder int
 }
 //endregion

@@ -38,11 +38,6 @@ func createDatabase() {
 }
 
 //region Demo
-type EmployeeDetails struct {
-    FullName  string
-    Title     string
-}
-
 func ProjectingUsingFunctions() error {
 
     session, err := globalDocumentStore.OpenSession("")
@@ -77,5 +72,16 @@ func ProjectingUsingFunctions() error {
     //endregion
     
     return nil
+}
+
+type Employee struct {
+    ID        string
+    FirstName string
+    LastName  string
+    Title     string 
+}
+type EmployeeDetails struct {
+    FullName  string
+    Title     string
 }
 //endregion

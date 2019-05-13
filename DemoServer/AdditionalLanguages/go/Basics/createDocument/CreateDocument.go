@@ -40,18 +40,6 @@ func createDatabase() {
     }
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-
-type Contact struct {
-    Name  string
-    Title string
-}
-
 //region Demo
 func createDocument(companyName, companyPhone, contactName, contactTitle string) error {
 
@@ -92,5 +80,17 @@ func createDocument(companyName, companyPhone, contactName, contactTitle string)
 
     fmt.Printf("Created a new document with id: %s \n", theNewDocumentID)
     return nil   
+}
+
+type Company struct {
+    ID      string
+    Name    string
+    Phone   string
+    Contact *Contact
+}
+
+type Contact struct {
+    Name  string
+    Title string
 }
 //endregion

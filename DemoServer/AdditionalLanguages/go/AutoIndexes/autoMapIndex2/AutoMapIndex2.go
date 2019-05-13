@@ -63,4 +63,19 @@ func autoMapIndex2(country string) error {
     
     return nil
 }
+
+type Employee struct {
+    ID         string
+    LastName   string
+    FirstName  string
+    Title      string
+    Address    *Address 
+}
+
+type Address struct {
+    Line1      string
+    Line2      string
+    City       string
+    Country    string
+}
 //endregion

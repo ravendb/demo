@@ -37,18 +37,6 @@ func createDatabase() {
     }
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-
-type Contact struct {
-    Name  string
-    Title string
-}
-
 //region Demo
 func getRevisions() error {
 
@@ -102,5 +90,17 @@ func getRevisions() error {
     //endregion
     
     return nil
+}
+
+type Company struct {
+    ID      string
+    Name    string
+    Phone   string
+    Contact *Contact
+}
+
+type Contact struct {
+    Name  string
+    Title string
 }
 //endregion

@@ -26,18 +26,6 @@ func createDocumentStore() (*ravendb.DocumentStore, error) {
     return globalDocumentStore, nil
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-
-type Contact struct {
-    Name  string
-    Title string
-}
-
 //region Demo
 func editDocument(companyName string) error {
 
@@ -71,5 +59,11 @@ func editDocument(companyName string) error {
     //endregion
 
     return nil
+}
+
+type Company struct {
+    ID      string
+    Name    string
+    Phone   string
 }
 //endregion

@@ -37,23 +37,6 @@ func createDatabase() {
     }
 }
 
-type Supplier struct {
-    ID string
-    Name string
-    Phone string
-}
-type Category struct {
-    ID string
-    Name string
-    Description string
-}
-type Product struct {
-    Name string
-    Supplier string
-    Category string
-    PricePerUnit float64
-}
-
 //region Demo
 func createRelatedDocuments(productName, supplierName, supplierPhone string) error {
 
@@ -110,5 +93,23 @@ func createRelatedDocuments(productName, supplierName, supplierPhone string) err
     //endregion
   
     return nil 
+}
+
+type Supplier struct {
+    ID string
+    Name string
+    Phone string
+}
+type Category struct {
+    ID string
+    Name string
+    Description string
+}
+type Product struct {
+    ID   string
+    Name string
+    Supplier string
+    Category string
+    PricePerUnit float64
 }
 //endregion

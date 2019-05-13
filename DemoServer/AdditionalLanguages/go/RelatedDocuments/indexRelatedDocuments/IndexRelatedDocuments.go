@@ -38,12 +38,6 @@ func createDatabase() {
 }
 
 //region Demo
-type Product struct {
-    Name string
-    Supplier string
-    Category string
-}
-
 func indexRelatedDocuments(categoryName string) error {
     
     //region Step_1
@@ -81,5 +75,12 @@ func indexRelatedDocuments(categoryName string) error {
         return err
     }
     return nil
+}
+
+type Product struct {
+    ID   string
+    Name string
+    Supplier string
+    Category string
 }
 //endregion

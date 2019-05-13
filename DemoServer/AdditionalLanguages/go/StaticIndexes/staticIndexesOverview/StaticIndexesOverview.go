@@ -82,4 +82,11 @@ func staticIndexesOverview() error {
     
     return nil
 }
+
+type Employee struct {
+    ID          string
+    LastName    string
+    FirstName   string
+    Title       string
+} 
 //endregion

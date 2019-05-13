@@ -37,13 +37,6 @@ func createDatabase() {
     }
 }
 
-type Company struct {
-    ID      string
-    Name    string
-    Phone   string
-    Contact *Contact
-}
-
 //region Demo
 func fullCollectionQuery() error {
     
@@ -67,5 +60,13 @@ func fullCollectionQuery() error {
     //endregion
 
     return nil
+}
+
+type Company struct {
+    ID         string
+    Name       string
+    ExternalID string  
+    Phone      string
+    Fax        string
 }
 //endregion
