@@ -9,7 +9,7 @@ var globalDocumentStore *ravendb.DocumentStore
 func main() {
     createDocumentStore()
     createDatabase()
-    autoMapIndex2("Steven")
+    indexRelatedDocuments("Produce")
     globalDocumentStore.Close()
 }
 
@@ -38,29 +38,48 @@ func createDatabase() {
 }
 
 //region Demo
-func autoMapIndex2(country string) error {
-  
+type Product struct {
+    Name string
+    Supplier string
+    Category string
+}
+
+func indexRelatedDocuments(categoryName string) error {
+    
+    //region Step_1
+    index := ravendb.NewIndexCreationTask("Products/ByCategoryName")
+    //endregion
+    
+    //region Step_2
+    index.Map = `docs.Products.Select(product => new {
+        CategoryName = (this.LoadDocument(product.Category, "Categories")).Name
+    })`
+    //endregion
+    
+    //region Step_3
+    err := globalDocumentStore.ExecuteIndex(index, "")
+    if err != nil {
+        return err
+    }
+    //endregion
+    
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
         return err
     }
     defer session.Close()
 
-    //region Step_1
-    queriedType := reflect.TypeOf(&Employee{})
-    query := session.QueryCollectionForType(queriedType)
-    query = query.WhereStartsWith("Title", "Sales")
-    query = query.Where("Address.Country", "==", country)
+    //region Step_4  
+    q := session.QueryIndex(index.IndexName)
+    q = q.WhereEquals("CategoryName", categoryName)
+    
+    var productsWithCategoryName []*Product
+    err = q.GetResults(&productsWithCategoryName)
     //endregion
-
-    //region Step_2
-    var employeeResult *Employee
-    err = query.First(&employeeResult)
+    
     if err != nil {
         return err
     }
-    //endregion
-    
     return nil
 }
 //endregion

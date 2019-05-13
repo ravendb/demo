@@ -52,7 +52,7 @@ func mapIndex(startYear int) error {
                 Country = e.Address.Country,
                 WorkingInCompanySince = e.HiredAt.Year,
                 NumberOfTerritories = e.Territories.Count
-            }'
+            }`
     //endregion
     
     //region Step_3

@@ -25,10 +25,12 @@
 
     "Walkthroughs": [
         {
-            "Title": "Create the Map index",
+            "Title": "Create the index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index with `ravendb.NewIndexCreationTask()`."
+                "* Create the Map index with `ravendb.NewIndexCreationTask()`.",
+                "",
+                "* The string passed will be the index name."
             ],
             "Assets": [
                 {
@@ -49,7 +51,7 @@
             ]
         },
         {
-            "Title": "Define the index",
+            "Title": "Define the index Map function",
             "Slug": "step-2",
             "DescriptionLines": [
                 "* Set `index.Map` with the JavaScript index definition.",

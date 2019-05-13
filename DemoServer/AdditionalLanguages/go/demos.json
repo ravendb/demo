@@ -19,7 +19,8 @@
         },
         "demos": [
             "createRelatedDocuments",
-            "loadRelatedDocuments"
+            "loadRelatedDocuments",
+            "indexRelatedDocuments"
         ]
     },
     {
@@ -74,8 +75,8 @@
             "directory": "AutoIndexes"
         },
         "demos": [
-            "AutoMapIndex1",
-            "AutoMapIndex2"
+            "autoMapIndex1",
+            "autoMapIndex2"
         ]
     }
 ]

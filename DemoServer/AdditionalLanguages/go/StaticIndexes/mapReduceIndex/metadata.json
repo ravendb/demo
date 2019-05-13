@@ -28,10 +28,12 @@
 
     "Walkthroughs": [
         {
-            "Title": "Create the Map-Reduce index",
+            "Title": "Create the index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map-Reduce index with `ravendb.NewIndexCreationTask()`."
+                "* Create the Map-Reduce index with `ravendb.NewIndexCreationTask()`.",
+                "",
+                "* The string passed will be the index name."
             ],
             "Assets": [
                 {

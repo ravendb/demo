@@ -36,7 +36,9 @@
             "Title": "Create an index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create an index with `ravendb.NewIndexCreationTask()`."
+                "* Create an index with `ravendb.NewIndexCreationTask()`.",
+                "",
+                "* The string passed will be the index name."
             ],
             "Assets": [
                 {
@@ -121,7 +123,7 @@
             "Title": "Query the database using the index",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Now you can query the database using the defined index:",
+                "* Use `QueryIndex()` to query the database using the defined index:",
                 "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
                 "     * _Query for an aggregated value_ (Map-Reduce index)",
                 "",
