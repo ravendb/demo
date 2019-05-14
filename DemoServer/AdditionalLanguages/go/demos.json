@@ -90,5 +90,15 @@
             "FTSWithStaticIndexSingleField",
             "FTSWithStaticIndexMultipleFields"
         ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "Advanced",
+            "title": "Advanced"
+        },
+        "demos": [
+            "createDatabase"
+        ]
     }
 ]
