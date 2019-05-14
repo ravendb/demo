@@ -1,6 +1,6 @@
 {
     "Slug": "fts-with-static-index-multiple-fields",
-    "SourceFileName": "FTSWithStaticIndexMultipleFieldsController.cs",
+    "SourceFileName": "FTSWithStaticIndexMultipleFields.go",
     "Title": "Full Text Search with Static Index - Multiple Fields",
     "StudioLinkToMediaDatabase": true,
     "DescriptionLines": [
@@ -13,7 +13,7 @@
         {
             "Title": "Full Text Search - Single Field Demo",
             "Type" : "demo",
-            "Url"  : "/text-search/fts-with-static-index-single-field"
+            "Url"  : "/go/text-search/fts-with-static-index-single-field"
         },
         {
             "Title": "Full text searching",
@@ -29,40 +29,21 @@
             "Title": "How the index actually works",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
-        },
-        {
-            "Title": "Analyzers",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
-        },
-        {
-            "Title": "Querying - Searching",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching#static-indexes"
         }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Define a static index",
+            "Title": "Create a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _LastFm_ - indicates that the source collection for the index will be the 'LastFms' collection<br>",
-                "    * _Song_TextData.Result_ - is the shape of the resulting index-fields (see next step)"
+                "* Create a static Map index with `ravendb.NewIndexCreationTask()`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "/go/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
@@ -77,39 +58,15 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "Define the index Map function",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Define the index field(s). These fields will be indexed and can be queried on.",
+                "* Set `index.Map` with the index definition string.",
                 "",
-                "* Index field _'SongData'_ is defined here.<br>",
-                "  Its content is configured in the next step, within the index constructor."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
-                }
-            ]
-        },
-        {
-            "Title": "Define the Map function",
-            "Slug": "step-3",
-            "DescriptionLines": [
-                "* Define the Map function - Combine multiple document fields into a single index-field",
+                "* The above LINQ expression defines the index field _'SongData'_.",
                 "",
-                "* The content of index-field _'SongData'_ will be composed of the following four 'LastFm' document fields:",
+                "* Multiple document fields are combined into the single index-field 'SongData'.<br>",
+                "  The content of index-field _'SongData'_ is composed of the following four 'LastFm' document fields:",
                 "    * Artist, Title, Tags & TrackId"
             ],
             "Assets": [
@@ -119,17 +76,22 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-search-fields"
                 },
                 {
-                    "Title": "Map Indexes",
+                    "Title": "Static Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
                 }
             ]
         },
         {
             "Title": "Configure Full-Text Search",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use method `Index()` with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'SongData'.",
+                "* Use method `Index()` with param _'FieldIndexingSearch'_, to allow performing a full-text search on the indexed field 'SongData'.",
                 "",
                 "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
@@ -144,7 +106,7 @@
                 {
                     "Title": "Configure Full-Text Search (FTS - Single Field Demo)",
                     "Type" : "demo",
-                    "Url"  : "/text-search/fts-with-static-index-single-field#step-4"
+                    "Url"  : "/go/text-search/fts-with-static-index-single-field#step-3"
                 },
                 {
                     "Title": "Full text searching",
@@ -160,11 +122,25 @@
                     "Title": "How the index actually works",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+                }
+            ]
+        },
+        {
+            "Title": "Deploy the index",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use the `Execute()` method to deploy the index to the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
                 },
                 {
-                    "Title": "Analyzers",
+                    "Title": "Working with Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
                 }
             ]
         },
@@ -183,22 +159,12 @@
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index#step-4"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "/go/static-indexes/map-index#step-4"
                 },
                 {
                     "Title": "Working with Indexes",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
-                },
-                {
-                    "Title": "Querying an index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
                 },
                 {
                     "Title": "Full text search fields",

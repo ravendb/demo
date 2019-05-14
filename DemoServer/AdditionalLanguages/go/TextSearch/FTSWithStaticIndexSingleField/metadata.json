@@ -34,7 +34,7 @@
             "Title": "Create a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index with `ravendb.NewIndexCreationTask()`"
+                "* Create a static Map index with `ravendb.NewIndexCreationTask()`."
             ],
             "Assets": [
                 {
