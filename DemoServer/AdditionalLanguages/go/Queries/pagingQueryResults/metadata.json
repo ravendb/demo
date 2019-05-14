@@ -1,6 +1,6 @@
 {
     "Slug": "paging-query-results",
-    "SourceFileName": "PagingQueryResultsController.cs",
+    "SourceFileName": "PagingQueryResults.go",
     "Title": "Paging Query Results",
     "DescriptionLines": [
         "By default, a query will return _all_ available matching results.",
@@ -11,31 +11,6 @@
     ],
 
     "Assets": [
-        {
-            "Title": "Querying: Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
-        },
-        {
-            "Title": "Querying Basics: Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics#example-iii---paging"
-        },
-        {
-            "Title": "Querying: Distinct Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/distinct#paging"
-        },
-        {
-            "Title": "Fanout indexes Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/fanout-indexes#paging"
-        },
-        {
-            "Title": "Migration from 3.x - Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/migration/client-api/session/querying/basics#paging"
-        },
         {
             "Title": "Deep paging",
             "Type" : "link",
@@ -48,7 +23,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the 'Companies' collection using the Session `Query()` LINQ query syntax.",
+                "* Define a query on the 'Companies' collection using the Session `QueryCollectionForType()`.",
                 "",
                 "* While this example relates to a dynamic query where an auto-index is created,<br>",
                 "  _paging_ can also be applied when querying using a static index."
@@ -57,12 +32,7 @@
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                    "Url"  : "/go/queries/query-overview"
                 }
             ]
         },
@@ -80,12 +50,7 @@
                 {
                     "Title": "Query Statistics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/update-me-later"
-                },
-                {
-                    "Title": "Get query statistics",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "/go/queries/update-me-later"
                 }
             ]
         },
@@ -112,34 +77,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "Querying: Paging",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
-                },
-                {
                     "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/sorting-query-results"
+                    "Url"  : "/go/queries/sorting-query-results"
                 },
                 {
                     "Title": "Deep paging",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
-                },
-                {
-                    "Title": "Tampered Results",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging#paging-through-tampered-results"
-                },
-                {
-                    "Title": "Querying: Distinct Paging",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/distinct#paging"
-                },
-                {
-                    "Title": "Fanout indexes Paging",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/fanout-indexes#paging"
                 }
             ]
         },
@@ -154,29 +99,19 @@
                 "* If no results were skipped - when Not using Skip() at all, or when using Skip(0) - then the first 'resultsToTake' documents will be returned from the result set."
             ],
             "Assets": [
-                {
-                    "Title": "Querying: Paging",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
-                }
             ]
         },
         {
             "Title": "Execute the query",
             "Slug": "step-5",
             "DescriptionLines": [
-                "* Execute the query by calling `ToList()`.",
+                "* Execute the query by calling `GetResults()`.",
                 "",
                 "* _'pagedResults'_ will contain only 'resultsToTake' documents starting from the 'resultsToSkip' location from the result set.",
                 "",
                 "* The output entities returned by the query are tracked by the Session as usual.<br>"
             ],
             "Assets": [
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-                }
             ]
         },
         {
@@ -192,12 +127,7 @@
                 {
                     "Title": "Query Statistics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/update-me-later"
-                },
-                {
-                    "Title": "Get query statistics",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "/go/queries/update-me-later"
                 }
             ]
         }        

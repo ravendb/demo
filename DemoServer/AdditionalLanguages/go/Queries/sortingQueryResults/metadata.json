@@ -1,0 +1,133 @@
+{
+    "Slug": "sorting-query-results",
+    "SourceFileName": "SortingQueryResults.go",
+    "Title": "Sorting Query Results",
+    "DescriptionLines": [
+        "**Query results can be sorted.**<br>",
+        "The sorting method is specified when issuing the query.<br>",
+        "Sorting is applied after the query filtering stage.<br>",
+        "Multiple sorting actions can be chained.",
+        "",
+        "You can order the query results by:<br>",
+        "<p>* A field value<br>",
+        "* The resulting documents' score<br>",
+        "* Aggregation values (in aggregation queries)<br>",
+        "* Geographical distance (in spatial queries)<br>",
+        "* Random ordering</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Sorting query results",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the Session `QueryCollectionForType()`.",
+                "",
+                "* While this example relates to a dynamic query where an auto-index is created,<br>",
+                "  _sorting_ can also be applied when querying using a static index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/go/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Filter query results",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Filter the documents returned by applying some condition.<br>",
+                "  _Filtering is done prior to sorting_, which is applied in the next step.<br>",
+                "",
+                "* When sorting without filtering, Ravendb will sort all of the resulting documents.<br>", 
+                "  _Applying filtering is recommended_, as it reduces the number of results RavenDB needs to sort when querying over a large set of data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Filtering Results - Basic Demo",
+                    "Type" : "demo",
+                    "Url"  : "/go/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Primary sort by field value",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Specify the field to sort by.",
+                "",
+                "* When sorting by field value - The _default ordering_ is by field type 'String'.<br>",
+                "  You can override the ordering type with any of the following:<br>",
+                "    * OrderingTypeString (lexicographic ordering)<br>",
+                "    * OrderingTypeLong<br>",
+                "    * OrderingTypeDouble<br>" ,
+                "    * OrderingTypeAlphaNumeric",
+                "",
+                "* Available sorting methods:<br>",
+                "  `OrderBy()` - Order documents by ascending field values.<br>",
+                "  `OrderByDescending()` - Order field values in descending order.<br>",
+                "  `OrderByWithOrdering()` - Ascending order. Explicitly pass the _OrderingType_<br>",
+                "  `OrderByDescendingWithOrdering()` - Descending order. Explicitly pass 'OrderingType'<br>",
+                "",
+                "* In the above example, the primary sorting of the documents returned by the query will be according to field _UnitsInStock_,",
+                "  in descending order.<br>",
+                "  The 'OrderingType' is specified to be _ravendb.OrderingTypeLong_.",
+                "",
+                "* You can also order by:<br>",
+                "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Secondary sort by field value",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* You can sort by one field and then perform a secondary sort on another field.",
+                "  Any combination of secondary sorting is possible as the index fields are indexed independently of one another.",
+                "",
+                "* There is no limit on the number of sorting actions that can be chained.<br>",
+                "  In the example, a secondary sort is done on the _Name_ field.",
+                "",
+                "* Default strings ordering defaults to lexicographic order.<br>",
+                "  In the above example, passing _ravendb.OrderingTypeAlphaNumeric_ will cause the digit characters in the string to be treated as numbers and not as text.<br>"
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `GetResults()`.",
+                "",
+                "* _'sortedProducts'_ will contain a list of Product entities sorted by the number of units in stock in descending order,",
+                "  with a secondary sort on the product name.",
+                "",
+                "* The output entities returned by the query are tracked by the Session as usual.<br>"
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}
