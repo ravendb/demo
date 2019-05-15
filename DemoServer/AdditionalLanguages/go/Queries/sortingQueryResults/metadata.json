@@ -46,8 +46,9 @@
             "Title": "Filter query results",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Filter the documents returned by applying some condition.<br>",
-                "  _Filtering is done prior to sorting_, which is applied in the next step.<br>",
+                "* Filter the documents returned by applying some condition.",
+                "",
+                "* Regardless of the 'Where()' location in the query definition, _Filtering_ will always be applied in the server prior to the sorting phase.",
                 "",
                 "* When sorting without filtering, Ravendb will sort all of the resulting documents.<br>", 
                 "  _Applying filtering is recommended_, as it reduces the number of results RavenDB needs to sort when querying over a large set of data."

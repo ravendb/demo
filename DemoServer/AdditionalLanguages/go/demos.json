@@ -79,7 +79,8 @@
         },
         "demos": [
             "autoMapIndex1",
-            "autoMapIndex2"
+            "autoMapIndex2",
+            "autoMapReduceIndex"
         ]
     },
     {

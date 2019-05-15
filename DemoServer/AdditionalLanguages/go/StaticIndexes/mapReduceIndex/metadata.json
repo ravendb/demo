@@ -58,6 +58,7 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* Similar to the simple Map-Index, the `index.Map` function defines what data is indexed per index-field.",
+                "  The above example uses a JavaScript index definition.",
                 "",
                 "* The Map function is the first stage of the Map-Reduce index.<br>",
                 "  It indexes the specified fields _per document_ in the collection.",

@@ -1,6 +1,6 @@
 {
     "Slug": "auto-map-reduce-index",
-    "SourceFileName": "AutoMapReduceIndexController.cs",
+    "SourceFileName": "AutoMapReduceIndex.go",
     "Title": "Auto Map-Reduce Index",
     "StudioLinkToIndexList": true,
     "DescriptionLines": [
@@ -13,7 +13,7 @@
         {
             "Title": "Auto-Map-Index I Demo",
             "Type" : "demo",
-            "Url"  : "/auto-indexes/auto-map-index1"
+            "Url"  : "/go/auto-indexes/auto-map-index1"
         },
         {
             "Title": "Aggregation queries",
@@ -31,24 +31,9 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
         },
         {
-            "Title": "Basic dynamic Query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-        },
-        {
-            "Title": "Dynamic group-by query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
-        },
-        {
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
-        },
-        {
-            "Title": "Querying - Query Optimizer",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
         }
     ],
 
@@ -66,17 +51,7 @@
                 {
                     "Title": "Auto-Map-Index I Demo",
                     "Type" : "demo",
-                    "Url"  : "/auto-indexes/auto-map-index1"
-                },
-                {
-                    "Title": "Querying Basics",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
-                },
-                {
-                    "Title": "Basic dynamic Query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                    "Url"  : "/go/auto-indexes/auto-map-index1"
                 }
             ]
         },
@@ -107,16 +82,6 @@
                     "Title": "Dynamic aggregation",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
-                },
-                {
-                    "Title": "Basic dynamic Query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                },
-                {
-                    "Title": "Dynamic group by query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
                 }
             ]
         },
@@ -126,16 +91,19 @@
             "DescriptionLines": [
                 "* Define the aggregation action - _the computation to be done per grouping key_.",
                 "",
-                "* Use `Select()` to define the structure of each result in the query result set.<br>",
-                "  _Each entry in the result set will contain the following info_:",
-                "    * The country name",
-                "    * The total number of employees in this country",
+                "* Use:",
+                "   * `SelectKeyWithNameAndProjectedName()` to define the key and its projected field name.<br>",
+                "   * `SelectCountWithName()` to define the count aggregation action and its projected field name.",
+                "",
+                "* _Each entry in the result set will contain the following info fields_:",
+                "    * The country name ( _Country_ )<br>",
+                "    * The total number of employees in this country ( _NumberOfEmployees_ )",
                 "",
                 "* Each 'Employee' document represents 1 employee.<br>",
-                "  Here we are counting the number of documents `g.Count()` that exist per unique country `g.Key`.",
+                "  Here we are counting the number of documents that exist per unique country.",
                 "",
                 "* Note: the supported aggregation actions with a dynamic query are:<br>",
-                "  `Count()` & `Sum()`."
+                "  `SelectCount` & `SelectSum`."
             ],
             "Assets": [
                 {
@@ -154,19 +122,9 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
                 },
                 {
-                    "Title": "Basic dynamic Query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                },
-                {
-                    "Title": "Dynamic group by query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-perform-group-by-query"
-                },
-                {
                     "Title": "Projecting Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/projecting-individual-fields"
+                    "Url"  : "/go/queries/projecting-individual-fields"
                 }
             ]
         },
@@ -174,13 +132,13 @@
             "Title": "Define results order",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Optionally, the query result set can be sorted according to any one of the fields defined with the above 'Select()'."
+                "* Optionally, the query result set can be sorted according to any one of the fields defined in the previous step."
             ],
             "Assets": [
                 {
                     "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/sorting-query-results"
+                    "Url"  : "/go/queries/sorting-query-results"
                 }
             ]
         },
@@ -198,18 +156,13 @@
                 "* The _numberOfEmployeesPerCountry_ variable will hold the query results set.<br>",
                 "  Each entry in the result set will contain a unique country and the total number of employees in it.",
                 "",
-                "* Note: the results are Not tracked by the session, as they are Not documents, but just data projected using 'Select()'."
+                "* Note: the results are Not tracked by the session, as they are Not documents, but just data projected using the 'Select()' methods."
             ],
             "Assets": [
                 {
                     "Title": "The query optimizer",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
-                },
-                {
-                    "Title": "Querying - Query Optimizer",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
                 }
             ]
         }
