@@ -866,17 +866,18 @@ $spin-properties: spin .75s infinite cubic-bezier(0.6, 0.02, 0.4, 0.99);
 
 .cookie-bar {
     position: fixed;
-    top: $gutter;
-    right: $gutter;
-    max-width: 300px;
+    right: 0;
+    bottom: 0;
+    max-width: 400px;
     background-color: $gray-darker;
     padding: $gutter-sm;
     z-index: $zindex-cookie-bar;
+    box-shadow: -5px -5px 13px -4px rgba(0,0,0,0.35);
 
     a {
         text-decoration: none;
 
-        &:hover, {
+        &:hover {
             color: $brand-primary;
 
             strong {
