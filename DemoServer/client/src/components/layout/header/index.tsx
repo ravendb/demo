@@ -43,6 +43,10 @@ class HeaderComponent extends React.Component<Props, {}> {
                 <a className="logo" onClick={goToMainPage}>
                     <img src="../img/logo.svg" alt="RavenDB Demo" />
                 </a>
+                <div className="nav-urls">
+                    <span className="margin-right">Go to: </span><a className="ravendb-url" href="https://ravendb.net/">ravendb.net</a>
+                    <span className="separator">|</span><a className="cloud-url" href="https://cloud.ravendb.net/">cloud.ravendb.net</a>
+                </div>
             </div>
             <div className="flex-grow"></div>
             {!isOnMainPage && <SelectDemoDropdown />}
