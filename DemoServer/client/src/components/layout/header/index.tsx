@@ -48,10 +48,7 @@ class HeaderComponent extends React.Component<Props, {}> {
                     <span className="separator">|</span><a className="cloud-url" href="https://cloud.ravendb.net/">cloud.ravendb.net</a>
                 </div>
             </div>
-            <div className="flex-grow"></div>
-            {!isOnMainPage && <SelectDemoDropdown />}
-            <div className="flex-grow"></div>
-            <SettingsMenu />
+            <div className="dropdown-settings">{!isOnMainPage && <SelectDemoDropdown />} <SettingsMenu /></div>
         </div>;
     }
 }

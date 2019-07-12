@@ -177,6 +177,13 @@ hr {
     flex-shrink: 0;
     background-color: $gray-base-light;
 
+    @media (max-width: 768px) {
+        flex-direction: column;
+        #selectDemo {
+            margin-left: 0;
+        }
+    }
+
     .logo {
         display: block;
 
@@ -184,11 +191,17 @@ hr {
             height: 42px;
         }
     }
+    .dropdown-settings {
+        display: flex;
+        align-items: center;
+        margin-bottom: $gutter/5;
+    }
 
     .settings {
         font-size: $gutter;
         transition: color .2s $global-easing;
         color: $gray;
+        margin-left: $gutter;
 
         &:hover {
             color: $gray-lighter;
@@ -197,9 +210,10 @@ hr {
     .nav-urls {
         display: flex;
         flex-direction: row;
-        margin-top: -10px;
         justify-content: center;
         font-size: 11px;
+        margin-top: -$gutter/5;
+        margin-bottom: $gutter/5;
     }
     .margin-right {
         margin-right: 10px;
@@ -336,10 +350,11 @@ hr {
     display: block;
     text-align: center;
     padding: $gutter-xxs $gutter;
-    width: 400px;
+    width: 230px;
     color: $gray-light;
     font-weight: 900;
     border: none;
+    margin-left: $gutter;
 
     option {
         height: 30px;
@@ -539,6 +554,7 @@ hr {
 // The dropdown wrapper (`<div>`)
 .dropdown {
     position: relative;
+    margin-top: $gutter/4;
 }
 
 .dropdown-toggle::after {

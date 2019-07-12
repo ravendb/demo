@@ -108,12 +108,15 @@
             .demo-item {
                 display: flex;
                 flex-direction: column;
-                background-color: $gray-darker;
+                background-color: #3B4654;
                 width: 200px;
                 color: $gray-light;
                 margin: $gutter-xs;
                 text-decoration: none;
                 transition: all .20s cubic-bezier(0.6, 0, 0.14, 1.45);
+                @media (max-width: 495px) {
+                    min-width: 90%;
+                }
 
                 .title {
                     line-break: loose;
