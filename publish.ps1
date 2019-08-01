@@ -6,6 +6,9 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 docker login -u ravendb
+if ($LASTEXITCODE -ne 0) {
+    throw "Login to docker hub failed."
+}
 
 docker push ravendb/demo 
 
