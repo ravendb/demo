@@ -8,21 +8,26 @@ import { DemoThunkDispatch } from "../../../store";
 import { changeDemoLanguage } from "../../../store/actions/navigation";
 import { defaultLanguage } from "../../../store/state/demo";
 import { noop } from "../../../utils/functionUtils";
+import { Link } from "react-router-dom";
+import { createDemoWithWalkthroughPath } from "../../../utils/paths";
+import { DemoSlug, CategorySlug } from "../../../models/slugs";
 
 interface StateProps {
     selected: Language;
     available: Language[];
+    category: CategorySlug;
+    demo: DemoSlug;
 }
 
 interface DispatchProps {
     changeLanguage: (language: Language) => void;
 }
 
-type Props = StateProps & DispatchProps;
+type Props = StateProps & DispatchProps
 
 class LanguageSelectComponent extends React.Component<Props, {}> {
     private _button(language: Language) {
-        const { selected, changeLanguage } = this.props;
+        const { selected, changeLanguage, category, demo} = this.props;
         const active = language === selected;
 
         const className = classNames("btn", {
@@ -33,9 +38,17 @@ class LanguageSelectComponent extends React.Component<Props, {}> {
             ? noop
             : () => changeLanguage(language);
 
-        return <button key={language} className={className} onClick={onClick}>
+        
+
+        const url = createDemoWithWalkthroughPath({
+            language: language,
+            category: category,
+            demo: demo
+        });
+
+        return <Link to={url} key={language} className={className} onClick={onClick}>
             {languageToDisplay(language)}
-        </button>;
+        </Link>;
     }
 
     public render() {
@@ -58,10 +71,13 @@ class LanguageSelectComponent extends React.Component<Props, {}> {
 function mapStateToProps({ demos }: AppState): StateProps {
     const { language } = demos;
     const availableLanguages = selectLanguagesForDemo(demos);
+    const { categorySlug, demoSlug } = demos;
 
     return {
         selected: language,
-        available: availableLanguages
+        available: availableLanguages,
+        category: categorySlug,
+        demo: demoSlug
     };
 }
 
