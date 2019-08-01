@@ -7,6 +7,7 @@ import { AppState } from "../../../store/state";
 import { selectIsOnMainPage } from "../../../store/selectors/router";
 import { SettingsMenu } from "./settings/SettingsMenu";
 import { DemoThunkDispatch } from "../../../store";
+import { Link } from "react-router-dom";
 
 interface StateProps {
     isOnMainPage: boolean;
@@ -40,9 +41,9 @@ class HeaderComponent extends React.Component<Props, {}> {
 
         return <div className="header">
             <div>
-                <a className="logo" onClick={goToMainPage}>
+                <Link to="/"  className="logo" onClick={goToMainPage}>
                     <img src="../img/logo.svg" alt="RavenDB Demo" />
-                </a>
+                </Link>
                 <div className="nav-urls">
                     <span className="margin-right">Go to: </span><a className="ravendb-url" href="https://ravendb.net/">ravendb.net</a>
                     <span className="separator">|</span><a className="cloud-url" href="https://cloud.ravendb.net/">cloud.ravendb.net</a>

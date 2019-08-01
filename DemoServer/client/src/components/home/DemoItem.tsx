@@ -6,6 +6,8 @@ import { goToDemoPage } from "../../store/actions/navigation";
 import { CategorySlug } from "../../models/slugs";
 import { DemoThunkDispatch } from "../../store";
 import { getDemoImageSrc } from "../../store/selectors/demos";
+import { Link } from "react-router-dom";
+import { createDemoWithWalkthroughPath } from "../../utils/paths";
 
 interface DispatchProps {
     goToDemoPage: () => void;
@@ -27,17 +29,22 @@ function DemoItemComponent(props: Props) {
 
     const imageSrc = getDemoImageSrc(category, demo.slug);
 
-    return <a className={className} onClick={goToDemoPage} >
+    const url = createDemoWithWalkthroughPath({
+        category: category,
+        demo: demo.slug
+    });
+
+    return <Link to={url} className={className} onClick={goToDemoPage} >
         <div className="bkg"><img src={imageSrc} /></div>
         <div className="title">{demo.title}</div>
-    </a>;
+    </Link>;
 }
 
 function mapDispatchToProps(dispatch: DemoThunkDispatch, ownProps: OwnProps): DispatchProps {
     const { demo, category } = ownProps;
 
     return {
-        goToDemoPage: () => dispatch(goToDemoPage(category, demo.slug))
+        goToDemoPage: () => dispatch(goToDemoPage(category, demo.slug, false))
     };
 }
 

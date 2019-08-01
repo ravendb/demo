@@ -20,7 +20,7 @@ interface StateProps {
 
 interface DispatchProps {
     loadContext: () => void;
-    goToDemo: (category: CategorySlug, demo: DemoSlug) => void;
+    goToDemo: (category: CategorySlug, demo: DemoSlug, withPush: boolean) => void;
 }
 
 type Props = StateProps & DispatchProps;
@@ -58,7 +58,7 @@ class SelectDemoDropdownComponent extends React.Component<Props, {}> {
         const slugs = this._fromValueToPathSlugs(value);
 
         const { category, demo } = slugs;
-        this.props.goToDemo(category, demo);
+        this.props.goToDemo(category, demo, true);
     }
 
     private getDemo = (categorySlug: CategorySlug, demo: DemoForLanguage) => {
@@ -103,7 +103,7 @@ function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
         loadContext: () => dispatch(getContext()),
     
         goToDemo: (category: CategorySlug, demo: DemoSlug) => {
-            return dispatch(goToDemoPage(category, demo));
+            return dispatch(goToDemoPage(category, demo, true));
         }
     };
 }
