@@ -23,7 +23,7 @@ interface DispatchProps {
     changeLanguage: (language: Language) => void;
 }
 
-type Props = StateProps & DispatchProps
+type Props = StateProps & DispatchProps;
 
 class LanguageSelectComponent extends React.Component<Props, {}> {
     private _button(language: Language) {
@@ -37,9 +37,7 @@ class LanguageSelectComponent extends React.Component<Props, {}> {
         const onClick = active
             ? noop
             : () => changeLanguage(language);
-
         
-
         const url = createDemoWithWalkthroughPath({
             language: language,
             category: category,
