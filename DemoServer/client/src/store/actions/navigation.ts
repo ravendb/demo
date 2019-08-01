@@ -62,6 +62,6 @@ export function changeDemoLanguage(language: Language): DemoThunkAction {
         const { demos } = getState();
         const { categorySlug, demoSlug } = demos;
 
-        dispatch(goToDemoPage(categorySlug, demoSlug, true, language));
+        dispatch(goToDemoPage(categorySlug, demoSlug, false, language));
     };
 }
