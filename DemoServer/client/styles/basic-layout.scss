@@ -53,6 +53,7 @@ body {
 
 a {
     color: $brand-primary;
+    text-decoration: none;
 
     &:hover {
         color: saturate( lighten( $brand-primary, 15% ), 100% );
