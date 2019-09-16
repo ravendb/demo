@@ -61,7 +61,7 @@ namespace DemoCommon.Utils.Database
             }
         }
 
-        public async Task DeleteDatabase(IDocumentStore documentStore) => await DeleteDatabase(documentStore, documentStore.Database);
+        public Task DeleteDatabase(IDocumentStore documentStore) => DeleteDatabase(documentStore, documentStore.Database);
 
         public async Task BulkInsertDocuments<T>(IDocumentStore documentStore, IEnumerable<T> documentsToStore)
         {
