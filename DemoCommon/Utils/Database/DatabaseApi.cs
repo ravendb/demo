@@ -48,13 +48,20 @@ namespace DemoCommon.Utils.Database
             return documentStore.Maintenance.SendAsync(operation);
         }
 
-        public Task DeleteDatabase(IDocumentStore documentStore, string databaseName)
+        public async Task DeleteDatabase(IDocumentStore documentStore, string databaseName)
         {
             var operation = new DeleteDatabasesOperation(databaseName, hardDelete: true);
-            return documentStore.Maintenance.Server.SendAsync(operation);
+            try
+            {
+               await documentStore.Maintenance.Server.SendAsync(operation);
+            }
+            catch (DatabaseDoesNotExistException)
+            {
+                
+            }
         }
 
-        public Task DeleteDatabase(IDocumentStore documentStore) => DeleteDatabase(documentStore, documentStore.Database);
+        public async Task DeleteDatabase(IDocumentStore documentStore) => await DeleteDatabase(documentStore, documentStore.Database);
 
         public async Task BulkInsertDocuments<T>(IDocumentStore documentStore, IEnumerable<T> documentsToStore)
         {
