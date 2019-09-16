@@ -84,10 +84,10 @@ namespace DemoServer.Utils.Database
             return _databaseApi.DeleteDatabase(documentStore);
         }
 
-        public async Task DeleteMediaDatabase(Guid userId)
+        public Task DeleteMediaDatabase(Guid userId)
         {
             var documentStore = _mediaStoreCache.GetEntry(userId);
-            await _databaseApi.DeleteDatabase(documentStore);
+            return _databaseApi.DeleteDatabase(documentStore);
         }
 
         public async Task ResetUserDatabase(Guid userId)
