@@ -69,20 +69,18 @@ namespace DemoServer.Controllers
         [Route("get/{language}/{categoryName}/{demoName}")]
         public IActionResult GetDemo(DemoLanguage language, string categoryName, string demoName)
         {
-            try
-            {
                 var demo = _demoContainer.GetDemo(language, categoryName, demoName);
+
+                if (demo == null)
+                {
+                    return NotFound();
+                }
+
                 var dto = DemoDto.FromModel(demo);
 
                 dto.StudioUrl = GetStudioUrl(demo);
 
                 return Ok(dto);
-            }
-            catch (InvalidOperationException e)
-            {
-                _logger.LogError(e, "An error occured during demo fetching.");
-                return NotFound();
-            }
         }
 
         private string GetStudioUrl(Demo demo)
