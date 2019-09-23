@@ -55,7 +55,10 @@ namespace DemoServer.Utils.Demos
         public Demo GetDemo(DemoLanguage language, string categoryName, string demoName)
         {
             if (CategoriesForLanguages.ContainsKey(language) == false)
-                throw new InvalidOperationException($"There are no categories for language: {language}.");
+            {
+                _logger.LogWarning($"There are no categories for language: {language}.");
+                return null;
+            }
 
             var categoriesForLanguage = CategoriesForLanguages[language];
 
@@ -63,13 +66,19 @@ namespace DemoServer.Utils.Demos
                 string.Equals(x.Slug, categoryName, StringComparison.OrdinalIgnoreCase));
 
             if (category == null)
-                throw new InvalidOperationException($"Category {categoryName} was not found.");
+            {
+                _logger.LogWarning($"Category {categoryName} was not found.");
+                return null;
+            }
 
             var demo = category.Demos.SingleOrDefault(x =>
                 string.Equals(x.Slug, demoName, StringComparison.OrdinalIgnoreCase));
 
             if (demo == null)
-                throw new InvalidOperationException($"Demo {demoName} was not found in category {categoryName}.");
+            {
+                _logger.LogWarning($"Demo {demoName} was not found in category {categoryName}.");
+                return null;
+            }
 
             return demo;
         }
