@@ -5,7 +5,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
-    "bootstrap-sass": "^3.3.7",
+    "bootstrap-sass": "^3.4.1",
     "bootstrap.native": "^2.0.24",
     "bootstrap.native-loader": "^1.0.7",
     "classnames": "^2.2.6",
