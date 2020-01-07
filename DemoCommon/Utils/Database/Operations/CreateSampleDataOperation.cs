@@ -1,4 +1,5 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Net.Http;
 using Raven.Client.Documents.Conventions;
 using Raven.Client.Documents.Operations;
 using Raven.Client.Http;
@@ -13,7 +14,7 @@ namespace DemoCommon.Utils.Database.Operations
             return new CreateSampleDataCommand();
         }
 
-        private class CreateSampleDataCommand : RavenCommand
+        private class CreateSampleDataCommand : RavenCommand, IRaftCommand
         {
             public override bool IsReadRequest => false;
 
@@ -26,6 +27,8 @@ namespace DemoCommon.Utils.Database.Operations
                     Method = HttpMethod.Post
                 };
             }
+
+            public string RaftUniqueRequestId { get; } = Guid.NewGuid().ToString();
         }
     }
 }
