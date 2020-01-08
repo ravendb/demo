@@ -5,9 +5,7 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Category;
 import net.ravendb.demo.common.models.Product;
 import net.ravendb.demo.common.models.Supplier;
-import org.springframework.stereotype.Controller;
 
-@Controller
 public class CreateRelatedDocuments {
 
     public void run(RunParams runParams) {

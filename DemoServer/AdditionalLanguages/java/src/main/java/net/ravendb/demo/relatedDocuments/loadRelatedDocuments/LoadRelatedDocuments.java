@@ -15,7 +15,7 @@ public class LoadRelatedDocuments {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_1
             Product product = session
-                .include("supplier")
+                .include("Supplier")
                 .load(Product.class, "products/34-A");
             //endregion
 

@@ -15,8 +15,8 @@ public class QueryRelatedDocuments {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_1
             List<Order> shippedOrders = session.query(Order.class)
-                .include("lines.product")
-                .whereExists("shippedAt")
+                .include("Lines.Product")
+                .whereExists("ShippedAt")
                 .toList();
             //endregion
 

@@ -1,37 +1,28 @@
-package net.ravendb.demo.queries.filteringResultsMultipleConditions;
+package net.ravendb.demo.autoIndexes.autoMapIndex2;
 
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.demo.common.DocumentStoreHolder;
+import net.ravendb.demo.common.models.Company;
 import net.ravendb.demo.common.models.Employee;
 
-import java.util.Arrays;
-import java.util.List;
-
-public class FilteringResultsMultipleConditions {
+public class AutoMapIndex2 {
 
     public void run(RunParams runParams) {
         String country = runParams.getCountry();
 
         //region Demo
-        List<Employee> filteredEmployees;
+        Employee employeeResult;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_1
-            IDocumentQuery<Employee> filteredQuery = session.query(Employee.class)
-            //endregion
-            //region Step_2
-                .whereIn("FirstName", Arrays.asList("Anne", "John"))
-                .orElse()
-                .openSubclause()
+            IDocumentQuery<Employee> findEmployeeQuery = session.query(Employee.class)
                 .whereEquals("Address.Country", country)
-                .whereGreaterThan("Territories.Count", 2)
-                .whereStartsWith("Title", "Sales")
-                .closeSubclause();
+                .whereStartsWith("Title", "Sales");
             //endregion
 
-            //region Step_3
-            filteredEmployees = filteredQuery.toList();
+            //region Step_2
+            employeeResult = findEmployeeQuery.firstOrDefault();
             //endregion
         }
         //endregion
