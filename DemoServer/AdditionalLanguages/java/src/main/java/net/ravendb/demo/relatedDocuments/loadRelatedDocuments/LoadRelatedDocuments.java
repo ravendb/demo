@@ -7,8 +7,6 @@ import net.ravendb.demo.common.models.Supplier;
 
 public class LoadRelatedDocuments {
 
-    private static String DOCUMENT_ID = "products/34-A";
-
     public void run(RunParams runParams) {
         double pricePerUnit = runParams.getPricePerUnit();
         String phone = runParams.getPhone();
