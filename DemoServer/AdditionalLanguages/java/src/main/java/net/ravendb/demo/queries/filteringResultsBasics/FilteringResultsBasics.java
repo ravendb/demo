@@ -17,7 +17,7 @@ public class FilteringResultsBasics {
             IDocumentQuery<Employee> filteredQuery = session.query(Employee.class)
             //endregion
                 //region Step_2
-                .whereEquals("firstName", "Anne");
+                .whereEquals("FirstName", "Anne");
                 //endregion
 
             //region Step_3

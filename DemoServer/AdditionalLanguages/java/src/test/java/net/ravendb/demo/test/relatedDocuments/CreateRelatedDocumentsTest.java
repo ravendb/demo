@@ -1,5 +1,6 @@
 package net.ravendb.demo.test.relatedDocuments;
 
+import net.ravendb.demo.common.models.Company;
 import net.ravendb.demo.relatedDocuments.createRelatedDocuments.CreateRelatedDocuments;
 import org.junit.Test;
 
@@ -14,4 +15,5 @@ public class CreateRelatedDocumentsTest {
 
         new CreateRelatedDocuments().run(params);
     }
+
 }
