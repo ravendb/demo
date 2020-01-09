@@ -51,16 +51,36 @@ public class CreateDocument {
         private String contactName;
         private String contactTitle;
 
-        public String getCompanyName() { return companyName; }
-        public void setCompanyName(String companyName) { this.companyName = companyName; }
+        public String getCompanyName() {
+            return companyName;
+        }
 
-        public String getCompanyPhone() { return companyPhone; }
-        public void setCompanyPhone(String companyPhone) { this.companyPhone = companyPhone;  }
+        public void setCompanyName(String companyName) {
+            this.companyName = companyName;
+        }
 
-        public String getContactName() { return contactName; }
-        public void setContactName(String contactName) { this.contactName = contactName; }
+        public String getCompanyPhone() {
+            return companyPhone;
+        }
 
-        public String getContactTitle() { return contactTitle; }
-        public void setContactTitle(String contactTitle) { this.contactTitle = contactTitle; }
+        public void setCompanyPhone(String companyPhone) {
+            this.companyPhone = companyPhone;
+        }
+
+        public String getContactName() {
+            return contactName;
+        }
+
+        public void setContactName(String contactName) {
+            this.contactName = contactName;
+        }
+
+        public String getContactTitle() {
+            return contactTitle;
+        }
+
+        public void setContactTitle(String contactTitle) {
+            this.contactTitle = contactTitle;
+        }
     }
 }
