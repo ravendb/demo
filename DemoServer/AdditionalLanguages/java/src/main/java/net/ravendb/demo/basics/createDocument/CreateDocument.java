@@ -30,7 +30,6 @@ public class CreateDocument {
         //endregion
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-
             //region Step_2
             session.store(newCompany);
             //endregion

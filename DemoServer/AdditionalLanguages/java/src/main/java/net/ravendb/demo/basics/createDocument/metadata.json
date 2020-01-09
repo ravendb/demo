@@ -128,7 +128,7 @@
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
                 "* _If your Java class was Not defined with an 'id' property_:<br>",
-                "  => You can get the new stored entity using: `session.advanced.getDocumentId(newCompany)`"
+                "  => You can get the new stored entity ID using: `session.advanced().getDocumentId(newCompany)`"
             ],
             "Assets": [
                 {

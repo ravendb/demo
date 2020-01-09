@@ -122,7 +122,7 @@
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
                 "* _If your C# class was Not defined with an 'ID' property_:<br>",
-                "  => You can get the new stored entity using: `session.Advanced.GetDocumentId(newCompany)`"
+                "  => You can get the new stored entity ID using: `session.Advanced.GetDocumentId(newCompany)`"
             ],
             "Assets": [
                 {
