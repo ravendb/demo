@@ -1,12 +1,12 @@
 {
     "Slug": "create-document",
-    "SourceFileName": "CreateDocumentController.cs",
+    "SourceFileName": "CreateDocument.java",
     "Title": "Create Document",
     "DescriptionLines": [
-        "**Create a new C# entity and save it as a document** in the Database.",
+        "**Create a new Java entity and save it as a document** in the Database.",
         "The document will be stored in the RavenDB database as a JSON object.",
         "",
-        "The JSON structure is set according to the C# object model passed to the Session.",
+        "The JSON structure is set according to the Java object model passed to the Session.",
         "Learn more about data modeling in the Document Modeling chapter - see Related Links below."
     ],
 
@@ -17,55 +17,56 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
         },
         {
-            "Title": "What is a Collection",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
-        },
-        {
-            "Title": "Documents & Collections",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
-        },
-        {
             "Title": "The Store Command",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
         },
         {
+            "Title": "What is a Collection",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
+        },
+        {
+            "Title": "Documents & Collections",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/documents/documents-and-collections"
+        },
+        {
             "Title": "Storing Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/storing-entities"
         },
         {
             "Title": "Document Identifier Generation",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/kb/document-identifier-generation"
         },
         {
             "Title": "Working with Document Identifier",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/document-identifiers/working-with-document-identifiers"
         },
         {
             "Title": "How to Get Document ID",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/how-to/get-entity-id"
         }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Create a new C# object to be saved",
+            "Title": "Create a new Java object to be saved",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Create the C# object to be saved.",
+                "* Create a Java object to be saved.",
                 "",
-                "* _The C# class name_ determines the collection to which the document will belong to in the database.<br>",
+                "* _The Java class name_ determines the collection to which the document will belong to in the database.<br>",
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
-                "* _The C# class properties_ determine the document JSON structure in the database.",
+                "* _The Java class members_ determine the document JSON structure in the database.<br>",
+                "  The JSON serialization for the document fields follows the conventions set on the Document Store",
                 "",
-                "* Note: Having an 'ID' field property in the class definition is Not mandatory.<br>",
+                "* Note: Having an 'Id' field property in the class definition is Not mandatory.<br>",
                 "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",
                 "  See step 3 for more details."
             ],
@@ -76,14 +77,19 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
                 },
                 {
+                    "Title": "Document fields naming convention",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/configuration/conventions#changing-fieldsproperties-naming-convention"
+                },
+                {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
                 },
                 {
                     "Title": "Documents & Collections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/documents/documents-and-collections"
                 }
             ]
         },
@@ -91,10 +97,10 @@
             "Title": "Store the new company object in the Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Associate the new entity with the Session `Store()` command.<br>",
-                "  Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
+                "* Associate the new entity with the Session `store()` command.<br>",
+                "  Note: The new document will be persisted to the database only later - when saveChanges() is called.",
                 "",
-                "* However, the Store() command will _immediately_ assign an ID to the new entity,<br>",
+                "* However, the store() command will _immediately_ assign an ID to the new entity,<br>",
                 "  so you can refer to it in other documents that you'll save in the same batch.<br>",
                 "  See how to get this ID in the next step."
             ],
@@ -107,7 +113,7 @@
                 {
                     "Title": "Storing Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/storing-entities"
                 }
             ]
         },
@@ -118,27 +124,27 @@
                 "* The Session takes care of generating the document identifier automatically.<br>",
                 "  The new stored entity ID is now available and can be used.",
                 "",
-                "* _If your C# class was defined with an 'ID' property_:<br>",
+                "* _If your Java class was defined with an 'id' property_:<br>",
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
-                "* _If your C# class was Not defined with an 'ID' property_:<br>",
-                "  => You can get the new stored entity ID using: `session.Advanced.GetDocumentId(newCompany)`"
+                "* _If your Java class was Not defined with an 'id' property_:<br>",
+                "  => You can get the new stored entity ID using: `session.advanced().getDocumentId(newCompany)`"
             ],
             "Assets": [
                 {
                     "Title": "Document Identifier Generation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/kb/document-identifier-generation"
                 },
                 {
                     "Title": "Working with Document Identifier",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/document-identifiers/working-with-document-identifiers"
                 },
                 {
                     "Title": "How to Get Document ID when Class is defined w/o ID property",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/how-to/get-entity-id"
                 }
             ]
         },
@@ -146,12 +152,12 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* The `SaveChanges()` call will check the Session state for all changes made.<br>",
+                "* The `saveChanges()` call will check the Session state for all changes made.<br>",
                 "  In the above example, a new company document was added to the database.",
                 "",
                 "* The Session will then send those changes to the server as a single remote call that will complete transactionally.",
                 "",
-                "* Once SaveChanges() returns, the new document is persisted to the database."
+                "* Once saveChanges() returns, the new document is persisted to the database."
             ],
             "Assets": [
                 {
@@ -162,7 +168,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
                 }
             ]
         }
