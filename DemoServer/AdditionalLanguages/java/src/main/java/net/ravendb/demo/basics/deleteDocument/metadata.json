@@ -1,0 +1,74 @@
+{
+    "Slug": "delete-document",
+    "SourceFileName": "DeleteDocument.java",
+    "Title": "Delete Document",
+    "DescriptionLines": [
+        "**Delete a document** from the database."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Deleting Entities",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/deleting-entities"
+        },
+        {
+            "Title": "Optimistic Concurrency",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Mark the entity to be deleted",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Mark the entity to be deleted with the Session `delete()` command.<br>",
+                "  The document is actually deleted from the database only when saveChanges() is called later on.",
+                "",
+                "_Note_:",
+                "",
+                "* When using delete() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following overloads:",
+                "",
+                "     * <T> void delete(T entity);",
+                "     * void delete(String id, String expectedChangeVector);"
+            ],
+            "Assets": [
+                {
+                    "Title": "Deleting Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/deleting-entities"
+                },
+                {
+                    "Title": "Optimistic Concurrency",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* The document is deleted from the database upon calling `saveChanges()`.",
+                "",
+                "* The Session sends the changes to the server as a single remote call that completes transactionally."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}
