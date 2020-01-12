@@ -1,0 +1,140 @@
+{
+    "Slug": "the-session",
+    "SourceFileName": "TheSession.java",
+    "Title": "The Session",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Session**, which is derived from the Document Store, is the primary way your client code interacts with your RavenDB databases.",
+        "",
+        "The Session is a unit of work that represents a single business transaction against a particular database,",
+        "managing change tracking for all the entities that it has either loaded or stored."
+    ],
+
+    "Assets": [
+        {
+            "Title": "The Document Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+        },
+        {
+            "Title": "What is a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/what-is-a-session-and-how-does-it-work"
+        },
+        {
+            "Title": "Opening a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/opening-a-session"
+        },
+        {
+            "Title": "The SaveChanges Command",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+        },
+        {
+            "Title": "Saving Changes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
+        },
+        {
+            "Title": "Sample Program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials#session-and-unit-of-work-pattern"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Open the Session",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Direct communication with the database is done through the `Session`.<br>",
+                "  Start by obtaining a new Session object from the Document Store.",
+                "",
+                "* Any change made to the documents loaded to the Session will be _tracked_ by the Session.<br>",
+                "  These changes will be persisted to the database when calling saveChanges() later on.",
+                "",
+                "* _Note_:",
+                "  * If no database is specified then the _default_ database (stored in the Document Store) is used."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+                },
+                {
+                    "Title": "What is a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/what-is-a-session-and-how-does-it-work"
+                },
+                {
+                    "Title": "Opening a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/opening-a-session"
+                },
+                {
+                    "Title": "The Document Store Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/the-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "Work on your documents",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Using the Session, perform needed operations on your documents.<br>",
+                "  e.g. store a new document, modify an existing document, query your database, etc.",
+                "",
+                "* Any such operation _'loads'_ these documents entities to the Session for tracking.<br>",
+                "  You don’t need to manually track the changes to these 'loaded' document entities and decide what needs to be saved and what doesn't.",
+                "  The Session will do it for you.",
+                "",
+                "* The Session tracks both the documents body and metadata - any change made will be sent back to the server when saveChanges() is called later on.",
+                "",
+                "* A configurable _number of requests_ can be made within a single session to the server.<br>",
+                "  Design your code - use multiple Sessions as needed."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Store Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                },
+                {
+                    "Title": "Storing Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/storing-entities"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* The `saveChanges()` call checks the Session state for _all_ changes made (e.g. a new entity was added) - ",
+                "  you don't need to call saveChanges() per changed entity.",
+                "",
+                "* These changes are sent to the server as a single remote call that will complete transactionally.<br>",
+                "  In other words, either all changes are saved as a single unit or none of them are.",
+                "",
+                "* Once saveChanges() returns, it is guaranteed that the changes are persisted to the database.",
+                "",
+                "* The saveChanges() is the only time when a RavenDB client sends updates to the server, so you will experience a reduced number of network calls."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}
