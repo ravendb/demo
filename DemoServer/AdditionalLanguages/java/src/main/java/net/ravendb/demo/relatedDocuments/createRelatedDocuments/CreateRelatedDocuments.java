@@ -1,6 +1,8 @@
 package net.ravendb.demo.relatedDocuments.createRelatedDocuments;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Category;
 import net.ravendb.demo.common.models.Product;

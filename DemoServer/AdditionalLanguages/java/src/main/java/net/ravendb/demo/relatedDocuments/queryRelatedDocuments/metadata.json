@@ -1,6 +1,6 @@
 {
     "Slug": "query-related-documents",
-    "SourceFileName": "QueryRelatedDocumentsController.cs",
+    "SourceFileName": "QueryRelatedDocuments.java",
     "Title": "Query Related Documents",
     "DescriptionLines": [
         "**A query can ask the server to include related documents** in its response to the query.",
@@ -22,7 +22,7 @@
         {
             "Title": "Documents relationships - Include",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
         },
         {
             "Title": "Working with multiple documents",
@@ -41,7 +41,7 @@
             "Title": "Make a query - Include related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Use `Include()` to instruct the server to send the related 'Products' documents to the client, in addition to the resulting 'Orders' documents that are queried on.<br>",
+                "* Use `include()` to instruct the server to send the related 'Products' documents to the client, in addition to the resulting 'Orders' documents that are queried on.<br>",
                 "  Both the resulting query documents and the related documents are added to the Session's internal entities map for tracking changes.",
                 "",
                 "* Variable _'shippedOrders'_ will hold a list of 'Orders' documents whose 'ShippedAt' field is Not null.",
@@ -55,7 +55,7 @@
                 {
                     "Title": "Documents relationships - Include",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
                 },
                 {
                     "Title": "Working with multiple documents",
@@ -84,20 +84,20 @@
             "Title": "Edit the related documents",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Call `Load()` on a related Product document in order to access it.<br>",
+                "* Call `load()` on a related Product document in order to access it.<br>",
                 "  No trip to the server is made, as the related document is retrieved directly from the Session.",
                 "",
                 "* variable 'product' will hold the related document entity.",
                 "* Any field on the Product document can be modified, e.g. the 'UnitsOnOrder' field.",
                 "",
                 "* The related product documents are tracked by the Session.<br>",
-                "  The above modifications will be persisted to the database upon the next SaveChanges() call."
+                "  The above modifications will be persisted to the database upon the next saveChanges() call."
             ],
             "Assets": [
                 {
                     "Title": "Documents relationships - Include",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/how-to/handle-document-relationships#includes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
                 },
                 {
                     "Title": "Working with multiple documents",
@@ -115,7 +115,7 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Call `SaveChanges()` to save modifications.<br>",
+                "* Call `saveChanges()` to save modifications.<br>",
                 "",
                 "* Changes made to the related products documents will be saved to the database."
             ],
