@@ -1,6 +1,8 @@
 package net.ravendb.demo.relatedDocuments.queryRelatedDocuments;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Order;
 import net.ravendb.demo.common.models.Product;
@@ -24,6 +26,7 @@ public class QueryRelatedDocuments {
             for (Order shippedOrder : shippedOrders) {
                 List<String> productIds = shippedOrder.getLines().stream().map(x -> x.getProduct()).collect(Collectors.toList());
             //endregion
+            
                 for (int i = 0; i < productIds.size(); i++) {
                     //region Step_3
                     Product product = session.load(Product.class, productIds.get(i));
@@ -35,7 +38,6 @@ public class QueryRelatedDocuments {
             //region Step_4
             session.saveChanges();
             //endregion
-
         }
         //endregion
     }

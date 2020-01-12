@@ -20,5 +20,16 @@
         "demos": [
             "StoreAttachment"
         ]
+    },
+    {
+        "category": {
+            "slug": "related-documents",
+            "directory": "relatedDocuments"
+        },
+        "demos": [
+            "CreateRelatedDocuments",
+            "LoadRelatedDocuments",
+            "QueryRelatedDocuments"
+        ]
     }
 ]
