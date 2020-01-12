@@ -1,11 +1,12 @@
 package net.ravendb.demo.attachments.storeAttachment;
 
-import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import org.apache.commons.lang3.ObjectUtils;
-
+//region Usings
+import net.ravendb.client.documents.session.IDocumentSession;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+//endregion
 
 public class StoreAttachment {
     private static final String DEFAULT_DOCUMENT_ID = "companies/2-A";

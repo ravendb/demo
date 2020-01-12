@@ -7,5 +7,14 @@
         "demos": [
             "CreateDocument"
         ]
+    },
+    {
+        "category": {
+            "slug": "attachments",
+            "directory": "attachments"
+        },
+        "demos": [
+            "StoreAttachment"
+        ]
     }
 ]

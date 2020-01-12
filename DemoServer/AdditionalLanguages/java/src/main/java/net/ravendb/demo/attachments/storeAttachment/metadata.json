@@ -1,0 +1,100 @@
+{
+    "Slug": "store-attachment",
+    "SourceFileName": "StoreAttachment.Java",
+    "Title": "Store Attachment",
+    "DescriptionLines": [
+        "**Attachments** are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
+        "",
+        "A document can have any number of attachments, and an attachment has no size limit."
+    ],
+
+    "Assets": [
+        {
+            "Title": "What are attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/attachments/what-are-attachments"
+        },
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+        },
+        {
+            "Title": "Storing attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/attachments/storing"
+        },
+        {
+            "Title": "Attachments Operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/operations/what-are-operations#attachments"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Open a binary stream for the file",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Open a binary stream for the attachment file.<br>",
+                "  It will be used in the `store()` method in the next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Attachments and binary data",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+                }
+            ]
+        },
+        {
+            "Title": "Store the attachment on the document",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Attach the attachment on to the document within the Session.<br>",
+                "  Specify the document ID, or pass the explicit document entity to the `store()` method.",
+                "",
+                "* The actual save action on the server is done when saveChanges() is called later on."
+            ],
+            "Assets": [
+                {
+                    "Title": "Storing attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/attachments/storing"
+                },
+                {
+                    "Title": "Working with attachments",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* When executing `saveChanges()`, the document and all of its attachments are sent to the server in a single transaction call.",
+                "  Both the document and all its attachments will be saved, or both will fail.",
+                "",
+                "* If the Revisions feature is turned on, each attachment that is added on to the document (or deleted from it) will create a new document revision."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                },
+                {
+                    "Title": "Saving Changes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
+                }
+            ]
+        }
+    ]
+}
