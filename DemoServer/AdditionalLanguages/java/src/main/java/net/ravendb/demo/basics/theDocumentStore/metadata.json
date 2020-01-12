@@ -1,6 +1,6 @@
 {
     "Slug": "the-document-store",
-    "SourceFileName": "TheDocumentStoreController.cs",
+    "SourceFileName": "TheDocumentStore.java",
     "Title": "The Document Store",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -18,7 +18,7 @@
         {
             "Title": "Singleton Pattern",
             "Type" : "link",
-            "Url"  : "http://csharpindepth.com/articles/general/singleton.aspx"
+            "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
         },
         {
             "Title": "The Document Store",
@@ -33,17 +33,17 @@
         {
             "Title": "Creating a document store",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
         },
         {
             "Title": "Setting up RavenDB",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/start/getting-started"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/start/getting-started"
         },
         {
-            "Title": "Your first RavenDB program",
+            "Title": "Sample program",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#your-first-ravendb-program"
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials"
         }
     ],
 
@@ -80,25 +80,27 @@
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
+                },
+                {
+                    "Title": "Sample program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials#document-store"
                 }
             ]
         },
         {
-            "Title": "The private _store variable",
+            "Title": "The private store variable",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* The private static variable `_store` will hold a reference to the single Document Store instance that will be created.",
-                "  The public _Store_ property (see step 6) will be used to access this instance.",
-                "",
-                "* Use `Lazy<IDocumentStore>()` to initialize the Document Store lazily.<br>",
-                "  Method _CreateDocumentStore_ (passed as argument) will create the actual instance."
+                "* The private static variable `store` will hold a reference to the single Document Store instance that will be created.",
+                "  The public _getStore()_ method (see step 6) will be used to access this instance."
             ],
             "Assets": [
                 {
                     "Title": "Singleton Pattern",
                     "Type" : "link",
-                    "Url"  : "http://csharpindepth.com/articles/general/singleton.aspx"
+                    "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
                 }
             ]
         },
@@ -106,7 +108,7 @@
             "Title": "Create the document store configuration",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Method CreateDocumentStore() returns a configured `DocumentStore` object that is used to initialize the __store_ variable in the previous step."
+                "* Method createDocumentStore() returns a configured `DocumentStore` object that is used to initialize the _store_ variable in the previous step."
             ],
             "Assets": []
         },
@@ -123,21 +125,18 @@
                 "",
                 "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
                 "",
-                "  * _Conventions_ - Customize various settings and behaviors.",
-                "",
-                "* Remember to: Dispose the DocumentStore object when exiting the client application."
-                
+                "  * _Conventions_ - Customize various settings and behaviors."
             ],
             "Assets": [
                 {
                     "Title": "Setup a Default Database",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/setting-up-default-database"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/setting-up-default-database"
                 },
                 {
                     "Title": "Server URL",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/core-configuration#serverurl"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/configuration/core-configuration#serverurl"
                 },
                 {
                     "Title": "Conventions",
@@ -155,43 +154,41 @@
             "Title": "Initialize the Document Store object",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, Call `initialize()` to get the fully initialized Document Store instance.",
                 "",
-                "* The Initialize() method will:",
+                "* The initialize() method will:",
                 "  * Verify that URLs field is set (not empty)",
-                "  * Freeze the Conventions. Conventions can't be set after calling Initialize()"
+                "  * Freeze the Conventions. Conventions can't be set after calling initialize()"
             ],
             "Assets": [
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
                 }
             ]
         },
         {
-            "Title": "The public store property",
+            "Title": "Access the store",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* The public static `Store` property can now be used to access the single Document Store instance.",
-                "",
-                "* Accessing `_store.Value` will force instance initialization only if it had Not been initialized yet."
+                "* Call `getStore()` to access the single Document Store instance."
             ],
             "Assets": [
                 {
                     "Title": "What is Session",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/what-is-a-session-and-how-does-it-work"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/what-is-a-session-and-how-does-it-work"
                 },
                 {
                     "Title": "What are Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/what-are-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes"
                 },
                 {
                     "Title": "Bulk Insert Operation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
                 },
                 {
                     "Title": "What are Operations",
@@ -201,12 +198,12 @@
                 {
                     "Title": "What are Data Subscriptions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/data-subscriptions/what-are-data-subscriptions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/operations/what-are-operations"
                 },
                 {
                     "Title": "Export & Import data with Smuggler",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/smuggler/what-is-smuggler"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/smuggler/what-is-smuggler"
                 }
             ]
         }
