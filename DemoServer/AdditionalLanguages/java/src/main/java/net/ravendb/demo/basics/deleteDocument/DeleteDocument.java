@@ -24,14 +24,14 @@ public class DeleteDocument {
     }
 
     public static class RunParams {
-        private String DocumentId;
+        private String documentId;
 
         public String getDocumentId() {
-            return DocumentId;
+            return documentId;
         }
 
         public void setDocumentId(String documentId) {
-            DocumentId = documentId;
+            documentId = documentId;
         }
     }
 }

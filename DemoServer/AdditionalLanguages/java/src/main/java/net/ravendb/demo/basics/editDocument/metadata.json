@@ -27,7 +27,7 @@
             "DescriptionLines": [
                 "* Load an existing document from the Document Store using the Session `load()` command.<br>",
                 "",
-                "* The loaded document is added to the internal entities map that the Session manages.<br>",
+                "* The loaded document is added to the internal entities Map that the Session manages.<br>",
                 "  In this example, document 'companies/5-A' is loaded.",
                 "",
                 "* The session will _track_ all changes that will be made to this entity,",
