@@ -2,7 +2,6 @@ package net.ravendb.demo.basics.theDocumentStore;
 //region Usings
 import net.ravendb.client.documents.IDocumentStore;
 import net.ravendb.client.documents.DocumentStore;
-package com.journaldev.singleton;
 //endregion
 
 //region Demo
@@ -10,21 +9,17 @@ package com.journaldev.singleton;
 public class DocumentStoreHolder {
 //endregion
     //region Step_2
-    private static IDocumentStore store;
+    private static DocumentStore store;
     //endregion
 
     //region Step_3
-    private IDocumentStore createDocumentStore()
+    private static DocumentStore createDocumentStore() {
     //endregion
         //region Step_4
-        string serverURL = "http://localhost:8080";
-        string databaseName = "YourDatabaseName";
+        String serverURL = "http://localhost:8080";
+        String databaseName = "YourDatabaseName";
 
-        IDocumentStore documentStore = new DocumentStore
-        {
-            Urls = new[] { serverURL },
-            Database = databaseName
-        };
+        DocumentStore documentStore = new DocumentStore(new String[] { serverURL }, databaseName);
         //endregion
 
         //region Step_5
@@ -34,9 +29,9 @@ public class DocumentStoreHolder {
     }
 
     //region Step_6
-    public static IDocumentStore getStore() {
-        if(store == null) {
-            store = new createDocumentStore();
+    public static DocumentStore getStore() {
+        if (store == null) {
+            store = createDocumentStore();
         }
 
         return store;
