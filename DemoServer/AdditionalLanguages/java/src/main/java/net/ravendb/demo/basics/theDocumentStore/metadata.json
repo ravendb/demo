@@ -118,14 +118,18 @@
             "DescriptionLines": [
                 "* At this point, before initializing the Document Store (in step 5), the following info can be configured:",
                 "",
-                "  * _URLs_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
-                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.",
+                "  * _urls_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.<br>",
+                "    Use method _setUrls()_ to set, or pass value to the DocumentStore constructor.",
                 "",
-                "  * _Database_ - Specify the default database name this Document Store will work against.",
+                "  * _database_ - Specify the default database name this Document Store will work against.<br>",
+                "    Use method _setDatabase()_ to set, or pass value to the DocumentStore constructor.",
                 "",
-                "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
+                "  * _certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.<br>",
+                "    Use method _setCertificate()_ to set.",
                 "",
-                "  * _Conventions_ - Customize various settings and behaviors."
+                "  * _conventions_ - Customize various settings and behaviors.<br>",
+                "    Use method _setConventions()_ to set."
             ],
             "Assets": [
                 {
