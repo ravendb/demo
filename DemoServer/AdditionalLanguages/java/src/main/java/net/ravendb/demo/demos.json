@@ -5,7 +5,9 @@
             "directory": "basics"
         },
         "demos": [
-            "CreateDocument"
+            "CreateDocument",
+            "EditDocument",
+            "DeleteDocument"
         ]
     },
     {

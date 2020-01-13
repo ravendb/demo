@@ -33,16 +33,16 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            string documentId = runParams.DocumentId;
-            initialCompanyDocument.Id = documentId;
+            string documentID = runParams.DocumentId;
+            initialCompanyDocument.Id = documentID;
             
-            await SetRunPrerequisites(documentId);
+            await SetRunPrerequisites(documentID);
 
             #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
-                session.Delete(documentId);
+                session.Delete(documentID);
                 #endregion
                 
                 #region Step_2
@@ -51,7 +51,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
             }
             #endregion
             
-            return Ok($"Document {documentId} was deleted successfully");
+            return Ok($"Document {documentID} was deleted successfully");
         }
 
         public class RunParams
