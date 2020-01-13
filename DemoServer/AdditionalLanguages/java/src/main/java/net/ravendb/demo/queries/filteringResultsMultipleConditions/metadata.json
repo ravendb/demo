@@ -1,0 +1,133 @@
+{
+    "Slug": "filtering-results-multiple-conditions",
+    "SourceFileName": "FilteringResultsMultipleConditions.java",
+    "Title": "Filtering Results - Multiple Conditions",
+    "DescriptionLines": [
+        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "",
+        "Only the matching documents will be returned by the server."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying: Filtering",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/filtering"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "How to Query - todo",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "RQL",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
+        },
+        {
+            "Title": "Auto indexes - todo",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+        },
+        {
+            "Title": "Sample Program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#3filtering-and-including-related-documents"
+        }        
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection Using the Session `query()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/query-overview"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#3filtering-and-including-related-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Define the filtering conditions",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:",
+                "     * Employee's first name is either 'Anne' or 'John'<br>",
+                "       OR<br>",
+                "     * Employee's country is as specified by the param,<br>", 
+                "       AND territories count is > 2,<br>",
+                "       AND employee's title starts with 'Sales'.",
+                "",
+                "* More filtering options are available - see related links.",
+                "",
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing auto-index that can answer this query (see auto-indexes).",
+                ""
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Filtering",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/filtering"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "How to Query - todo",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Auto indexes - todo",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"  
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#3filtering-and-including-related-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'filteredQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `toList()`.",
+                "",
+                "* The 'filteredEmployees' variable will hold the resulting matching document entities.",
+                "",
+                "* The entities returned by the query are _'loaded'_ to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#3filtering-and-including-related-documents"
+                }
+            ]
+        }
+    ]
+}

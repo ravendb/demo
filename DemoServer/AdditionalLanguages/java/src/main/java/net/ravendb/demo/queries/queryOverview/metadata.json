@@ -1,6 +1,6 @@
 {
     "Slug": "query-overview",
-    "SourceFileName": "QueryOverviewController.cs",
+    "SourceFileName": "QueryOverview.java",
     "Title": "Query Overview",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -9,12 +9,12 @@
         "**Query the database to find documents that match a particular predicate**.",
         "The server will return only the matching documents.",
         "",
-        "The returned documents are loaded and tracked by the Session (except for projections).",       
+        "The returned documents are loaded and tracked by the Session (except for projections).",
         "",
-        "From the Session, query the database by using any of:",
-        "<p>* Session.Query (shown in this demo)<br>",
-        "* Sesion.Advanced.DocumentQuery<br>",
-        "* Session.Advanced.RawQuery (using RQL)</p>"
+        "From the session, query the database by using any of:",
+        "<p>* session.query (shown in this demo)<br>",
+        "* sesion.advanced.documentQuery<br>",
+        "* session.advanced.rawQuery (using RQL)</p>"
     ],
 
     "Assets": [
@@ -24,39 +24,39 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
         },
         {
-            "Title": "How to Query",
+            "Title": "How to Query - todo",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying - Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
-        },        
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+        },
         {
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
         },
         {
-            "Title": "LINQ queries",
-            "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
-        },
-        {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
         },
         {
-            "Title": "Auto indexes",
+            "Title": "Auto indexes - todo",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+        },
+        {
+            "Title": "Sample Program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#queries"
         }
     ],
 
@@ -69,10 +69,10 @@
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
                 "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
-                
-                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",                
+
+                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",
                 "",
-                "* In this demo, a query is defined on the 'Employees' collection using the Session `Query()` LINQ method syntax."
+                "* In this demo, a query is defined on the 'Employees' collection using the session `query()` method syntax."
             ],
             "Assets": [
                 {
@@ -81,14 +81,14 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
                 },
                 {
-                    "Title": "How to Query",
+                    "Title": "How to Query - todo",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying - Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
                 },
                 {
                     "Title": "The query optimizer",
@@ -96,14 +96,14 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
                 },
                 {
-                    "Title": "Auto indexes",
+                    "Title": "Auto indexes - todo",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
                 },
                 {
-                    "Title": "LINQ Query & Method Syntax",
+                    "Title": "Sample Program",
                     "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#queries"
                 }
             ]
         },
@@ -113,15 +113,15 @@
             "DescriptionLines": [
                 "* Define the query criteria by which the server will filter the documents returned",
                 "",
-                "* Available actions that can be used: (see specific demos per action for details)",
+                "* For example, some available actions that can be used are: (see specific demos per action for details)",
                 "",
-                "    * _Where()_ - Filter by documents fields properties",
-                "    * _Search()_ - Filter by text",
-                "    * _Include()_ - Include related documents",
-                "    * _Statistics()_ - Get query stats",
-                "    * _OrderBy()_ - Sort the results",
-                "    * _Select()_ - Customize the resulting entities fields (Projections)",
-                "    * _Skip()_ & _Take()_ - Paging the results",
+                "    * _whereEquals()_ - Filter by documents fields properties",
+                "    * _search()_ - Filter by text",
+                "    * _include()_ - Include related documents",
+                "    * _statistics()_ - Get query stats",
+                "    * _orderBy()_ - Sort the results",
+                "    * _selectFields()_ - Customize the resulting entities fields (Projections)",
+                "    * _skip()_ & _take()_ - Paging the results",
                 "",
                 "* _Note_:<br>",
                 "  Computations cannot be defined in a query.<br>",
@@ -131,37 +131,42 @@
                 {
                     "Title": "Querying - Filtering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/filtering"
                 },
                 {
-                    "Title": "Querying - Searching",
+                    "Title": "Querying - Searching - todo",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching"
-                },                
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching"
+                },
                 {
                     "Title": "Documents relationships - Include",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/how-to/handle-document-relationships#includes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
                 },
                 {
                     "Title": "Query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
                 },
                 {
                     "Title": "Querying - Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/sorting"
                 },
                 {
                     "Title": "Querying - Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/projections"
                 },
                 {
                     "Title": "Querying - Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#queries"
                 }
             ]
         },
@@ -170,7 +175,7 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* The 'queryDefinition' variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
                 "",
                 "* The 'queryResults' variable will hold all the document entities that matched the query definition.",
                 "",
@@ -179,11 +184,11 @@
                 "",
                 "* Note: Queries are timed out after a defined (configurable) time period."
             ],
-            "Assets": [
+            "Assets": [               
                 {
-                    "Title": "LINQ queries",
+                    "Title": "Sample Program",
                     "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#queries"
                 }
             ]
         }

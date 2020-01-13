@@ -1,6 +1,6 @@
 {
     "Slug": "full-collection-query",
-    "SourceFileName": "FullCollectionQueryController.cs",
+    "SourceFileName": "FullCollectionQuery.Java",
     "Title": "Full Collection Query",
     "DescriptionLines": [
         "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
@@ -12,12 +12,12 @@
         {
             "Title": "How to Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
         },
         {
             "Title": "Querying in RavenDB",
@@ -32,12 +32,12 @@
         {
             "Title": "What is a Collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
         },
         {
-            "Title": "LINQ queries",
+            "Title": "Sample Program",
             "Type" : "link",
-            "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#1-retrieve-all-documents-from-a-collection"
         }
     ],
 
@@ -46,7 +46,7 @@
             "Title": "Define the full collection query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Use `Query<Company>()` to define a query on collection 'Companies'.<br>",
+                "* Use `query<Company.class>()` to define a query on collection 'Companies'.<br>",
                 "  The results will include _all_ documents from this collection.",
                 "",
                 "* No index will be created when querying on a just the collection without any filtering.",
@@ -57,17 +57,17 @@
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/java/queries/query-overview"
                 },
                 {
-                    "Title": "How to Query",
+                    "Title": "How to Query - todo",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
                 },
                 {
                     "Title": "Querying in RavenDB",
@@ -82,12 +82,12 @@
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
                 },
                 {
-                    "Title": "LINQ",
+                    "Title": "Sample Program",
                     "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#1-retrieve-all-documents-from-a-collection"
                 }
             ]
         },
@@ -96,7 +96,7 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* The 'fullCollectionQuery' variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
                 "",
                 "* The 'collectionResults' variable will hold all the document entities in the 'Companies' collection.",
                 "",
@@ -104,9 +104,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "LINQ queries",
+                    "Title": "Sample Program",
                     "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#1-retrieve-all-documents-from-a-collection"
                 }
             ]
         }

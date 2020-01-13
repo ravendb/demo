@@ -1,11 +1,11 @@
 package net.ravendb.demo.queries.fullCollectionQuery;
-
+//region Usings
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
-
-import java.util.List;
 
 public class FullCollectionQuery {
     public void run() {

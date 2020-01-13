@@ -1,11 +1,12 @@
 package net.ravendb.demo.queries.queryOverview;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
-
-import java.util.List;
 
 public class QueryOverview {
     public void run() {
@@ -23,7 +24,7 @@ public class QueryOverview {
             // Include related documents
             // Get the query stats
             // Sort results
-            // Customise the returned entity fields (Projections)
+            // Customize the returned entity fields (Projections)
             // Control results paging
             //endregion
 

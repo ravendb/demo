@@ -61,7 +61,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/java/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -85,7 +85,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/java/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -114,12 +114,12 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/java/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/the-session"
+                    "Url"  : "/java/basics/the-session"
                 },
                 {
                     "Title": "Document Identifier Generation",
@@ -175,7 +175,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/java/basics/create-document"
                 }
             ]
         },
@@ -190,12 +190,12 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/java/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/the-session"
+                    "Url"  : "/java/basics/the-session"
                 }
             ]
         }
