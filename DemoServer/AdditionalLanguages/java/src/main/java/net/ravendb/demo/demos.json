@@ -14,6 +14,17 @@
     },
     {
         "category": {
+            "slug": "related-documents",
+            "directory": "relatedDocuments"
+        },
+        "demos": [
+            "CreateRelatedDocuments",
+            "LoadRelatedDocuments",
+            "QueryRelatedDocuments"
+        ]
+    },
+    {
+        "category": {
             "slug": "attachments",
             "directory": "attachments"
         },
@@ -23,13 +34,13 @@
     },
     {
         "category": {
-            "slug": "related-documents",
-            "directory": "relatedDocuments"
+            "slug": "revisions",
+            "directory": "revisions"
         },
         "demos": [
-            "CreateRelatedDocuments",
-            "LoadRelatedDocuments",
-            "QueryRelatedDocuments"
+            "EnableRevisions",
+            "GetRevisions"
         ]
+
     }
 ]

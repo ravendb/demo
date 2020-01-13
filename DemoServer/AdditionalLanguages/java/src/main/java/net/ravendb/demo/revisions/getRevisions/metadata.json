@@ -1,0 +1,111 @@
+{
+    "Slug": "get-revisions",
+    "SourceFileName": "GetRevisions.java",
+    "Title": "Get Revisions",
+    "DescriptionLines": [
+        "When **Revisions** are enabled, a revision for a document will be created upon:",
+        "<p>* Modifying document body<br>",
+        "* Modifying document metadata<br>",
+        "* Adding or removing attachments<br>",
+        "* Creating or deleting counters</p>",
+        "",
+        "The revisions created for a document can be retrieved from the server."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+        },
+        {
+            "Title": "Document Revisions",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+        },
+        {
+            "Title": "What are revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/revisions/what-are-revisions"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Enable revisions",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Document revisions are Not enabled by default.",
+                "",
+                "* The above code will enable the revisions feature for _all_ the database collections.",
+                "",
+                "* Learn more in the _Enable Revisions Demo_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Enable Revisions Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/revisions/enable-revisions"
+                }
+            ]
+        },
+        {
+            "Title": "Modify a document",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Make any needed modifications to your document.",
+                "",
+                "* Per each call to `saveChanges()`, the document is saved in the database.<br>",
+                "  A revision with the document's current content will be created on the server if content is different than what exists on the database.",
+                "",
+                "* The above example will generate 2 new revisions for document 'companies/7-A'.<br>",
+                "  One with a Name & Counter change, and one with a Name & Phone change."
+            ],
+            "Assets": [
+                {
+                    "Title": "Edit Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/basics/edit-document"
+                },
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/basics/create-document"
+                }
+            ]
+        },
+        {
+            "Title": "Get the revisions created",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use the advanced method `getFor()` to get all revisions created.<br>",
+                "  Use the advanced method `getMetadataFor()` to get the revisions metadata.",
+                "",
+                "* Specific revisions can be fetched by their change-vector, or by a specific date.<br>",
+                "  Learn more in the online documentation.",
+                "",
+                "* The 'revisions' variable will contain a list of revisions for document 'companies/7-A'<br>",
+                "  (with body content, not metadata).",
+                "",
+                "* Note: The revision content itself cannot be modified on the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+                },
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                },
+                {
+                    "Title": "What are revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/revisions/what-are-revisions"
+                }
+            ]
+        }
+    ]
+}
