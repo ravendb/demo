@@ -1,13 +1,14 @@
 package net.ravendb.demo.revisions.enableRevisions;
 
+//region Usings
 import net.ravendb.client.documents.operations.revisions.ConfigureRevisionsOperation;
 import net.ravendb.client.documents.operations.revisions.RevisionsCollectionConfiguration;
 import net.ravendb.client.documents.operations.revisions.RevisionsConfiguration;
-import net.ravendb.demo.common.DocumentStoreHolder;
-
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
+//endregion
+import net.ravendb.demo.common.DocumentStoreHolder;
 
 public class EnableRevisions {
 
@@ -19,12 +20,14 @@ public class EnableRevisions {
         //region Step_1
         RevisionsConfiguration myRevisionsConfiguration = new RevisionsConfiguration();
         //endregion
+
         //region Step_2
         RevisionsCollectionConfiguration defaultConfiguration = new RevisionsCollectionConfiguration();
         defaultConfiguration.setDisabled(false);
         defaultConfiguration.setPurgeOnDelete(false);
         defaultConfiguration.setMinimumRevisionsToKeep(5L);
         defaultConfiguration.setMinimumRevisionAgeToKeep(Duration.ofDays(14));
+
         myRevisionsConfiguration.setDefaultConfig(defaultConfiguration);
         //endregion
 
