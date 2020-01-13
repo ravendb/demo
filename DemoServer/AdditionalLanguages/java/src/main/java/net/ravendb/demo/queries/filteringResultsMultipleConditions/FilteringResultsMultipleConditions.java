@@ -1,12 +1,13 @@
 package net.ravendb.demo.queries.filteringResultsMultipleConditions;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
-import net.ravendb.demo.common.DocumentStoreHolder;
-import net.ravendb.demo.common.models.Employee;
-
 import java.util.Arrays;
 import java.util.List;
+//endregion
+import net.ravendb.demo.common.DocumentStoreHolder;
+import net.ravendb.demo.common.models.Employee;
 
 public class FilteringResultsMultipleConditions {
 

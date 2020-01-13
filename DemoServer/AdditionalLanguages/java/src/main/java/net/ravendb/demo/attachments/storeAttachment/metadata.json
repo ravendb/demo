@@ -33,6 +33,11 @@
             "Title": "Attachments Operations",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/operations/what-are-operations#attachments"
+        },
+        {
+            "Title": "Sample Program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#blob-handling---attachments"
         }
     ],
 

@@ -41,6 +41,19 @@
             "EnableRevisions",
             "GetRevisions"
         ]
-
+    },
+    {
+        "category": {
+            "slug": "queries",
+            "directory": "queries"
+        },
+        "demos": [
+            "QueryOverview",
+            "FullCollectionQuery",
+            "QueryByDocumentId",
+            "FilteringResultsBasics",
+            "FilteringResultsMultipleConditions",
+            "SortingQueryResults"
+        ]
     }
 ]

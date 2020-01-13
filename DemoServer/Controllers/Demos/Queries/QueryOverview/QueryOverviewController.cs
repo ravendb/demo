@@ -36,7 +36,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryOverview
                 // Include related documents
                 // Get the query stats
                 // Sort results 
-                // Customise the returned entity fields (Projections)
+                // Customize the returned entity fields (Projections)
                 // Control results paging  
                 #endregion
                 
