@@ -1,26 +1,17 @@
 package net.ravendb.demo.queries.queryExample;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.client.documents.session.QueryStatistics;
 import net.ravendb.client.primitives.Reference;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 
-import java.util.Date;
 import java.util.List;
 
 public class QueryExample {
-
-    /**
-     * NOTICE:
-     * TODO:
-     * please notice I skipped select part since we don't have LINQ in java,
-     * Also employeeName can't be filled in as it is computed field
-     *
-     * I didn't put steps as they will be different than in c#.
-     * Optionally we might present different query features here.
-     */
 
     public void run() {
         //region Demo
@@ -28,18 +19,32 @@ public class QueryExample {
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             Reference<QueryStatistics> statisticsRef = new Reference<>();
+
+            //region Step_1
             IDocumentQuery<Employee> query = session.query(Employee.class)
+            //endregion
+                //region Step_2
                 .whereEquals("FirstName", "Steven")
                 .orElse()
                 .whereEquals("Title", "Sales Representative")
+                //endregion
+                //region Step_3
                 .include("ReportsTo")
+                //endregion
+                //region Step_4
                 .statistics(statisticsRef)
+                //endregion
+                //region Step_5
                 .orderByDescending("HiredAt")
+                //endregion
+                //region Step_6
                 .take(5);
+                //endregion
 
+            //region Step_7
             queryResults = query.toList();
+            //endregion
         }
         //endregion
     }
-
 }

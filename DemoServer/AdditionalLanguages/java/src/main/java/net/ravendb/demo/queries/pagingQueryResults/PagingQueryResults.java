@@ -1,12 +1,13 @@
 package net.ravendb.demo.queries.pagingQueryResults;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.client.documents.session.QueryStatistics;
 import net.ravendb.client.primitives.Reference;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
-
-import java.util.List;
 
 public class PagingQueryResults {
 

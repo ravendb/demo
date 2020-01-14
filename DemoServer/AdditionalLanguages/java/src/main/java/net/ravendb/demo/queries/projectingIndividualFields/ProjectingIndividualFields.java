@@ -1,20 +1,21 @@
 package net.ravendb.demo.queries.projectingIndividualFields;
 
+//region Usings
 import net.ravendb.client.documents.queries.QueryData;
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
 
-import java.util.List;
-
 public class ProjectingIndividualFields {
-
+    //region Demo
     public static class CompanyDetails {
         private String companyName;
         private String city;
         private String country;
-
+    //endregion
         public String getCompanyName() {
             return companyName;
         }
@@ -38,7 +39,9 @@ public class ProjectingIndividualFields {
         public void setCountry(String country) {
             this.country = country;
         }
+    //region Demo
     }
+    //endregion
 
     public List<CompanyDetails> run() {
         List<CompanyDetails> projectedResults;
