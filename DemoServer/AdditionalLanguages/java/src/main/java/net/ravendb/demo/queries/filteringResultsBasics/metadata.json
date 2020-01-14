@@ -29,11 +29,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
         },
-        {
-            "Title": "Auto indexes - todo",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
-        },
+        //TODO
+        //{
+        //    "Title": "Auto indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+        //},
         {
             "Title": "Sample Program",
             "Type" : "link",
@@ -83,11 +84,12 @@
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
                 },
-                {
-                    "Title": "Auto indexes - todo",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"  
-                },
+                //TODO
+                //{
+                //    "Title": "Auto indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"  
+                //},
                 {
                     "Title": "Sample Program",
                     "Type" : "link",
