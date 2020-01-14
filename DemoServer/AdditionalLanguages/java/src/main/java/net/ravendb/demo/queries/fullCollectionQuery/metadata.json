@@ -59,11 +59,12 @@
                     "Type" : "demo",
                     "Url"  : "/java/queries/query-overview"
                 },
-                {
-                    "Title": "How to Query - todo",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
-                },
+                //TODO
+                //{
+                //    "Title": "How to Query",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+                //},
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",

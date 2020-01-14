@@ -10,11 +10,12 @@
     ],
 
     "Assets": [
-        {
-            "Title": "How to Query - todo",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
-        },
+        //TODO
+        //{
+        //    "Title": "How to Query",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+        //},
         {
             "Title": "Querying Basics",
             "Type" : "link",
@@ -62,11 +63,12 @@
                 "* No index will be created - the raw collection documents are used as the source for this query."
             ],
             "Assets": [
-                {
-                    "Title": "How to Query - todo",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
-                },
+                //TODO
+                //{
+                //    "Title": "How to Query",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+                //},
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
