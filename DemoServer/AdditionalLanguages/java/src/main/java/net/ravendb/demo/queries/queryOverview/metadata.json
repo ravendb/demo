@@ -12,12 +12,17 @@
         "The returned documents are loaded and tracked by the Session (except for projections).",
         "",
         "From the session, query the database by using any of:",
-        "<p>* session.query (shown in this demo)<br>",
-        "* sesion.advanced.documentQuery<br>",
-        "* session.advanced.rawQuery (using RQL)</p>"
+        "<p>* session.query<br>",
+        "* session.advanced().documentQuery<br>",
+        "* session.advanced().rawQuery (using RQL)</p>"
     ],
 
     "Assets": [
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
+        },
         {
             "Title": "Querying in RavenDB",
             "Type" : "link",
@@ -42,11 +47,6 @@
             "Title": "RQL",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql"
-        },
-        {
-            "Title": "Query vs DocumentQuery",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
         },
         {
             "Title": "Auto indexes - todo",
