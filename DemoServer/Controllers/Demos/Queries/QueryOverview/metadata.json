@@ -13,7 +13,7 @@
         "",
         "From the Session, query the database by using any of:",
         "<p>* Session.Query (shown in this demo)<br>",
-        "* Sesion.Advanced.DocumentQuery<br>",
+        "* Session.Advanced.DocumentQuery<br>",
         "* Session.Advanced.RawQuery (using RQL)</p>"
     ],
 

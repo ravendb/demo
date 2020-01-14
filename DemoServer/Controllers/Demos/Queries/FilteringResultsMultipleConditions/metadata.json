@@ -73,7 +73,7 @@
                 "* This example queries for documents from the _Employees_ collection that match the following criteria:",
                 "     * Employee's first name is either 'Anne' or 'John'<br>",
                 "       OR<br>",
-                "     * Employee's country is as specified by the param,<br>", 
+                "     * Employee's country is as specified by the 'country' parameter,<br>", 
                 "       AND territories count is > 2,<br>",
                 "       AND employee's title starts with 'Sales'.",
                 "",
