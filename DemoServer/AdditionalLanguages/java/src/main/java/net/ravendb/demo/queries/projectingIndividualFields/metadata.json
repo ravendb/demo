@@ -75,8 +75,7 @@
                 "  * The fields in the custom class 'CompanyDetails' that will hold these values in the entities returned by the query:<br>",
                 "    ( _CompanyName_ , _City_, _Country_ )",
                 "",
-                "* Optionally, use the following overload to project all fields from the custom class,<br>",
-                "  (when the custom class fields are a subset of the full 'Company' document entity).",
+                "* Optionally, use the following overload to project all fields from the custom class:<br>",
                 "  `.selectFields(CompanyDetails.class)`",
                 "",
                 "* Calling selectFields() does Not trigger any index creation."
