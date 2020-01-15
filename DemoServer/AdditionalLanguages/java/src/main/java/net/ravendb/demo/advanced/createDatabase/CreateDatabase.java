@@ -1,8 +1,10 @@
 package net.ravendb.demo.advanced.createDatabase;
 
+//region Usings
 import net.ravendb.client.exceptions.ConcurrencyException;
 import net.ravendb.client.serverwide.DatabaseRecord;
 import net.ravendb.client.serverwide.operations.CreateDatabaseOperation;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 
 public class CreateDatabase {
