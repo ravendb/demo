@@ -1,0 +1,237 @@
+{
+    "Slug": "static-indexes-overview",
+    "SourceFileName": "StaticIndexesOverview.java",
+    "Title": "Static Indexes Overview",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "Indexes are used by RavenDB to answer queries about the documents, allowing for fast query results.",
+        "",
+        "**Static Indexes** are defined by the user (as opposed to Auto-Indexes that are created by the server).",
+        "",
+        "A Static Index can be used to make computations on the document fields.",
+        "These computations run during indexing process time and not at query time.",
+        "",
+        "Defined with LINQ or JavaScript, a Static Index can be any of the following types:",
+        "<p>* Map index (defined on one collection)<br>",
+        "* Multi-Map index (define on multiple collections)<br>",
+        "* Map-Reduce index<br>",
+        "* Multi-Map-Reduce index</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+        },
+        {
+            "Title": "Static Indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+        },
+        {
+            "Title": "Working with Indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+        },
+        {
+            "Title": "What Indexes Are",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes#what-indexes-are"
+        },
+        {
+            "Title": "Indexing Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-basics"
+        },
+        //TODO
+        //{
+        //    "Title": "Creating and Deploying Indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //}, 
+        {
+            "Title": "Querying a Specified Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create an index class that inherits from a common abstract index class.",
+                "",
+                "* Use:<br>",
+                "    * `AbstractIndexCreationTask` - for a Map index<br>",
+                "    * `AbstractMultiMapIndexCreationTask` - for a Multi-Map index<br>",
+                "    * `AbstractJavaScriptIndexCreationTask` - for a Javascript index",
+                "",
+                "* Note:<br>",
+                "     The character '_' in the index name will be changed to _'/'_ when the index is deployed.",
+                ""
+            ],
+            "Assets": [
+                {
+                    "Title": "Indexes Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+                },
+                {
+                    "Title": "What Indexes Are",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes#what-indexes-are"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#static-indexes"
+                },
+                {
+                    "Title": "Defining simple indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
+                }
+            ]
+        },
+        {
+            "Title": "The index Result class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The Result class defines the _index-fields_ - the fields that will be indexed.<br>",
+                "  Later on, a query can be made on these index-fields.",
+                "",
+                "* The _content_ for each index-field is configured in the index constructor (see next step).",                
+                "",
+                "* In the above index, field 'lastName' is indexed and will be queryable."
+            ],
+            "Assets": [
+                {
+                    "Title": "Using strongly typed code",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-complex-indexes-using-strongly-typed-code"
+                },
+                {
+                    "Title": "Combine Multiple Fields",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes#combining-multiple-fields-together"
+                },
+                {
+                    "Title": "Multiple Collections",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/multi-map-indexes#searching-across-multiple-collections"
+                }
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* _The constructor Map function defines the content for each index-field_ - <br>",
+                "  what fields from the document will compose each index-field.",
+                "",
+                "* _This is the place where computations can be used on the document fields data_,<br>",
+                "  and multiple document fields can be combined into one index-field.<br>",
+                "  Note: Use only pure functions, so that the index definition will always produce the same output for the same input.",
+                "",
+                "* _You can define_:<br>",
+                "      * One Map on a single collection (Map Index)",
+                "      * Multiple Maps on multiple collections (Multi-Map Index)",
+                "      * A Reduce function (Map-Reduce or Multi-Map-Reduce indexes)",
+                "",                
+                "* _Additional indexing options, per index-field, that can be defined inside the Map function are_:<br>",
+                "   Index spatial data<br>",
+                "   Index dynamic fields<br>",
+                "   Index hierarchical data<br>",
+                "   Index document fields as json<br>",
+                "   Boosting the indexed field value<br>",
+                "   Index counters & attachments names<br>",
+                "   Index data from a related document<br>",
+                "   Index data from the document's metadata<br>",
+                "   Use LINQ extensions, such as: reverse, parseint, and more",
+                "",
+                "* _Other indexing options available within the constructor are_:<br>",
+                "   Store fields - store data within the index<br>",
+                "   Use Analyzers - enable a Full Text Search on a field<br>",
+                "   Use additional code - allow the index definition to use more functions<br>",
+                "   Configure Suggestions - allow RavenDB to suggest results"
+            ],
+            "Assets": [
+                {
+                    "Title": "What are indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes"
+                },
+                {
+                    "Title": "Defining simple indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
+                },
+                {
+                    "Title": "Guidelines - using pure functions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index#important-guidelines"
+                }
+            ]
+        },
+        {
+            "Title": "Deploy the index",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Use the `execute()` method to deploy the index to the server.",
+                "",
+                "* Once the index is deployed, the server will start the _'indexing process'_,",
+                "  in which the index iterates over the documents, building a map between the terms derived from the document fields indexed and the actual documents that contain them.<br>",
+                "",
+                "* In the case of a Map-Reduce index, a second stage is applied where the mapped entries are reduced to some aggregated value.",
+                "",
+                "* After the first indexing run, the index will keep this map current without re-processing the entire data,",
+                "  and will only update the relevant details upon any update/change to any document related to the index."
+            ],
+            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Sending indexes to server",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#sending-to-server"
+                //},
+                {
+                    "Title": "Deploying indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#deploying-indexes"
+                },
+                {
+                    "Title": "Indexing process",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview#indexing-process"
+                }
+            ]
+        },
+        {
+            "Title": "Query the database using the index",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Now you can query the database using the defined index:",
+                "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
+                "     * _Query for an aggregated value_ (Map-Reduce index)",
+                "",
+                "* The generic params passed to the query are the result type class and index class.",
+                "",
+                "* The above query example is on a Map typed index.<br>",
+                "  The query is filtering on the index-field 'lastName'.<br>",
+                "  Results will include all documents from the 'Employees' collection whose 'lastName' is 'SomeName'.<br><br>",
+                "  Note the usage of _ofType()_, which converts the type being used in the 'whereEquals' clause (the 'Result' type) to the collection type (Employee).",
+                "  While the 'Result' type allows for a strongly typed query in the client, the server returns the actual documents entities objects."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
+    ]
+}

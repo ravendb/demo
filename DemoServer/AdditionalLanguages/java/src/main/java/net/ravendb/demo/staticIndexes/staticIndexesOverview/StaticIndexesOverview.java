@@ -1,12 +1,13 @@
 package net.ravendb.demo.staticIndexes.staticIndexesOverview;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
-
-import java.util.List;
 
 public class StaticIndexesOverview {
 
@@ -50,7 +51,7 @@ public class StaticIndexesOverview {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_5
             IDocumentQuery<Employee> queryOnIndex = session.query(Employees_ByLastName.Result.class, Employees_ByLastName.class)
-                .whereEquals("LastName", "SomeNAme")
+                .whereEquals("LastName", "SomeName")
                 .ofType(Employee.class);
 
             queryResults = queryOnIndex.toList();

@@ -55,5 +55,16 @@
             "FilteringResultsMultipleConditions",
             "SortingQueryResults"
         ]
+    },
+    {
+        "category": {
+            "slug": "static-indexes",
+            "directory": "StaticIndexes"
+        },
+        "demos": [
+            "StaticIndexesOverview",
+            "MapIndex",
+            "MapReduceIndex"
+        ]
     }
 ]
