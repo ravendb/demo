@@ -1,0 +1,220 @@
+{
+    "Slug": "paging-query-results",
+    "SourceFileName": "PagingQueryResults.java",
+    "Title": "Paging Query Results",
+    "DescriptionLines": [
+        "By default, a query will return _all_ available matching results.",
+        "**Paging** can be used to limit the result set and avoid handling huge amounts of data at once.",
+        "",
+        "Page the results by specifying the number of results to skip and the number of results to take.",
+        "Either loop page by page on all available results, or request a specific page out of all results."        
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying: Paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+        },
+        {
+            "Title": "Querying Basics: Paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iii---paging"
+        },
+        {
+            "Title": "Querying: Distinct Paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/distinct#paging"
+        },
+        {
+            "Title": "Fanout indexes Paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/fanout-indexes#paging"
+        },
+        {
+            "Title": "Migration from 3.x - Paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/migration/client-api/session/querying/basics#paging"
+        },
+        {
+            "Title": "Deep paging",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+        },
+        {
+            "Title": "Sample Program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#2-paging-and-query-statistics"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Companies' collection using the Session `query()` method.",
+                "",
+                "* While this example relates to a dynamic query where an auto-index is created,<br>",
+                "  _paging_ can also be applied when querying using a static index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/query-overview"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#2-paging-and-query-statistics"
+                }
+            ]
+        },
+        {
+            "Title": "Get query statistics",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* When paging results, the query returns only the requested number of documents.<br>",
+                "  See step-4.",
+                "",
+                "* Using the `statistics()` method allows retrieving the number of total available matching results.",
+                "  See step-6."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/update-me-later"
+                },
+                {
+                    "Title": "Get query statistics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
+                }
+            ]
+        },
+        {
+            "Title": "Skip results",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `skip()` to specify the number of results to skip from the total available result set.",
+                "",
+                "* The query above will _skip the first 'resultsToSkip' documents_.<br>",
+                "  The documents returned by the query will start from the 'resultsToSkip'+1 location in the total available result set.",
+                "",
+                "* Using 'skip()' is not mandatory. 'skip()' is relevant when:<br>",
+                "  * Fetching results starting from a specific location from the result set.",
+                "  * Paging through all available results, incrementing 'resultsToSkip' by the number of fetched results each time.<br>",
+                "",
+                "* About deep paging:<br>",
+                "  When a query is processed by the server, the paging is handled after the sorting stage.<br>",
+                "  If you need to page deeply when expecting a very large result set, consider using a conditional where clause instead, in order to reduce the amount of work required from RavenDB.",
+                "",
+                "* About Tampered results:<br>",
+                "  When querying with 'distinct()' or querying a 'Fanout index' over non-stored fields, the server might skip over some results internally.",
+                "  For proper paging in these cases, the number of results to skip should be increased by the number of 'statsRef.value.getSkippedResults()'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                },
+                {
+                    "Title": "Sorting Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/sorting-query-results"
+                },
+                {
+                    "Title": "Deep paging",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                },
+                {
+                    "Title": "Tampered Results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging#paging-through-tampered-results"
+                },
+                {
+                    "Title": "Querying: Distinct Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/distinct#paging"
+                },
+                {
+                    "Title": "Fanout indexes Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/fanout-indexes#paging"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#2-paging-and-query-statistics"
+                }
+            ]
+        },
+        {
+            "Title": "Take results",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use `take()` to specify the number of results to actually take (return) from the total available result set.",
+                "",
+                "* The position from where to start 'taking' is set by the previous 'skip()' method.",
+                "",
+                "* If no results were skipped - when Not using skip() at all, or when using skip(0) - then the first 'resultsToTake' documents will be returned from the result set."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#2-paging-and-query-statistics"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `toList()`.",
+                "",
+                "* _'pagedResults'_ will contain only 'resultsToTake' documents starting from the 'resultsToSkip' location from the result set.",
+                "",
+                "* The output entities returned by the query are tracked by the Session as usual.<br>"
+            ],
+            "Assets": [
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#2-paging-and-query-statistics"
+                }
+            ]
+        },
+        {
+            "Title": "Get total number of results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* When retrieving only 'page size' results, you might still need to know the total number of results.",
+                "",
+                "* The total number of documents in the result set can be retrieved from: `statsRef.value.getTotalResults()`.",
+                "  See step-2 for statsRef creation."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/update-me-later"
+                },
+                {
+                    "Title": "Get query statistics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
+                }
+            ]
+        }        
+    ]
+}

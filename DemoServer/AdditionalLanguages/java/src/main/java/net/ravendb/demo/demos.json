@@ -49,11 +49,14 @@
         },
         "demos": [
             "QueryOverview",
+            "QueryExample",
             "FullCollectionQuery",
             "QueryByDocumentId",
             "FilteringResultsBasics",
             "FilteringResultsMultipleConditions",
-            "SortingQueryResults"
+            "ProjectingIndividualFields",
+            "SortingQueryResults",
+            "PagingQueryResults"
         ]
     }
 ]
