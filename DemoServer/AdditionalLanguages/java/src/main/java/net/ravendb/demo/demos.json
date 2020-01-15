@@ -67,5 +67,16 @@
         "demos": [
             "CreateDatabase"
         ]
+    },
+    {
+        "category": {
+            "slug": "static-indexes",
+            "directory": "StaticIndexes"
+        },
+        "demos": [
+            "StaticIndexesOverview",
+            "MapIndex",
+            "MapReduceIndex"
+        ]
     }
 ]

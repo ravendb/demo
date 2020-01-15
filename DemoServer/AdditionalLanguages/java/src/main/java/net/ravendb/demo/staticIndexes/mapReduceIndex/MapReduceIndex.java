@@ -1,7 +1,8 @@
 package net.ravendb.demo.staticIndexes.mapReduceIndex;
-
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 
 public class MapReduceIndex {

@@ -1,6 +1,6 @@
 {
     "Slug": "map-reduce-index",
-    "SourceFileName": "MapReduceIndexController.cs",
+    "SourceFileName": "MapReduceIndex.java",
     "Title": "Map-Reduce Index",
     "DescriptionLines": [
         "**Complex data aggregation** computations can be performed with a **Map-Reduce index**.",
@@ -17,17 +17,17 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map-Reduce Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-reduce-index"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index"
         },
         {
             "Title": "Map Reduce Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
         },
         {
             "Title": "Map-Reduce and Aggregations",
@@ -39,15 +39,16 @@
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
         },
-        {
-            "Title": "Creating and Deploying Indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
-        },
+        //TODO
+        //{
+        //    "Title": "Creating and Deploying Indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //},
         {
             "Title": "Map-Reduce Visualizer",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/map-reduce-visualizer"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/map-reduce-visualizer"
         }
     ],
 
@@ -56,22 +57,18 @@
             "Title": "Define the Map-Reduce index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map-Reduce index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ByCountry.Result_ - is the shape of the resulting index-fields (see next step)"
+                "* Create the Map-Reduce index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -91,8 +88,8 @@
             "DescriptionLines": [
                 "* The Result class defines the _index-fields_. These fields will be indexed and can be queried on.",
                 "",
-                "* Each resulting _index-entry_ will have the above 2 index-fields: 'Country' & 'CountryCount'. <br>",
-                "  Field 'CountryCount' will be dedicated to hold the aggregated value.",
+                "* Each resulting _index-entry_ will have the above 2 index-fields: 'country' & 'countryCount'. <br>",
+                "  Field 'countryCount' will be dedicated to hold the aggregated value.",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step)."
             ],
@@ -100,7 +97,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -118,7 +115,7 @@
             "Title": "Define the Map function",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Similar to the simple Map-Index, the `Map` function defines what data is indexed per index-field.",
+                "* Similar to the simple Map-Index, the `map` function defines what data is indexed per index-field.",
                 "",
                 "* The Map function is the first stage of the Map-Reduce index.<br>",
                 "  It indexes the specified fields _per document_ in the collection.",
@@ -133,7 +130,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -151,21 +148,21 @@
             "Title": "Define the Reduce function",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* The `Reduce` function is the second stage.<br>",
+                "* The `reduce` function is the second stage.<br>",
                 "  It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
                 "",
                 "* Specify the field to group-by:<br><br>",
-                "  `group result by result.Country into g`  ==> group by _index-field_ 'Country'",
+                "  `GroupBy(result => result.Country)`  ==> group by _index-field_ 'Country'",
                 "",
                 "* Specify the aggregation needed on that field:<br><br>",
                 "  `Country = g.Key`  ==>  The country we group by<br>",
-                "  `CountryCount = g.Sum(x => x.CountyCount)`  ==> The aggregating function"
+                "  `CountryCount = Enumerable.Sum(g, x => ((int) x.CountryCount))`  ==> The aggregating function"
             ],
             "Assets": [
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -188,7 +185,7 @@
                 "* RavenDB will search the index for a matching index-entry that has the queried country in its 'Country' property.",
                 "",
                 "* Note: The return value of the query is Not a list of all documents that contain the queried country.",
-                "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'Result' type emitted by the Map-Reduce index,",
+                "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'Result' type class emitted by the Map-Reduce index,",
                 "  from which you can retrieve 'CountryCount' - the aggregated value.",
                 "",
                 "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results."
@@ -197,17 +194,17 @@
                 {
                     "Title": "Map-Reduce query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
                 },
                 {
                     "Title": "Map-Reduce Visualizer",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/map-reduce-visualizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/map-reduce-visualizer"
                 },
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",

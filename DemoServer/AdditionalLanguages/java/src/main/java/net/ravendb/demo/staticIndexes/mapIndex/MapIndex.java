@@ -1,11 +1,12 @@
 package net.ravendb.demo.staticIndexes.mapIndex;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
-
-import java.util.List;
 
 public class MapIndex {
     //region Demo
