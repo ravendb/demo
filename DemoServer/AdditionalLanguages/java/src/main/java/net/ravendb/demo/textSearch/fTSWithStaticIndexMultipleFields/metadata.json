@@ -1,0 +1,181 @@
+{
+    "Slug": "fts-with-static-index-multiple-fields",
+    "SourceFileName": "FTSWithStaticIndexMultipleFields.java",
+    "Title": "Full Text Search with Static Index - Multiple Fields",
+    "StudioLinkToMediaDatabase": true,
+    "DescriptionLines": [
+        "Combining several document fields in a single index-field enables performing **Full-Text-Search over Multiple Document Fields** using a single index-field.",
+        "",
+        "This allows for greater freedom in querying, as the client is Not limited to querying on a specific document field."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Full Text Search - Single Field Demo",
+            "Type" : "demo",
+            "Url"  : "/text-search/fts-with-static-index-single-field"
+        },
+        {
+            "Title": "Full text searching",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+        },
+        {
+            "Title": "Full text indexes",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+        },
+        {
+            "Title": "How the index actually works",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+        },
+        {
+            "Title": "Analyzers",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
+        }
+        //TODO
+        //{
+        //    "Title": "Querying - Searching",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching#static-indexes"
+        //}
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                }
+            ]
+        },        
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the Map function - Combine multiple document fields into a single index-field",
+                "",
+                "* The content of index-field _'SongData'_ will be composed of the following four 'LastFm' document fields:",
+                "    * Artist, Title, Tags & TrackId"
+            ],
+            "Assets": [
+                {
+                    "Title": "Full text search fields",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-search-fields"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Configure Full-Text Search",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'SongData'.",
+                "",
+                "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
+                "  Instead, the field's text content is broken into distinct tokens (terms).",
+                "",
+                "* In this case, the terms include data originating from the document fields that were specified in the Map function - ",
+                "  Artist, Title, Tags, TrackId.",
+                "",
+                "* Indexing the content as individual terms, and Not as one text item,",
+                "  allows you to search for documents that contain a specific term in _either_ of these fields."
+            ],
+            "Assets": [
+                {
+                    "Title": "Configure Full-Text Search (FTS - Single Field Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/java/text-search/fts-with-static-index-single-field#step-4"
+                },
+                {
+                    "Title": "Full text searching",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#full-text-searching"
+                },
+                {
+                    "Title": "Full text indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-indexes"
+                },
+                {
+                    "Title": "How the index actually works",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#how-the-index-actually-works"
+                },
+                {
+                    "Title": "Analyzers",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
+                }
+            ]
+        },
+        {
+            "Title": "Search for documents with a specific term",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Now you can search for documents from collection 'LastFms' that contain a specific term.",
+                "",
+                "* The query results (limited to 20) will be only those documents that contain the value of 'searchTerm' within either one the following fields:<br>",
+                "    * Artist, Title, Tags & TrackId",
+                "",
+                "* Note that the comparison is done against the indexed field _'SongData'_, which contains the terms that were generated from those fields."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                },
+                {
+                    "Title": "Full text search fields",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-search-fields"
+                }
+            ]
+        }
+    ]
+}
