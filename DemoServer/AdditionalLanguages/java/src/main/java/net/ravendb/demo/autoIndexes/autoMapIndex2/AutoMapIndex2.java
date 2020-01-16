@@ -1,9 +1,10 @@
 package net.ravendb.demo.autoIndexes.autoMapIndex2;
 
+//region Usings
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
-import net.ravendb.demo.common.models.Company;
 import net.ravendb.demo.common.models.Employee;
 
 public class AutoMapIndex2 {
