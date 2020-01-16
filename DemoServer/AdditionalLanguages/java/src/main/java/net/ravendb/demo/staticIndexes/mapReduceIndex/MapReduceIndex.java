@@ -11,7 +11,24 @@ public class MapReduceIndex {
     //region Step_1
     public static class Employees_ByCountry extends AbstractIndexCreationTask {
     //endregion
-        //region Step_2
+
+        public Employees_ByCountry() {
+            //region Step_2
+            map = "docs.Employees.Select(employee => new { " +
+                "    Country = employee.Address.Country, " +
+                "    CountryCount = 1 " +
+                "})";
+            //endregion
+
+            //region Step_3
+            reduce = "results.GroupBy(result => result.Country).Select(g => new { " +
+                "    Country = g.Key, " +
+                "    CountryCount = Enumerable.Sum(g, x => x.CountryCount) " +
+                "})";
+            //endregion
+        }
+
+        //region Step_4
         public static class Result {
             private String country;
             private int countryCount;
@@ -33,23 +50,6 @@ public class MapReduceIndex {
             }
         }
         //endregion
-
-        public Employees_ByCountry() {
-            //region Step_3
-            map = "docs.Employees.Select(employee => new { " +
-                "    Country = employee.Address.Country, " +
-                "    CountryCount = 1 " +
-                "})";
-            //endregion
-
-            //region Step_4
-            reduce = "results.GroupBy(result => result.Country).Select(g => new { " +
-                "    Country = g.Key, " +
-                "    CountryCount = Enumerable.Sum(g, x => ((int) x.CountryCount)) " +
-                "})";
-            //endregion
-        }
-
     }
     //endregion
 

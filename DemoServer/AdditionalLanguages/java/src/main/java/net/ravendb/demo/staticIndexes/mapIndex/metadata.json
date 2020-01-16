@@ -75,47 +75,21 @@
             ]
         },
         {
-            "Title": "The index Result class",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* The Result class defines the _index-fields_. These fields will be indexed and can be queried on.",
-                "",
-                "* The _content_ for each index-field is configured in the index constructor (see next step)."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
-                }
-            ]
-        },
-        {
             "Title": "The index constructor",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "* Set `map` with the index definition string.<br>",
                 "  In the above example, a _LINQ_ expression was used .<br>",
                 "  Note: a _JavaScript_ index definition can be used as well.",
                 "",
-                "* The index definition defines the _index-fields_ - which fields from the 'Employee' entity will compose each index-field.",
+                "* The index definition defines the _index-fields_ and their _content_ (which fields from the 'Employee' entity will compose each index-field).",
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
-                "* The following _index-fields_ are configured above:",
-                "   * FullName - combining 2 fields ('FirstName' & 'LastName')",
-                "   * Country - indexing nested field data ('Country' is nested under 'Address')",
-                "   * WorkingInCompanySince - indexing partial field data (only the 'Year')",
-                "   * NumberOfTerritories - applying logic (using Count)",
+                "* The following index-fields are configured above:",
+                "   * _FullName_ - combining 2 fields ('FirstName' & 'LastName')",
+                "   * _Country_ - indexing nested field data ('Country' is nested under 'Address')",
+                "   * _WorkingInCompanySince_ - indexing partial field data (only the 'Year')",
+                "   * _NumberOfTerritories_ - applying logic (using Count)",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
                 "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
@@ -142,7 +116,7 @@
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",

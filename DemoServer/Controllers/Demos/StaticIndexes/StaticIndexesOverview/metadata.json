@@ -156,7 +156,7 @@
                 "   Index counters & attachments names<br>",
                 "   Index data from a related document<br>",
                 "   Index data from the document's metadata<br>",
-                "   Use LINQ extensions, such as: reverse, parseint, and more",
+                "   Use LINQ extensions, such as: Reverse, ParseInt, and more",
                 "",
                 "* _Other indexing options available within the constructor are_:<br>",
                 "   Store fields - store data within the index<br>",
