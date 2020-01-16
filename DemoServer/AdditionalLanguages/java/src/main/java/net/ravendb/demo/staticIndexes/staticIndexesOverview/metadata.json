@@ -97,40 +97,14 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "The index constructor",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The Result class defines the _index-fields_ - the fields that will be indexed.<br>",
+                "* The constructor Map function defines:<br>",
+                "  * The _index-fields_ (the index shape)<br>",
+                "  * The _content for each index-field_ (what fields from the document will compose each index-field)",
+                "",
                 "  Later on, a query can be made on these index-fields.",
-                "",
-                "* The _content_ for each index-field is configured in the index constructor (see next step).",                
-                "",
-                "* In the above index, field 'lastName' is indexed and will be queryable."
-            ],
-            "Assets": [
-                {
-                    "Title": "Using strongly typed code",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-complex-indexes-using-strongly-typed-code"
-                },
-                {
-                    "Title": "Combine Multiple Fields",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes#combining-multiple-fields-together"
-                },
-                {
-                    "Title": "Multiple Collections",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/multi-map-indexes#searching-across-multiple-collections"
-                }
-            ]
-        },
-        {
-            "Title": "The index constructor",
-            "Slug": "step-3",
-            "DescriptionLines": [
-                "* _The constructor Map function defines the content for each index-field_ - <br>",
-                "  what fields from the document will compose each index-field.",
                 "",
                 "* _This is the place where computations can be used on the document fields data_,<br>",
                 "  and multiple document fields can be combined into one index-field.<br>",
@@ -150,7 +124,7 @@
                 "   Index counters & attachments names<br>",
                 "   Index data from a related document<br>",
                 "   Index data from the document's metadata<br>",
-                "   Use LINQ extensions, such as: reverse, parseint, and more",
+                "   Use LINQ extensions, such as: Reverse, ParseInt, and more",
                 "",
                 "* _Other indexing options available within the constructor are_:<br>",
                 "   Store fields - store data within the index<br>",
@@ -178,7 +152,7 @@
         },
         {
             "Title": "Deploy the index",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "* Use the `execute()` method to deploy the index to the server.",
                 "",
@@ -211,19 +185,17 @@
         },
         {
             "Title": "Query the database using the index",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Now you can query the database using the defined index:",
                 "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
                 "     * _Query for an aggregated value_ (Map-Reduce index)",
                 "",
-                "* The generic params passed to the query are the result type class and index class.",
+                "* The generic params passed to the query are the expected results class and index class.",
                 "",
                 "* The above query example is on a Map typed index.<br>",
-                "  The query is filtering on the index-field 'lastName'.<br>",
-                "  Results will include all documents from the 'Employees' collection whose 'lastName' is 'SomeName'.<br><br>",
-                "  Note the usage of _ofType()_, which converts the type being used in the 'whereEquals' clause (the 'Result' type) to the collection type (Employee).",
-                "  While the 'Result' type allows for a strongly typed query in the client, the server returns the actual documents entities objects."
+                "  The query is filtering on the index-field 'LastName'.<br>",
+                "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'."
             ],
             "Assets": [
                 {

@@ -15,21 +15,8 @@ public class StaticIndexesOverview {
     //region Step_1
     public static class Employees_ByLastName extends AbstractIndexCreationTask {
     //endregion
+
         //region Step_2
-        public static class Result {
-            private String lastName;
-
-            public String getLastName() {
-                return lastName;
-            }
-
-            public void setLastName(String lastName) {
-                this.lastName = lastName;
-            }
-        }
-        //endregion
-
-        //region Step_3
         public Employees_ByLastName() {
             // Define:
             //    Map(s) functions
@@ -44,21 +31,18 @@ public class StaticIndexesOverview {
         //region Demo
         List<Employee> queryResults;
 
-        //region Step_4
+        //region Step_3
         new Employees_ByLastName().execute(DocumentStoreHolder.store);
         //endregion
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //region Step_5
-            IDocumentQuery<Employee> queryOnIndex = session.query(Employees_ByLastName.Result.class, Employees_ByLastName.class)
-                .whereEquals("LastName", "SomeName")
-                .ofType(Employee.class);
+            //region Step_4
+            IDocumentQuery<Employee> queryOnIndex = session.query(Employee.class, Employees_ByLastName.class)
+                .whereEquals("LastName", "SomeName");
 
             queryResults = queryOnIndex.toList();
-
             //endregion
         }
         //endregion
     }
-
 }

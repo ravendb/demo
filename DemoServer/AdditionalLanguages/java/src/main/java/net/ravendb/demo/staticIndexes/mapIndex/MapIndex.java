@@ -13,48 +13,8 @@ public class MapIndex {
     //region Step_1
     public static class Employees_ImportantDetails extends AbstractIndexCreationTask {
     //endregion
+
         //region Step_2
-        public static class Result {
-            private String fullName;
-            private String country;
-            private int workingInCompanySince;
-            private int numberOfTerritories;
-
-            public String getFullName() {
-                return fullName;
-            }
-
-            public void setFullName(String fullName) {
-                this.fullName = fullName;
-            }
-
-            public String getCountry() {
-                return country;
-            }
-
-            public void setCountry(String country) {
-                this.country = country;
-            }
-
-            public int getWorkingInCompanySince() {
-                return workingInCompanySince;
-            }
-
-            public void setWorkingInCompanySince(int workingInCompanySince) {
-                this.workingInCompanySince = workingInCompanySince;
-            }
-
-            public int getNumberOfTerritories() {
-                return numberOfTerritories;
-            }
-
-            public void setNumberOfTerritories(int numberOfTerritories) {
-                this.numberOfTerritories = numberOfTerritories;
-            }
-        }
-        //endregion
-
-        //region Step_3
         public Employees_ImportantDetails() {
             map = "docs.Employees.Select(employee => new { " +
                 "    FullName = (employee.FirstName + \" \") + employee.LastName, " +
@@ -74,11 +34,10 @@ public class MapIndex {
         List<Employee> employeesFromUSA;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //region Step_4
-            employeesFromUSA = session.query(Employees_ImportantDetails.Result.class, Employees_ImportantDetails.class)
+            //region Step_3
+            employeesFromUSA = session.query(Employee.class, Employees_ImportantDetails.class)
                 .whereEquals("Country", "USA")
                 .whereGreaterThan("WorkingInCompanySince", startYear)
-                .ofType(Employee.class)
                 .toList();
             //endregion
         }
