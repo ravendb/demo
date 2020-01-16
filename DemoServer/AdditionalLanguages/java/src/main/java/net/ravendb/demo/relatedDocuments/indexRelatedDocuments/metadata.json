@@ -1,6 +1,6 @@
 {
     "Slug": "index-related-documents",
-    "SourceFileName": "IndexRelatedDocumentsController.cs",
+    "SourceFileName": "IndexRelatedDocuments.java",
     "Title": "Index Related Documents",
     "DescriptionLines": [
         "**Data from Related Documents can be indexed** when defining an index.",
@@ -14,12 +14,12 @@
         {
             "Title": "Create Related Documents Demo",
             "Type" : "demo",
-            "Url"  : "/related-documents/create-related-documents"
+            "Url"  : "/java/related-documents/create-related-documents"
         },
         {
             "Title": "Indexing Related Documents",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-related-documents"
         },
         {
             "Title": "Reference handling, Include and LoadDocument",
@@ -39,7 +39,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/java/static-indexes/static-indexes-overview"
         }
     ],
 
@@ -54,41 +54,18 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index"
+                    "Url"  : "/java/static-indexes/map-index"
                 }
             ]
-        },
-        {
-            "Title": "The index fields",
-            "Slug" : "step-2",
-            "DescriptionLines": [
-                "* Define the index-fields.",
-                "",
-                "* Index-field _CategoryName_ will be configured to hold the actual category name, and Not the category document ID that exists in the Product document.",
-                "",
-                "* The index-field content will be taken from the _related Category document_ - as defined in the next step."
-            ],
-            "Assets": [
-                {
-                    "Title": "Static Indexes Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Index Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index"
-                }
-            ]
-        },
+        },      
         {
             "Title": "The index constructor",
-            "Slug" : "step-3",
+            "Slug" : "step-2",
             "DescriptionLines": [
                 "* Configure the index-fields content.",
                 "",
@@ -106,7 +83,7 @@
                 {
                     "Title": "Indexing Related Documents",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-related-documents"
                 },
                 {
                     "Title": "Reference handling, Include and LoadDocument",
@@ -122,7 +99,7 @@
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
@@ -145,12 +122,12 @@
                 {
                     "Title": "Query for documents (Map Index Demo)",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index#step-4"
+                    "Url"  : "/java/static-indexes/map-index#step-4"
                 },
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/java/queries/query-overview"
                 }
             ]
         }

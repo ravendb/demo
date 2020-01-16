@@ -1,12 +1,13 @@
 package net.ravendb.demo.textSearch.fTSWithStaticIndexSingleField;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldIndexing;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Category;
-
-import java.util.List;
 
 public class FTSWithStaticIndexSingleField {
 
@@ -14,28 +15,15 @@ public class FTSWithStaticIndexSingleField {
     //region Step_1
     public static class Categories_DescriptionText extends AbstractIndexCreationTask {
     //endregion
-        //region Step_2
-        public static class Result {
-            private String categoryDescription;
-
-            public String getCategoryDescription() {
-                return categoryDescription;
-            }
-
-            public void setCategoryDescription(String categoryDescription) {
-                this.categoryDescription = categoryDescription;
-            }
-        }
-        //endregion
 
         public Categories_DescriptionText() {
-            //region Step_3
+            //region Step_2
             map = "docs.Categories.Select(category => new { " +
                 "    CategoryDescription = category.Description " +
                 "})";
             //endregion
 
-            //region Step_4
+            //region Step_3
             index("CategoryDescription", FieldIndexing.SEARCH);
             //endregion
         }
@@ -49,10 +37,9 @@ public class FTSWithStaticIndexSingleField {
         List<Category> categoriesWithSearchTerm;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //region Step_5
-            categoriesWithSearchTerm = session.query(Categories_DescriptionText.Result.class, Categories_DescriptionText.class)
+            //region Step_4
+            categoriesWithSearchTerm = session.query(Category.class, Categories_DescriptionText.class)
                 .whereEquals("CategoryDescription", searchTerm)
-                .ofType(Category.class)
                 .toList();
             //endregion
         }

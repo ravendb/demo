@@ -1,12 +1,13 @@
 package net.ravendb.demo.textSearch.fTSWithStaticIndexMultipleFields;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldIndexing;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.LastFm;
-
-import java.util.List;
 
 public class FTSWithStaticIndexMultipleFields {
 
@@ -14,22 +15,9 @@ public class FTSWithStaticIndexMultipleFields {
     //region Step_1
     public static class Song_TextData extends AbstractIndexCreationTask {
     //endregion
-        //region Step_2
-        public static class Result {
-            private String songData;
-
-            public String getSongData() {
-                return songData;
-            }
-
-            public void setSongData(String songData) {
-                this.songData = songData;
-            }
-        }
-        //endregion
 
         public Song_TextData() {
-            //region Step_3
+            //region Step_2
             map = "docs.LastFms.Select(song => new { " +
                 "    SongData = new object[] { " +
                 "        song.Artist, " +
@@ -40,7 +28,7 @@ public class FTSWithStaticIndexMultipleFields {
                 "})";
             //endregion
 
-            //region Step_4
+            //region Step_3
             index("SongData", FieldIndexing.SEARCH);
             //endregion
         }
@@ -54,11 +42,10 @@ public class FTSWithStaticIndexMultipleFields {
         List<LastFm> results;
 
         try (IDocumentSession session = DocumentStoreHolder.mediaStore.openSession()) {
-            //region Step_5
-            results = session.query(Song_TextData.Result.class, Song_TextData.class)
+            //region Step_4
+            results = session.query(LastFm.class, Song_TextData.class)
                 .search("SongData", searchTerm)
                 .take(20)
-                .ofType(LastFm.class)
                 .toList();
             //endregion
         }

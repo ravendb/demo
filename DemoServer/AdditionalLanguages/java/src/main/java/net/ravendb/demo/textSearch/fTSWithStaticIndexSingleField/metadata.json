@@ -1,6 +1,6 @@
 {
     "Slug": "fts-with-static-index-single-field",
-    "SourceFileName": "FTSWithStaticIndexSingleFieldController.cs",
+    "SourceFileName": "FTSWithStaticIndexSingleField.java",
     "Title": "Full Text Search with Static Index - Single Field",
     "DescriptionLines": [
         "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
@@ -30,17 +30,18 @@
         {
             "Title": "Analyzers",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
         },
-        {
-            "Title": "Querying - Searching",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching#static-indexes"
-        },
+        //TODO
+        //{
+        //    "Title": "Querying - Searching",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching#static-indexes"
+        //},
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/java/static-indexes/static-indexes-overview"
         }
     ],
 
@@ -49,22 +50,18 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Category_ - indicates that the source collection for the index will be the 'Categories' collection<br>",
-                "    * _Categories_DescriptionText.Result_ - is the shape of the resulting index-fields (see next step)"
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -77,37 +74,10 @@
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
                 }
             ]
-        },
-        {
-            "Title": "The index Result class",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* Define the index field(s). These fields will be indexed and can be queried on.",
-                "",
-                "* Index field _'CategoryDescription'_ is defined here.<br>",
-                "  Its content is configured in the next step, within the index constructor."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
-                }
-            ]
-        },
+        },        
         {
             "Title": "Define the Map function",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
@@ -117,7 +87,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -133,9 +103,9 @@
         },
         {
             "Title": "Configure Full-Text Search",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use method `Index()` with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
+                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
                 "",
                 "* During the indexing process, the field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
@@ -165,13 +135,13 @@
                 {
                     "Title": "Analyzers",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/using-analyzers"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
                 }
             ]
         },
         {
             "Title": "Search for documents with a specific term",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Now you can search for documents from collection 'Categories' that contain a specific term.",
                 "",
@@ -183,12 +153,12 @@
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index#step-4"
+                    "Url"  : "/java/static-indexes/map-index#step-4"
                 },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -203,7 +173,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

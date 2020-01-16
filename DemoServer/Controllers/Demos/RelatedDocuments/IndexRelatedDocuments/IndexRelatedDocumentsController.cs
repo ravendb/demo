@@ -36,7 +36,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
             public Products_ByCategoryName()
             {
                 Map = products => from product in products
-                    select new
+                    select new Result
                     {
                         CategoryName = LoadDocument<Category>(product.Category).Name
                     };

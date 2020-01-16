@@ -1,11 +1,12 @@
 package net.ravendb.demo.relatedDocuments.indexRelatedDocuments;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Product;
-
-import java.util.List;
 
 public class IndexRelatedDocuments {
 
@@ -15,20 +16,6 @@ public class IndexRelatedDocuments {
     //endregion
 
         //region Step_2
-        public static class Result {
-            private String categoryName;
-
-            public String getCategoryName() {
-                return categoryName;
-            }
-
-            public void setCategoryName(String categoryName) {
-                this.categoryName = categoryName;
-            }
-        }
-        //endregion
-
-        //region Step_3
         public Products_ByCategoryName() {
             map = "docs.products.Select(product => new { " +
                 "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name " +
@@ -45,11 +32,10 @@ public class IndexRelatedDocuments {
         List<Product> productsWithCategoryName;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //region Step_4
+            //region Step_3
             productsWithCategoryName = session
-                .query(Products_ByCategoryName.Result.class, Products_ByCategoryName.class)
+                .query(Product.class, Products_ByCategoryName.class)
                 .whereEquals("CategoryName", categoryName)
-                .ofType(Product.class)
                 .toList();
             //endregion
         }
