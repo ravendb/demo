@@ -1,6 +1,6 @@
 {
     "Slug": "store-attachment",
-    "SourceFileName": "StoreAttachment.Java",
+    "SourceFileName": "StoreAttachment.java",
     "Title": "Store Attachment",
     "DescriptionLines": [
         "**Attachments** are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",

@@ -5,11 +5,11 @@
             "directory": "basics"
         },
         "demos": [
-            "TheDocumentStore",
-            "TheSession",
-            "CreateDocument",
-            "EditDocument",
-            "DeleteDocument"
+            "theDocumentStore",
+            "theSession",
+            "createDocument",
+            "editDocument",
+            "deleteDocument"
         ]
     },
     {
@@ -18,9 +18,9 @@
             "directory": "relatedDocuments"
         },
         "demos": [
-            "CreateRelatedDocuments",
-            "LoadRelatedDocuments",
-            "QueryRelatedDocuments"
+            "createRelatedDocuments",
+            "loadRelatedDocuments",
+            "queryRelatedDocuments"
         ]
     },
     {
@@ -29,7 +29,7 @@
             "directory": "attachments"
         },
         "demos": [
-            "StoreAttachment"
+            "storeAttachment"
         ]
     },
     {
@@ -38,8 +38,8 @@
             "directory": "revisions"
         },
         "demos": [
-            "EnableRevisions",
-            "GetRevisions"
+            "enableRevisions",
+            "getRevisions"
         ]
     },
     {
@@ -48,15 +48,15 @@
             "directory": "queries"
         },
         "demos": [
-            "QueryOverview",
-            "QueryExample",
-            "FullCollectionQuery",
-            "QueryByDocumentId",
-            "FilteringResultsBasics",
-            "FilteringResultsMultipleConditions",
-            "ProjectingIndividualFields",
-            "SortingQueryResults",
-            "PagingQueryResults"
+            "queryOverview",
+            "queryExample",
+            "fullCollectionQuery",
+            "queryByDocumentId",
+            "filteringResultsBasics",
+            "filteringResultsMultipleConditions",
+            "projectingIndividualFields",
+            "sortingQueryResults",
+            "pagingQueryResults"
         ]
     },
     {
@@ -65,18 +65,18 @@
             "directory": "advanced"
         },
         "demos": [
-            "CreateDatabase"
+            "createDatabase"
         ]
     },
     {
         "category": {
             "slug": "static-indexes",
-            "directory": "StaticIndexes"
+            "directory": "staticIndexes"
         },
         "demos": [
-            "StaticIndexesOverview",
-            "MapIndex",
-            "MapReduceIndex"
+            "staticIndexesOverview",
+            "mapIndex",
+            "mapReduceIndex"
         ]
     }
 ]

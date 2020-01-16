@@ -1,6 +1,6 @@
 {
     "Slug": "query-by-document-Id",
-    "SourceFileName": "QueryByDocumentId.Java",
+    "SourceFileName": "QueryByDocumentId.java",
     "Title": "Query by Document ID",
     "DescriptionLines": [
         "Use a **Query by Document ID** to get a specific document from the database.",

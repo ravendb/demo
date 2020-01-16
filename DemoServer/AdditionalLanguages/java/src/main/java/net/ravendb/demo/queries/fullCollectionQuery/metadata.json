@@ -1,6 +1,6 @@
 {
     "Slug": "full-collection-query",
-    "SourceFileName": "FullCollectionQuery.Java",
+    "SourceFileName": "FullCollectionQuery.java",
     "Title": "Full Collection Query",
     "DescriptionLines": [
         "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",

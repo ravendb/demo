@@ -1,6 +1,6 @@
 {
     "Slug": "sorting-query-results",
-    "SourceFileName": "SortingQueryResults.Java",
+    "SourceFileName": "SortingQueryResults.java",
     "Title": "Sorting Query Results",
     "DescriptionLines": [
         "**Query results can be sorted.**<br>",
