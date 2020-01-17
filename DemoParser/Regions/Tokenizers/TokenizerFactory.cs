@@ -10,6 +10,7 @@ namespace DemoParser.Regions.Tokenizers
         {
             {DemoLanguage.CSharp, new Regex(@"#region\s*([a-zA-z0-9]*)")},
             {DemoLanguage.Java, new Regex(@"//region\s*([a-zA-z0-9]*)")},
+            {DemoLanguage.NodeJs, new Regex(@"//region\s*([a-zA-z0-9]*)")},
             {DemoLanguage.Go, new Regex(@"//region\s*([a-zA-z0-9]*)")}
         };
 
@@ -17,6 +18,7 @@ namespace DemoParser.Regions.Tokenizers
         {
             {DemoLanguage.CSharp, new Regex(@"#endregion")},
             {DemoLanguage.Java, new Regex(@"//endregion")},
+            {DemoLanguage.NodeJs, new Regex(@"//endregion")},
             {DemoLanguage.Go, new Regex(@"//endregion")}
         };
 
