@@ -22,8 +22,9 @@ namespace DemoServer
         private static readonly Dictionary<DemoLanguage, string> DemoCodePaths = new Dictionary<DemoLanguage, string>
         {
             {DemoLanguage.CSharp, Path.Combine("Controllers", "Demos")},
-            {DemoLanguage.Java, Path.Combine("AdditionalLanguages", "java", "src", "main", "java", "net", "ravendb", "demo")}, 
-            {DemoLanguage.Go, Path.Combine("AdditionalLanguages", "go")} 
+            {DemoLanguage.Java, Path.Combine("AdditionalLanguages", "java", "src", "main", "java", "net", "ravendb", "demo")},
+            {DemoLanguage.NodeJs, Path.Combine("AdditionalLanguages", "nodejs", "demo")},
+            {DemoLanguage.Go, Path.Combine("AdditionalLanguages", "go")}
             // add path
         };
 

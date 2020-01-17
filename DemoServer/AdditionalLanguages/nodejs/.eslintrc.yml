@@ -1,0 +1,17 @@
+env:
+  commonjs: true
+  es6: true
+  node: true
+  mocha: true
+extends:
+  - semistandard
+globals:
+  Atomics: readonly
+  SharedArrayBuffer: readonly
+parserOptions:
+  ecmaVersion: 2018
+rules: {
+    "spaced-comment": 0,
+    "indent": [2, 4],
+    "no-unused-vars": 0
+}
