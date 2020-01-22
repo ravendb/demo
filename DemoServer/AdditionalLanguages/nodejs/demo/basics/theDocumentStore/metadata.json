@@ -1,0 +1,63 @@
+{
+    "Slug": "the-document-store",
+    "SourceFileName": "index.js",
+    "Title": "The Document Store",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Document Store** is the main Client API object that establishes the communication between your client application and the RavenDB cluster.",
+        "",
+        "It is the single access point to a particular cluster, exposing methods to perform operations against the associated server instances,",
+        "holding the configuration, topology, cache and any customizations that you might have applied.",
+        "",
+        "The Document Store is thread safe.",
+        "",
+        "A single instance of a Document Store (singleton pattern) should be used per the lifetime of the application."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Singleton Pattern",
+            "Type" : "link",
+            "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the DocumentStoreHolder class",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* TODO..."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "The private store variable",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* TODO..."
+            ],
+            "Assets": [
+                {
+                    "Title": "Singleton Pattern",
+                    "Type" : "link",
+                    "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
+                }
+            ]
+        },
+        {
+            "Title": "Create the document store configuration",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* TODO..."
+            ],
+            "Assets": []
+        }
+    ]
+}
