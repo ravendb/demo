@@ -1,0 +1,11 @@
+[
+    {
+        "category": {
+            "slug": "basics",
+            "directory": "basics"
+        },
+        "demos": [
+            "theDocumentStore"
+        ]
+    }
+]
