@@ -46,6 +46,10 @@ namespace DemoServer.Utils.Demos
             catch (Exception e)
             {
                 _logger.LogError(e, "Error during source code parsing.");
+
+#if DEBUG
+                throw;
+#endif
             }
         }
 
