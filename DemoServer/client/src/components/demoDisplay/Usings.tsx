@@ -28,6 +28,7 @@ export class Usings extends React.Component<UsingsProps, UsingsState> {
             case "csharp":
                 return "usings";
             case "java":
+            case "nodejs":
             case "python":
             case "go":
                 return "imports";

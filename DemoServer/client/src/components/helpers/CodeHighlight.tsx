@@ -1,7 +1,7 @@
 import * as React from "react";
 import { addHighlightHook, removeHighlightHook } from "../../utils/highlight";
 import { addResizeListener, removeResizeListener } from "../../utils/resize";
-import { Language } from "../../models/common";
+import { Language, toHighlightLanguage } from "../../models/common";
 import { LinesRangeDto } from "../../models/dtos/demo";
 
 const Prism = window["Prism"] as any;
@@ -69,9 +69,10 @@ export class CodeHighlight extends React.Component<CodeHighlightProps, CodeHighl
 
     render() {
         const { id, language, linesStart, children } = this.props;
+        const highlightLanguage = toHighlightLanguage(language);
 
         return <pre id={id} className="line-numbers" data-start={linesStart} data-line={this.getHighlightRange()}>
-            <code className={`language-${language}`}>
+            <code className={`language-${highlightLanguage}`}>
                 {children}
             </code>
         </pre>;
