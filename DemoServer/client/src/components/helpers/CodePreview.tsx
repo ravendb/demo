@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Language } from "../../models/common";
+import { Language, toHighlightLanguage } from "../../models/common";
 
 const Prism = window["Prism"] as any;
 
@@ -26,9 +26,10 @@ export class CodePreview extends React.Component<CodePreviewProps, {}> {
 
     public render() {
         const { id, language, linesStart, children } = this.props;
+        const highlightLanguage = toHighlightLanguage(language);
 
         return <pre id={id} className="line-numbers" data-start={linesStart}>
-            <code className={`language-${language}`}>
+            <code className={`language-${highlightLanguage}`}>
                 {children}
             </code>
         </pre>;
