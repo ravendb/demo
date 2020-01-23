@@ -1,4 +1,4 @@
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run () {
     /**
@@ -9,7 +9,7 @@ async function run () {
 
     //region Demo
 
-    const session = store.openSession();
+    const session = documentStore.openSession();
 
     const numberOfEmployeesPerCountry = await session.query({ collection: 'employees' })
         .groupBy('Address.Country')

@@ -1,6 +1,6 @@
 {
     "Slug": "create-related-documents",
-    "SourceFileName": "CreateRelatedDocuments.go",
+    "SourceFileName": "index.js",
     "Title": "Create Related Documents",
     "DescriptionLines": [
         "A document can reference any other document from the database by storing the referenced document ID in the document.",
@@ -19,11 +19,27 @@
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
         },
+        //TODO
+        //{
+        //    "Title": "Indexing Related Documents",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/indexing-related-documents"
+        //},
         {
             "Title": "Loading and including related documents in a query",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#loading-and-including-related-documents"
-        },       
+        },
+        {
+            "Title": "Document Identifier Generation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/kb/document-identifier-generation"
+        },
+        {
+            "Title": "HiLo Algorithm",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/document-identifiers/hilo-algorithm"
+        },
         {
             "Title": "Client-side identifier generation (hilo)",
             "Type" : "link",
@@ -33,7 +49,7 @@
 
     "Walkthroughs": [
         {
-            "Title": "Create entities - Related documents",
+            "Title": "Create Node.js entities - Related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
                 "* Create the entities that will become the related documents.",
@@ -44,7 +60,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/create-document"
+                    "Url"  : "/nodejs/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -59,7 +75,7 @@
             ]
         },
         {
-            "Title": "Create entity - Primary document",
+            "Title": "Create Node.js entity - Primary document",
             "Slug" : "step-2",
             "DescriptionLines": [
                 "* Create the primary document entity that will reference the other documents"
@@ -68,7 +84,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/create-document"
+                    "Url"  : "/nodejs/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -86,10 +102,10 @@
             "Title": "Store - Related documents",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* `Store()` the related 'supplier' & 'category' documents in the Session.",
+                "* `store()` the related 'supplier' & 'category' documents in the Session.",
                 "",
-                "* The store request will be sent to the server only later with the SaveChanges() call.<br>",
-                "  But, the moment we return from Store(), the RavenDB client ensures that we have a _valid ID_ for the stored document that is ready to be used.",
+                "* The store request will be sent to the server only later with the saveChanges() call.<br>",
+                "  But, the moment we return from store(), the RavenDB client ensures that we have a _valid ID_ for the stored document that is ready to be used.",
                 "",
                 "* This ID can be used for referencing - see next step."
             ],
@@ -97,12 +113,22 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/create-document"
+                    "Url"  : "/nodejs/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/the-session"
+                    "Url"  : "/nodejs/basics/the-session"
+                },
+                {
+                    "Title": "Document Identifier Generation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/kb/document-identifier-generation"
+                },
+                {
+                    "Title": "HiLo Algorithm",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/document-identifiers/hilo-algorithm"
                 },
                 {
                     "Title": "Client-side identifier generation (hilo)",
@@ -118,9 +144,19 @@
                 "* Create a reference between the primary document and the related documents.<br>",
                 "  A reference to another document is a string property that contains the ID of the related document.",
                 "",
-                "* _supplier.ID_ & _category.ID_ contain the related documents IDs that were generated by the RavenDB client in the previous step."
+                "* _supplier.Id_ & _category.Id_ contain the related documents IDs that were generated by the RavenDB client in the previous step."
             ],
             "Assets": [
+                {
+                    "Title": "Document Identifier Generation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/kb/document-identifier-generation"
+                },
+                {
+                    "Title": "HiLo Algorithm",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/document-identifiers/hilo-algorithm"
+                },
                 {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",
@@ -138,7 +174,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/create-document"
+                    "Url"  : "/nodejs/basics/create-document"
                 }
             ]
         },
@@ -146,19 +182,19 @@
             "Title": "Save the changes",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* When calling `SaveChanges()`, all 3 documents will be created in the database:<br>",
+                "* When calling `saveChanges()`, all 3 documents will be created in the database:<br>",
                 "  the 'supplier', the 'category', and the 'product' document which references them."
             ],
             "Assets": [
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/create-document"
+                    "Url"  : "/nodejs/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/the-session"
+                    "Url"  : "/nodejs/basics/the-session"
                 }
             ]
         }

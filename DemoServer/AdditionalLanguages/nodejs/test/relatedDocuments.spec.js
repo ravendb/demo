@@ -1,5 +1,5 @@
 const assert = require('assert');
-const { store } = require('../demo/common/docStoreHolder');
+const { documentStore } = require('../demo/common/docStoreHolder');
 
 describe('Related documents', function () {
     it('create', async function () {
@@ -10,7 +10,7 @@ describe('Related documents', function () {
         });
         assert.ok(
             result);
-        const session = store.openSession();
+        const session = documentStore.openSession();
         const p = await session.load(result.id);
         assert.ok(p.supplier);
         assert.ok(p.category);
@@ -28,7 +28,7 @@ describe('Related documents', function () {
             phone: '123556'
         });
 
-        const session = store.openSession();
+        const session = documentStore.openSession();
         const product = await session
             .include('Supplier')
             .load(result.product.id);

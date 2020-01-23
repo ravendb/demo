@@ -1,8 +1,8 @@
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ numberOfUnits }) {
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     const sortedProducts = await session.query({ collection: 'products' })
     //endregion

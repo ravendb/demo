@@ -3,7 +3,7 @@ const {
     RevisionsConfiguration,
     RevisionsCollectionConfiguration
 } = require('ravendb');
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run () {
     //region Demo
@@ -15,10 +15,10 @@ async function run () {
     myRevisionsConfiguration.defaultConfig = defaultConfiguration;
 
     const revisionsConfigurationOperation = new ConfigureRevisionsOperation(myRevisionsConfiguration);
-    await store.maintenance.send(revisionsConfigurationOperation);
+    await documentStore.maintenance.send(revisionsConfigurationOperation);
     //endregion
 
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_2
     const company = await session.load('companies/7-A');
 

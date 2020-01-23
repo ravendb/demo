@@ -7,14 +7,14 @@ const { DocumentStore } = require('ravendb');
 const serverUrl = 'http://localhost:8080';
 const databaseName = 'YourDatabaseName';
 
-const store = new DocumentStore(serverUrl, databaseName);
+const documentStore = new DocumentStore([serverUrl], databaseName);
 //endregion
 
 //region Step_2
-store.initialize();
+documentStore.initialize();
 //endregion
 
 //region Step_3
-module.exports = { store };
+module.exports = { documentStore };
 //endregion
 //endregion

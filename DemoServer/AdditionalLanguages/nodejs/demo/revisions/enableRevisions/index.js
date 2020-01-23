@@ -3,7 +3,7 @@ const {
     RevisionsConfiguration,
     RevisionsCollectionConfiguration
 } = require('ravendb');
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ collection1, collection2 }) {
     //region Demo
@@ -36,7 +36,7 @@ async function run ({ collection1, collection2 }) {
 
     //region Step_4
     const revisionsConfigurationOperation = new ConfigureRevisionsOperation(myRevisionsConfiguration);
-    await store.maintenance.send(revisionsConfigurationOperation);
+    await documentStore.maintenance.send(revisionsConfigurationOperation);
     //endregion
     //endregion
 }

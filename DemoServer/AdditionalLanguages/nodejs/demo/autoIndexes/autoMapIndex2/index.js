@@ -1,8 +1,8 @@
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ country }) {
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     const findEmployeeQuery = session.query({ collection: 'employees' })
         .whereEquals('Address.Country', country)

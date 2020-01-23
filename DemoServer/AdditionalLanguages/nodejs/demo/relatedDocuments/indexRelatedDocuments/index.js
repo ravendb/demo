@@ -1,16 +1,14 @@
-/* eslint-disable camelcase */
+//region Usings
 const { AbstractIndexCreationTask } = require('ravendb');
-const { store } = require('../../common/docStoreHolder');
+//endregion
+const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
-//region Step_2
-// TODO
-//endregion
 //region Step_1
 class Products_ByCategoryName extends AbstractIndexCreationTask {
-    //endregion
+//endregion
 
-    //region Step_3
+    //region Step_2
     constructor () {
         super();
 
@@ -24,11 +22,11 @@ class Products_ByCategoryName extends AbstractIndexCreationTask {
 //endregion
 
 async function run ({ categoryName }) {
-    await store.executeIndex(new Products_ByCategoryName());
+    await documentStore.executeIndex(new Products_ByCategoryName());
 
     //region Demo
-    const session = store.openSession();
-    //region Step_4
+    const session = documentStore.openSession();
+    //region Step_3
     const productsWithCategoryName = await session
         .query({ indexName: 'Products/ByCategoryName' })
         .whereEquals('CategoryName', categoryName)

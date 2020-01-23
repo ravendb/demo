@@ -1,7 +1,7 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable camelcase */
 const { AbstractIndexCreationTask } = require('ravendb');
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 module.exports = { run };
 
@@ -29,10 +29,10 @@ class Categories_DescriptionText extends AbstractIndexCreationTask {
 //endregion
 
 async function run ({ searchTerm }) {
-    await store.executeIndex(new Categories_DescriptionText());
+    await documentStore.executeIndex(new Categories_DescriptionText());
 
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_5
     const categoriesWithSearchTerm = await session.query({ indexName: 'Categories/DescriptionText' })
         .whereEquals('CategoryDescription', searchTerm)

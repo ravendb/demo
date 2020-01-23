@@ -1,10 +1,10 @@
 //region Usings
 //endregion
-const { store } = require('../common/docStoreHolder');
+const { documentStore } = require('../common/docStoreHolder');
 
 async function run ({ documentId }) {
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     session.delete(documentId);
     //endregion

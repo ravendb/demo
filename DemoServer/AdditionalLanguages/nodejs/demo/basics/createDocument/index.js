@@ -1,7 +1,6 @@
-/* eslint-disable no-unused-vars */
 //region Usings
 //endregion
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 const { Company, Contact } = require('../../common/models');
 
 async function run ({ companyName, companyPhone, contactName, contactTitle }) {
@@ -18,7 +17,7 @@ async function run ({ companyName, companyPhone, contactName, contactTitle }) {
     newCompany.contact = newContact;
     //endregion
 
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_2
     await session.store(newCompany);
     //endregion

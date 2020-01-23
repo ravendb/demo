@@ -16,48 +16,132 @@
 
     "Assets": [
         {
-            "Title": "Singleton Pattern",
+            "Title": "Node.js Modules Caching",
             "Type" : "link",
-            "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
+            "Url"  : "https://nodejs.org/api/modules.html#modules_caching"
+        },
+        {
+            "Title": "The Document Store",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+        },
+        {
+            "Title": "What is a Document Store",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+        },
+        {
+            "Title": "Creating a document store",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+        },
+        {
+            "Title": "Setting up RavenDB",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
+        },
+        {
+            "Title": "Your first RavenDB program",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#your-first-ravendb-program"
         }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Define the DocumentStoreHolder class",
+            "Title": "Create a Document Store Instance",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* TODO..."
+                "* The const `documentStore` will hold an instance of the _Document Store object_ that will be used across your client application.",
+                "",
+                "* In addition to configuring your database, your cluster topology and a client certificate,<br>",
+                "  the Document Store exposes methods to perform operations such as:",
+                "",
+                "  * Open a Session for database transactions",
+                "  * Create & deploy indexes",
+                "  * Bulk documents actions",
+                "  * Manage the server with low-level operations commands",
+                "  * Changes API - receive messages from the server",
+                "  * Perform custom actions in response to Session's events",
+                "  * Subscription tasks management",
+                "  * Export & Import database data.",
+                "",
+                "* At this point, before initializing the Document Store (in step 2), the following info can be configured:",
+                "",
+                "  * _URLs_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.",
+                "",
+                "  * _Database_ - Specify the default database name this Document Store will work against.",
+                "",
+                "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
+                "",
+                "  * _Conventions_ - Customize various settings and behaviors."
             ],
             "Assets": [
                 {
                     "Title": "The Document Store",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                },
+                {
+                    "Title": "What is a Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+                },
+                {
+                    "Title": "Creating a document store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+                },
+                {
+                    "Title": "Setting up RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
                 }
             ]
         },
         {
-            "Title": "The private store variable",
+            "Title": "Initialize the Document Store object",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* TODO..."
+                "* To be able to work on the DocumentStore, Call `initialize()` to get the fully initialized Document Store instance.",
+                "",
+                "* The initialize() method will:",
+                "  * Verify that URLs field is set (not empty)",
+                "  * Freeze the Conventions. Conventions can't be set after calling initialize()"
             ],
             "Assets": [
                 {
-                    "Title": "Singleton Pattern",
+                    "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://www.journaldev.com/1377/java-singleton-design-pattern-best-practices-examples"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+                },
+                {
+                    "Title": "Creating a document store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+                },
+                {
+                    "Title": "Setting up RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
                 }
             ]
         },
         {
-            "Title": "Create the document store configuration",
+            "Title": "Export the Document Store Object",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* TODO..."
+                "* Export the document store object wrapped as a module.<br>",
+                "  It will be cached and act as a singleton."
             ],
-            "Assets": []
+            "Assets": [
+                {
+                    "Title": "Node.js Modules Caching",
+                    "Type" : "link",
+                    "Url"  : "https://nodejs.org/api/modules.html#modules_caching"
+                }
+            ]
         }
     ]
 }

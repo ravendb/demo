@@ -3,6 +3,6 @@ before(() => {
 });
 
 after(() => {
-    require('../demo/common/docStoreHolder').store.dispose();
+    require('../demo/common/docStoreHolder').documentStore.dispose();
     require('../demo/common/docStoreHolder').mediaStore.dispose();
 });

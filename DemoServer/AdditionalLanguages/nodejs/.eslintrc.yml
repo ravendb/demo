@@ -13,5 +13,6 @@ parserOptions:
 rules: {
     "spaced-comment": 0,
     "indent": [2, 4],
-    "no-unused-vars": 0
+    "no-unused-vars": 0,
+    "camelcase": 0
 }
