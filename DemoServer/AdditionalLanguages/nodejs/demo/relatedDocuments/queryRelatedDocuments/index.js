@@ -1,8 +1,8 @@
-const { store } = require('../../common/docstoreholder');
+const { documentStore } = require('../../common/docstoreholder');
 
 async function run () {
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     const shippedOrders = await session.query({ collection: 'orders' })
         .include('Lines.Product')

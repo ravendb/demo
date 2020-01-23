@@ -1,6 +1,6 @@
 {
     "Slug": "the-session",
-    "SourceFileName": "TheSession.go",
+    "SourceFileName": "index.js",
     "Title": "The Session",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -16,11 +16,28 @@
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
         },
+        //TODO
+        //{
+        //    "Title": "What is a Session",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
+        //},
+        //{
+        //    "Title": "Opening a Session",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/opening-a-session"
+        //},
         {
             "Title": "The SaveChanges Command",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
         }
+        //TODO
+        //{
+        //    "Title": "Saving Changes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/saving-changes"
+        //}
     ],
 
     "Walkthroughs": [
@@ -32,9 +49,10 @@
                 "  Start by obtaining a new Session object from the Document Store.",
                 "",
                 "* Any change made to the documents loaded to the Session will be _tracked_ by the Session.<br>",
-                "  These changes will be persisted to the database when calling SaveChanges() later on.",
+                "  These changes will be persisted to the database when calling saveChanges() later on.",
                 "",
-                "* If no database is specified then the _default_ database (stored in the Document Store) is used."
+                "* _Note_:",
+                "  * If no database is specified then the _default_ database (stored in the Document Store) is used."
             ],
             "Assets": [
                 {
@@ -42,10 +60,21 @@
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
                 },
+                //TODO
+                //{
+                //    "Title": "What is a Session",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
+                //},
+                //{
+                //    "Title": "Opening a Session",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/opening-a-session"
+                //},
                 {
                     "Title": "The Document Store Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/the-document-store"
+                    "Url"  : "/nodejs/basics/the-document-store"
                 }
             ]
         },
@@ -60,7 +89,7 @@
                 "  You don’t need to manually track the changes to these 'loaded' document entities and decide what needs to be saved and what doesn’t.",
                 "  The Session will do it for you.",
                 "",
-                "* The Session tracks both the documents body and metadata - any change made will be sent back to the server when SaveChanges() is called later on.",
+                "* The Session tracks both the documents body and metadata - any change made will be sent back to the server when saveChanges() is called later on.",
                 "",
                 "* A configurable _number of requests_ can be made within a single session to the server.<br>",
                 "  Design your code - use multiple Sessions as needed."
@@ -70,6 +99,11 @@
                     "Title": "The Store Command",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                },
+                {
+                    "Title": "Storing Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/storing-entities"
                 }
             ]
         },
@@ -77,15 +111,15 @@
             "Title": "Save the changes",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* The `SaveChanges()` call checks the Session state for _all_ changes made (e.g. a new entity was added) - ",
-                "  you don't need to call SaveChanges() per changed entity.",
+                "* The `saveChanges()` call checks the Session state for _all_ changes made (e.g. a new entity was added) - ",
+                "  you don't need to call saveChanges() per changed entity.",
                 "",
                 "* These changes are sent to the server as a single remote call that will complete transactionally.<br>",
                 "  In other words, either all changes are saved as a single unit or none of them are.",
                 "",
-                "* Once SaveChanges() returns, it is guaranteed that the changes are persisted to the database.",
+                "* Once saveChanges() returns, it is guaranteed that the changes are persisted to the database.",
                 "",
-                "* The SaveChanges() is the only time when a RavenDB client sends updates to the server,<br>",
+                "* The saveChanges() is the only time when a RavenDB client sends updates to the server,<br>",
                 "  so that you will experience a reduced number of network calls."
             ],
             "Assets": [
@@ -94,15 +128,12 @@
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
                 }
-            ]
-        },
-        {
-            "Title": "Close the session",
-            "Slug" : "step-4",
-            "DescriptionLines": [
-                "* Make sure to `Close()` the session to free resources associated with it."
-            ],
-            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Saving Changes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/saving-changes"
+                //}
             ]
         }
     ]

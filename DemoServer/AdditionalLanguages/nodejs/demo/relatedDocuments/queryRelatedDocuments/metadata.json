@@ -1,6 +1,6 @@
 {
     "Slug": "query-related-documents",
-    "SourceFileName": "QueryRelatedDocuments.java",
+    "SourceFileName": "index.js",
     "Title": "Query Related Documents",
     "DescriptionLines": [
         "**A query can ask the server to include related documents** in its response to the query.",
@@ -12,18 +12,19 @@
         {
             "Title": "Create Related Documents Demo",
             "Type" : "demo",
-            "Url"  : "/java/related-documents/create-related-documents"
+            "Url"  : "/nodejs/related-documents/create-related-documents"
         },
         {
             "Title": "Load Related Documents Demo",
             "Type" : "demo",
-            "Url"  : "/java/related-documents/load-related-documents"
+            "Url"  : "/nodejs/related-documents/load-related-documents"
         },
-        {
-            "Title": "Documents relationships - Include",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
-        },
+        //TODO
+        //{
+        //    "Title": "Documents relationships - Include",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+        //},
         {
             "Title": "Working with multiple documents",
             "Type" : "link",
@@ -52,11 +53,12 @@
                 "  Since the query is not using an index and filtering is applied, an auto-index will be created if no matching auto-index already exists."
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                //TODO
+                //{
+                //    "Title": "Documents relationships - Include",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+                //},
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
@@ -65,7 +67,7 @@
                 {
                     "Title": "Filtering Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/filtering-results-basics"
+                    "Url"  : "/nodejs/queries/filtering-results-basics"
                 }
             ]
         },
@@ -94,11 +96,12 @@
                 "  The above modifications will be persisted to the database upon the next saveChanges() call."
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                //TODO
+                //{
+                //    "Title": "Documents relationships - Include",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
+                //},
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
@@ -107,7 +110,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/edit-document#step-1"
+                    "Url"  : "/nodejs/basics/edit-document#step-1"
                 }
             ]
         },
@@ -123,7 +126,7 @@
                 {
                     "Title": "Save changes (The Session Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/the-session#step-3"
+                    "Url"  : "/nodejs/basics/the-session#step-3"
                 }
             ]
         }

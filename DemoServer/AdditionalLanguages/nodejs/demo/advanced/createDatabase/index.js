@@ -1,7 +1,7 @@
 //region Usings
 const { CreateDatabaseOperation } = require('ravendb');
 //endregion
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run () {
     const databaseName = 'someDb';
@@ -13,7 +13,7 @@ async function run () {
         //endregion
 
         //region Step_2
-        await store.maintenance.server.send(createDatabaseOperation);
+        await documentStore.maintenance.server.send(createDatabaseOperation);
         //endregion
     } catch (err) {
         if (err.name === 'ConcurrencyException') {

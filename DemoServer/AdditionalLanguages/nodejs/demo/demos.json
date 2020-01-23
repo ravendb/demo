@@ -5,7 +5,23 @@
             "directory": "basics"
         },
         "demos": [
-            "theDocumentStore"
+            "theDocumentStore",
+            "theSession",
+            "createDocument",
+            "editDocument",
+            "deleteDocument"
+        ]
+    },
+    {
+        "category": {
+            "slug": "related-documents",
+            "directory": "relatedDocuments"
+        },
+        "demos": [
+            "createRelatedDocuments",
+            "loadRelatedDocuments",
+            "queryRelatedDocuments",
+            "indexRelatedDocuments"
         ]
     }
 ]

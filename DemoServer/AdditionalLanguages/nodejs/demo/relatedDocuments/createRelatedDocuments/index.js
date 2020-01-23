@@ -1,5 +1,5 @@
-const { store } = require('../../common/docStoreHolder');
 const { Supplier, Category, Product } = require('../../common/models');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ supplierName, supplierPhone, productName }) {
     //region Demo
@@ -18,7 +18,7 @@ async function run ({ supplierName, supplierPhone, productName }) {
     product.name = productName;
     //endregion
 
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_3
     await session.store(supplier);
     await session.store(category);

@@ -1,8 +1,8 @@
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ pricePerUnit, phone }) {
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     const product = await session
         .include('Supplier')

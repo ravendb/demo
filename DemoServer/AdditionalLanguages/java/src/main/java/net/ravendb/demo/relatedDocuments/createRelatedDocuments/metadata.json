@@ -51,11 +51,9 @@
             "Title": "Create Java entities - Related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Create the related document entities that will be stored and referenced.",
+                "* Create the entities that will become the related documents.",
                 "",
-                "* Each document should be is independent, isolated and coherent.",
-                "",
-                "* 'supplier' & 'category' will be stored & referenced in the next steps."
+                "* 'supplier' & 'category' will be stored and then referenced to from another 'primary' document."
             ],
             "Assets": [
                 {
@@ -100,7 +98,7 @@
             ]
         },
         {
-            "Title": "Store - related documents",
+            "Title": "Store - Related documents",
             "Slug" : "step-3",
             "DescriptionLines": [
                 "* `store()` the related 'supplier' & 'category' documents in the Session.",
@@ -166,7 +164,7 @@
             ]
         },
         {
-            "Title": "Store - primary document",
+            "Title": "Store - Primary document",
             "Slug" : "step-5",
             "DescriptionLines": [
                 "Store the primary document itself in the session."

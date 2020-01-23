@@ -1,4 +1,4 @@
-const { store } = require('../../common/docStoreHolder');
+const { documentStore } = require('../../common/docStoreHolder');
 
 //region Usings
 //endregion
@@ -9,7 +9,7 @@ async function run ({ documentId, attachmentName, contentType, attachment }) {
     documentId = documentId || DEFAULT_DOCUMENT_ID;
 
     //region Demo
-    const session = store.openSession();
+    const session = documentStore.openSession();
     //region Step_1
     // attachment can be a Buffer or Node.js Readable
     //endregion

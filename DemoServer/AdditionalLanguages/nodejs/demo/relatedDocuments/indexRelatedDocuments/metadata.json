@@ -1,6 +1,6 @@
 {
     "Slug": "index-related-documents",
-    "SourceFileName": "IndexRelatedDocuments.java",
+    "SourceFileName": "index.js",
     "Title": "Index Related Documents",
     "DescriptionLines": [
         "**Data from Related Documents can be indexed** when defining an index.",
@@ -14,13 +14,14 @@
         {
             "Title": "Create Related Documents Demo",
             "Type" : "demo",
-            "Url"  : "/java/related-documents/create-related-documents"
+            "Url"  : "/nodejs/related-documents/create-related-documents"
         },
-        {
-            "Title": "Indexing Related Documents",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-related-documents"
-        },
+        //TODO
+        //{
+        //    "Title": "Indexing Related Documents",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/indexing-related-documents"
+        //},
         {
             "Title": "Reference handling, Include and LoadDocument",
             "Type" : "link",
@@ -39,7 +40,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/java/static-indexes/static-indexes-overview"
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
         }
     ],
 
@@ -54,12 +55,12 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
+                    "Url"  : "/nodejs/static-indexes/map-index"
                 }
             ]
         },      
@@ -80,11 +81,12 @@
                 "  Read about the cost of tracking related documents in the 'Indexing referenced data' related link."
             ],
             "Assets": [
-                {
-                    "Title": "Indexing Related Documents",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-related-documents"
-                },
+                //TODO
+                //{
+                //    "Title": "Indexing Related Documents",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/indexing-related-documents"
+                //},
                 {
                     "Title": "Reference handling, Include and LoadDocument",
                     "Type" : "link",
@@ -109,11 +111,12 @@
                 "  Using the index allows us to query by the category _Name_ itself."
             ],
             "Assets": [
-                {
-                    "Title": "Indexing Related Documents",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-related-documents"
-                },
+                //TODO
+                //{
+                //    "Title": "Indexing Related Documents",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/indexing-related-documents"
+                //},
                 {
                     "Title": "Indexing referenced data",
                     "Type" : "link",
@@ -122,12 +125,12 @@
                 {
                     "Title": "Query for documents (Map Index Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index#step-4"
+                    "Url"  : "/nodejs/static-indexes/map-index#step-4"
                 },
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-overview"
+                    "Url"  : "/nodejs/queries/query-overview"
                 }
             ]
         }

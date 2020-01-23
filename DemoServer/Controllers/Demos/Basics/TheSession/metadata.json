@@ -117,7 +117,8 @@
                 "",
                 "* Once SaveChanges() returns, it is guaranteed that the changes are persisted to the database.",
                 "",
-                "* The SaveChanges() is the only time when a RavenDB client sends updates to the server, so you will experience a reduced number of network calls."
+                "* The SaveChanges() is the only time when a RavenDB client sends updates to the server,<br>",
+                "  so that you will experience a reduced number of network calls."
             ],
             "Assets": [
                 {
