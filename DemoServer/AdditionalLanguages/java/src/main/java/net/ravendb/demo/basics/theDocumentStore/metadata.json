@@ -128,7 +128,7 @@
                 "  * _certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.<br>",
                 "    Use method _setCertificate()_ to set.",
                 "",
-                "  * _conventions_ - Customize various settings and behaviors.<br>",
+                "  * _conventions_ - Customize various settings and operation modes.<br>",
                 "    Use method _setConventions()_ to set."
             ],
             "Assets": [
@@ -158,7 +158,7 @@
             "Title": "Initialize the Document Store object",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* To be able to work on the DocumentStore, Call `initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, call `initialize()` to get the fully initialized Document Store instance.",
                 "",
                 "* The initialize() method will:",
                 "  * Verify that URLs field is set (not empty)",

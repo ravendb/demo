@@ -60,7 +60,7 @@
             "DescriptionLines": [
                 "* Create a Java object to be saved.",
                 "",
-                "* _The Java class name_ determines the collection to which the document will belong to in the database.<br>",
+                "* By default, _the Java class name_ determines the collection to which the document will belong to in the database.",
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
                 "* _The Java class members_ determine the document JSON structure in the database.<br>",
@@ -97,8 +97,10 @@
             "Title": "Store the new company object in the Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Associate the new entity with the Session `store()` command.<br>",
-                "  Note: The new document will be persisted to the database only later - when saveChanges() is called.",
+                "* Associate the new entity with the Session `store()` command.",
+                "",
+                "* Note: The new document will be persisted to the database once _saveChanges()_ is called.<br>",
+                "  See step-4.",
                 "",
                 "* However, the store() command will _immediately_ assign an ID to the new entity,<br>",
                 "  so you can refer to it in other documents that you'll save in the same batch.<br>",

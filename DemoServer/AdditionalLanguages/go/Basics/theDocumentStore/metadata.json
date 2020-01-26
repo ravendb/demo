@@ -103,7 +103,7 @@
             "Title": "Configure conventions (optional)",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Optionally, you can customize the _Conventions_ for various settings and behaviors."
+                "* Optionally, you can customize the _Conventions_ for various settings and operation modes."
             ],
             "Assets": [
                 {
@@ -117,7 +117,7 @@
             "Title": "Initialize the Document Store",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, call `Initialize()` to get the fully initialized Document Store instance.",
                 "",
                 "* The Initialize() method will:",
                 "  * Verify that URLs field is set (not empty)",

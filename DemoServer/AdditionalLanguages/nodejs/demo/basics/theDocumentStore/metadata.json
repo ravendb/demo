@@ -52,7 +52,7 @@
             "Title": "Create a Document Store Instance",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* The const `documentStore` will hold an instance of the _Document Store object_ that will be used across your client application.",
+                "* The const `documentStore` will hold an instance of the _Document Store class_ that will be used across your client application.",
                 "",
                 "* In addition to configuring your database, your cluster topology and a client certificate,<br>",
                 "  the Document Store exposes methods to perform operations such as:",
@@ -73,9 +73,9 @@
                 "",
                 "  * _Database_ - Specify the default database name this Document Store will work against.",
                 "",
-                "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
+                "  * _Certificate_ - Specify the Client Certificate ( *.pfx, *.pem ) which is used to authenticate the client to the RavenDB server.",
                 "",
-                "  * _Conventions_ - Customize various settings and behaviors."
+                "  * _Conventions_ - Customize various settings and operation modes."
             ],
             "Assets": [
                 {
@@ -104,7 +104,7 @@
             "Title": "Initialize the Document Store object",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* To be able to work on the DocumentStore, Call `initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, call `initialize()` to get the fully initialized Document Store instance.",
                 "",
                 "* The initialize() method will:",
                 "  * Verify that URLs field is set (not empty)",
@@ -132,8 +132,7 @@
             "Title": "Export the Document Store Object",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Export the document store object wrapped as a module.<br>",
-                "  It will be cached and act as a singleton."
+                "* Export the document store object wrapped as a module."
             ],
             "Assets": [
                 {

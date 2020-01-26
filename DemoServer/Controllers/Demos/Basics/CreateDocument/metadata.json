@@ -60,7 +60,7 @@
             "DescriptionLines": [
                 "* Create the C# object to be saved.",
                 "",
-                "* _The C# class name_ determines the collection to which the document will belong to in the database.<br>",
+                "* By default, _the C# class name_ determines the collection to which the document will belong to in the database.",
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
                 "* _The C# class properties_ determine the document JSON structure in the database.",
@@ -91,8 +91,10 @@
             "Title": "Store the new company object in the Session",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Associate the new entity with the Session `Store()` command.<br>",
-                "  Note: The new document will be persisted to the database only later - when SaveChanges() is called.",
+                "* Associate the new entity with the Session `Store()` command.",
+                "",
+                "* Note: The new document will be persisted to the database once _SaveChanges()_ is called.<br>", 
+                "  See step-4.",
                 "",
                 "* However, the Store() command will _immediately_ assign an ID to the new entity,<br>",
                 "  so you can refer to it in other documents that you'll save in the same batch.<br>",

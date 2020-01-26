@@ -123,7 +123,7 @@
                 "",
                 "  * _Certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
                 "",
-                "  * _Conventions_ - Customize various settings and behaviors.",
+                "  * _Conventions_ - Customize various settings and operation modes.",
                 "",
                 "* Remember to: Dispose the DocumentStore object when exiting the client application."
                 
@@ -155,7 +155,7 @@
             "Title": "Initialize the Document Store object",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* To be able to work on the DocumentStore, Call `Initialize()` to get the fully initialized Document Store instance.",
+                "* To be able to work on the DocumentStore, call `Initialize()` to get the fully initialized Document Store instance.",
                 "",
                 "* The Initialize() method will:",
                 "  * Verify that URLs field is set (not empty)",

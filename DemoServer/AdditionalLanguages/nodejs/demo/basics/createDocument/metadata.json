@@ -60,13 +60,13 @@
             "DescriptionLines": [
                 "* Create a Node.js object to be saved.",
                 "",
-                "* _The Node.js class name_ determines the collection to which the document will belong to in the database.<br>",
+                "* By default, _the JavaScript class name_ determines the collection to which the document will belong to in the database.",
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
-                "* _The Node.js class members_ determine the document JSON structure in the database.<br>",
+                "* _The JavaScript object fields_ determine the document JSON structure in the database.<br>",
                 "  The JSON serialization for the document fields follows the conventions set on the Document Store",
                 "",
-                "* Note: Having an 'Id' field property in the class definition is Not mandatory.<br>",
+                "* Note: Having an 'id' field property in the class definition is Not mandatory.<br>",
                 "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",
                 "  See step 3 for more details."
             ],
@@ -98,7 +98,8 @@
             "Slug" : "step-2",
             "DescriptionLines": [
                 "* Associate the new entity with the Session `store()` command.<br>",
-                "  Note: The new document will be persisted to the database only later - when saveChanges() is called.",
+                "  Note: The new document will be persisted to the database once _saveChanges()_ is called.<br>",
+                "  See step-4.",
                 "",
                 "* However, the store() command will _immediately_ assign an ID to the new entity,<br>",
                 "  so you can refer to it in other documents that you'll save in the same batch.<br>",
@@ -124,11 +125,11 @@
                 "* The Session takes care of generating the document identifier automatically.<br>",
                 "  The new stored entity ID is now available and can be used.",
                 "",
-                "* _If your Node.js class was defined with an 'id' property_:<br>",
+                "* _If your JavaScript object has an 'id' field_:<br>",
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
-                "* _If your Node.js class was Not defined with an 'id' property_:<br>",
-                "  => You can get the new stored entity ID using: `session.advanced().getDocumentId(newCompany)`"
+                "* _If your JavaScript object does Not contain an 'id' field_:<br>",
+                "  => You can get the new stored entity ID using: `session.advanced.getDocumentId(newCompany)`"
             ],
             "Assets": [
                 {
