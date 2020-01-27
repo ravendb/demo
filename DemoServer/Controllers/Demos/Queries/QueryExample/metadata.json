@@ -148,7 +148,7 @@
             "Slug": "step-8",
             "DescriptionLines": [
                 "* The _query_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or other method that forces immediate execution.",
+                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
                 "",
                 "* The _queryResults_ variable will hold the resulting 5 matching 'EmployeeDetails' entities, ordered by 'HiredAt' field value.",
                 "",

@@ -9,7 +9,8 @@ async function run () {
     //region Demo
     try {
         //region Step_1
-        const createDatabaseOperation = new CreateDatabaseOperation({ databaseName });
+        const databaseRecord = { databaseName };
+        const createDatabaseOperation = new CreateDatabaseOperation(databaseRecord);
         //endregion
 
         //region Step_2

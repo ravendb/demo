@@ -28,7 +28,7 @@
             "Title": "Create a database operation",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Provide an instance of a `DatabaseRecord` object containing the database name and configuration to the `CreateDatabaseOperation`.",
+                "* Provide an instance of a `DatabaseRecord` object containing the database name (required) and other settings (optional) to the `CreateDatabaseOperation`.",
                 "",
                 "* The database replication factor can be specified when initializing the CreateDatabaseOperation, otherwise the default is 1."
             ],
