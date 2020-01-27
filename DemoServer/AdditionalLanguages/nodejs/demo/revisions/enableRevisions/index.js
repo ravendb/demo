@@ -1,8 +1,10 @@
-const {
+//region Usings
+const {    
     ConfigureRevisionsOperation,
     RevisionsConfiguration,
     RevisionsCollectionConfiguration
 } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 async function run ({ collection1, collection2 }) {

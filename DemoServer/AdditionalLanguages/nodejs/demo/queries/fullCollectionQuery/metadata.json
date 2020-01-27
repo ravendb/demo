@@ -1,0 +1,111 @@
+{
+    "Slug": "full-collection-query",
+    "SourceFileName": "index.js",
+    "Title": "Full Collection Query",
+    "DescriptionLines": [
+        "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
+        "",
+        "No index is created as no filtering is applied."
+    ],
+
+    "Assets": [
+        //TODO
+        //{
+        //    "Title": "How to Query",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+        //},
+        {
+            "Title": "Readme - Querying documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+        },
+        {
+            "Title": "Querying Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "Query on a Session",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+        },
+        {
+            "Title": "What is a Collection",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/faq/what-is-a-collection"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the full collection query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Use `query({ collection: 'companies' })` to define a query on collection 'Companies'.<br>",
+                "  The results will include _all_ documents from this collection.",
+                "",
+                "* No index will be created when querying on a just the collection without any filtering.",
+                "",
+                "* _Note_: A full collection query can be an expensive operation, as all documents need to be retrieved from the server and sent over the network."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/queries/query-overview"
+                },
+                //TODO
+                //{
+                //    "Title": "How to Query",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+                //},
+                {
+                    "Title": "Querying Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                {
+                    "Title": "Query on a Session",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#query"
+                },
+                {
+                    "Title": "What is a Collection",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/faq/what-is-a-collection"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The 'fullCollectionQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `all()`, or any other method that forces immediate execution.",
+                "",
+                "* The 'collectionResults' variable will hold all the document entities in the 'Companies' collection.",
+                "",
+                "* The entities returned by the Query operation are _'loaded'_ to the Session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Readme - Execute query",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#all--first--single--count"
+                }
+            ]
+        }
+    ]
+}

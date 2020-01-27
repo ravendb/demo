@@ -1,0 +1,209 @@
+{
+    "Slug": "query-overview",
+    "SourceFileName": "index.js",
+    "Title": "Query Overview",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "RavenDB has rich querying and indexing support.",
+        "",
+        "**Query the database to find documents that match a particular predicate**.",
+        "The server will return only the matching documents.",
+        "",
+        "The returned documents are loaded and tracked by the Session (except for projections).",
+        "",
+        "From the session, query the database by using any of:",
+        "<p>* session.query<br>",
+        "* session.advanced.documentQuery<br>",
+        "* session.advanced.rawQuery (using RQL)</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Readme - Querying documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+        },
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/query-vs-document-query"
+        },
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        //TODO
+        //{
+        //    "Title": "How to Query",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+        //},
+        {
+            "Title": "Querying - Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+        },
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+        },
+        {
+            "Title": "RQL",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql"
+        }
+        //TODO
+        //{
+        //    "Title": "Auto indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+        //}
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* A query can be defined just on a _collection_, or on an _index_ as well.",
+                "",
+                "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
+                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
+
+                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",
+                "",
+                "* In this demo, a query is defined on the 'Employees' collection using the session `query()` method syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "Readme - Querying documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                },
+                //TODO
+                //{
+                //    "Title": "How to Query",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+                //},
+                {
+                    "Title": "Querying - Basics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+                },
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                }
+                //TODO
+                //{
+                //    "Title": "Auto indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#auto-indexes"
+                //}
+            ]
+        },
+        {
+            "Title": "Define query criteria",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the query criteria by which the server will filter the documents returned",
+                "",
+                "* For example, some available actions that can be used are: (see specific demos per action for details)",
+                "",
+                "    * _whereEquals()_ - Filter by documents fields properties",
+                "    * _search()_ - Filter by text",
+                "    * _include()_ - Include related documents",
+                "    * _statistics()_ - Get query stats",
+                "    * _orderBy()_ - Sort the results",
+                "    * _selectFields()_ - Customize the resulting entities fields (Projections)",
+                "    * _skip()_ & _take()_ - Paging the results",
+                "",
+                "* _Note_:<br>",
+                "  Computations cannot be defined in a query.<br>",
+                "  Use a 'static index' for computations."
+            ],
+            "Assets": [
+                {
+                    "Title": "Readme - Querying documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                },
+                {
+                    "Title": "Readme - Querying documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                },
+                //TODO
+                //{
+                //    "Title": "Querying - Filtering",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/filtering"
+                //},
+                //TODO
+                //{
+                //    "Title": "Querying - Searching",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/searching"
+                //},
+                //TODO
+                //{
+                //    "Title": "Documents relationships - Include",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+                //},
+                {
+                    "Title": "Query statistics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-get-query-statistics"
+                },
+                //TODO
+                //{
+                //    "Title": "Querying - Sorting",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/sorting"
+                //},
+                {
+                    "Title": "Querying - Projections",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/projections"
+                },
+                {
+                    "Title": "Querying - Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/paging"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'queryDefinition' variable only stores the query definition.<br>",
+                "  Execute the query by calling `all()`, or any other method that forces immediate execution.",
+                "",
+                "* The 'queryResults' variable will hold all the document entities that matched the query definition.",
+                "",
+                "* The entities returned by the query are _'loaded'_ and tracked by the Session.<br>",
+                "  (The only exception are projections. Projected entities are Not tracked by the Session.)",
+                "",
+                "* Note: Queries are timed out after a defined (configurable) time period."
+            ],
+            "Assets": [
+                {
+                    "Title": "Readme - Querying documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                }
+            ]
+        }
+    ]
+}

@@ -8,6 +8,11 @@
 
     "Assets": [
         {
+            "Title": "Readme - Deleting documents",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#deleting-documents"
+        },
+        {
             "Title": "Deleting Entities",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/deleting-entities"
