@@ -1,6 +1,6 @@
 {
     "Slug": "enable-revisions",
-    "SourceFileName": "EnableRevisions.java",
+    "SourceFileName": "index.js",
     "Title": "Enable Revisions",
     "DescriptionLines": [
         "**Document Revisions** are snapshots of a document that are taken over time per document change.",
@@ -15,7 +15,7 @@
         {
             "Title": "Revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
         },
         {
             "Title": "Document Revisions",
@@ -25,7 +25,7 @@
         {
             "Title": "What are revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/revisions/what-are-revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/revisions/what-are-revisions"
         }
     ],
 
@@ -41,7 +41,7 @@
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
                 },
                 {
                     "Title": "Document Revisions",
@@ -58,26 +58,26 @@
                 "  Values can be overridden per collection, as shown in the next step.<br>",
                 "* Set any of the following:",
                 "",
-                "    * _setDisabled()_ - Enable or disable the revisions feature.",
-                "    * _setPurgeOnDelete()_ - Configure deletion of the revisions upon the parent document deletion.",
-                "    * _setMinimumRevisionsToKeep()_ - Configure number of revisions to keep.<br>",
+                "    * _disabled_ - Enable or disable the revisions feature.",
+                "    * _purgeOnDelete_ - Configure deletion of the revisions upon the parent document deletion.",
+                "    * _minimumRevisionsToKeep_ - Configure number of revisions to keep.<br>",
                 "       In this example, only the latest 5 revision will be kept.",
-                "    * _setMinimumRevisionAgeToKeep()_ - Configure the revisions retention time.<br>",
+                "    * _minimumRevisionAgeToKeep_ - Configure the revisions retention time.<br>",
                 "       In this example, revision will not be kept after 14 days.",
                 "",
-                "* Call `setDefaultConfig()` to set these default values on the revisions configuration object."
+                "* Set `defaultConfig` with the default configuration."
                 
             ],
             "Assets": [
                 {
                     "Title": "What are revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/revisions/what-are-revisions"
                 },
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
                 }
             ]
         },
@@ -87,18 +87,18 @@
             "DescriptionLines": [
                 "* Create a `RevisionsCollectionConfiguration` object to define different revisions configuration values per specific collection.<br>",
                 "",
-                "* Pass a Map of collections and their specific configuration to `setCollections()` to _override_ the default values that were set in the previous step."
+                "* Set `collections` with a Map of collections and their specific configuration to _override_ the default values that were set in the previous step."
             ],
             "Assets": [
                 {
                     "Title": "What are revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/revisions/what-are-revisions"
                 },
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
                 }
             ]
         },
@@ -108,7 +108,7 @@
             "DescriptionLines": [
                 "* Create a `ConfigureRevisionsOperation` and `send()` it to the Document Store.",
                 "",
-                "* Per collection, if 'Disabled' was set to false, then the revision feature will be enabled and a revision will be created for every document change."
+                "* Per collection, if 'disabled' was set to false, then the revision feature will be enabled and a revision will be created for every document change."
             ],
             "Assets": [
                 {

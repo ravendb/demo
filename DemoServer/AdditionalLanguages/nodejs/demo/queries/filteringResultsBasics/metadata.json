@@ -1,0 +1,121 @@
+{
+    "Slug": "filtering-results-basics",
+    "SourceFileName": "index.js",
+    "DescriptionLines": [
+        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "",
+        "Only the matching documents will be returned by the server."
+    ],
+
+    "Assets": [
+        //TODO
+        //{
+        //    "Title": "Querying: Filtering",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/filtering"
+        //},
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+        },
+        {
+            "Title": "RQL",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Query vs DocumentQuery",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/query-vs-document-query"
+        },
+        //TODO
+        //{
+        //    "Title": "Auto indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#auto-indexes"
+        //},
+        {
+            "Title": "Readme - Query methods overview",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#documentquery-methods-overview"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection Using the Session `query()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/queries/query-overview"
+                },
+                {
+                    "Title": "Readme - Querying documents",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Define a filtering condition",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:",
+                "     * Employee's first name is 'Anne'",
+                "",
+                "* More filtering options are available - see related links.",
+                "",
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing auto-index that can answer this query (see auto-indexes)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Readme - Query methods overview",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#documentquery-methods-overview"
+                },
+                //TODO
+                //{
+                //    "Title": "Querying: Filtering",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/filtering"
+                //},
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#querying-in-ravendb"
+                }
+                //TODO
+                //{
+                //    "Title": "Auto indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#auto-indexes"  
+                //}
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'filteredQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `all()`.",
+                "",
+                "* The 'filteredEmployees' variable will hold the resulting matching document entities.",
+                "",
+                "* The entities returned by the query are _'loaded'_ to the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Execute the Query - Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/queries/query-overview#step-3"
+                }
+            ]
+        }
+    ]
+}

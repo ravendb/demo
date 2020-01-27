@@ -1,0 +1,90 @@
+{
+    "Slug": "create-database",
+    "SourceFileName": "index.js",
+    "Title": "Create Database",
+    "DescriptionLines": [
+        "**Create a Database** in RavenDB Server.<br>",
+        "The database will hold your JSON documents.",
+        "",
+        "If you have more than one server instance in your RavenDB cluster,",
+        "then you can set the database replication factor."
+    ],
+
+    "Assets": [
+        //TODO
+        //{
+        //    "Title": "Create a database",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+        //},
+        //TODO
+        //{
+        //    "Title": "The database record",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database#databaserecord"
+        //},
+        {
+            "Title": "RavenDB cluster overview",
+            "Type" : "link",
+            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch06/CH06.md#an-overview-of-a-ravendb-cluster"
+        },
+        {
+            "Title": "Replication factor",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/glossary/replication-factor"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a database operation",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Provide a `DatabaseRecord` object containing the database name (required) and other settings (optional) to the `CreateDatabaseOperation`.",
+                "",
+                "* The database replication factor can be specified when initializing the CreateDatabaseOperation, otherwise the default is 1."
+            ],
+            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Create a database",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+                //},
+                //TODO
+                //{
+                //    "Title": "What are Operations",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/what-are-operations"
+                //},
+                {
+                    "Title": "Replication factor",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/glossary/replication-factor"
+                }
+            ]
+        },
+        {
+            "Title": "Create the database in RavenDB server",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Send the _CreateDatabaseOperation_ to the Document Store object for database creation.",
+                "",
+                "* Note: an exception is thrown if the database already exists."
+            ],
+            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Create a database",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+                //},
+                {
+                    "Title": "What is a Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store" 
+                }
+            ]
+        }
+    ]
+}

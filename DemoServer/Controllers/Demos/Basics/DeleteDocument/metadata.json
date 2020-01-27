@@ -32,7 +32,7 @@
                 "* When using Delete() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
                 "* A _Concurrency Exception_ can be thrown only when using the following overloads:",
                 "",
-                "     * void Delete<T>(T entity);",
+                "     * void Delete&lt;T&gt;(T entity);",
                 "     * void Delete(string id, string expectedChangeVector);"
             ],
             "Assets": [

@@ -26,6 +26,42 @@
     },
     {
         "category": {
+            "slug": "attachments",
+            "directory": "attachments"
+        },
+        "demos": [
+            "storeAttachment"
+        ]
+    },
+    {
+        "category": {
+            "slug": "revisions",
+            "directory": "revisions"
+        },
+        "demos": [
+            "enableRevisions",
+            "getRevisions"
+        ]
+    },
+    {
+        "category": {
+            "slug": "queries",
+            "directory": "queries"
+        },
+        "demos": [
+            "queryOverview",
+            "queryExample",
+            "fullCollectionQuery",
+            "queryByDocumentId",
+            "filteringResultsBasics",
+            "filteringResultsMultipleConditions",
+            "projectingIndividualFields",
+            "sortingQueryResults",
+            "pagingQueryResults"
+        ]
+    },
+    {
+        "category": {
             "slug": "static-indexes",
             "directory": "staticIndexes"
         },
@@ -55,6 +91,15 @@
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
 
+        ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "advanced"
+        },
+        "demos": [
+            "createDatabase"
         ]
     }
 ]

@@ -18,21 +18,6 @@ async function run () {
 
     //region Step_3
     const projectedResults = await projectedQuery.all();
-    // [
-    //     {
-    //       companyName: 'Alfreds Futterkiste',
-    //       city: 'Berlin',
-    //       country: 'Germany',
-    //       id: 'companies/1-A'
-    //     },
-    //     {
-    //       companyName: 'Ana Trujillo Emparedados y helados',
-    //       city: 'México D.F.',
-    //       country: 'Mexico',
-    //       id: 'companies/2-A'
-    //     },
-    //     ...
-    // [
     //endregion
     //endregion
     return projectedResults;

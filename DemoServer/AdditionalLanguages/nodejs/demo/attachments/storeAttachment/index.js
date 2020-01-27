@@ -10,18 +10,19 @@ async function run ({ documentId, attachmentName, contentType, attachment }) {
 
     //region Demo
     const session = documentStore.openSession();
-    //region Step_1
-    // attachment can be a Buffer or Node.js Readable
+    
+    //region Step_1   
+    const stream = fs.createReadStream(attachment);    
     //endregion
 
     //region Step_2
-    session.advanced.attachments.store(documentId, attachmentName, attachment, contentType);
+    session.advanced.attachments.store(documentId, attachmentName, stream, contentType);
     //endregion
 
     //region Step_3
     await session.saveChanges();
     //endregion
+    //endregion
 }
-//endregion
 
 module.exports = { run };
