@@ -12,7 +12,7 @@ export default class App extends React.Component<{}, {}> {
   private getDemoFactory = (routeParams: any) => <DemoFactory
     categorySlug={routeParams.category}
     demoSlug={routeParams.demo}
-  />
+  />;
 
   public render() {
     return <Switch>

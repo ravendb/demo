@@ -41,7 +41,7 @@ class HeaderComponent extends React.Component<Props, {}> {
 
         return <div className="header">
             <div>
-                <Link to="/"  className="logo" onClick={goToMainPage}>
+                <Link to="/" className="logo" onClick={goToMainPage}>
                     <img src="../img/logo.svg" alt="RavenDB Demo" />
                 </Link>
                 <div className="nav-urls">
