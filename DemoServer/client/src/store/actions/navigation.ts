@@ -35,6 +35,7 @@ export function goToMainPage(): DemoThunkAction {
     return (dispatch: DemoThunkDispatch) => {
         const url = "/";
         
+        dispatch(push(url));
         dispatch(wentToMainPage());
         dispatch(trackRelativeUrlPageView(url));
     };
@@ -49,8 +50,9 @@ export function goToDemoPage(category: CategorySlug, demo: DemoSlug, withPush: b
             language
         });
 
-        if (withPush)
+        if (withPush) {
             dispatch(push(url));
+        }
 
         dispatch(wentToDemoPage(category, demo, language));
         dispatch(trackRelativeUrlPageView(url));
