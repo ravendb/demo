@@ -1,6 +1,6 @@
-/* eslint-disable no-useless-constructor */
-/* eslint-disable camelcase */
+//region Usings
 const { AbstractIndexCreationTask } = require('ravendb');
+//endregion
 const { mediaStore } = require('../../common/docStoreHolder');
 
 module.exports = { run };
@@ -9,13 +9,11 @@ module.exports = { run };
 //region Step_1
 class Song_TextData extends AbstractIndexCreationTask {
 //endregion
-    //region Step_2
-    //endregion
 
     constructor () {
         super();
 
-        //region Step_3
+        //region Step_2
         this.map = `docs.LastFms.Select(song => new { 
                         SongData = new object[] { 
                             song.Artist, 
@@ -26,7 +24,7 @@ class Song_TextData extends AbstractIndexCreationTask {
                     })`;
         //endregion
 
-        //region Step_4
+        //region Step_3
         this.index('SongData', 'Search');
         //endregion
     }
@@ -38,7 +36,7 @@ async function run ({ searchTerm }) {
 
     //region Demo
     const session = mediaStore.openSession();
-    //region Step_5
+    //region Step_4
     const results = await session.query({ indexName: 'Song/TextData' })
         .search('SongData', searchTerm)
         .take(20)

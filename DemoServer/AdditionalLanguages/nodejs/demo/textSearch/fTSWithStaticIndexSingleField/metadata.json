@@ -1,20 +1,17 @@
 {
-    "Slug": "fts-with-static-index-multiple-fields",
-    "SourceFileName": "FTSWithStaticIndexMultipleFields.java",
-    "Title": "Full Text Search with Static Index - Multiple Fields",
-    "StudioLinkToMediaDatabase": true,
+    "Slug": "fts-with-static-index-single-field",
+    "SourceFileName": "index.js",
+    "Title": "Full Text Search with Static Index - Single Field",
     "DescriptionLines": [
-        "Combining several document fields in a single index-field enables performing **Full-Text-Search over Multiple Document Fields** using a single index-field.",
+        "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
         "",
-        "This allows for greater freedom in querying, as the client is Not limited to querying on a specific document field."
+        "Use a static index to define which document field will be searchable.",
+        "A query on this indexed field will result in documents that contain the term in that field.",
+        "",
+        "This demo will query for a specific food term in the 'Description' field of the 'Categories' collection documents."
     ],
 
     "Assets": [
-        {
-            "Title": "Full Text Search - Single Field Demo",
-            "Type" : "demo",
-            "Url"  : "/java/text-search/fts-with-static-index-single-field"
-        },
         {
             "Title": "Full text searching",
             "Type" : "link",
@@ -33,14 +30,19 @@
         {
             "Title": "Analyzers",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
-        }
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/using-analyzers"
+        },
         //TODO
         //{
         //    "Title": "Querying - Searching",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching#static-indexes"
-        //}
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/searching#static-indexes"
+        //},
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+        }
     ],
 
     "Walkthroughs": [
@@ -54,13 +56,14 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
                 },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
-                },
+                //TODO
+                //{
+                //    "Title": "Map Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-indexes"
+                //},
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -77,21 +80,26 @@
             "Title": "Define the Map function",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Define the Map function - Combine multiple document fields into a single index-field",
+                "* Define the Map function.",
                 "",
-                "* The content of index-field _'SongData'_ will be composed of the following four 'LastFm' document fields:",
-                "    * Artist, Title, Tags & TrackId"
+                "* Index-field _'CategoryDescription'_ will take its content from the document _'Description'_ field."
             ],
             "Assets": [
+                //TODO
+                //{
+                //    "Title": "Map Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-indexes"
+                //},
                 {
-                    "Title": "Full text search fields",
+                    "Title": "Static Indexes",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-search-fields"
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
                 },
                 {
-                    "Title": "Map Indexes",
+                    "Title": "Working with Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
                 }
             ]
         },
@@ -99,23 +107,18 @@
             "Title": "Configure Full-Text Search",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'SongData'.",
+                "* Use method `index()` with param _'Search'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
                 "",
-                "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
+                "* During the indexing process, the field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
                 "",
-                "* In this case, the terms include data originating from the document fields that were specified in the Map function - ",
-                "  Artist, Title, Tags, TrackId.",
+                "* Indexing the content as individual terms, and Not as one text item, allows you to search for documents that contain any of these terms.",
                 "",
-                "* Indexing the content as individual terms, and Not as one text item,",
-                "  allows you to search for documents that contain a specific term in _either_ of these fields."
+                "* Note: The way the text block is tokenized is determined by the analyzer used.<br>",
+                "        With the above syntax, the underlying analyzer used by RavenDB is the 'StandardAnalyzer'.<br>",
+                "        You can specify other analyzers or customize your own. Learn more in the related links."
             ],
             "Assets": [
-                {
-                    "Title": "Configure Full-Text Search (FTS - Single Field Demo)",
-                    "Type" : "demo",
-                    "Url"  : "/java/text-search/fts-with-static-index-single-field#step-4"
-                },
                 {
                     "Title": "Full text searching",
                     "Type" : "link",
@@ -134,7 +137,7 @@
                 {
                     "Title": "Analyzers",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/using-analyzers"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/using-analyzers"
                 }
             ]
         },
@@ -142,23 +145,28 @@
             "Title": "Search for documents with a specific term",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Now you can search for documents from collection 'LastFms' that contain a specific term.",
+                "* Now you can search for documents from collection 'Categories' that contain a specific term.",
                 "",
-                "* The query results (limited to 20) will be only those documents that contain the value of 'searchTerm' within either one the following fields:<br>",
-                "    * Artist, Title, Tags & TrackId",
+                "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
-                "* Note that the comparison is done against the indexed field _'SongData'_, which contains the terms that were generated from those fields."
+                "* Note that the comparison is done against the indexed field 'CategoryDescription' which was broken into terms."
             ],
             "Assets": [
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index#step-4"
+                    "Url"  : "/nodejs/static-indexes/map-index#step-4"
                 },
+                //TODO
+                //{
+                //    "Title": "Map Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-indexes"
+                //},
                 {
-                    "Title": "Map Indexes",
+                    "Title": "Static Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
@@ -168,12 +176,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
-                },
-                {
-                    "Title": "Full text search fields",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#full-text-search-fields"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

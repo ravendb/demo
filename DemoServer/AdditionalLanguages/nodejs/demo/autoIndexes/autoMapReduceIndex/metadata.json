@@ -1,6 +1,6 @@
 {
     "Slug": "auto-map-reduce-index",
-    "SourceFileName": "AutoMapReduceIndex.java",
+    "SourceFileName": "index.js",
     "Title": "Auto Map-Reduce Index",
     "StudioLinkToIndexList": true,
     "DescriptionLines": [
@@ -13,7 +13,7 @@
         {
             "Title": "Auto-Map-Index I Demo",
             "Type" : "demo",
-            "Url"  : "/java/auto-indexes/auto-map-index1"
+            "Url"  : "/nodejs/auto-indexes/auto-map-index1"
         },
         {
             "Title": "Aggregation queries",
@@ -34,12 +34,12 @@
         //{
         //    "Title": "Basic dynamic Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
         //},
         {
             "Title": "Dynamic group-by query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-perform-group-by-query"
         },
         {
             "Title": "The query optimizer",
@@ -50,33 +50,14 @@
         //{
         //    "Title": "Querying - Query Optimizer",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql#query-optimizer"
         //}
     ],
 
     "Walkthroughs": [
         {
-            "Title": "The results type",
-            "Slug" : "step-1",
-            "DescriptionLines": [
-                "* Define a class that will hold the aggregated data results.",
-                "",
-                "* The class fields are used when setting the aggregation action within the query definition.<br>",
-                "  See step 4.",
-                "",
-                "* The query in this demo will return the aggregated _numberOfEmployees_ in each _country_."
-            ],
-            "Assets": [
-                {
-                    "Title": "Dynamic group by query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
-                }
-            ]
-        },
-        {
             "Title": "Define a dynamic query",
-            "Slug" : "step-2",
+            "Slug" : "step-1",
             "DescriptionLines": [
                 "* Define a dynamic query on the 'Employees' collection.<br>",
                 "  Note - no index is specified."
@@ -85,12 +66,12 @@
                 {
                     "Title": "Auto-Map-Index I Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/auto-indexes/auto-map-index1"
+                    "Url"  : "/nodejs/auto-indexes/auto-map-index1"
                 },
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
                 }
                 //TODO
                 //{
@@ -102,7 +83,7 @@
         },
         {
             "Title": "Define what to Group-By",
-            "Slug" : "step-3",
+            "Slug" : "step-2",
             "DescriptionLines": [
                 "* Use `groupBy()` to define the document field(s) on which to group by.",
                 "",
@@ -138,13 +119,13 @@
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-perform-group-by-query"
                 }
             ]
         },
         {
             "Title": "Define the aggregation action",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "* Define the aggregation action - _the computation to be done per grouping key_.",
                 "",
@@ -181,23 +162,23 @@
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 //},
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-perform-group-by-query"
                 },
                 {
                     "Title": "Projecting Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/projecting-individual-fields"
+                    "Url"  : "/nodejs/queries/projecting-individual-fields"
                 }
             ]
         },
         {
             "Title": "Define results order",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Optionally, the query result set can be sorted according to any one of the result fields defined with the above 'select' methods."
             ],
@@ -205,27 +186,13 @@
                 {
                     "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/sorting-query-results"
+                    "Url"  : "/nodejs/queries/sorting-query-results"
                 }
             ]
-        },
-        {
-            "Title": "Set the results type",
-            "Slug" : "step-6",
-            "DescriptionLines": [
-                "* Use `ofType()` to set the shape of the query results."
-            ],
-            "Assets": [
-                {
-                    "Title": "The ofType Projection",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-project-query-results#oftype---simple-projection"
-                }
-            ]
-        },
+        },     
         {
             "Title": "Execute the dynamic query",
-            "Slug" : "step-7",
+            "Slug" : "step-5",
             "DescriptionLines": [
                 "* Upon query execution, the _query-optimizer_ will analyze the query to see if an Auto-Map-Reduce Index that can answer this query already exists.",
                 "",

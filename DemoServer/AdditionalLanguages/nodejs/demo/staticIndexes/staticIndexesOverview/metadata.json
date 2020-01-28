@@ -1,6 +1,6 @@
 {
     "Slug": "static-indexes-overview",
-    "SourceFileName": "StaticIndexesOverview.java",
+    "SourceFileName": "index.js",
     "Title": "Static Indexes Overview",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -22,7 +22,7 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Static Indexes",
@@ -35,25 +35,25 @@
             "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
         },
         {
-            "Title": "What Indexes Are",
+            "Title": "What indexes are",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes#what-indexes-are"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/what-are-indexes#what-indexes-are"
         },
         {
             "Title": "Indexing Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/indexing-basics"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/indexing-basics"
         },
         //TODO
         //{
         //    "Title": "Creating and Deploying Indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         //}, 
         {
             "Title": "Querying a Specified Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
         }
     ],
 
@@ -77,20 +77,21 @@
                 {
                     "Title": "Indexes Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview"
                 },
                 {
-                    "Title": "What Indexes Are",
+                    "Title": "What indexes are",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes#what-indexes-are"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/what-are-indexes#what-indexes-are"
                 },
+                //TODO
+                //{
+                //    "Title": "Static Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#static-indexes"
+                //},
                 {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#static-indexes"
-                },
-                {
-                    "Title": "Defining simple indexes",
+                    "Title": "Defining Simple Indexes",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
                 }
@@ -134,19 +135,19 @@
             ],
             "Assets": [
                 {
-                    "Title": "What are indexes",
+                    "Title": "What are Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/what-are-indexes"
                 },
                 {
-                    "Title": "Defining simple indexes",
+                    "Title": "Defining Simple Indexes",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
                 },
                 {
-                    "Title": "Guidelines - using pure functions",
+                    "Title": "Guidelines - Using pure functions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index#important-guidelines"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/create-map-reduce-index#important-guidelines"
                 }
             ]
         },
@@ -167,19 +168,19 @@
             "Assets": [
                 //TODO
                 //{
-                //    "Title": "Sending indexes to server",
+                //    "Title": "Sending Indexes to Server",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#sending-to-server"
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#sending-to-server"
                 //},
                 {
-                    "Title": "Deploying indexes",
+                    "Title": "Deploying Indexes",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#deploying-indexes"
                 },
                 {
-                    "Title": "Indexing process",
+                    "Title": "Indexing Process",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview#indexing-process"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview#indexing-process"
                 }
             ]
         },
@@ -191,17 +192,15 @@
                 "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
                 "     * _Query for an aggregated value_ (Map-Reduce index)",
                 "",
-                "* The generic params passed to the query are the expected results class and index class.",
-                "",
-                "* The above query example is on a Map typed index.<br>",
+                "* The above query example is on the Employees/ByLastName Map index.<br>",
                 "  The query is filtering on the index-field 'LastName'.<br>",
                 "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'."
             ],
             "Assets": [
                 {
-                    "Title": "Querying an index",
+                    "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

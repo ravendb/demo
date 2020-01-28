@@ -23,5 +23,38 @@
             "queryRelatedDocuments",
             "indexRelatedDocuments"
         ]
+    },
+    {
+        "category": {
+            "slug": "static-indexes",
+            "directory": "staticIndexes"
+        },
+        "demos": [
+            "staticIndexesOverview",
+            "mapIndex",
+            "mapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "auto-indexes",
+            "directory": "autoIndexes"
+        },
+        "demos": [
+            "autoMapIndex1",
+            "autoMapIndex2",
+            "autoMapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "text-search",
+            "directory": "textSearch"
+        },
+        "demos": [
+            "fTSWithStaticIndexSingleField",
+            "fTSWithStaticIndexMultipleFields"
+
+        ]
     }
 ]

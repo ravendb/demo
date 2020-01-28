@@ -82,7 +82,7 @@
             "autoMapReduceIndex"
         ]
     },
-{
+    {
         "category": {
             "slug": "text-search",
             "directory": "textSearch"
