@@ -207,7 +207,7 @@
             "DescriptionLines": [
                 "* When retrieving only 'page size' results, you might still need to know the total number of results.",
                 "",
-                "* The total number of documents in the result set can be retrieved from: `stats.totalResults()`.<br>",
+                "* The total number of documents in the result set can be retrieved from: `stats.totalResults`.<br>",
                 "  See step-2 for stats creation."
             ],
             "Assets": [
