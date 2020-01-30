@@ -75,7 +75,7 @@
                 "",
                 "* Regardless of the 'Where()' location in the LINQ query definition, _Filtering_ will always be applied in the server prior to the sorting phase.",
                 "",
-                "* When sorting without filtering, Ravendb will sort all of the resulting documents.<br>", 
+                "* When sorting without filtering, RavenDB will sort all of the resulting documents.<br>", 
                 "  _Applying filtering is recommended_, as it reduces the number of results RavenDB needs to sort when querying over a large set of data."
             ],
             "Assets": [

@@ -121,6 +121,18 @@
                     "Url"  : "/nodejs/queries/query-overview#step-3"
                 }
             ]
+        },
+        {
+            "Title": "Sample results",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* This is an example for the query results.",
+                "",
+                "* The shape contains only the fields that were defined by the projection (in Step 2),<br>",
+                "  (and not the whole 'Company' document shape)."
+            ],
+            "Assets": [
+            ]
         }
     ]
 }
