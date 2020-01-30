@@ -1,6 +1,6 @@
 {
     "Slug": "map-reduce-index",
-    "SourceFileName": "MapReduceIndex.java",
+    "SourceFileName": "index.js",
     "Title": "Map-Reduce Index",
     "DescriptionLines": [
         "**Complex data aggregation** computations can be performed with a **Map-Reduce index**.",
@@ -17,18 +17,19 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map-Reduce Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/create-map-reduce-index"
         },
-        {
-            "Title": "Map Reduce Indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-        },
+        //TODO
+        //{
+        //    "Title": "Map Reduce Indexes",
+        //    "Type" : "link",
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+        //},
         {
             "Title": "Map-Reduce and Aggregations",
             "Type" : "link",
@@ -43,12 +44,12 @@
         //{
         //    "Title": "Creating and Deploying Indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         //},
         {
             "Title": "Map-Reduce Visualizer",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/map-reduce-visualizer"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/map-reduce-visualizer"
         }
     ],
 
@@ -63,13 +64,14 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
                 },
-                {
-                    "Title": "Map Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-                },
+                //TODO
+                //{
+                //    "Title": "Map Reduce Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //},
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
@@ -100,11 +102,12 @@
                 "* Each resulting _index-entry_ will have the above 2 index-fields: 'Country' & 'CountryCount'."
             ],
             "Assets": [
-                {
-                    "Title": "Map Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-                },
+                //TODO
+                //{
+                //    "Title": "Map Reduce Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //},
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
@@ -132,37 +135,12 @@
                 "  `CountryCount = Enumerable.Sum(g, x => x.CountryCount)`  ==> The aggregating function"
             ],
             "Assets": [
-                {
-                    "Title": "Map Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-                },
-                {
-                    "Title": "Map-Reduce and Aggregations",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
-                },
-                {
-                    "Title": "Map-Reduce indexes via client code",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
-                }
-            ]
-        },
-        {
-            "Title": "The index Result class",
-            "Slug" : "step-4",
-            "DescriptionLines": [
-                "* The `Result` class fields must match the Map-Reduce index fields shape.",   
-                "",
-                "* These fields will be used to query the index - see next step."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-                },
+                //TODO
+                //{
+                //    "Title": "Map Reduce Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //},
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
@@ -177,15 +155,16 @@
         },
         {
             "Title": "Query for the aggregated value",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
-                "* Using the Map-Reduce index (`Employees_ByCountry`), query the 'Employees' collection to find the number of employees from a specific country.",
+                "* Using the Map-Reduce index (`Employees/ByCountry`), query the 'Employees' collection to find the number of employees from a specific country.",
                 "",
                 "* RavenDB will search the index for a matching index-entry that has the queried country in its 'Country' property.",
                 "",
                 "* Note: The return value of the query is Not a list of all documents that contain the queried country.",
-                "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'Result' class,",
-                "  from which you can retrieve 'CountryCount' - the aggregated value.",
+                "  The _queryResults_ variable will contain the matching index-entry, with the shape as defined in the index map and map-reduce functions.",
+                "",
+                "* Retrieve the aggregated 'CountryCount' value from queryResults.",
                 "",
                 "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results."
             ],
@@ -193,18 +172,19 @@
                 {
                     "Title": "Map-Reduce query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
                 },
                 {
                     "Title": "Map-Reduce Visualizer",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/map-reduce-visualizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/map-reduce-visualizer"
                 },
-                {
-                    "Title": "Map Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-reduce-indexes"
-                },
+                //TODO
+                //{
+                //    "Title": "Map Reduce Indexes",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //},
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",

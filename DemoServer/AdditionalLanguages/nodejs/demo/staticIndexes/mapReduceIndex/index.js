@@ -1,5 +1,6 @@
-/* eslint-disable camelcase */
+//region Usings
 const { AbstractIndexCreationTask } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
@@ -24,10 +25,6 @@ class Employees_ByCountry extends AbstractIndexCreationTask {
                         })`;
         //endregion
     }
-
-    //region Step_4
-    // TODO
-    //endregion
 }
 //endregion
 
@@ -36,7 +33,7 @@ async function run ({ country }) {
 
     //region Demo
     const session = documentStore.openSession();
-    //region Step_5
+    //region Step_4
     const queryResult = await session.query({ indexName: 'Employees/ByCountry' })
         .whereEquals('Country', country)
         .firstOrNull();

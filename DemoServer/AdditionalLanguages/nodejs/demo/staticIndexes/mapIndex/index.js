@@ -1,5 +1,6 @@
-/* eslint-disable camelcase */
+//region Usings
 const { AbstractIndexCreationTask } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo

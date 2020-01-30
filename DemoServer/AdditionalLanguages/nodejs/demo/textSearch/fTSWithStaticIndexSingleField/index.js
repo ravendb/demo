@@ -1,6 +1,6 @@
-/* eslint-disable no-useless-constructor */
-/* eslint-disable camelcase */
+//region Usings
 const { AbstractIndexCreationTask } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 module.exports = { run };
@@ -9,19 +9,16 @@ module.exports = { run };
 //region Step_1
 class Categories_DescriptionText extends AbstractIndexCreationTask {
 //endregion
-//region Step_2
-// TODO
-//endregion
 
     constructor () {
         super();
-        //region Step_3
+        //region Step_2
         this.map = `docs.Categories.Select(category => new { 
                         CategoryDescription = category.Description 
                     })`;
         //endregion
 
-        //region Step_4
+        //region Step_3
         this.index('CategoryDescription', 'Search');
         //endregion
     }
@@ -33,7 +30,7 @@ async function run ({ searchTerm }) {
 
     //region Demo
     const session = documentStore.openSession();
-    //region Step_5
+    //region Step_4
     const categoriesWithSearchTerm = await session.query({ indexName: 'Categories/DescriptionText' })
         .whereEquals('CategoryDescription', searchTerm)
         .all();

@@ -6,14 +6,14 @@
     "DescriptionLines": [
         "An **Auto Map-Reduce index** is created if no index is specified when issuing a query that performs data aggregation computations.",
         "",
-        "The Auto Map-Reduce Index will be created if there isn't any existing Auto Map-Reduce Index that can answer this dynamic query."
+        "The Auto Map-Reduce Index will be created only if an Auto Map-Reduce Index that can answer this dynamic query does not exist yet."
     ],
 
     "Assets": [
         {
             "Title": "Auto-Map-Index I Demo",
             "Type" : "demo",
-            "Url"  : "/auto-indexes/auto-map-index1"
+            "Url"  : "/java/auto-indexes/auto-map-index1"
         },
         {
             "Title": "Aggregation queries",
@@ -237,7 +237,7 @@
                 "* The _numberOfEmployeesPerCountry_ variable will hold the query results set.<br>",
                 "  Each entry in the result set will contain a unique country and the total number of employees in it.",
                 "",
-                "* Note: the results are Not tracked by the session, as they are Not document entities, but just data projected from the server'."
+                "* Note: the results are Not tracked by the session, as they are Not document entities, but just data projected from the server."
             ],
             "Assets": [
                 {

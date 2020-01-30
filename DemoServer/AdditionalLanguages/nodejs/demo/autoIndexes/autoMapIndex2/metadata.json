@@ -1,6 +1,6 @@
 {
     "Slug": "auto-map-index2",
-    "SourceFileName": "AutoMapIndex2.java",
+    "SourceFileName": "index.js",
     "Title": "Auto Map Index II",
     "StudioLinkToIndexList": true,
     "DescriptionLines": [
@@ -18,23 +18,23 @@
         //{
         //    "Title": "Querying - Query Optimizer",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql#query-optimizer"
         //},
         {
             "Title": "Quering Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
         },
         //TODO
         //{
         //    "Title": "Basic dynamic Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
         //},
         {
             "Title": "Indexes Types",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview#indexes-types"
+            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview#indexes-types"
         },
         {
             "Title": "Creating and managing indexes",
@@ -58,12 +58,12 @@
                 {
                     "Title": "Auto-Map-Index I Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/auto-indexes/auto-map-index1"
+                    "Url"  : "/nodejs/auto-indexes/auto-map-index1"
                 },
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
                 }
                 //TODO
                 //{
@@ -109,7 +109,7 @@
                 //{
                 //    "Title": "Querying - Query Optimizer",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
+                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql#query-optimizer"
                 //}
             ]
         }

@@ -94,10 +94,10 @@
                 "* The `index.Reduce` function is the second stage.<br>",
                 "  It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
                 "",
-                "* Specify the field to group-by:<br>",
-                "  * `groupBy(x => x.Country)`  ==> group by _index-field_ 'Country'",
+                "* _Specify the field to group-by_:<br>",
+                "  * `groupBy(x => x.Country)`  ==> group by index-field 'Country'",
                 "",
-                "* Specify the aggregation needed on that field:<br>",
+                "* _Specify the aggregation needed on that field_:<br>",
                 "  * `.aggregate()` is an aggregation function called for every document<br>",
                 "  * `Country: g.key`  ==>  The country we group by<br>",
                 "  * `Count: g.values.reduce((count, val) => val.CountryCount + count, 0)`  ==>  The aggregating function"
