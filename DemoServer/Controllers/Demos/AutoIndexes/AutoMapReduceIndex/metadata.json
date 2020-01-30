@@ -6,7 +6,7 @@
     "DescriptionLines": [
         "An **Auto Map-Reduce index** is created if no index is specified when issuing a query that performs data aggregation computations.",
         "",
-        "The Auto Map-Reduce Index will be created if there isn't any existing Auto Map-Reduce Index that can answer this dynamic query."
+        "The Auto Map-Reduce Index will be created only if an Auto Map-Reduce Index that can answer this dynamic query does not exist yet."
     ],
 
     "Assets": [

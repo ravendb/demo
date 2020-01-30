@@ -6,7 +6,7 @@
     "DescriptionLines": [
         "An **Auto Map-Reduce index** is created if no index is specified when issuing a query that performs data aggregation computations.",
         "",
-        "The Auto Map-Reduce Index will be created if there isn't any existing Auto Map-Reduce Index that can answer this dynamic query."
+        "The Auto Map-Reduce Index will be created only if an Auto Map-Reduce Index that can answer this dynamic query does not exist yet."
     ],
 
     "Assets": [
@@ -189,7 +189,7 @@
                     "Url"  : "/nodejs/queries/sorting-query-results"
                 }
             ]
-        },     
+        },
         {
             "Title": "Execute the dynamic query",
             "Slug" : "step-5",
@@ -219,6 +219,18 @@
                 //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
                 //}
             ]
-        }        
+        },
+        {
+            "Title": "Sample results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* This is an example for the query results.",
+                "",
+                "* The results shape contains the key field and the aggregated field only,<br>",
+                "  (and not the whole 'Employee' document shape)."
+            ],
+            "Assets": [
+            ]
+        }
     ]
 }

@@ -19,6 +19,21 @@ async function run () {
         //endregion
         //region Step_5
         .all();
+        //endregion
+    
+        //region Step_6
+        //   [
+        //     {
+        //       Country: 'USA',
+        //       NumberOfEmployees: 5,
+        //       '@metadata': { '@projection': true, '@change-vector': null, '@index-score': 1 }
+        //     },
+        //     {
+        //       Country: 'UK',
+        //       NumberOfEmployees: 4,
+        //       '@metadata': { '@projection': true, '@change-vector': null, '@index-score': 1 }
+        //     }
+        //   ]
         //endregion    
     //endregion
 
