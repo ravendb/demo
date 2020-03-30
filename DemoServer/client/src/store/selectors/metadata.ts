@@ -17,10 +17,14 @@ function getDemoImageSrcFromState({ categorySlug, demoSlug }: DemoState): string
 
 function getHtmlMetaTitle({ demo }: DemoState): string {
     const title = demo && demo.title;
-    return !!title ? `${title} | RavenDB Demo` : "RavenDB Demo";
+    return !!title ? `${title} | NoSQL Database Demo | RavenDB` : "NoSQL Database Demo | RavenDB";
 }
 
 function getHtmlMetaDescription({ demo }: DemoState): string {
+    if (!demo) {
+        return "Learn RavenDB NoSQL database though sample step-by-step tutorials";
+    }
+    
     const maxLength: number = 160;
 
     const descriptionHtml = demo && demo.descriptionHtml;

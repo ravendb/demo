@@ -50,7 +50,7 @@ class HomeComponent extends React.Component<Props, {}> {
         const { loading } = this.props;
 
         return <>
-            <div className="header-image"><h1>Dive into RavenDB</h1></div>
+            <div className="header-image"><h1>RavenDB NoSQL Database Demo</h1></div>
             <Spinner show={loading} />
             {!loading && this._demoList()}
         </>;
