@@ -2,7 +2,7 @@
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
 
@@ -66,8 +66,7 @@ module.exports = (env, argv) => {
             {
               loader: "css-loader",
               options: {
-                url: true,
-                minimize: !isProductionMode
+                url: true
               }
             },
             {
@@ -89,8 +88,7 @@ module.exports = (env, argv) => {
             {
               loader: "css-loader",
               options: {
-                url: true,
-                minimize: isProductionMode
+                url: true
               }
             }
           ]
@@ -118,11 +116,7 @@ module.exports = (env, argv) => {
       minimize: isProductionMode,
       noEmitOnErrors: true,
       minimizer: [
-        new UglifyJsPlugin({
-          cache: true,
-          parallel: true,
-          sourceMap: !isProductionMode
-        }),
+        new TerserPlugin(),
         new OptimizeCSSAssetsPlugin({
           assetNameRegExp: /\.css$/g,
           cssProcessor: require('cssnano'),
