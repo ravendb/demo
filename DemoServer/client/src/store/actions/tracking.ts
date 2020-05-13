@@ -67,7 +67,7 @@ export function initTrackingData(gtmContainerId: string): DemoThunkAction {
 
         dispatch(saveGtmContainerId(gtmContainerId));
         
-        const isCookieDisabledSet = CookieJar.isTrackingDisabledCookieSet();
+        const isCookieDisabledSet = CookieJar.isTrackingDisabled();
         
         if (!isCookieDisabledSet) {
             dispatch(showMonit());

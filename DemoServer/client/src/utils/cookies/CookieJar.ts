@@ -36,7 +36,7 @@ export class CookieJar {
         }
     }
     
-    public static isTrackingDisabledCookieSet(): boolean {
+    public static isTrackingDisabled(): boolean {
         const cookieValue = this._readCookieValue(CookieNames.trackingDisabled);
         return !!cookieValue;
     }
@@ -51,26 +51,7 @@ export class CookieJar {
         CookieJar._setCookieBoolValue(CookieNames.trackingDisabled, true);
     }
 
-    public static consentGiven(): boolean {
-        return CookieJar._readCookieBoolValue(CookieNames.consentGiven);
-    }
-
     public static trackingDisabled(): boolean {
         return CookieJar._readCookieBoolValue(CookieNames.trackingDisabled);
-    }
-
-    public static getConsentStatus(): ConstentStatus {
-        const consentGiven = CookieJar.consentGiven();
-        const trackingDisabled = CookieJar.trackingDisabled();
-
-        if (!consentGiven) {
-            return "no info";
-        }
-
-        if (!trackingDisabled) {
-            return "given";
-        }
-
-        return "withdrawn";
     }
 }
