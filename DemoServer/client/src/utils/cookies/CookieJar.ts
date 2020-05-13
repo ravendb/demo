@@ -35,6 +35,11 @@ export class CookieJar {
                 return null;
         }
     }
+    
+    public static isTrackingDisabledCookieSet(): boolean {
+        const cookieValue = this._readCookieValue(CookieNames.trackingDisabled);
+        return !!cookieValue;
+    }
 
     public static acceptAll() {
         CookieJar._setCookieBoolValue(CookieNames.consentGiven, true);

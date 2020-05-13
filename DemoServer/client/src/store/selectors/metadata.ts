@@ -17,7 +17,7 @@ function getDemoImageSrcFromState({ categorySlug, demoSlug }: DemoState): string
 
 function getHtmlMetaTitle({ demo }: DemoState): string {
     const title = demo && demo.title;
-    return !!title ? `${title} | NoSQL Database Demo | RavenDB` : "NoSQL Database Demo | RavenDB";
+    return !!title ? `${title} | NoSQL Database Demo | RavenDB NoSQL` : "NoSQL Database Demo | RavenDB NoSQL";
 }
 
 function getHtmlMetaDescription({ demo }: DemoState): string {

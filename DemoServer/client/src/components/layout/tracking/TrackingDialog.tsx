@@ -1,7 +1,7 @@
 import * as React from "react";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
-import { giveTrackingConsent, withdrawTrackingConsent } from "../../../store/actions/tracking";
+import { acceptTracking, withdrawTrackingConsent } from "../../../store/actions/tracking";
 import { DemoThunkDispatch } from "../../../store";
 import { IconSettings, IconLeft, IconConfirm } from "../../helpers/icons";
 
@@ -21,7 +21,7 @@ interface State {
     agreeChecked: boolean;
 }
 
-class TrackingDialogComponent extends React.Component<Props, State> {
+class TrackingDialogComponent extends React.Component<Props, State> { 
 
     constructor(props: Props) {
         super(props);
@@ -92,13 +92,13 @@ class TrackingDialogComponent extends React.Component<Props, State> {
             <p><strong>Dear User,</strong></p>
             <p>
                 <small className="text-muted">
-                    Before closing this window and proceeding to the website please review our{" "}
+                    By browsing on this website you are agreeing to our{" "}
                     <a href="https://ravendb.net/terms" target="_blank"><strong>'Terms & Conditions'</strong></a>{" "}
                     and the{" "}
                     <a href="https://ravendb.net/privacy-policy" target="_blank">
                         <strong>'Privacy Policy'</strong>
                     </a> {" "}
-                    for a better understanding of your rights and how we handle your personal data.
+                    in regards to your rights and personal data handling.
                 </small>
             </p>
         </>;
@@ -159,7 +159,7 @@ function mapStateToProps({ tracking }: AppState): StateProps {
 
 function mapDispatchToProps(dispatch: DemoThunkDispatch): DispatchProps {
     return {
-        onAccept: () => dispatch(giveTrackingConsent()),
+        onAccept: () => dispatch(acceptTracking()),
         onWithdraw: () => dispatch(withdrawTrackingConsent())
     };
 }
