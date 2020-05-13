@@ -13,6 +13,10 @@ interface ShowMonit {
     type: actionTypes.TRACKING_SHOW_MONIT;
 }
 
+interface HideMonit {
+    type: actionTypes.TRACKING_HIDE_MONIT;
+}
+
 interface WithdrawConsent {
     type: actionTypes.TRACKING_WITHDRAW_CONSENT;
 }
@@ -21,7 +25,7 @@ interface EnableTracking {
     type: actionTypes.TRACKING_ENABLE;
 }
 
-export type TrackingAction = SaveGtmContainerId | ShowMonit | WithdrawConsent | EnableTracking;
+export type TrackingAction = SaveGtmContainerId | ShowMonit | WithdrawConsent | EnableTracking | HideMonit;
 
 function saveGtmContainerId(googleTagManagerContainerId: string): SaveGtmContainerId {
     return {
@@ -33,6 +37,12 @@ function saveGtmContainerId(googleTagManagerContainerId: string): SaveGtmContain
 function showMonit(): ShowMonit {
     return {
         type: "TRACKING_SHOW_MONIT"
+    };
+}
+
+function hideMonit(): HideMonit {
+    return {
+        type: "TRACKING_HIDE_MONIT"
     };
 }
 
@@ -56,29 +66,20 @@ export function initTrackingData(gtmContainerId: string): DemoThunkAction {
         }
 
         dispatch(saveGtmContainerId(gtmContainerId));
-
-        const consentStatus = CookieJar.getConsentStatus();
-
-        switch (consentStatus) {
-            case "no info":
-                dispatch(showMonit());
-                return;
-
-            case "given":
-                dispatch(startTracking(gtmContainerId));
-                return;
+        
+        const isCookieDisabledSet = CookieJar.isTrackingDisabledCookieSet();
+        
+        if (!isCookieDisabledSet) {
+            dispatch(showMonit());
+            dispatch(startTracking(gtmContainerId));
         }
     };
 }
 
-export function giveTrackingConsent(): DemoThunkAction {
-    return (dispatch: DemoThunkDispatch, getState) => {
-        const state = getState();
-        const { tracking } = state;
-        const gtmId = tracking.googleTagManagerContainerId;
-
+export function acceptTracking(): DemoThunkAction {
+    return (dispatch: DemoThunkDispatch) => {
         CookieJar.acceptAll();
-        dispatch(startTracking(gtmId));
+        dispatch(hideMonit());
     };
 }
 
