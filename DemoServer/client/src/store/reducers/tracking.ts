@@ -26,7 +26,7 @@ export function trackingReducer(state: TrackingState = initialState,
         case "TRACKING_HIDE_MONIT":
             return modifyState(state, s => {
                 s.showConstentMonit = false;
-        });
+            });
 
         case "TRACKING_WITHDRAW_CONSENT":
             return modifyState(state, s => {
