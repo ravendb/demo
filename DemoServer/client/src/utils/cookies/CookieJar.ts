@@ -5,8 +5,6 @@ class CookieNames {
     public static readonly trackingDisabled = "tracking-disabled";
 }
 
-export type ConstentStatus = "given" | "withdrawn" | "no info";
-
 export class CookieJar {
     private static readonly expireDays = 365;
 
