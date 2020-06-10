@@ -60,49 +60,9 @@ a {
     }
 }
 
-$directions: ('top', 'right', 'down', 'left');
-
-@each $direction in $directions {
-    .margin-#{$direction} {
-        margin-#{$direction}: $gutter;
-
-        &.margin-sm {
-            margin-#{$direction}: $gutter-sm;
-        }
-
-        &.margin-xs {
-            margin-#{$direction}: $gutter-xs;
-        }
-    }
-}
-
-.padding {
-    padding: $gutter;
-
-    &.padding-sm {
-        padding: $gutter-sm;
-    }
-
-    &.padding-xs {
-        padding: $gutter-xs;
-    }
-}
-
 hr {
     border: none;
     border-top: 1px solid $gray-dark;
-}
-
-.flex-horizontal, .flex-vertical {
-    display: flex;
-}
-
-.flex-vertical {
-    flex-direction: column;
-}
-
-.flex-grow {
-    flex-grow: 1;
 }
 
 .btn-group {
@@ -177,6 +137,7 @@ hr {
     align-items: center;
     flex-shrink: 0;
     background-color: $gray-base-light;
+    max-width: 100vw;
 
     @media (max-width: 768px) {
         flex-direction: column;
@@ -240,33 +201,49 @@ hr {
 }
 
 .sidebar {
-    width: $sidebar-width;
+    width: 100vw;
+    max-width: $sidebar-width;
     background-color: $gray-darker;
     flex-shrink: 0;
     overflow-y: auto;
     position: relative;
-    transition: width .5s $global-easing-in-out;
     flex-shrink: 0;
     overflow-y: auto;
     overflow-x: hidden;
 
+    @media (min-width: $screen-sm) {
+        transition: width .5s $global-easing-in-out;
+        width: $sidebar-width;
+    }
+
     &.conference {
         transition: none !important;
+
         .sidebar-body {
             transition: none !important;
         }
     }
 
     .sidebar-body {
-        padding: $gutter-lg;
-        width: $sidebar-width - ($gutter-lg*2);
-        transition: opacity .3s .3s $global-easing, transform .3s .3s $global-easing;
+        padding: $gutter;
+        width: calc(100vw - (#{$gutter}*2));
+        max-width: $sidebar-width - ($gutter*2);
+
+        @media (min-width: $screen-sm) {
+            padding: $gutter-md;
+            width: $sidebar-width - ($gutter-md*2);
+            transition: opacity .3s .3s $global-easing, transform .3s .3s $global-easing;
+        }
     }
 
     .back-button {
         text-decoration: none;
     }
 
+    .language-select {
+        display: flex;
+        flex-wrap: wrap;
+    }
 
     .sidebar-heading {
         position: relative;
@@ -274,12 +251,12 @@ hr {
         .back-button {
             top: -7px;
             position: absolute;
-            left: -$gutter-lg;
+            left: -$gutter-md;
             font-size: 35px;
-            width: $gutter-lg;
-            height: $gutter-lg;
+            width: $gutter-md;
+            height: $gutter-md;
             text-align: center;
-            line-height: $gutter-lg
+            line-height: $gutter-md;
         }
     }
 
@@ -323,7 +300,10 @@ hr {
         width: $gutter;
         padding: 0;
         overflow: hidden;
-        transition: width .5s .1s $global-easing-in-out;
+
+        @media (min-width: $screen-sm) {
+            transition: width .5s .1s $global-easing-in-out;
+        }
 
         .back-button {
             height: $gutter;
@@ -331,7 +311,9 @@ hr {
         }
 
         .sidebar-body {
-            transition: opacity .5s $global-easing-in-out, transform .5s $global-easing-in-out;
+            @media (min-width: $screen-sm) {
+                transition: opacity .5s $global-easing-in-out, transform .5s $global-easing-in-out;
+            }
         }
 
         .icon-collapse {
