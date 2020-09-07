@@ -37,6 +37,8 @@ namespace DemoServer.Utils.Database
                 var certificatePassword = _databaseSettings.CertificatePassword;
                 var certificate = new X509Certificate2(_databaseSettings.CertificatePath, certificatePassword);
                 store.Certificate = certificate;
+                
+                store.AfterDispose += (sender, args) => certificate.Dispose();
             }
 
             if (_databaseSettings.RequestsTimeoutInSec.HasValue)
