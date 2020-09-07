@@ -8,7 +8,7 @@ namespace DemoServer.Utils.Cache
 {
     public abstract class DocumentStoreCache
     {
-        private static TimeSpan FiveMinutes => TimeSpan.FromMinutes(5);
+        private static TimeSpan SlidingExpirationSpan => TimeSpan.FromMinutes(5);
 
         private readonly IMemoryCache _memoryCache;
         private readonly DocumentStoreHolder _documentStoreHolder;
@@ -33,10 +33,30 @@ namespace DemoServer.Utils.Cache
 
         private IDocumentStore SetEntry(ICacheEntry cacheEntry, Guid userId)
         {
-            cacheEntry.SlidingExpiration = FiveMinutes;
+            cacheEntry.SlidingExpiration = SlidingExpirationSpan;
+
+            cacheEntry.RegisterPostEvictionCallback(
+                (key, value, reason, state) =>
+                {
+                    DisposeEntry(value);
+                });
+            
             var databaseName = GetDatabaseName(userId);
 
             return _documentStoreHolder.CreateStore(databaseName);
+        }
+
+        private static void DisposeEntry(object key)
+        {
+            try
+            {
+                var documentStore = key as IDocumentStore;
+                documentStore?.Dispose();
+            }
+            catch
+            {
+                // ignored
+            }
         }
     }
 
