@@ -12,7 +12,7 @@
     <PackageReference Include="Microsoft.Extensions.Logging.Configuration" Version="2.2.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.2.0" />
     <PackageReference Include="NLog.Extensions.Logging" Version="1.5.0" />
-    <PackageReference Include="RavenDB.Client" Version="4.2.106-nightly-20200924-0950" />
+    <PackageReference Include="RavenDB.Client" Version="4.2.107-nightly-20201001-0607" />
   </ItemGroup>
 
   <ItemGroup>
