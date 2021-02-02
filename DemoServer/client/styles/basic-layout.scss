@@ -228,6 +228,7 @@ hr {
         padding: $gutter;
         width: calc(100vw - (#{$gutter}*2));
         max-width: $sidebar-width - ($gutter*2);
+        height: 100px;
 
         @media (min-width: $screen-sm) {
             padding: $gutter-md;
@@ -332,8 +333,8 @@ hr {
     background-color: $gray-darker;
     display: block;
     text-align: center;
-    padding: $gutter-xxs $gutter;
-    width: 230px;
+    padding: $gutter-xxs $gutter-xs;
+    width: fit-content;
     color: $gray-light;
     font-weight: 900;
     border: none;
