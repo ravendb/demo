@@ -86,7 +86,7 @@
                 {
                     "Title": "JavaScript Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/javascript-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
                 }
             ]
         },

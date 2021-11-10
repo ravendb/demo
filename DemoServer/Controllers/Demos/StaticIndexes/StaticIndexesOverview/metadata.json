@@ -22,7 +22,7 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Static Indexes",
@@ -37,22 +37,22 @@
         {
             "Title": "What Indexes Are",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/what-are-indexes#what-indexes-are"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/what-are-indexes#what-indexes-are"
         },
         {
             "Title": "Indexing Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/indexing-basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-basics"
         },
         {
             "Title": "Creating and Deploying Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         }, 
         {
             "Title": "Querying a Specified Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
         }
     ],
 
@@ -81,17 +81,17 @@
                 {
                     "Title": "Indexes Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
                 },
                 {
                     "Title": "What Indexes Are",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/what-are-indexes#what-indexes-are"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/what-are-indexes#what-indexes-are"
                 },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#static-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#static-indexes"
                 },
                 {
                     "Title": "Defining simple indexes",
@@ -122,12 +122,12 @@
                 {
                     "Title": "Combine Multiple Fields",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes#combining-multiple-fields-together"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes#combining-multiple-fields-together"
                 },
                 {
                     "Title": "Multiple Collections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/multi-map-indexes#searching-across-multiple-collections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes#searching-across-multiple-collections"
                 }
             ]
         },
@@ -168,7 +168,7 @@
                 {
                     "Title": "What are indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/what-are-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/what-are-indexes"
                 },
                 {
                     "Title": "Defining simple indexes",
@@ -178,7 +178,7 @@
                 {
                     "Title": "Guidelines - using pure functions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/studio/database/indexes/create-map-reduce-index#important-guidelines"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/studio/database/indexes/create-map-reduce-index#important-guidelines"
                 }
             ]
         },
@@ -200,7 +200,7 @@
                 {
                     "Title": "Sending indexes to server",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#sending-to-server"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#sending-to-server"
                 },
                 {
                     "Title": "Deploying indexes",
@@ -210,7 +210,7 @@
                 {
                     "Title": "Indexing process",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview#indexing-process"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview#indexing-process"
                 }
             ]
         },
@@ -234,7 +234,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

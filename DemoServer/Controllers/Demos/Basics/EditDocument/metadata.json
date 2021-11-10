@@ -11,7 +11,7 @@
         {
             "Title": "Loading Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities"
         },
         {
             "Title": "The Load Command",
@@ -37,7 +37,7 @@
                 {
                     "Title": "Loading Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/loading-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities"
                 },
                 {
                     "Title": "The Load Command",
@@ -78,7 +78,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/saving-changes"
                 }
             ]
         }

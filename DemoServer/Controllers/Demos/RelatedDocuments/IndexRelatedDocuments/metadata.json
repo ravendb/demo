@@ -19,7 +19,7 @@
         {
             "Title": "Indexing Related Documents",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-related-documents"
         },
         {
             "Title": "Reference handling, Include and LoadDocument",
@@ -106,7 +106,7 @@
                 {
                     "Title": "Indexing Related Documents",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-related-documents"
                 },
                 {
                     "Title": "Reference handling, Include and LoadDocument",
@@ -135,7 +135,7 @@
                 {
                     "Title": "Indexing Related Documents",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-related-documents"
                 },
                 {
                     "Title": "Indexing referenced data",

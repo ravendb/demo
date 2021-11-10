@@ -14,12 +14,12 @@
         {
             "Title": "Projection with 'let' - query on collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
         },
         {
             "Title": "Projection with 'let' - query on index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#example-v---projection-with-"
         },
         {
             "Title": "Projecting With Object Literals",
@@ -29,7 +29,7 @@
         {
             "Title": "Query Timeout Configuration",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
         }
     ],
 
@@ -67,12 +67,12 @@
                 {
                     "Title": "Projection with 'let' - query on collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 },
                 {
                     "Title": "Projection with 'let' - query on index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#example-v---projection-with-"
                 }
             ]
         },
@@ -90,12 +90,12 @@
                 {
                     "Title": "Projection with 'let' - query on collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 },
                 {
                     "Title": "Projection with 'let' - query on index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections#example-v---projection-with-"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#example-v---projection-with-"
                 },
                 {
                     "Title": "Projecting With Object Literals",
@@ -105,7 +105,7 @@
                 {
                     "Title": "Query Timeout Configuration",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/server/configuration/database-configuration#databases.querytimeoutinsec"
                 }
             ]
         },

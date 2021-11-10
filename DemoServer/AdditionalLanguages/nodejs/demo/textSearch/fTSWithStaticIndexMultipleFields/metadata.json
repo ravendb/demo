@@ -33,13 +33,13 @@
         {
             "Title": "Analyzers",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/using-analyzers"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/using-analyzers"
         }
         //TODO
         //{
         //    "Title": "Querying - Searching",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching#static-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching#static-indexes"
         //}
     ],
 
@@ -60,7 +60,7 @@
                 //{
                 //    "Title": "Map Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 //},
                 {
                     "Title": "Static Indexes",
@@ -93,7 +93,7 @@
                 //{
                 //    "Title": "Map Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 //}
             ]
         },
@@ -136,7 +136,7 @@
                 {
                     "Title": "Analyzers",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/using-analyzers"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/using-analyzers"
                 }
             ]
         },
@@ -161,7 +161,7 @@
                 //{
                 //    "Title": "Map Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 //},
                 {
                     "Title": "Working with Indexes",
@@ -171,7 +171,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
                 },
                 {
                     "Title": "Full text search fields",

@@ -17,22 +17,22 @@
         {
             "Title": "Querying - Query Optimizer",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
         },
         {
             "Title": "Quering Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
         },
         {
             "Title": "Basic dynamic Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
         },
         {
             "Title": "Indexes Types",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/studio/database/indexes/indexes-overview#indexes-types"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/studio/database/indexes/indexes-overview#indexes-types"
         },
         {
             "Title": "Creating and managing indexes",
@@ -61,12 +61,12 @@
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
                 },
                 {
                     "Title": "Basic dynamic Query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 }
             ]
         },
@@ -105,7 +105,7 @@
                 {
                     "Title": "Querying - Query Optimizer",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql#query-optimizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
                 }
             ]
         }

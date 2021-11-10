@@ -14,27 +14,27 @@
         {
             "Title": "Querying: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/paging"
         },
         {
             "Title": "Querying Basics: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iii---paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iii---paging"
         },
         {
             "Title": "Querying: Distinct Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/distinct#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/distinct#paging"
         },
         {
             "Title": "Fanout indexes Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/fanout-indexes#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes#paging"
         },
         {
             "Title": "Migration from 3.x - Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/migration/client-api/session/querying/basics#paging"
         },
         {
             "Title": "Deep paging",
@@ -90,7 +90,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-get-query-statistics"
                 }
             ]
         },
@@ -119,7 +119,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/paging"
                 },
                 {
                     "Title": "Sorting Query Results Demo",
@@ -134,17 +134,17 @@
                 {
                     "Title": "Tampered Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging#paging-through-tampered-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/paging#paging-through-tampered-results"
                 },
                 {
                     "Title": "Querying: Distinct Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/distinct#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/distinct#paging"
                 },
                 {
                     "Title": "Fanout indexes Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/fanout-indexes#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes#paging"
                 },
                 {
                     "Title": "Sample Program",
@@ -167,7 +167,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/paging"
                 },
                 {
                     "Title": "Sample Program",
@@ -212,7 +212,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-get-query-statistics"
                 }
             ]
         }        

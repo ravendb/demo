@@ -12,12 +12,12 @@
         {
             "Title": "How to Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#querying-using-linq"
         },
         {
             "Title": "Querying in RavenDB",
@@ -32,7 +32,7 @@
         {
             "Title": "What is a Collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/faq/what-is-a-collection"
         },
         {
             "Title": "LINQ queries",
@@ -62,12 +62,12 @@
                 {
                     "Title": "How to Query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#querying-using-linq"
                 },
                 {
                     "Title": "Querying in RavenDB",
@@ -82,7 +82,7 @@
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/faq/what-is-a-collection"
                 },
                 {
                     "Title": "LINQ",

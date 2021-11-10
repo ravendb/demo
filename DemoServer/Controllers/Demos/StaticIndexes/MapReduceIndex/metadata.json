@@ -17,17 +17,17 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map-Reduce Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-reduce-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-reduce-index"
         },
         {
             "Title": "Map Reduce Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
         },
         {
             "Title": "Map-Reduce and Aggregations",
@@ -42,12 +42,12 @@
         {
             "Title": "Creating and Deploying Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         },
         {
             "Title": "Map-Reduce Visualizer",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/map-reduce-visualizer"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/map-reduce-visualizer"
         }
     ],
 
@@ -71,7 +71,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -100,7 +100,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -133,7 +133,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -165,7 +165,7 @@
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -197,17 +197,17 @@
                 {
                     "Title": "Map-Reduce query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
                 },
                 {
                     "Title": "Map-Reduce Visualizer",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/map-reduce-visualizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/map-reduce-visualizer"
                 },
                 {
                     "Title": "Map Reduce Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations",

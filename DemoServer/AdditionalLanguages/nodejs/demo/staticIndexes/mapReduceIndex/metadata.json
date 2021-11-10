@@ -17,18 +17,18 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map-Reduce Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/create-map-reduce-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-reduce-index"
         },
         //TODO
         //{
         //    "Title": "Map Reduce Indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-reduce-indexes"
         //},
         {
             "Title": "Map-Reduce and Aggregations",
@@ -44,12 +44,12 @@
         //{
         //    "Title": "Creating and Deploying Indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         //},
         {
             "Title": "Map-Reduce Visualizer",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/map-reduce-visualizer"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/map-reduce-visualizer"
         }
     ],
 
@@ -70,7 +70,7 @@
                 //{
                 //    "Title": "Map Reduce Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-reduce-indexes"
                 //},
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -106,7 +106,7 @@
                 //{
                 //    "Title": "Map Reduce Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-reduce-indexes"
                 //},
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -139,7 +139,7 @@
                 //{
                 //    "Title": "Map Reduce Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-reduce-indexes"
                 //},
                 {
                     "Title": "Map-Reduce and Aggregations",
@@ -172,18 +172,18 @@
                 {
                     "Title": "Map-Reduce query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-reduce-index#map-reduce-query-results"
                 },
                 {
                     "Title": "Map-Reduce Visualizer",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/map-reduce-visualizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/map-reduce-visualizer"
                 },
                 //TODO
                 //{
                 //    "Title": "Map Reduce Indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/map-reduce-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-reduce-indexes"
                 //},
                 {
                     "Title": "Map-Reduce and Aggregations",

@@ -22,7 +22,7 @@
         {
             "Title": "Indexing Related Documents",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/indexing-related-documents"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-related-documents"
         },
         {
             "Title": "Loading and including related documents in a query",
@@ -32,12 +32,12 @@
         {
             "Title": "Document Identifier Generation",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
         },
         {
             "Title": "HiLo Algorithm",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
         },
         {
             "Title": "Client-side identifier generation (hilo)",
@@ -122,12 +122,12 @@
                 {
                     "Title": "Document Identifier Generation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
                 },
                 {
                     "Title": "HiLo Algorithm",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
                 },
                 {
                     "Title": "Client-side identifier generation (hilo)",
@@ -149,12 +149,12 @@
                 {
                     "Title": "Document Identifier Generation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
                 },
                 {
                     "Title": "HiLo Algorithm",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/hilo-algorithm"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
                 },
                 {
                     "Title": "Client-side identifier generation (hilo)",

@@ -12,7 +12,7 @@
         {
             "Title": "What are attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/what-are-attachments"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/attachments/what-are-attachments"
         },
         {
             "Title": "Attachments and binary data",
@@ -27,12 +27,12 @@
         {
             "Title": "Storing attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/attachments/storing"
         },
         {
             "Title": "Attachments Operations",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations#attachments"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations#attachments"
         }
     ],
 
@@ -65,7 +65,7 @@
                 {
                     "Title": "Storing attachments",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/attachments/storing"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/attachments/storing"
                 },
                 {
                     "Title": "Working with attachments",
@@ -92,7 +92,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/saving-changes"
                 }
             ]
         }

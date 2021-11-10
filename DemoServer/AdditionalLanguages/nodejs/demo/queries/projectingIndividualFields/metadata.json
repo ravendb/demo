@@ -18,12 +18,12 @@
         {
             "Title": "Querying : Projections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/projections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
         },
         {
             "Title": "How to project query results",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-project-query-results"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results"
         },
         {
             "Title": "Projecting data in queries",
@@ -81,12 +81,12 @@
                 {
                     "Title": "Querying : Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
                 },
                 {
                     "Title": "How to project query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results"
                 },
                 {
                     "Title": "Projecting data in queries",

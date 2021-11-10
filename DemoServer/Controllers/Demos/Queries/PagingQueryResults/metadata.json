@@ -14,27 +14,27 @@
         {
             "Title": "Querying: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/paging"
         },
         {
             "Title": "Querying Basics: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/basics#example-iii---paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics#example-iii---paging"
         },
         {
             "Title": "Querying: Distinct Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/distinct#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/distinct#paging"
         },
         {
             "Title": "Fanout indexes Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/fanout-indexes#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/fanout-indexes#paging"
         },
         {
             "Title": "Migration from 3.x - Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/migration/client-api/session/querying/basics#paging"
         },
         {
             "Title": "Deep paging",
@@ -85,7 +85,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-get-query-statistics"
                 }
             ]
         },
@@ -114,7 +114,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/paging"
                 },
                 {
                     "Title": "Sorting Query Results Demo",
@@ -129,17 +129,17 @@
                 {
                     "Title": "Tampered Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging#paging-through-tampered-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/paging#paging-through-tampered-results"
                 },
                 {
                     "Title": "Querying: Distinct Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/distinct#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/distinct#paging"
                 },
                 {
                     "Title": "Fanout indexes Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/fanout-indexes#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/fanout-indexes#paging"
                 }
             ]
         },
@@ -157,7 +157,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/paging"
                 }
             ]
         },
@@ -197,7 +197,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-get-query-statistics"
                 }
             ]
         }        

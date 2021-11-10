@@ -34,12 +34,12 @@
         //{
         //    "Title": "Basic dynamic Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
         //},
         {
             "Title": "Dynamic group-by query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-group-by-query"
         },
         {
             "Title": "The query optimizer",
@@ -50,7 +50,7 @@
         //{
         //    "Title": "Querying - Query Optimizer",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
         //}
     ],
 
@@ -70,7 +70,7 @@
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-group-by-query"
                 }
             ]
         },
@@ -90,13 +90,13 @@
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
                 }
                 //TODO
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 //}
             ]
         },
@@ -133,12 +133,12 @@
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 //},
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-group-by-query"
                 }
             ]
         },
@@ -181,12 +181,12 @@
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 //},
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-perform-group-by-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-group-by-query"
                 },
                 {
                     "Title": "Projecting Fields Demo",
@@ -219,7 +219,7 @@
                 {
                     "Title": "The ofType Projection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-project-query-results#oftype---simple-projection"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#oftype---simple-projection"
                 }
             ]
         },
@@ -249,7 +249,7 @@
                 //{
                 //    "Title": "Querying - Query Optimizer",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql#query-optimizer"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
                 //}
             ]
         }        

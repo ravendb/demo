@@ -19,12 +19,12 @@
         {
             "Title": "What is a Collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/faq/what-is-a-collection"
         },
         {
             "Title": "Documents & Collections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
         },
         {
             "Title": "The Store Command",
@@ -34,22 +34,22 @@
         {
             "Title": "Storing Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/storing-entities"
         },
         {
             "Title": "Document Identifier Generation",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
         },
         {
             "Title": "Working with Document Identifier",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/working-with-document-identifiers"
         },
         {
             "Title": "How to Get Document ID",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/how-to/get-entity-id#syntax"
         }
     ],
 
@@ -78,12 +78,12 @@
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/faq/what-is-a-collection"
                 },
                 {
                     "Title": "Documents & Collections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/documents/documents-and-collections#documents-and-collections"
                 }
             ]
         },
@@ -109,7 +109,7 @@
                 {
                     "Title": "Storing Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/storing-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/storing-entities"
                 }
             ]
         },
@@ -130,17 +130,17 @@
                 {
                     "Title": "Document Identifier Generation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/kb/document-identifier-generation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
                 },
                 {
                     "Title": "Working with Document Identifier",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/document-identifiers/working-with-document-identifiers"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/working-with-document-identifiers"
                 },
                 {
                     "Title": "How to Get Document ID when Class is defined w/o ID property",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/how-to/get-entity-id#syntax"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/how-to/get-entity-id#syntax"
                 }
             ]
         },
@@ -164,7 +164,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/saving-changes"
                 }
             ]
         }

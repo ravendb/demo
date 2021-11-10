@@ -24,32 +24,32 @@
         {
             "Title": "What is a Collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/faq/what-is-a-collection"
         },
         {
             "Title": "Documents & Collections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/documents/documents-and-collections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/documents/documents-and-collections"
         },
         {
             "Title": "Storing Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/storing-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/storing-entities"
         },
         {
             "Title": "Document Identifier Generation",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/kb/document-identifier-generation"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
         },
         {
             "Title": "Working with Document Identifier",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/document-identifiers/working-with-document-identifiers"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
         },
         {
             "Title": "How to Get Document ID",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/how-to/get-entity-id"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/how-to/get-entity-id"
         }
     ],
 
@@ -79,17 +79,17 @@
                 {
                     "Title": "Document fields naming convention",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/configuration/conventions#changing-fieldsproperties-naming-convention"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/configuration/conventions#changing-fieldsproperties-naming-convention"
                 },
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/faq/what-is-a-collection"
                 },
                 {
                     "Title": "Documents & Collections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/documents/documents-and-collections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/documents/documents-and-collections"
                 }
             ]
         },
@@ -115,7 +115,7 @@
                 {
                     "Title": "Storing Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/storing-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/storing-entities"
                 }
             ]
         },
@@ -136,17 +136,17 @@
                 {
                     "Title": "Document Identifier Generation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/kb/document-identifier-generation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
                 },
                 {
                     "Title": "Working with Document Identifier",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/document-identifiers/working-with-document-identifiers"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
                 },
                 {
                     "Title": "How to Get Document ID when Class is defined w/o ID property",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/how-to/get-entity-id"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/how-to/get-entity-id"
                 }
             ]
         },
@@ -170,7 +170,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/saving-changes"
                 }
             ]
         }

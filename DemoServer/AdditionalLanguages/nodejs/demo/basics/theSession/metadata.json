@@ -25,12 +25,12 @@
         //{
         //    "Title": "What is a Session",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
         //},
         //{
         //    "Title": "Opening a Session",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/opening-a-session"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/opening-a-session"
         //},
         {
             "Title": "The SaveChanges Command",
@@ -41,7 +41,7 @@
         //{
         //    "Title": "Saving Changes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/saving-changes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/saving-changes"
         //}
     ],
 
@@ -69,12 +69,12 @@
                 //{
                 //    "Title": "What is a Session",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/what-is-a-session-and-how-does-it-work"
                 //},
                 //{
                 //    "Title": "Opening a Session",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/opening-a-session"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/opening-a-session"
                 //},
                 {
                     "Title": "The Document Store Demo",
@@ -108,7 +108,7 @@
                 {
                     "Title": "Storing Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/storing-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/storing-entities"
                 }
             ]
         },
@@ -137,7 +137,7 @@
                 //{
                 //    "Title": "Saving Changes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/saving-changes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/saving-changes"
                 //}
             ]
         }

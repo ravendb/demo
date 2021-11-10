@@ -26,12 +26,12 @@
         {
             "Title": "How to Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying - Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics"
         },        
         {
             "Title": "The query optimizer",
@@ -46,17 +46,17 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-vs-document-query"
         },
         {
             "Title": "Auto indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#auto-indexes"
         }
     ],
 
@@ -83,12 +83,12 @@
                 {
                     "Title": "How to Query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying - Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics"
                 },
                 {
                     "Title": "The query optimizer",
@@ -98,7 +98,7 @@
                 {
                     "Title": "Auto indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#auto-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#auto-indexes"
                 },
                 {
                     "Title": "LINQ Query & Method Syntax",
@@ -131,37 +131,37 @@
                 {
                     "Title": "Querying - Filtering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/filtering"
                 },
                 {
                     "Title": "Querying - Searching",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/searching"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
                 },                
                 {
                     "Title": "Documents relationships - Include",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/how-to/handle-document-relationships#includes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/how-to/handle-document-relationships#includes"
                 },
                 {
                     "Title": "Query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-get-query-statistics"
                 },
                 {
                     "Title": "Querying - Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/sorting"
                 },
                 {
                     "Title": "Querying - Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections"
                 },
                 {
                     "Title": "Querying - Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/paging"
                 }
             ]
         },

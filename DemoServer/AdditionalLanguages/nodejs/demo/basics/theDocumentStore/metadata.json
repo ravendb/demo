@@ -33,17 +33,17 @@
         {
             "Title": "What is a Document Store",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
         },
         {
             "Title": "Creating a document store",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
         },
         {
             "Title": "Setting up RavenDB",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/start/getting-started"
         },
         {
             "Title": "Your first RavenDB program",
@@ -91,17 +91,17 @@
                 {
                     "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
                 },
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
                 },
                 {
                     "Title": "Setting up RavenDB",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/start/getting-started"
                 }
             ]
         },
@@ -119,17 +119,17 @@
                 {
                     "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
                 },
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
                 },
                 {
                     "Title": "Setting up RavenDB",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/start/getting-started"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/start/getting-started"
                 }
             ]
         },
