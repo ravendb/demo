@@ -15,7 +15,7 @@
         {
             "Title": "Revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
         },
         {
             "Title": "Document Revisions",
@@ -25,7 +25,7 @@
         {
             "Title": "What are revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/revisions/what-are-revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/revisions/what-are-revisions"
         }
     ],
 
@@ -41,7 +41,7 @@
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
                 },
                 {
                     "Title": "Document Revisions",
@@ -69,12 +69,12 @@
                 {
                     "Title": "What are revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/revisions/what-are-revisions"
                 },
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
                 }
             ]
         },
@@ -90,12 +90,12 @@
                 {
                     "Title": "What are revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/revisions/what-are-revisions"
                 },
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
                 }
             ]
         },
@@ -111,7 +111,7 @@
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
                 },
                 {
                     "Title": "Document Revisions",

@@ -16,7 +16,7 @@
         {
             "Title": "Revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/server/extensions/revisions"
         },
         {
             "Title": "Document Revisions",
@@ -26,7 +26,7 @@
         {
             "Title": "What are revisions",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/revisions/what-are-revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/revisions/what-are-revisions"
         },
         {
             "Title": "Readme - Revisions",
@@ -98,7 +98,7 @@
                 {
                     "Title": "Revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/server/extensions/revisions"
                 },
                 {
                     "Title": "Document Revisions",
@@ -108,7 +108,7 @@
                 {
                     "Title": "What are revisions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/revisions/what-are-revisions"
                 }
             ]
         }

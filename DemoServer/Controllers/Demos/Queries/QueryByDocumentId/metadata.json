@@ -13,12 +13,12 @@
         {
             "Title": "How to Query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#querying-using-linq"
         },
         {
             "Title": "Querying in RavenDB",
@@ -70,12 +70,12 @@
                 {
                     "Title": "How to Query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#querying-using-linq"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#querying-using-linq"
                 },
                 {
                     "Title": "Querying in RavenDB",

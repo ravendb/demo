@@ -13,7 +13,7 @@
         //{
         //    "Title": "How to Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
         //},
         {
             "Title": "Readme - Querying documents",
@@ -23,7 +23,7 @@
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
         },
         {
             "Title": "Querying in RavenDB",
@@ -38,7 +38,7 @@
         {
             "Title": "What is a Collection",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/faq/what-is-a-collection"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/faq/what-is-a-collection"
         }
     ],
 
@@ -64,12 +64,12 @@
                 //{
                 //    "Title": "How to Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
                 //},
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
                 },
                 {
                     "Title": "Querying in RavenDB",
@@ -84,7 +84,7 @@
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/faq/what-is-a-collection"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/faq/what-is-a-collection"
                 }
             ]
         },

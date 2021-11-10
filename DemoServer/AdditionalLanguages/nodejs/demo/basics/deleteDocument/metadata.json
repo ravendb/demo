@@ -15,12 +15,12 @@
         {
             "Title": "Deleting Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/deleting-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/deleting-entities"
         },
         {
             "Title": "Optimistic Concurrency",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/configuration/how-to-enable-optimistic-concurrency"
         }
     ],
 
@@ -44,12 +44,12 @@
                 {
                     "Title": "Deleting Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/deleting-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/deleting-entities"
                 },
                 {
                     "Title": "Optimistic Concurrency",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/configuration/how-to-enable-optimistic-concurrency"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/configuration/how-to-enable-optimistic-concurrency"
                 }
             ]
         },
@@ -72,7 +72,7 @@
                 //{
                 //    "Title": "Saving Changes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/saving-changes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/saving-changes"
                 //}
             ]
         }

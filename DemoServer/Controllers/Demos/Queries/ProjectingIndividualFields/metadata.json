@@ -18,12 +18,12 @@
         {
             "Title": "Querying : Projections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections"
         },
         {
             "Title": "How to project query results",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
         },        
         {
             "Title": "Projecting data in queries",
@@ -77,12 +77,12 @@
                 {
                     "Title": "Querying : Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections"
                 },
                 {
                     "Title": "How to project query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
                 },
                 {
                     "Title": "Projecting data in queries",

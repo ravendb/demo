@@ -20,7 +20,7 @@
         {
             "Title": "Querying: Sorting",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
         },
         {
             "Title": "Sorting query results",
@@ -30,17 +30,17 @@
         {
             "Title": "Indexes: Sorting & Collation",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/sorting-and-collation"
         },
         {
             "Title": "Random Ordering",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-customize-query#randomordering"
         },
         {
             "Title": "Order by Distance",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
         }
     ],
 
@@ -87,7 +87,7 @@
                 {
                     "Title": "Querying: Filtering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/filtering"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/filtering"
                 }
             ]
         },
@@ -115,7 +115,7 @@
                 {
                     "Title": "Querying: Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
                 },
                 {
                     "Title": "Sorting query results",
@@ -125,17 +125,17 @@
                 {
                     "Title": "Indexes: Sorting & Collation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/sorting-and-collation"
                 },
                 {
                     "Title": "Random Ordering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-customize-query#randomordering"
                 },
                 {
                     "Title": "Order by Distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
                 }
             ]
         },
@@ -170,7 +170,7 @@
                 {
                     "Title": "Querying: Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
                 },
                 {
                     "Title": "Sorting query results",
@@ -180,17 +180,17 @@
                 {
                     "Title": "Indexes: Sorting & Collation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/indexes/sorting-and-collation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/sorting-and-collation"
                 },
                 {
                     "Title": "Random Ordering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-customize-query#randomordering"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-customize-query#randomordering"
                 },
                 {
                     "Title": "Order by Distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
                 }
             ]
         },

@@ -28,17 +28,17 @@
         {
             "Title": "What is a Document Store",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/what-is-a-document-store"
         },
         {
             "Title": "Creating a document store",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
         },
         {
             "Title": "Setting up RavenDB",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/start/getting-started"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/start/getting-started"
         },
         {
             "Title": "Sample program",
@@ -75,12 +75,12 @@
                 {
                     "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/what-is-a-document-store"
                 },
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
                 },
                 {
                     "Title": "Sample program",
@@ -135,12 +135,12 @@
                 {
                     "Title": "Setup a Default Database",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/setting-up-default-database"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/setting-up-default-database"
                 },
                 {
                     "Title": "Server URL",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/server/configuration/core-configuration#serverurl"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/configuration/core-configuration#serverurl"
                 },
                 {
                     "Title": "Conventions",
@@ -168,7 +168,7 @@
                 {
                     "Title": "Creating a document store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/creating-document-store"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
                 }
             ]
         },
@@ -182,32 +182,32 @@
                 {
                     "Title": "What is Session",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/what-is-a-session-and-how-does-it-work"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/what-is-a-session-and-how-does-it-work"
                 },
                 {
                     "Title": "What are Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/what-are-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/what-are-indexes"
                 },
                 {
                     "Title": "Bulk Insert Operation",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
                 },
                 {
                     "Title": "What are Operations",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
                 },
                 {
                     "Title": "What are Data Subscriptions",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/operations/what-are-operations"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/what-are-operations"
                 },
                 {
                     "Title": "Export & Import data with Smuggler",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/smuggler/what-is-smuggler"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/smuggler/what-is-smuggler"
                 }
             ]
         }

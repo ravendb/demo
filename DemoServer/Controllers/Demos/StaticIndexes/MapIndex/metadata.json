@@ -14,17 +14,17 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/studio/database/indexes/create-map-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index"
         },
         {
             "Title": "Map Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
         },
         {
             "Title": "Static Indexes",
@@ -39,7 +39,7 @@
         {
             "Title": "Creating and Deploying Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         }
     ],
 
@@ -63,7 +63,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -89,7 +89,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -124,7 +124,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -154,7 +154,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -169,7 +169,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

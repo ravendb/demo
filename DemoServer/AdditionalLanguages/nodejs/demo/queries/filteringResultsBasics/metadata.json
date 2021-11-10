@@ -12,7 +12,7 @@
         //{
         //    "Title": "Querying: Filtering",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/filtering"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/filtering"
         //},
         {
             "Title": "Querying in RavenDB",
@@ -22,18 +22,18 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-vs-document-query"
         },
         //TODO
         //{
         //    "Title": "Auto indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#auto-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#auto-indexes"
         //},
         {
             "Title": "Readme - Query methods overview",
@@ -83,7 +83,7 @@
                 //{
                 //    "Title": "Querying: Filtering",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/filtering"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/filtering"
                 //},
                 {
                     "Title": "Querying in RavenDB",
@@ -94,7 +94,7 @@
                 //{
                 //    "Title": "Auto indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/creating-and-deploying#auto-indexes"  
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#auto-indexes"  
                 //}
             ]
         },

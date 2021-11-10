@@ -20,7 +20,7 @@
         //{
         //    "Title": "Documents relationships - Include",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/how-to/handle-document-relationships#includes"
         //},
         {
             "Title": "Working with multiple documents",
@@ -63,7 +63,7 @@
                 //{
                 //    "Title": "Documents relationships - Include",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/how-to/handle-document-relationships#includes"
                 //},
                 {
                     "Title": "Working with multiple documents",
@@ -93,7 +93,7 @@
                 //{
                 //    "Title": "Documents relationships - Include",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/how-to/handle-document-relationships#includes"
                 //},
                 {
                     "Title": "Working with multiple documents",
@@ -121,7 +121,7 @@
                 //{
                 //    "Title": "Documents relationships - Include",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/how-to/handle-document-relationships#includes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/how-to/handle-document-relationships#includes"
                 //},
                 {
                     "Title": "Working with multiple documents",

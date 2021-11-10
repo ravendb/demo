@@ -15,13 +15,13 @@
         //{
         //    "Title": "Create a database",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/server-wide/create-database"
         //},
         //TODO
         //{
         //    "Title": "The database record",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database#databaserecord"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/server-wide/create-database#databaserecord"
         //},
         {
             "Title": "RavenDB cluster overview",
@@ -31,7 +31,7 @@
         {
             "Title": "Replication factor",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/glossary/replication-factor"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/glossary/replication-factor"
         }
     ],
 
@@ -49,18 +49,18 @@
                 //{
                 //    "Title": "Create a database",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/server-wide/create-database"
                 //},
                 //TODO
                 //{
                 //    "Title": "What are Operations",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/what-are-operations"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/what-are-operations"
                 //},
                 {
                     "Title": "Replication factor",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/glossary/replication-factor"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/glossary/replication-factor"
                 }
             ]
         },
@@ -77,12 +77,12 @@
                 //{
                 //    "Title": "Create a database",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/operations/server-wide/create-database"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/server-wide/create-database"
                 //},
                 {
                     "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/what-is-a-document-store" 
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store" 
                 }
             ]
         }

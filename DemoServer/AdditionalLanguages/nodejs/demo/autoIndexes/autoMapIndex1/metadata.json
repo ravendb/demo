@@ -21,23 +21,23 @@
         //{
         //    "Title": "Querying - Query Optimizer",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql#query-optimizer"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql#query-optimizer"
         //},
         {
             "Title": "Quering Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
         },
         //TODO
         //{
         //    "Title": "Basic dynamic Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
         //},
         {
             "Title": "Indexes Types",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/studio/database/indexes/indexes-overview#indexes-types"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview#indexes-types"
         },
         {
             "Title": "Creating and managing indexes",
@@ -66,13 +66,13 @@
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
                 },
                 //TODO
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
                 //}
             ]
         },
@@ -103,7 +103,7 @@
                 //{
                 //    "Title": "Querying - Query Optimizer",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/what-is-rql#query-optimizer"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql#query-optimizer"
                 //},
                 {
                     "Title": "Auto-Map-Index II Demo",

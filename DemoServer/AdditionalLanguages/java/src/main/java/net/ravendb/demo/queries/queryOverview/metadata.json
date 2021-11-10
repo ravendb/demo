@@ -21,7 +21,7 @@
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-vs-document-query"
         },
         {
             "Title": "Querying in RavenDB",
@@ -32,12 +32,12 @@
         //{
         //    "Title": "How to Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
         //},
         {
             "Title": "Querying - Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
         },
         {
             "Title": "The query optimizer",
@@ -47,13 +47,13 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql"
         },
         //TODO
         //{
         //    "Title": "Auto indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/creating-and-deploying#auto-indexes"
         //},
         {
             "Title": "Sample Program",
@@ -86,12 +86,12 @@
                 //{
                 //    "Title": "How to Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
                 //},
                 {
                     "Title": "Querying - Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
                 },
                 {
                     "Title": "The query optimizer",
@@ -102,7 +102,7 @@
                 //{
                 //    "Title": "Auto indexes",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#auto-indexes"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/creating-and-deploying#auto-indexes"
                 //},
                 {
                     "Title": "Sample Program",
@@ -135,38 +135,38 @@
                 {
                     "Title": "Querying - Filtering",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/filtering"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/filtering"
                 },
                 //TODO
                 //{
                 //    "Title": "Querying - Searching",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/searching"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
                 //},
                 {
                     "Title": "Documents relationships - Include",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/how-to/handle-document-relationships#includes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
                 },
                 {
                     "Title": "Query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-get-query-statistics"
                 },
                 {
                     "Title": "Querying - Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/sorting"
                 },
                 {
                     "Title": "Querying - Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
                 },
                 {
                     "Title": "Querying - Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/paging"
                 },
                 {
                     "Title": "Sample Program",

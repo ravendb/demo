@@ -14,17 +14,17 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Create Map Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/studio/database/indexes/create-map-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/create-map-index"
         },
         {
             "Title": "Map Indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
         },
         {
             "Title": "Static Indexes",
@@ -40,7 +40,7 @@
         //{
         //    "Title": "Creating and Deploying Indexes",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
         //}
     ],
 
@@ -60,7 +60,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -100,7 +100,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -130,7 +130,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -145,7 +145,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

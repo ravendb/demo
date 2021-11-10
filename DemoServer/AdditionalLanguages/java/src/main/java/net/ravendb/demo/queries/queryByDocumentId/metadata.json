@@ -14,12 +14,12 @@
         //{
         //    "Title": "How to Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
         //},
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
         },
         {
             "Title": "Querying in RavenDB",
@@ -67,12 +67,12 @@
                 //{
                 //    "Title": "How to Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/client-api/session/querying/how-to-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
                 //},
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
                 },
                 {
                     "Title": "Querying in RavenDB",

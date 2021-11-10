@@ -14,28 +14,28 @@
         {
             "Title": "Querying: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/paging"
         },
         {
             "Title": "Querying Basics: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/basics#example-iii---paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iii---paging"
         },
         {
             "Title": "Querying: Distinct Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/distinct#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/distinct#paging"
         },
         //TODO
         //{
         //    "Title": "Fanout indexes Paging",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/fanout-indexes#paging"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes#paging"
         //},
         {
             "Title": "Migration from 3.x - Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/migration/client-api/session/querying/basics#paging"
         },
         {
             "Title": "Deep paging",
@@ -91,7 +91,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-get-query-statistics"
                 },
                 {
                     "Title": "Readme - Query statistics",
@@ -125,7 +125,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/paging"
                 },
                 {
                     "Title": "Sorting Query Results Demo",
@@ -140,18 +140,18 @@
                 {
                     "Title": "Tampered Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/paging#paging-through-tampered-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/paging#paging-through-tampered-results"
                 },
                 {
                     "Title": "Querying: Distinct Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/distinct#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/distinct#paging"
                 },
                 //TODO
                 //{
                 //    "Title": "Fanout indexes Paging",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/fanout-indexes#paging"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes#paging"
                 //},
                 {
                     "Title": "Readme - skip()",
@@ -174,7 +174,7 @@
                 {
                     "Title": "Querying: Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/indexes/querying/paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/paging"
                 },
                 {
                     "Title": "Readme - take()",
@@ -219,7 +219,7 @@
                 {
                     "Title": "Get query statistics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.2/nodejs/client-api/session/querying/how-to-get-query-statistics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-get-query-statistics"
                 }
             ]
         }        

@@ -14,12 +14,12 @@
         {
             "Title": "Create a database",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/operations/server-wide/create-database"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/operations/server-wide/create-database"
         },
         {
             "Title": "The database record",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/operations/server-wide/create-database#databaserecord"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/operations/server-wide/create-database#databaserecord"
         },
         {
             "Title": "RavenDB cluster overview",
@@ -29,7 +29,7 @@
         {
             "Title": "Replication factor",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/glossary/replication-factor"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/glossary/replication-factor"
         }
     ],
 
@@ -46,17 +46,17 @@
                 {
                     "Title": "Create a database",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/server-wide/create-database"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/server-wide/create-database"
                 },
                 {
                     "Title": "What are Operations",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/operations/what-are-operations"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
                 },
                 {
                     "Title": "Replication factor",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/glossary/replication-factor"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/glossary/replication-factor"
                 }
             ]
         },
@@ -72,12 +72,12 @@
                 {
                     "Title": "Create a database",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/Csharp/client-api/operations/server-wide/create-database"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/operations/server-wide/create-database"
                 },
                 {
                     "Title": "What is a Document Store",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/4.1/csharp/client-api/what-is-a-document-store" 
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/what-is-a-document-store" 
                 }
             ]
         }
