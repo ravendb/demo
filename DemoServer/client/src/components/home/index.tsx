@@ -7,6 +7,7 @@ import { UserProgress } from "../../models/progress";
 import { getContext } from "../../store/actions/demo";
 import { Spinner } from "../ui/Spinner";
 import { CategoryWithDemoVersions } from "../../models/dtos/context";
+import { IconStudio } from "../helpers/icons";
 
 interface StateProps {
     progress: UserProgress;
@@ -46,13 +47,23 @@ class HomeComponent extends React.Component<Props, {}> {
         </div>;
     }
 
+    private _studioCta() {
+        return <div className="open-in-studio">
+            <h3>Implement on Your Own Sample Database Now</h3>
+            <a href="http://live-test.ravendb.net" id="openStudio" className="fab" target="_blank">
+                <IconStudio /> <span>Open studio</span>
+            </a>
+        </div>
+    }
+
     public render() {
         const { loading } = this.props;
 
         return <>
-            <div className="header-image"><h1>RavenDB NoSQL Database Demo</h1></div>
+            <div className="header-image"><h1>RavenDB Step-By-Step Coding Walkthrough</h1></div>
             <Spinner show={loading} />
             {!loading && this._demoList()}
+            {this._studioCta()}
         </>;
     }
 }
