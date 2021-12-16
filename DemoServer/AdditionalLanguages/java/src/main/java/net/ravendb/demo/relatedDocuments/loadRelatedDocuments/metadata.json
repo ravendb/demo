@@ -71,7 +71,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/edit-document#step-1"
+                    "Url"  : "/java/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -100,7 +100,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/edit-document#step-1"
+                    "Url"  : "/java/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -127,7 +127,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/edit-document#step-1"
+                    "Url"  : "/java/basics/load-and-edit-document#step-1"
                 }
             ]
         },

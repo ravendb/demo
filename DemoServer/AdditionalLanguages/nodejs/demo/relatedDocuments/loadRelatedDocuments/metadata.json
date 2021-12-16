@@ -73,7 +73,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/basics/edit-document#step-1"
+                    "Url"  : "/nodejs/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -103,7 +103,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/basics/edit-document#step-1"
+                    "Url"  : "/nodejs/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -131,7 +131,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/basics/edit-document#step-1"
+                    "Url"  : "/nodejs/basics/load-and-edit-document#step-1"
                 }
             ]
         },

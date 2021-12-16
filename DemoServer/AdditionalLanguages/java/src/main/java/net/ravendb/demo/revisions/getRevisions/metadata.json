@@ -65,7 +65,7 @@
                 {
                     "Title": "Edit Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/edit-document"
+                    "Url"  : "/java/basics/load-and-edit-document"
                 },
                 {
                     "Title": "Create Document Demo",

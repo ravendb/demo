@@ -55,7 +55,7 @@
                 {
                     "Title": "Edit Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/edit-document"
+                    "Url"  : "/go/basics/load-and-edit-document"
                 },
                 {
                     "Title": "Create Document Demo",

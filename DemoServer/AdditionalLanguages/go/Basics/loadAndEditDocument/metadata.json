@@ -1,9 +1,9 @@
 {
-    "Slug": "edit-document",
-    "SourceFileName": "EditDocument.go",
-    "Title": "Edit Document",
+    "Slug": "load-and-edit-document",
+    "SourceFileName": "LoadAndEditDocument.go",
+    "Title": "Load & Edit Document",
     "DescriptionLines": [
-        "**Edit a document** that is already stored in the database.<br>",
+        "**Load & Edit a document** that is already stored in the database.<br>",
         "You will load an existing document from the Document-Store, update it and save it back."
     ],
 

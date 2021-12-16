@@ -2,7 +2,7 @@ type Basic =
       "the-document-store"
     | "the-session"
     | "create-document"
-    | "edit-document"
+    | "load-and-edit-document"
     | "delete-document";
 
 type RelatedDocuments = 

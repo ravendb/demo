@@ -4,7 +4,7 @@ import { ResultText } from "../../demoDisplay/results/resultItems";
 
 const resultsCreator = () => <ResultText />;
 
-export const EditDocumentDemo = () => <Demo
+export const LoadAndEditDocumentDemo = () => <Demo
     paramDefinitions = {[
         { inputType: "text", name: "companyName", placeholder: "New Company Name", paramKind: "text-param" }
     ]}

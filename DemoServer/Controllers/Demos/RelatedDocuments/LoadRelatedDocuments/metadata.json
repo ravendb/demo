@@ -66,7 +66,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/basics/edit-document#step-1"
+                    "Url"  : "/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -95,7 +95,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/basics/edit-document#step-1"
+                    "Url"  : "/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -122,7 +122,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/basics/edit-document#step-1"
+                    "Url"  : "/basics/load-and-edit-document#step-1"
                 }
             ]
         },

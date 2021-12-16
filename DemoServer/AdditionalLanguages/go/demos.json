@@ -8,7 +8,7 @@
             "theDocumentStore",
             "theSession",
             "createDocument",
-            "editDocument",
+            "loadAndEditDocument",
             "deleteDocument"
         ]
     },
