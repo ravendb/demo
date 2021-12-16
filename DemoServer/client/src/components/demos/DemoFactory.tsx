@@ -3,7 +3,7 @@ import { CreateDatabaseDemo } from "./advanced/CreateDatabaseDemo";
 import { TheDocumentStoreDemo } from "./basics/TheDocumentStoreDemo";
 import { TheSessionDemo } from "./basics/TheSessionDemo";
 import { CreateDocumentDemo } from "./basics/CreateDocumentDemo";
-import { EditDocumentDemo } from "./basics/EditDocumentDemo";
+import { LoadAndEditDocumentDemo } from "./basics/LoadAndEditDocumentDemo";
 import { DeleteDocumentDemo } from "./basics/DeleteDocumentDemo";
 import { CreateRelatedDocumentsDemo } from "./relatedDocuments/CreateRelatedDocumentsDemo";
 import { LoadRelatedDocumentsDemo } from "./relatedDocuments/LoadRelatedDocumentsDemo";
@@ -55,8 +55,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <TheSessionDemo />;
             case "create-document":
                 return <CreateDocumentDemo />;
-            case "edit-document":
-                return <EditDocumentDemo />;
+            case "load-and-edit-document":
+                return <LoadAndEditDocumentDemo />;
             case "delete-document":
                 return <DeleteDocumentDemo />;
         }

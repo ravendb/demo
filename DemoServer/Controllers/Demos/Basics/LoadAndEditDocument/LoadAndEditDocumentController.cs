@@ -8,13 +8,13 @@ using Microsoft.AspNetCore.Mvc;
 using Raven.Client.Documents.Session;
 #endregion
 
-namespace DemoServer.Controllers.Demos.Basics.EditDocument
+namespace DemoServer.Controllers.Demos.Basics.LoadAndEditDocument
 {
-    public class EditDocumentController : DemoCodeController
+    public class LoadAndEditDocumentController : DemoCodeController
     {
         private const string DocumentId = "companies/5-A"; 
 
-        public EditDocumentController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public LoadAndEditDocumentController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }

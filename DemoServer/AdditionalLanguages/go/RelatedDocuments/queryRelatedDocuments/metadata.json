@@ -92,7 +92,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/go/basics/edit-document#step-1"
+                    "Url"  : "/go/basics/load-and-edit-document#step-1"
                 }
             ]
         },

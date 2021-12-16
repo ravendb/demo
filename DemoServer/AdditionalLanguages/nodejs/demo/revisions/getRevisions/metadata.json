@@ -70,7 +70,7 @@
                 {
                     "Title": "Edit Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/basics/edit-document"
+                    "Url"  : "/nodejs/basics/load-and-edit-document"
                 },
                 {
                     "Title": "Create Document Demo",

@@ -9,7 +9,7 @@
             "TheDocumentStore",
             "TheSession",
             "CreateDocument",
-            "EditDocument",
+            "LoadAndEditDocument",
             "DeleteDocument"
         ]
     },

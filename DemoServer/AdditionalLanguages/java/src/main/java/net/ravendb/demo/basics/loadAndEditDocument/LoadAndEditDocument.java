@@ -1,4 +1,4 @@
-package net.ravendb.demo.basics.editDocument;
+package net.ravendb.demo.basics.loadAndEditDocument;
 
 //region Usings
 import net.ravendb.client.documents.session.IDocumentSession;
@@ -6,7 +6,7 @@ import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
 
-public class EditDocument {
+public class LoadAndEditDocument {
 
     public void run(RunParams runParams) {
         String companyName = runParams.getCompanyName();

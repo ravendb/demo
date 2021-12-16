@@ -1,9 +1,9 @@
 {
-    "Slug": "edit-document",
-    "SourceFileName": "EditDocument.java",
-    "Title": "Edit Document",
+    "Slug": "load-and-edit-document",
+    "SourceFileName": "LoadAndEditDocumentController.cs",
+    "Title": "Load & Edit Document",
     "DescriptionLines": [
-        "**Edit a document** that is already stored in the database.<br>",
+        "**Load & Edit a document** that is already stored in the database.<br>",
         "You will load an existing document from the Document-Store, update it and save it back."
     ],
 
@@ -11,7 +11,7 @@
         {
             "Title": "Loading Entities",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/loading-entities"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities"
         },
         {
             "Title": "The Load Command",
@@ -25,19 +25,19 @@
             "Title": "Load an existing document",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Load an existing document from the Document Store using the Session `load()` command.<br>",
+                "* Load an existing document from the Document Store using the Session `Load()` command.<br>",
                 "",
-                "* The loaded document is added to the internal entities Map that the Session manages.<br>",
+                "* The loaded document is added to the internal entities map (dictionary) that the Session manages.<br>",
                 "  In this example, document 'companies/5-A' is loaded.",
                 "",
                 "* The session will _track_ all changes that will be made to this entity,",
-                "  so that when saveChanges() is called later on, the entity will be persisted to the data store _only if_ it was changed."
+                "  so that when SaveChanges() is called later on, the entity will be persisted to the data store _only if_ it was changed."
             ],
             "Assets": [
                 {
                     "Title": "Loading Entities",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/loading-entities"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/loading-entities"
                 },
                 {
                     "Title": "The Load Command",
@@ -49,8 +49,8 @@
         {
             "Title": "Edit your data",
             "Slug" : "step-2",
-            "DescriptionLines": [
-                "* Edit the Java entity data",
+            "DescriptionLines": [ 
+                "* Edit the C# entity data",
                 "",
                 "* Note:  Documents in RavenDB have no schema.<br>",
                 "  You are free to modify the structure of a document however you like."
@@ -62,7 +62,7 @@
             "Title": "Save the changes",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* When calling `saveChanges()`, the entity state in the Session is compared with its state as it was when first loaded to the Session from the database.",
+                "* When calling `SaveChanges()`, the entity state in the Session is compared with its state as it was when first loaded to the Session from the database.",
                 "",
                 "* If any changes were made, the new state of the entity will be persisted to the database in the related document.",
                 "",
@@ -78,7 +78,7 @@
                 {
                     "Title": "Saving Changes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/saving-changes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/saving-changes"
                 }
             ]
         }
