@@ -10,6 +10,7 @@ import { LoadRelatedDocumentsDemo } from "./relatedDocuments/LoadRelatedDocument
 import { QueryRelatedDocumentsDemo } from "./relatedDocuments/QueryRelatedDocumentsDemo";
 import { IndexRelatedDocumentsDemo } from "./relatedDocuments/IndexRelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
+import { LoadAttachmentDemo } from "./attachments/LoadAttachmentDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { GetRevisionsDemo } from "./revisions/GetRevisionsDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
@@ -79,6 +80,8 @@ export class DemoFactory extends React.Component<Props, {}> {
         switch (demoSlug) {
             case "store-attachment":
                 return <StoreAttachmentDemo />;
+            case "load-attachment":
+                return <LoadAttachmentDemo />;
         }
     }
 
