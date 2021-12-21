@@ -12,7 +12,8 @@ type RelatedDocuments =
     | "index-related-documents";
 
 type Attachments = 
-      "store-attachment";
+      "store-attachment"
+    | "load-attachment";
 
 type Revisions = 
       "enable-revisions"

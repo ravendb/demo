@@ -33,7 +33,8 @@
             "title": "Attachments"
         },
         "demos": [
-            "StoreAttachment"
+            "StoreAttachment",
+            "LoadAttachment"
         ]
     },
     {

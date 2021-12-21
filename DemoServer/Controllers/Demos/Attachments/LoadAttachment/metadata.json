@@ -1,0 +1,108 @@
+{
+    "Slug": "load-attachment",
+    "SourceFileName": "LoadAttachmentController.cs",
+    "Title": "Load Attachment",
+    "DescriptionLines": [
+        "You can retrieve any stored attachment from a document and **load the attachment** to memory."
+    ],
+
+    "Assets": [  
+        {
+            "Title": "What are attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/what-are-attachments"
+        },
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
+        },
+        {
+            "Title": "Loading attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+        },
+        {
+            "Title": "Attachments Operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/attachments/get-attachment"
+        },
+        {
+            "Title": "Check if attachment exists",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/how-to/check-if-attachment-exists"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Check if attachment exists",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Method `Exists()` can be called to check whether the attachment exists on the document.<br>",
+                "  This is not mandatory since in such a case the _Get()_ method (see next step) will return null.",
+                "",
+                "* Calling _Exists()_ does Not cause the session to track the document or the attachment."
+            ],
+            "Assets": [
+                {
+                    "Title": "Check if attachment exists",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/how-to/check-if-attachment-exists"
+                }
+            ]
+        },
+        {
+            "Title": "Load attachment",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Load the attachment from the document.<br>",
+                "_attachmentResult_ will contain the attachment's Stream & Details.",
+                "",
+                "* Specify the document ID, or pass the explicit document entity to the `Get()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Loading attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                }
+            ]
+        },
+        {
+            "Title": "Get attachment's details",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Attachment's details are available in the `Details` property."
+            ],
+            "Assets": [
+                {
+                    "Title": "Loading attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                }
+            ]
+        },
+        {
+            "Title": "Get attachment's stream",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* The attachment's stream is available in the `Stream` property.",
+                "",
+                "* Copy the attachment stream into a _MemoryStream_ for any usage."
+            ],
+            "Assets": [
+                {
+                    "Title": "Loading attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                }
+            ]
+        }
+    ]
+}
