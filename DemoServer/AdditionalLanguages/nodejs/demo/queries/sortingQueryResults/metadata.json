@@ -26,7 +26,7 @@
         {
             "Title": "Sorting query results",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
         },
         //TODO
         //{
@@ -135,7 +135,7 @@
                 {
                     "Title": "Sorting query results",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
                 },
                 //TODO
                 //{
@@ -193,7 +193,7 @@
                 {
                     "Title": "Sorting query results",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#sorting-query-results"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
                 },
                 //TODO
                 //{

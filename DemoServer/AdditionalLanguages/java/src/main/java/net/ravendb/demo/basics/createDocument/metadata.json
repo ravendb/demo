@@ -14,12 +14,12 @@
         {
             "Title": "Document Modeling",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
         },
         {
             "Title": "The Store Command",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
         },
         {
             "Title": "What is a Collection",
@@ -74,7 +74,7 @@
                 {
                     "Title": "Document Modeling",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
                 },
                 {
                     "Title": "Document fields naming convention",
@@ -110,7 +110,7 @@
                 {
                     "Title": "The Store Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
                 },
                 {
                     "Title": "Storing Entities",
@@ -165,7 +165,7 @@
                 {
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
                 },
                 {
                     "Title": "Saving Changes",

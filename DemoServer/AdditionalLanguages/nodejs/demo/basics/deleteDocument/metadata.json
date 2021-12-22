@@ -66,7 +66,7 @@
                 {
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
                 }
                 //TODO
                 //{

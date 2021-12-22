@@ -25,17 +25,17 @@
         {
             "Title": "Reference handling, Include and LoadDocument",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#reference-handling-include-and-loaddocument"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#reference-handling-include-and-loaddocument"
         },
         {
             "Title": "Indexing referenced data",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#indexing-referenced-data"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
         },
         {
             "Title": "Document Modeling",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
         },
         {
             "Title": "Static Indexes Overview Demo",
@@ -90,12 +90,12 @@
                 {
                     "Title": "Reference handling, Include and LoadDocument",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#reference-handling-include-and-loaddocument"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#reference-handling-include-and-loaddocument"
                 },
                 {
                     "Title": "Indexing referenced data",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#indexing-referenced-data"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
                 }
             ]
         },
@@ -120,7 +120,7 @@
                 {
                     "Title": "Indexing referenced data",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#indexing-referenced-data"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
                 },
                 {
                     "Title": "Query for documents (Map Index Demo)",

@@ -20,7 +20,7 @@
         {
             "Title": "Document Revisions",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
         },
         {
             "Title": "What are revisions",
@@ -97,7 +97,7 @@
                 {
                     "Title": "Document Revisions",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
                 }
             ]
         },
@@ -118,7 +118,7 @@
                 {
                     "Title": "Document Revisions",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#document-revisions"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
                 }
             ]
         }
