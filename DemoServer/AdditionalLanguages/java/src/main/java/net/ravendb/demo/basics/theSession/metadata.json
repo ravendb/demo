@@ -14,7 +14,7 @@
         {
             "Title": "The Document Session",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-session"
         },
         {
             "Title": "What is a Session",
@@ -29,7 +29,7 @@
         {
             "Title": "The SaveChanges Command",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
         },
         {
             "Title": "Saving Changes",
@@ -61,7 +61,7 @@
                 {
                     "Title": "The Document Session",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-session"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-session"
                 },
                 {
                     "Title": "What is a Session",
@@ -100,7 +100,7 @@
                 {
                     "Title": "The Store Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#store"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
                 },
                 {
                     "Title": "Storing Entities",
@@ -128,7 +128,7 @@
                 {
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
                 },
                 {
                     "Title": "Saving Changes",

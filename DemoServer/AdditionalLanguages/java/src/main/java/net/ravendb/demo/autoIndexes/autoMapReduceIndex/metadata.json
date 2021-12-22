@@ -18,17 +18,17 @@
         {
             "Title": "Aggregation queries",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
         },
         {
             "Title": "MapReduce and Aggregations",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
         },
         {
             "Title": "Dynamic aggregation",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
         },
         //TODO
         //{
@@ -44,7 +44,7 @@
         {
             "Title": "The query optimizer",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         }
         //TODO
         //{
@@ -116,17 +116,17 @@
                 {
                     "Title": "Aggregation queries",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
                 },
                 {
                     "Title": "MapReduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Dynamic aggregation",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
                 },
                 //TODO
                 //
@@ -165,17 +165,17 @@
                 {
                     "Title": "Aggregation queries",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#aggregation-queries"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
                 },
                 {
                     "Title": "MapReduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Dynamic aggregation",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#dynamic-aggregation-with-mapreduce-indexes"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
                 },
                 //TODO
                 //{
@@ -243,7 +243,7 @@
                 {
                     "Title": "The query optimizer",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 }
                 //TODO
                 //{

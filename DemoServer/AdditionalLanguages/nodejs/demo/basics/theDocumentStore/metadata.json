@@ -28,7 +28,7 @@
         {
             "Title": "The Document Store",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
         },
         {
             "Title": "What is a Document Store",
@@ -48,7 +48,7 @@
         {
             "Title": "Your first RavenDB program",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#your-first-ravendb-program"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#your-first-ravendb-program"
         }
     ],
 
@@ -86,7 +86,7 @@
                 {
                     "Title": "The Document Store",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-store"
                 },
                 {
                     "Title": "What is a Document Store",

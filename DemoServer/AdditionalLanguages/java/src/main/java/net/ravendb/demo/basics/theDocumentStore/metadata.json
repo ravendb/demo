@@ -23,7 +23,7 @@
         {
             "Title": "The Document Store",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-store"
         },
         {
             "Title": "What is a Document Store",
@@ -70,7 +70,7 @@
                 {
                     "Title": "The Document Store",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#the-document-store"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-store"
                 },
                 {
                     "Title": "What is a Document Store",
@@ -145,12 +145,12 @@
                 {
                     "Title": "Conventions",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#conventions"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#conventions"
                 },
                 {
                     "Title": "Certificates introduction",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch13/Ch13.md#introduction-to-transport-level-security-and-authentication"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/13-securing-your-ravens#introduction-to-transport-level-security-and-authentication"
                 }
             ]
         },

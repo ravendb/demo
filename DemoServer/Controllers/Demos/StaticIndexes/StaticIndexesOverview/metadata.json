@@ -27,12 +27,12 @@
         {
             "Title": "Static Indexes",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch10/Ch10.md#static-indexes-and-other-advanced-options"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
         },
         {
             "Title": "Working with Indexes",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-indexes"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
         },
         {
             "Title": "What Indexes Are",
@@ -96,7 +96,7 @@
                 {
                     "Title": "Defining simple indexes",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-simple-indexes-via-client-code"
                 }
             ]
         },
@@ -117,7 +117,7 @@
                 {
                     "Title": "Using strongly typed code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#working-with-complex-indexes-using-strongly-typed-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-complex-indexes-using-strongly-typed-code"
                 },
                 {
                     "Title": "Combine Multiple Fields",
@@ -173,7 +173,7 @@
                 {
                     "Title": "Defining simple indexes",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-simple-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-simple-indexes-via-client-code"
                 },
                 {
                     "Title": "Guidelines - using pure functions",
@@ -205,7 +205,7 @@
                 {
                     "Title": "Deploying indexes",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#deploying-indexes"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#deploying-indexes"
                 },
                 {
                     "Title": "Indexing process",

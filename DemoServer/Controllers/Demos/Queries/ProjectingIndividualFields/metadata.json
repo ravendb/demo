@@ -28,12 +28,12 @@
         {
             "Title": "Projecting data in queries",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#projecting-data-in-queries"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#projecting-data-in-queries"
         },
         {
             "Title": "Projecting results",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-results"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#projecting-results"
         },
         {
             "Title": "LINQ queries",
@@ -87,12 +87,12 @@
                 {
                     "Title": "Projecting data in queries",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#projecting-data-in-queries"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#projecting-data-in-queries"
                 },
                 {
                     "Title": "Projecting results",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-results"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#projecting-results"
                 }
             ]
         },

@@ -17,22 +17,22 @@
         {
             "Title": "What are attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/attachments/what-are-attachments"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/attachments/what-are-attachments"
         },
         {
             "Title": "Attachments and binary data",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
         },
         {
             "Title": "Working with attachments",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
         },
         {
             "Title": "Storing attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/attachments/storing"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/attachments/storing"
         }
         //TODO
         //{
@@ -57,7 +57,7 @@
                 {
                     "Title": "Attachments and binary data",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#attachments-and-binary-data"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
                 },
                 {
                     "Title": "Node.js - Buffer",
@@ -84,12 +84,12 @@
                 {
                     "Title": "Storing attachments",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/attachments/storing"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/attachments/storing"
                 },
                 {
                     "Title": "Working with attachments",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch04/Ch04.md#working-with-attachments"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
                 }
             ]
         },
@@ -106,7 +106,7 @@
                 {
                     "Title": "The SaveChanges Command",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#savechanges"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
                 }
                 //TODO
                 //{

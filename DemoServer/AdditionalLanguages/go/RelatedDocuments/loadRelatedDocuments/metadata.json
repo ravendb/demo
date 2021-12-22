@@ -19,12 +19,12 @@
         {
             "Title": "Working with multiple documents",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
         },
         {
             "Title": "Document Modeling",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
         }
     ],
 
@@ -51,7 +51,7 @@
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
                 },
                 {
                     "Title": "Load Document (Edit Document Demo)",
@@ -75,7 +75,7 @@
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
                 },
                 {
                     "Title": "Load Document (Edit Document Demo)",
@@ -97,7 +97,7 @@
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
                 },
                 {
                     "Title": "Load Document (Edit Document Demo)",

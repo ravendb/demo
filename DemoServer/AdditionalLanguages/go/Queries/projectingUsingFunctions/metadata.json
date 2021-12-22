@@ -13,7 +13,7 @@
         {
             "Title": "Projecting With Object Literals",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#projecting-with-object-literals"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#projecting-with-object-literals"
         },
         {
             "Title": "Query Overview Demo",

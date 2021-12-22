@@ -32,12 +32,12 @@
         {
             "Title": "Map-Reduce and Aggregations",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
         },
         {
             "Title": "Map-Reduce indexes via client code",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
         },
         {
             "Title": "Creating and Deploying Indexes",
@@ -76,12 +76,12 @@
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Map-Reduce indexes via client code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
                 }
             ]
         },
@@ -105,12 +105,12 @@
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Map-Reduce indexes via client code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
                 }
             ]
         },
@@ -138,12 +138,12 @@
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Map-Reduce indexes via client code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
                 }
             ]
         },
@@ -170,12 +170,12 @@
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Map-Reduce indexes via client code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
                 }
             ]
         },
@@ -212,12 +212,12 @@
                 {
                     "Title": "Map-Reduce and Aggregations",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch11/Ch11.md#mapreduce-and-aggregations-in-ravendb"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
                 },
                 {
                     "Title": "Map-Reduce indexes via client code",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#defining-mapreduce-indexes-via-client-code"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#defining-mapreduce-indexes-via-client-code"
                 }
             ]
         }

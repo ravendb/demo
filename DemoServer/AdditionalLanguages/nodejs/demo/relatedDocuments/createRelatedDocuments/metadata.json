@@ -12,12 +12,12 @@
         {
             "Title": "Working with multiple documents",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
         },
         {
             "Title": "Document Modeling",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
         },
         //TODO
         //{
@@ -28,7 +28,7 @@
         {
             "Title": "Loading and including related documents in a query",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#loading-and-including-related-documents"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#loading-and-including-related-documents"
         },
         {
             "Title": "Document Identifier Generation",
@@ -43,7 +43,7 @@
         {
             "Title": "Client-side identifier generation (hilo)",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
         }
     ],
 
@@ -65,12 +65,12 @@
                 {
                     "Title": "Document Modeling",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
                 },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
                 }
             ]
         },
@@ -89,12 +89,12 @@
                 {
                     "Title": "Document Modeling",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch03/Ch03.md#document-modeling"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
                 },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#working-with-multiple-documents"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
                 }
             ]
         },
@@ -133,7 +133,7 @@
                 {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
                 }
             ]
         },
@@ -160,7 +160,7 @@
                 {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch02/Ch02.md#client-side-identifier-generation-hilo"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
                 }
             ]
         },

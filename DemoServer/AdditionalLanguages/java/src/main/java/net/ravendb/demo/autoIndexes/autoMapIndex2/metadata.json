@@ -12,7 +12,7 @@
         {
             "Title": "The query optimizer",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         },
         //TODO
         //{
@@ -39,7 +39,7 @@
         {
             "Title": "Creating and managing indexes",
             "Type" : "link",
-            "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch12/Ch12.md#creating-and-managing-indexes"
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#creating-and-managing-indexes"
         }
     ],
 
@@ -103,7 +103,7 @@
                 {
                     "Title": "The query optimizer",
                     "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/book/blob/v4.0/Ch09/Ch09.md#the-query-optimizer"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 }
                 //TODO
                 //{
