@@ -11,6 +11,7 @@ import { QueryRelatedDocumentsDemo } from "./relatedDocuments/QueryRelatedDocume
 import { IndexRelatedDocumentsDemo } from "./relatedDocuments/IndexRelatedDocumentsDemo";
 import { StoreAttachmentDemo } from "./attachments/StoreAttachmentDemo";
 import { LoadAttachmentDemo } from "./attachments/LoadAttachmentDemo";
+import { IndexAttachmentDetailsDemo } from "./attachments/IndexAttachmentDetailsDemo";
 import { EnableRevisionsDemo } from "./revisions/EnableRevisionsDemo";
 import { GetRevisionsDemo } from "./revisions/GetRevisionsDemo";
 import { QueryOverviewDemo } from "./queries/QueryOverviewDemo";
@@ -82,6 +83,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <StoreAttachmentDemo />;
             case "load-attachment":
                 return <LoadAttachmentDemo />;
+            case "index-attachment-details":
+                return <IndexAttachmentDetailsDemo />;
         }
     }
 

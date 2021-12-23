@@ -6,7 +6,12 @@
         "You can retrieve any stored attachment from a document and **load the attachment** to memory."
     ],
 
-    "Assets": [  
+    "Assets": [
+        {
+            "Title": "Store Attachment Demo",
+            "Type" : "demo",
+            "Url"  : "attachments/store-attachment"
+        },
         {
             "Title": "What are attachments",
             "Type" : "link",
