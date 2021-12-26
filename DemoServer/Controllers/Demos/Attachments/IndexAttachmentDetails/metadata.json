@@ -118,9 +118,9 @@
                 "* The attachments names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
                 "  e.g., _AttachmentNames_ is an index field that holds all the attachments names of the document.",
                 "",
-                "* Later on, the 'Employees' collection can be queried on using this index to get employees that have specific attachments names, types, etc.",
+                "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",
                 "",
-                "* Re-indexing will happen on any change to the document's attachments"
+                "* Re-indexing will happen on any change to the document's attachments."
             ],
             "Assets": [
                 {
