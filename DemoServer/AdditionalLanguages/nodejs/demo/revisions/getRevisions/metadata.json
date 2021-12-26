@@ -7,6 +7,7 @@
         "<p>* Modifying document body<br>",
         "* Modifying document metadata<br>",
         "* Adding or removing attachments<br>",
+        "* Creating or deleting time-series<br>",
         "* Creating or deleting counters</p>",
         "",
         "The revisions created for a document can be retrieved from the server."
