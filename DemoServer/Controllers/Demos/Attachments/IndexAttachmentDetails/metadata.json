@@ -41,7 +41,7 @@
             "Title": "Define the index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* This example defines a Map index on the _Employees_ collecion."
+                "* This example defines a Map index on the _Employees_ collection."
             ],
             "Assets": [
                 {

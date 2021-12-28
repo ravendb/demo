@@ -23,11 +23,11 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
 
         #region Demo
         #region Step_1
-        public class Employees_ByAttachmentDetails : AbstractIndexCreationTask<Employee, Employees_ByAttachmentDetails.Result>
+        public class Employees_ByAttachmentDetails : AbstractIndexCreationTask<Employee, Employees_ByAttachmentDetails.IndexEntry>
         #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string[] AttachmentNames { get; set; }
                 public string[] AttachmentContentTypes { get; set; }
@@ -44,7 +44,7 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
                     #endregion
                     
                     #region Step_4
-                    select new Result
+                    select new IndexEntry
                     {
                         AttachmentNames = attachments.Select(x => x.Name).ToArray(),
                         AttachmentContentTypes = attachments.Select(x => x.ContentType).ToArray(),
@@ -70,7 +70,7 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                employeesWithMatchingAttachments = session.Query<Employees_ByAttachmentDetails.Result, Employees_ByAttachmentDetails>()
+                employeesWithMatchingAttachments = session.Query<Employees_ByAttachmentDetails.IndexEntry, Employees_ByAttachmentDetails>()
                     .Where(employee => employee.AttachmentContentTypes.Contains(attachmentContentType) &&
                                        employee.AttachmentSizes.Any(x => x > attachmentMinSize))
                     .OfType<Employee>()
