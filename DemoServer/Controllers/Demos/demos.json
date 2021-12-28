@@ -81,6 +81,17 @@
     },
     {
         "category": {
+            "slug": "multi-map-indexes",
+            "directory": "MultiMapIndexes",
+            "title": "Multi Map Indexes"
+        },
+        "demos": [
+            "MultiMapIndexBasic",
+            "MultiMapIndexCustomizedFields"
+        ]
+    },
+    {
+        "category": {
             "slug": "auto-indexes",
             "directory": "AutoIndexes",
             "title": "Auto Indexes"
