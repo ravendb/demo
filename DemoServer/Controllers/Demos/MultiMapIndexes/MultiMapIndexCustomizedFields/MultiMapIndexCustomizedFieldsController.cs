@@ -79,7 +79,6 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapIndexCustomizedFi
                 Store(x => x.Collection, FieldStorage.Yes);
                 #endregion
             }
-            
         }
         #endregion
 
@@ -114,7 +113,6 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapIndexCustomizedFi
         {
             public string NamePrefix { get; set; }
             public string TitlePrefix { get; set; }
-
         }
     }
 }
