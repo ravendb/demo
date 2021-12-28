@@ -136,7 +136,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* The query results will include all documents from the 'Employees' collection that have attachments with a matching Type and Size."
+                "* The query results will include all documents from the 'Employees' collection that have attachments with a matching Type and minimum Size."
             ],
             "Assets": [
                 {

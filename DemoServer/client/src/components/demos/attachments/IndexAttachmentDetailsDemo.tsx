@@ -16,7 +16,7 @@ const resultsCreator = () => <ResultTable
 export const IndexAttachmentDetailsDemo = () => <Demo
     paramDefinitions = {[
         { inputType: "text", name: "attachmentContentType", placeholder: "image/jpeg", paramKind: "text-param" },
-        { inputType: "number", name: "attachmentSize", placeholder: "18000", paramKind: "text-param" }
+        { inputType: "number", name: "attachmentMinSize", placeholder: "18000", paramKind: "text-param" }
     ]}
     resultsComponents = { resultsCreator }
 />;

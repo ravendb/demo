@@ -62,7 +62,7 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
         public async Task<IActionResult> Run(RunParams runParams)
         {
             string attachmentContentType = runParams.AttachmentContentType ?? "image/jpeg";
-            long attachmentSize = runParams.AttachmentSize ?? 18000;
+            long attachmentMinSize = runParams.AttachmentMinSize ?? 18000;
 
             #region Demo
             List<Employee> employeesWithMatchingAttachments;
@@ -72,7 +72,7 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
                 #region Step_5
                 employeesWithMatchingAttachments = session.Query<Employees_ByAttachmentDetails.Result, Employees_ByAttachmentDetails>()
                     .Where(employee => employee.AttachmentContentTypes.Contains(attachmentContentType) &&
-                                       employee.AttachmentSizes.Any(x => x > attachmentSize))
+                                       employee.AttachmentSizes.Any(x => x > attachmentMinSize))
                     .OfType<Employee>()
                     .ToList();
                 #endregion
@@ -86,6 +86,6 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
     public class RunParams
     {
         public string AttachmentContentType { get; set; }
-        public long? AttachmentSize { get; set; }
+        public long? AttachmentMinSize { get; set; }
     }
 }
