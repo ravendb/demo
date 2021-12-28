@@ -19,10 +19,10 @@ namespace DemoServer.Controllers.Demos.Basics.CreateDocument
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string companyName = runParams.CompanyName;
-            string companyPhone = runParams.CompanyPhone;
-            string contactName = runParams.ContactName;
-            string contactTitle = runParams.ContactTitle;
+            string companyName = runParams.CompanyName?? "Hibernating Rhinos";
+            string companyPhone = runParams.CompanyPhone?? "(+972)52-5486969";
+            string contactName = runParams.ContactName?? "New Contact Name";
+            string contactTitle = runParams.ContactTitle?? "New Contact Title";
 
             string theNewDocumentId;
 

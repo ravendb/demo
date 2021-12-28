@@ -73,7 +73,7 @@
                 "",
                 "* The generic parameters passed define:<br>",
                 "    * The source collection for the index<br>",
-                "    * The shape of the resulting index-fields (see 'Result' class in the next step).",
+                "    * The shape of the resulting index entries (see 'IndexEntry' class in the next step).",
                 "",
                 "* In the above example, a Map index is created on the 'Employees' collection."
             ],
@@ -101,10 +101,10 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "The Index Entry class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The Result class defines the _index-fields_ - the fields that will be indexed.<br>",
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
                 "  Later on, a query can be made on these index-fields.",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
@@ -222,13 +222,13 @@
                 "     * _Search for documents that match a query whose criteria is based on the index-fields_ (Map index)",
                 "     * _Query for an aggregated value_ (Map-Reduce index)",
                 "",
-                "* The generic params passed to the query are the result type and index class.",
+                "* The generic params passed to the query are the IndexEntry class and index class.",
                 "",
                 "* The above query example is on a Map typed index.<br>",
                 "  The query is filtering on the index-field 'LastName'.<br>",
                 "  Results will include all documents from the 'Employees' collection whose 'LastName' is 'SomeName'.<br><br>",
-                "  Note the usage of _OfType()_, which converts the type being used in the where clause (the 'Result' type) to the collection type (Employee).",
-                "  While the 'Result' type allows for a strongly typed query in the client, the server returns the actual documents entities objects."
+                "  Note the usage of _OfType()_, which converts the type being used in the where clause (the 'IndexEntry' type) to the collection type (Employee).",
+                "  While the 'IndexEntry' type allows for a strongly typed query in the client, the server returns the actual documents entities objects."
             ],
             "Assets": [
                 {

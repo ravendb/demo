@@ -23,11 +23,11 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
 
         #region Demo
         #region Step_1
-        public class Song_TextData : AbstractIndexCreationTask<LastFm, Song_TextData.Result>
+        public class Song_TextData : AbstractIndexCreationTask<LastFm, Song_TextData.IndexEntry>
         #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string SongData { get; set; }
             }
@@ -65,7 +65,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string searchTerm = runParams.SearchTerm;
+            string searchTerm = runParams.SearchTerm?? "Floyd";
 
             #region Demo
             List<LastFm> results;
@@ -73,7 +73,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexMultipleFiel
             using (IDocumentSession session = DocumentStoreHolder.MediaStore.OpenSession())
             {
                 #region Step_5
-                results = session.Query<Song_TextData.Result, Song_TextData>()
+                results = session.Query<Song_TextData.IndexEntry, Song_TextData>()
                     .Search(x => x.SongData, searchTerm)
                     .Take(20)
                     .As<LastFm>()

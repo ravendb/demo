@@ -21,11 +21,11 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
         
         #region Demo
         #region Step_1
-        public class Employees_ByLastName : AbstractIndexCreationTask<Employee, Employees_ByLastName.Result>
+        public class Employees_ByLastName : AbstractIndexCreationTask<Employee, Employees_ByLastName.IndexEntry>
         #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string LastName { get; set; }
             }
@@ -56,7 +56,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StaticIndexesOverview
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                IQueryable<Employee> queryOnIndex = session.Query<Employees_ByLastName.Result, Employees_ByLastName>()
+                IQueryable<Employee> queryOnIndex = session.Query<Employees_ByLastName.IndexEntry, Employees_ByLastName>()
                       .Where(employee => employee.LastName == "SomeName")
                       .OfType<Employee>();
 

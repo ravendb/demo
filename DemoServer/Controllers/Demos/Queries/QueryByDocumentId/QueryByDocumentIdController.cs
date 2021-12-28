@@ -20,7 +20,7 @@ namespace DemoServer.Controllers.Demos.Queries.QueryByDocumentId
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string employeeDocumentId = runParams.EmployeeDocumentId;
+            string employeeDocumentId = runParams.EmployeeDocumentId?? "employees/1-A";
 
             #region Demo
             Employee employee;

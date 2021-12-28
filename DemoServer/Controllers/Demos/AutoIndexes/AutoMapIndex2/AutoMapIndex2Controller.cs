@@ -21,7 +21,7 @@ namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex2
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            var country = runParams.Country;
+            var country = runParams.Country?? "UK";
 
             #region Demo
             Employee employeeResult;

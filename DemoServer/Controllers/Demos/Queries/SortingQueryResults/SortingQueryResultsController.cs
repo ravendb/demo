@@ -22,7 +22,7 @@ namespace DemoServer.Controllers.Demos.Queries.SortingQueryResults
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            decimal numberOfUnits = runParams.NumberOfUnits;
+            decimal numberOfUnits = runParams.NumberOfUnits?? 20;
 
             #region Demo
             List<Product> sortedProducts;
@@ -52,7 +52,7 @@ namespace DemoServer.Controllers.Demos.Queries.SortingQueryResults
         
         public class RunParams
         {
-            public decimal NumberOfUnits { get; set; }
+            public decimal? NumberOfUnits { get; set; }
         }
     }
 }

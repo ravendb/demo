@@ -26,7 +26,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
             #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string CategoryName { get; set; }
             }
@@ -36,7 +36,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
             public Products_ByCategoryName()
             {
                 Map = products => from product in products
-                    select new Result
+                    select new IndexEntry
                     {
                         CategoryName = LoadDocument<Category>(product.Category).Name
                     };
@@ -50,7 +50,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string categoryName = runParams.CategoryName;
+            string categoryName = runParams.CategoryName?? "Produce";
             
             #region Demo
             List<Product> productsWithCategoryName;
@@ -59,7 +59,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.IndexRelatedDocuments
             {
                 #region Step_4
                 productsWithCategoryName = session
-                    .Query<Products_ByCategoryName.Result, Products_ByCategoryName>()
+                    .Query<Products_ByCategoryName.IndexEntry, Products_ByCategoryName>()
                     .Where(x => x.CategoryName == categoryName)
                     .OfType<Product>()
                     .ToList();

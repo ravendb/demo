@@ -20,8 +20,8 @@ namespace DemoServer.Controllers.Demos.Revisions.EnableRevisions
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string collection1 = runParams.Collection1;
-            string collection2 = runParams.Collection2;
+            string collection1 = runParams.Collection1?? "Orders";
+            string collection2 = runParams.Collection2?? "Companies";
 
             #region Demo
             #region Step_1

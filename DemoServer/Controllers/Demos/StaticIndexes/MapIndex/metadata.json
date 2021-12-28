@@ -52,7 +52,7 @@
                 "",
                 "* The generic params:<br>",
                 "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ImportantDetails.Result_ - is the shape of the resulting index-fields (see next step)"
+                "    * _Employees_ImportantDetails.IndexEntry_ - is the shape of the resulting index entries<br> (see next step)"
             ],
             "Assets": [
                 {
@@ -78,10 +78,11 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "The Index Entry class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The Result class defines the _index-fields_. These fields will be indexed and can be queried on.",
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
+                "* These fields will be indexed and can be queried on.",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step)."
             ],
@@ -115,7 +116,7 @@
                 "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
                 "  * NumberOfTerritories - applying logic (using Count)",
                 "",
-                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "* The index built will contain a list of _indexed terms_ for each _index-field_ specified in the Map function, and a mapping to the relevant document.",
                 "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."

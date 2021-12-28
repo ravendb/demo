@@ -33,7 +33,7 @@ namespace DemoServer.Controllers.Demos.Basics.DeleteDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            string documentID = runParams.DocumentId;
+            string documentID = runParams.DocumentId?? "companies/1-A";
             initialCompanyDocument.Id = documentID;
             
             await SetRunPrerequisites(documentID);

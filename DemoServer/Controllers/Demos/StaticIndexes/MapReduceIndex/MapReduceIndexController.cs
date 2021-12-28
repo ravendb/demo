@@ -21,11 +21,11 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
         
         #region Demo
         #region Step_1
-        public class Employees_ByCountry : AbstractIndexCreationTask<Employee, Employees_ByCountry.Result>
+        public class Employees_ByCountry : AbstractIndexCreationTask<Employee, Employees_ByCountry.IndexEntry>
         #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string Country { get; set; }
                 public int CountryCount { get; set; }
@@ -36,7 +36,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
             {
                 #region Step_3
                 Map = employees => from employee in employees
-                    select new Result
+                    select new IndexEntry
                     {
                        Country = employee.Address.Country,
                        CountryCount = 1
@@ -46,7 +46,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
                 #region Step_4
                 Reduce = results => from result in results
                     group result by result.Country into g
-                    select new Result
+                    select new IndexEntry
                     {
                         Country = g.Key,
                         CountryCount = g.Sum(x => x.CountryCount)
@@ -61,14 +61,14 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapReduceIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string country = runParams.Country;
+            string country = runParams.Country?? "USA";
             int numberOfEmployeesFromCountry;
 
             #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                Employees_ByCountry.Result queryResult = session.Query<Employees_ByCountry.Result, Employees_ByCountry>()
+                Employees_ByCountry.IndexEntry queryResult = session.Query<Employees_ByCountry.IndexEntry, Employees_ByCountry>()
                       .FirstOrDefault(x => x.Country == country);
                     
                 numberOfEmployeesFromCountry = queryResult?.CountryCount ?? 0;

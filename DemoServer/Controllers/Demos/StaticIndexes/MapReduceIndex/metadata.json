@@ -60,7 +60,7 @@
                 "",
                 "* The generic params:<br>",
                 "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ByCountry.Result_ - is the shape of the resulting index-fields (see next step)"
+                "    * _Employees_ByCountry.IndexEntry_ - is the shape of the resulting index entries<br> (see next step)"
             ],
             "Assets": [
                 {
@@ -86,12 +86,13 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "The Index Entry class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The Result class defines the _index-fields_. These fields will be indexed and can be queried on.",
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
+                "  These fields will be indexed and can be queried on.",
                 "",
-                "* Each resulting _index-entry_ will have the above 2 index-fields: 'Country' & 'CountryCount'. <br>",
+                "* Each resulting _index-entry_ will have the above 2 _index-fields_: 'Country' & 'CountryCount'. <br>",
                 "  Field 'CountryCount' will be dedicated to hold the aggregated value.",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step)."
@@ -188,7 +189,7 @@
                 "* RavenDB will search the index for a matching index-entry that has the queried country in its 'Country' property.",
                 "",
                 "* Note: The return value of the query is Not a list of all documents that contain the queried country.",
-                "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'Result' type emitted by the Map-Reduce index,",
+                "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'IndexEntry' class emitted by the Map-Reduce index,",
                 "  from which you can retrieve 'CountryCount' - the aggregated value.",
                 "",
                 "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results."
