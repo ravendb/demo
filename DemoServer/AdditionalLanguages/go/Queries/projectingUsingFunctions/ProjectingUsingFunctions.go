@@ -50,9 +50,9 @@ func ProjectingUsingFunctions() error {
     rawQueryString := `
         //region Step_1
         declare function output(employee) {
-            var formatName  = function(employee) { return "Full Name: " + employee.FirstName + " " + employee.LastName; };
+            var formatName  = function(employee) { return "Name: " + employee.FirstName + " " + employee.LastName; };
             var formatTitle = function(employee) { return "Title: " + employee.Title };
-            return { FullName : formatName(employee), Title : formatTitle(employee) };
+            return { Name : formatName(employee), Title : formatTitle(employee) };
         }
         //endregion
         //region Step_2 
@@ -81,7 +81,7 @@ type Employee struct {
     Title     string 
 }
 type EmployeeDetails struct {
-    FullName  string
+    Name      string
     Title     string
 }
 //endregion

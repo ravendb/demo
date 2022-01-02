@@ -37,10 +37,14 @@
 
     "Walkthroughs": [
         {
-            "Title": "Define a query",
+            "Title": "Define the projecting function",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Pass the raw-query-string to the Session `rawQuery()` method."
+                "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object.",
+                "",
+                "* The above _output_ function returns a projected object literal that is computed from the following functions:",
+                "  * formatName -  process the 'FirstName' & 'LastName' document fields.<br>",
+                "  * formatTitle - process the document 'Title' field."
             ],
             "Assets": [
                 {
@@ -51,14 +55,15 @@
             ]
         },
         {
-            "Title": "Define the functions",
+            "Title": "Define the RQL query",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object.",
+                "* Within the raw-query-string, define the `RQL query` that will be executed on the server.",
                 "",
-                "* The above _output_ function returns a projected object literal that is computed from the following functions:",
-                "  * formatName -  process the 'FirstName' & 'LastName' document fields.<br>",
-                "  * formatTitle - process the document 'Title' field."
+                "* Use `select` and call the JavaScript function defined from the previous step.",
+                "",
+                "* In the above RQL, a query is defined on the 'Employees' collection.",
+                "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
             ],
             "Assets": [
                 {
@@ -74,15 +79,10 @@
             ]
         },
         {
-            "Title": "Define the projection",
+            "Title": "Set the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Within the raw-query-string, define the `RQL query` that will be executed on the server.",
-                "",
-                "* Use `select` and call the JavaScript function defined from the previous step.",
-                "",
-                "* In the above RQL, a query is defined on the 'Employees' collection.",
-                "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
+                "* Pass the raw-query-string to the Session `rawQuery()` method."
             ],
             "Assets": [
             ]
@@ -100,18 +100,6 @@
                 "  as they are not full documents.",
                 "",
                 "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
-            ],
-            "Assets": [
-            ]
-        },
-        {
-            "Title": "Sample results",
-            "Slug": "step-5",
-            "DescriptionLines": [
-                "* This is an example for the rawQuery results.",
-                "",
-                "* The shape contains only the fields that were defined by the projection (in Step 2),<br>",
-                "  (and not the whole 'Employee' document shape)."
             ],
             "Assets": [
             ]
