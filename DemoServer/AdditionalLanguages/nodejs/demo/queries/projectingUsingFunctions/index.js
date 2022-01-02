@@ -8,8 +8,8 @@ async function run () {
     //region Step_1
     const rawQueryString = `declare function output(employee) {
             var formatTitle = function(employee) { return "Title: " + employee.Title };
-            var formatName  = function(employee) { return "Name: " + employee.FirstName + " " + employee.LastName; };
-            return { Title : formatTitle(employee), Name : formatName(employee) };
+            var formatName  = function(employee) { return "FullName: " + employee.FirstName + " " + employee.LastName; };
+            return { Title : formatTitle(employee), FullName : formatName(employee) };
         }
     //endregion
     //region Step_2

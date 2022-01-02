@@ -12,7 +12,7 @@ public class projectingUsingFunctions {
 
     //region Demo
     public static class Employee {
-        public String Name;
+        public String FullName;
         public String Title;
     }
     //endregion
@@ -24,9 +24,9 @@ public class projectingUsingFunctions {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
         //region Step_1
             String rawQueryString =  "declare function output(employee) {" +
-                    "var formatName  = function(employee) { return 'Name: ' + employee.FirstName + ' ' + employee.LastName; };" +
+                    "var formatName  = function(employee) { return 'FullName: ' + employee.FirstName + ' ' + employee.LastName; };" +
                     "var formatTitle = function(employee) { return 'Title: ' + employee.Title };" +
-                    "return { Title : formatTitle(employee), Name : formatName(employee) };" +
+                    "return { Title : formatTitle(employee), FullName : formatName(employee) };" +
                     "}"+
         //endregion
         //region Step_2

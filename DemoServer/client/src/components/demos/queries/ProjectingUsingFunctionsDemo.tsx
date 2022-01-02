@@ -5,7 +5,7 @@ import { ResultTable } from "../../demoDisplay/results/resultItems";
 const resultsCreator = () => <ResultTable
     fields={[
         "title",
-        "name"
+        "fullName"
     ]}
 />;
 

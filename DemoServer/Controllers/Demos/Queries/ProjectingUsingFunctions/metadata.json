@@ -84,7 +84,7 @@
                 "  The entities returned by the query will have the structure of the custom class _EmployeeDetails_.",
                 "",      
                 "* Function 'formatTitle' is used to generate the 'Title' field value.<br>",
-                "  Function 'formatName' is used to generate the 'Name' field value."
+                "  Function 'formatName' is used to generate the 'FullName' field value."
             ],
             "Assets": [
                 {

@@ -11,14 +11,9 @@
 
     "Assets": [
         {
-            "Title": "Projection with 'let' - query on collection",
+            "Title": "Projection with declared function - query on collection",
             "Type": "link",
             "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
-        },
-        {
-            "Title": "Projection with 'let' - query on index",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections#example-v---projection-with-"
         },
         {
             "Title": "Projecting With Object Literals",
@@ -48,9 +43,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Query Overview Demo",
-                    "Type": "demo",
-                    "Url": "/java/queries/query-overview"
+                    "Title": "Projection with declared function - query on collection",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 }
             ]
         },
@@ -66,16 +61,6 @@
                 "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
             ],
             "Assets": [
-                {
-                    "Title": "Projection with 'let' - query on collection",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
-                },
-                {
-                    "Title": "Projection with 'let' - query on index",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections#example-v---projection-with-"
-                }
             ]
         },
         {
@@ -85,6 +70,11 @@
                 "* Pass the raw-query-string to the Session `rawQuery()` method."
             ],
             "Assets": [
+                {
+                    "Title": "Projection with declared function - query on collection",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
+                }
             ]
         },
         {
