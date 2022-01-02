@@ -26,6 +26,8 @@ import { PagingQueryResultsDemo } from "./queries/PagingQueryResultsDemo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
+import { ProjectIndexResultsDemo } from "./staticIndexes/ProjectIndexResultsDemo";
+import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
@@ -127,6 +129,10 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <MapIndexDemo />;
             case "map-reduce-index":
                 return <MapReduceIndexDemo />;
+            case "project-index-results":
+                return <ProjectIndexResultsDemo />;
+            case "store-fields-on-index":
+                return <StoreFieldsOnIndexDemo />;
         }
     }
 
