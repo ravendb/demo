@@ -40,15 +40,14 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.ProjectIndexResults
                 public string Location { get; set; }
             }
             #endregion
-            
-            
+
             #region Step_4
             public Employees_ByWorkPeriod()
             {
                 Map = employees => from employee in employees
                     select new IndexEntry
                     {
-                        WorkingInCompanySince =  employee.HiredAt.Year
+                        WorkingInCompanySince = employee.HiredAt.Year
                     };
             }
             #endregion
@@ -68,7 +67,6 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.ProjectIndexResults
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 var employeesQuery = session
-
                     #region Step_5
                     .Query<Employees_ByWorkPeriod.IndexEntry, Employees_ByWorkPeriod>()
                     .Where(employee => employee.WorkingInCompanySince > startYear)

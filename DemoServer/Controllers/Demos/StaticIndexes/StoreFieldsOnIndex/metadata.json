@@ -3,9 +3,9 @@
     "SourceFileName": "StoreFieldsOnIndexController.cs",
     "Title": "Store Fields on Index",
     "DescriptionLines": [
-        "Querying an index results with matching documents that satisfy the query.",
+        "Querying an index results in matching documents that satisfy the query.",
         "",
-        "However, **when one of the index fields is computed and you want to get its value in the query results then Store the Field on the Index**",
+        "However, **when one of the index fields is computed and you want to get its value in the query results then Store that Field on the Index**",
         "otherwise you need to re-calculate the value once results return."
     ],
 
@@ -103,7 +103,7 @@
             "Title": "The projected class",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* `OrderProjectedDetails` will contain the details projected per document result.<br>",
+                "* `OrderProjectedDetails` will contain the details projected per document in the results.<br>",
                 "  Used in step 6.",
                 "",
                 "* Note: it is not mandatory for this class to be nested within the index class."
@@ -120,7 +120,7 @@
             "Title": "The Index Map",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Order' entity will compose each index-field.",
+                "* The _Map function_ defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
                 "",

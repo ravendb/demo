@@ -58,7 +58,7 @@
                 "  In the above example, a _LINQ_ expression was used .<br>",
                 "  Note: a _JavaScript_ index definition can be used as well.",
                 "",
-                "* The index definition defines the _index-fields_ - which fields from the 'Employee' entity will compose each index-field.",
+                "* The index definition defines the _index-fields_ - which fields from the 'Employee' document will compose each index-field.",
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
                 "* The following _index-fields_ are configured above:",

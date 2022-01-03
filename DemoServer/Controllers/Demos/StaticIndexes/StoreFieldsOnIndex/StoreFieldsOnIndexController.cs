@@ -50,7 +50,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsOnIndex
                 Map = orders => from order in orders
                     select new IndexEntry
                     {
-                        Company =  order.Company,
+                        Company = order.Company,
                         TotalItemsOrdered = order.Lines.Sum(orderLine => orderLine.Quantity)
                     };
                 #endregion
