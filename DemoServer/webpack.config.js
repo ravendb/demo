@@ -70,10 +70,7 @@ module.exports = (env, argv) => {
               }
             },
             {
-              loader: "sass-loader",
-              options: {
-                relativeUrls: false
-              }
+              loader: "sass-loader"
             }
           ]
         },

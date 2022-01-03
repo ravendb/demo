@@ -113,7 +113,7 @@ $directions: (
     }
 
     @each $name, $value in $gutters {
-        &.margin-#{$direction}-#{$name} {
+        .margin-#{$direction}-#{$name} {
 
             margin-#{$direction}: $value/$gutter-ratio;
 
@@ -134,7 +134,7 @@ $directions: (
     }
 
     @each $name, $value in $gutters {
-        &.padding-#{$direction}-#{$name} {
+        .padding-#{$direction}-#{$name} {
             padding-#{$direction}: $value/$gutter-ratio;
 
             @media (min-width: $screen-sm) {
