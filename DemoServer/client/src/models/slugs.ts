@@ -34,7 +34,9 @@ type Queries =
 type StaticIndexes = 
       "static-indexes-overview"
     | "map-index"
-    | "map-reduce-index";
+    | "map-reduce-index"
+    | "project-index-results" 
+    | "store-fields-on-index";
 
 type MultiMapIndexes =
       "multi-map-index-basic"

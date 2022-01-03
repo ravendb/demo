@@ -76,7 +76,9 @@
         "demos": [
             "StaticIndexesOverview",
             "MapIndex",
-            "MapReduceIndex"
+            "MapReduceIndex",
+            "ProjectIndexResults",
+            "StoreFieldsOnIndex"
         ]
     },
     {
