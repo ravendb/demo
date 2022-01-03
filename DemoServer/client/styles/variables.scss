@@ -1,5 +1,6 @@
 ﻿// Variables
 // --------------------------------------------------
+@use "sass:math";
 
 //== Colors
 //
@@ -64,9 +65,9 @@ $gutter: 30px;
 $gutter-ratio: 1.6180;
 $gutter-lg: $gutter * $gutter-ratio;
 $gutter-xl: $gutter-lg * $gutter-ratio;
-$gutter-sm: $gutter / $gutter-ratio;
-$gutter-xs: $gutter-sm / $gutter-ratio;
-$gutter-xxs: $gutter-xs / $gutter-ratio;
+$gutter-sm: math.div($gutter,$gutter-ratio);
+$gutter-xs: math.div($gutter-sm,$gutter-ratio);
+$gutter-xxs: math.div($gutter-xs, $gutter-ratio);
 
 $sidebar-width: 440px;
 

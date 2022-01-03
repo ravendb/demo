@@ -10,6 +10,7 @@ using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -82,10 +83,6 @@ namespace DemoServer
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-                {
-                    HotModuleReplacement = true
-                });
             }
             else
             {
@@ -105,6 +102,7 @@ namespace DemoServer
             app.UseSpa(spa =>
             {
                 spa.Options.SourcePath = GetSpaOutputDir(env);
+                spa.UseReactDevelopmentServer("webpack");
             });
         }
     }

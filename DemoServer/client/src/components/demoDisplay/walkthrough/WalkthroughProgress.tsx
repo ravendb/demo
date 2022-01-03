@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { AppState } from "../../../store/state";
 import { selectWalkthroughUrls } from "../../../store/selectors/walkthroughUrls";
 import { selectActiveWalkthroughIndex } from "../../../store/selectors/walkthroughs";

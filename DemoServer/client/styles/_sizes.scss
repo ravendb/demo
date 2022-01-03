@@ -1,3 +1,5 @@
+@use "sass:math";
+
 $global-easing: cubic-bezier(0, 0.5, 0.5, 1);
 $global-easing-in-out: cubic-bezier(0.6, 0, 0.6, 1);
 $global-easing-out: cubic-bezier(0.5, 0, 1, 0.5);
@@ -7,9 +9,9 @@ $gutter-ratio: 1.6180;
 $gutter-md: $gutter * $gutter-ratio;
 $gutter-lg: $gutter-md * $gutter-ratio;
 $gutter-xl: $gutter-lg * $gutter-ratio;
-$gutter-sm: $gutter / $gutter-ratio;
-$gutter-xs: $gutter-sm / $gutter-ratio;
-$gutter-xxs: $gutter-xs / $gutter-ratio;
+$gutter-sm: math.div($gutter, $gutter-ratio);
+$gutter-xs: math.div($gutter-sm, $gutter-ratio);
+$gutter-xxs: math.div($gutter-xs, $gutter-ratio);
 
 $gutters: (
     xxs: $gutter-xxs,
@@ -65,11 +67,11 @@ $directions: (
 }
 
 .margin {
-    margin: $gutter/$gutter-ratio;
+    margin: math.div($gutter, $gutter-ratio);
     
     @each $name, $value in $gutters {
         &.margin-#{$name} {
-            margin: $value/$gutter-ratio;
+            margin: math.div($value, $gutter-ratio);
         }
     }
 
@@ -84,11 +86,11 @@ $directions: (
 }
 
 .padding {
-    padding: $gutter/$gutter-ratio;
+    padding: math.div($gutter, $gutter-ratio);
 
     @each $name, $value in $gutters {
         &.padding-#{$name} {
-            padding: $value/$gutter-ratio;
+            padding: math.div($value,$gutter-ratio);
         }
     }
 
@@ -105,7 +107,7 @@ $directions: (
 
 @each $direction in $directions {
     .margin-#{$direction} {
-        margin-#{$direction}: $gutter/$gutter-ratio;
+        margin-#{$direction}: math.div($gutter,$gutter-ratio);
 
         @media (min-width: $screen-sm) {
             margin-#{$direction}: $gutter;
@@ -115,7 +117,7 @@ $directions: (
     @each $name, $value in $gutters {
         .margin-#{$direction}-#{$name} {
 
-            margin-#{$direction}: $value/$gutter-ratio;
+            margin-#{$direction}: math.div($value,$gutter-ratio);
 
             @media (min-width: $screen-sm) {
                 margin-#{$direction}: $value;
@@ -126,7 +128,7 @@ $directions: (
 
 @each $direction in $directions {
     .padding-#{$direction} {
-        padding-#{$direction}: $gutter/$gutter-ratio;
+        padding-#{$direction}: math.div($gutter,$gutter-ratio);
 
         @media (min-width: $screen-sm) {
             padding-#{$direction}: $gutter;

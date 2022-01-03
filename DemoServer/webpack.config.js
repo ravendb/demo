@@ -27,7 +27,6 @@ module.exports = (env, argv) => {
     }, isProductionMode 
         ? {} 
         : { 'styles-webpack': path.join(__dirname, './client/styles/styles.scss') }),
-    output: path.join(__dirname, BUNDLE_OUTPUT_DIR),
     module: {
       rules: [
         {
@@ -44,16 +43,13 @@ module.exports = (env, argv) => {
           // include: /client/,
           use: 'ts-loader'
         },
-        {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
-          use: [{
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'images/[name].[ext]'
-            }
-          }]
-        },
+          {
+              test: /\.(png|jpg|jpeg|gif|svg)$/,
+              type: "asset",
+              generator: {
+                  filename: 'img/[name].[hash:8][ext][query]',
+              }
+          },
         {
           test: /\.scss$/,
           use: [
@@ -90,14 +86,13 @@ module.exports = (env, argv) => {
             }
           ]
         },
-        {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: 'file-loader',
-          options: {
-            name: "[name].[ext]?[hash]",
-            outputPath: "fonts/"
-          }
-        }
+          {
+              test: /\.(eot|ttf|woff|woff2)$/,
+              type: "asset",
+              generator: {
+                  filename: "fonts/[name].[hash:8][ext][query]"
+              }
+          },
       ]
     },
     output: {
@@ -111,7 +106,7 @@ module.exports = (env, argv) => {
     ],
     optimization: {
       minimize: isProductionMode,
-      noEmitOnErrors: true,
+      emitOnErrors: false,
       minimizer: [
         new TerserPlugin(),
         new OptimizeCSSAssetsPlugin({
@@ -129,6 +124,16 @@ module.exports = (env, argv) => {
     },
     stats: {
       modules: false
+    },
+    devServer: {
+        port: process.env.PORT,
+        hot: true,
+        compress: true,
+        historyApiFallback: true,
+
+        onAfterSetupMiddleware: function() {
+            console.log('Starting the development server... Port = ' + process.env.PORT + '\n');
+        }
     }
   }
 };

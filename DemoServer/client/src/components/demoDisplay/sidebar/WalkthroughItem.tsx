@@ -1,6 +1,6 @@
 import * as React from "react";
 import { createSelector } from "reselect"
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";
 import { DemoState } from "../../../store/state/demo";

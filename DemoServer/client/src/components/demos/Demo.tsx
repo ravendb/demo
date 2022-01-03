@@ -57,7 +57,7 @@ export class DemoDisplay extends React.Component<DemoProps, {}> {
             <Spinner show={loading} />
             <ShareToast />
             <InvalidFileToast />
-            <Sidebar {...this.props} />
+            <Sidebar />
             <DemoBody {...this.props} />
         </Layout>;
     }

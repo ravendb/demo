@@ -1,6 +1,6 @@
 import "../styles/styles.scss";
 
-window["Prism"] = { "manual": true };
+window["Prism"] = { manual: true } as any;
 import Prism from "./libs/prism.bundle";
 console.log(Prism);
 
