@@ -22,11 +22,11 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
         
         #region Demo
         #region Step_1
-        public class Employees_ImportantDetails : AbstractIndexCreationTask<Employee, Employees_ImportantDetails.Result>
+        public class Employees_ImportantDetails : AbstractIndexCreationTask<Employee, Employees_ImportantDetails.IndexEntry>
             #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string FullName { get; set; }
                 public string Country { get; set; }
@@ -39,7 +39,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             public Employees_ImportantDetails()
             {
                 Map = employees => from employee in employees
-                    select new Result
+                    select new IndexEntry
                     {
                        FullName = employee.FirstName + " " + employee.LastName,
                        Country = employee.Address.Country,
@@ -56,7 +56,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            int startYear = runParams.StartYear;
+            int startYear = runParams.StartYear?? 1993;
 
             #region Demo
             List<Employee> employeesFromUSA;
@@ -64,7 +64,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_4
-                employeesFromUSA = session.Query<Employees_ImportantDetails.Result, Employees_ImportantDetails>()
+                employeesFromUSA = session.Query<Employees_ImportantDetails.IndexEntry, Employees_ImportantDetails>()
                        .Where(employee => employee.Country == "USA" &&
                                           employee.WorkingInCompanySince > startYear)
                        .OfType<Employee>()
@@ -78,7 +78,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
         
         public class RunParams
         {
-            public int StartYear { get; set; }
+            public int? StartYear { get; set; }
         }
     }
 }

@@ -21,8 +21,8 @@ namespace DemoServer.Controllers.Demos.Queries.PagingQueryResults
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            int resultsToSkip = runParams.ResultsToSkip;
-            int resultsToTake = runParams.ResultsToTake;
+            int resultsToSkip = runParams.ResultsToSkip?? 10;
+            int resultsToTake = runParams.ResultsToTake?? 5;
 
             #region Demo
             List<Company> pagedResults;
@@ -56,8 +56,8 @@ namespace DemoServer.Controllers.Demos.Queries.PagingQueryResults
         
         public class RunParams
         {
-            public int ResultsToSkip { get; set; }
-            public int ResultsToTake { get; set; }
+            public int? ResultsToSkip { get; set; }
+            public int? ResultsToTake { get; set; }
         }
     }
 }

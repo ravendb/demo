@@ -22,11 +22,11 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
 
         #region Demo
         #region Step_1
-        public class Categories_DescriptionText : AbstractIndexCreationTask<Category, Categories_DescriptionText.Result>
+        public class Categories_DescriptionText : AbstractIndexCreationTask<Category, Categories_DescriptionText.IndexEntry>
         #endregion
         {
             #region Step_2
-            public class Result
+            public class IndexEntry
             {
                 public string CategoryDescription { get; set; }
             }
@@ -36,7 +36,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
             {
                 #region Step_3
                 Map = categories => from category in categories
-                    select new Result
+                    select new IndexEntry
                     {
                         CategoryDescription = category.Description
                     };
@@ -54,7 +54,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string searchTerm = runParams.SearchTerm;
+            string searchTerm = runParams.SearchTerm?? "Pasta";
 
             #region Demo
             List<Category> categoriesWithSearchTerm;
@@ -62,7 +62,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSWithStaticIndexSingleField
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                categoriesWithSearchTerm = session.Query<Categories_DescriptionText.Result, Categories_DescriptionText>()
+                categoriesWithSearchTerm = session.Query<Categories_DescriptionText.IndexEntry, Categories_DescriptionText>()
                        .Where(x => x.CategoryDescription == searchTerm)
                        .OfType<Category>()
                        .ToList();

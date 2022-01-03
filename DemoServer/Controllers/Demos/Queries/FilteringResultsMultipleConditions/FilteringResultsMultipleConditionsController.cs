@@ -22,7 +22,7 @@ namespace DemoServer.Controllers.Demos.Queries.FilteringResultsMultipleCondition
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string country = runParams.Country;
+            string country = runParams.Country?? "USA";
             
             #region Demo
             List<Employee> filteredEmployees;

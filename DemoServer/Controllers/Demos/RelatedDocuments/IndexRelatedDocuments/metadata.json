@@ -64,10 +64,10 @@
             ]
         },
         {
-            "Title": "The index fields",
+            "Title": "The Index Entry class",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Define the index-fields.",
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.",
                 "",
                 "* Index-field _CategoryName_ will be configured to hold the actual category name, and Not the category document ID that exists in the Product document.",
                 "",

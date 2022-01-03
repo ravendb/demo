@@ -51,7 +51,7 @@
                 "",
                 "* The generic params:<br>",
                 "    * _LastFm_ - indicates that the source collection for the index will be the 'LastFms' collection<br>",
-                "    * _Song_TextData.Result_ - is the shape of the resulting index-fields (see next step)"
+                "    * _Song_TextData.IndexEntry_ - is the shape of the resulting index entries (see next step)"
             ],
             "Assets": [
                 {
@@ -77,10 +77,11 @@
             ]
         },
         {
-            "Title": "The index Result class",
+            "Title": "The Index Entry class",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Define the index field(s). These fields will be indexed and can be queried on.",
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
+                "  These fields will be indexed and can be queried on.",
                 "",
                 "* Index field _'SongData'_ is defined here.<br>",
                 "  Its content is configured in the next step, within the index constructor."

@@ -34,7 +34,7 @@ namespace DemoServer.Controllers.Demos.Basics.LoadAndEditDocument
         [HttpPost]
         public async Task<IActionResult> Run(RunParams runParams)
         {
-            string companyName = runParams.CompanyName;
+            string companyName = runParams.CompanyName?? "New Company Name";
             
             await SetRunPrerequisites();
 

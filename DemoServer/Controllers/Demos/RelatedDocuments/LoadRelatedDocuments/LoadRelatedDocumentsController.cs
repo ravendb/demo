@@ -21,8 +21,8 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.LoadRelatedDocuments
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            decimal pricePerUnit = runParams.PricePerUnit;
-            string phone = runParams.Phone;
+            decimal pricePerUnit = runParams.PricePerUnit?? 12;
+            string phone = runParams.Phone?? "(+972)52-5486969";
 
             #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
@@ -53,7 +53,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.LoadRelatedDocuments
 
         public class RunParams
         {
-            public decimal PricePerUnit { get; set; }
+            public decimal? PricePerUnit { get; set; }
 
             public string Phone { get; set; }
         }

@@ -21,7 +21,7 @@ namespace DemoServer.Controllers.Demos.AutoIndexes.AutoMapIndex1
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string firstName = runParams.FirstName;
+            string firstName = runParams.FirstName?? "Steven";
 
             #region Demo
             Employee employeeResult;

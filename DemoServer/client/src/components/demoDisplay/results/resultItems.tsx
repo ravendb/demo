@@ -8,7 +8,6 @@ const Prism = window["Prism"] as any;
 export const DocumentCreated = () => (
     <div className="text-center">
         <img src="../img/file-added.png" />
-        <h2>Document succesfully created</h2>
     </div>
 );
 

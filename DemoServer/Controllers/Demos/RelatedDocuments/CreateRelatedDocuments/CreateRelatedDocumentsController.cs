@@ -19,9 +19,9 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.CreateRelatedDocuments
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string supplierName = runParams.SupplierName;
-            string supplierPhone = runParams.SupplierPhone;
-            string productName = runParams.ProductName;
+            string supplierName = runParams.SupplierName?? "Hibernating Rhinos";
+            string supplierPhone = runParams.SupplierPhone?? "(+972)52-5486969";
+            string productName = runParams.ProductName?? "RavenDB";
 
             #region Demo 
             #region Step_1
