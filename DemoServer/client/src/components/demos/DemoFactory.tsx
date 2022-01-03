@@ -25,6 +25,8 @@ import { SortingQueryResultsDemo } from "./queries/SortingQueryResultsDemo";
 import { PagingQueryResultsDemo } from "./queries/PagingQueryResultsDemo";
 import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverviewDemo";
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
+import { MultiMapIndexBasicDemo } from "./multiMapIndexes/MultiMapIndexBasicDemo";
+import { MultiMapIndexCustomizedFieldsDemo } from "./multiMapIndexes/MultiMapIndexCustomizedFieldsDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
@@ -130,6 +132,15 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
+    private _getMultiMapIndexesDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "multi-map-index-basic":
+                return <MultiMapIndexBasicDemo />;
+            case "multi-map-index-customized-fields":
+                return <MultiMapIndexCustomizedFieldsDemo />;
+        }
+    }
+
     private _getAutoIndexesDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "auto-map-index1":
@@ -173,6 +184,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return this._getQueriesDemo(demoSlug);
             case "static-indexes":
                 return this._getStaticIndexesDemo(demoSlug);
+            case "multi-map-indexes":
+                return this._getMultiMapIndexesDemo(demoSlug);
             case "auto-indexes":
                 return this._getAutoIndexesDemo(demoSlug);
             case "text-search":

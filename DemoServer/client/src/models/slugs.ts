@@ -36,6 +36,10 @@ type StaticIndexes =
     | "map-index"
     | "map-reduce-index";
 
+type MultiMapIndexes =
+      "multi-map-index-basic"
+    | "multi-map-index-customized-fields";
+
 type AutoIndexes = 
       "auto-map-index1"
     | "auto-map-index2"
@@ -56,6 +60,7 @@ export type DemoSlug =
     | Revisions
     | Queries
     | StaticIndexes
+    | MultiMapIndexes
     | AutoIndexes
     | TextSearch
     | Advanced;
@@ -67,6 +72,7 @@ export type CategorySlug =
     | "revisions"
     | "queries"
     | "static-indexes"
+    | "multi-map-indexes"
     | "auto-indexes"
     | "text-search"
     | "advanced";

@@ -73,7 +73,7 @@
                 "",
                 "* The index-field _CategoryName_ will contain the value of the 'Name' property from the related document.",
                 "",
-                "* Later on, the 'Products' collection can be queried on using this index to get products that have a specific category name.",
+                "* Later on, the 'Products' collection can be queried using this index to get products that have a specific category name.",
                 "",
                 "* Take into account that:<br>",
                 "  Re-indexing will happen on any change in the related document !<br>",
