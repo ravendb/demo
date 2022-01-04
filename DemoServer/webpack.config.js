@@ -3,12 +3,17 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
 
   const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "styles/[name].css",
     chunkFilename: "styles/[name].css"
+  });
+
+  const htmlPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, './client/src/index.html')
   });
 
   const isProductionMode = argv && argv.mode === 'production';
@@ -102,7 +107,8 @@ module.exports = (env, argv) => {
       publicPath: "/"
     },
     plugins: [
-      miniCssExtractPlugin
+      miniCssExtractPlugin, 
+      htmlPlugin
     ],
     optimization: {
       minimize: isProductionMode,

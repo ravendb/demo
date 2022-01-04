@@ -106,12 +106,11 @@ namespace DemoServer
             app.UseSpa(spa =>
             {
                 
-                /*
                 if (env.IsDevelopment())
                 {
                     spa.Options.SourcePath = env.ContentRootPath;
                     spa.UseReactDevelopmentServer("dev-webpack");
-                }*/
+                }
                 
                 spa.Options.SourcePath = GetSpaOutputDir(env);
             });
