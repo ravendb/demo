@@ -117,6 +117,17 @@
     },
     {
         "category": {
+            "slug": "compare-exchange",
+            "directory": "CompareExchange",
+            "title": "Compare Exchange"
+        },
+        "demos": [
+            "CreateCompareExchange",
+            "IndexCompareExchange"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "Advanced",
             "title": "Advanced"

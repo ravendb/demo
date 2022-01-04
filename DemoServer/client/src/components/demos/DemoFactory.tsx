@@ -35,6 +35,8 @@ import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
+import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
+import { IndexCompareExchangeDemo } from "./compareExchange/IndexCompareExchangeDemo";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
 
@@ -167,6 +169,15 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
+    private _getCompareExchangeDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "create-compare-exchange":
+                return <CreateCompareExchangeDemo />;
+            case "index-compare-exchange":
+                return <IndexCompareExchangeDemo />;
+        }
+    }
+
     private _getAdvancedDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "replication-failover":
@@ -196,6 +207,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return this._getAutoIndexesDemo(demoSlug);
             case "text-search":
                 return this._getTextSearchDemo(demoSlug);
+            case "compare-exchange":
+                return this._getCompareExchangeDemo(demoSlug);
             case "advanced":
                 return this._getAdvancedDemo(demoSlug);
         }
