@@ -53,7 +53,7 @@ namespace DemoServer
 
             services.AddMemoryCache();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
+            services.AddMvc();
 
             // In production, the React files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
