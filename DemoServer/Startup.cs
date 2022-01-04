@@ -10,8 +10,10 @@ using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.SpaServices.ReactDevelopmentServer;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace DemoServer
@@ -27,7 +29,7 @@ namespace DemoServer
             // add path
         };
 
-        public Startup(IConfiguration configuration, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             Configuration = configuration;
             HostingEnvironment = env;
@@ -35,10 +37,10 @@ namespace DemoServer
         }
 
         private IConfiguration Configuration { get; }
-        private IHostingEnvironment HostingEnvironment { get; }
+        private IWebHostEnvironment HostingEnvironment { get; }
         private ILoggerFactory LoggerFactory { get; }
 
-        private string GetSpaOutputDir(IHostingEnvironment env) => env.IsDevelopment() ? "wwwroot/dev" : "wwwroot/dist";
+        private string GetSpaOutputDir(IWebHostEnvironment env) => env.IsDevelopment() ? "wwwroot/dev" : "wwwroot/dist";
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -49,7 +51,6 @@ namespace DemoServer
 
             services.AddSingleton<Settings>(settings);
 
-            var serviceProvider = services.BuildServiceProvider();
             services.AddMemoryCache();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
@@ -74,9 +75,14 @@ namespace DemoServer
             services.AddScoped<DatabaseSetup>();
             services.AddScoped<DatabaseLinks>();
             services.AddScoped<AddUserIdToResponseHeaderAttribute>();
+            
+            services
+                .AddControllers()
+                .AddApplicationPart(typeof(Startup).Assembly)
+                .AddControllersAsServices();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
         {
             if (env.IsDevelopment())
             {
@@ -90,15 +96,23 @@ namespace DemoServer
             app.UseStaticFiles();
             app.UseSpaStaticFiles();
 
-            app.UseMvc(routes =>
+            app.UseRouting();
+            
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapControllers();
             });
 
             app.UseSpa(spa =>
             {
+                
+                /*
+                if (env.IsDevelopment())
+                {
+                    spa.Options.SourcePath = env.ContentRootPath;
+                    spa.UseReactDevelopmentServer("dev-webpack");
+                }*/
+                
                 spa.Options.SourcePath = GetSpaOutputDir(env);
             });
         }
