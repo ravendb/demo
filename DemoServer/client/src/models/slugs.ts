@@ -15,6 +15,7 @@ type Attachments =
       "store-attachment"
     | "load-attachment"
     | "index-attachment-details";
+
 type Revisions = 
       "enable-revisions"
     | "get-revisions";

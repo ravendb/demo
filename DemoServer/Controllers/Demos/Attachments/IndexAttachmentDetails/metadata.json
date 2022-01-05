@@ -3,7 +3,7 @@
     "SourceFileName": "IndexAttachmentDetailsController.cs",
     "Title": "Index Attachment Details",
     "DescriptionLines": [
-        "**attachment's details and content can both be indexed**.",
+        "**Attachment's details and content can both be indexed**.",
         "",
         "This demo shows indexing of attachment's details."
     ],
@@ -85,7 +85,7 @@
                 "",
                 "* The _attachments_ array will hold the following per attachment:",
                 "  * Name",
-                "  * Type",
+                "  * Content Type",
                 "  * Hash",
                 "  * Size",
                 "",
@@ -115,8 +115,8 @@
             "DescriptionLines": [
                 "* Configure the index-fields content.",
                 "",
-                "* The attachments names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
-                "  e.g., _AttachmentNames_ is an index field that holds all the attachments names of the document.",
+                "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
+                "  e.g., _AttachmentNames_ is an index field that holds all the attachments' names of the document.",
                 "",
                 "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",
                 "",
@@ -136,7 +136,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* The query results will include all documents from the 'Employees' collection that have attachments with a matching Type and minimum Size."
+                "* The query results will include all documents from the 'Employees' collection that have attachments with a matching Content Type and minimum Size."
             ],
             "Assets": [
                 {
