@@ -9,6 +9,7 @@ using DemoServer.Utils.Filters;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
 namespace DemoServer.Controllers
@@ -23,10 +24,10 @@ namespace DemoServer.Controllers
         private readonly DatabaseSetup _databaseSetup;
         private readonly Settings _settings;
         private readonly ILogger _logger;
-        private readonly IHostingEnvironment _hostingEnv;
+        private readonly IWebHostEnvironment _hostingEnv;
 
         public HomeController(DemoContainer demoContainer, UserIdContainer userId, DatabaseLinks databaseLinks,
-            DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger, IHostingEnvironment hostingEnv)
+            DatabaseSetup databaseSetup, Settings settings, ILogger<HomeController> logger, IWebHostEnvironment hostingEnv)
         {
             _demoContainer = demoContainer;
             _userId = userId;

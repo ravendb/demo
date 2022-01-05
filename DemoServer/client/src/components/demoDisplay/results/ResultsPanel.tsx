@@ -62,7 +62,7 @@ class ResultsPanelDisplay extends React.Component<ResultsPanelProps, {}> {
     }
 }
 
-export const ResultsPanel = connect<StateProps, DispatchProps, {}>(
+export const ResultsPanel = connect<StateProps, DispatchProps, { children: JSX.Element }>(
     ({ demos }: AppState) => {
         return {
             loadingResults: demos.loadingRunResults,

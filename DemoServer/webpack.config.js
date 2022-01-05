@@ -3,12 +3,17 @@ const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = (env, argv) => {
 
   const miniCssExtractPlugin = new MiniCssExtractPlugin({
     filename: "styles/[name].css",
     chunkFilename: "styles/[name].css"
+  });
+
+  const htmlPlugin = new HtmlWebpackPlugin({
+    template: path.join(__dirname, './client/src/index.html')
   });
 
   const isProductionMode = argv && argv.mode === 'production';
@@ -27,7 +32,6 @@ module.exports = (env, argv) => {
     }, isProductionMode 
         ? {} 
         : { 'styles-webpack': path.join(__dirname, './client/styles/styles.scss') }),
-    output: path.join(__dirname, BUNDLE_OUTPUT_DIR),
     module: {
       rules: [
         {
@@ -44,16 +48,13 @@ module.exports = (env, argv) => {
           // include: /client/,
           use: 'ts-loader'
         },
-        {
-          test: /\.(png|jpg|jpeg|gif|svg)$/,
-          use: [{
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              name: 'images/[name].[ext]'
-            }
-          }]
-        },
+          {
+              test: /\.(png|jpg|jpeg|gif|svg)$/,
+              type: "asset",
+              generator: {
+                  filename: 'img/[name].[hash:8][ext][query]',
+              }
+          },
         {
           test: /\.scss$/,
           use: [
@@ -70,10 +71,7 @@ module.exports = (env, argv) => {
               }
             },
             {
-              loader: "sass-loader",
-              options: {
-                relativeUrls: false
-              }
+              loader: "sass-loader"
             }
           ]
         },
@@ -93,14 +91,13 @@ module.exports = (env, argv) => {
             }
           ]
         },
-        {
-          test: /\.(eot|svg|ttf|woff|woff2)$/,
-          loader: 'file-loader',
-          options: {
-            name: "[name].[ext]?[hash]",
-            outputPath: "fonts/"
-          }
-        }
+          {
+              test: /\.(eot|ttf|woff|woff2)$/,
+              type: "asset",
+              generator: {
+                  filename: "fonts/[name].[hash:8][ext][query]"
+              }
+          },
       ]
     },
     output: {
@@ -110,11 +107,12 @@ module.exports = (env, argv) => {
       publicPath: "/"
     },
     plugins: [
-      miniCssExtractPlugin
+      miniCssExtractPlugin, 
+      htmlPlugin
     ],
     optimization: {
       minimize: isProductionMode,
-      noEmitOnErrors: true,
+      emitOnErrors: false,
       minimizer: [
         new TerserPlugin(),
         new OptimizeCSSAssetsPlugin({
@@ -132,6 +130,16 @@ module.exports = (env, argv) => {
     },
     stats: {
       modules: false
+    },
+    devServer: {
+        port: process.env.PORT,
+        hot: true,
+        compress: true,
+        historyApiFallback: true,
+
+        onAfterSetupMiddleware: function() {
+            console.log('Starting the development server... Port = ' + process.env.PORT + '\n');
+        }
     }
   }
 };

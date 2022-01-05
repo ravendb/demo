@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { DemoWithProgress } from "../../models/demo";
 import { connect } from "react-redux";
 import { goToDemoPage } from "../../store/actions/navigation";

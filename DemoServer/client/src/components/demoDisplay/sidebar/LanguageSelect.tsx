@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { Language, languageToDisplay } from "../../../models/common";
 import { connect } from "react-redux";
 import { AppState } from "../../../store/state";

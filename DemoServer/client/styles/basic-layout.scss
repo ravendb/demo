@@ -1,4 +1,7 @@
-﻿/* SCROLLBARS */
+﻿
+@use "sass:math";
+
+/* SCROLLBARS */
 ::-webkit-scrollbar-track {
     background-color: $gray;
 }
@@ -156,7 +159,7 @@ hr {
     .dropdown-settings {
         display: flex;
         align-items: center;
-        margin-bottom: $gutter/5;
+        margin-bottom: math.div($gutter, 5);
     }
 
     .settings {
@@ -174,8 +177,8 @@ hr {
         flex-direction: row;
         justify-content: center;
         font-size: 11px;
-        margin-top: -$gutter/5;
-        margin-bottom: $gutter/5;
+        margin-top: math.div(-$gutter, 5);
+        margin-bottom: math.div($gutter, 5);
     }
     .margin-right {
         margin-right: 10px;

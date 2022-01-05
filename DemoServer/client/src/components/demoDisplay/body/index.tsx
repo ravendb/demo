@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as classNames from "classnames";
+import classNames from "classnames";
 import { Parameters, ParameterOwnProps } from "../parameters";
 import { Code } from "../Code";
 import { NavPanel } from "./NavPanel";
@@ -34,6 +34,7 @@ class DemoBodyComponent extends React.Component<DemoBodyProps, {}> {
                 <div className="footer-container">
                     <NavPanel />
                     <ResultsPanel>
+                        
                         {resultsComponents && resultsComponents()}
                     </ResultsPanel>
                 </div>
