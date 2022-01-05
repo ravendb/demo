@@ -51,13 +51,13 @@ namespace DemoServer.Controllers.Demos.CompareExchange.CreateCompareExchange
             
             #region Step_4
             var key = getCmpXchgResult.Key;
-            var value = getCmpXchgResult.Value;
-            var valueVersion = getCmpXchgResult.Index;
-            var metadata = getCmpXchgResult.Metadata;
+            var currentValue = getCmpXchgResult.Value;
+            var currentValueVersion = getCmpXchgResult.Index;
+            var currentMetadata = getCmpXchgResult.Metadata;
             #endregion
             #endregion
 
-            result = result??  $"Created a new Compare-Exchange Key: {key}, Value: {value}, Value Version: {valueVersion}";
+            result = result??  $"Created a new Compare-Exchange Key: {key}, Value: {currentValue}, Value Version: {currentValueVersion}";
             return Ok(result);
         }
         

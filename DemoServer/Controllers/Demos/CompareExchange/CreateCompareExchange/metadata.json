@@ -77,9 +77,7 @@
                 "  The new CmpXchg item will be created only if the Key passed doesn't exist yet.",
                 "",
                 "* Note:<br>",
-                "  Since the compare-exchange operation guarantees atomicity across the entire cluster,<br>",
-                "  the session object is not used as session transactions span only a single node.<br>",
-                "  In the case where operation is used inside a session, it will Not be rolled back if the session.SaveChanges has failed."
+                "  This is a cluster-level operation and will only be applied after a majority of the cluster nodes confirm its acceptance."
             ],
             "Assets": [
                 {
@@ -91,6 +89,11 @@
                     "Title": "Put Compare-Exchange",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
                 }
             ]
         },
@@ -136,11 +139,16 @@
                     "Title": "Get Compare-Exchange",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/5.3/csharp/client-api/operations/compare-exchange/get-compare-exchange-values"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
                 }
             ]
         },
         {
-            "Title": "The compare-exchage item",
+            "Title": "The compare-exchange item",
             "Slug": "step-4",
             "DescriptionLines": [
                 "* Key - CmpXchg item key",

@@ -4,6 +4,8 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
+using Raven.Client.Documents.Operations.CompareExchange;
+
 #region Usings
 using System.Linq;
 using System.Collections.Generic;
@@ -23,7 +25,7 @@ namespace DemoServer.Controllers.Demos.CompareExchange.IndexCompareExchange
 
         #region Demo
         #region Step_1
-        public class Products_byUnitsInStock : AbstractIndexCreationTask<Product, Products_byUnitsInStock.IndexEntry>
+        public class Products_ByUnitsInStock : AbstractIndexCreationTask<Product, Products_ByUnitsInStock.IndexEntry>
         #endregion
         {
             #region Step_2
@@ -34,7 +36,7 @@ namespace DemoServer.Controllers.Demos.CompareExchange.IndexCompareExchange
             #endregion
             
             #region Step_3
-            public Products_byUnitsInStock()
+            public Products_ByUnitsInStock()
             {
                 Map = products => from product in products
                     select new IndexEntry
@@ -46,7 +48,7 @@ namespace DemoServer.Controllers.Demos.CompareExchange.IndexCompareExchange
         }
         #endregion
         
-        protected override Task SetDemoPrerequisites() => new Products_byUnitsInStock().ExecuteAsync(DocumentStoreHolder.Store);
+        protected override Task SetDemoPrerequisites() => new Products_ByUnitsInStock().ExecuteAsync(DocumentStoreHolder.Store);
         
         [HttpPost]
         public IActionResult Run(RunParams runParams)
@@ -59,7 +61,7 @@ namespace DemoServer.Controllers.Demos.CompareExchange.IndexCompareExchange
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_4
-                products = session.Query<Products_byUnitsInStock.IndexEntry, Products_byUnitsInStock>()
+                products = session.Query<Products_ByUnitsInStock.IndexEntry, Products_ByUnitsInStock>()
                     .Where(indexEntry => indexEntry.UnitsInStock > minValue)
                     .OfType<Product>()
                     .ToList();
