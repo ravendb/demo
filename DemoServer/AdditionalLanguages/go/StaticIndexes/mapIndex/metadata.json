@@ -5,7 +5,7 @@
     "DescriptionLines": [
         "A **Map index** allows you to query the database for documents that satisfy a certain condition.",
         "",
-        "The Map index is a simple index containing a single Map function (written in JavaScript) defined on one specific collection.",
+        "The Map index is a simple index containing a single Map function (LINQ based or JavaScript) defined on one specific collection.",
         "",
         "The Map function indicates what should be indexed from the document, and how it should be indexed, as the function allows to compute the indexed value."
     ],
