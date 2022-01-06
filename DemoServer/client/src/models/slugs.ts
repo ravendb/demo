@@ -13,7 +13,8 @@ type RelatedDocuments =
 
 type Attachments = 
       "store-attachment"
-    | "load-attachment";
+    | "load-attachment"
+    | "index-attachment-details";
 
 type Revisions = 
       "enable-revisions"

@@ -1,0 +1,160 @@
+{
+    "Slug": "index-attachment-details",
+    "SourceFileName": "IndexAttachmentDetailsController.cs",
+    "Title": "Index Attachment Details",
+    "DescriptionLines": [
+        "**Attachment's details and content can both be indexed**.",
+        "",
+        "This demo shows indexing of attachment's details."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Store Attachment Demo",
+            "Type" : "demo",
+            "Url"  : "/attachments/store-attachment"
+        },
+        {
+            "Title": "Indexing Attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing"
+        },
+        {
+            "Title": "What are attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/what-are-attachments"
+        },
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* This example defines a Map index on the _Employees_ collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/map-index"
+                }
+            ]
+        },
+        {
+            "Title": "The index fields",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the index-fields.",
+                "",
+                "* i.e. _AttachmentNames_ will be configured to hold all attachments names (in step 4)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/map-index"
+                }
+            ]
+        },
+        {
+            "Title": "Load details for indexing",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* In the index Map function, call `AttachmentsFor()` to load the document's attachment details to be indexed.",
+                "",
+                "* The _attachments_ array will hold the following per attachment:",
+                "  * Name",
+                "  * Content Type",
+                "  * Hash",
+                "  * Size",
+                "",
+                "* To index an attachment content use: _LoadAttachment()_ or _LoadAttachments()_."
+            ],
+            "Assets": [
+                {
+                    "Title": "using AttachmentsFor",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing#using-attachmentsfor"
+                },
+                {
+                    "Title": "using LoadAttachment",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing#indexes-with--1"
+                },
+                {
+                    "Title": "using LoadAttachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing#indexes-with--2"
+                }
+            ]
+        },
+        {
+            "Title": "Configure index fields",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Configure the index-fields content.",
+                "",
+                "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
+                "  e.g., _AttachmentNames_ is an index field that holds all the attachments' names of the document.",
+                "",
+                "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",
+                "",
+                "* Re-indexing will happen on any change to the document's attachments."
+            ],
+            "Assets": [
+                {
+                    "Title": "Indexing Attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* The query results will include all documents from the 'Employees' collection that have attachments with a matching Content Type and minimum Size."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents (Map Index Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                },
+                {
+                    "Title": "Query the index example",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/indexing#querying-the-index"
+                }
+            ]
+        }
+    ]
+}
