@@ -11,7 +11,17 @@
 
     "Assets": [
         {
-            "Title": "Projection with declared function - query on collection",
+            "Title": "Query Overview Demo",
+            "Type": "demo",
+            "Url": "/java/queries/query-overview"
+        },
+        {
+            "Title": "What is RQL",
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/5.3/java/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Projection with declared function",
             "Type": "link",
             "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
         },
@@ -35,7 +45,7 @@
             "Title": "Define the projecting function",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object.",
+                "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object in the shape of the 'EmplyeeDetails' class.",
                 "",
                 "* The above _output_ function returns a projected object literal that is computed from the following functions:",
                 "  * formatName -  process the 'FirstName' & 'LastName' document fields.<br>",
@@ -43,7 +53,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "Projection with declared function - query on collection",
+                    "Title": "Projection with declared function",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 }
@@ -61,6 +71,11 @@
                 "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
             ],
             "Assets": [
+                {
+                    "Title": "What is RQL",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/5.3/java/indexes/querying/what-is-rql"
+                }
             ]
         },
         {
@@ -71,7 +86,12 @@
             ],
             "Assets": [
                 {
-                    "Title": "Projection with declared function - query on collection",
+                    "Title": "Query Overview Demo",
+                    "Type": "demo",
+                    "Url": "/java/queries/query-overview"
+                },
+                {
+                    "Title": "Projection with declared function",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 }

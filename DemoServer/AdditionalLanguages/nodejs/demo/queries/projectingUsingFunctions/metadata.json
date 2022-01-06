@@ -11,7 +11,17 @@
 
     "Assets": [
         {
-            "Title": "Projection with declared function - query on collection",
+            "Title": "Query Overview Demo",
+            "Type": "demo",
+            "Url": "/nodejs/queries/query-overview"
+        },
+        {
+            "Title": "What is RQL",
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/5.3/nodejs/indexes/querying/what-is-rql"
+        },
+        {
+            "Title": "Projection with declared function",
             "Type": "link",
             "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
         },
@@ -43,7 +53,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "Projection with declared function - query on collection",
+                    "Title": "Projection with declared function",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 }
@@ -62,7 +72,12 @@
                 "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
             ],
             "Assets": [
-                
+                {
+                    "Title": "What is RQL",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/5.3/nodejs/indexes/querying/what-is-rql"
+                }
+
             ]
         },
         {
@@ -73,7 +88,12 @@
             ],
             "Assets": [
                 {
-                    "Title": "Projection with declared function - query on collection",
+                    "Title": "Query Overview Demo",
+                    "Type": "demo",
+                    "Url": "/nodejs/queries/query-overview"
+                },
+                {
+                    "Title": "Projection with declared function",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results#example-iv---projection-with-"
                 }
