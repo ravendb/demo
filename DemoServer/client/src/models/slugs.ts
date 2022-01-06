@@ -51,6 +51,10 @@ type TextSearch =
       "fts-with-static-index-single-field"
     | "fts-with-static-index-multiple-fields";
 
+type CompareExchange =
+      "create-compare-exchange"
+    | "index-compare-exchange";
+
 type Advanced = 
       "replication-failover"
     | "create-database";
@@ -65,6 +69,7 @@ export type DemoSlug =
     | MultiMapIndexes
     | AutoIndexes
     | TextSearch
+    | CompareExchange
     | Advanced;
 
 export type CategorySlug = 
@@ -77,4 +82,5 @@ export type CategorySlug =
     | "multi-map-indexes"
     | "auto-indexes"
     | "text-search"
+    | "compare-exchange"
     | "advanced";

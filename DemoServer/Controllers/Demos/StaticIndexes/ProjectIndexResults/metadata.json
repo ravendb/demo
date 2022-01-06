@@ -149,7 +149,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* The employees' documents can be _filtered_ by the index-fields defined in `Employees_ByWorkPeriod.IndexEntry`",
+                "* The 'Employees' documents can be _filtered_ by the index-fields defined in `Employees_ByWorkPeriod.IndexEntry`",
                 "",
                 "* The resulting documents will include only employees that started working after 'startYear'."
             ],

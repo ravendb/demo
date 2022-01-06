@@ -1,0 +1,168 @@
+{
+    "Slug": "create-compare-exchange",
+    "SourceFileName": "CreateCompareExchangeController.cs",
+    "Title": "Create CmpXchg Item",
+    "StudioLinkToMediaDatabase": true,
+    "DescriptionLines": [
+        "**Create a CmpXchg Item** to ensure having a unique key in your database.",
+        "Uniqueness is ensured cluster-wide, across all your database-group nodes.",
+        "",
+        "Each CmpXchg item has:<br>",
+        "",
+        "<p>* Key - A unique identifier<br>",
+        "* Value - An associated value<br>",
+        "* Index - The value's version number<br>",
+        "* Metadata - An optional dictionary<p>",
+        "",
+        "Creating & modifying CmpXchg items are **interlocked compare-exchange operations**.",
+        "The feature allows performing atomic compare and swap operations at the cluster level."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Distributed Compare-Exchange operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#distributed-compare-exchange-operations-with-ravendb"
+        },
+        {
+            "Title": "Atomic Compare-Exchange operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
+        },
+        {
+            "Title": "Compare-Exchange overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+        },
+        {
+            "Title": "Put Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+        },
+        {
+            "Title": "Get Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/5.3/csharp/client-api/operations/compare-exchange/get-compare-exchange-values"
+        },
+        {
+            "Title": "Compare-Exchange operations - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/182948-C/distributed-compare-exchange-operations-with-ravendb"
+        },
+        {
+            "Title": "Distributed transactions - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/190978-B/complex-distributed-transactions-with-ravendb"
+        },
+        {
+            "Title": "Simplifying cluster wide transactions - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/194405-A/ravendb-5-2-simplifying-atomic-cluster-wide-transactions"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Put compare-exchange item",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Use `PutCompareExchangeValueOperation` to define the Put operation. Pass:",
+                "  * Key - a unique string in the database scope across the cluster",
+                "  * Value - can be a number/string/boolean/array or any JSON object",
+                "  * Value Version (Index) - pass _0_ to indicate that this is a request to create a new item.",
+                "",
+                "* Send the operation to the document store using `Store.Operations.Send()`.",
+                "",
+                "* Variable _putCmpXchgResult_ will contain the operation result (see next step).<br>",
+                "  The new CmpXchg item will be created only if the Key passed doesn't exist yet.",
+                "",
+                "* Note:<br>",
+                "  This is a cluster-level operation and will only be applied after a majority of the cluster nodes confirm its acceptance."
+            ],
+            "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                },
+                {
+                    "Title": "Put Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
+                }
+            ]
+        },
+        {
+            "Title": "The Put result",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Check _putCmpXchgResult_ for the Put operation result.",
+                "",
+                "* In addition to the Value itself, the result includes the value-version number (index) assigned in this operation,",
+                "  which is a unique sequential number assigned to the value per any change."
+            ],
+            "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                },
+                {
+                    "Title": "Put Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+                }
+            ]
+        },
+        {
+            "Title": "Get compare-exchange item",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `GetCompareExchangeValueOperation` to define the Get by Key operation.",
+                "",
+                "* Send the operation to the document store using `Store.Operations.Send()`.",
+                "",
+                "* Variable _getCmpXchgResult_ will contain the matching CmpXchg item.<br>"
+            ],
+            "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                },
+                {
+                    "Title": "Get Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/5.3/csharp/client-api/operations/compare-exchange/get-compare-exchange-values"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/what-are-operations"
+                }
+            ]
+        },
+        {
+            "Title": "The compare-exchange item",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Key - CmpXchg item key",
+                "* Value - Current associated value",
+                "* Index - Current version number of the value",
+                "* Metadata - Metadata dictionary for this key"
+            ],
+            "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                }
+            ]
+        }
+    ]
+}
