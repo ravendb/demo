@@ -43,6 +43,9 @@ type MultiMapIndexes =
       "multi-map-index-basic"
     | "multi-map-index-customized-fields";
 
+type JavascriptIndexes =
+    "javascript-map-index"
+
 type AutoIndexes = 
       "auto-map-index1"
     | "auto-map-index2"
@@ -68,6 +71,7 @@ export type DemoSlug =
     | Queries
     | StaticIndexes
     | MultiMapIndexes
+    | JavascriptIndexes
     | AutoIndexes
     | TextSearch
     | CompareExchange
@@ -81,6 +85,7 @@ export type CategorySlug =
     | "queries"
     | "static-indexes"
     | "multi-map-indexes"
+    | "javascript-indexes"
     | "auto-indexes"
     | "text-search"
     | "compare-exchange"

@@ -31,6 +31,7 @@ import { MultiMapIndexCustomizedFieldsDemo } from "./multiMapIndexes/MultiMapInd
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { ProjectIndexResultsDemo } from "./staticIndexes/ProjectIndexResultsDemo";
 import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
+import { JavascriptMapIndexDemo } from "./javascriptIndexes/JavascriptMapIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
@@ -152,6 +153,13 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
+    private _getJavascriptIndexesDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "javascript-map-index":
+                return <JavascriptMapIndexDemo />;
+        }
+    }
+
     private _getAutoIndexesDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "auto-map-index1":
@@ -206,6 +214,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return this._getStaticIndexesDemo(demoSlug);
             case "multi-map-indexes":
                 return this._getMultiMapIndexesDemo(demoSlug);
+            case "javascript-indexes":
+                return this._getJavascriptIndexesDemo(demoSlug);
             case "auto-indexes":
                 return this._getAutoIndexesDemo(demoSlug);
             case "text-search":

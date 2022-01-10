@@ -1,58 +1,49 @@
 {
-    "Slug": "map-index",
-    "SourceFileName": "MapIndexController.cs",
-    "Title": "Map Index",
+    "Slug": "javascript-map-index",
+    "SourceFileName": "JavascriptMapIndexController.cs",
+    "Title": "JS Map Index",
     "DescriptionLines": [
-        "A **Map index** allows you to query the database for documents that satisfy a certain condition.",
+        "**The index Map can be defined with JavaScript** for use with any RavenDB Client.",
         "",
-        "The Map index is a simple index containing a single Map function (LINQ based or JavaScript) defined on one specific collection.",
+        "Any complex computation can be run within the index.",
         "",
-        "The Map function indicates what should be indexed from the document, and how it should be indexed, as the function allows to compute the indexed value."
+        "Besides the different syntax of the Map function, all other index capabilities and features are the same as for indexes defined with C# LINQ."
     ],
 
     "Assets": [
         {
-            "Title": "Indexes Overview",
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Map Index Demo",
+            "Type" : "demo",
+            "Url"  : "/static-indexes/map-index"
+        },
+        {
+            "Title": "Indexes overview",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
         },
         {
-            "Title": "Create Map Index",
+            "Title": "JavaScript indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
         },
         {
-            "Title": "Map Indexes",
+            "Title": "JavaScript indexes - Blog",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-        },
-        {
-            "Title": "Static Indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-        },
-        {
-            "Title": "Working with Indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-        },
-        {
-            "Title": "Creating and Deploying Indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/creating-and-deploying#indexes--creating-and-deploying-indexes"
+            "Url"  : "https://ayende.com/blog/182849-A/ravendb-4-1-features-javascript-indexes"
         }
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Define the Map index class",
+            "Title": "Define the Map Index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ByImportantDetails.IndexEntry_ - is the shape of the resulting index entries<br> (see next step)"
+                "* Create the Map Index class - inherit from `AbstractJavaScriptIndexCreationTask`."
             ],
             "Assets": [
                 {
@@ -66,14 +57,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
-                    "Title": "Static Indexes",
+                    "Title": "JavaScript indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
                 }
             ]
         },
@@ -82,7 +68,7 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
-                "* These fields will be indexed and can be queried on.",
+                "* These fields will be indexed and can be queried on (step 4).",
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step)."
             ],
@@ -108,15 +94,20 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
-                "  Any computations or logic can be applied here, e.g.:",
+                "* Define `Maps` which is a _HashSet_ that will contain a single javascript map strings (Map index), or multiple map strings (Multi Map index).",
                 "",
+                "* The map string is defined with: `map(<Collection name>, <JavaScript map method>)`.",
+                "",
+                "* The _JavaScript map method_ returns a JavaScript object literal.<br>",
+                "  The properties of this object are the fields composing the index entry.",
+                "",
+                "* Any logic written in JavaScript can be applied to the properties values, e.g.:",
                 "  * FullName - combining 2 fields ('FirstName' & 'LastName')",
                 "  * Country - indexing nested field data ('Country' is nested under 'Address')",
                 "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
-                "  * NumberOfTerritories - applying logic (using Count)",
+                "  * NumberOfTerritories - applying logic (using length)",
                 "",
-                "* The index built will contain a list of _indexed terms_ for each _index-field_ specified in the Map function, and a mapping to the relevant document.",
+                "* The index built will contain a list of _indexed terms_ for each _index-field_ specified in the map function, and a mapping to the relevant document.",
                 "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."
@@ -128,14 +119,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
-                    "Title": "Static Indexes",
+                    "Title": "JavaScript indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
                 }
             ]
         },
@@ -145,7 +131,9 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* _RavenDB will search the index_ for the indexed terms that match the query criteria ('USA' & 'startYear')", 
+                "* The first generic _Employees_ByImportantDetails.IndexEntry_ allows the compiler to auto-complete the index entry fields on which you want to query in the .Where clause.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria", 
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
                 "",
                 "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
@@ -158,14 +146,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
-                    "Title": "Static Indexes",
+                    "Title": "JavaScript indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
                 },
                 {
                     "Title": "Querying an index",

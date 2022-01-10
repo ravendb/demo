@@ -95,6 +95,16 @@
     },
     {
         "category": {
+            "slug": "javascript-indexes",
+            "directory": "JavascriptIndexes",
+            "title": "JavaScript Indexes"
+        },
+        "demos": [
+            "JavascriptMapIndex"
+        ]
+    },
+    {
+        "category": {
             "slug": "auto-indexes",
             "directory": "AutoIndexes",
             "title": "Auto Indexes"

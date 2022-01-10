@@ -11,18 +11,18 @@ using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;
 #endregion
 
-namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
+namespace DemoServer.Controllers.Demos.JavascriptIndexes.JavascriptMapIndex
 {
-    public class MapIndexController : DemoCodeController
+    public class JavascriptMapIndexController : DemoCodeController
     {
-        public MapIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public JavascriptMapIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
         
         #region Demo
         #region Step_1
-        public class Employees_ByImportantDetails : AbstractIndexCreationTask<Employee, Employees_ByImportantDetails.IndexEntry>
+        public class Employees_ByImportantDetailsJS : AbstractJavaScriptIndexCreationTask
             #endregion
         {
             #region Step_2
@@ -36,22 +36,25 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             #endregion
             
             #region Step_3
-            public Employees_ByImportantDetails()
+            public Employees_ByImportantDetailsJS()
             {
-                Map = employees => from employee in employees
-                    select new IndexEntry
-                    {
-                       FullName = employee.FirstName + " " + employee.LastName,
-                       Country = employee.Address.Country,
-                       WorkingInCompanySince =  employee.HiredAt.Year,
-                       NumberOfTerritories = employee.Territories.Count,
-                    };
+                Maps = new HashSet<string>
+                {
+                    @"map('Employees', function (employee) {
+                        return { 
+                            FullName: employee.FirstName + ' ' + employee.LastName,
+                            Country: employee.Address.Country,
+                            WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),
+                            NumberOfTerritories: employee.Territories.length
+                        };
+                    })"
+                };
             }
             #endregion
         }
         #endregion
 
-        protected override Task SetDemoPrerequisites() => new Employees_ByImportantDetails().ExecuteAsync(DocumentStoreHolder.Store);
+        protected override Task SetDemoPrerequisites() => new Employees_ByImportantDetailsJS().ExecuteAsync(DocumentStoreHolder.Store);
 
         [HttpPost]
         public IActionResult Run(RunParams runParams)
@@ -64,7 +67,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.MapIndex
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_4
-                employeesFromUSA = session.Query<Employees_ByImportantDetails.IndexEntry, Employees_ByImportantDetails>()
+                employeesFromUSA = session.Query<Employees_ByImportantDetailsJS.IndexEntry, Employees_ByImportantDetailsJS>()
                        .Where(employee => employee.Country == "USA" &&
                                           employee.WorkingInCompanySince > startYear)
                        .OfType<Employee>()
