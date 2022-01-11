@@ -3,10 +3,10 @@
     "SourceFileName": "FanoutIndexController.cs",
     "Title": "Fanout Index",
     "DescriptionLines": [
-        "When a document field is an array, the inner array fields can be indexed in what is called a **Fanout Index.**",
+        "A **Fanout Index** creates multiple index entries per processed document.",
         "",
-        "An index entry will be generated per item of the array,",
-        "resulting in multiple index entries per document.",
+        "For example, when a document field is an array, an index entry can be generated per array element,",
+        "resulting in multiple index entries for the document.",
         "",
         "Since this can be an expensive operation, a performance hint is issued in the Studio when the fanout ratio is high (number is configurable)."
     ],
@@ -99,10 +99,10 @@
                 "  To access the inner fields of the Lines array use: `from orderLine in order.Lines`.",
                 "",
                 "* An index entry with fields _ProductId_ & _ProductName_ will be created per item of the Lines array,<br>",
-                "  so the number of entries created per Order document is as the array length.",
+                "  so the number of entries created per Order document equals the array length.",
                 "",
                 "* Note: A performance hint is raised in the Studio when the number of the generated index entries per document is high.",
-                "  This number can be configured in the settings."
+                "  This number can be configured in the settings (default is 1024)."
             ],
             "Assets": [
                 {
@@ -130,7 +130,7 @@
                 "",
                 "* RavenDB will search the index for terms that match the query criteria and retrieve all matching documents.",
                 "",
-                "* The query results will include all documents from the 'Orders' collection that have an array field 'ProductName' that starts with 'namePrefix'."
+                "* The query results will include all documents from the 'Orders' collection that have a Lines array field 'ProductName' which starts with 'namePrefix'."
             ],
             "Assets": [
                 {
