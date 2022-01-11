@@ -131,7 +131,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* The first generic _Employees_ByImportantDetails.IndexEntry_ allows the compiler to auto-complete the index entry fields on which you want to query in the .Where clause.",
+                "* The first generic _Employees_ByImportantDetailsJS.IndexEntry_ allows the compiler to auto-complete the index entry fields on which you want to query in the .Where clause.",
                 "",
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria", 
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
