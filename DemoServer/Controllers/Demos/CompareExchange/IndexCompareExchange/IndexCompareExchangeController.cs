@@ -4,8 +4,6 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Documents.Operations.CompareExchange;
-
 #region Usings
 using System.Linq;
 using System.Collections.Generic;

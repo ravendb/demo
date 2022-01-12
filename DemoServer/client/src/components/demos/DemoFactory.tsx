@@ -34,6 +34,10 @@ import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
+import { FacetsBasicDemo } from "./facetedSearch/FacetsBasicDemo";
+import { FacetsOptionsDemo } from "./facetedSearch/FacetsOptionsDemo";
+import { FacetsAggregationsDemo } from "./facetedSearch/FacetsAggregationsDemo";
+import { FacetsFromDocumentDemo } from "./facetedSearch/FacetsFromDocumentDemo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
@@ -163,6 +167,19 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
+    private _getFacetedSearchDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "facets-basic":
+                return <FacetsBasicDemo />;
+            case "facets-options":
+                return <FacetsOptionsDemo />;
+            case "facets-aggregations":
+                return <FacetsAggregationsDemo />;
+            case "facets-from-document":
+                return <FacetsFromDocumentDemo />;
+        }
+    }
+
     private _getTextSearchDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "fts-with-static-index-single-field":
@@ -208,6 +225,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return this._getMultiMapIndexesDemo(demoSlug);
             case "auto-indexes":
                 return this._getAutoIndexesDemo(demoSlug);
+            case "faceted-search":
+                return this._getFacetedSearchDemo(demoSlug);
             case "text-search":
                 return this._getTextSearchDemo(demoSlug);
             case "compare-exchange":
