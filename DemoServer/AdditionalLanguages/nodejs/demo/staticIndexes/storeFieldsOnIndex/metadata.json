@@ -1,0 +1,228 @@
+{
+    "Slug": "store-fields-on-index",
+    "SourceFileName": "index.js",
+    "Title": "Store Fields on Index",
+    "DescriptionLines": [
+        "Querying an index results in matching documents that satisfy the query.",
+        "",
+        "However, **when one of the index fields is computed and you want to get its value in the query results then Store that Field on the Index**",
+        "otherwise you need to re-calculate the value once results return."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Project Index Result Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/project-index-results"
+        },
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
+        },
+        {
+            "Title": "Storing Data in the Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
+        },
+        {
+            "Title": "Indexes: Storing Data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractCsharpIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type": "demo",
+                    "Url": "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The Index Map",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The _map_ defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
+                "",
+                "* In this example, field `TotalItemsOrdered` is computed and will be stored on the index in the next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Store field on Index",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `store()` to store a field on the index.",
+                "",
+                "* At query time, the value will be fetched directly from the index instead of from the document store.",
+                "",
+                "* Note: Storing fields on the index will increase the index size on disk."
+            ],
+            "Assets": [
+                {
+                    "Title": "Storing Data in the Index",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
+                },
+                {
+                    "Title": "Indexes: Storing Data",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/5.3/nodejs/indexes/storing-data-in-index"
+                },
+                {
+                    "Title": "Studio: Index Field Options",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-index#index-field-options"
+                }
+            ]
+        },
+        {
+            "Title": "Deploy the index",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use the `execute()` method to deploy the index to the server.",
+                "",
+                "* Once the index is deployed, the server will start the _'indexing process'_,",
+                "  in which the index iterates over the documents, building a map between the terms derived from the document fields indexed and the actual documents that contain them.<br>",
+                "",
+                "* In the case of a Map-Reduce index, a second stage is applied where the mapped entries are reduced to some aggregated value.",
+                "",
+                "* After the first indexing run, the index will keep this map current without re-processing the entire data,",
+                "  and will only update the relevant details upon any update/change to any document related to the index."
+            ],
+            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Sending Indexes to Server",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#sending-to-server"
+                //},
+                {
+                    "Title": "Deploying Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#deploying-indexes"
+                },
+                {
+                    "Title": "Indexing Process",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview#indexing-process"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Query the 'Orders' collection using the defined index.",
+                "",
+                "* The resulting documents will include only orders that where made by 'companyId'."
+            ],
+            "Assets": [
+
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type": "demo",
+                    "Url": "/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Project Results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* Use `selectFields()` to make the server return only that fields per document result instead of the whole document.<br>",
+                "  * If the field is _stored on the index_ - the server will fetch it from the index<br>",
+                "  * If the field is _not stored on the index_ - the server will fetch it from the document store",
+                "",
+                "* In this example:<br>",
+                "  * 'TotalItemsOrdered' is fetched from the index<br>",
+                "  *  'OrderedAt' if fetched from the document store"
+            ],
+            "Assets": [
+                {
+                    "Title": "Project Index Result Demo",
+                    "Type": "demo",
+                    "Url": "/nodejs/static-indexes/project-index-results"
+                },
+                {
+                    "Title": "Querying: Projections",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
+                },
+                {
+                    "Title": "Select()",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections#selectfields"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the Query",
+            "Slug": "step-8",
+            "DescriptionLines": [
+                "* The _ordersQuery_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `all()`, or any other method that forces immediate execution.",
+                "",
+                "* The final query results include the projected details for orders that where made by 'companyId'.",
+                "",
+                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview",
+                    "Type": "demo",
+                    "Url": "/nodejs/queries/query-overview"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,177 @@
+{
+    "Slug": "project-index-results",
+    "SourceFileName": "index.js",
+    "Title": "Project Index Results",
+    "DescriptionLines": [
+        "Querying an index results in matching documents that satisfy the query.<br>",
+        "However, **index results can be projected**.<br>",
+        "<p>* You can ask the server to return only some of the documents' fields.<br>",
+        "* You can customize the projected fields.",
+        "",
+        "Retrieving partial document data from the server reduces network traffic load.",
+        "",
+        "The returned projected objects are Not tracked by the sessions as they are not full documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
+        },
+        {
+            "Title": "Strongly Typed Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-complex-indexes-using-strongly-typed-code"
+        },
+        {
+            "Title": "Querying: Projections",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
+        },
+        {
+            "Title": "Querying: Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractCsharpIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type": "demo",
+                    "Url": "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The _map_ defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
+                "",
+                "* In this example, the 'HiredAt.Year' data is indexed in the _WorkingInCompanySince_ index-field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Deploy the index",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use the `execute()` method to deploy the index to the server.",
+                "",
+                "* Once the index is deployed, the server will start the _'indexing process'_,",
+                "  in which the index iterates over the documents, building a map between the terms derived from the document fields indexed and the actual documents that contain them.<br>",
+                "",
+                "* In the case of a Map-Reduce index, a second stage is applied where the mapped entries are reduced to some aggregated value.",
+                "",
+                "* After the first indexing run, the index will keep this map current without re-processing the entire data,",
+                "  and will only update the relevant details upon any update/change to any document related to the index."
+            ],
+            "Assets": [
+                //TODO
+                //{
+                //    "Title": "Sending Indexes to Server",
+                //    "Type" : "link",
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#sending-to-server"
+                //},
+                {
+                    "Title": "Deploying Indexes",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#deploying-indexes"
+                },
+                {
+                    "Title": "Indexing Process",
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview#indexing-process"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* The resulting documents will include only employees that started working after 'startYear'."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Set the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Pass the raw-query-string to the session `rawQuery()` method."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the Query",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* The _employeesQuery_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `all()`, or any other method that forces immediate execution.",
+                "",
+                "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
+                "",
+                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview",
+                    "Type": "demo",
+                    "Url": "/nodejs/queries/query-overview"
+                }
+            ]
+        }
+    ]
+}
