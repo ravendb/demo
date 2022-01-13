@@ -12,28 +12,28 @@
     "Assets": [
         {
             "Title": "Static Indexes Overview Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Type": "demo",
+            "Url": "/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Project Index Result Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/project-index-results"
+            "Type": "demo",
+            "Url": "/static-indexes/project-index-results"
         },
         {
             "Title": "Indexes Overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Storing Data in the Index",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
+            "Type": "link",
+            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
         },
         {
             "Title": "Indexes: Storing Data",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
         }
     ],
 
@@ -51,23 +51,23 @@
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Type": "demo",
+                    "Url": "/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -84,18 +84,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -111,8 +111,8 @@
             "Assets": [
                 {
                     "Title": "Project Index Result Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Type": "demo",
+                    "Url": "/static-indexes/project-index-results"
                 }
             ]
         },
@@ -131,18 +131,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -159,24 +159,24 @@
             "Assets": [
                 {
                     "Title": "Storing Data in the Index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
                 },
                 {
                     "Title": "Indexes: Storing Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
                 },
                 {
                     "Title": "Studio: Index Field Options",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index#index-field-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index#index-field-options"
                 }
             ]
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-6",
+            "Slug": "step-6",
             "DescriptionLines": [
                 "* Query the 'Orders' collection using the defined index.",
                 "",
@@ -188,14 +188,14 @@
 
                 {
                     "Title": "Filtering Results - Basics Demo",
-                    "Type" : "demo",
-                    "Url"  : "/queries/filtering-results-basics"
+                    "Type": "demo",
+                    "Url": "/queries/filtering-results-basics"
                 }
             ]
         },
         {
             "Title": "Project Results",
-            "Slug" : "step-7",
+            "Slug": "step-7",
             "DescriptionLines": [
                 "* Use `ProjectInto()` to make the server return only the fields defined in the 'OrdersQuantity_ByCompany.OrderProjectedDetails' class per document result instead of the whole document.<br>",
                 "  * If the field is _stored on the index_ - the server will fetch it from the index<br>",
@@ -210,24 +210,24 @@
             "Assets": [
                 {
                     "Title": "Project Index Result Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Type": "demo",
+                    "Url": "/static-indexes/project-index-results"
                 },
                 {
                     "Title": "Querying: Projections",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
                 },
                 {
                     "Title": "Select()",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#select"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#select"
                 }
             ]
         },
         {
             "Title": "Execute the Query",
-            "Slug" : "step-8",
+            "Slug": "step-8",
             "DescriptionLines": [
                 "* The _ordersQuery_ variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
@@ -239,8 +239,8 @@
             "Assets": [
                 {
                     "Title": "Query Overview",
-                    "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Type": "demo",
+                    "Url": "/queries/query-overview"
                 }
             ]
         }
