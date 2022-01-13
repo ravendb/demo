@@ -113,7 +113,7 @@
             "Title": "Execute the query",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The 'projectedResults' variable only stores the query definition.<br>",
+                "* The 'projectedQueryWithFunctions' variable only stores the query definition.<br>",
                 "  Execute the query by calling `ToList()`.",
                 "",
                 "* The _projectedResults_ variable will hold the resulting matching entities.",

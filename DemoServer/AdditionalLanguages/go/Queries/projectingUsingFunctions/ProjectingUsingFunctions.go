@@ -60,12 +60,12 @@ func ProjectingUsingFunctions() error {
         //endregion
 
     //region Step_3
-    rawQuery := session.RawQuery(rawQueryString)
+    projectedQueryWithFunctions := session.RawQuery(rawQueryString)
     //endregion
 
     //region Step_4
     var projectedResults []*EmployeeDetails
-    err = rawQuery.GetResults(&projectedResults)
+    err = projectedQueryWithFunctions.GetResults(&projectedResults)
     if err != nil {
         return err
     }
