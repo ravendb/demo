@@ -107,7 +107,7 @@
             "DescriptionLines": [
                 "Define the following per Facet in the list:",
                 "",
-                "* _FieldName_ - The index entry by which the documents will be grouped.",
+                "* _FieldName_ - The index entry field by which the documents will be grouped.",
                 "",
                 "* _Options_ - Define the options on the result list:",
                 "  * Start - The position from which to send items (how many to skip)",
@@ -116,15 +116,15 @@
                 "    Show summary for items that didn't make it into the requested list pageSize",
                 "  * TermSortMode - Set the items sort order in the list",
                 "",
-                "* 2 more optional fields are available (see dedicated demos in the links):",
+                "* 2 more optional properties are available (see dedicated demos in the links):",
                 "  * DisplayFieldName - A customized name for the facet field the results",
                 "  * Aggregations - define the sum, min, max & average per aggregated result",
                 "",
                 "* _In this example_:<br>",
-                "  The first Facet groups by the content of index entry 'CategoryName'.<br>",
+                "  The first Facet groups by the content of index field 'CategoryName'.<br>",
                 "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.<br>",
                 "  The number of items returned depends on the 'start' and 'pageSize' params.<br>",
-                "  The aggregated items will be sorted by the documents count per item in descending order."
+                "  The aggregated items will be sorted by the documents count per item in a descending order."
             ],
             "Assets": [
                 {
