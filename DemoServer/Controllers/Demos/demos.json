@@ -155,6 +155,17 @@
     },
     {
         "category": {
+            "slug": "spatial",
+            "directory": "Spatial",
+            "title": "Spatial"
+        },
+        "demos": [
+            "SpatialQuery",
+            "SpatialIndex"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "Advanced",
             "title": "Advanced"

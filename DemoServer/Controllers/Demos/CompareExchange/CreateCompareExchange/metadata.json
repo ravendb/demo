@@ -2,7 +2,6 @@
     "Slug": "create-compare-exchange",
     "SourceFileName": "CreateCompareExchangeController.cs",
     "Title": "Create CmpXchg Item",
-    "StudioLinkToMediaDatabase": true,
     "DescriptionLines": [
         "**Create a CmpXchg Item** to ensure having a unique key in your database.",
         "Uniqueness is ensured cluster-wide, across all your database-group nodes.",

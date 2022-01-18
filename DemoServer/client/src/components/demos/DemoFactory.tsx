@@ -46,6 +46,8 @@ import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticInd
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
 import { IndexCompareExchangeDemo } from "./compareExchange/IndexCompareExchangeDemo";
+import { SpatialQueryDemo } from "./spatial/SpatialQueryDemo";
+import { SpatialIndexDemo } from "./spatial/SpatialIndexDemo";
 import { ReplicationFailoverDemo } from "./advanced/ReplicationFailoverDemo";
 import { CategorySlug, DemoSlug } from "../../models/slugs";
 
@@ -215,6 +217,15 @@ export class DemoFactory extends React.Component<Props, {}> {
         }
     }
 
+    private _getSpatialDemo(demoSlug: DemoSlug) {
+        switch (demoSlug) {
+            case "spatial-query":
+                return <SpatialQueryDemo />;
+            case "spatial-index":
+                return <SpatialIndexDemo />;
+        }
+    }
+
     private _getAdvancedDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
             case "replication-failover":
@@ -250,6 +261,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return this._getTextSearchDemo(demoSlug);
             case "compare-exchange":
                 return this._getCompareExchangeDemo(demoSlug);
+            case "spatial":
+                return this._getSpatialDemo(demoSlug);
             case "advanced":
                 return this._getAdvancedDemo(demoSlug);
         }

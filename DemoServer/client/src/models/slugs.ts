@@ -68,6 +68,10 @@ type CompareExchange =
       "create-compare-exchange"
     | "index-compare-exchange";
 
+type Spatial =
+      "spatial-query"
+    | "spatial-index";
+
 type Advanced = 
       "replication-failover"
     | "create-database";
@@ -85,6 +89,7 @@ export type DemoSlug =
     | FacetedSearch
     | TextSearch
     | CompareExchange
+    | Spatial
     | Advanced;
 
 export type CategorySlug = 
@@ -100,4 +105,5 @@ export type CategorySlug =
     | "faceted-search"
     | "text-search"
     | "compare-exchange"
+    | "spatial"
     | "advanced";

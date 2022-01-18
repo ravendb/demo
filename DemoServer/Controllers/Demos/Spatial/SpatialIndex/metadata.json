@@ -1,0 +1,270 @@
+{
+    "Slug": "spatial-index",
+    "SourceFileName": "SpatialIndexController.cs",
+    "Title": "Spatial Index",
+    "DescriptionLines": [
+        "Spatial data from a document can be indexed in a **spatial index field**.",
+        "",
+        "You can customize the strategy with which this field is indexed and queried.",
+        "",
+        "Available indexing strategies:<br>",
+        "* Bounding Box<br>",
+        "* Geohash Buckets<br>",
+        "* QuadTree"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Spatial query Demo",
+            "Type" : "demo",
+            "Url"  : "/spatial/spatial-query"
+        },
+        {
+            "Title": "Spatial indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+        },
+        {
+            "Title": "Querying: spatial",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
+        },
+        {
+            "Title": "How to spatial query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
+        },
+        {
+            "Title": "Index Spatial Data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+        },
+        {
+            "Title": "WKT geometry",
+            "Type" : "link",
+            "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
+                "",
+                "* The generic params:<br>",
+                "    * _Company_ - indicates that the source collection for the index will be the 'Companies' collection<br>",
+                "    * _Companies_ByLocation.IndexEntry_ - is the shape of the index entries (see next step)"
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
+                "  These fields will be indexed and can be queried on.",
+                "",
+                "* Field _LocationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Map",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Define the index-fields within the Map function.",
+                "",
+                "* Call `CreateSpatialField()` to create the field as a spatial field.<br>",
+                "  Pass the path to:<br>",
+                "  * the fields that contain the latitude & longitude data in the document, or",
+                "  * the field that contains the WKT shape string in the document.",
+                "",
+                "* The spatial field value will be stored on the index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                },
+                {
+                    "Title": "Index Spatial Data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                },
+                {
+                    "Title": "Store fields on index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/store-fields-on-index"
+                }
+            ]
+        },
+        {
+            "Title": "Customize spatial indexing strategy",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Use `Spatial()` to customize the strategy by which the spatial field will be indexed.",
+                "",
+                "* The strategy defined will also be the one used by the search engine when querying the index.<br>",
+                "  _When querying the index_ for documents matching some shape, the shape in the query is first 'passed' through the configured strategy algorithm and then compared to the existing index terms.",
+                "",
+                "* Available strategies:",
+                "  * _Bounding Box_<br>",
+                "    The bounding box of the indexed shape contained in the 'LocationCoordinates' field is calculated.",
+                "    The index terms will include the MinX, MinY, MaxX & MaxY coordinates of each bounding box calculated per document.",
+                "",
+                "  * _Geohash Buckets_<br>",
+                "    Regions on earth are divided and sub-divided into 32 recursive buckets.<br>",
+                "    A Geohash is the unique identifier of a specific region, encoded as a short alphanumeric string.",
+                "    The longer the string, the more precise the location.<br>",
+                "    Default precision level is 9.",
+                "",
+                "  * _QuadTree_<br>",
+                "    Similar to Geohashes, but each region is divided into a grid of 4 buckets.<br>",
+                "    Quad buckets are always squares.<br>",
+                "    Default precision level is 23.",
+                "",
+                "* In the example above the spatial field 'LocationCoordinates' is indexed with the QuadTree strategy.",
+                "  The parameter passed sets the precision level."
+            ],
+            "Assets": [
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                },
+                {
+                    "Title": "Index Spatial Data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                },
+                {
+                    "Title": "Bounding box",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Minimum_bounding_rectangle"
+                },
+                {
+                    "Title": "Geohash",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Geohash"
+                },
+                {
+                    "Title": "Quadtree",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Quadtree"
+                }
+            ]
+        },
+        {
+            "Title": "Define shape for query",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Define a _WKT shape string_ for the query, E.g.:",
+                "",
+                "  * `CIRCLE(<Lng of center point> <Lat of center point> <radius>)`",
+                "",
+                "  * `POLYGON((<Lng Lat> <Lng Lat> .... <Lng Lat>))`",
+                "        * The first and last points must be the same.",
+                "        * Points order should be in counter-clockwise order.",
+                "",
+                "* The query will search for documents that have geodata with the specified relation to this shape (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Spatial queries",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#spatial-queries"
+                },
+                {
+                    "Title": "Index Spatial Data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                },
+                {
+                    "Title": "WKT geometry",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Query the 'Companies' collection using the defined index.",
+                "",
+                "* Use `Spatial()` to define the relation between the passed WKT shape and the spatial index field.",
+                "  Here we use the _Within_ method, thus searching for all documents whose spatial data lies within the provided shape.",
+                "  Alternatively, use the _RelatesToShape_ method and pass the required relationship.",
+                "",
+                "* Use `OrderByDistance()` to order the resulting documents by their distance from the specified point.",
+                "",
+                "* Call `ToList()` to execute the query.",
+                "",
+                "* The resulting documents are only those with geodata that falls within the defined polygon,<br>",
+                "  ordered by their distance from Seattle."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview#step-3"
+                },
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                },
+                {
+                    "Title": "Index Spatial Data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                },
+            ]
+        }
+    ]
+}
