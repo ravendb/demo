@@ -28,6 +28,7 @@ import { StaticIndexesOverviewDemo } from "./staticIndexes/StaticIndexesOverview
 import { MapIndexDemo } from "./staticIndexes/MapIndexDemo";
 import { MultiMapIndexBasicDemo } from "./multiMapIndexes/MultiMapIndexBasicDemo";
 import { MultiMapIndexCustomizedFieldsDemo } from "./multiMapIndexes/MultiMapIndexCustomizedFieldsDemo";
+import { MultiMapReduceIndexDemo } from "./multiMapIndexes/MultiMapReduceIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { ProjectIndexResultsDemo } from "./staticIndexes/ProjectIndexResultsDemo";
 import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
@@ -153,6 +154,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <MultiMapIndexBasicDemo />;
             case "multi-map-index-customized-fields":
                 return <MultiMapIndexCustomizedFieldsDemo />;
+            case "multi-map-reduce-index":
+                return <MultiMapReduceIndexDemo />;
         }
     }
 
