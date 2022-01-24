@@ -73,12 +73,13 @@
             ]
         },
         {
-            "Title": "Define class FacetSetup",
+            "Title": "Define FacetSetup object",
             "Slug": "step-2",
             "DescriptionLines": [
                 "Define class `FacetSetup`:",
                 "",
-                "* _Id_ - Provide the document ID in which the facet setup will be stored",
+                "* _Id_ - Provide the ID of the document in which the facet setup will be stored.<br>",
+                "  This is optional, if not provided the session will assign an ID for the stored document.",
                 "",
                 "* _Facets_ - Define a list of Facet objects",
                 "",
@@ -103,12 +104,12 @@
             ]
         },
         {
-            "Title": "Store the Facet document",
+            "Title": "Store the FacetSetup document",
             "Slug": "step-3",
             "DescriptionLines": [
                 "* Store the 'facetSetup' in the session and save changes.",
                 "",
-                "* The setup will be stored in a document with the specified ID under the `FacetSetup` collection."
+                "* The setup will be stored in a document with the specified ID under the `FacetSetups` collection."
             ],
             "Assets": [
                 {
@@ -129,11 +130,11 @@
             ]
         },
         {
-            "Title": "execute the query",
+            "Title": "Execute the query",
             "Slug": "step-4",
             "DescriptionLines": [
                 "* Define a query on the 'Products' collection using the defined index.<br>",
-                "  Pass the facets document ID to the `AggregateUsing()` method and execute the query.",
+                "  Pass the facet setup document ID to the `AggregateUsing()` method and execute the query.",
                 "",
                 "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
             ],

@@ -146,7 +146,7 @@
             "Slug": "step-4",
             "DescriptionLines": [
                 "* _Ranges_ - Define ranges on an index entry field by which the documents will be grouped.<br>",
-                "  A separated aggregated item will be created per range defined.",
+                "  A separate aggregated item will be created per range defined.",
                 "",
                 "* In this example, the ranges are defined on index field 'PricePerUnit'.<br>",
                 "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.",
