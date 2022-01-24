@@ -36,8 +36,10 @@ type StaticIndexes =
       "static-indexes-overview"
     | "map-index"
     | "map-reduce-index"
-    | "project-index-results" 
-    | "store-fields-on-index";
+    | "project-index-results"
+    | "store-fields-on-index"
+    | "fanout-index"
+    ;
 
 type MultiMapIndexes =
       "multi-map-index-basic"

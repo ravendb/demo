@@ -79,7 +79,8 @@
             "MapIndex",
             "MapReduceIndex",
             "ProjectIndexResults",
-            "StoreFieldsOnIndex"
+            "StoreFieldsOnIndex",
+            "FanoutIndex"
         ]
     },
     {
