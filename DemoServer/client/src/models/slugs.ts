@@ -39,7 +39,7 @@ type StaticIndexes =
     | "project-index-results"
     | "store-fields-on-index"
     | "fanout-index"
-    ;
+    | "additional-sources-index";
 
 type MultiMapIndexes =
       "multi-map-index-basic"

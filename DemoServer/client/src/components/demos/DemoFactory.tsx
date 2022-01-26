@@ -32,6 +32,7 @@ import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { ProjectIndexResultsDemo } from "./staticIndexes/ProjectIndexResultsDemo";
 import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
 import { FanoutIndexDemo } from "./staticIndexes/FanoutIndexDemo";
+import { AdditionalSourcesIndexDemo } from "./staticIndexes/AdditionalSourcesIndexDemo";
 import { JavascriptMapIndexDemo } from "./javascriptIndexes/JavascriptMapIndexDemo";
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
@@ -144,6 +145,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <StoreFieldsOnIndexDemo />;
             case "fanout-index":
                 return <FanoutIndexDemo />;
+            case "additional-sources-index":
+                return <AdditionalSourcesIndexDemo />;
         }
     }
 
