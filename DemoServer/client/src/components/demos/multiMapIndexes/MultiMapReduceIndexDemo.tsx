@@ -7,14 +7,14 @@ const resultsCreator = () => <ResultTable
         "cityName", 
         "numberOfCompaniesInCity",
         "numberOfSuppliersInCity",
-        "numberOfOrdersShippedToCity"
+        "numberOfItemsShippedToCity"
     ]}
 />;
 
 export const MultiMapReduceIndexDemo = () => <Demo
     paramDefinitions={[
         { inputType: "number", name: "minCompaniesCount", placeholder: "5", paramKind: "text-param" },
-        { inputType: "number", name: "minOrdersCount", placeholder: "80", paramKind: "text-param" }
+        { inputType: "number", name: "minItemsCount", placeholder: "2000", paramKind: "text-param" }
     ]}
     resultsComponents={resultsCreator}
 />;

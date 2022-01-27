@@ -32,7 +32,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                 public string CityName { get; set; }
                 public int NumberOfCompaniesInCity { get; set; } 
                 public int NumberOfSuppliersInCity { get; set; }
-                public int NumberOfOrdersShippedToCity { get; set; }
+                public int NumberOfItemsShippedToCity { get; set; }
             }
             #endregion
 
@@ -45,7 +45,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                         CityName = company.Address.City,
                         NumberOfCompaniesInCity = 1,
                         NumberOfSuppliersInCity = 0,
-                        NumberOfOrdersShippedToCity = 0
+                        NumberOfItemsShippedToCity = 0
                     });
                 
                 AddMap<Supplier>(suppliers => from supplier in suppliers
@@ -54,7 +54,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                         CityName = supplier.Address.City,
                         NumberOfCompaniesInCity = 0,
                         NumberOfSuppliersInCity = 1,
-                        NumberOfOrdersShippedToCity = 0
+                        NumberOfItemsShippedToCity = 0
                     });
                 
                 AddMap<Order>(orders => from order in orders
@@ -63,7 +63,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                         CityName = order.ShipTo.City,
                         NumberOfCompaniesInCity = 0,
                         NumberOfSuppliersInCity = 0,
-                        NumberOfOrdersShippedToCity = order.Lines.Count
+                        NumberOfItemsShippedToCity = order.Lines.Sum(x => x.Quantity)
                     });
                 #endregion
                 
@@ -75,7 +75,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                         CityName = g.Key,
                         NumberOfCompaniesInCity = g.Sum(x => x.NumberOfCompaniesInCity),
                         NumberOfSuppliersInCity = g.Sum(x => x.NumberOfSuppliersInCity),
-                        NumberOfOrdersShippedToCity = g.Sum(x => x.NumberOfOrdersShippedToCity)
+                        NumberOfItemsShippedToCity = g.Sum(x => x.NumberOfItemsShippedToCity)
                     };
                 #endregion
             }
@@ -88,7 +88,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
         public IActionResult Run(RunParams runParams)
         {
             int minCompaniesCount = runParams.MinCompaniesCount?? 5;
-            int minOrdersCount = runParams.MinOrdersCount?? 80;
+            int minItemsCount = runParams.MinItemsCount?? 2000;
 
             #region Demo
             List<CityCommerceDetails.IndexEntry> commerceDetails;
@@ -98,7 +98,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
                 #region Step_5
                 commerceDetails = session.Query<CityCommerceDetails.IndexEntry, CityCommerceDetails>()
                     .Where(doc => doc.NumberOfCompaniesInCity > minCompaniesCount ||
-                                  doc.NumberOfOrdersShippedToCity > minOrdersCount)
+                                  doc.NumberOfItemsShippedToCity > minItemsCount)
                     .OrderBy(x => x.CityName)
                     .ToList();
 
@@ -112,7 +112,7 @@ namespace DemoServer.Controllers.Demos.MultiMapIndexes.MultiMapReduceIndex
         public class RunParams
         {
             public int? MinCompaniesCount { get; set; }
-            public int? MinOrdersCount { get; set; }
+            public int? MinItemsCount { get; set; }
         }
     }
 }
