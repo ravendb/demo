@@ -1,0 +1,150 @@
+{
+    "Slug": "facets-from-document",
+    "SourceFileName": "FacetsFromDocumentController.cs",
+    "Title": "Facets - From Document",
+    "DescriptionLines": [
+        "**Facets definitions can be stored in a document**.<br>",
+        "That document can be used by a faceted search query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Facets - Basic Demo",
+            "Type" : "demo",
+            "Url"  : "/faceted-search/facets-basic"
+        },
+        {
+            "Title": "Facets with Map index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+        },
+        {
+            "Title": "Facets with Map-Reduce",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+        },
+        {
+            "Title": "Facets - dynamic aggregation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+        },
+        {
+            "Title": "Faceted search",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/faceted-search"
+        },
+        {
+            "Title": "Faceted search - How to",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-perform-a-faceted-search"
+        },
+        {
+            "Title": "Facets - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/180897/queries-in-ravendb-facets-of-information#"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define an index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define an index on the collection you would like to query.",
+                "",
+                "* The index entry fields will be used to define the Facets (see step 3)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/map-index"
+                },
+                {
+                    "Title": "Index Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/related-documents/index-related-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Define FacetSetup object",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "Define class `FacetSetup`:",
+                "",
+                "* _Id_ - Provide the ID of the document in which the facet setup will be stored.<br>",
+                "  This is optional, if not provided the session will assign an ID for the stored document.",
+                "",
+                "* _Facets_ - Define a list of Facet objects",
+                "",
+                "* _RangeFacets_ - Define a list of RangeFacet objects"
+            ],
+            "Assets": [
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/filtering-results-basics"
+                },
+                {
+                    "Title": "Storing Facets",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/faceted-search#storing-facets"
+                },
+                {
+                    "Title": "Storing Facets Example",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-perform-a-faceted-search#example-iii"
+                }
+            ]
+        },
+        {
+            "Title": "Store the FacetSetup document",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Store the 'facetSetup' in the session and save changes.",
+                "",
+                "* The setup will be stored in a document with the specified ID under the `FacetSetups` collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/basics/create-document"
+                },
+                {
+                    "Title": "Storing Facets",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/faceted-search#storing-facets"
+                },
+                {
+                    "Title": "Storing Facets Example",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-perform-a-faceted-search#example-iii"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the defined index.<br>",
+                "  Pass the facet setup document ID to the `AggregateUsing()` method and execute the query.",
+                "",
+                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Example Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-example"
+                }
+            ]
+        }
+    ]
+}

@@ -118,6 +118,19 @@
     },
     {
         "category": {
+            "slug": "faceted-search",
+            "directory": "FacetedSearch",
+            "title": "Faceted Search"
+        },
+        "demos": [
+            "FacetsBasic",
+            "FacetsOptions",
+            "FacetsAggregations",
+            "FacetsFromDocument"
+        ]
+    },
+    {
+        "category": {
             "slug": "text-search",
             "directory": "TextSearch",
             "title": "Text Search"

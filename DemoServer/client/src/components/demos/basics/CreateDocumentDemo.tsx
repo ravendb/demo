@@ -2,7 +2,7 @@ import * as React from "react";
 import { Demo } from "../Demo";
 import { DocumentCreated, ResultText } from "../../demoDisplay/results/resultItems";
 
-const resultsCreator = () => <>   
+const resultsCreator = () => <>
     <DocumentCreated />
     <ResultText />
 </>;

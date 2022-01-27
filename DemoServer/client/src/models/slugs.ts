@@ -53,6 +53,12 @@ type AutoIndexes =
     | "auto-map-index2"
     | "auto-map-reduce-index";
 
+type FacetedSearch =
+      "facets-basic"
+    | "facets-options"
+    | "facets-aggregations"
+    | "facets-from-document"
+
 type TextSearch = 
       "fts-with-static-index-single-field"
     | "fts-with-static-index-multiple-fields";
@@ -75,6 +81,7 @@ export type DemoSlug =
     | MultiMapIndexes
     | JavascriptIndexes
     | AutoIndexes
+    | FacetedSearch
     | TextSearch
     | CompareExchange
     | Advanced;
@@ -89,6 +96,7 @@ export type CategorySlug =
     | "multi-map-indexes"
     | "javascript-indexes"
     | "auto-indexes"
+    | "faceted-search"
     | "text-search"
     | "compare-exchange"
     | "advanced";
