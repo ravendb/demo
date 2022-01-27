@@ -3,7 +3,7 @@
     "SourceFileName": "AdditionalSourcesIndexController.cs",
     "Title": "Additional Sources Index",
     "DescriptionLines": [
-        "Using the **Additional Sources** feature allows the index's Map & Reduce methods to reference code from external source files.",
+        "Using the **Additional Sources** feature allows the index's Map & Reduce methods to reference and use code from external source files.",
         "",
         "With that, the index definition can be expanded to perform any complex indexing work required."
     ],
@@ -100,9 +100,9 @@
                 "",
                 "* Fields with content taken from Product document:",
                 "    * ProductName",
-                "    * Origin",
+                "    * OriginalPrice",
                 "",
-                "* Fields with content taken from an Additional Source:",
+                "* Fields with content computed by an Additional Source:",
                 "    * SalePrice",
                 "    * ProfitPrice",
                 "",
@@ -137,7 +137,9 @@
                 "    * _DiscountLogic_ is just a descriptive name for the added source",
                 "    * _File.ReadAllText_ will get the string representation from the additional source file.",
                 "",
-                "* At indexing time the content for fields SalePrice & ProfitPrice will be computed from the relevant methods in MyAdditionalSourceFile."
+                "* At indexing time the content for fields SalePrice & ProfitPrice will be computed from the relevant methods in MyAdditionalSourceFile.",
+                "",
+                "* The additional source code will always be visible in the _Additional Sources Tab_ in the Edit Index view in the Studio."
             ],
             "Assets": [
                 {
@@ -166,9 +168,7 @@
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
                 "  and retrieve the matching documents from the documents store.",
                 "",
-                "* The query results will include all documents from the 'Products' collection whose their calculated SalePrice is less than price.",
-                "",
-                "* The additional source code used is visible in the _Additional Sources Tab_ in the Edit Index view in the Studio."
+                "* The query results will include all documents from the 'Products' collection that have a calculated SalePrice which is lower than the specified price."
             ],
             "Assets": [
                 {

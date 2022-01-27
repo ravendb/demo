@@ -45,8 +45,19 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.AdditionalSourcesIndex
                     {
                         ProductName = product.Name,
                         OriginalPrice = product.PricePerUnit,
+                        
                         SalePrice = DiscountUtils.CalcSalePrice(product.PricePerUnit),
+                        // Code behind:
+                        // public static decimal CalcSalePrice(decimal price)
+                        // {
+                        //    return price - price / 100M * 25M;
+                        //  }
                         ProfitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)
+                        // Code behind:
+                        // public static decimal CalcSalePrice(decimal price)
+                        // {
+                        //    return price + price / 100M * 25M;
+                        //  }
                     };
                 #endregion
                 
