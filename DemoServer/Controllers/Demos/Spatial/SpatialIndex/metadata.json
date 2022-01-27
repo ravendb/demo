@@ -113,12 +113,11 @@
             "DescriptionLines": [
                 "* Define the index-fields within the Map function.",
                 "",
-                "* Call `CreateSpatialField()` to create the field as a spatial field.<br>",
-                "  Pass the path to:<br>",
+                "* Call `CreateSpatialField()` to create the field as a spatial field. Pass:",
                 "  * the fields that contain the latitude & longitude data in the document, or",
                 "  * the field that contains the WKT shape string in the document.",
                 "",
-                "* The spatial field value will be stored on the index."
+                "* The spatial field value will be stored in the index."
             ],
             "Assets": [
                 {
@@ -161,13 +160,15 @@
                 "    Regions on earth are divided and sub-divided into 32 recursive buckets.<br>",
                 "    A Geohash is the unique identifier of a specific region, encoded as a short alphanumeric string.",
                 "    The longer the string, the more precise the location.<br>",
-                "    Default precision level is 9.<br>",
+                "    Default precision level is 9 (equivalent to ~4.78 meters).<br>",
                 "    The index terms for the spatial field will contain the Geohash identifiers.",
                 "",
                 "  * _QuadTree_<br>",
                 "    Similar to Geohash, but each region is divided into a grid of 4 buckets.<br>",
                 "    Quad buckets are always squares.<br>",
-                "    Default precision level is 23.",
+                "    Default precision level is 23 (~4.78m).",
+                "",
+                "* Customizing a strategy is _optional_.<br>RavenDB will use the Geohash strategy if no other strategy is defined.",
                 "",
                 "* In the example above the spatial field 'LocationCoordinates' is indexed with the QuadTree strategy.",
                 "  The parameter passed sets the precision level."
@@ -246,8 +247,9 @@
                 "",
                 "* Call `ToList()` to execute the query.",
                 "",
-                "* The resulting documents are only those with geodata that falls within the defined polygon,<br>",
-                "  ordered by their distance from Seattle."
+                "* The query results will include all documents from the 'Companies' collection<br>",
+                "  whose geodata falls within the defined polygon, ordered by their distance from Seattle."
+                
             ],
             "Assets": [
                 {
