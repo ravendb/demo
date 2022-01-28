@@ -80,7 +80,8 @@
             "MapReduceIndex",
             "ProjectIndexResults",
             "StoreFieldsOnIndex",
-            "FanoutIndex"
+            "FanoutIndex",
+            "AdditionalSourcesIndex"
         ]
     },
     {
