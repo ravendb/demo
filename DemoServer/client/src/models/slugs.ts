@@ -43,7 +43,8 @@ type StaticIndexes =
 
 type MultiMapIndexes =
       "multi-map-index-basic"
-    | "multi-map-index-customized-fields";
+    | "multi-map-index-customized-fields"
+    | "multi-map-reduce-index";
 
 type JavascriptIndexes =
     "javascript-map-index"

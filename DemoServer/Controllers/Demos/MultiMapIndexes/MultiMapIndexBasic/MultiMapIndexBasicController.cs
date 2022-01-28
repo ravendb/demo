@@ -4,9 +4,9 @@ using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.UserId;
 using Microsoft.AspNetCore.Mvc;
-using Raven.Client.Documents.Linq;
 #region Usings
 using System.Linq;
+using Raven.Client.Documents.Linq;
 using System.Collections.Generic;
 using Raven.Client.Documents.Session;
 using Raven.Client.Documents.Indexes;

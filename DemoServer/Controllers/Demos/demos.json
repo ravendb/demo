@@ -92,7 +92,8 @@
         },
         "demos": [
             "MultiMapIndexBasic",
-            "MultiMapIndexCustomizedFields"
+            "MultiMapIndexCustomizedFields",
+            "MultiMapReduceIndex"
         ]
     },
     {
