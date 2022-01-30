@@ -139,7 +139,10 @@
         },
         "demos": [
             "FTSWithStaticIndexSingleField",
-            "FTSWithStaticIndexMultipleFields"
+            "FTSWithStaticIndexMultipleFields",
+            "FTSQuerySearchRanking",
+            "FTSQuerySearchOperators",
+            "FTSQuerySearchBoosting"
         ]
     },
     {

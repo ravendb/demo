@@ -62,7 +62,10 @@ type FacetedSearch =
 
 type TextSearch = 
       "fts-with-static-index-single-field"
-    | "fts-with-static-index-multiple-fields";
+    | "fts-with-static-index-multiple-fields"
+    | "fts-query-search-ranking"
+    | "fts-query-search-operators"
+    | "fts-query-search-boosting";
 
 type CompareExchange =
       "create-compare-exchange"
