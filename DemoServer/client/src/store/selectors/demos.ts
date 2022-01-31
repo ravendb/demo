@@ -75,5 +75,5 @@ export const selectLanguagesForDemo = createSelector(
 );
 
 export function getDemoImageSrc(category: CategorySlug, demo: DemoSlug): string {
-    return `/img/demo-icons/${category}/${demo}.png`;
+    return `/img/demo-icons/${category}/${demo}.svg`;
 }
