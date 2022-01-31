@@ -159,50 +159,50 @@ h3 {
         }
 
         img {
-            max-width: 100%;
+            max-width: 85%;
             margin: 10px auto -3% auto;
             text-align: center;
             display: block;
         }
 
         &:nth-of-type(10n - 1) {
-            @include demoItemColors($color-2-1, $color-2-2);
+            @include demoItemColors(desaturate($color-2-1, 10%), desaturate($color-2-2, 10%));
         }
 
         &:nth-of-type(10n - 2) {
-            @include demoItemColors($color-2, $color-2-2);
+            @include demoItemColors(desaturate($color-2, 10%), desaturate($color-2-2, 10%));
         }
 
         &:nth-of-type(10n - 3) {
-            @include demoItemColors($color-1-2, $color-1-3);
+            @include demoItemColors(desaturate($color-1-2, 10%), desaturate($color-1-3, 10%));
         }
 
         &:nth-of-type(10n - 4) {
-            @include demoItemColors($color-1, $color-1-2);
+            @include demoItemColors(desaturate($color-1, 10%), desaturate($color-1-2, 10%));
         }
 
         &:nth-of-type(10n - 5) {
-            @include demoItemColors($color-5-2, $color-5-3);
+            @include demoItemColors(desaturate($color-5-2, 10%), desaturate($color-5-3, 10%));
         }
 
         &:nth-of-type(10n - 6) {
-            @include demoItemColors($color-5, $color-5-2);
+            @include demoItemColors(desaturate($color-5, 10%), desaturate($color-5-2, 10%));
         }
 
         &:nth-of-type(10n - 7) {
-            @include demoItemColors($color-4-2, $color-4-3);
+            @include demoItemColors(desaturate($color-4-2, 10%), desaturate($color-4-3, 10%));
         }
 
         &:nth-of-type(10n - 8) {
-            @include demoItemColors($color-4, $color-4-1);
+            @include demoItemColors(desaturate($color-4, 10%), desaturate($color-4-1, 10%));
         }
 
         &:nth-of-type(10n - 9) {
-            @include demoItemColors($color-3-2, $color-3-3);
+            @include demoItemColors(desaturate($color-3-2, 10%), desaturate($color-3-3, 10%));
         }
 
         &:nth-of-type(10n) {
-            @include demoItemColors($color-3, $color-3-1);
+            @include demoItemColors(desaturate($color-3, 10%), desaturate($color-3-1, 10%));
         }
 
         .demo-group {
