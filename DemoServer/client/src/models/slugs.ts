@@ -65,7 +65,8 @@ type TextSearch =
     | "fts-with-static-index-multiple-fields"
     | "fts-query-search-basics"
     | "fts-query-search-operators"
-    | "fts-query-search-boosting";
+    | "fts-query-search-boosting"
+    | "highlight-results-map-index";;
 
 type CompareExchange =
       "create-compare-exchange"

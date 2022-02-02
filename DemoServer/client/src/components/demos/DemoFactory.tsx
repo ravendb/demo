@@ -47,6 +47,7 @@ import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStatic
 import { FTSQuerySearchBasicsDemo } from "./textSearch/FTSQuerySearchBasicsDemo";
 import { FTSQuerySearchOperatorsDemo } from "./textSearch/FTSQuerySearchOperatorsDemo";
 import { FTSQuerySearchBoostingDemo } from "./textSearch/FTSQuerySearchBoostingDemo";
+import { HighlightResultsMapIndexDemo } from "./textSearch/HighlightResultsMapIndexDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
 import { IndexCompareExchangeDemo } from "./compareExchange/IndexCompareExchangeDemo";
 import { SpatialQueryDemo } from "./spatial/SpatialQueryDemo";
@@ -214,6 +215,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <FTSQuerySearchOperatorsDemo />;
             case "fts-query-search-boosting":
                 return <FTSQuerySearchBoostingDemo />;
+            case "highlight-results-map-index":
+                return <HighlightResultsMapIndexDemo />;
         }
     }
 
