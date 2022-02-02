@@ -10,11 +10,11 @@ using System.Collections.Generic;
 using Raven.Client.Documents.Session;
 #endregion
 
-namespace DemoServer.Controllers.Demos.TextSearch.FTSQuerySearchRanking
+namespace DemoServer.Controllers.Demos.TextSearch.FTSQuerySearchBasics
 {
-    public class FTSQuerySearchRankingController : DemoCodeController
+    public class FTSQuerySearchBasicsController : DemoCodeController
     {
-        public FTSQuerySearchRankingController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public FTSQuerySearchBasicsController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }

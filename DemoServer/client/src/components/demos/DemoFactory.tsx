@@ -44,7 +44,7 @@ import { FacetsAggregationsDemo } from "./facetedSearch/FacetsAggregationsDemo";
 import { FacetsFromDocumentDemo } from "./facetedSearch/FacetsFromDocumentDemo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
-import { FTSQuerySearchRankingDemo } from "./textSearch/FTSQuerySearchRankingDemo";
+import { FTSQuerySearchBasicsDemo } from "./textSearch/FTSQuerySearchBasicsDemo";
 import { FTSQuerySearchOperatorsDemo } from "./textSearch/FTSQuerySearchOperatorsDemo";
 import { FTSQuerySearchBoostingDemo } from "./textSearch/FTSQuerySearchBoostingDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
@@ -206,8 +206,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <FTSWithStaticIndexSingleFieldDemo />;
             case "fts-with-static-index-multiple-fields":
                 return <FTSWithStaticIndexMultipleFieldsDemo />;
-            case "fts-query-search-ranking":
-                return <FTSQuerySearchRankingDemo />;
+            case "fts-query-search-basics":
+                return <FTSQuerySearchBasicsDemo />;
             case "fts-query-search-operators":
                 return <FTSQuerySearchOperatorsDemo />;
             case "fts-query-search-boosting":

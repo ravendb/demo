@@ -1,11 +1,9 @@
 {
-    "Slug": "fts-query-search-ranking",
-    "SourceFileName": "FTSQuerySearchRankingController.cs",
-    "Title": "FTS - Query - Search Ranking",
+    "Slug": "fts-query-search-basics",
+    "SourceFileName": "FTSQuerySearchBasicsController.cs",
+    "Title": "FTS - Query - Search Basics",
     "DescriptionLines": [
-        "**Full Text Search query** allows searching for documents containing particular term(s) within a block of text.",
-        "",
-        "**The order of the resulting documents** depends on the searched terms order.",
+        "**Full Text Search query** allows querying for documents which contain the specified term(s) within the searched document field.",
         "",
         "Upon query, an auto-index is created on the searched document fields."
     ],
@@ -57,7 +55,10 @@
             "Title": "Define search criteria",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Use `Search()` to search for the specified terms on the specified document field.",
+                "* Use `Search()` to search for the specified terms in the specified document field.",
+                "",
+                "* The most basic usage is to search for a single term, i.e.:<br>",
+                "  .Search(x => x.Notes, 'searchTerm')",
                 "",
                 "* In this example, we search for _term1 OR term2_ in the document field _Notes_.<br>",
                 "  Documents containing 'term1' will come first in the results.",

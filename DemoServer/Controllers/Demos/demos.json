@@ -140,7 +140,7 @@
         "demos": [
             "FTSWithStaticIndexSingleField",
             "FTSWithStaticIndexMultipleFields",
-            "FTSQuerySearchRanking",
+            "FTSQuerySearchBasics",
             "FTSQuerySearchOperators",
             "FTSQuerySearchBoosting"
         ]

@@ -9,7 +9,7 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const FTSQuerySearchRankingDemo = () => <Demo
+export const FTSQuerySearchBasicsDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "term1", placeholder: "Washington", paramKind: "text-param" },
         { inputType: "text", name: "term2", placeholder: "Colorado", paramKind: "text-param" }
