@@ -1,7 +1,7 @@
 {
     "Slug": "fts-with-static-index-single-field",
     "SourceFileName": "FTSWithStaticIndexSingleFieldController.cs",
-    "Title": "Full Text Search with Static Index - Single Field",
+    "Title": "FTS - Static Index - Single Field",
     "DescriptionLines": [
         "**Full Text Search** allows to search for a particular text term (or terms) within a block of text.",
         "",

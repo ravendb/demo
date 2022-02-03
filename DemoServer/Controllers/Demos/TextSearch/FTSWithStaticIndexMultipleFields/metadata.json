@@ -1,7 +1,7 @@
 {
     "Slug": "fts-with-static-index-multiple-fields",
     "SourceFileName": "FTSWithStaticIndexMultipleFieldsController.cs",
-    "Title": "Full Text Search with Static Index - Multiple Fields",
+    "Title": "FTS - Static Index - Multiple Fields",
     "StudioLinkToMediaDatabase": true,
     "DescriptionLines": [
         "Combining several document fields in a single index-field enables performing **Full-Text-Search over Multiple Document Fields** using a single index-field.",
