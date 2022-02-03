@@ -82,13 +82,13 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightQueryResultsBasics
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                HighlightingOptions tagsToUse1 = new HighlightingOptions()
+                HighlightingOptions tagsToUse1 = new HighlightingOptions
                 {
                     PreTags = new[] { tag1 },
                     PostTags = new[] { tag2 }
                 };
                 
-                HighlightingOptions tagsToUse2 = new HighlightingOptions()
+                HighlightingOptions tagsToUse2 = new HighlightingOptions
                 {
                     PreTags = new[] { tag3 },
                     PostTags = new[] { tag4 }
