@@ -13,11 +13,11 @@ using Raven.Client.Documents.Indexes;
 using Raven.Client.Documents.Queries.Highlighting;
 #endregion
 
-namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
+namespace DemoServer.Controllers.Demos.TextSearch.HighlightQueryResultsBasics
 {
-    public class HighlightResultsMapIndexController : DemoCodeController
+    public class HighlightQueryResultsCustomizedController : DemoCodeController
     {
-        public HighlightResultsMapIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public HighlightQueryResultsCustomizedController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
@@ -43,17 +43,18 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
                     {
                          Title = employee.Title,
                          Notes = employee.Notes[0]
+                         // employee.Notes is a string array,
+                         // indexing only the first element for this example
                     };
                 #endregion
                 
                 #region Step_4
                 Store(x => x.Title, FieldStorage.Yes);
-                Store(x => x.Notes, FieldStorage.Yes); 
-                
                 Index(x => x.Title, FieldIndexing.Search);
-                Index(x => x.Notes, FieldIndexing.Search);
-                
                 TermVector(x => x.Title, FieldTermVector.WithPositionsAndOffsets);
+                
+                Store(x => x.Notes, FieldStorage.Yes);
+                Index(x => x.Notes, FieldIndexing.Search);
                 TermVector(x => x.Notes, FieldTermVector.WithPositionsAndOffsets);
                 #endregion
             }
@@ -65,8 +66,12 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            int fragmentLength = runParams.FragmentLength?? 50;
-            int fragmentCount = runParams.FragmentCount ?? 2;
+            int fragmentLength = runParams.FragmentLength?? 100;
+            int fragmentCount = runParams.FragmentCount?? 1;
+            string tag1 = runParams.Tag1 ?? "+++";
+            string tag2 = runParams.Tag2 ?? "+++";
+            string tag3 = runParams.Tag3 ?? "<<<";
+            string tag4 = runParams.Tag4 ?? ">>>";
 
             Highlightings titleHighlightings;
             Highlightings notesHighlightings;
@@ -77,17 +82,23 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_5
-                HighlightingOptions tagsToUseInFragment = new HighlightingOptions()
+                HighlightingOptions tagsToUse1 = new HighlightingOptions()
                 {
-                    PreTags = new[] { "+++" },
-                    PostTags = new[] { "+++" }
+                    PreTags = new[] { tag1 },
+                    PostTags = new[] { tag2 }
+                };
+                
+                HighlightingOptions tagsToUse2 = new HighlightingOptions()
+                {
+                    PreTags = new[] { tag3 },
+                    PostTags = new[] { tag4 }
                 };
                 #endregion
                 
                 #region Step_6
                 employeesResults = session.Query<EmployeesDetails.IndexEntry, EmployeesDetails>()
-                    .Highlight("Title", fragmentLength, fragmentCount, out titleHighlightings)
-                    .Highlight("Notes", fragmentLength, fragmentCount, tagsToUseInFragment, out notesHighlightings)
+                    .Highlight("Title", fragmentLength, fragmentCount, tagsToUse1, out titleHighlightings)
+                    .Highlight("Notes", fragmentLength, fragmentCount, tagsToUse2, out notesHighlightings)
                     .Search(x => x.Title, "manager")
                     .Search(x => x.Notes, "sales")
                     .OfType<Employee>()
@@ -97,7 +108,7 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
                 #region Step_7
                 string employeeId = employeesResults[0].Id;
                 string[] titleFragments = titleHighlightings.GetFragments(employeeId);
-                string[] notesFragments = titleHighlightings.GetFragments(employeeId);
+                string[] notesFragments = notesHighlightings.GetFragments(employeeId);
                 #endregion 
             }
             #endregion
@@ -140,6 +151,10 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightResultsMapIndex
         {
             public int? FragmentLength { get; set; }
             public int? FragmentCount { get; set; }
+            public string Tag1 { get; set; }
+            public string Tag2 { get; set; }
+            public string Tag3 { get; set; }
+            public string Tag4 { get; set; }
         }
 
         private class DataToShow

@@ -10,7 +10,7 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const HighlightResultsMapIndexDemo = () => <Demo
+export const HighlightQueryResultsBasicsDemo = () => <Demo
     paramDefinitions={[
         { inputType: "number", name: "fragmentLength", placeholder: "50", paramKind: "text-param" },
         { inputType: "number", name: "fragmentCount", placeholder: "2", paramKind: "text-param" }

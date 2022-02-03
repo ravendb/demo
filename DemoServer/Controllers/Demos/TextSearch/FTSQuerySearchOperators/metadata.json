@@ -1,7 +1,7 @@
 {
     "Slug": "fts-query-search-operators",
     "SourceFileName": "FTSQuerySearchOperatorsController.cs",
-    "Title": "FTS - Query - Search Operators",
+    "Title": "FTS Query - Operators",
     "DescriptionLines": [
         "**Full Text Search query** allows searching for documents containing particular term(s) within a block of text.",
         "",

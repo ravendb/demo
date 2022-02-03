@@ -38,7 +38,7 @@ import { JavascriptMapIndexDemo } from "./javascriptIndexes/JavascriptMapIndexDe
 import { AutoMapIndex1Demo } from "./autoIndexes/AutoMapIndex1Demo";
 import { AutoMapIndex2Demo } from "./autoIndexes/AutoMapIndex2Demo";
 import { AutoMapReduceIndexDemo } from "./autoIndexes/AutoMapReduceIndexDemo";
-import { FacetsBasicDemo } from "./facetedSearch/FacetsBasicDemo";
+import { FacetsBasicsDemo } from "./facetedSearch/FacetsBasicsDemo";
 import { FacetsOptionsDemo } from "./facetedSearch/FacetsOptionsDemo";
 import { FacetsAggregationsDemo } from "./facetedSearch/FacetsAggregationsDemo";
 import { FacetsFromDocumentDemo } from "./facetedSearch/FacetsFromDocumentDemo";
@@ -47,7 +47,8 @@ import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStatic
 import { FTSQuerySearchBasicsDemo } from "./textSearch/FTSQuerySearchBasicsDemo";
 import { FTSQuerySearchOperatorsDemo } from "./textSearch/FTSQuerySearchOperatorsDemo";
 import { FTSQuerySearchBoostingDemo } from "./textSearch/FTSQuerySearchBoostingDemo";
-import { HighlightResultsMapIndexDemo } from "./textSearch/HighlightResultsMapIndexDemo";
+import { HighlightQueryResultsBasicsDemo } from "./textSearch/HighlightQueryResultsBasicsDemo";
+import { HighlightQueryResultsCustomizedDemo } from "./textSearch/HighlightQueryResultsCustomizedDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
 import { IndexCompareExchangeDemo } from "./compareExchange/IndexCompareExchangeDemo";
 import { SpatialQueryDemo } from "./spatial/SpatialQueryDemo";
@@ -192,8 +193,8 @@ export class DemoFactory extends React.Component<Props, {}> {
 
     private _getFacetedSearchDemo(demoSlug: DemoSlug) {
         switch (demoSlug) {
-            case "facets-basic":
-                return <FacetsBasicDemo />;
+            case "facets-basics":
+                return <FacetsBasicsDemo />;
             case "facets-options":
                 return <FacetsOptionsDemo />;
             case "facets-aggregations":
@@ -215,8 +216,10 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <FTSQuerySearchOperatorsDemo />;
             case "fts-query-search-boosting":
                 return <FTSQuerySearchBoostingDemo />;
-            case "highlight-results-map-index":
-                return <HighlightResultsMapIndexDemo />;
+            case "highlight-query-results-basics":
+                return <HighlightQueryResultsBasicsDemo />;
+            case "highlight-query-results-customized":
+                return <HighlightQueryResultsCustomizedDemo />;
         }
     }
 

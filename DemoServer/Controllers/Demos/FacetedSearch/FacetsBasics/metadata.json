@@ -1,7 +1,7 @@
 {
-    "Slug": "facets-basic",
-    "SourceFileName": "FacetsBasicController.cs",
-    "Title": "Facets - Basic",
+    "Slug": "facets-basics",
+    "SourceFileName": "FacetsBasicsController.cs",
+    "Title": "Facets - Basics",
     "DescriptionLines": [
         "A RavenDB query returns a list of documents.<br>",
         "When using a **Faceted Search** this document list will be grouped by a defined entry (Facet) or sub-ranges of an entry (RangeFacet),",

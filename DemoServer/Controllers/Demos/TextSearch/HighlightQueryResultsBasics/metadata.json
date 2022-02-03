@@ -1,7 +1,7 @@
 {
-    "Slug": "highlight-results-map-index",
-    "SourceFileName": "HighlightResultsMapIndexController.cs",
-    "Title": "Highlight Map Index Results",
+    "Slug": "highlight-query-results-basics",
+    "SourceFileName": "HighlightQueryResultsBasicsController.cs",
+    "Title": "Highlight Query Results Basics",
     "DescriptionLines": [
         "When making a Full Text Search query,<br> in addition to getting the documents that contain the searched terms in the results,",
         "you can **request to get a list of text fragments highlighting those terms**.",
@@ -11,7 +11,8 @@
         "The following can be customized:",
         "<p>* Fragments length<br>",
         "* Fragments count<br>",
-        "* Tags marking the terms within the fragments</p>"
+        "* Tags marking the terms within the fragments<br>",
+        "&nbsp;&nbsp;&nbsp;(see the Customized Demo )</p>"
     ],
 
     "Assets": [
@@ -19,6 +20,11 @@
             "Title": "FTS - Static Index Demo",
             "Type" : "demo",
             "Url"  : "/text-search/fts-with-static-index-single-field"
+        },
+        {
+            "Title": "Highlight Query Results - Customized Demo",
+            "Type" : "demo",
+            "Url"  : "/text-search/highlight-query-results-customized"
         },
         {
             "Title": "Querying highlighting",
@@ -104,9 +110,9 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index fields _Title_ & _Notes_ is taken from the corresponding document fields.",
+                "* The content for index fields _Notes_ is taken from the corresponding document field.",
                 "",
-                "* The fields will be customized for full text search and highlighting in the next step."
+                "* The field will be customized for Full Text Search and Highlighting in the next step."
                 
             ],
             "Assets": [
@@ -128,10 +134,10 @@
             ]
         },
         {
-            "Title": "Configure fields for highlighting",
+            "Title": "Configure field for Highlighting",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* In order to search and get fragments with highlighted terms, the index fields on which you search must be configured with:",
+                "* In order to search and get fragments with highlighted terms, the index field on which you search must be configured with:",
                 "  * `Store()`<br>",
                 "     Set _FieldStorage.Yes_ to store the field in the index.",
                 "",
@@ -141,9 +147,10 @@
                 "  * `TermVector()`<br>",
                 "     Set _FieldTermVector.WithPositionsAndOffsets_ to store the term's position and offset from the text.",
                 "",
-                "* During the indexing process, the fields' content will be tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
+                "* During the indexing process, the field's content is tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
                 "",
-                "* A query can now be made on these terms to get their matching documents including a list of text fragments containing the highlighted searched terms. See the following steps."
+                "* A query can now be made on these terms to get their matching documents - including a list of text fragments containing the highlighted searched terms.",
+                "  See next step."
             ],
             "Assets": [
                 {
@@ -179,71 +186,46 @@
             ]
         },
         {
-            "Title": "Define highlight tags",
+            "Title": "Make a search query",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Prior to making the search query, you can define the tags that will mark the searched terms within the text fragments. This is an optional step.",
-                " ",
-                "* _To define your own tags_ create a `HighlightingOptions` object with _PreTags_ & _PostTags_.<br>",
-                "  This object is passed to the query - see next step.",
+                "* Query for documents from collection 'Employees' that contain specific terms.",
                 "",
-                "* _The default pre & post tags_ are: `<b style='background:yellow'>......</b>`<br>",
-                "  The color will change per field that is searched.",
-                "",
-                "* When defining multiple tag strings in the tags array,<br> and when querying with multiple highlight field requests,<br> then each tag string is used per field requested respectively."
-            ],
-            "Assets": [
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
-                },
-                {
-                    "Title": "Highlighting - Blog",
-                    "Type" : "link",
-                    "Url"  : "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
-                }
-            ]
-        },
-        {
-            "Title": "Make a search query",
-            "Slug" : "step-6",
-            "DescriptionLines": [
-                "* Query for documents from collection 'Employees' that contain specific terms.<br>",
-                "  In this example, we are searching for documents containing the terms: 'manager' OR 'sales'.<br>",
+                "* In this example,<br> we are searching for documents containing the term 'sales' within their 'Notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `Highlight()`<br>",
                 "   * Specify the index field for which to get text fragments with the term highlighted.<br>",
                 "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
                 "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
-                "   * tagsToUseInFragment - provide the tags object from the previous step (optional).",
                 "   * Provide an 'out Highlightings' param for the fragments' results.",
                 "",
                 "* `Search()`<br>",
-                "   * Specify the terms to search for per index field.",
+                "   * Specify the index field and the term(s) to search for in that field.",
                 "   * These will be the terms highlighted in the fragments received.",
                 "",
                 "* _Query results will be_:",
                 "  * employeesResults -<br>",
-                "    the documents that contain the searched terms from the 'Search()' methods.",
-                "",
-                "  * titleHighlightings -<br>",
-                "    will contain fragments with 'manager' term from field 'Title' (marked with default tags).",
+                "    _The documents_ that contain the searched term 'sales'.",
                 "",
                 "  * notesHighlightings -<br>",
-                "    will contain fragments with 'sales' term from field 'Notes' (marked with defined tags)."
+                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "    The term will be marked with the default pre & post tags.",
+                "",
+                "  * The default pre & post tags are: `<b style='background:yellow'>......</b>`<br>",
+                "    The inner color will change per field when requesting to highlight multiple fields.<br>",
+                "    See the related Customized Demo for customizing tags."
             ],
             "Assets": [
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
                     "Url"  : "/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Highlight Query Results - Customized Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/highlight-query-results-customized"
                 },
                 {
                     "Title": "Querying highlighting",
@@ -259,13 +241,11 @@
         },
         {
             "Title": "Get fragments",
-            "Slug" : "step-7",
+            "Slug" : "step-6",
             "DescriptionLines": [
-                "* Use `GetFragments()`, pass the document ID to get the text fragments for that employee document.",
+                "* Use `GetFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
                 "",
-                "* _For example_, a highlighted fragment from the 'Notes' field that contains the 'sales' term will be:<br>",
-                "  ...He was promoted to +++sales+++ manager in March 1993...<br>",
-                "  with the 'sales' term marked with the defined '+++' tags.",
+                "* The searched term will be marked with the default pre & post tags.",
                 "",
                 "* Use these results to enhance your users' search experience."
             ],

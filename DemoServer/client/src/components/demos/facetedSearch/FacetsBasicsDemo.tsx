@@ -9,7 +9,7 @@ const resultsCreator = () =>
         "facetCount"
     ]} />
 
-export const FacetsBasicDemo = () => <Demo
+export const FacetsBasicsDemo = () => <Demo
     paramDefinitions={[
         { inputType: "number", name: "range1", placeholder: "25", paramKind: "text-param" },
         { inputType: "number", name: "range2", placeholder: "50", paramKind: "text-param" },

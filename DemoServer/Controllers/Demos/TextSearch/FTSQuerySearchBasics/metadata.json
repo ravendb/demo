@@ -1,7 +1,7 @@
 {
     "Slug": "fts-query-search-basics",
     "SourceFileName": "FTSQuerySearchBasicsController.cs",
-    "Title": "FTS - Query - Search Basics",
+    "Title": "FTS Query - Basics",
     "DescriptionLines": [
         "**Full Text Search query** allows querying for documents which contain the specified term(s) within the searched document field.",
         "",
