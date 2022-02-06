@@ -1,6 +1,6 @@
 {
     "Slug": "projecting-using-functions",
-    "SourceFileName": "projectingUsingFunctions.java",
+    "SourceFileName": "ProjectingUsingFunctions.java",
     "Title": "Projecting Using Functions",
     "DescriptionLines": [
         "The projected query fields can be further processed by using **JavaScript functions.**",

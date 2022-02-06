@@ -5,7 +5,7 @@ import net.ravendb.client.documents.session.IRawDocumentQuery;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import java.util.List;
 
-public class projectingUsingFunctions {
+public class ProjectingUsingFunctions {
 
     //region Demo
     public static class EmployeeDetails {
@@ -40,6 +40,6 @@ public class projectingUsingFunctions {
             //endregion
         //endregion
     }
-        return projectedResults;
+    return projectedResults;
 }
 
