@@ -111,7 +111,7 @@
                 "* The output projected entities returned by the query are Not tracked by the Session,<br>",
                 "  as they are not full documents.",
                 "",
-                "* Any change made to these entities will Not be sent to the server upon calling SaveChanges()."
+                "* Any change made to these entities will Not be sent to the server upon calling saveChanges()."
             ],
             "Assets": [
             ]

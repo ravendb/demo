@@ -17,7 +17,7 @@ async function run () {
     //endregion
 
     //region Step_3
-    const projectedQueryWithFunctions  = await session.advanced.rawQuery(rawQueryString);
+    const projectedQueryWithFunctions = session.advanced.rawQuery(rawQueryString);
     //endregion
 
     //region Step_4

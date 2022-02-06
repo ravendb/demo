@@ -39,7 +39,8 @@ public class ProjectingUsingFunctions {
             projectedResults = projectedQueryWithFunctions.toList();
             //endregion
         //endregion
+        }
+        return projectedResults;
     }
-    return projectedResults;
 }
 
