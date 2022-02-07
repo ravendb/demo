@@ -49,6 +49,7 @@ import { FTSQuerySearchOperatorsDemo } from "./textSearch/FTSQuerySearchOperator
 import { FTSQuerySearchBoostingDemo } from "./textSearch/FTSQuerySearchBoostingDemo";
 import { HighlightQueryResultsBasicsDemo } from "./textSearch/HighlightQueryResultsBasicsDemo";
 import { HighlightQueryResultsCustomizedDemo } from "./textSearch/HighlightQueryResultsCustomizedDemo";
+import { HighlightQueryResultsMapReduceDemo } from "./textSearch/HighlightQueryResultsMapReduceDemo";
 import { CreateCompareExchangeDemo } from "./compareExchange/CreateCompareExchangeDemo";
 import { IndexCompareExchangeDemo } from "./compareExchange/IndexCompareExchangeDemo";
 import { SpatialQueryDemo } from "./spatial/SpatialQueryDemo";
@@ -220,6 +221,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <HighlightQueryResultsBasicsDemo />;
             case "highlight-query-results-customized":
                 return <HighlightQueryResultsCustomizedDemo />;
+            case "highlight-query-results-map-reduce":
+                return <HighlightQueryResultsMapReduceDemo />;
         }
     }
 

@@ -79,8 +79,11 @@ namespace DemoServer.Controllers.Demos.TextSearch.HighlightQueryResultsBasics
                 #endregion
                 
                 #region Step_6
-                string employeeId = employeesResults[0].Id;
-                string[] notesFragments = notesHighlightings.GetFragments(employeeId);
+                if (employeesResults.Count > 0)
+                {
+                    string employeeId = employeesResults[0].Id;
+                    string[] notesFragments = notesHighlightings.GetFragments(employeeId);
+                }
                 #endregion 
             }
             #endregion

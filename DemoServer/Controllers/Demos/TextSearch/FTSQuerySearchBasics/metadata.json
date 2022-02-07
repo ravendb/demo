@@ -60,17 +60,24 @@
                 "* The most basic usage is to search for a single term, i.e.:<br>",
                 "  .Search(x => x.Notes, 'searchTerm')",
                 "",
-                "* In this example, we search for _term1 OR term2_ in the document field _Notes_.<br>",
-                "  Documents containing 'term1' will come first in the results.",
+                "* In this example, we search for _term1 OR term2_ in the document field _Notes_.",
                 "",
                 "* The default operator between 'term1' and 'term2' is OR.<br>",
-                "  See the related operations demo link for setting this to an AND operation."
+                "  See the related operations demo link for setting this to an AND operation.",
+                "",
+                "* Since only a single Search() method is used,<br> then documents containing 'term1' will come first in the results before those containing 'term2'.<br>",
+                "  Use Boosting to influence results order when using multiple Search() methods."
             ],
             "Assets": [
                 {
                     "Title": "FTS Query - Search Operations Demo",
                     "Type" : "demo",
                     "Url"  : "/text-search/fts-query-search-operators"
+                },
+                {
+                    "Title": "FTS Query - Boosting Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-boosting"
                 },
                 {
                     "Title": "How to search",

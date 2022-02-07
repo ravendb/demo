@@ -144,7 +144,8 @@
             "FTSQuerySearchOperators",
             "FTSQuerySearchBoosting",
             "HighlightQueryResultsBasics",
-            "HighlightQueryResultsCustomized"
+            "HighlightQueryResultsCustomized",
+            "HighlightQueryResultsMapReduce"
         ]
     },
     {

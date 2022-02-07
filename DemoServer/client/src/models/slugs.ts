@@ -67,7 +67,8 @@ type TextSearch =
     | "fts-query-search-operators"
     | "fts-query-search-boosting"
     | "highlight-query-results-basics"
-    | "highlight-query-results-customized";
+    | "highlight-query-results-customized"
+    | "highlight-query-results-map-reduce";
 
 type CompareExchange =
       "create-compare-exchange"
