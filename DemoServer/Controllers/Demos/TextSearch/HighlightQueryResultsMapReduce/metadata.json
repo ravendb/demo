@@ -165,8 +165,9 @@
                 "* Specify the field to group-by:<br><br>",
                 "  `group result by result.Artist into g`  ==> group by _index-field_ 'Artist'",
                 "",
-                "* Specify the aggregation needed:<br><br>",
+                "* Specify the aggregation needed for that field:<br><br>",
                 "  `Artist = g.Key`<br>",
+                "   ==> The artist we group by<br><br>",
                 "  `AllSongTitles = string.Join(' ', g.Select(x => x.AllSongTitles))`<br>",
                 "   ==> using string.Join() to concatenate the text, as the aggregation function."
             ],
