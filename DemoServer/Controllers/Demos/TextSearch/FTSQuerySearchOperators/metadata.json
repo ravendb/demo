@@ -108,7 +108,7 @@
                 "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
-                "    * _Search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (RavenStandardAnalyzer).<br>",
+                "    * _search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (RavenStandardAnalyzer).<br>",
                 "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.",
                 "",
                 "* Variable 'employeesWithMatchingTerms' will hold the matching document entities.<br>",

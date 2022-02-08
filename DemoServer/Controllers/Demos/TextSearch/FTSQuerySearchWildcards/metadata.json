@@ -164,10 +164,10 @@
                 "    * _Artist_ & _Title_<br>",
                 "      Contain the original/exact text from the indexed document-fields Artist & Title.",
                 "",
-                "    * _Search(Artist)_ & _Search(Title)_<br>",
+                "    * _search(Artist)_ & _Search(Title)_<br>",
                 "      Contain terms from the Artist & Title fields that were tokenized by RavenDB's default analyzer (StandardAnalyzer).<br>",
                 "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.<br><br>",
-                "      _Note_:<br> The terms we search for are compared against the terms from these Search(...) index-fields.",
+                "      _Note_:<br> The terms we search for are compared against the terms from these search(...) index-fields.",
                 "",
                 "* Variable 'songsWithMatchingTerms' will hold the matching LastFm document entities."
             ],
