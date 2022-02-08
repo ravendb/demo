@@ -109,7 +109,7 @@
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
                 "    * _Search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (RavenStandardAnalyzer).<br>",
-                "      If your text needs to be tokenized with a different analyzer, then you need to use an index instead of a dynamic query.",
+                "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.",
                 "",
                 "* Variable 'employeesWithMatchingTerms' will hold the matching document entities.<br>",
                 "  Results will include only Employees documents containing either ('term1' & 'term2') or 'term3'."

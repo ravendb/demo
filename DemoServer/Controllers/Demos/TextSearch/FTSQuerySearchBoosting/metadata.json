@@ -98,8 +98,13 @@
                 "    * _Search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (RavenStandardAnalyzer).<br>",
                 "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.",
                 "",
-                "* Variable 'employeesWithMatchingTerms' will hold the matching Employee document entities.<br>",
-                "  The order of the resulting documents depends on the boost level given to their matching term."
+                "* Variable 'employeesWithMatchingTerms' will hold the matching Employee document entities.",
+                "",
+                "* The boost factor is integrated into the basic score calculations done for each document in the results by the underlying Lucene engine.",
+                "  _So the order of the resulting documents depends on both the basic score plus the requested boosting factor_.",
+                "",
+                "* Usually, the higher the boost value the higher the document will rank in the results,<br>",
+                "  although there might be cases where the basic score will have more effect."
             ],
             "Assets": [
                 {

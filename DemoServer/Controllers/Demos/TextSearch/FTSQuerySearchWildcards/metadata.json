@@ -1,0 +1,193 @@
+{
+    "Slug": "fts-query-search-wildcards",
+    "SourceFileName": "FTSQuerySearchWildcardsController.cs",
+    "Title": "FTS Query - Wildcards",
+    "StudioLinkToMediaDatabase": true,
+    "DescriptionLines": [
+        "**Wildcards** can be used with searched terms when making a Full Text Search query.",
+        "",
+        "Wildcards can be used to replace:",
+        "<p>* prefix of a searched term<br>",
+        "* postfix of a searched term<br>",
+        "* both prefix & postfix</p>",
+        "",
+        "Upon query, an auto-index is created on the searched document-fields."
+    ],
+
+    "Assets": [
+        {
+            "Title": "FTS Query - Basics Demo",
+            "Type" : "demo",
+            "Url"  : "/text-search/fts-query-search-basics"
+        },
+        {
+            "Title": "Operation in queries - Book",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#operations-in-queries"
+        },
+        {
+            "Title": "Full text searching - Book",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
+        },
+        {
+            "Title": "How to search",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+        },
+        {
+            "Title": "Querying using wildcards",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching#using-wildcards"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'LastFms' collection using the Session `Query()` LINQ method syntax."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                },
+                {
+                    "Title": "LINQ Query & Method Syntax",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                }
+            ]
+        },
+        {
+            "Title": "Define search criteria I",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Use `Search()` to search for the specified terms in the specified document field.",
+                "",
+                "* In this example,<br>",
+                "  we search for documents that have a term with _'start' param prefix_ AND _'end' param postfix_,",
+                "  within their _Artist_ field.",
+                "",
+                "* Note - as opposed to searching with _wildcard as a postfix_ - <br>",
+                "  searching with _wildcard as the prefix_ of the term (i.e. '*text') is Not recommended,<br>",
+                "  as it will cause RavenDB to perform a full scan instead of an efficient prefix search."
+            ],
+            "Assets": [
+                {
+                    "Title": "FTS Query - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-basics"
+                },
+                {
+                    "Title": "FTS Query - Search Operations Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-operators"
+                },
+                {
+                    "Title": "How to search",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+                },
+                {
+                    "Title": "Querying searching",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
+                }
+            ]
+        },
+        {
+            "Title": "Define search criteria II",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* This step adds an additional `Search()` condition, which is OR'ed with the previous one.",
+                "",
+                "* We search for documents that have a term containing the 'middle' param text in their _Title_ field,<br>",
+                "  having any prefix or postfix."
+            ],
+            "Assets": [
+                {
+                    "Title": "FTS Query - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-basics"
+                },
+                {
+                    "Title": "FTS Query - Search Operations Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-operators"
+                },
+                {
+                    "Title": "How to search",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+                },
+                {
+                    "Title": "Querying searching",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
+                }
+            ]
+        },
+        {
+            "Title": "Limit & order results",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use `Take()` to limit the number of results returned.",
+                "",
+                "* Use `OrderBy()` to order the results by field Artist."
+            ],
+            "Assets": [
+                {
+                    "Title": "Limit number of Results - Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-example#step-7"
+                },
+                {
+                    "Title": "Sort query results - Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-example#step-5"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `ToList()`.",
+                "",
+                "* With this example, an Auto-Index is created upon executing the query for the first time with 4 index-fields",
+                " (2 index-fields per document-field that we search on):",
+                "",
+                "    * _Artist_ & _Title_<br>",
+                "      Contain the original/exact text from the indexed document-fields Artist & Title.",
+                "",
+                "    * _Search(Artist)_ & _Search(Title)_<br>",
+                "      Contain terms from the Artist & Title fields that were tokenized by RavenDB's default analyzer (StandardAnalyzer).<br>",
+                "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.<br><br>",
+                "      _Note_:<br> The terms we search for are compared against the terms from these Search(...) index-fields.",
+                "",
+                "* Variable 'songsWithMatchingTerms' will hold the matching LastFm document entities."
+            ],
+            "Assets": [
+                {
+                    "Title": "Auto Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/auto-indexes/auto-map-index1"
+                },
+                {
+                    "Title": "FTS - Static Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-with-static-index-single-field"
+                },
+                {
+                    "Title": "LINQ queries",
+                    "Type" : "link",
+                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                }
+            ]
+        }
+    ]
+}
