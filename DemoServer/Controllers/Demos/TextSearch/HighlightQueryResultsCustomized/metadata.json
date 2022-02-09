@@ -228,7 +228,7 @@
             "Title": "Make a search query",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* Query for documents from collection 'Employees' that contain specific terms.",
+                "* Query the 'Employees' collection using the defined index for documents that contain the specified terms.",
                 "",
                 "* In this example, the Highlight & the Search methods are called twice, per field we search on.<br>",
                 "  So we are searching for:<br>",

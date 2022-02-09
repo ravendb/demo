@@ -145,7 +145,7 @@
                 "     Set _FieldIndexing.Search_ to allow Full Text Search.",
                 "",
                 "  * `TermVector()`<br>",
-                "     Set _FieldTermVector.WithPositionsAndOffsets_ to store the term's position and offset from the text.",
+                "     Set _FieldTermVector.WithPositionsAndOffsets_ to store the term's position and offsets.",
                 "",
                 "* During the indexing process, the field's content is tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
                 "",
@@ -189,7 +189,7 @@
             "Title": "Make a search query",
             "Slug" : "step-5",
             "DescriptionLines": [
-                "* Query for documents from collection 'Employees' that contain specific terms.",
+                "* Query the 'Employees' collection using the defined index for documents that contain the specified term.",
                 "",
                 "* In this example,<br> we are searching for documents containing the term 'sales' within their 'Notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
