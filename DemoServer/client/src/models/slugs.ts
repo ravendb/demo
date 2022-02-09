@@ -37,7 +37,7 @@ type StaticIndexes =
     | "map-index"
     | "map-reduce-index"
     | "project-index-results"
-    | "store-fields-on-index"
+    | "store-fields-in-index"
     | "fanout-index"
     | "additional-sources-index";
 

@@ -9,7 +9,7 @@ const resultsCreator = () => <ResultTable
     ]}
 />;
 
-export const StoreFieldsOnIndexDemo = () => <Demo
+export const StoreFieldsInIndexDemo = () => <Demo
     paramDefinitions={[
         { inputType: "text", name: "companyID", placeholder: "companies/1-A", paramKind: "text-param" }
     ]}

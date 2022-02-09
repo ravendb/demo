@@ -1,11 +1,11 @@
 {
-    "Slug": "store-fields-on-index",
-    "SourceFileName": "StoreFieldsOnIndexController.cs",
-    "Title": "Store Fields on Index",
+    "Slug": "store-fields-in-index",
+    "SourceFileName": "StoreFieldsInIndexController.cs",
+    "Title": "Store Fields in Index",
     "DescriptionLines": [
         "Querying an index results in matching documents that satisfy the query.",
         "",
-        "However, **when one of the index fields is computed and you want to get its value in the query results then Store that Field on the Index**",
+        "However, **when one of the index fields is computed and you want to get its value in the query results then Store that Field in the Index**",
         "otherwise you need to re-calculate the value once results return."
     ],
 
@@ -79,7 +79,7 @@
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
-                "* Field _TotalItemsOrdered_ will be computed and stored on the index (Step 5)."
+                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
             ],
             "Assets": [
                 {
@@ -126,7 +126,7 @@
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, field `TotalItemsOrdered` is computed and will be stored on the index in the next step."
+                "* In this example, field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
                 {
@@ -147,12 +147,14 @@
             ]
         },
         {
-            "Title": "Store field on Index",
+            "Title": "Store field in Index",
             "Slug": "step-5",
             "DescriptionLines": [
-                "* Use `Store.Add()` to store a field on the index.",
+                "* Use `Store.Add()` with _FieldStorage.Yes_ to store the specified field in the index.",
                 "",
                 "* At query time, the value will be fetched directly from the index instead of from the document store.",
+                "",
+                "* Use StoreAllFields(FieldStorage.Yes) to store ALL the index-fields.",
                 "",
                 "* Note: Storing fields on the index will increase the index size on disk."
             ],
@@ -198,8 +200,8 @@
             "Slug" : "step-7",
             "DescriptionLines": [
                 "* Use `ProjectInto()` to make the server return only the fields defined in the 'OrdersQuantity_ByCompany.OrderProjectedDetails' class per document result instead of the whole document.<br>",
-                "  * If the field is _stored on the index_ - the server will fetch it from the index<br>",
-                "  * If the field is _not stored on the index_ - the server will fetch it from the document store",
+                "  * If the field is _stored in the index_ - the server will fetch it from the index<br>",
+                "  * If the field is _not stored in the index_ - the server will fetch it from the document store",
                 "",
                 "* In this example:<br>",
                 "  * 'TotalItemsOrdered' is fetched from the index<br>",

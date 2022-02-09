@@ -14,11 +14,11 @@ using Raven.Client.Documents.Linq;
 using Raven.Client.Documents;
 #endregion
 
-namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsOnIndex
+namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsInIndex
 {
-    public class StoreFieldsOnIndexController : DemoCodeController
+    public class StoreFieldsInIndexController : DemoCodeController
     {
-        public StoreFieldsOnIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public StoreFieldsInIndexController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }
