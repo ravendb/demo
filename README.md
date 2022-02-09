@@ -5,8 +5,8 @@ npm install
 npm run webpack
 ```
 
-Node version needed: v14.18.1  
-ASP.NET core: 3.1.0
+Node version needed: v14+  
+ASP.NET core: 3.1.x
 
 ## Running the application
 Run the `DemoServer` project in Visual Studio, Rider or `dotnet run`.  
