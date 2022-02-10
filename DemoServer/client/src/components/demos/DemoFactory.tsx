@@ -31,7 +31,7 @@ import { MultiMapIndexCustomizedFieldsDemo } from "./multiMapIndexes/MultiMapInd
 import { MultiMapReduceIndexDemo } from "./multiMapIndexes/MultiMapReduceIndexDemo";
 import { MapReduceIndexDemo } from "./staticIndexes/MapReduceIndexDemo";
 import { ProjectIndexResultsDemo } from "./staticIndexes/ProjectIndexResultsDemo";
-import { StoreFieldsOnIndexDemo } from "./staticIndexes/StoreFieldsOnIndexDemo";
+import { StoreFieldsInIndexDemo } from "./staticIndexes/StoreFieldsInIndexDemo";
 import { FanoutIndexDemo } from "./staticIndexes/FanoutIndexDemo";
 import { AdditionalSourcesIndexDemo } from "./staticIndexes/AdditionalSourcesIndexDemo";
 import { JavascriptMapIndexDemo } from "./javascriptIndexes/JavascriptMapIndexDemo";
@@ -154,8 +154,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <MapReduceIndexDemo />;
             case "project-index-results":
                 return <ProjectIndexResultsDemo />;
-            case "store-fields-on-index":
-                return <StoreFieldsOnIndexDemo />;
+            case "store-fields-in-index":
+                return <StoreFieldsInIndexDemo />;
             case "fanout-index":
                 return <FanoutIndexDemo />;
             case "additional-sources-index":
