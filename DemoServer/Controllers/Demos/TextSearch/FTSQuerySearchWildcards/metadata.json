@@ -106,7 +106,10 @@
                 "* This step adds an additional `Search()` condition, which is OR'ed with the previous one.",
                 "",
                 "* We search for documents that have a term containing the 'middle' param text in their _Title_ field,<br>",
-                "  having any prefix or postfix."
+                "  having any prefix or postfix.",
+                "",
+                "* This search will produce the relevant results, but as explained in the previous step,<br>",
+                "  using the 'wildcard as a prefix' is less recommended."
             ],
             "Assets": [
                 {

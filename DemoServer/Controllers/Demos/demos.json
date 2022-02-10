@@ -138,14 +138,16 @@
             "title": "Text Search"
         },
         "demos": [
-            "FTSWithStaticIndexSingleField",
-            "FTSWithStaticIndexMultipleFields",
             "FTSQuerySearchBasics",
             "FTSQuerySearchOperators",
             "FTSQuerySearchWildcards",
+            "FTSQuerySearchBoosting",
+            "FTSWithStaticIndexSingleField",
+            "FTSWithStaticIndexMultipleFields",
             "HighlightQueryResultsBasics",
             "HighlightQueryResultsCustomized",
-            "HighlightQueryResultsMapReduce"        ]
+            "HighlightQueryResultsMapReduce"
+        ]
     },
     {
         "category": {
