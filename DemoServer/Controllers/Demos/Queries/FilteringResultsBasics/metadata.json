@@ -75,7 +75,16 @@
                 "",
                 "* More filtering options are available - see related links.",
                 "",
-                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing auto-index that can answer this query (see auto-indexes)."
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing Auto-Index that can answer this query.",
+                "",
+                "* The index-fields that will be created in the Auto-Index depend on the filtering method used:<br>",
+                "  * `Where()`<br>",
+                "    The index-field created will contain terms with the exact value of the queried document-field.<br><br>",
+                "  * `Search()` - 2 index-fields are created:<br>",
+                "      * One with an exact match, same as the above.<br>",
+                "      * One with tokenized terms.<br>The document-field content is tokenized by RavenDB's default analyzer.",
+                "",
+                "* If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query."
             ],
             "Assets": [
                 {

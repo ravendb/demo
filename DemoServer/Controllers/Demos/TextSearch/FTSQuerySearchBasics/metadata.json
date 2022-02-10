@@ -36,7 +36,7 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the 'Employees' collection Using the Session `Query()` LINQ method syntax."
+                "* Define a query on the 'Employees' collection using the Session `Query()` LINQ method syntax."
             ],
             "Assets": [
                 {
@@ -99,13 +99,13 @@
                 "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
-                "    * _Search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (StandardAnalyzer).<br>",
-                "      If your text needs to be tokenized with a different analyzer, then you need to use an index instead of a dynamic query.",
+                "    * _search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (StandardAnalyzer).<br>",
+                "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.",
                 "",
                 "* Variable 'employeesWithMatchingTerms' will hold the matching Employee document entities.",
                 "",
-                "* Documents containing 'term1' will come first in the results.<br>",
-                "  _Switch the content of the demo parameters_ term1 & term2 and run again to see the difference."
+                "* The order of the resulting documents depends on the score given to each document by the underlying Lucene engine.",
+                "  This can further be manipulated by using the Boosting feature,<br> see the related demo."
             ],
             "Assets": [
                 {
@@ -117,6 +117,11 @@
                     "Title": "FTS - Static Index Demo",
                     "Type" : "demo",
                     "Url"  : "/text-search/fts-with-static-index-single-field"
+                },
+                {
+                    "Title": "FTS Query - Boosting Demo",
+                    "Type" : "demo",
+                    "Url"  : "/text-search/fts-query-search-boosting"
                 },
                 {
                     "Title": "LINQ queries",

@@ -45,6 +45,7 @@ import { FacetsFromDocumentDemo } from "./facetedSearch/FacetsFromDocumentDemo";
 import { FTSWithStaticIndexSingleFieldDemo } from "./textSearch/FTSWithStaticIndexSingleFieldDemo";
 import { FTSWithStaticIndexMultipleFieldsDemo } from "./textSearch/FTSWithStaticIndexMultipleFieldsDemo";
 import { FTSQuerySearchBasicsDemo } from "./textSearch/FTSQuerySearchBasicsDemo";
+import { FTSQuerySearchWildcardsDemo } from "./textSearch/FTSQuerySearchWildcardsDemo";
 import { FTSQuerySearchOperatorsDemo } from "./textSearch/FTSQuerySearchOperatorsDemo";
 import { FTSQuerySearchBoostingDemo } from "./textSearch/FTSQuerySearchBoostingDemo";
 import { HighlightQueryResultsBasicsDemo } from "./textSearch/HighlightQueryResultsBasicsDemo";
@@ -213,6 +214,8 @@ export class DemoFactory extends React.Component<Props, {}> {
                 return <FTSWithStaticIndexMultipleFieldsDemo />;
             case "fts-query-search-basics":
                 return <FTSQuerySearchBasicsDemo />;
+            case "fts-query-search-wildcards":
+                return <FTSQuerySearchWildcardsDemo />;
             case "fts-query-search-operators":
                 return <FTSQuerySearchOperatorsDemo />;
             case "fts-query-search-boosting":

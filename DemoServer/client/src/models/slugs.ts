@@ -64,6 +64,7 @@ type TextSearch =
       "fts-with-static-index-single-field"
     | "fts-with-static-index-multiple-fields"
     | "fts-query-search-basics"
+    | "fts-query-search-wildcards"
     | "fts-query-search-operators"
     | "fts-query-search-boosting"
     | "highlight-query-results-basics"
