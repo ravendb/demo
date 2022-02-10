@@ -215,7 +215,7 @@ Checklist:
 
 1. Add demo to `demos.json`
 2. Add slug to `slugs.ts`
-3. Add the demo `controller.cs` file
+3. Add the demo `Controller.cs` file
 4. Add the demo `metadata.json` file
 5. Add the demo `*.svg` file under `wwwroot\img\demo-icons\`
 6. Add the demo `*.tsx` file under `client\src\components\demos\`
