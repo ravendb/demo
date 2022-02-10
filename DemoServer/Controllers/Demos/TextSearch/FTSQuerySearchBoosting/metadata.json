@@ -1,7 +1,7 @@
 {
     "Slug": "fts-query-search-boosting",
     "SourceFileName": "FTSQuerySearchBoostingController.cs",
-    "Title": "FTS - Query - Search Boosting",
+    "Title": "FTS Query - Boosting",
     "DescriptionLines": [
         "**Full Text Search query** allows searching for documents containing particular term(s) within a block of text.",
         "",

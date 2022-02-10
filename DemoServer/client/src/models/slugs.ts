@@ -55,7 +55,7 @@ type AutoIndexes =
     | "auto-map-reduce-index";
 
 type FacetedSearch =
-      "facets-basic"
+      "facets-basics"
     | "facets-options"
     | "facets-aggregations"
     | "facets-from-document"
@@ -65,7 +65,10 @@ type TextSearch =
     | "fts-with-static-index-multiple-fields"
     | "fts-query-search-basics"
     | "fts-query-search-operators"
-    | "fts-query-search-boosting";
+    | "fts-query-search-boosting"
+    | "highlight-query-results-basics"
+    | "highlight-query-results-customized"
+    | "highlight-query-results-map-reduce";
 
 type CompareExchange =
       "create-compare-exchange"

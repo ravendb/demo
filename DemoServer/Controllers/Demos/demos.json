@@ -125,7 +125,7 @@
             "title": "Faceted Search"
         },
         "demos": [
-            "FacetsBasic",
+            "FacetsBasics",
             "FacetsOptions",
             "FacetsAggregations",
             "FacetsFromDocument"
@@ -142,7 +142,10 @@
             "FTSWithStaticIndexMultipleFields",
             "FTSQuerySearchBasics",
             "FTSQuerySearchOperators",
-            "FTSQuerySearchBoosting"
+            "FTSQuerySearchBoosting",
+            "HighlightQueryResultsBasics",
+            "HighlightQueryResultsCustomized",
+            "HighlightQueryResultsMapReduce"
         ]
     },
     {

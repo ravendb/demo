@@ -13,11 +13,11 @@ using Raven.Client.Documents.Indexes;
 using Raven.Client.Documents.Queries.Facets;
 #endregion
 
-namespace DemoServer.Controllers.Demos.FacetedSearch.FacetsBasic
+namespace DemoServer.Controllers.Demos.FacetedSearch.FacetsBasics
 {
-    public class FacetsBasicController : DemoCodeController
+    public class FacetsBasicsController : DemoCodeController
     {
-        public FacetsBasicController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
+        public FacetsBasicsController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
         }

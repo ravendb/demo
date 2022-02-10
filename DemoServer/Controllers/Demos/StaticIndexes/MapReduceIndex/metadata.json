@@ -158,7 +158,7 @@
                 "* Specify the field to group-by:<br><br>",
                 "  `group result by result.Country into g`  ==> group by _index-field_ 'Country'",
                 "",
-                "* Specify the aggregation needed on that field:<br><br>",
+                "* Specify the aggregation needed for that field:<br><br>",
                 "  `Country = g.Key`  ==>  The country we group by<br>",
                 "  `CountryCount = g.Sum(x => x.CountyCount)`  ==> The aggregating function"
             ],
