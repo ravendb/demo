@@ -1,4 +1,5 @@
-﻿using DemoCommon.Models;
+﻿using System.Threading.Tasks;
+using DemoCommon.Models;
 using DemoServer.Utils.Cache;
 using DemoServer.Utils.Database;
 using DemoServer.Utils.UserId;
@@ -18,6 +19,11 @@ namespace DemoServer.Controllers.Demos.TextSearch.FTSQuerySearchWildcards
         public FTSQuerySearchWildcardsController(UserIdContainer userId, UserStoreCache userStoreCache, MediaStoreCache mediaStoreCache,
             DatabaseSetup databaseSetup) : base(userId, userStoreCache, mediaStoreCache, databaseSetup)
         {
+        }
+        
+        protected override async Task SetDemoPrerequisites()
+        {
+            await DatabaseSetup.EnsureMediaDatabaseExists(UserId);
         }
         
         [HttpPost]
