@@ -47,9 +47,9 @@ func ProjectingUsingFunctions() error {
     defer session.Close()
 
     
-    rawQueryString := `
+    rawQueryString := 
         //region Step_1
-        declare function output(employee) {
+        `declare function output(employee) {
             var formatName  = function(employee) { return "FullName: " + employee.FirstName + " " + employee.LastName; };
             var formatTitle = function(employee) { return "Title: " + employee.Title };
             return { FullName : formatName(employee), Title : formatTitle(employee) };

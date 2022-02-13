@@ -5,8 +5,10 @@ async function run () {
     //region Demo
     const session = documentStore.openSession();
 
+    
+    const rawQueryString = 
     //region Step_1
-    const rawQueryString = `declare function output(employee) {
+        `declare function output(employee) {
             var formatTitle = function(employee) { return "Title: " + employee.Title };
             var formatName  = function(employee) { return "FullName: " + employee.FirstName + " " + employee.LastName; };
             return { Title : formatTitle(employee), FullName : formatName(employee) };

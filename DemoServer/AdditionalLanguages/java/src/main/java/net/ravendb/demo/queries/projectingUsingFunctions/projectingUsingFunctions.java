@@ -18,8 +18,9 @@ public class ProjectingUsingFunctions {
         List<EmployeeDetails> projectedResults;
         //region Demo
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //region Step_1
+
             String rawQueryString = 
+            //region Step_1
                 "declare function output(employee) {\n" +
                 "   var formatName  = function(employee) { return 'FullName: ' + employee.FirstName + ' ' + employee.LastName; };\n" +
                 "   var formatTitle = function(employee) { return 'Title: ' + employee.Title };\n" +
