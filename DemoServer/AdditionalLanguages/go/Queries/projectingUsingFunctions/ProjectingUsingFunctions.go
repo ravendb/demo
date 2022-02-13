@@ -46,7 +46,6 @@ func ProjectingUsingFunctions() error {
     }
     defer session.Close()
 
-    
     rawQueryString := 
         //region Step_1
         `declare function output(employee) {

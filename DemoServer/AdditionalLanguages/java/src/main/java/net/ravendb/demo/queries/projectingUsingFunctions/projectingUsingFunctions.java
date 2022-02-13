@@ -20,16 +20,16 @@ public class ProjectingUsingFunctions {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
 
             String rawQueryString = 
-            //region Step_1
+                //region Step_1
                 "declare function output(employee) {\n" +
                 "   var formatName  = function(employee) { return 'FullName: ' + employee.FirstName + ' ' + employee.LastName; };\n" +
                 "   var formatTitle = function(employee) { return 'Title: ' + employee.Title };\n" +
                 "   return { Title : formatTitle(employee), FullName : formatName(employee) };\n" +
                 "}\n"+
-            //endregion
-            //region Step_2
+                //endregion
+                //region Step_2
                 "from Employees as employee select output(employee)";
-            //endregion
+                //endregion
         
             //region Step_3
             IRawDocumentQuery<EmployeeDetails> projectedQueryWithFunctions = session.advanced()
