@@ -22,7 +22,7 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
         private class EmployeeDetails
         {
             public string Title { get; set; }
-            public string Name { get; set; }
+            public string FullName { get; set; }
         }
         
         [HttpPost]
@@ -39,14 +39,14 @@ namespace DemoServer.Controllers.Demos.Queries.ProjectingUsingFunctions
                 
                 #region Step_2
                     let formatTitle = (Func<Employee, string>)(e => "Title: " + e.Title)
-                    let formatName = (Func<Employee, string>)(e => "Name: " + e.FirstName + " " + e.LastName)
+                    let formatName = (Func<Employee, string>)(e => "FullName: " + e.FirstName + " " + e.LastName)
                 #endregion
                 
                 #region Step_3
                     select new EmployeeDetails
                     {
                        Title = formatTitle(employee),
-                       Name = formatName(employee)
+                       FullName = formatName(employee)
                     };
                 #endregion
 

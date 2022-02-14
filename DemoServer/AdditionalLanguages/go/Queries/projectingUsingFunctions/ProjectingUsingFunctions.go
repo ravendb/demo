@@ -46,11 +46,10 @@ func ProjectingUsingFunctions() error {
     }
     defer session.Close()
 
-    
-    rawQueryString := `
+    rawQueryString := 
         //region Step_1
-        declare function output(employee) {
-            var formatName  = function(employee) { return "Full Name: " + employee.FirstName + " " + employee.LastName; };
+        `declare function output(employee) {
+            var formatName  = function(employee) { return "FullName: " + employee.FirstName + " " + employee.LastName; };
             var formatTitle = function(employee) { return "Title: " + employee.Title };
             return { FullName : formatName(employee), Title : formatTitle(employee) };
         }
@@ -60,12 +59,12 @@ func ProjectingUsingFunctions() error {
         //endregion
 
     //region Step_3
-    rawQuery := session.RawQuery(rawQueryString)
+    projectedQueryWithFunctions := session.RawQuery(rawQueryString)
     //endregion
 
     //region Step_4
     var projectedResults []*EmployeeDetails
-    err = rawQuery.GetResults(&projectedResults)
+    err = projectedQueryWithFunctions.GetResults(&projectedResults)
     if err != nil {
         return err
     }

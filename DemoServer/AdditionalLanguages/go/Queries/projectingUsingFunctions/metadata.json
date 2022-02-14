@@ -63,7 +63,7 @@
             "Title": "Execute the query",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The 'rawQuery' variable only stores the query definition.<br>",
+                "* The 'projectedQueryWithFunctions' variable only stores the query definition.<br>",
                 "  Execute the query by calling `GetResults()`.",
                 "",
                 "* The _projectedResults_ variable will hold the resulting matching entities.<br>",
