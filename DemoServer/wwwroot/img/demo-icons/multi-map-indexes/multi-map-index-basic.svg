@@ -1,1 +1,71 @@
-<svg id="Warstwa_1" data-name="Warstwa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 119"><defs><style>.cls-1{fill:#ffcc5a;}.cls-2{fill:#b3b3b3;}.cls-3{fill:#ccc;}.cls-4{fill:#f9fff0;}.cls-5{fill:#bcbcbc;}.cls-6{opacity:0.05;}.cls-7{fill:#c69c6d;}.cls-8{opacity:0.66;}.cls-9{fill:#fff;}.cls-10{opacity:0.45;}</style></defs><circle class="cls-1" cx="47.781" cy="44.503" r="22.241"/><rect class="cls-2" x="40.242" y="29.717" width="18.824" height="25.657"/><rect class="cls-3" x="38.31" y="31.991" width="18.824" height="25.657"/><path class="cls-4" d="M55.321,59.289H36.5V39.026l5.4-5.394H55.321Z"/><rect class="cls-5" x="40.696" y="42.348" width="5.971" height="1.249"/><rect class="cls-5" x="40.696" y="44.705" width="10.811" height="1.249"/><rect class="cls-5" x="40.696" y="46.966" width="10.811" height="1.249"/><rect class="cls-5" x="40.696" y="49.323" width="10.811" height="1.249"/><polygon class="cls-6" points="41.919 39.048 36.498 44.469 36.498 39.026 39.197 36.326 41.919 39.048"/><polygon class="cls-5" points="41.892 39.027 36.497 39.027 41.892 33.632 41.892 39.027"/><circle class="cls-7" cx="47.781" cy="74.497" r="22.241"/><rect class="cls-2" x="40.242" y="59.711" width="18.824" height="25.657"/><rect class="cls-3" x="38.31" y="61.986" width="18.824" height="25.657"/><path class="cls-4" d="M55.321,89.283H36.5V69.021l5.4-5.4H55.321Z"/><rect class="cls-5" x="40.696" y="72.343" width="5.971" height="1.249"/><rect class="cls-5" x="40.696" y="74.7" width="10.811" height="1.249"/><rect class="cls-5" x="40.696" y="76.961" width="10.811" height="1.249"/><rect class="cls-5" x="40.696" y="79.318" width="10.811" height="1.249"/><polygon class="cls-6" points="41.919 69.042 36.498 74.464 36.498 69.02 39.197 66.321 41.919 69.042"/><polygon class="cls-5" points="41.892 69.021 36.497 69.021 41.892 63.626 41.892 69.021"/><circle class="cls-7" cx="136.011" cy="44.149" r="13.448"/><g class="cls-8"><rect class="cls-9" x="130.145" y="39.687" width="6.48" height="1.355"/><rect class="cls-9" x="130.145" y="42.245" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="44.699" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="47.256" width="11.732" height="1.355"/></g><circle class="cls-7" cx="136.011" cy="74.851" r="13.448"/><g class="cls-8"><rect class="cls-9" x="130.145" y="70.388" width="6.48" height="1.355"/><rect class="cls-9" x="130.145" y="72.946" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="75.4" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="77.958" width="11.732" height="1.355"/></g><circle class="cls-1" cx="136.011" cy="105.552" r="13.448"/><g class="cls-8"><rect class="cls-9" x="130.145" y="101.089" width="6.48" height="1.355"/><rect class="cls-9" x="130.145" y="103.647" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="106.101" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="108.659" width="11.732" height="1.355"/></g><circle class="cls-1" cx="136.011" cy="13.448" r="13.448"/><g class="cls-8"><rect class="cls-9" x="130.145" y="8.986" width="6.48" height="1.355"/><rect class="cls-9" x="130.145" y="11.544" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="13.998" width="11.732" height="1.355"/><rect class="cls-9" x="130.145" y="16.555" width="11.732" height="1.355"/></g><g class="cls-10"><path class="cls-9" d="M115.23,59.424,100.939,46.4l-.026.011v9.145H78.332v7.9h22.581v9.136l.022.01Z"/></g></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 175 119" style="enable-background:new 0 0 175 119;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFCC5A;}
+	.st1{fill:#B3B3B3;}
+	.st2{fill:#CCCCCC;}
+	.st3{fill:#F9FFF0;}
+	.st4{fill:#BCBCBC;}
+	.st5{opacity:5.000000e-02;enable-background:new    ;}
+	.st6{fill:#C69C6D;}
+	.st7{fill:#FFFFFF;}
+	.st8{opacity:0.45;}
+</style>
+<g>
+	<circle class="st0" cx="47.8" cy="44.5" r="22.2"/>
+	<g>
+		<rect x="40.2" y="29.7" class="st1" width="18.8" height="25.7"/>
+		<rect x="38.3" y="32" class="st2" width="18.8" height="25.7"/>
+		<path class="st3" d="M55.3,59.3H36.5V39l5.4-5.4h13.4V59.3z"/>
+		<rect x="40.7" y="42.3" class="st4" width="6" height="1.2"/>
+		<rect x="40.7" y="44.7" class="st4" width="10.8" height="1.2"/>
+		<rect x="40.7" y="47" class="st4" width="10.8" height="1.2"/>
+		<rect x="40.7" y="49.3" class="st4" width="10.8" height="1.2"/>
+		<polygon class="st5" points="41.9,39 36.5,44.5 36.5,39 39.2,36.3 		"/>
+		<polygon class="st4" points="41.9,39 36.5,39 41.9,33.6 		"/>
+	</g>
+</g>
+<circle class="st6" cx="47.8" cy="74.5" r="22.2"/>
+<rect x="40.2" y="59.7" class="st1" width="18.8" height="25.7"/>
+<rect x="38.3" y="62" class="st2" width="18.8" height="25.7"/>
+<path class="st3" d="M55.3,89.3H36.5V69l5.4-5.4h13.4V89.3z"/>
+<rect x="40.7" y="72.3" class="st4" width="6" height="1.2"/>
+<rect x="40.7" y="74.7" class="st4" width="10.8" height="1.2"/>
+<rect x="40.7" y="77" class="st4" width="10.8" height="1.2"/>
+<rect x="40.7" y="79.3" class="st4" width="10.8" height="1.2"/>
+<polygon class="st5" points="41.9,69 36.5,74.5 36.5,69 39.2,66.3 "/>
+<polygon class="st4" points="41.9,69 36.5,69 41.9,63.6 "/>
+<circle class="st6" cx="136" cy="44.1" r="13.4"/>
+<g>
+	<rect x="130.1" y="39.7" class="st7" width="6.5" height="1.4"/>
+	<rect x="130.1" y="42.2" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="44.7" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="47.3" class="st7" width="11.7" height="1.4"/>
+</g>
+<circle class="st6" cx="136" cy="74.9" r="13.4"/>
+<g>
+	<rect x="130.1" y="70.4" class="st7" width="6.5" height="1.4"/>
+	<rect x="130.1" y="72.9" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="75.4" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="78" class="st7" width="11.7" height="1.4"/>
+</g>
+<circle class="st0" cx="136" cy="105.6" r="13.4"/>
+<g>
+	<rect x="130.1" y="101.1" class="st7" width="6.5" height="1.4"/>
+	<rect x="130.1" y="103.6" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="106.1" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="108.7" class="st7" width="11.7" height="1.4"/>
+</g>
+<circle class="st0" cx="136" cy="13.4" r="13.4"/>
+<g>
+	<rect x="130.1" y="9" class="st7" width="6.5" height="1.4"/>
+	<rect x="130.1" y="11.5" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="14" class="st7" width="11.7" height="1.4"/>
+	<rect x="130.1" y="16.6" class="st7" width="11.7" height="1.4"/>
+</g>
+<g class="st8">
+	<path class="st7" d="M115.2,59.4l-14.3-13l0,0v9.1H78.3v7.9h22.6v9.1l0,0L115.2,59.4z"/>
+</g>
+</svg>

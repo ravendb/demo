@@ -1,1 +1,75 @@
-<svg id="Warstwa_1" data-name="Warstwa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 119"><defs><style>.cls-1{opacity:0.45;}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:5px;}.cls-3{fill:#fff;}.cls-4{fill:#ffcc5a;}.cls-5{fill:#f9fff0;}.cls-6{fill:#bcbcbc;}.cls-7{fill:#5d7486;}.cls-8{fill:#ea2880;}</style></defs><g class="cls-1"><line class="cls-2" x1="76.642" y1="25.802" x2="93.512" y2="34.534"/><polygon class="cls-3" points="89.924 38.292 99.885 37.833 94.508 29.436 89.924 38.292"/></g><rect class="cls-4" x="22.06" y="0.466" width="48.055" height="41.801"/><rect class="cls-5" x="27.417" y="5.126" width="37.341" height="32.482"/><rect class="cls-6" x="34.532" y="12.576" width="12.765" height="2.67"/><rect class="cls-6" x="34.532" y="17.615" width="23.111" height="2.67"/><rect class="cls-6" x="34.532" y="22.449" width="23.111" height="2.67"/><rect class="cls-6" x="34.532" y="27.487" width="23.111" height="2.67"/><g class="cls-1"><line class="cls-2" x1="76.641" y1="93.665" x2="93.512" y2="84.932"/><polygon class="cls-3" points="94.509 90.031 99.885 81.634 89.925 81.175 94.509 90.031"/></g><rect class="cls-7" x="22.06" y="77.199" width="48.055" height="41.801"/><rect class="cls-5" x="27.417" y="81.859" width="37.341" height="32.482"/><rect class="cls-6" x="34.532" y="104.22" width="12.765" height="2.67"/><rect class="cls-6" x="34.532" y="99.181" width="23.111" height="2.67"/><rect class="cls-6" x="34.532" y="94.348" width="23.111" height="2.67"/><rect class="cls-6" x="34.532" y="89.309" width="23.111" height="2.67"/><rect class="cls-8" x="104.885" y="28.695" width="48.055" height="62.076"/><rect class="cls-5" x="110.242" y="33.355" width="37.341" height="52.757"/><rect class="cls-6" x="117.357" y="40.805" width="12.765" height="2.67"/><rect class="cls-6" x="117.357" y="45.844" width="23.111" height="2.67"/><rect class="cls-6" x="117.357" y="50.677" width="23.111" height="2.67"/><rect class="cls-6" x="117.357" y="55.716" width="23.111" height="2.67"/><rect class="cls-6" x="117.357" y="75.786" width="12.765" height="2.67"/><rect class="cls-6" x="117.357" y="70.747" width="23.111" height="2.67"/><rect class="cls-6" x="117.357" y="65.914" width="23.111" height="2.67"/><rect class="cls-6" x="117.357" y="60.875" width="23.111" height="2.67"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 175 119" style="enable-background:new 0 0 175 119;" xml:space="preserve">
+<style type="text/css">
+	.st0{opacity:0.45;}
+	.st1{fill:none;stroke:#FFFFFF;stroke-width:5;stroke-miterlimit:10;}
+	.st2{fill:#FFFFFF;}
+	.st3{fill:#F0F4F6;}
+	.st4{fill:#2F9EF3;}
+</style>
+<g>
+	<g class="st0">
+		<g>
+			<line class="st1" x1="69.7" y1="25.2" x2="86.6" y2="33.9"/>
+			<g>
+				<polygon class="st2" points="83,37.7 93,37.2 87.6,28.8 				"/>
+			</g>
+		</g>
+	</g>
+	<g class="st0">
+		<g>
+			<line class="st1" x1="69.7" y1="93" x2="86.6" y2="84.3"/>
+			<g>
+				<polygon class="st2" points="87.6,89.4 93,81 83,80.5 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<circle class="st3" cx="39.2" cy="23.9" r="24"/>
+	<g>
+		<g>
+			<g>
+				<rect x="29" y="15.9" class="st4" width="11.5" height="2.4"/>
+				<rect x="29" y="20.5" class="st4" width="20.8" height="2.4"/>
+				<rect x="29" y="24.8" class="st4" width="20.8" height="2.4"/>
+				<rect x="29" y="29.4" class="st4" width="20.8" height="2.4"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<circle class="st3" cx="39.4" cy="94.1" r="24"/>
+	<g>
+		<g>
+			<g>
+				<rect x="29.3" y="86.2" class="st4" width="11.5" height="2.4"/>
+				<rect x="29.3" y="90.8" class="st4" width="20.8" height="2.4"/>
+				<rect x="29.3" y="95.1" class="st4" width="20.8" height="2.4"/>
+				<rect x="29.3" y="99.6" class="st4" width="20.8" height="2.4"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g>
+	<g>
+		<circle class="st4" cx="128.9" cy="59.1" r="30.9"/>
+		<g>
+			<rect x="115.5" y="43.5" class="st2" width="13.4" height="3.1"/>
+			<rect x="115.5" y="49.2" class="st2" width="26.8" height="3.1"/>
+			<rect x="115.5" y="55" class="st2" width="26.8" height="3.1"/>
+			<g>
+				<g>
+					<g>
+						<rect x="115.5" y="60.5" class="st2" width="26.8" height="3.1"/>
+					</g>
+				</g>
+			</g>
+			<rect x="115.5" y="66.1" class="st2" width="26.8" height="3.1"/>
+			<rect x="115.5" y="71.6" class="st2" width="26.8" height="3.1"/>
+		</g>
+	</g>
+</g>
+</svg>
