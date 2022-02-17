@@ -1,1 +1,84 @@
-<svg id="Warstwa_1" data-name="Warstwa 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175 119"><defs><style>.cls-1{fill:#f75e71;}.cls-2{fill:#fff;}.cls-3{fill:#c4d451;}.cls-4{fill:#f9fff0;}.cls-5{fill:#bcbcbc;}.cls-6{opacity:0.05;}.cls-7{fill:#f0bf54;}.cls-8{fill:none;stroke:#fff;stroke-miterlimit:10;stroke-width:4.888px;opacity:0.45;}</style></defs><circle class="cls-1" cx="126.811" cy="59.5" r="29.362"/><rect class="cls-2" x="114.405" y="49.832" width="14.04" height="2.936"/><rect class="cls-2" x="114.405" y="55.374" width="25.419" height="2.936"/><rect class="cls-2" x="114.405" y="60.69" width="25.419" height="2.936"/><rect class="cls-2" x="114.405" y="66.232" width="25.419" height="2.936"/><circle class="cls-3" cx="32.276" cy="44.149" r="13.448"/><path class="cls-4" d="M39.1,53.45H25.453V38.76l3.911-3.911H39.1Z"/><rect class="cls-5" x="28.497" y="41.168" width="4.329" height="0.905"/><rect class="cls-5" x="28.497" y="42.877" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="44.516" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="46.225" width="7.838" height="0.905"/><polygon class="cls-6" points="29.383 38.776 25.453 42.706 25.453 38.76 27.41 36.803 29.383 38.776"/><polygon class="cls-5" points="29.364 38.761 25.453 38.761 29.364 34.849 29.364 38.761"/><circle class="cls-7" cx="32.276" cy="74.851" r="13.448"/><path class="cls-4" d="M39.1,84.151H25.453V69.461l3.911-3.911H39.1Z"/><rect class="cls-5" x="28.497" y="71.869" width="4.329" height="0.905"/><rect class="cls-5" x="28.497" y="73.578" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="75.217" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="76.926" width="7.838" height="0.905"/><polygon class="cls-6" points="29.383 69.477 25.453 73.407 25.453 69.461 27.41 67.504 29.383 69.477"/><polygon class="cls-5" points="29.364 69.462 25.453 69.462 29.364 65.55 29.364 69.462"/><circle class="cls-3" cx="32.276" cy="105.552" r="13.448"/><path class="cls-4" d="M39.1,114.852H25.453v-14.69l3.911-3.911H39.1Z"/><rect class="cls-5" x="28.497" y="102.57" width="4.329" height="0.905"/><rect class="cls-5" x="28.497" y="104.279" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="105.918" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="107.627" width="7.838" height="0.905"/><polygon class="cls-6" points="29.383 100.178 25.453 104.108 25.453 100.162 27.41 98.205 29.383 100.178"/><polygon class="cls-5" points="29.364 100.163 25.453 100.163 29.364 96.251 29.364 100.163"/><circle class="cls-7" cx="32.276" cy="13.448" r="13.448"/><path class="cls-4" d="M39.1,22.749H25.453V8.059l3.911-3.911H39.1Z"/><rect class="cls-5" x="28.497" y="10.467" width="4.329" height="0.905"/><rect class="cls-5" x="28.497" y="12.176" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="13.815" width="7.838" height="0.905"/><rect class="cls-5" x="28.497" y="15.524" width="7.838" height="0.905"/><polygon class="cls-6" points="29.383 8.075 25.453 12.005 25.453 8.059 27.41 6.102 29.383 8.075"/><polygon class="cls-5" points="29.364 8.059 25.453 8.059 29.364 4.148 29.364 8.059"/><polyline class="cls-8" points="126.811 22.749 126.811 13.448 52.766 13.448"/><line class="cls-8" x1="52.766" y1="44.149" x2="92.176" y2="44.149"/><line class="cls-8" x1="52.766" y1="74.851" x2="92.176" y2="74.851"/><polyline class="cls-8" points="126.811 96.251 126.811 105.552 52.766 105.552"/></svg>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 26.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Warstwa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 175 119" style="enable-background:new 0 0 175 119;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#F75E71;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:#C4D451;}
+	.st3{fill:#F0BF54;}
+	.st4{opacity:0.45;fill:none;stroke:#FFFFFF;stroke-width:4.888;stroke-miterlimit:10;enable-background:new    ;}
+	.st5{fill:#B3B3B3;}
+	.st6{fill:#CCCCCC;}
+	.st7{fill:#F9FFF0;}
+	.st8{fill:#BCBCBC;}
+	.st9{opacity:5.000000e-02;enable-background:new    ;}
+</style>
+<circle class="st0" cx="126.8" cy="59.5" r="29.4"/>
+<g>
+	<rect x="114.4" y="49.8" class="st1" width="14" height="2.9"/>
+	<rect x="114.4" y="55.4" class="st1" width="25.4" height="2.9"/>
+	<rect x="114.4" y="60.7" class="st1" width="25.4" height="2.9"/>
+	<rect x="114.4" y="66.2" class="st1" width="25.4" height="2.9"/>
+</g>
+<circle class="st2" cx="32.3" cy="44.1" r="13.4"/>
+<circle class="st3" cx="32.3" cy="74.9" r="13.4"/>
+<circle class="st2" cx="32.3" cy="105.6" r="13.4"/>
+<circle class="st3" cx="32.3" cy="13.4" r="13.4"/>
+<polyline class="st4" points="126.8,22.7 126.8,13.4 52.8,13.4 "/>
+<line class="st4" x1="52.8" y1="44.1" x2="92.2" y2="44.1"/>
+<line class="st4" x1="52.8" y1="74.9" x2="92.2" y2="74.9"/>
+<polyline class="st4" points="126.8,96.3 126.8,105.6 52.8,105.6 "/>
+<g>
+	<g>
+		<rect x="27.7" y="4.5" class="st5" width="11.5" height="15.6"/>
+		<rect x="26.5" y="5.9" class="st6" width="11.5" height="15.6"/>
+		<path class="st7" d="M36.9,22.5H25.4V10.2l3.3-3.3h8.2V22.5z"/>
+		<rect x="28" y="12.2" class="st8" width="3.6" height="0.8"/>
+		<rect x="28" y="13.7" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="15" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="16.5" class="st8" width="6.6" height="0.8"/>
+		<polygon class="st9" points="28.7,10.2 25.4,13.5 25.4,10.2 27.1,8.6 		"/>
+		<polygon class="st8" points="28.7,10.2 25.4,10.2 28.7,6.9 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<rect x="27.7" y="35.2" class="st5" width="11.5" height="15.6"/>
+		<rect x="26.5" y="36.5" class="st6" width="11.5" height="15.6"/>
+		<path class="st7" d="M36.9,53.1H25.4V40.8l3.3-3.3h8.2V53.1z"/>
+		<rect x="28" y="42.8" class="st8" width="3.6" height="0.8"/>
+		<rect x="28" y="44.3" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="45.6" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="47.1" class="st8" width="6.6" height="0.8"/>
+		<polygon class="st9" points="28.7,40.8 25.4,44.1 25.4,40.8 27.1,39.2 		"/>
+		<polygon class="st8" points="28.7,40.8 25.4,40.8 28.7,37.5 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<rect x="27.7" y="65.9" class="st5" width="11.5" height="15.6"/>
+		<rect x="26.5" y="67.2" class="st6" width="11.5" height="15.6"/>
+		<path class="st7" d="M36.9,83.8H25.4V71.5l3.3-3.3h8.2V83.8z"/>
+		<rect x="28" y="73.5" class="st8" width="3.6" height="0.8"/>
+		<rect x="28" y="75" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="76.3" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="77.8" class="st8" width="6.6" height="0.8"/>
+		<polygon class="st9" points="28.7,71.5 25.4,74.8 25.4,71.5 27.1,69.9 		"/>
+		<polygon class="st8" points="28.7,71.5 25.4,71.5 28.7,68.2 		"/>
+	</g>
+</g>
+<g>
+	<g>
+		<rect x="27.7" y="96.6" class="st5" width="11.5" height="15.6"/>
+		<rect x="26.5" y="97.9" class="st6" width="11.5" height="15.6"/>
+		<path class="st7" d="M36.9,114.5H25.4v-12.3l3.3-3.3h8.2V114.5z"/>
+		<rect x="28" y="104.2" class="st8" width="3.6" height="0.8"/>
+		<rect x="28" y="105.7" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="107.1" class="st8" width="6.6" height="0.8"/>
+		<rect x="28" y="108.5" class="st8" width="6.6" height="0.8"/>
+		<polygon class="st9" points="28.7,102.2 25.4,105.5 25.4,102.2 27.1,100.6 		"/>
+		<polygon class="st8" points="28.7,102.2 25.4,102.2 28.7,98.9 		"/>
+	</g>
+</g>
+</svg>
