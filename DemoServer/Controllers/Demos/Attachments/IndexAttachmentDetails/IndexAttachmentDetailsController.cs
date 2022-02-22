@@ -59,7 +59,7 @@ namespace DemoServer.Controllers.Demos.Attachments.IndexAttachmentDetails
         protected override Task SetDemoPrerequisites() => new Employees_ByAttachmentDetails().ExecuteAsync(DocumentStoreHolder.Store);
 
         [HttpPost]
-        public async Task<IActionResult> Run(RunParams runParams)
+        public IActionResult Run(RunParams runParams)
         {
             string attachmentContentType = runParams.AttachmentContentType ?? "image/jpeg";
             long attachmentMinSize = runParams.AttachmentMinSize ?? 18000;

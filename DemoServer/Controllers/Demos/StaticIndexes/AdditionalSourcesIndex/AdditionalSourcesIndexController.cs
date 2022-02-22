@@ -66,7 +66,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.AdditionalSourcesIndex
                 {
                     {
                         "DiscountLogic", System.IO.File.ReadAllText(
-                            Path.Combine(AppContext.BaseDirectory, "..", "..", "..", "MyAdditionalSourceFile.cs"))
+                            Path.Combine(AppContext.BaseDirectory, "MyAdditionalSourceFile.cs"))
                     }
                 };
                 #endregion
