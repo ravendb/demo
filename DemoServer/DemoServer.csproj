@@ -18,6 +18,9 @@
     <Compile Remove="Controllers\Demos\Basics\TheDocumentStore\TheDocumentStoreController.cs" />
     <Compile Remove="Controllers\Demos\Basics\TheSession\TheSessionController.cs" />
     <Content Remove="compilerconfig.json" />
+    <Compile Update="MyAdditionalSourceFile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
