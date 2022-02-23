@@ -33,6 +33,11 @@ export class CookieJar {
                 return null;
         }
     }
+
+    public static isTrackingDisabledCookieDefined(): boolean {
+        const cookieValue = this._readCookieValue(CookieNames.trackingDisabled);
+        return !!cookieValue;
+    }
     
     public static isTrackingDisabled(): boolean {
         const cookieValue = this._readCookieValue(CookieNames.trackingDisabled);
