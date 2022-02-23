@@ -36,7 +36,7 @@ export class CookieJar {
     
     public static isTrackingDisabled(): boolean {
         const cookieValue = this._readCookieValue(CookieNames.trackingDisabled);
-        return !!cookieValue;
+        return cookieValue === "true";
     }
 
     public static acceptAll() {
