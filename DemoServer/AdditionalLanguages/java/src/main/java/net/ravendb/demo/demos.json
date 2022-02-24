@@ -69,7 +69,8 @@
         "demos": [
             "staticIndexesOverview",
             "mapIndex",
-            "mapReduceIndex"
+            "mapReduceIndex",
+            "storeFieldInIndex"
         ]
     },
     {
