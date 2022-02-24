@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using DemoCommon.Utils.Database;
 using DemoParser.Models;
@@ -78,6 +79,11 @@ namespace DemoServer
                 .AddControllers()
                 .AddApplicationPart(typeof(Startup).Assembly)
                 .AddControllersAsServices();
+
+            services.AddHsts(options =>
+            {
+                options.MaxAge = TimeSpan.FromDays(365);
+            }); 
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
@@ -89,6 +95,7 @@ namespace DemoServer
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseHsts();
             }
 
             app.UseStaticFiles();
@@ -112,6 +119,11 @@ namespace DemoServer
                 
                 spa.Options.SourcePath = GetSpaOutputDir(env);
             });
+            
+            app.UseXContentTypeOptions();
+            app.UseXfo(options => options.Deny());
+            app.UseXXssProtection(options => options.EnabledWithBlockMode());
+            app.UseReferrerPolicy(options => options.NoReferrerWhenDowngrade());
         }
     }
 }
