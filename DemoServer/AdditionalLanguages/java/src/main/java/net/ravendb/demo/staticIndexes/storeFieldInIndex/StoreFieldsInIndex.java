@@ -17,7 +17,7 @@ public class StoreFieldsInIndex {
         //region Step_2
         public class IndexEntry {
             public String company;
-            public int totalItemsOrdered;
+            public int    totalItemsOrdered;
         }
         //endregion
         
