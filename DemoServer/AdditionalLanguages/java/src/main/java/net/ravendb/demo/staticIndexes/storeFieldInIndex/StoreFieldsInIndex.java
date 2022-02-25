@@ -6,7 +6,6 @@ import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
 //endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
-
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +17,8 @@ public class StoreFieldsInIndex {
 
         //region Step_2
         public class IndexEntry {
-            String company;
-            int totalItemsOrdered;
+            private String company;
+            private int totalItemsOrdered;
 
             public String getCompany() {
                 return company;
@@ -41,8 +40,8 @@ public class StoreFieldsInIndex {
 
         //region Step_3
         public static class OrderProjectedDetails {
-            Date orderedAt;
-            int totalItemsOrdered;
+            private Date orderedAt;
+            private int totalItemsOrdered;
 
             public Date getOrderedAt() {
                 return orderedAt;

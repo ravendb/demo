@@ -17,10 +17,10 @@ public class JavascriptMapIndex {
         //endregion
         //region Step_2
         public class IndexEntry {
-            String fullName;
-            String country;
-            int workingInCompanySince;
-            int numberOfTerritories;
+            private String fullName;
+            private String country;
+            private int workingInCompanySince;
+            private int numberOfTerritories;
 
             public int getNumberOfTerritories() {
                 return numberOfTerritories;
