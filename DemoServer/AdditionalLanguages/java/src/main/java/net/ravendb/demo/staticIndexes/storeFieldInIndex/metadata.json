@@ -75,7 +75,7 @@
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
-                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
+                "* Field _totalItemsOrdered_ will be computed and stored in the index (Step 5)."
             ],
             "Assets": [
                 {

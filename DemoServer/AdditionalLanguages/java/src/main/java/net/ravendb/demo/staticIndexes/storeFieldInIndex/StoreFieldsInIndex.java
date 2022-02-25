@@ -1,10 +1,12 @@
 //region Usings
+
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldStorage;
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
 //endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
+
 import java.util.Date;
 import java.util.List;
 
@@ -12,19 +14,51 @@ public class StoreFieldsInIndex {
     //region Demo
     //region Step_1
     public class OrdersQuantity_ByCompany extends AbstractIndexCreationTask {
-    //endregion
+        //endregion
 
         //region Step_2
         public class IndexEntry {
-            public String company;
-            public int    totalItemsOrdered;
+            String company;
+            int totalItemsOrdered;
+
+            public String getCompany() {
+                return company;
+            }
+
+            public void setCompany(String company) {
+                this.company = company;
+            }
+
+            public int getTotalItemsOrdered() {
+                return totalItemsOrdered;
+            }
+
+            public void setTotalItemsOrdered(int totalItemsOrdered) {
+                this.totalItemsOrdered = totalItemsOrdered;
+            }
         }
         //endregion
-        
+
         //region Step_3
         public static class OrderProjectedDetails {
-            public Date orderedAt;
-            public int totalItemsOrdered;
+            Date orderedAt;
+            int totalItemsOrdered;
+
+            public Date getOrderedAt() {
+                return orderedAt;
+            }
+
+            public void setOrderedAt(Date orderedAt) {
+                this.orderedAt = orderedAt;
+            }
+
+            public int getTotalItemsOrdered() {
+                return totalItemsOrdered;
+            }
+
+            public void setTotalItemsOrdered(int totalItemsOrdered) {
+                this.totalItemsOrdered = totalItemsOrdered;
+            }
         }
         //endregion
 
@@ -32,7 +66,7 @@ public class StoreFieldsInIndex {
             //region Step_4
             map = "docs.Orders.Select(order => new { \n" +
                 "   Company = order.Company, \n" +
-                "   TotalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n"+
+                "   TotalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
                 "})";
             //endregion
             //region Step_5
@@ -42,12 +76,12 @@ public class StoreFieldsInIndex {
     }
     //endregion
 
-    public void run( String companyId ){
+    public void run(String companyId) {
         //region Demo
         List<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersDetails;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            
+
             IDocumentQuery<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersQuery = session
                 //region Step_6 
                 .query(OrdersQuantity_ByCompany.IndexEntry.class, OrdersQuantity_ByCompany.class)
@@ -55,7 +89,7 @@ public class StoreFieldsInIndex {
                 //endregion
                 //region Step_7
                 .selectFields(OrdersQuantity_ByCompany.OrderProjectedDetails.class);
-                 //endregion
+            //endregion
 
             //region Step_8
             ordersDetails = ordersQuery.toList();
