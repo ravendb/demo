@@ -13,6 +13,16 @@ Run the `DemoServer` project in Visual Studio, Rider or `dotnet run`.
 The application should run on http://localhost:9090/  
 In order for the demos to execute, a RavenDB instance must be running on http://localhost:8080
 
+## Testing locally before new release
+
+1. Start Docker.
+2. In powershell, go to the main solution directory.
+3. Run `.\test-image.ps1` script
+    
+    The script will build the application in a similar way that the release version is built.
+    Then it runs the application locally and automatically opens web browser on http://localhost:8081
+4. Test the application in the newly opened browser window.
+
 ## General description
 The demo application contains source code examples that will be displayed as demo pages. The demo pages are divided into categories.  
 The majority of the demos can be executed on the server side, which will result in modifying user database.  
@@ -210,6 +220,24 @@ Checklist:
     - ensure it is added as a content file to the `DemoServer` project
     - for non-C# demos: make sure that the `Slug` value matches the corresponding C# demo slug
     - ensure that `SourceFileName` matches the source code file name located in the same folder as `metadata.json`. Please remember to include the file extension.
+
+### All examples of a specific language are missing in the Production environment
+
+...but are present locally.
+
+Usually this is caused by a file name casing error. The production environment is running on Linux, so it's case sensitive. 
+Quite often, the application is developed on Windows, which is not so strict - naming problems do not surface there.
+
+What to do:
+1. Run the application locally using the `test-image.ps1` script
+2. If the problem is reproduced, check the logs of the application.
+    The logs can be either accessed in the docker container or seen in a console window that is opened once the application starts. 
+    The logs should contain the exact path of the file that could not be loaded.
+    E.g.:
+```
+DemoParser.Utils.ParsingException: File AdditionalLanguages/java/src/main/java/net/ravendb/demo/queries/projectingUsingFunctions/ProjectingUsingFunctions.java does not exist.
+```
+3. Check the casing of all directories in the path and the file name. Fix where applicable. 
 
 ## When adding a new C# demo:
 
