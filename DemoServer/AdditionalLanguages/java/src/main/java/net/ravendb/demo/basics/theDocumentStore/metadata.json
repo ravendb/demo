@@ -1,6 +1,6 @@
 {
     "Slug": "the-document-store",
-    "SourceFileName": "TheDocumentStore.java",
+    "SourceFileName": "DocumentStoreHolder.java",
     "Title": "The Document Store",
     "NonInteractive":  true,
     "DescriptionLines": [

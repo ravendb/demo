@@ -1,6 +1,5 @@
 package net.ravendb.demo.basics.theDocumentStore;
 //region Usings
-import net.ravendb.client.documents.IDocumentStore;
 import net.ravendb.client.documents.DocumentStore;
 //endregion
 
