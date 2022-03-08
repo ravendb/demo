@@ -1,5 +1,5 @@
+package net.ravendb.demo.staticIndexes.storeFieldInIndex;
 //region Usings
-
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldStorage;
 import net.ravendb.client.documents.session.IDocumentQuery;
@@ -64,18 +64,20 @@ public class StoreFieldsInIndex {
         public OrdersQuantity_ByCompany() {
             //region Step_4
             map = "docs.Orders.Select(order => new { \n" +
-                "   Company = order.Company, \n" +
-                "   TotalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
+                "   company = order.Company, \n" +
+                "   totalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
                 "})";
             //endregion
             //region Step_5
-            store("TotalItemsOrdered", FieldStorage.YES);
+            store("totalItemsOrdered", FieldStorage.YES);
             //endregion
         }
     }
     //endregion
 
-    public void run(String companyId) {
+    public  List<OrdersQuantity_ByCompany.OrderProjectedDetails> run(RunParams runParams) {
+        String companyId = runParams.getCompanyId();
+        new OrdersQuantity_ByCompany().execute(DocumentStoreHolder.store);
         //region Demo
         List<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersDetails;
 
@@ -84,7 +86,7 @@ public class StoreFieldsInIndex {
             IDocumentQuery<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersQuery = session
                 //region Step_6 
                 .query(OrdersQuantity_ByCompany.IndexEntry.class, OrdersQuantity_ByCompany.class)
-                .whereEquals("Company", companyId)
+                .whereEquals("company", companyId)
                 //endregion
                 //region Step_7
                 .selectFields(OrdersQuantity_ByCompany.OrderProjectedDetails.class);
@@ -94,6 +96,19 @@ public class StoreFieldsInIndex {
             ordersDetails = ordersQuery.toList();
             //endregion
         }
+        return ordersDetails;
         //endregion
+    }
+
+    public static class RunParams {
+        private String companyId;
+
+        public String getCompanyId() {
+            return companyId;
+        }
+
+        public void setCompanyId(String companyId) {
+            this.companyId = companyId;
+        }
     }
 }

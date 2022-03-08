@@ -32,8 +32,8 @@
         },
         {
             "Title": "Indexes: Storing Data",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/latestCsharp/indexes/storing-data-in-index"
         }
     ],
 
@@ -166,8 +166,8 @@
                 },
                 {
                     "Title": "Indexes: Storing Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/storing-data-in-index"
                 },
                 {
                     "Title": "Studio: Index Field Options",
@@ -182,7 +182,7 @@
             "DescriptionLines": [
                 "* Query the 'Orders' collection using the defined index.",
                 "",
-                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry`",
+                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry.class`",
                 "",
                 "* The resulting documents will include only orders that where made by 'companyId'."
             ],
@@ -236,7 +236,7 @@
                 "",
                 "* The final query results include the projected details for orders that where made by 'companyId'.",
                 "",
-                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+                "* The resulting objects are Not tracked by the session since they are not the full documents but only partial data."
             ],
             "Assets": [
                 {

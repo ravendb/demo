@@ -33,7 +33,7 @@
         {
             "Title": "Indexes: Storing Data",
             "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/5.3/Csharp/indexes/storing-data-in-index"
+            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/storing-data-in-index"
         }
     ],
 
@@ -105,13 +105,18 @@
                 "* Note: it is not mandatory for this class to be nested within the index class."
             ],
             "Assets": [
+                /*
                 {
-                    /*TODO
+
+                    TODO
+                    {
                     "Title": "Project Index Result Demo",
                     "Type": "demo",
                     "Url": "/java/static-indexes/project-index-results"
-                    */
+                    
+
                 }
+             */
             ]
         },
         {
@@ -164,8 +169,8 @@
                 },
                 {
                     "Title": "Indexes: Storing Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/5.3/java/indexes/storing-data-in-index"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/storing-data-in-index"
                 },
                 {
                     "Title": "Studio: Index Field Options",
@@ -227,7 +232,7 @@
                 "",
                 "* The final query results include the projected details for orders that where made by 'companyId'.",
                 "",
-                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+                "* The resulting objects are Not tracked by the session since they are not the full documents but only partial data."
             ],
             "Assets": [
                 {
