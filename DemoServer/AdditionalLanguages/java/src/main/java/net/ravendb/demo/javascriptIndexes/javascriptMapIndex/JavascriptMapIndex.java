@@ -1,3 +1,4 @@
+package net.ravendb.demo.javascriptIndexes.javascriptMapIndex;
 //region using
 import net.ravendb.client.documents.indexes.AbstractJavaScriptIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
@@ -5,16 +6,13 @@ import net.ravendb.client.documents.session.IDocumentSession;
 import com.google.common.collect.Sets;
 import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.common.DocumentStoreHolder;
-
 import java.util.List;
-
-import com.google.common.collect.Sets;
 
 public class JavascriptMapIndex {
     //region Demo
     //region Step_1
     public class Employees_ByImportantDetailsJS extends AbstractJavaScriptIndexCreationTask {
-        //endregion
+    //endregion
         //region Step_2
         public class IndexEntry {
             private String fullName;
@@ -62,10 +60,10 @@ public class JavascriptMapIndex {
             setMaps(Sets.newHashSet(
                 "map('Employees', function (employee) {\n" +
                     "   return {\n" +
-                    "       FullName: employee.FirstName + ' ' + employee.LastName,\n" +
-                    "       Country: employee.Address.Country,\n" +
-                    "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
-                    "       NumberOfTerritories: employee.Territories.length\n" +
+                    "       fullName: employee.FirstName + ' ' + employee.LastName,\n" +
+                    "       country: employee.Address.Country,\n" +
+                    "       workingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
+                    "       numberOfTerritories: employee.Territories.length\n" +
                     "   };\n" +
                     "})"
             ));
@@ -74,19 +72,36 @@ public class JavascriptMapIndex {
     }
     //endregion
 
-    public void run(int startYear) {
+    public  List<Employee> run(RunParams runParams) {
+        int startYear = runParams.getStartYear();
+        new Employees_ByImportantDetailsJS().execute(DocumentStoreHolder.store);
         //region Demo
         List<Employee> employeesFromUSA;
-
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
+            //TODO - this doesn't works
             //region Step_4
             employeesFromUSA = session.query(Employees_ByImportantDetailsJS.IndexEntry.class, Employees_ByImportantDetailsJS.class)
-                .whereEquals("Country", "USA")
-                .whereGreaterThan("WorkingInCompanySince", startYear)
+                .whereEquals("country", "USA")
+                .whereGreaterThan("workingInCompanySince", startYear)
                 .selectFields(Employee.class)
                 .toList();
             //endregion
         }
         //endregion
+        return employeesFromUSA;
+        //return null;
+
+    }
+
+    public static class RunParams {
+        private int startYear;
+
+        public int getStartYear() {
+            return startYear;
+        }
+
+        public void setStartYear(int startYear) {
+            this.startYear = startYear;
+        }
     }
 }
