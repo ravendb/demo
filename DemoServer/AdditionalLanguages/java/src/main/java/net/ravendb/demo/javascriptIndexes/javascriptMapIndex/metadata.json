@@ -94,7 +94,7 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Define `setMaps()` which is a _HashSet_ that will contain a single javascript map strings (Map index), or multiple map strings (Multi Map index).",
+                "* Define `setMaps()` which is a _HashSet_ that will contain a single JavaScript map string (Map index), or multiple map string (Multi Map index).",
                 "",
                 "* The map string is defined with: `map(<Collection name>, <JavaScript map method>)`.",
                 "",

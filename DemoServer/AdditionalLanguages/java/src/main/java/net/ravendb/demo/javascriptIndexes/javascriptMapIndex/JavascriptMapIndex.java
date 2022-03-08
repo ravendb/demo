@@ -51,10 +51,8 @@ public class JavascriptMapIndex {
             public void setFullName(String fullName) {
                 this.fullName = fullName;
             }
-
         }
         //endregion
-
         //region Step_3
         public Employees_ByImportantDetailsJS() {
             setMaps(Sets.newHashSet(
