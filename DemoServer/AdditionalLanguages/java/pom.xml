@@ -24,7 +24,7 @@
         <dependency>
             <groupId>net.ravendb</groupId>
             <artifactId>ravendb</artifactId>
-            <version>4.1.6</version>
+            <version>5.2.2</version>
         </dependency>
 
         <dependency>

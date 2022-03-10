@@ -12,11 +12,11 @@ import java.util.List;
 public class StoreFieldsInIndex {
     //region Demo
     //region Step_1
-    public class OrdersQuantity_ByCompany extends AbstractIndexCreationTask {
+    public static class OrdersQuantity_ByCompany extends AbstractIndexCreationTask {
         //endregion
 
         //region Step_2
-        public class IndexEntry {
+        public static class IndexEntry {
             private String company;
             private int totalItemsOrdered;
 
@@ -75,7 +75,7 @@ public class StoreFieldsInIndex {
     }
     //endregion
 
-    public  List<OrdersQuantity_ByCompany.OrderProjectedDetails> run(RunParams runParams) {
+    public List<OrdersQuantity_ByCompany.OrderProjectedDetails> run(RunParams runParams) {
         String companyId = runParams.getCompanyId();
         new OrdersQuantity_ByCompany().execute(DocumentStoreHolder.store);
         //region Demo

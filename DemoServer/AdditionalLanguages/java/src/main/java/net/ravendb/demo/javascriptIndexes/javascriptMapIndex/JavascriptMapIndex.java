@@ -11,10 +11,10 @@ import java.util.List;
 public class JavascriptMapIndex {
     //region Demo
     //region Step_1
-    public class Employees_ByImportantDetailsJS extends AbstractJavaScriptIndexCreationTask {
+    public static class Employees_ByImportantDetailsJS extends AbstractJavaScriptIndexCreationTask {
     //endregion
         //region Step_2
-        public class IndexEntry {
+        public static class IndexEntry {
             private String fullName;
             private String country;
             private int workingInCompanySince;
@@ -70,7 +70,7 @@ public class JavascriptMapIndex {
     }
     //endregion
 
-    public  List<Employee> run(RunParams runParams) {
+    public List<Employee> run(RunParams runParams) {
         int startYear = runParams.getStartYear();
         new Employees_ByImportantDetailsJS().execute(DocumentStoreHolder.store);
         //region Demo

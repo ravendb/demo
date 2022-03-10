@@ -1,7 +1,5 @@
 package net.ravendb.demo.test.staticIndexes;
 
-import net.ravendb.demo.common.models.Employee;
-import net.ravendb.demo.javascriptIndexes.javascriptMapIndex.JavascriptMapIndex;
 import net.ravendb.demo.staticIndexes.storeFieldInIndex.StoreFieldsInIndex;
 import org.junit.Assert;
 import org.junit.Test;
