@@ -1,0 +1,219 @@
+{
+    "Slug": "project-index-results",
+    "SourceFileName": "ProjectIndexResultsController.cs",
+    "Title": "Project Index Results",
+    "DescriptionLines": [
+        "Querying an index results in matching documents that satisfy the query.<br>",
+        "However, **index results can be projected**.<br>",
+        "<p>* You can ask the server to return only some of the documents' fields.<br>",
+        "* You can customize the projected fields.",
+        "",
+        "Retrieving partial document data from the server reduces network traffic load.",
+        "",
+        "The returned projected objects are Not tracked by the sessions as they are not full documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+        },
+        {
+            "Title": "Strongly Typed Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-complex-indexes-using-strongly-typed-code"
+        },
+        {
+            "Title": "Querying: Projections",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+        },
+        {
+            "Title": "Querying: Basics",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
+                "",
+                "* The generic params:<br>",
+                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
+                "    * _Employees_ByWorkPeriod.IndexEntry_ - is the shape of the resulting index entries<br>(see next step)"
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
+                "",
+                "* The _content_ for each index-field is configured in the index constructor (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The projected class",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* `EmployeeProjectedDetails` will contain the details projected per document in the results.<br>",
+                "  Used in step 6.",
+                "",
+                "* Note: it is not mandatory for this class to be nested within the index class."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* The _Map function_ defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
+                "",
+                "* In this example, the 'HiredAt.Year' data is indexed in the _WorkingInCompanySince_ index-field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* The 'Employees' documents can be _filtered_ by the index-fields defined in `Employees_ByWorkPeriod.IndexEntry`",
+                "",
+                "* The resulting documents will include only employees that started working after 'startYear'."
+            ],
+            "Assets": [
+                
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Project Results",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* `OfType()` must be used to satisfy the compiler and be able to select fields from the Employee class type,",
+                "  otherwise the compiler will only allow access to the IndexEntry class details.",
+                "",
+                "* Use `Select()` to select which specific document fields will be returned from the server for each resulting document.<br>",
+                "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
+                "",
+                "* In this example:<br>",
+                "  * _FirstName_, _Phone_ are returned from the document<br>",
+                "  * _Location_ is customized from the other raw document fields.",
+                "",
+                "* Method _ProjectInto()_ can be used instead of Select(). See related links."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying: Projections",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+                },
+                {
+                    "Title": "How to Project Query Results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
+                },
+                {
+                    "Title": "ProjectInto()",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results#projectinto"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the Query",
+            "Slug" : "step-7",
+            "DescriptionLines": [
+                "* The _employeesQuery_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "",
+                "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
+                "",
+                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview",
+                    "Type" : "demo",
+                    "Url"  : "/queries/query-overview"
+                }
+            ]
+        }
+    ]
+}
