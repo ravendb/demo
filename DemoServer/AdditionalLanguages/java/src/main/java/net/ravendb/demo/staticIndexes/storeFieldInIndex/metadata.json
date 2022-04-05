@@ -107,16 +107,13 @@
             "Assets": [
                 /*
                 {
-
                     TODO
                     {
                     "Title": "Project Index Result Demo",
                     "Type": "demo",
-                    "Url": "/java/static-indexes/project-index-results"
-                    
-
+                    "Url": "/java/static-indexes/project-index-results"   
                 }
-             */
+                */
             ]
         },
         {
@@ -185,7 +182,7 @@
             "DescriptionLines": [
                 "* Query the 'Orders' collection using the defined index.",
                 "",
-                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry`",
+                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry.class`",
                 "",
                 "* The resulting documents will include only orders that where made by 'companyId'."
             ],
