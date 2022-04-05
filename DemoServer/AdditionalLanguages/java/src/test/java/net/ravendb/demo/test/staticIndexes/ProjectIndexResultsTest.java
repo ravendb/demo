@@ -18,11 +18,7 @@ public class ProjectIndexResultsTest {
 
         List<ProjectIndexResults.Employees_ByWorkPeriod.EmployeeProjectedDetails> result =
             new ProjectIndexResults().run(params);
-        //String result = new ProjectIndexResults().run("hello");
+
         Assert.assertNotNull(result);
-        /*
-        Assert.assertNotNull(result.get(0).getCountry());
-        Assert.assertTrue(result.get(0).getNumberOfEmployees() > 0);
-         */
     }
 }

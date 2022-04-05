@@ -68,22 +68,21 @@ public class ProjectIndexResults {
     public List<Employees_ByWorkPeriod.EmployeeProjectedDetails> run(RunParams runParams) {
         int startYear = runParams.getStartYear();
 
-
+        new Employees_ByWorkPeriod().execute(DocumentStoreHolder.store);
         //region Demo
         List<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesSinceYear;
-        new Employees_ByWorkPeriod().execute(DocumentStoreHolder.store);
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
 
             QueryData queryData = QueryData.customFunction("employee ",
                 "{ FirstName: employee.FirstName,\n" +
                 "   Phone: employee.HomePhone,\n" +
-                "   Location: employee.Address.City + ' ' + employee.Address.Country}");
+                "   Location: employee.Address.City + ' ' + employee.Address.Country }");
             //region Step_3
             IDocumentQuery<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesQuery = session
                 .query(Employees_ByWorkPeriod.IndexEntry.class, Employees_ByWorkPeriod.class)
-                //.whereGreaterThan("WorkingInCompanySince", startYear)
-                .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class, queryData).whereGreaterThan("WorkingInCompanySince", startYear);
+                .whereGreaterThan("WorkingInCompanySince", startYear)
+                .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class, queryData);
 
             employeesSinceYear = employeesQuery.toList();
             //endregion
@@ -95,7 +94,6 @@ public class ProjectIndexResults {
         //return null;
     }
 
-
     public static class RunParams {
         private int startYear;
 
@@ -106,9 +104,5 @@ public class ProjectIndexResults {
         public void setStartYear(int startYear) {
             this.startYear = startYear;
         }
-    }
-
-    public String run(String s) {
-        return s;
     }
 }
