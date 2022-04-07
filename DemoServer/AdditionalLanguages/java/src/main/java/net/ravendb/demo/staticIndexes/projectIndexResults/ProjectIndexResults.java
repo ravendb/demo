@@ -1,17 +1,20 @@
 package net.ravendb.demo.staticIndexes.projectIndexResults;
-
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.queries.QueryData;
 import net.ravendb.client.documents.session.IDocumentQuery;
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
-
-import org.junit.Test;
-
 import java.util.List;
 
+
 public class ProjectIndexResults {
+    //region Demo
+    //region Step_1
     public static class Employees_ByWorkPeriod extends AbstractIndexCreationTask {
+        //endregion
+        //region Step_2
         public static class IndexEntry {
             private int workingInCompanySince;
 
@@ -22,10 +25,11 @@ public class ProjectIndexResults {
             public void setWorkingInCompanySince(int workingInCompanySince) {
                 this.workingInCompanySince = workingInCompanySince;
             }
+            //endregion
         }
 
+        //region Step_3
         public static class EmployeeProjectedDetails {
-
             private String firstName;
             private String phone;
             private String location;
@@ -55,14 +59,18 @@ public class ProjectIndexResults {
             }
 
         }
+        //endregion
 
+        //region Step_4
         public Employees_ByWorkPeriod() {
             map =
                 "docs.Employees.Select(employee => new {\n" +
-                    "      WorkingInCompanySince = employee.HiredAt.Year\n" +
-                    "   })";
+                "      WorkingInCompanySince = employee.HiredAt.Year\n" +
+                "   })";
         }
+        //endregion
     }
+    //endregion
 
 
     public List<Employees_ByWorkPeriod.EmployeeProjectedDetails> run(RunParams runParams) {
@@ -73,25 +81,26 @@ public class ProjectIndexResults {
         List<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesSinceYear;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-
-            QueryData queryData = QueryData.customFunction("employee ",
-                "{ FirstName: employee.FirstName,\n" +
-                "   Phone: employee.HomePhone,\n" +
-                "   Location: employee.Address.City + ' ' + employee.Address.Country }");
-            //region Step_3
             IDocumentQuery<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesQuery = session
+                //region Step_5
                 .query(Employees_ByWorkPeriod.IndexEntry.class, Employees_ByWorkPeriod.class)
                 .whereGreaterThan("WorkingInCompanySince", startYear)
-                .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class, queryData);
+                //endregion
+                //region Step_6
+                .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class,
+                    QueryData.customFunction("employee ",
+                        "{ FirstName: employee.FirstName,\n" +
+                        "   Phone: employee.HomePhone,\n" +
+                        "   Location: employee.Address.City + ' ' + employee.Address.Country }"));
+                //endregion
 
+            //region Step_7
             employeesSinceYear = employeesQuery.toList();
             //endregion
-
         }
         //endregion
 
         return employeesSinceYear;
-        //return null;
     }
 
     public static class RunParams {

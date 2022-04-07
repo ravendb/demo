@@ -70,7 +70,8 @@
             "staticIndexesOverview",
             "mapIndex",
             "mapReduceIndex",
-            "storeFieldInIndex"
+            "storeFieldInIndex",
+            "projectIndexResults"
         ]
     },
     {

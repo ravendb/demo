@@ -1,6 +1,6 @@
 {
     "Slug": "project-index-results",
-    "SourceFileName": "ProjectIndexResultsController.cs",
+    "SourceFileName": "ProjectIndexResults.java",
     "Title": "Project Index Results",
     "DescriptionLines": [
         "Querying an index results in matching documents that satisfy the query.<br>",
@@ -22,7 +22,7 @@
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Strongly Typed Indexes",
@@ -32,12 +32,12 @@
         {
             "Title": "Querying: Projections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
         },
         {
             "Title": "Querying: Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
         }
     ],
 
@@ -46,11 +46,7 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _Employees_ByWorkPeriod.IndexEntry_ - is the shape of the resulting index entries<br>(see next step)"
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
@@ -61,7 +57,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -87,7 +83,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -106,7 +102,7 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* `EmployeeProjectedDetails` will contain the details projected per document in the results.<br>",
-                "  Used in step 6.",
+                "  Used in step 7.",
                 "",
                 "* Note: it is not mandatory for this class to be nested within the index class."
             ],
@@ -129,7 +125,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -158,7 +154,7 @@
                 {
                     "Title": "Filtering Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/filtering-results-basics"
+                    "Url"  : "/java/queries/filtering-results-basics"
                 }
             ]
         },
@@ -166,42 +162,42 @@
             "Title": "Project Results",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* `OfType()` must be used to satisfy the compiler and be able to select fields from the Employee class type,",
+                "* `selectFields()` must be used to satisfy the compiler and be able to select fields from the Employee class type,",
                 "  otherwise the compiler will only allow access to the IndexEntry class details.",
                 "",
-                "* Use `Select()` to select which specific document fields will be returned from the server for each resulting document.<br>",
+                "* Use `selectFields()` to select which specific document fields will be returned from the server for each resulting document.<br>",
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
+                "",
+                "* `QueryData.customFunction()` let us select the wanted fields and how they would be.",
                 "",
                 "* In this example:<br>",
                 "  * _FirstName_, _Phone_ are returned from the document<br>",
-                "  * _Location_ is customized from the other raw document fields.",
-                "",
-                "* Method _ProjectInto()_ can be used instead of Select(). See related links."
+                "  * _Location_ is customized from the other raw document fields."
             ],
             "Assets": [
                 {
                     "Title": "Querying: Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
                 },
                 {
                     "Title": "How to Project Query Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results"
                 },
                 {
                     "Title": "ProjectInto()",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results#projectinto"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results#projectinto"
                 }
             ]
         },
         {
             "Title": "Execute the Query",
-            "Slug" : "step-7",
+            "Slug" : "step-6",
             "DescriptionLines": [
                 "* The _employeesQuery_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
                 "",
                 "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
                 "",
@@ -211,7 +207,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/java/queries/query-overview"
                 }
             ]
         }
