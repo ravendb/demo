@@ -57,13 +57,13 @@ public class JavascriptMapIndex {
         public Employees_ByImportantDetailsJS() {
             setMaps(Sets.newHashSet(
                 "map('Employees', function (employee) {\n" +
-                    "   return {\n" +
-                    "       FullName: employee.FirstName + ' ' + employee.LastName,\n" +
-                    "       Country: employee.Address.Country,\n" +
-                    "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
-                    "       NumberOfTerritories: employee.Territories.length\n" +
-                    "   };\n" +
-                    "})"
+                "   return {\n" +
+                "       FullName: employee.FirstName + ' ' + employee.LastName,\n" +
+                "       Country: employee.Address.Country,\n" +
+                "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
+                "       NumberOfTerritories: employee.Territories.length\n" +
+                "   };\n" +
+                "})"
             ));
         }
         //endregion
