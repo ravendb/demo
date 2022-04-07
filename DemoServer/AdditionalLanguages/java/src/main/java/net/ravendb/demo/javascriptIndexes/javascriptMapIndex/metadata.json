@@ -1,6 +1,6 @@
 {
     "Slug": "javascript-map-index",
-    "SourceFileName": "JavascriptMapIndexController.cs",
+    "SourceFileName": "JavascriptMapIndex.java",
     "Title": "JS Map Index",
     "DescriptionLines": [
         "**The index Map can be defined with JavaScript** for use with any RavenDB Client.",
@@ -13,28 +13,28 @@
     "Assets": [
         {
             "Title": "Static Indexes Overview Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Type": "demo",
+            "Url": "/java/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Map Index Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/map-index"
+            "Type": "demo",
+            "Url": "/java/static-indexes/map-index"
         },
         {
             "Title": "Indexes overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "JavaScript indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
+            "Type": "link",
+            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
         },
         {
             "Title": "JavaScript indexes - Blog",
-            "Type" : "link",
-            "Url"  : "https://ayende.com/blog/182849-A/ravendb-4-1-features-javascript-indexes"
+            "Type": "link",
+            "Url": "https://ayende.com/blog/182849-A/ravendb-4-1-features-javascript-indexes"
         }
     ],
 
@@ -48,18 +48,18 @@
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Type": "demo",
+                    "Url": "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "JavaScript indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
                 }
             ]
         },
@@ -75,18 +75,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -94,7 +94,7 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Define `Maps` which is a _HashSet_ that will contain a single JavaScript map string (Map index), or multiple map string (Multi Map index).",
+                "* Define `setMaps()` which is a _HashSet_ that will contain a single JavaScript map string (Map index), or multiple map string (Multi Map index).",
                 "",
                 "* The map string is defined with: `map(<Collection name>, <JavaScript map method>)`.",
                 "",
@@ -115,25 +115,25 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "JavaScript indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
                 }
             ]
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-4",
+            "Slug": "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
                 "* The first generic _Employees_ByImportantDetailsJS.IndexEntry_ allows the compiler to auto-complete the index entry fields on which you want to query in the .Where clause.",
                 "",
-                "* _RavenDB will search the index_ for the indexed terms that match the query criteria", 
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
                 "",
                 "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
@@ -142,18 +142,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "JavaScript indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/javascript-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
                 },
                 {
                     "Title": "Querying an index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }
