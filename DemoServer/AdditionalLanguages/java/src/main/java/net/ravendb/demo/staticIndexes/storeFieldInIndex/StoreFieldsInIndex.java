@@ -13,7 +13,7 @@ public class StoreFieldsInIndex {
     //region Demo
     //region Step_1
     public static class OrdersQuantity_ByCompany extends AbstractIndexCreationTask {
-        //endregion
+    //endregion
 
         //region Step_2
         public static class IndexEntry {
@@ -90,14 +90,14 @@ public class StoreFieldsInIndex {
                 //endregion
                 //region Step_7
                 .selectFields(OrdersQuantity_ByCompany.OrderProjectedDetails.class);
-            //endregion
+                //endregion
 
             //region Step_8
             ordersDetails = ordersQuery.toList();
             //endregion
         }
-        return ordersDetails;
         //endregion
+        return ordersDetails;
     }
 
     public static class RunParams {

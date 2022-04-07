@@ -58,10 +58,10 @@ public class JavascriptMapIndex {
             setMaps(Sets.newHashSet(
                 "map('Employees', function (employee) {\n" +
                     "   return {\n" +
-                    "       fullName: employee.FirstName + ' ' + employee.LastName,\n" +
-                    "       country: employee.Address.Country,\n" +
-                    "       workingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
-                    "       numberOfTerritories: employee.Territories.length\n" +
+                    "       FullName: employee.FirstName + ' ' + employee.LastName,\n" +
+                    "       Country: employee.Address.Country,\n" +
+                    "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
+                    "       NumberOfTerritories: employee.Territories.length\n" +
                     "   };\n" +
                     "})"
             ));
@@ -76,19 +76,16 @@ public class JavascriptMapIndex {
         //region Demo
         List<Employee> employeesFromUSA;
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
-            //TODO - this doesn't works
             //region Step_4
             employeesFromUSA = session.query(Employees_ByImportantDetailsJS.IndexEntry.class, Employees_ByImportantDetailsJS.class)
-                .whereEquals("country", "USA")
-                .whereGreaterThan("workingInCompanySince", startYear)
+                .whereEquals("Country", "USA")
+                .whereGreaterThan("WorkingInCompanySince", startYear)
                 .selectFields(Employee.class)
                 .toList();
             //endregion
         }
         //endregion
         return employeesFromUSA;
-        //return null;
-
     }
 
     public static class RunParams {

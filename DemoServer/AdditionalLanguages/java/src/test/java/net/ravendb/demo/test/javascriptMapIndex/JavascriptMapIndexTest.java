@@ -8,7 +8,6 @@ import org.junit.Test;
 import java.util.List;
 
 public class JavascriptMapIndexTest {
-    //TODO - this test doesn't works
     @Test
     public void test() {
         JavascriptMapIndex.RunParams runParams = new JavascriptMapIndex.RunParams();
