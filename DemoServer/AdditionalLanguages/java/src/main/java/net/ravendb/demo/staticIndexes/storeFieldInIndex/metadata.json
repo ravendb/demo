@@ -120,9 +120,11 @@
             "Title": "The Index Map",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "* Assign the index definition string to the map property.",
                 "",
-                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "* This index definition defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified by the index definition, and a mapping to the relevant document.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",

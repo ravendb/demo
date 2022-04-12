@@ -94,7 +94,7 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Define `setMaps()` which is a _HashSet_ that will contain a single JavaScript map string (Map index), or multiple map string (Multi Map index).",
+                "* Define `setMaps()` which is a _HashSet_ that will contain a single JavaScript map string (Map index), or multiple map strings (Multi Map index).",
                 "",
                 "* The map string is defined with: `map(<Collection name>, <JavaScript map method>)`.",
                 "",
@@ -130,8 +130,6 @@
             "Slug": "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
-                "",
-                "* The first generic _Employees_ByImportantDetailsJS.IndexEntry_ allows the compiler to auto-complete the index entry fields on which you want to query in the .Where clause.",
                 "",
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
