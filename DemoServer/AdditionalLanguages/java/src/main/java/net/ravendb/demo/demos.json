@@ -103,6 +103,7 @@
 			      "fTSQuerySearchWildcards",
 			      "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
+            "fTSQuerySearchBoosting",
             "fTSWithStaticIndexMultipleFields"
         ]
     },
