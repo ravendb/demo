@@ -58,7 +58,7 @@
                 "* The most basic usage is to search for a single term, i.e.:<br>",
                 "  .search('Notes', 'searchTerm')",
                 "",
-                "* In this example, we search for term1 OR term2 in the document field _Notes_.",
+                "* In this example, we search for _term1 OR term2_ in the document field _Notes_.",
                 "",
                 "* The default operator between 'term1' and 'term2' is OR.<br>",
                 "  See the related operations demo link for setting this to an AND operation.",
