@@ -60,12 +60,11 @@
                 "",
                 "* In this example, we search for _term1 OR term2_ in the document field _Notes_.",
                 "",
-                "* The default operator between _search_ and _search_ is OR.<br>",
+                "* The default operator between _term1 and term2_ is OR.<br>",
                 "  See the related operations demo link for setting this to an AND operation.",
                 "",
-                //Somthing better could be written in 72 - 73?
-                "* Since only a single Search() method is used,<br> then documents containing 'term1' will come first in the results before those containing 'term2'.<br>",
-                "  Use Boosting to influence results order when using multiple Search() methods."
+                "* Since only a single search() method is used,<br> then documents containing 'term1' will come first in the results before those containing 'term2'.<br>",
+                "  Use Boosting to influence results order when using multiple search() methods."
             ],
             "Assets": [
                 {

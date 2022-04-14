@@ -21,8 +21,8 @@ public class FTSQuerySearchBasics {
             employeesWithMatchingTerms = session.query(Employee.class)
             //endregion
                 //region Step_2
-                .search("Notes", term1)
-                .search("Notes", term2)
+                .search("Notes", term1 + " " + term2)
+                //.search("Notes", term2)
                 //endregion
                 //region Step_3
                 .toList();
