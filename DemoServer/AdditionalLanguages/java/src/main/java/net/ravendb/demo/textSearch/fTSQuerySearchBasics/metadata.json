@@ -1,0 +1,128 @@
+{
+    "Slug": "fts-query-search-basics",
+    "SourceFileName": "FTSQuerySearchBasics.java",
+    "Title": "FTS Query - Basics",
+    "DescriptionLines": [
+        "**Full Text Search query** allows querying for documents which contain the specified term(s) within the searched document field.",
+        "",
+        "Upon query, an auto-index is created on the searched document fields."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Operation in queries - Book",
+            "Type": "link",
+            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#operations-in-queries"
+        },
+        {
+            "Title": "Full text searching - Book",
+            "Type": "link",
+            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
+        }
+        /* TODO
+        ,
+        {
+            "Title": "How to search",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-search"
+        },
+        {
+            "Title": "Querying searching",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
+        }
+        */
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection using the Session `query()`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type": "demo",
+                    "Url": "/java/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Define search criteria",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Use `search()` to search for the specified terms in the specified document field.",
+                "",
+                "* The most basic usage is to search for a single term, i.e.:<br>",
+                "  .search('Notes', 'searchTerm')",
+                "",
+                "* In this example, we search for _term1 OR term2_ in the document field _Notes_.",
+                "",
+                "* The default operator between 'term1' and 'term2' is OR.<br>",
+                "  See the related operations demo link for setting this to an AND operation.",
+                "",
+                "* Since only a single search() method is used,<br> then documents containing 'term1' will come first in the results before those containing 'term2'.<br>",
+                "  Use Boosting to influence results order when using multiple search() methods."
+            ],
+            "Assets": [
+                {
+                    "Title": "FTS Query - Search Operations Demo",
+                    "Type": "demo",
+                    "Url": "/java/text-search/fts-query-search-operators"
+                } /*TODO,
+                {
+                    "Title": "FTS Query - Boosting Demo",
+                    "Type": "demo",
+                    "Url": "/java/text-search/fts-query-search-boosting"
+                },
+                {
+                    "Title": "How to search",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-search"
+                },
+                {
+                    "Title": "Querying searching",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
+                }*/
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Execute the query by calling `toList()`.<br>",
+                "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
+                "    * _Notes_ - contains the original text from the indexed document field Notes.",
+                "",
+                "    * _search(Notes)_ - contains terms from the Notes field that were tokenized by RavenDB's default analyzer (StandardAnalyzer).<br>",
+                "      If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query.",
+                "",
+                "* Variable 'employeesWithMatchingTerms' will hold the matching Employee document entities.",
+                "",
+                "* The order of the resulting documents depends on the score given to each document by the underlying Lucene engine.",
+                "  This can further be manipulated by using the Boosting feature,<br> see the related demo."
+            ],
+            "Assets": [
+                {
+                    "Title": "Auto Map Index Demo",
+                    "Type": "demo",
+                    "Url": "/java/auto-indexes/auto-map-index1"
+                },
+                {
+                    "Title": "FTS - Static Index Demo",
+                    "Type": "demo",
+                    "Url": "/java/text-search/fts-with-static-index-single-field"
+                }/*TODO, 
+                {
+                    "Title": "FTS Query - Boosting Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/text-search/fts-query-search-boosting"
+                }
+                */
+            ]
+        }
+    ]
+}
