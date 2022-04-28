@@ -66,7 +66,7 @@
             "DescriptionLines": [
                 "* Use `search()` to search for the specified terms on the specified document field.",
                 "",
-                "* Use `.boost(boostValue)` to set the boost value per term.<br>",
+                "* Use `boost(boostValue)` to set the boost value per term.<br>",
                 "  The higher the value, the higher the matching document will be listed in the results."
             ],
             "Assets": [
@@ -86,7 +86,7 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Execute the query by calling `ToList()`.<br>",
+                "* Execute the query by calling `toList()`.<br>",
                 "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
