@@ -1,7 +1,8 @@
 package net.ravendb.demo.textSearch.FTSQuerySearchOperators;
-
+//region Usings
 import net.ravendb.client.documents.queries.SearchOperator;
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.textSearch.fTSQuerySearchBasics.FTSQuerySearchBasics;
@@ -20,7 +21,7 @@ public class FTSQuerySearchOperators {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_1
             employeesWithMatchingTerms = session.query(Employee.class)
-                //endregion
+            //endregion
                 //region Step_2
                 .search("Notes", term1 + " " + term2, SearchOperator.AND)
                 //endregion
@@ -29,7 +30,7 @@ public class FTSQuerySearchOperators {
                 //endregion
                 //region Step_4
                 .toList();
-            //endregion
+                //endregion
         }
         //endregion
         return employeesWithMatchingTerms;
