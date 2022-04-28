@@ -99,6 +99,7 @@
             "directory": "textSearch"
         },
         "demos": [
+            "fTSQuerySearchBasics",
             "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
