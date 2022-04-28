@@ -24,7 +24,7 @@ public class FTSQuerySearchBoosting {
                 //region Step_2
                 .search("Notes", "ph.d.").boost(boost1)
                 .search("Notes", "university").boost(boost2)
-                .search("Notes", "college").boost(boost2)
+                .search("Notes", "college").boost(boost3)
                 //endregion
                 //region Step_3
                 .toList();
