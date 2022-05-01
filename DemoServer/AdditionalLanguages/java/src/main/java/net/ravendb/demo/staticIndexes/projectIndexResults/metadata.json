@@ -17,7 +17,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/java/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Indexes Overview",
@@ -52,7 +52,7 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
@@ -113,7 +113,8 @@
             "Title": "The index constructor",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
+                "* Assign the index definition string to the map property.",
+                "   This index definition defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
                 "",
@@ -165,13 +166,11 @@
                 "* `selectFields()` must be used to satisfy the compiler and be able to select fields from the Employee class type,",
                 "  otherwise the compiler will only allow access to the IndexEntry class details.",
                 "",
-                "* Use `selectFields()` to select which specific document fields will be returned from the server for each resulting document.<br>",
+                "* Use `selectFields()`  with QueryData.customFunction() to select which specific document fields will be returned from the server for each resulting document.<br>",
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
                 "",
-                "* `QueryData.customFunction()` let us select the wanted fields and how they would be.",
-                "",
                 "* In this example:<br>",
-                "  * _FirstName_, _Phone_ are returned from the document<br>",
+                "  * _firstName_, _phone_ are returned from the document<br>",
                 "  * _Location_ is customized from the other raw document fields."
             ],
             "Assets": [

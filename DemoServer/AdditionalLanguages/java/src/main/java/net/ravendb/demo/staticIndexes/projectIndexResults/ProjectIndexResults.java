@@ -13,7 +13,7 @@ public class ProjectIndexResults {
     //region Demo
     //region Step_1
     public static class Employees_ByWorkPeriod extends AbstractIndexCreationTask {
-        //endregion
+    //endregion
         //region Step_2
         public static class IndexEntry {
             private int workingInCompanySince;
@@ -25,8 +25,8 @@ public class ProjectIndexResults {
             public void setWorkingInCompanySince(int workingInCompanySince) {
                 this.workingInCompanySince = workingInCompanySince;
             }
-            //endregion
         }
+        //endregion
 
         //region Step_3
         public static class EmployeeProjectedDetails {
@@ -57,7 +57,6 @@ public class ProjectIndexResults {
             public void setLocation(String location) {
                 this.location = location;
             }
-
         }
         //endregion
 
@@ -66,7 +65,7 @@ public class ProjectIndexResults {
             map =
                 "docs.Employees.Select(employee => new {\n" +
                 "      WorkingInCompanySince = employee.HiredAt.Year\n" +
-                "   })";
+                "})";
         }
         //endregion
     }
