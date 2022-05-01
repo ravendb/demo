@@ -64,7 +64,7 @@ public class ProjectIndexResults {
         public Employees_ByWorkPeriod() {
             map =
                 "docs.Employees.Select(employee => new {\n" +
-                "      WorkingInCompanySince = employee.HiredAt.Year\n" +
+                "      workingInCompanySince = employee.HiredAt.Year\n" +
                 "})";
         }
         //endregion
@@ -89,8 +89,8 @@ public class ProjectIndexResults {
                 .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class,
                     QueryData.customFunction("employee ",
                         "{ FirstName: employee.FirstName,\n" +
-                        "   Phone: employee.HomePhone,\n" +
-                        "   Location: employee.Address.City + ' ' + employee.Address.Country }"));
+                        "  Phone: employee.HomePhone,\n" +
+                        "  Location: employee.Address.City + ' ' + employee.Address.Country }"));
                 //endregion
 
             //region Step_7
