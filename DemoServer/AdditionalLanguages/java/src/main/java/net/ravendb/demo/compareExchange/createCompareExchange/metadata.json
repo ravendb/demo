@@ -1,6 +1,6 @@
 {
     "Slug": "create-compare-exchange",
-    "SourceFileName": "CreateCompareExchangeController.cs",
+    "SourceFileName": "CreateCompareExchange.java",
     "Title": "Create CmpXchg Item",
     "DescriptionLines": [
         "**Create a CmpXchg Item** to ensure having a unique key in your database.",
@@ -70,7 +70,7 @@
                 "  * Value - can be a number/string/boolean/array or any JSON object",
                 "  * Value Version (Index) - pass _0_ to indicate that this is a request to create a new item.",
                 "",
-                "* Send the operation to the document store using `Store.Operations.Send()`.",
+                "* Send the operation to the document store using `store.operations.send()`.",
                 "",
                 "* Variable _putCmpXchgResult_ will contain the operation result (see next step).<br>",
                 "  The new CmpXchg item will be created only if the Key passed doesn't exist yet.",
@@ -124,7 +124,7 @@
             "DescriptionLines": [
                 "* Use `GetCompareExchangeValueOperation` to define the Get by Key operation.",
                 "",
-                "* Send the operation to the document store using `Store.Operations.Send()`.",
+                "* Send the operation to the document store using `store.operations.send()`.",
                 "",
                 "* Variable _getCmpXchgResult_ will contain the matching CmpXchg item.<br>"
             ],
@@ -150,10 +150,10 @@
             "Title": "The compare-exchange item",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* Key - CmpXchg item key",
-                "* Value - Current associated value",
-                "* Index - Current version number of the value",
-                "* Metadata - Metadata dictionary for this key"
+                "* getKey - CmpXchg item key",
+                "* getValue - Current associated value",
+                "* getIndex - Current version number of the value",
+                "* getMetadata - Metadata dictionary for this key"
             ],
             "Assets": [
                 {

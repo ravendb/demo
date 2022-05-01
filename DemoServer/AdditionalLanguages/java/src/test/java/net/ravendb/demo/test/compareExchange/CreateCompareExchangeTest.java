@@ -8,7 +8,7 @@ import org.junit.Test;
 
 import java.util.List;
 
-public class createCompareExchangeTest {
+public class CreateCompareExchangeTest {
     @Test
     public void test() {
         CreateCompareExchange.RunParams runParams = new CreateCompareExchange.RunParams();

@@ -10,16 +10,17 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 
 public class CreateCompareExchange {
     public String run(RunParams runParams) {
-        String result;
+        String result = null;
         String cmpXchgKey = runParams.getCmpXchgKey();
         String cmpXchgValue = runParams.getCmpXchgValue();
         //region Demo
-        //region Step-1
+        //region Step_1
         PutCompareExchangeValueOperation<String> putCmpXchgOperation = new PutCompareExchangeValueOperation<>(cmpXchgKey, cmpXchgValue, 0);
 
         CompareExchangeResult<String> putCmpXchgResult = DocumentStoreHolder.store.operations().send(putCmpXchgOperation);
         //endregion
-        //region Step-2
+        
+        //region Step_2
         boolean success = putCmpXchgResult.isSuccessful();
         String putValue = putCmpXchgResult.getValue();
         long putVersion = putCmpXchgResult.getIndex();
@@ -28,13 +29,13 @@ public class CreateCompareExchange {
             result = "Key already exists";
         //endregion
 
-        //region Step-3
+        //region Step_3
         GetCompareExchangeValueOperation<String> getCmpXchgOperation = new GetCompareExchangeValueOperation<String>(String.class, cmpXchgKey);
 
         CompareExchangeValue<String> getCmpXchgResult = DocumentStoreHolder.store.operations().send(getCmpXchgOperation);
         //endregion
 
-        //region Step-4
+        //region Step_4
         String key = getCmpXchgResult.getKey();
         String currentValue = getCmpXchgResult.getValue();
         long currentValueVersion = getCmpXchgResult.getIndex();
