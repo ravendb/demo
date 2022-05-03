@@ -13,7 +13,10 @@ import java.util.List;
 
 public class IndexCompareExchange {
     //region demo
+    //region Step_1
     public static class Products_ByUnitsInStock extends AbstractIndexCreationTask {
+    //endregion
+        //region Step_2
         public static class IndexEntry
         {
             private int unitsInStock;
@@ -26,29 +29,21 @@ public class IndexCompareExchange {
                 this.unitsInStock = unitsInStock;
             }
         }
-
+        //endregion
+        //region Step_3
         public Products_ByUnitsInStock() {
-            /*
-                setMaps(Sets.newHashSet(
-                    "map('Products', function (product) {\n" +
-                    "   return {\n" +
-                    "           UnitsInStock: this.LoadCompareExchangeValue(Id(product))\n" +
-                    "       };\n" +
-                    "})"
-                ));
-
-             */
             map = "docs.Products.Select(product => new {\n" +
                 "    UnitsInStock = this.LoadCompareExchangeValue(Id(product))\n" +
                 "})";
         }
+        //endregion
     }
     //endregion
 
     public List<Product> run(RunParams runParams) {
         int minValue = runParams.getMinValue();
         new Products_ByUnitsInStock().execute(DocumentStoreHolder.store);
-
+        //region demo
         List<Product> products;
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
@@ -56,6 +51,7 @@ public class IndexCompareExchange {
                 .whereGreaterThan("UnitsInStock" , minValue)
                 .ofType(Product.class)
                 .toList();
+            //endregion
             //endregion
             return products;
         }
