@@ -1,7 +1,6 @@
 package net.ravendb.demo.textSearch.fTSQuerySearchWildcards;
 
 //region Usings
-
 import net.ravendb.client.documents.queries.SearchOperator;
 import net.ravendb.client.documents.session.IDocumentSession;
 //endregion
