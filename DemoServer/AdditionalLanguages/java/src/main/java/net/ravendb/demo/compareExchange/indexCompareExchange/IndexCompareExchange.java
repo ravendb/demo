@@ -1,14 +1,13 @@
 package net.ravendb.demo.compareExchange.indexCompareExchange;
-
-import com.google.common.collect.Sets;
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.AbstractJavaScriptIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+//endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.common.models.Product;
 import net.ravendb.demo.javascriptIndexes.javascriptMapIndex.JavascriptMapIndex;
-
 import java.util.List;
 
 public class IndexCompareExchange {
