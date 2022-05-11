@@ -1,22 +1,17 @@
 package net.ravendb.demo.textSearch.highlightQueryResultsBasics;
 //region Usings
-
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldIndexing;
 import net.ravendb.client.documents.indexes.FieldStorage;
 import net.ravendb.client.documents.indexes.FieldTermVector;
 import net.ravendb.client.documents.queries.highlighting.Highlightings;
 import net.ravendb.client.documents.session.IDocumentSession;
-
 import static net.ravendb.client.documents.queries.Query.index;
-
 import net.ravendb.client.primitives.Reference;
 //endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
-
 import java.util.List;
-
 
 public class HighlightQueryResultsBasics {
     //region Demo
