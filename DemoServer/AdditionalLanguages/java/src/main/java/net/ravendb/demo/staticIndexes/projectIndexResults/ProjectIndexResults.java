@@ -83,14 +83,14 @@ public class ProjectIndexResults {
             IDocumentQuery<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesQuery = session
                 //region Step_5
                 .query(Employees_ByWorkPeriod.IndexEntry.class, Employees_ByWorkPeriod.class)
-                .whereGreaterThan("WorkingInCompanySince", startYear)
+                .whereGreaterThan("workingInCompanySince", startYear)
                 //endregion
                 //region Step_6
                 .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class,
                     QueryData.customFunction("employee ",
-                        "{ FirstName: employee.FirstName,\n" +
-                        "  Phone: employee.HomePhone,\n" +
-                        "  Location: employee.Address.City + ' ' + employee.Address.Country }"));
+                        "{ firstName: employee.FirstName,\n" +
+                        "  phone: employee.HomePhone,\n" +
+                        "  location: employee.Address.City + ' ' + employee.Address.Country }"));
                 //endregion
 
             //region Step_7

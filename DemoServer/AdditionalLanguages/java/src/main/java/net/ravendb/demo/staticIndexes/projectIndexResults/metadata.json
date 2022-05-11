@@ -77,7 +77,7 @@
             "DescriptionLines": [
                 "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
                 "",
-                "* The _content_ for each index-field is configured in the index constructor (see next step)."
+                "* The _content_ for each index-field is configured in the index constructor (see step 4)."
             ],
             "Assets": [
                 {
@@ -102,7 +102,7 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* `EmployeeProjectedDetails` will contain the details projected per document in the results.<br>",
-                "  Used in step 7.",
+                "  Used in step 6.",
                 "",
                 "* Note: it is not mandatory for this class to be nested within the index class."
             ],
@@ -163,15 +163,14 @@
             "Title": "Project Results",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* `selectFields()` must be used to satisfy the compiler and be able to select fields from the Employee class type,",
-                "  otherwise the compiler will only allow access to the IndexEntry class details.",
+                "* `selectFields()` must be used to satisfy the compiler and be able to select fields from the Employee class type",
                 "",
                 "* Use `selectFields()`  with QueryData.customFunction() to select which specific document fields will be returned from the server for each resulting document.<br>",
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
                 "",
                 "* In this example:<br>",
                 "  * _firstName_, _phone_ are returned from the document<br>",
-                "  * _Location_ is customized from the other raw document fields."
+                "  * _location_ is customized from the other raw document fields."
             ],
             "Assets": [
                 {
@@ -193,7 +192,7 @@
         },
         {
             "Title": "Execute the Query",
-            "Slug" : "step-6",
+            "Slug" : "step-7",
             "DescriptionLines": [
                 "* The _employeesQuery_ variable only stores the query definition.<br>",
                 "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
