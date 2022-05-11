@@ -102,7 +102,8 @@
             "fTSQuerySearchBasics",
             "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
-            "fTSWithStaticIndexMultipleFields"
+            "fTSWithStaticIndexMultipleFields",
+            "HighlightQueryResultsCustomized"
         ]
     },
     {
