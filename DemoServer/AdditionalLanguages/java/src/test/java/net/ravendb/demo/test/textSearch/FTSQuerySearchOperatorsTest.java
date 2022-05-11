@@ -12,7 +12,7 @@ public class FTSQuerySearchOperatorsTest {
     @Test
     public void test() {
         FTSQuerySearchOperators.RunParams runParams = new FTSQuerySearchOperators.RunParams();
-
+        a
         runParams.setTerm1("Spanish");
         runParams.setTerm2("Portuguese");
         runParams.setTerm3("Manager");
