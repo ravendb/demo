@@ -142,17 +142,17 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
                 },
                 {
                     "Title": "Index Compare-Exchange values",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-compare-exchange-values#querying-the-index"
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
                 },
                 {
                     "Title": "Querying an index",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
   
             ]
