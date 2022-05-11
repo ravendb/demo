@@ -101,6 +101,7 @@
         "demos": [
             "fTSQuerySearchBasics",
             "fTSQuerySearchWildcards",
+            "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
         ]
