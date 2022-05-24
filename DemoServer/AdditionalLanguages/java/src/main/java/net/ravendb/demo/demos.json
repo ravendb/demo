@@ -99,9 +99,9 @@
             "directory": "textSearch"
         },
         "demos": [
-			"fTSQuerySearchBasics",
-			"fTSQuerySearchWildcards",
-			"fTSQuerySearchBoosting",
+			      "fTSQuerySearchBasics",
+			      "fTSQuerySearchWildcards",
+			      "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
         ]
