@@ -53,7 +53,7 @@ public class IndexCompareExchange {
                 .ofType(Product.class)
                 .toList();
             //endregion
-            //endregion
+        //endregion
             return products;
         }
     }

@@ -12,28 +12,28 @@
         
         {
             "Title": "Create Compare-Exchange Demo",
-            "Type": "demo",
-            "Url": "/java/compare-exchange/create-compare-exchange"
+            "Type" : "demo",
+            "Url"  : "/java/compare-exchange/create-compare-exchange"
         },
         {
             "Title": "Compare-Exchange overview",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
         },
         {
             "Title": "Index Compare-Exchange values",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
         },
         {
             "Title": "Distributed Compare-Exchange operations",
-            "Type": "link",
-            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#distributed-compare-exchange-operations-with-ravendb"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#distributed-compare-exchange-operations-with-ravendb"
         },
         {
             "Title": "Atomic Compare-Exchange operations",
-            "Type": "link",
-            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
         }
         
     ],
@@ -49,23 +49,23 @@
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
-                    "Type": "demo",
-                    "Url": "/java/static-indexes/static-indexes-overview"
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -81,18 +81,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -113,18 +113,18 @@
             "Assets": [
                 {
                     "Title": "Map Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -141,18 +141,18 @@
             "Assets": [
                 {
                     "Title": "Compare-Exchange overview",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
                 },
                 {
                     "Title": "Index Compare-Exchange values",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
                 },
                 {
                     "Title": "Querying an index",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
   
             ]
