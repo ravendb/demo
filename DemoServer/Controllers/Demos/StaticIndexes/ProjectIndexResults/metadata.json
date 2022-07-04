@@ -81,7 +81,7 @@
             "DescriptionLines": [
                 "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
                 "",
-                "* The _content_ for each index-field is configured in the index constructor (see next step)."
+                "* The _content_ for each index-field is configured in the index constructor (see step 4)."
             ],
             "Assets": [
                 {

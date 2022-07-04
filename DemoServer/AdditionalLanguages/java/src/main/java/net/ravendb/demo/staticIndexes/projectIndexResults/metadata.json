@@ -120,7 +120,7 @@
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, the 'HiredAt.Year' data is indexed in the _WorkingInCompanySince_ index-field."
+                "* In this example, the 'HiredAt.Year' data is indexed in the _workingInCompanySince_ index-field."
             ],
             "Assets": [
                 {
@@ -163,8 +163,6 @@
             "Title": "Project Results",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* `selectFields()` must be used to satisfy the compiler and be able to select fields from the Employee class type",
-                "",
                 "* Use `selectFields()`  with QueryData.customFunction() to select which specific document fields will be returned from the server for each resulting document.<br>",
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
                 "",
