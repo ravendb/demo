@@ -10,11 +10,11 @@ public class DocumentStoreHolder {
     public static DocumentStore mediaStore;
 
     static {
-        store = new DocumentStore("http://live-test.ravendb.net", "aaa");
+        store = new DocumentStore("http://localhost:8080", "Media-6d9c0b0c-7142-4b24-b09d-efd85ebd70a8");
         store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         store.initialize();
 
-        mediaStore = new DocumentStore("http://live-test.ravendb.net", "aaa");
+        mediaStore = new DocumentStore("http://localhost:8080", "Media-6d9c0b0c-7142-4b24-b09d-efd85ebd70a8");
         mediaStore.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         mediaStore.initialize();
     }
