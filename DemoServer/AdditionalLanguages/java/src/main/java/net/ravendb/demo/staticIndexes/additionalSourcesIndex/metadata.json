@@ -1,0 +1,214 @@
+{
+    "Slug": "additional-sources-index",
+    "SourceFileName": "AdditionalSourcesIndex.java",
+    "Title": "Additional Sources Index",
+    "DescriptionLines": [
+        "Using the **Additional Sources** feature allows the index's Map & Reduce methods to reference and use code from external source files.",
+        "",
+        "With that, the index definition can be expanded to perform any complex indexing work required."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Extending indexes - additional sources",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/extending-indexes"
+        },
+        {
+            "Title": "Additional sources - Studio",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/create-map-index#additional-sources"
+        },
+        {
+            "Title": "Additional sources - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
+                "",
+                "* This example defines a Map index on the Products collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The Index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
+                "  These fields will be indexed and can be queried on.",
+                "",
+                "* The _content_ for each index-field is configured in the index constructor (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Map",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Set `map` with the index definition string.<br>",
+                "  The Map function defines the index-fields content.",
+                "",
+                "* Fields with content taken from Product document:",
+                "    * productName",
+                "    * originalPrice",
+                "",
+                "* Fields with content computed by an Additional Source:",
+                "    * salePrice",
+                "    * profitPrice",
+                "",
+                "    ==> Methods `CalcSalePrice` & `CalcProfitPrice` are located in an external source.<br>",
+                "        (The source is added in the next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/extending-indexes"
+                },
+                {
+                    "Title": "Additional sources - Studio",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/create-map-index#additional-sources"
+                },
+                {
+                    "Title": "Additional sources - Blog",
+                    "Type" : "link",
+                    "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "Set Additional Sources",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Set `additionalSources`. It is a dictionary that holds:<br>",
+                "  <any reference name, the additional source string>",
+                "",
+                "    * _DiscountLogic_ is just a descriptive name for the added source",
+                "    * _ADDITIONAL_SOURCE_ is the _string_ representation of the additional source.<br>",
+                "      See the source used for this demo in step-6 below.",
+                "",
+                "* At indexing time the content for fields salePrice & profitPrice will be computed from the relevant methods in the added source.",
+                "",
+                "* The additional source code will always be visible in the _Additional Sources Tab_ in the Edit Index view in the Studio."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/extending-indexes"
+                },
+                {
+                    "Title": "Additional sources - Studio",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/create-map-index#additional-sources"
+                },
+                {
+                    "Title": "Additional sources - Blog",
+                    "Type" : "link",
+                    "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Products' collection using the defined index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
+                "  and retrieve the matching documents from the documents store.",
+                "",
+                "* The query results will include all documents from the 'Products' collection that have a calculated SalePrice which is lower than the specified price."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        },
+        {
+            "Title": "The additional source string",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* This is a string representation of the `DiscountUtils` class.",
+                "",
+                "* The class can be placed in an external file.<br>",
+                "  In such a case, simply stringify its contents when adding as an additional source (in step-4)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/extending-indexes"
+                }
+            ]
+        }
+    ]
+}

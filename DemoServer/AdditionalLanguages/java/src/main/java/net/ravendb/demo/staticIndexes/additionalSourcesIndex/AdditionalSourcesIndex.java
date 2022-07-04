@@ -1,55 +1,63 @@
 package net.ravendb.demo.staticIndexes.additionalSourcesIndex;
-
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
-import net.ravendb.demo.common.DocumentStoreHolder;
-import net.ravendb.demo.common.models.Product;
-import org.apache.commons.lang3.ObjectUtils;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+//endregion
+import net.ravendb.demo.common.DocumentStoreHolder;
+import net.ravendb.demo.common.models.Product;
+import org.apache.commons.lang3.ObjectUtils;
 
 public class AdditionalSourcesIndex {
 
-    public static final String ADDITIONAL_SOURCE = "public static class DiscountUtils\n" +
-        "{\n" +
-        "    public static decimal CalcSalePrice(decimal price)\n" +
-        "    {\n" +
-        "        return price - price / 100M * 25M;\n" +
-        "    }\n" +
-        "    \n" +
-        "    public static decimal CalcProfitPrice(decimal price)\n" +
-        "    {\n" +
-        "        return price + price / 100M * 25M;\n" +
-        "    }\n" +
-        "}";
-
+    //region Demo
+    //region Step_1
     public static class Products_ByPrice extends AbstractIndexCreationTask {
+    //endregion
+    
+        //region Step_2
+        public static class IndexEntry {
+             private String productName;
+             private double originalPrice;
+             private double salePrice;
+             private double profitPrice;
+        }
+        //endregion
+        
         public Products_ByPrice() {
-            this.map = "docs.Products.Select(product => new {\n" +
-                "    ProductName = product.Name,\n" +
-                "    OriginalPrice = product.PricePerUnit,\n" +
-                "    SalePrice = DiscountUtils.CalcSalePrice(product.PricePerUnit),\n" +
-                "    ProfitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)\n" +
+            //region Step_3
+            map = "docs.Products.Select(product => new {" +
+                "    productName = product.Name," +
+                "    originalPrice = product.PricePerUnit," +
+                "    salePrice = DiscountUtils.CalcSalePrice(product.PricePerUnit)," +
+                "    profitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)" +
                 "})";
+            //endregion
 
-            this.setAdditionalSources(Collections.singletonMap("DiscountLogic", ADDITIONAL_SOURCE));
+            //region Step_4
+            additionalSources = Collections.singletonMap("DiscountLogic", ADDITIONAL_SOURCE);
+            //endregion
         }
     }
+    //endregion
 
     public List<DataToShow> run(RunParams runParams) {
         int price = ObjectUtils.firstNonNull(runParams.getPrice(), 5);
 
+        //region Demo
         List<Product> lowCostProducts;
-
+        //region Step_5
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             lowCostProducts = session.query(Product.class, Products_ByPrice.class)
-                .whereLessThan("SalePrice", price)
-                .orderBy("SalePrice")
+                .whereLessThan("salePrice", price)
+                .orderBy("salePrice")
                 .toList();
         }
+        //endregion
+        //endregion
 
         // Manipulate results to show because index fields are Not stored..
         List<DataToShow> productsData = new ArrayList<>();
@@ -64,6 +72,23 @@ public class AdditionalSourcesIndex {
 
         return productsData;
     }
+    
+    //region Demo
+    //region Step_6
+    public static final String ADDITIONAL_SOURCE = "public static class DiscountUtils" +
+        "{" +
+        "    public static decimal CalcSalePrice(decimal price)" +
+        "    {" +
+        "        return price - price / 100M * 25M;" +
+        "    }" +
+        "     " +
+        "    public static decimal CalcProfitPrice(decimal price)" +
+        "    {" +
+        "        return price + price / 100M * 25M;" +
+        "    }" +
+        "}";
+    //endregion
+    //endregion
 
     public static class RunParams {
         private Integer price;
