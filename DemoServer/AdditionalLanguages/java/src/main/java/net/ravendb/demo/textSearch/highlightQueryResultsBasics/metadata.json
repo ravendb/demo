@@ -1,0 +1,239 @@
+{
+    "Slug": "highlight-query-results-basics",
+    "SourceFileName": "HighlightQueryResultsBasics.java",
+    "Title": "Highlight Query Results Basics",
+    "DescriptionLines": [
+        "When making a Full Text Search query,<br> in addition to getting the documents that contain the searched terms in the results,",
+        "you can **request to get a list of text fragments highlighting those terms**.",
+        "",
+        "The highlighted terms show exactly why the resulting documents have matched.",
+        "",
+        "The following can be customized:",
+        "<p>* Fragments length<br>",
+        "* Fragments count<br>",
+        "* Tags marking the terms within the fragments<br>",
+        " (see the Customized Demo )</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "FTS - Static Index Demo",
+            "Type" : "demo",
+            "Url"  : "/java/text-search/fts-with-static-index-single-field"
+        },
+        /*TODO
+        {
+            "Title": "Highlight Query Results - Customized Demo",
+            "Type" : "demo",
+            "Url"  : "/java/text-search/highlight-query-results-customized"
+        },
+        */
+        {
+            "Title": "Querying highlighting",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+        },
+        {
+            "Title": "How to use highlighting",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+        },
+        {
+            "Title": "Highlighting - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the Map function.",
+                "",
+                "* The content for index fields _Notes_ is taken from the corresponding document field.",
+                "",
+                "* The field will be customized for Full Text Search and Highlighting in the next step."
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Configure field for Highlighting",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* In order to search and get fragments with highlighted terms, the index field on which you search must be configured with:",
+                "  * `store()`<br>",
+                "     Set _FieldStorage.YES_ to store the field in the index.",
+                "",
+                "  * `index()`<br>",
+                "     Set _FieldIndexing.SEARCH_ to allow Full Text Search.",
+                "",
+                "  * `termVector()`<br>",
+                "     Set _FieldTermVector.WITH_POSITIONS_AND_OFFSETS_ to store the term's position and offsets.",
+                "",
+                "* During the indexing process, the field's content is tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
+                "",
+                "* A query can now be made on these terms to get their matching documents - including a list of text fragments containing the highlighted searched terms.",
+                "  See next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "FTS - Static Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/text-search/fts-with-static-index-single-field"
+                },
+                {
+                    "Title": "Store Fields on Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/store-fields-on-index"
+                },
+                {
+                    "Title": "Querying highlighting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+                },
+                {
+                    "Title": "Indexes - Analyzers",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/using-analyzers"
+                },
+                {
+                    "Title": "Using term vectors",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/using-term-vectors"
+                },
+                {
+                    "Title": "Term vector in Lucene",
+                    "Type" : "link",
+                    "Url"  : "http://makble.com/what-is-term-vector-in-lucene"
+                }
+            ]
+        },
+        {
+            "Title": "Make a search query",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index for documents that contain the specified term.",
+                "",
+                "* In this example,<br> we are searching for documents containing the term 'sales' within their 'Notes' field.<br>",
+                "  In addition, we request the highlighted fragments.",
+                "",
+                "* `highlight()`<br>",
+                "   * Specify the index field for which to get text fragments with the term highlighted.<br>",
+                "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
+                "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
+                "   * Provide a 'Highlightings' param for the fragments' results.",
+                "",
+                "* `search()`<br>",
+                "   * Specify the index field and the term(s) to search for in that field.",
+                "   * These will be the terms highlighted in the fragments received.",
+                "",
+                "* _Query results will be_:",
+                "  * employeesResults -<br>",
+                "    _The documents_ that contain the searched term 'sales'.",
+                "",
+                "  * notesHighlightings -<br>",
+                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "    The term will be marked with the default pre & post tags.",
+                "",
+                "  * The default pre & post tags are: `<b style='background:yellow'>......</b>`<br>",
+                "    The inner color will change per field when requesting to highlight multiple fields.<br>",
+                "    See the related Customized Demo for customizing tags."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/map-index#step-4"
+                },
+                /*TODO
+                {
+                    "Title": "Highlight Query Results - Customized Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/text-search/highlight-query-results-customized"
+                },
+                */
+                {
+                    "Title": "Querying highlighting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+                },
+                {
+                    "Title": "How to use highlighting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+                }
+            ]
+        },
+        {
+            "Title": "Get fragments",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Use `getFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
+                "",
+                "* The searched term will be marked with the default pre & post tags.",
+                "",
+                "* Use these results to enhance your users' search experience."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying highlighting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+                },
+                {
+                    "Title": "How to use highlighting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+                }
+            ]
+        }
+    ]
+}
