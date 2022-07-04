@@ -111,6 +111,15 @@
     },
     {
         "category": {
+            "slug": "compare-exchange",
+            "directory": "compareExchange"
+        },
+        "demos": [
+            "indexCompareExchange"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "advanced"
         },
