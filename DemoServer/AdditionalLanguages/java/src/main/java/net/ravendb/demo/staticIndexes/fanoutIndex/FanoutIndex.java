@@ -26,9 +26,9 @@ public class FanoutIndex {
              
         //region Step_3
         public Orders_ByProductDetails() {
-            this.map = "docs.Orders.SelectMany(order => order.Lines, (order, orderLine) => new {\n" +
-                "    productId = orderLine.Product,\n" +
-                "    productName = orderLine.ProductName\n" +
+            map = "docs.Orders.SelectMany(order => order.Lines, (order, orderLine) => new {" +
+                "    productId = orderLine.Product," +
+                "    productName = orderLine.ProductName" +
                 "})";
         }
         //endregion
