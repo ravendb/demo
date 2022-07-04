@@ -1,16 +1,22 @@
 package net.ravendb.demo.attachments.indexAttachmentDetails;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
+
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 import org.apache.commons.lang3.ObjectUtils;
 
-import java.util.List;
-
 public class IndexAttachmentDetails {
 
+    //region Demo
+    //region Step_1
     public static class Employees_ByAttachmentDetails extends AbstractIndexCreationTask {
+    //endregion
+        //region Step_2
         public static class IndexEntry {
             private String[] attachmentNames;
             private String[] attachmentContentTypes;
@@ -48,33 +54,43 @@ public class IndexAttachmentDetails {
             public void setAttachmentSizes(String[] attachmentSizes) {
                 this.attachmentSizes = attachmentSizes;
             }
+        //endregion
         }
 
         public Employees_ByAttachmentDetails() {
+            //region Step_3
             this.map = "docs.Employees.Select(employee => new {\n" +
                 "    employee = employee,\n" +
                 "    attachments = this.AttachmentsFor(employee)\n" +
+            //endregion
+            //region Step_4
                 "}).Select(this0 => new {\n" +
-                "    AttachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name)),\n" +
-                "    AttachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)),\n" +
-                "    AttachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)),\n" +
-                "    AttachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))\n" +
+                "    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name)),\n" +
+                "    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)),\n" +
+                "    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)),\n" +
+                "    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))\n" +
                 "})";
+            //endregion
         }
     }
+    //endregion
 
     public List<Employee> run(RunParams runParams) throws Exception {
         String attachmentContentType = ObjectUtils.firstNonNull(runParams.getAttachmentContentType(), "image/jpeg");
         long attachmentMinSize = ObjectUtils.firstNonNull(runParams.getAttachmentMinSize(), 18_000L);
 
+        //region Demo
         List<Employee> employeesWithMatchingAttachments;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
+            //region Step_5
             employeesWithMatchingAttachments = session.query(Employee.class, Employees_ByAttachmentDetails.class)
-                .whereEquals("AttachmentContentTypes", attachmentContentType)
-                .whereGreaterThan("AttachmentSizes", attachmentMinSize)
+                .whereEquals("attachmentContentTypes", attachmentContentType)
+                .whereGreaterThan("attachmentSizes", attachmentMinSize)
                 .toList();
+            //endregion
         }
+        //endregion
 
         return employeesWithMatchingAttachments;
     }
