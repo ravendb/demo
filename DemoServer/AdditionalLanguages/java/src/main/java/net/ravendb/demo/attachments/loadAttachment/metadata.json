@@ -1,6 +1,6 @@
 {
     "Slug": "load-attachment",
-    "SourceFileName": "LoadAttachmentController.cs",
+    "SourceFileName": "LoadAttachment.java",
     "Title": "Load Attachment",
     "DescriptionLines": [
         "You can retrieve any stored attachment from a document and **load the attachment** to memory."
@@ -10,12 +10,12 @@
         {
             "Title": "Store Attachment Demo",
             "Type" : "demo",
-            "Url"  : "/attachments/store-attachment"
+            "Url"  : "/java/attachments/store-attachment"
         },
         {
             "Title": "What are attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/what-are-attachments"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/what-are-attachments"
         },
         {
             "Title": "Attachments and binary data",
@@ -30,17 +30,17 @@
         {
             "Title": "Loading attachments",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/loading"
         },
         {
             "Title": "Attachments Operations",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/attachments/get-attachment"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/attachments/get-attachment"
         },
         {
             "Title": "Check if attachment exists",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/how-to/check-if-attachment-exists"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/how-to/check-if-attachment-exists"
         }
     ],
 
@@ -49,16 +49,16 @@
             "Title": "Check if attachment exists",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Method `Exists()` can be called to check whether the attachment exists on the document.<br>",
-                "  This is not mandatory since in such a case the _Get()_ method (see next step) will return null.",
+                "* Method `exists()` can be called to check whether the attachment exists on the document.<br>",
+                "  This is not mandatory since in such a case the _get()_ method (see next step) will return null.",
                 "",
-                "* Calling _Exists()_ does Not cause the session to track the document or the attachment."
+                "* Calling _exists()_ does Not cause the session to track the document or the attachment."
             ],
             "Assets": [
                 {
                     "Title": "Check if attachment exists",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/how-to/check-if-attachment-exists"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/how-to/check-if-attachment-exists"
                 }
             ]
         },
@@ -69,13 +69,13 @@
                 "* Load the attachment from the document.<br>",
                 "_attachmentResult_ will contain the attachment's Stream & Details.",
                 "",
-                "* Specify the document ID, or pass the explicit document entity to the `Get()` method."
+                "* Specify the document ID, or pass the explicit document entity to the `get()` method."
             ],
             "Assets": [
                 {
                     "Title": "Loading attachments",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/loading"
                 }
             ]
         },
@@ -83,13 +83,13 @@
             "Title": "Get attachment's details",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Attachment's details are available in the `Details` property."
+                "* Call `attachmentResult.getDetails()` to get the attachment's details."
             ],
             "Assets": [
                 {
                     "Title": "Loading attachments",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/loading"
                 }
             ]
         },
@@ -97,7 +97,7 @@
             "Title": "Get attachment's stream",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* The attachment's stream is available in the `Stream` property.",
+                "* Call `attachmentResult.getData()` to get the attachment's stream.",
                 "",
                 "* Copy the attachment stream into a _MemoryStream_ for any usage."
             ],
@@ -105,7 +105,7 @@
                 {
                     "Title": "Loading attachments",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/attachments/loading"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/loading"
                 }
             ]
         }

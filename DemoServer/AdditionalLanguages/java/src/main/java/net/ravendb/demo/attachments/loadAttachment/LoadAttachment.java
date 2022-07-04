@@ -28,7 +28,8 @@ public class LoadAttachment {
             if (attachmentExists) {
                 //region Step_2
                 try (CloseableAttachmentResult attachmentResult = session.advanced().attachments().get(documentId, attachmentName)) {
-
+                //endregion
+                
                     //region Step_3
                     String contentType = attachmentResult.getDetails().getContentType();
                     String hash = attachmentResult.getDetails().getHash();
@@ -41,7 +42,6 @@ public class LoadAttachment {
                     byte[] bytes = attachmentMemoryStream.toByteArray();
                     //endregion
                 }
-                //endregion
             }
         }
         //endregion

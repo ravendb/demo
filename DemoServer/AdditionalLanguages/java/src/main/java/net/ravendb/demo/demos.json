@@ -30,7 +30,8 @@
             "directory": "attachments"
         },
         "demos": [
-            "storeAttachment"
+            "storeAttachment",
+            "loadAttachment"
         ]
     },
     {
