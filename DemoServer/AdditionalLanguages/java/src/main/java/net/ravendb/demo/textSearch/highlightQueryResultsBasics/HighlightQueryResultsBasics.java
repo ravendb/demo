@@ -25,7 +25,7 @@ public class HighlightQueryResultsBasics {
                      // employee.Notes is a string array,
                      // indexing only the first element for this example
                 "})";
-                //endregion
+            //endregion
 
             //region Step_3
             store("Notes", FieldStorage.YES);
@@ -51,7 +51,7 @@ public class HighlightQueryResultsBasics {
                 .highlight("Notes", fragmentLength, fragmentCount, notesHighlightings)
                 .search("Notes", "sales")
                 .toList();
-                 //endregion
+            //endregion
 
             //region Step_5
             if (employeesResults.size() > 0) {

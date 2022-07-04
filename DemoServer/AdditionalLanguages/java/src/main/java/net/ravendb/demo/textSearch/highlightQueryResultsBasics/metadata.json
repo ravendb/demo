@@ -18,8 +18,8 @@
     "Assets": [
         {
             "Title": "FTS - Static Index Demo",
-            "Type": "demo",
-            "Url": "/java/text-search/fts-with-static-index-single-field"
+            "Type" : "demo",
+            "Url"  : "/java/text-search/fts-with-static-index-single-field"
         },
         /*TODO
         {
@@ -30,25 +30,25 @@
         */
         {
             "Title": "Querying highlighting",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
         },
         {
             "Title": "How to use highlighting",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
         },
         {
             "Title": "Highlighting - Blog",
-            "Type": "link",
-            "Url": "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
         }
     ],
 
     "Walkthroughs": [
         {
             "Title": "Define a static index",
-            "Slug": "step-1",
+            "Slug" : "step-1",
             "DescriptionLines": [
                 "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
             ],
@@ -169,7 +169,7 @@
                 "   * Specify the index field for which to get text fragments with the term highlighted.<br>",
                 "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
                 "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
-                "   * Provide an 'Highlightings' param for the fragments' results.",
+                "   * Provide a 'Highlightings' param for the fragments' results.",
                 "",
                 "* `search()`<br>",
                 "   * Specify the index field and the term(s) to search for in that field.",
@@ -190,8 +190,8 @@
             "Assets": [
                 {
                     "Title": "Query for documents - Map Index Demo",
-                    "Type": "demo",
-                    "Url": "/java/static-indexes/map-index#step-4"
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/map-index#step-4"
                 },
                 /*TODO
                 {
@@ -202,13 +202,13 @@
                 */
                 {
                     "Title": "Querying highlighting",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/highlighting"
                 },
                 {
                     "Title": "How to use highlighting",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
                 }
             ]
         },
