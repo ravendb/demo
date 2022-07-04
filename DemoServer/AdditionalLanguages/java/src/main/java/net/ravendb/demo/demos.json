@@ -31,7 +31,8 @@
         },
         "demos": [
             "storeAttachment",
-            "loadAttachment"
+            "loadAttachment",
+            "indexAttachmentDetails"
         ]
     },
     {

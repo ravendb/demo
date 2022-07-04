@@ -1,13 +1,15 @@
 package net.ravendb.demo.attachments.loadAttachment;
-
-import net.ravendb.client.documents.operations.attachments.CloseableAttachmentResult;
-import net.ravendb.client.documents.session.IDocumentSession;
-import net.ravendb.demo.attachments.storeAttachment.StoreAttachment;
-import net.ravendb.demo.common.DocumentStoreHolder;
-import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.ObjectUtils;
 
+import net.ravendb.demo.attachments.storeAttachment.StoreAttachment;
+import net.ravendb.demo.common.DocumentStoreHolder;
+
+//region Usings
+import net.ravendb.client.documents.operations.attachments.CloseableAttachmentResult;
+import net.ravendb.client.documents.session.IDocumentSession;
+import org.apache.commons.io.IOUtils;
 import java.io.ByteArrayOutputStream;
+//endregion
 
 public class LoadAttachment {
 
