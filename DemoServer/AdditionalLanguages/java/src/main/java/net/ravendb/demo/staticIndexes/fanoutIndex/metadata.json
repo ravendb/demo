@@ -1,6 +1,6 @@
 {
     "Slug": "fanout-index",
-    "SourceFileName": "FanoutIndexController.cs",
+    "SourceFileName": "FanoutIndex.java",
     "Title": "Fanout Index",
     "DescriptionLines": [
         "A **Fanout Index** creates multiple index entries per processed document.",
@@ -15,17 +15,17 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/java/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Fanout indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/fanout-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
         },
         {
             "Title": "MaxIndexOutputsPerDocument",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
         }
     ],
 
@@ -36,20 +36,18 @@
             "DescriptionLines": [
                 "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
                 "",
-                "* The generic params:<br>",
-                "    * _Order_ - indicates that the source collection for the index will be the 'Orders' collection<br>",
-                "    * _Orders_ByProductDetails_ - is the shape of the resulting index-fields<br>(see next step)"
+                "* This example defines a Map index on the Employees collection."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -75,7 +73,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -93,12 +91,13 @@
             "Title": "The Index Map",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The _Map_ function defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "* Set `map` with the index definition string.<br>",
+                "  The Map function defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
                 "",
                 "* In this example, an order document has a _Lines_ array object:<br>",
-                "  To access the inner fields of the Lines array use: `from orderLine in order.Lines`.",
+                "  To access the inner fields of the Lines array use `SelectMany` and retrieve data from each orderLine item.",
                 "",
-                "* An index entry with fields _ProductId_ & _ProductName_ will be created per item of the Lines array,<br>",
+                "* An index entry with fields _productId_ & _productName_ will be created per item of the Lines array,<br>",
                 "  so the number of entries created per Order document equals the array length.",
                 "",
                 "* Note: A performance hint is raised in the Studio when the number of the generated index entries per document is high.",
@@ -108,17 +107,17 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Fanout indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/fanout-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
                 },
                 {
                     "Title": "MaxIndexOutputsPerDocument",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
                 }
             ]
         },
@@ -136,7 +135,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -151,7 +150,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 }
             ]
         }

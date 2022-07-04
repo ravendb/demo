@@ -74,6 +74,7 @@
             "mapReduceIndex",
             "projectIndexResults",
             "storeFieldInIndex",
+            "fanoutIndex",
             "additionalSourcesIndex"
         ]
     },
