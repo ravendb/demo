@@ -1,6 +1,6 @@
 {
     "Slug": "multi-map-index-customized-fields",
-    "SourceFileName": "MultiMapIndexCustomizedFieldsController.cs",
+    "SourceFileName": "MultiMapIndexCustomizedFields.java",
     "Title": "Multi Map Index - Customized Fields",
     "DescriptionLines": [
         "A **Multi Map index** allows querying multiple collections in a single query.",
@@ -16,7 +16,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/java/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Querying many sources",
@@ -31,22 +31,22 @@
         {
             "Title": "Multi Map indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
         },
         {
             "Title": "Multi Map indexes (Studio)",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-multi-map-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/create-multi-map-index"
         },
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Polymorphic data",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-polymorphic-data"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-polymorphic-data"
         }
     ],
 
@@ -55,17 +55,13 @@
             "Title": "Define the Multi Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Multi Map index class - inherit from `AbstractMultiMapIndexCreationTask`.",
-                "",
-                "* The generic param:<br>",
-                "    * _Contacts_ByNameAndTitle.IndexEntry_ - defines the shape of the index entry<br>",
-                "     (see next step)."
+                "* Create the Multi Map index class - inherit from `AbstractMultiMapIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Querying many sources",
@@ -80,7 +76,7 @@
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 }
             ]
         },
@@ -93,9 +89,9 @@
                 "* These fields contain customized indexed data from all the collections defined in the index<br> (configured in the next step).",
                 "",
                 "* Here we index 3 index fields:",
-                "    * _ContactName_ will contain a name of a person from any collection indexed",
-                "    * _ContactTitle_ will contain a title of a person from any collection indexed",
-                "    * _Collection_ will contain the collection name from which the data was taken",
+                "    * _contactName_ will contain a name of a person from any collection indexed",
+                "    * _contactTitle_ will contain a title of a person from any collection indexed",
+                "    * _collection_ will contain the collection name from which the data was taken",
                 "",
                 "* Collections defined in the index can be queried and filtered by any of those fields."
 
@@ -114,7 +110,7 @@
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 }
             ]
         },
@@ -130,7 +126,7 @@
                 "",
                 "* In this example:",
                 "  * The ProjectedEntry class inherits the 3 fields from the IndexEntry class.",
-                "  * The additional _Phone_ field is Not indexed.<br>",
+                "  * The additional _phone_ field is Not indexed.<br>",
                 "    A query will not be able to filter on it, but it will return as part of the query result set if it exists on the document."
                 
             ],
@@ -148,17 +144,17 @@
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 },
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 },
                 {
                     "Title": "Project query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results"
                 }
             ]
         },
@@ -166,12 +162,12 @@
             "Title": "The index constructor",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* Use `AddMap()` to define the content of the index-fields per collection indexed.<br>",
+                "* Use `addMap()` to define the content of the index-fields per collection indexed.<br>",
                 "  Data from the different collections is indexed into the _common index-fields_ in the IndexEntry class.",
                 "",
                 "* The data is customized as needed when configuring each index field, e.g:",
-                "  * Field _ContactName_ is the combination of 2 raw document properties in the Employees collection.<br>",
-                "  * Field _Collection_ is calculated from the document metadata.",
+                "  * Field _contactName_ is the combination of 2 raw document properties in the Employees collection.<br>",
+                "  * Field _collection_ is calculated from the document metadata.",
                 "",
                 "* The index will contain a mapping from any indexed term to the relevant document in either collection indexed.",
                 "",
@@ -191,12 +187,12 @@
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 },
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 }
             ]
         },
@@ -210,7 +206,7 @@
                 "  then these fields must be stored in the index.<br>",
                 "  The results will be taken directly from the index fields instead of from the document.",
                 "",
-                "* Call `Store()` with param _FieldStorage.Yes_ to store the data on the index."
+                "* Call `store()` with param _FieldStorage.YES_ to store the data on the index."
             ],
             "Assets": [
                 {
@@ -221,12 +217,12 @@
                 {
                     "Title": "Storing data in the index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/storing-data-in-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/storing-data-in-index"
                 },
                 {
                     "Title": "Store Fields on Index Demo - TODO...",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-on-index"
+                    "Url"  : "/java/static-indexes/store-fields-on-index"
                 }
             ]
         },
@@ -241,13 +237,13 @@
                 "  and retrieve the matching documents from the documents store.",
                 "",
                 "* Projections allow us to control exactly what is being returned from the query.<br>",
-                "  Use `ProjectInto()` with the projected entry class as the common shape for the returned results.",
+                "  Use `selectFields()` with the projected entry class as the common shape for the returned results.",
                 "",
                 "* Variable _contacts_ will hold a list of Contacts_ByNameAndTitle.ProjectedEntry objects matching the query criteria.",
                 "",
                 "* Per document in the results:",
-                "  * _Stored fields data_ (ContactName, ContactTitle, Collection) will be fetched directly from the index.",
-                "  * _Non-stored fields_ (Phone) will be retrieved from the document in the documents store."
+                "  * _Stored fields data_ (contactName, contactTitle, collection) will be fetched directly from the index.",
+                "  * _Non-stored fields_ (phone) will be retrieved from the document in the documents store."
             ],
             "Assets": [
                 {
@@ -263,17 +259,17 @@
                 {
                     "Title": "Multi Map indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/multi-map-indexes"
                 },
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
                 },
                 {
                     "Title": "Project query results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results"
                 }
             ]
         }
