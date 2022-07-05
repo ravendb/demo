@@ -59,16 +59,16 @@ public class IndexAttachmentDetails {
 
         public Employees_ByAttachmentDetails() {
             //region Step_3
-            this.map = "docs.Employees.Select(employee => new {\n" +
-                "    employee = employee,\n" +
-                "    attachments = this.AttachmentsFor(employee)\n" +
+            map = "docs.Employees.Select(employee => new {" +
+                "    employee = employee," +
+                "    attachments = this.AttachmentsFor(employee)" +
             //endregion
             //region Step_4
-                "}).Select(this0 => new {\n" +
-                "    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name)),\n" +
-                "    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)),\n" +
-                "    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)),\n" +
-                "    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))\n" +
+                "}).Select(this0 => new {" +
+                "    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name))," +
+                "    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType))," +
+                "    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash))," +
+                "    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))" +
                 "})";
             //endregion
         }
