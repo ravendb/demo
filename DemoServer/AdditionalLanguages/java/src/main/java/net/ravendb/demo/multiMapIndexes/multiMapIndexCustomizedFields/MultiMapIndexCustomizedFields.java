@@ -1,16 +1,23 @@
 package net.ravendb.demo.multiMapIndexes.multiMapIndexCustomizedFields;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractMultiMapIndexCreationTask;
 import net.ravendb.client.documents.indexes.FieldStorage;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
+
 import net.ravendb.demo.common.DocumentStoreHolder;
 import org.apache.commons.lang3.ObjectUtils;
 
-import java.util.List;
-
 public class MultiMapIndexCustomizedFields {
 
+    //region Demo
+    //region Step_1
     public static class Contacts_ByNameAndTitle extends AbstractMultiMapIndexCreationTask {
+    //endregion
+    
+        //region Step_2
         public static class IndexEntry {
             private String contractName;
             private String contractTitle;
@@ -40,7 +47,9 @@ public class MultiMapIndexCustomizedFields {
                 this.collection = collection;
             }
         }
+        //endregion
 
+        //region Step_3
         public static class ProjectedEntry extends IndexEntry {
             private String phone;
 
@@ -52,46 +61,54 @@ public class MultiMapIndexCustomizedFields {
                 this.phone = phone;
             }
         }
-
+        //endregion
+       
         public Contacts_ByNameAndTitle() {
-            this.addMap("docs.Employees.Select(employee => new {\n" +
-                "    ContactName = (employee.FirstName + \" \") + employee.LastName,\n" +
-                "    ContactTitle = employee.Title,\n" +
-                "    Collection = this.MetadataFor(employee)[\"@collection\"]\n" +
+            //region Step_4
+            addMap("docs.Employees.Select(employee => new {" +
+                "    contactName = (employee.FirstName + \" \") + employee.LastName," +
+                "    contactTitle = employee.Title," +
+                "    collection = this.MetadataFor(employee)[\"@collection\"]" +
                 "})");
 
-            this.addMap("docs.Companies.Select(company => new {\n" +
-                "    ContactName = company.Contact.Name,\n" +
-                "    ContactTitle = company.Contact.Title,\n" +
-                "    Collection = this.MetadataFor(company)[\"@collection\"]\n" +
+            addMap("docs.Companies.Select(company => new {" +
+                "    contactName = company.Contact.Name," +
+                "    contactTitle = company.Contact.Title," +
+                "    collection = this.MetadataFor(company)[\"@collection\"]" +
                 "})");
 
-            this.addMap("docs.Suppliers.Select(supplier => new {\n" +
-                "    ContactName = supplier.Contact.Name,\n" +
-                "    ContactTitle = supplier.Contact.Title,\n" +
-                "    Collection = this.MetadataFor(supplier)[\"@collection\"]\n" +
+            addMap("docs.Suppliers.Select(supplier => new {" +
+                "    contactName = supplier.Contact.Name," +
+                "    contactTitle = supplier.Contact.Title," +
+                "    collection = this.MetadataFor(supplier)[\"@collection\"]" +
                 "})");
-
-            store("ContractName", FieldStorage.YES);
-            store("ContactTitle", FieldStorage.YES);
-            store("Collection", FieldStorage.YES);
+            //endregion
+            //region Step_5
+            store("contractName", FieldStorage.YES);
+            store("contactTitle", FieldStorage.YES);
+            store("collection", FieldStorage.YES);
+            //endregion
         }
     }
+    //endregion
 
     public List<Contacts_ByNameAndTitle.ProjectedEntry> run(RunParams runParams) {
         String namePrefix = ObjectUtils.firstNonNull(runParams.getNamePrefix(), "Michael");
         String titlePrefix = ObjectUtils.firstNonNull(runParams.getTitlePrefix(), "Sales");
-
+        
+        //region Demo
+        //region Step_6
         List<Contacts_ByNameAndTitle.ProjectedEntry> contacts;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             contacts = session.query(Contacts_ByNameAndTitle.IndexEntry.class, Contacts_ByNameAndTitle.class)
-                .whereStartsWith("ContactName", namePrefix)
-                .whereStartsWith("ContactTitle", titlePrefix)
+                .whereStartsWith("contactName", namePrefix)
+                .whereStartsWith("contactTitle", titlePrefix)
                 .selectFields(Contacts_ByNameAndTitle.ProjectedEntry.class)
                 .toList();
         }
-
+        //endregion
+        //endregion
         return contacts;
     }
 

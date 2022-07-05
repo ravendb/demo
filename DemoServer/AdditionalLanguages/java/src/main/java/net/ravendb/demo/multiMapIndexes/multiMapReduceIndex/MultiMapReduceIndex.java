@@ -1,15 +1,21 @@
 package net.ravendb.demo.multiMapIndexes.multiMapReduceIndex;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractMultiMapIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
+
 import net.ravendb.demo.common.DocumentStoreHolder;
 import org.apache.commons.lang3.ObjectUtils;
 
-import java.util.List;
-
 public class MultiMapReduceIndex {
 
+    //region demo
+    //region Step_1
     public static class CityCommerceDetails extends AbstractMultiMapIndexCreationTask {
+    //endregion
+        //region Step_2
         public static class IndexEntry {
             private String cityName;
             private int numberOfCompaniesInCity;
@@ -47,55 +53,62 @@ public class MultiMapReduceIndex {
             public void setNumberOfItemsShippedToCity(int numberOfItemsShippedToCity) {
                 this.numberOfItemsShippedToCity = numberOfItemsShippedToCity;
             }
-
         }
-
+        //endregion
+        
         public CityCommerceDetails() {
-            this.addMap("docs.Companies.Select(company => new {\n" +
-                "    CityName = company.Address.City,\n" +
-                "    NumberOfCompaniesInCity = 1,\n" +
-                "    NumberOfSuppliersInCity = 0,\n" +
-                "    NumberOfItemsShippedToCity = 0\n" +
+            //region Step_3
+            addMap("docs.Companies.Select(company => new {" +
+                "    cityName = company.Address.City," +
+                "    numberOfCompaniesInCity = 1," +
+                "    numberOfSuppliersInCity = 0," +
+                "    numberOfItemsShippedToCity = 0" +
                 "})");
 
-            this.addMap("docs.Suppliers.Select(supplier => new {\n" +
-                "    CityName = supplier.Address.City,\n" +
-                "    NumberOfCompaniesInCity = 0,\n" +
-                "    NumberOfSuppliersInCity = 1,\n" +
-                "    NumberOfItemsShippedToCity = 0\n" +
+            addMap("docs.Suppliers.Select(supplier => new {" +
+                "    cityName = supplier.Address.City," +
+                "    numberOfCompaniesInCity = 0," +
+                "    numberOfSuppliersInCity = 1," +
+                "    numberOfItemsShippedToCity = 0" +
                 "})");
 
-            this.addMap("docs.Orders.Select(order => new {\n" +
-                "    CityName = order.ShipTo.City,\n" +
-                "    NumberOfCompaniesInCity = 0,\n" +
-                "    NumberOfSuppliersInCity = 0,\n" +
-                "    NumberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))\n" +
+            addMap("docs.Orders.Select(order => new {" +
+                "    cityName = order.ShipTo.City," +
+                "    numberOfCompaniesInCity = 0," +
+                "    numberOfSuppliersInCity = 0," +
+                "    numberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))" +
                 "})");
-
-            this.reduce = "results.GroupBy(result => result.CityName).Select(g => new {\n" +
-                "    CityName = g.Key,\n" +
-                "    NumberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.NumberOfCompaniesInCity)),\n" +
-                "    NumberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.NumberOfSuppliersInCity)),\n" +
-                "    NumberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.NumberOfItemsShippedToCity))\n" +
+            //endregion
+            //region Step_4
+            this.reduce = "results.GroupBy(result => result.cityName).Select(g => new {" +
+                "    cityName = g.Key," +
+                "    numberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.numberOfCompaniesInCity))," +
+                "    numberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.numberOfSuppliersInCity))," +
+                "    numberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.numberOfItemsShippedToCity))" +
                 "})";
+            //endregion
         }
     }
+    //endregion
 
     public List<CityCommerceDetails.IndexEntry> run(RunParams runParams) {
         int minCompaniesCount = ObjectUtils.firstNonNull(runParams.getMinCompaniesCount(), 5);
         int minItemsCount = ObjectUtils.firstNonNull(runParams.getMinItemsCount(), 2000);
-
+        //region Demo
+        //region Step_5
         List<CityCommerceDetails.IndexEntry> commerceDetails;
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
 
             commerceDetails = session.query(CityCommerceDetails.IndexEntry.class, CityCommerceDetails.class)
-                .whereGreaterThan("NumberOfCompaniesInCity", minCompaniesCount)
+                .whereGreaterThan("numberOfCompaniesInCity", minCompaniesCount)
                 .orElse()
-                .whereGreaterThan("NumberOfItemsShippedToCity", minItemsCount)
-                .orderBy("CityName")
+                .whereGreaterThan("numberOfItemsShippedToCity", minItemsCount)
+                .orderBy("cityName")
                 .toList();
         }
+        //endregion
+        //endregion
 
         return commerceDetails;
     }

@@ -1,16 +1,22 @@
 package net.ravendb.demo.multiMapIndexes.multiMapIndexBasic;
 
+//region Usings
 import net.ravendb.client.documents.indexes.AbstractMultiMapIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
+import java.util.List;
+//endregion
+
 import net.ravendb.demo.common.DocumentStoreHolder;
 import org.apache.commons.lang3.ObjectUtils;
 
-import java.util.List;
-
 public class MultiMapIndexBasic {
 
+    //region Demo
+    //region Step_1
     public static class CompaniesAndSuppliers_ByName extends AbstractMultiMapIndexCreationTask {
-
+    //endregion
+    
+        //region Step_2
         public static class IndexEntry {
             private String name;
 
@@ -22,28 +28,36 @@ public class MultiMapIndexBasic {
                 this.name = name;
             }
         }
+        //endregion
 
+        //region Step_3
         public CompaniesAndSuppliers_ByName() {
-            this.addMap("docs.Companies.Select(company => new {\n" +
-                "    Name = company.Name\n" +
+            addMap("docs.Companies.Select(company => new {" +
+                "    name = company.Name" +
                 "})");
 
-            this.addMap("docs.Suppliers.Select(supplier => new {\n" +
-                "    Name = supplier.Name\n" +
+            addMap("docs.Suppliers.Select(supplier => new {" +
+                "    name = supplier.Name" +
                 "})");
         }
+        //endregion
     }
+    //endregion
 
     public List<CompaniesAndSuppliers_ByName.IndexEntry> run(RunParams runParams) {
         String namePrefix = ObjectUtils.firstNonNull(runParams.getNamePrefix(), "A");
 
+        //region Demo
         List<CompaniesAndSuppliers_ByName.IndexEntry> companiesAndSuppliersNames;
 
+        //region Step_4
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             companiesAndSuppliersNames = session.query(CompaniesAndSuppliers_ByName.IndexEntry.class, CompaniesAndSuppliers_ByName.class)
-                .whereStartsWith("Name", namePrefix)
+                .whereStartsWith("name", namePrefix)
                 .toList();
         }
+        //endregion
+        //endregion
 
         return companiesAndSuppliersNames;
     }
