@@ -81,13 +81,12 @@
     {
         "category": {
             "slug": "multi-map-indexes",
-            "directory": "MultiMapIndexes",
-            "title": "Multi Map Indexes"
+            "directory": "multiMapIndexes"
         },
         "demos": [
-            "MultiMapIndexBasic",
-            "MultiMapIndexCustomizedFields",
-            "MultiMapReduceIndex"
+            "multiMapIndexBasic",
+            "multiMapIndexCustomizedFields",
+            "multiMapReduceIndex"
         ]
     },
     {
