@@ -107,7 +107,7 @@
                 "* Call `LoadCompareExchangeValue()` to get the CmpXchg Value associated with the passed Key parameter.",
                 "  The CmpXchg Key is the document ID.",
                 "",
-                "* The CmpXchg Values will be indexed in the _UnitsInStock_ index field,<br>",
+                "* The CmpXchg Values will be indexed in the _unitsInStock_ index field,<br>",
                 "  so a mapping is available from the CmpXchg values to the documents in the Products collection."
             ],
             "Assets": [
@@ -134,7 +134,7 @@
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
-                "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ defined in _Products_byUnitsInStock.IndexEntry.class_",
+                "* The 'Products' documents can be filtered by the index-field _unitsInStock_ defined in _Products_byUnitsInStock.IndexEntry.class_",
                 "",
                 "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
