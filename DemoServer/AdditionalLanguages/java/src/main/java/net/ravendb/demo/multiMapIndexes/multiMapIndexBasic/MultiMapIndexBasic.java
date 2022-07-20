@@ -18,14 +18,14 @@ public class MultiMapIndexBasic {
     
         //region Step_2
         public static class IndexEntry {
-            private String name;
+            private String Name;
 
             public String getName() {
-                return name;
+                return Name;
             }
 
             public void setName(String name) {
-                this.name = name;
+                this.Name = name;
             }
         }
         //endregion
@@ -33,11 +33,11 @@ public class MultiMapIndexBasic {
         //region Step_3
         public CompaniesAndSuppliers_ByName() {
             addMap("docs.Companies.Select(company => new {" +
-                "    name = company.Name" +
+                "    Name = company.Name" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    name = supplier.Name" +
+                "    Name = supplier.Name" +
                 "})");
         }
         //endregion
@@ -53,7 +53,7 @@ public class MultiMapIndexBasic {
         //region Step_4
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             companiesAndSuppliersNames = session.query(CompaniesAndSuppliers_ByName.IndexEntry.class, CompaniesAndSuppliers_ByName.class)
-                .whereStartsWith("name", namePrefix)
+                .whereStartsWith("Name", namePrefix)
                 .toList();
         }
         //endregion

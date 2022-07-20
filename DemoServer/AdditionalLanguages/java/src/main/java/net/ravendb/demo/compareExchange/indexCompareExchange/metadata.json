@@ -76,7 +76,7 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Field _unitsInStock_ will be configured to hold CmpXchg Values (see next step)."
+                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
             ],
             "Assets": [
                 {

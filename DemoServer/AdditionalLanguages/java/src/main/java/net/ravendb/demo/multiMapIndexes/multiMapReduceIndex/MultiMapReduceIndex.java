@@ -17,41 +17,41 @@ public class MultiMapReduceIndex {
     //endregion
         //region Step_2
         public static class IndexEntry {
-            private String cityName;
-            private int numberOfCompaniesInCity;
-            private int numberOfSuppliersInCity;
-            private int numberOfItemsShippedToCity;
+            private String CityName;
+            private int NumberOfCompaniesInCity;
+            private int NumberOfSuppliersInCity;
+            private int NumberOfItemsShippedToCity;
 
             public String getCityName() {
-                return cityName;
+                return CityName;
             }
 
             public void setCityName(String cityName) {
-                this.cityName = cityName;
+                this.CityName = cityName;
             }
 
             public int getNumberOfCompaniesInCity() {
-                return numberOfCompaniesInCity;
+                return NumberOfCompaniesInCity;
             }
 
             public void setNumberOfCompaniesInCity(int numberOfCompaniesInCity) {
-                this.numberOfCompaniesInCity = numberOfCompaniesInCity;
+                this.NumberOfCompaniesInCity = numberOfCompaniesInCity;
             }
 
             public int getNumberOfSuppliersInCity() {
-                return numberOfSuppliersInCity;
+                return NumberOfSuppliersInCity;
             }
 
             public void setNumberOfSuppliersInCity(int numberOfSuppliersInCity) {
-                this.numberOfSuppliersInCity = numberOfSuppliersInCity;
+                this.NumberOfSuppliersInCity = numberOfSuppliersInCity;
             }
 
             public int getNumberOfItemsShippedToCity() {
-                return numberOfItemsShippedToCity;
+                return NumberOfItemsShippedToCity;
             }
 
             public void setNumberOfItemsShippedToCity(int numberOfItemsShippedToCity) {
-                this.numberOfItemsShippedToCity = numberOfItemsShippedToCity;
+                this.NumberOfItemsShippedToCity = numberOfItemsShippedToCity;
             }
         }
         //endregion
@@ -59,32 +59,32 @@ public class MultiMapReduceIndex {
         public CityCommerceDetails() {
             //region Step_3
             addMap("docs.Companies.Select(company => new {" +
-                "    cityName = company.Address.City," +
-                "    numberOfCompaniesInCity = 1," +
-                "    numberOfSuppliersInCity = 0," +
-                "    numberOfItemsShippedToCity = 0" +
+                "    CityName = company.Address.City," +
+                "    NumberOfCompaniesInCity = 1," +
+                "    NumberOfSuppliersInCity = 0," +
+                "    NumberOfItemsShippedToCity = 0" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    cityName = supplier.Address.City," +
-                "    numberOfCompaniesInCity = 0," +
-                "    numberOfSuppliersInCity = 1," +
-                "    numberOfItemsShippedToCity = 0" +
+                "    CityName = supplier.Address.City," +
+                "    NumberOfCompaniesInCity = 0," +
+                "    NumberOfSuppliersInCity = 1," +
+                "    NumberOfItemsShippedToCity = 0" +
                 "})");
 
             addMap("docs.Orders.Select(order => new {" +
-                "    cityName = order.ShipTo.City," +
-                "    numberOfCompaniesInCity = 0," +
-                "    numberOfSuppliersInCity = 0," +
-                "    numberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))" +
+                "    CityName = order.ShipTo.City," +
+                "    NumberOfCompaniesInCity = 0," +
+                "    NumberOfSuppliersInCity = 0," +
+                "    NumberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))" +
                 "})");
             //endregion
             //region Step_4
             this.reduce = "results.GroupBy(result => result.cityName).Select(g => new {" +
-                "    cityName = g.Key," +
-                "    numberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.numberOfCompaniesInCity))," +
-                "    numberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.numberOfSuppliersInCity))," +
-                "    numberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.numberOfItemsShippedToCity))" +
+                "    CityName = g.Key," +
+                "    NumberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.NumberOfCompaniesInCity))," +
+                "    NumberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.NumberOfSuppliersInCity))," +
+                "    NumberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.NumberOfItemsShippedToCity))" +
                 "})";
             //endregion
         }
@@ -101,10 +101,10 @@ public class MultiMapReduceIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
 
             commerceDetails = session.query(CityCommerceDetails.IndexEntry.class, CityCommerceDetails.class)
-                .whereGreaterThan("numberOfCompaniesInCity", minCompaniesCount)
+                .whereGreaterThan("NumberOfCompaniesInCity", minCompaniesCount)
                 .orElse()
-                .whereGreaterThan("numberOfItemsShippedToCity", minItemsCount)
-                .orderBy("cityName")
+                .whereGreaterThan("NumberOfItemsShippedToCity", minItemsCount)
+                .orderBy("CityName")
                 .toList();
         }
         //endregion

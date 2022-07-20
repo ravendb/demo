@@ -30,23 +30,23 @@ public class MapReduceIndex {
 
         //region Step_4
         public static class Result {
-            private String country;
-            private int countryCount;
+            private String Country;
+            private int CountryCount;
 
             public String getCountry() {
-                return country;
+                return Country;
             }
 
             public void setCountry(String country) {
-                this.country = country;
+                this.Country = country;
             }
 
             public int getCountryCount() {
-                return countryCount;
+                return CountryCount;
             }
 
             public void setCountryCount(int countryCount) {
-                this.countryCount = countryCount;
+                this.CountryCount = countryCount;
             }
         }
         //endregion

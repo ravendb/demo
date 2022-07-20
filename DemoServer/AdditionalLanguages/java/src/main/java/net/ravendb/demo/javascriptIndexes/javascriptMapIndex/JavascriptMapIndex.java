@@ -15,41 +15,41 @@ public class JavascriptMapIndex {
     //endregion
         //region Step_2
         public static class IndexEntry {
-            private String fullName;
-            private String country;
-            private int workingInCompanySince;
-            private int numberOfTerritories;
+            private String FullName;
+            private String Country;
+            private int WorkingInCompanySince;
+            private int NumberOfTerritories;
 
             public int getNumberOfTerritories() {
-                return numberOfTerritories;
+                return NumberOfTerritories;
             }
 
             public void setNumberOfTerritories(int numberOfTerritories) {
-                numberOfTerritories = numberOfTerritories;
+                this.NumberOfTerritories = numberOfTerritories;
             }
 
             public int getWorkingInCompanySince() {
-                return workingInCompanySince;
+                return WorkingInCompanySince;
             }
 
             public void setWorkingInCompanySince(int workingInCompanySince) {
-                this.workingInCompanySince = workingInCompanySince;
+                this.WorkingInCompanySince = workingInCompanySince;
             }
 
             public String getCountry() {
-                return country;
+                return Country;
             }
 
             public void setCountry(String country) {
-                this.country = country;
+                this.Country = country;
             }
 
             public String getFullName() {
-                return fullName;
+                return FullName;
             }
 
             public void setFullName(String fullName) {
-                this.fullName = fullName;
+                this.FullName = fullName;
             }
         }
         //endregion

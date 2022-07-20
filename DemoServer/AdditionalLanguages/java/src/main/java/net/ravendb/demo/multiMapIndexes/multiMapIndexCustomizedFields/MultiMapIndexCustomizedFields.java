@@ -19,46 +19,46 @@ public class MultiMapIndexCustomizedFields {
     
         //region Step_2
         public static class IndexEntry {
-            private String contractName;
-            private String contractTitle;
-            private Object collection;
+            private String ContractName;
+            private String ContractTitle;
+            private Object Collection;
 
             public String getContractName() {
-                return contractName;
+                return ContractName;
             }
 
             public void setContractName(String contractName) {
-                this.contractName = contractName;
+                this.ContractName = contractName;
             }
 
             public String getContractTitle() {
-                return contractTitle;
+                return ContractTitle;
             }
 
             public void setContractTitle(String contractTitle) {
-                this.contractTitle = contractTitle;
+                this.ContractTitle = contractTitle;
             }
 
             public Object getCollection() {
-                return collection;
+                return Collection;
             }
 
             public void setCollection(Object collection) {
-                this.collection = collection;
+                this.Collection = collection;
             }
         }
         //endregion
 
         //region Step_3
         public static class ProjectedEntry extends IndexEntry {
-            private String phone;
+            private String Phone;
 
             public String getPhone() {
-                return phone;
+                return Phone;
             }
 
             public void setPhone(String phone) {
-                this.phone = phone;
+                this.Phone = phone;
             }
         }
         //endregion
@@ -66,27 +66,27 @@ public class MultiMapIndexCustomizedFields {
         public Contacts_ByNameAndTitle() {
             //region Step_4
             addMap("docs.Employees.Select(employee => new {" +
-                "    contactName = (employee.FirstName + \" \") + employee.LastName," +
-                "    contactTitle = employee.Title," +
-                "    collection = this.MetadataFor(employee)[\"@collection\"]" +
+                "    ContactName = (employee.FirstName + \" \") + employee.LastName," +
+                "    ContactTitle = employee.Title," +
+                "    Collection = this.MetadataFor(employee)[\"@collection\"]" +
                 "})");
 
             addMap("docs.Companies.Select(company => new {" +
-                "    contactName = company.Contact.Name," +
-                "    contactTitle = company.Contact.Title," +
-                "    collection = this.MetadataFor(company)[\"@collection\"]" +
+                "    ContactName = company.Contact.Name," +
+                "    ContactTitle = company.Contact.Title," +
+                "    Collection = this.MetadataFor(company)[\"@collection\"]" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    contactName = supplier.Contact.Name," +
-                "    contactTitle = supplier.Contact.Title," +
-                "    collection = this.MetadataFor(supplier)[\"@collection\"]" +
+                "    ContactName = supplier.Contact.Name," +
+                "    ContactTitle = supplier.Contact.Title," +
+                "    Collection = this.MetadataFor(supplier)[\"@collection\"]" +
                 "})");
             //endregion
             //region Step_5
-            store("contractName", FieldStorage.YES);
-            store("contactTitle", FieldStorage.YES);
-            store("collection", FieldStorage.YES);
+            store("ContractName", FieldStorage.YES);
+            store("ContactTitle", FieldStorage.YES);
+            store("Collection", FieldStorage.YES);
             //endregion
         }
     }
@@ -102,8 +102,8 @@ public class MultiMapIndexCustomizedFields {
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             contacts = session.query(Contacts_ByNameAndTitle.IndexEntry.class, Contacts_ByNameAndTitle.class)
-                .whereStartsWith("contactName", namePrefix)
-                .whereStartsWith("contactTitle", titlePrefix)
+                .whereStartsWith("ContactName", namePrefix)
+                .whereStartsWith("ContactTitle", titlePrefix)
                 .selectFields(Contacts_ByNameAndTitle.ProjectedEntry.class)
                 .toList();
         }

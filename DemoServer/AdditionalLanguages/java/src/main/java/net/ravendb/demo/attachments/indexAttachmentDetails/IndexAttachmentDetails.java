@@ -18,41 +18,41 @@ public class IndexAttachmentDetails {
     //endregion
         //region Step_2
         public static class IndexEntry {
-            private String[] attachmentNames;
-            private String[] attachmentContentTypes;
-            private String[] attachmentHashes;
-            private String[] attachmentSizes;
+            private String[] AttachmentNames;
+            private String[] AttachmentContentTypes;
+            private String[] AttachmentHashes;
+            private String[] AttachmentSizes;
 
             public String[] getAttachmentNames() {
-                return attachmentNames;
+                return AttachmentNames;
             }
 
             public void setAttachmentNames(String[] attachmentNames) {
-                this.attachmentNames = attachmentNames;
+                this.AttachmentNames = attachmentNames;
             }
 
             public String[] getAttachmentContentTypes() {
-                return attachmentContentTypes;
+                return AttachmentContentTypes;
             }
 
             public void setAttachmentContentTypes(String[] attachmentContentTypes) {
-                this.attachmentContentTypes = attachmentContentTypes;
+                this.AttachmentContentTypes = attachmentContentTypes;
             }
 
             public String[] getAttachmentHashes() {
-                return attachmentHashes;
+                return AttachmentHashes;
             }
 
             public void setAttachmentHashes(String[] attachmentHashes) {
-                this.attachmentHashes = attachmentHashes;
+                this.AttachmentHashes = attachmentHashes;
             }
 
             public String[] getAttachmentSizes() {
-                return attachmentSizes;
+                return AttachmentSizes;
             }
 
             public void setAttachmentSizes(String[] attachmentSizes) {
-                this.attachmentSizes = attachmentSizes;
+                this.AttachmentSizes = attachmentSizes;
             }
         //endregion
         }
@@ -65,10 +65,10 @@ public class IndexAttachmentDetails {
             //endregion
             //region Step_4
                 "}).Select(this0 => new {" +
-                "    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name))," +
-                "    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType))," +
-                "    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash))," +
-                "    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))" +
+                "    AttachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name))," +
+                "    AttachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType))," +
+                "    AttachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash))," +
+                "    AttachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))" +
                 "})";
             //endregion
         }
@@ -85,8 +85,8 @@ public class IndexAttachmentDetails {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_5
             employeesWithMatchingAttachments = session.query(Employee.class, Employees_ByAttachmentDetails.class)
-                .whereEquals("attachmentContentTypes", attachmentContentType)
-                .whereGreaterThan("attachmentSizes", attachmentMinSize)
+                .whereEquals("AttachmentContentTypes", attachmentContentType)
+                .whereGreaterThan("AttachmentSizes", attachmentMinSize)
                 .toList();
             //endregion
         }

@@ -17,46 +17,46 @@ public class StoreFieldsInIndex {
 
         //region Step_2
         public static class IndexEntry {
-            private String company;
-            private int totalItemsOrdered;
+            private String Company;
+            private int TotalItemsOrdered;
 
             public String getCompany() {
-                return company;
+                return Company;
             }
 
             public void setCompany(String company) {
-                this.company = company;
+                this.Company = company;
             }
 
             public int getTotalItemsOrdered() {
-                return totalItemsOrdered;
+                return TotalItemsOrdered;
             }
 
             public void setTotalItemsOrdered(int totalItemsOrdered) {
-                this.totalItemsOrdered = totalItemsOrdered;
+                this.TotalItemsOrdered = totalItemsOrdered;
             }
         }
         //endregion
 
         //region Step_3
         public static class OrderProjectedDetails {
-            private Date orderedAt;
-            private int totalItemsOrdered;
+            private Date OrderedAt;
+            private int TotalItemsOrdered;
 
             public Date getOrderedAt() {
-                return orderedAt;
+                return OrderedAt;
             }
 
             public void setOrderedAt(Date orderedAt) {
-                this.orderedAt = orderedAt;
+                this.OrderedAt = orderedAt;
             }
 
             public int getTotalItemsOrdered() {
-                return totalItemsOrdered;
+                return TotalItemsOrdered;
             }
 
             public void setTotalItemsOrdered(int totalItemsOrdered) {
-                this.totalItemsOrdered = totalItemsOrdered;
+                this.TotalItemsOrdered = totalItemsOrdered;
             }
         }
         //endregion
@@ -64,12 +64,12 @@ public class StoreFieldsInIndex {
         public OrdersQuantity_ByCompany() {
             //region Step_4
             map = "docs.Orders.Select(order => new { \n" +
-                "   company = order.Company, \n" +
-                "   totalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
+                "   Company = order.Company, \n" +
+                "   TotalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
                 "})";
             //endregion
             //region Step_5
-            store("totalItemsOrdered", FieldStorage.YES);
+            store("TotalItemsOrdered", FieldStorage.YES);
             //endregion
         }
     }
@@ -86,7 +86,7 @@ public class StoreFieldsInIndex {
             IDocumentQuery<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersQuery = session
                 //region Step_6 
                 .query(OrdersQuantity_ByCompany.IndexEntry.class, OrdersQuantity_ByCompany.class)
-                .whereEquals("company", companyId)
+                .whereEquals("Company", companyId)
                 //endregion
                 //region Step_7
                 .selectFields(OrdersQuantity_ByCompany.OrderProjectedDetails.class);

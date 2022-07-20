@@ -18,14 +18,14 @@ public class IndexCompareExchange {
         //region Step_2
         public static class IndexEntry
         {
-            private int unitsInStock;
+            private int UnitsInStock;
 
             public int getUnitsInStock() {
-                return unitsInStock;
+                return UnitsInStock;
             }
 
             public void setUnitsInStock(int unitsInStock) {
-                this.unitsInStock = unitsInStock;
+                this.UnitsInStock = unitsInStock;
             }
         }
         //endregion

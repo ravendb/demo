@@ -16,46 +16,46 @@ public class ProjectIndexResults {
     //endregion
         //region Step_2
         public static class IndexEntry {
-            private int workingInCompanySince;
+            private int WorkingInCompanySince;
 
             public int getWorkingInCompanySince() {
-                return workingInCompanySince;
+                return WorkingInCompanySince;
             }
 
             public void setWorkingInCompanySince(int workingInCompanySince) {
-                this.workingInCompanySince = workingInCompanySince;
+                this.WorkingInCompanySince = workingInCompanySince;
             }
         }
         //endregion
 
         //region Step_3
         public static class EmployeeProjectedDetails {
-            private String firstName;
-            private String phone;
-            private String location;
+            private String FirstName;
+            private String Phone;
+            private String Location;
 
             public String getFirstName() {
-                return firstName;
+                return FirstName;
             }
 
             public void setFirstName(String firstName) {
-                this.firstName = firstName;
+                this.FirstName = firstName;
             }
 
             public String getPhone() {
-                return phone;
+                return Phone;
             }
 
             public void setPhone(String phone) {
-                this.phone = phone;
+                this.Phone = phone;
             }
 
             public String getLocation() {
-                return location;
+                return Location;
             }
 
             public void setLocation(String location) {
-                this.location = location;
+                this.Location = location;
             }
         }
         //endregion
@@ -64,7 +64,7 @@ public class ProjectIndexResults {
         public Employees_ByWorkPeriod() {
             map =
                 "docs.Employees.Select(employee => new {\n" +
-                "      workingInCompanySince = employee.HiredAt.Year\n" +
+                "      WorkingInCompanySince = employee.HiredAt.Year\n" +
                 "})";
         }
         //endregion
@@ -83,14 +83,14 @@ public class ProjectIndexResults {
             IDocumentQuery<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesQuery = session
                 //region Step_5
                 .query(Employees_ByWorkPeriod.IndexEntry.class, Employees_ByWorkPeriod.class)
-                .whereGreaterThan("workingInCompanySince", startYear)
+                .whereGreaterThan("WorkingInCompanySince", startYear)
                 //endregion
                 //region Step_6
                 .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class,
                     QueryData.customFunction("employee ",
-                        "{ firstName: employee.FirstName,\n" +
-                        "  phone: employee.HomePhone,\n" +
-                        "  location: employee.Address.City + ' ' + employee.Address.Country }"));
+                        "{ FirstName: employee.FirstName,\n" +
+                        "  Phone: employee.HomePhone,\n" +
+                        "  Location: employee.Address.City + ' ' + employee.Address.Country }"));
                 //endregion
 
             //region Step_7

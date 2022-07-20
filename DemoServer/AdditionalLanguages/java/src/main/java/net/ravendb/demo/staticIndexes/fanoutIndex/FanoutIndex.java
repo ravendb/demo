@@ -19,16 +19,16 @@ public class FanoutIndex {
     
         //region Step_2
         public static class IndexEntry {
-             private String productId;
-             private String productName;
+             private String ProductId;
+             private String ProductName;
         }
         //endregion
              
         //region Step_3
         public Orders_ByProductDetails() {
             map = "docs.Orders.SelectMany(order => order.Lines, (order, orderLine) => new {" +
-                "    productId = orderLine.Product," +
-                "    productName = orderLine.ProductName" +
+                "    ProductId = orderLine.Product," +
+                "    ProductName = orderLine.ProductName" +
                 "})";
         }
         //endregion
@@ -45,7 +45,7 @@ public class FanoutIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             
             orders = session.query(Order.class, Orders_ByProductDetails.class)
-                .whereStartsWith("productName", namePrefix)
+                .whereStartsWith("ProductName", namePrefix)
                 .toList();
         }
         //endregion

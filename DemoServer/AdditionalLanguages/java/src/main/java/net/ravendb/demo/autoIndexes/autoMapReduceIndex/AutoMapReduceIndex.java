@@ -12,23 +12,23 @@ public class AutoMapReduceIndex {
     //region Demo
     //region Step_1
     public static class CountryDetails {
-        private String country;
-        private int numberOfEmployees;
+        private String Country;
+        private int NumberOfEmployees;
 
         public String getCountry() {
-            return country;
+            return Country;
         }
 
         public void setCountry(String country) {
-            this.country = country;
+            this.Country = country;
         }
 
         public int getNumberOfEmployees() {
-            return numberOfEmployees;
+            return NumberOfEmployees;
         }
 
         public void setNumberOfEmployees(int numberOfEmployees) {
-            this.numberOfEmployees = numberOfEmployees;
+            this.NumberOfEmployees = numberOfEmployees;
         }
     }
     //endregion
