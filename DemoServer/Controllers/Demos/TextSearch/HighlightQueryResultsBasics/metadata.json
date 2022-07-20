@@ -159,9 +159,9 @@
                     "Url"  : "/text-search/fts-with-static-index-single-field"
                 },
                 {
-                    "Title": "Store Fields on Index Demo",
+                    "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-on-index"
+                    "Url"  : "/static-indexes/store-fields-in-index"
                 },
                 {
                     "Title": "Querying highlighting",
