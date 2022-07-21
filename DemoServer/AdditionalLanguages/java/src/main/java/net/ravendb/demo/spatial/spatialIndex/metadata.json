@@ -1,6 +1,6 @@
 {
     "Slug": "spatial-index",
-    "SourceFileName": "SpatialIndexController.cs",
+    "SourceFileName": "SpatialIndex.java",
     "Title": "Spatial Index",
     "DescriptionLines": [
         "Spatial data from a document can be indexed in a **spatial index field**.",
@@ -17,7 +17,7 @@
         {
             "Title": "Spatial query Demo",
             "Type" : "demo",
-            "Url"  : "/spatial/spatial-query"
+            "Url"  : "/java/spatial/spatial-query"
         },
         {
             "Title": "Spatial indexes",
@@ -27,17 +27,18 @@
         {
             "Title": "Querying: spatial",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/spatial"
         },
-        {
-            "Title": "How to spatial query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
-        },
+// TODO        
+//        {
+//            "Title": "How to spatial query",
+//            "Type" : "link",
+//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index"
+//        },
         {
             "Title": "Index Spatial Data",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
         },
         {
             "Title": "WKT geometry",
@@ -51,22 +52,18 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Company_ - indicates that the source collection for the index will be the 'Companies' collection<br>",
-                "    * _Companies_ByLocation.IndexEntry_ - is the shape of the index entries (see next step)"
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -93,7 +90,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -123,7 +120,7 @@
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
                 {
                     "Title": "Spatial indexes",
@@ -133,12 +130,12 @@
                 {
                     "Title": "Index Spatial Data",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 },
                 {
-                    "Title": "Store fields on index Demo",
+                    "Title": "Store fields in index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-on-index"
+                    "Url"  : "/java/static-indexes/store-fields-in-index"
                 }
             ]
         },
@@ -146,7 +143,7 @@
             "Title": "Customize spatial indexing strategy",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Use `Spatial()` to customize the strategy by which the spatial field will be indexed.",
+                "* Use `spatial()` to customize the strategy by which the spatial field will be indexed.",
                 "",
                 "* The strategy defined will also be the one used by the search engine when querying the index.<br>",
                 "  _When querying the index_ for documents matching some shape, the shape in the query is first 'passed' through the configured strategy algorithm and then compared to the existing index terms.",
@@ -182,7 +179,7 @@
                 {
                     "Title": "Index Spatial Data",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 },
                 {
                     "Title": "Bounding box",
@@ -224,7 +221,7 @@
                 {
                     "Title": "Index Spatial Data",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 },
                 {
                     "Title": "WKT geometry",
@@ -239,13 +236,13 @@
             "DescriptionLines": [
                 "* Query the 'Companies' collection using the defined index.",
                 "",
-                "* Use `Spatial()` to define the relation between the passed WKT shape and the spatial index field.",
-                "  Here we use the _Within_ method, thus searching for all documents whose spatial data lies within the provided shape.",
-                "  Alternatively, use the _RelatesToShape_ method and pass the required relationship.",
+                "* Use `spatial()` to define the relation between the passed WKT shape and the spatial index field.",
+                "  Here we use the _within_ method, thus searching for all documents whose spatial data lies within the provided shape.",
+                "  Alternatively, use the _relatesToShape_ method and pass the required relationship.",
                 "",
-                "* Use `OrderByDistance()` to order the resulting documents by their distance from the specified point.",
+                "* Use `orderByDistance()` to order the resulting documents by their distance from the specified point.",
                 "",
-                "* Call `ToList()` to execute the query.",
+                "* Call `toList()` to execute the query.",
                 "",
                 "* The query results will include all documents from the 'Companies' collection<br>",
                 "  whose geodata falls within the defined polygon, ordered by their distance from Seattle."
@@ -255,7 +252,7 @@
                 {
                     "Title": "Query overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview#step-3"
+                    "Url"  : "/java/queries/query-overview#step-3"
                 },
                 {
                     "Title": "Spatial indexes",
@@ -265,7 +262,7 @@
                 {
                     "Title": "Index Spatial Data",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 }
             ]
         }
