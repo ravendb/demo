@@ -73,6 +73,7 @@ namespace DemoServer.Controllers.Demos.FacetedSearch.FacetsFromDocument
                             FieldName = "Category"
                         }
                     },
+                    
                     RangeFacets = new List<RangeFacet>
                     {
                         new RangeFacet<Product>

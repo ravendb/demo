@@ -1,0 +1,284 @@
+{
+    "Slug": "facets-basics",
+    "SourceFileName": "FacetsBasics.java",
+    "Title": "Facets - Basics",
+    "DescriptionLines": [
+        "A RavenDB query returns a list of documents.<br>",
+        "When using a **Faceted Search** this document list will be grouped by a defined entry (Facet) or sub-ranges of an entry (RangeFacet),",
+        "and now **each item in the query results will be the aggregated info per such group of documents**.",
+        "",
+        "Faceted search results allow you to narrow down your search as the aggregated info (i.e. count, max/min value, etc.)",
+        "provides the needed insight to know on which document group to continue querying."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Facets with Map index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+        },
+        {
+            "Title": "Facets with Map-Reduce",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+        },
+        {
+            "Title": "Facets - dynamic aggregation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+        },
+// TODO
+//        {
+//            "Title": "Faceted search",
+//            "Type" : "link",
+//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
+//        },
+//        {
+//            "Title": "Faceted search - How to",
+//            "Type" : "link",
+//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
+//        },
+        {
+            "Title": "Facets - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/180897/queries-in-ravendb-facets-of-information#"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define an index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define an index on the collection you would like to query.<br>",
+                "  (CategoryName is loaded from a related document).",
+                "",
+                "* The index entry fields will be used to define the Facets and the Facets' Ranges (steps 2 & 3).",
+                "",
+                "* Note: Faceted Search can be applied on Map-Reduce Indexes as well."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/static-indexes/map-index"
+                },
+                {
+                    "Title": "Index Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/related-documents/index-related-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Define a Facet",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "Define a `Facet` object:",
+                "",
+                "* Set _FieldName_ - The index entry field by which the documents will be grouped.<br>",
+                "* In this example, the grouping is done by the content of index field 'CategoryName'.<br>",
+                "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.",
+                "",
+                "* Set _DisplayFieldName_ - An optional property.<br>",
+                "  A customized name that can be given to the facet field in the aggregated results.",
+                "",
+                "* 2 more optional properties are available (see dedicated demos in the links): TODO !!!",
+                "  * _Options_ - define skipping, paging & sorting options",
+                "  * _Aggregations_ - define the sum, min, max & average per aggregated result",
+                "",
+                "* Any number of Facets can be defined<br>",
+                "  The Facets are added to a Facet List in step 4. This list will used in the query."
+            ],
+            "Assets": [
+// TODO
+//                {
+//                    "Title": "Faceted search",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
+//                },
+//                {
+//                    "Title": "Faceted search - How to",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
+//                },
+                {
+                    "Title": "Facets - Options Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/faceted-search/facets-options"
+                },
+                {
+                    "Title": "Facets - Aggregations Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/faceted-search/facets-aggregations"
+                }
+            ]
+        },
+        {
+            "Title": "Define a RangeFacet",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "Define a `RangeFacet` object:",
+                "",
+                "* Set _Ranges_ - Define ranges on an index entry field by which the documents will be grouped.<br>",
+                "  A separate aggregated item will be created per range defined.",
+
+                "* In this example, the ranges are defined on index field 'PricePerUnit'.<br>",
+                "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.",
+                "",
+                "* Set _DisplayFieldName_ - An optional property.<br>",
+                "  A customized name that can be given to the facet field in the aggregated results.",
+                "",
+                "* Another optional property is available (see dedicated demo in the links):",
+                "  * _Aggregations_ - define the sum, min, max & average per aggregated result.   TODO ...",
+                "",
+                "* Any number of RangeFacets can be defined<br>",
+                "  The RangeFacets are added to a Facet List in step 4. This list will used in the query."
+            ],
+            "Assets": [
+// TODO
+//                {
+//                    "Title": "Faceted search",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
+//                },
+//                {
+//                    "Title": "Faceted search - How to",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
+//                },
+                {
+                    "Title": "Facets - Aggregations Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/faceted-search/facets-aggregations"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Facet list",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Define the _list of Facets_ by which to aggregate the documents matching the query criteria.<br>",
+                "  Initialize it with the Facets and RangeFacets from the previous steps.",
+                "",
+                "* The available Facet types are:",
+                "  * _Facet_",
+                "  * _RangeFacet_",
+                "",
+                "* Both types inherit from `FacetBase`.<br>",
+                "  Any number of Facets and RangeFacets can be added to this list."
+            ],
+            "Assets": [
+// TODO
+//                {
+//                    "Title": "Faceted search",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
+//                },
+//                {
+//                    "Title": "Faceted search - How to",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
+//                }
+            ]
+        },
+        {
+            "Title": "Define the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the defined index.<br>",
+                "  At this point you can apply any filtering actions using _where()_ clause.<br>",
+                "  Clauses such as 'include' or 'load' cannot be used.<br>",
+                "",
+                "* Aggregating by the Facets is applied last (see next step).",
+                "",
+                "* The above query definition has no filtering.<br>",
+                "  It results with all documents from the Products collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Example Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/query-example"
+                },
+                {
+                    "Title": "Facets with Map index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+                },
+                {
+                    "Title": "Facets with Map-Reduce",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Aggregate by Facets",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* Call `aggregateBy()` for the server to aggregate the resulting products documents according to the passed facets object.",
+                "",
+                "* After the first call to _aggregateBy_, you may call _andAggregateBy_, passing more facets definitions.",
+                "",
+                "* The query will be sent to the server & executed in the next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Example Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/query-example"
+                },
+                {
+                    "Title": "Facets with Map index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+                },
+                {
+                    "Title": "Facets with Map-Reduce",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-7",
+            "DescriptionLines": [
+                "* The resulting _query_ variable only holds the query definition.<br>",
+                "  (Use query.toString() to view the generated RQL)<br>",
+                "",
+                "* Execute the query by calling `execute()`.",
+                "",
+                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.",
+                "",
+                "* E.g.:",
+                "  * Under Facet: 'Product Category' there is an aggregated item for all Product documents that have 'beverages' in their category field.",
+                "",
+                "  * Under Facet: 'Price per Unit' there is an aggregated item for all Product documents that their 'PricePerUnit' is >= 100."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Example Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/query-example"
+                },
+                {
+                    "Title": "Facets with Map index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+                },
+                {
+                    "Title": "Facets with Map-Reduce",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+                }
+            ]
+        }
+    ]
+}
