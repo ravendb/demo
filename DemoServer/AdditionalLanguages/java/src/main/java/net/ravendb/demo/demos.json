@@ -142,7 +142,8 @@
             "directory": "compareExchange"
         },
         "demos": [
-            "indexCompareExchange"
+            "indexCompareExchange",
+            "createCompareExchange"
         ]
     },
     {
