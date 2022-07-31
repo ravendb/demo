@@ -17,7 +17,7 @@ public class SpatialIndex {
         //region Step_2
         public static class IndexEntry {
             private String companyName;
-            private Object locationCoordinates ;
+            private Object locationCoordinates;
         
             public String getCompanyName() {
                 return companyName;
@@ -27,11 +27,11 @@ public class SpatialIndex {
                 this.companyName = companyName;
             }
         
-            public Object getLocationCoordinates () {
+            public Object getLocationCoordinates() {
                 return locationCoordinates;
             }
         
-            public void setLocationCoordinates (Object locationCoordinates) {
+            public void setLocationCoordinates(Object locationCoordinates) {
                 this.locationCoordinates = locationCoordinates;
             }
         }

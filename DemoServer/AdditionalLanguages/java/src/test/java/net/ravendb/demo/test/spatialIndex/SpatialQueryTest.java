@@ -15,6 +15,6 @@ public class SpatialQueryTest {
         runParams.setRadius(2);
 
         List<SpatialQuery.EmployeeDetails> results = new SpatialQuery().run(runParams);
-        Assert.assertTrue(results.size() == 2);
+        Assert.assertEquals(2, results.size());
     }
 }
