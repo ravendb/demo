@@ -14,13 +14,7 @@ public class HighlightQueryResultsMapReduceTest {
         DocumentStoreHolder.mediaStore.executeIndex(new HighlightQueryResultsMapReduce.ArtistsAllSongs());
         HighlightQueryResultsMapReduce.RunParams runParams = new HighlightQueryResultsMapReduce.RunParams();
 
-        runParams.setSearchTerm("smile");
-        runParams.setPreTag("(:");
-        runParams.setPostTag(":)");
-        runParams.setFragmentLength(80);
-        runParams.setFragmentCount(1);
-
         List<HighlightQueryResultsMapReduce.DataToShow> results = new HighlightQueryResultsMapReduce().run(runParams);
-        Assert.assertTrue(results.size() == 13);
+        Assert.assertEquals(13, results.size());
     }
 }
