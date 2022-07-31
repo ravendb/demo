@@ -38,7 +38,7 @@ public class AdditionalSourcesIndex {
             //endregion
 
             //region Step_4
-            additionalSources = Collections.singletonMap("DiscountLogic", ADDITIONAL_SOURCE);
+            this.setAdditionalSources(Collections.singletonMap("DiscountLogic", ADDITIONAL_SOURCE));
             //endregion
         }
     }
