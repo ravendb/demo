@@ -1,6 +1,6 @@
 package net.ravendb.demo.test.facetedSearch;
 
-import net.ravendb.demo.facetedSearch.facetsBasics.FacetsBasic;
+import net.ravendb.demo.facetedSearch.facetsBasics.FacetsBasics;
 import net.ravendb.demo.facetedSearch.facetsFromDocument.FacetsFromDocument;
 import org.junit.Assert;
 import org.junit.Test;

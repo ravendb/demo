@@ -64,8 +64,8 @@ public class StoreFieldsInIndex {
         public OrdersQuantity_ByCompany() {
             //region Step_4
             map = "docs.Orders.Select(order => new { \n" +
-                "   company = order.Company, \n" +
-                "   totalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
+                "   Company = order.Company, \n" +
+                "   TotalItemsOrdered = Enumerable.Sum(order.Lines, orderLine => ((int) orderLine.Quantity)) \n" +
                 "})";
             //endregion
             //region Step_5
@@ -86,7 +86,7 @@ public class StoreFieldsInIndex {
             IDocumentQuery<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersQuery = session
                 //region Step_6 
                 .query(OrdersQuantity_ByCompany.IndexEntry.class, OrdersQuantity_ByCompany.class)
-                .whereEquals("company", companyId)
+                .whereEquals("Company", companyId)
                 //endregion
                 //region Step_7
                 .selectFields(OrdersQuantity_ByCompany.OrderProjectedDetails.class);

@@ -66,27 +66,27 @@ public class MultiMapIndexCustomizedFields {
         public Contacts_ByNameAndTitle() {
             //region Step_4
             addMap("docs.Employees.Select(employee => new {" +
-                "    contactName = (employee.FirstName + \" \") + employee.LastName," +
-                "    contactTitle = employee.Title," +
-                "    collection = this.MetadataFor(employee)[\"@collection\"]" +
+                "    ContactName = (employee.FirstName + \" \") + employee.LastName," +
+                "    ContactTitle = employee.Title," +
+                "    Collection = this.MetadataFor(employee)[\"@collection\"]" +
                 "})");
 
             addMap("docs.Companies.Select(company => new {" +
-                "    contactName = company.Contact.Name," +
-                "    contactTitle = company.Contact.Title," +
-                "    collection = this.MetadataFor(company)[\"@collection\"]" +
+                "    ContactName = company.Contact.Name," +
+                "    ContactTitle = company.Contact.Title," +
+                "    Collection = this.MetadataFor(company)[\"@collection\"]" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    contactName = supplier.Contact.Name," +
-                "    contactTitle = supplier.Contact.Title," +
-                "    collection = this.MetadataFor(supplier)[\"@collection\"]" +
+                "    ContactName = supplier.Contact.Name," +
+                "    ContactTitle = supplier.Contact.Title," +
+                "    Collection = this.MetadataFor(supplier)[\"@collection\"]" +
                 "})");
             //endregion
             //region Step_5
-            store("contractName", FieldStorage.YES);
-            store("contactTitle", FieldStorage.YES);
-            store("collection", FieldStorage.YES);
+            store("ContractName", FieldStorage.YES);
+            store("ContactTitle", FieldStorage.YES);
+            store("Collection", FieldStorage.YES);
             //endregion
         }
     }
@@ -102,8 +102,8 @@ public class MultiMapIndexCustomizedFields {
 
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             contacts = session.query(Contacts_ByNameAndTitle.IndexEntry.class, Contacts_ByNameAndTitle.class)
-                .whereStartsWith("contactName", namePrefix)
-                .whereStartsWith("contactTitle", titlePrefix)
+                .whereStartsWith("ContactName", namePrefix)
+                .whereStartsWith("ContactTitle", titlePrefix)
                 .selectFields(Contacts_ByNameAndTitle.ProjectedEntry.class)
                 .toList();
         }
