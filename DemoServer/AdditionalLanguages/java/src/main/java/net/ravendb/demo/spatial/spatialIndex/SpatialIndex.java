@@ -16,23 +16,23 @@ public class SpatialIndex {
     
         //region Step_2
         public static class IndexEntry {
-            private String CompanyName;
-            private Object LocationCoordinates ;
+            private String companyName;
+            private Object locationCoordinates ;
         
             public String getCompanyName() {
-                return CompanyName;
+                return companyName;
             }
         
             public void setCompanyName(String companyName) {
-                this.CompanyName = companyName;
+                this.companyName = companyName;
             }
         
             public Object getLocationCoordinates () {
-                return LocationCoordinates;
+                return locationCoordinates;
             }
         
             public void setLocationCoordinates (Object locationCoordinates) {
-                this.LocationCoordinates = locationCoordinates;
+                this.locationCoordinates = locationCoordinates;
             }
         }
         //endregion

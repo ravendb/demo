@@ -11,7 +11,10 @@ public class SpatialQueryTest {
     @Test
     public void test() {
         SpatialQuery.RunParams runParams = new SpatialQuery.RunParams();
+
+        runParams.setRadius(2);
+
         List<SpatialQuery.EmployeeDetails> results = new SpatialQuery().run(runParams);
-        Assert.assertNotNull(results);
+        Assert.assertTrue(results.size() == 2);
     }
 }
