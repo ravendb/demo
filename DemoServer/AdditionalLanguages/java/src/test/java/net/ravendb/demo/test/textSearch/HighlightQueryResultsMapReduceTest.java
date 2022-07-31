@@ -12,11 +12,15 @@ public class HighlightQueryResultsMapReduceTest {
     @Test
     public void test() {
         DocumentStoreHolder.mediaStore.executeIndex(new HighlightQueryResultsMapReduce.ArtistsAllSongs());
-
         HighlightQueryResultsMapReduce.RunParams runParams = new HighlightQueryResultsMapReduce.RunParams();
-        List<HighlightQueryResultsMapReduce.DataToShow> results =
-            new HighlightQueryResultsMapReduce().run(runParams);
 
-        Assert.assertNotNull(results);
+        runParams.setSearchTerm("smile");
+        runParams.setPreTag("(:");
+        runParams.setPostTag(":)");
+        runParams.setFragmentLength(80);
+        runParams.setFragmentCount(1);
+
+        List<HighlightQueryResultsMapReduce.DataToShow> results = new HighlightQueryResultsMapReduce().run(runParams);
+        Assert.assertTrue(results.size() == 13);
     }
 }

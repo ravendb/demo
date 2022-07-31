@@ -23,23 +23,23 @@ public class HighlightQueryResultsMapReduce {
     
         //region Step_2
         public static class IndexEntry {
-            private String Artist;
-            private String AllSongTitles;
+            private String artist;
+            private String allSongTitles;
 
             public String getArtist() {
-                return Artist;
+                return artist;
             }
 
             public void setArtist(String artist) {
-                this.Artist = artist;
+                this.artist = artist;
             }
 
             public String getAllSongTitles() {
-                return AllSongTitles;
+                return allSongTitles;
             }
 
             public void setAllSongTitles(String allSongTitles) {
-                this.AllSongTitles = allSongTitles;
+                this.allSongTitles = allSongTitles;
             }
         }
         //endregion
