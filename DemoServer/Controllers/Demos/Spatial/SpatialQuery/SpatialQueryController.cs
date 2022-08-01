@@ -33,9 +33,9 @@ namespace DemoServer.Controllers.Demos.Spatial.SpatialQuery
             int radius = runParams.Radius ?? 2;
             
             List<EmployeeDetails> queryResults = new List<EmployeeDetails>();
+            #region Demo
             List<Employee> employeesWithinCircle = new List<Employee>();
                 
-            #region Demo
             using (IDocumentSession session = DocumentStoreHolder.Store.OpenSession())
             {
                 #region Step_1
