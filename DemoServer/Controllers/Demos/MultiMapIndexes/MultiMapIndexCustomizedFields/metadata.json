@@ -224,9 +224,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/storing-data-in-index"
                 },
                 {
-                    "Title": "Store Fields on Index Demo - TODO...",
+                    "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-on-index"
+                    "Url"  : "/static-indexes/store-fields-in-index"
                 }
             ]
         },

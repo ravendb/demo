@@ -136,9 +136,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-spatial-data"
                 },
                 {
-                    "Title": "Store fields on index Demo",
+                    "Title": "Store fields in index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-on-index"
+                    "Url"  : "/static-indexes/store-fields-in-index"
                 }
             ]
         },
