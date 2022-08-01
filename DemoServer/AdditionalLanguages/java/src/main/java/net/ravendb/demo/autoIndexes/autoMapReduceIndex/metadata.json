@@ -64,7 +64,7 @@
                 "* The class fields are used when setting the aggregation action within the query definition.<br>",
                 "  See step 4.",
                 "",
-                "* The query in this demo will return the aggregated _numberOfEmployees_ in each _country_."
+                "* The query in this demo will return the aggregated _NumberOfEmployees_ in each _Country_."
             ],
             "Assets": [
                 {

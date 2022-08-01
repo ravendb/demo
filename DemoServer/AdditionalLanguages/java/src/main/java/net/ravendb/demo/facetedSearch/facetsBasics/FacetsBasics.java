@@ -13,7 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-public class FacetsBasic {
+public class FacetsBasics {
     //region demo
     //region Step_1
     public static class Products_ByCategoryAndPrice extends AbstractIndexCreationTask {

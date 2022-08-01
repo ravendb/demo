@@ -1,7 +1,7 @@
 package net.ravendb.demo.test.facetedSearch;
 
 import net.ravendb.demo.common.DocumentStoreHolder;
-import net.ravendb.demo.facetedSearch.facetsBasics.FacetsBasic;
+import net.ravendb.demo.facetedSearch.facetsBasics.FacetsBasics;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,10 +11,10 @@ public class FacetsBasicTest {
 
     @Test
     public void test() {
-        DocumentStoreHolder.store.executeIndex(new FacetsBasic.Products_ByCategoryAndPrice());
+        DocumentStoreHolder.store.executeIndex(new FacetsBasics.Products_ByCategoryAndPrice());
 
-        FacetsBasic.RunParams runParams = new FacetsBasic.RunParams();
-        List<FacetsBasic.MyFacetResult> facetResults = new FacetsBasic().run(runParams);
+        FacetsBasics.RunParams runParams = new FacetsBasics.RunParams();
+        List<FacetsBasics.MyFacetResult> facetResults = new FacetsBasics().run(runParams);
         Assert.assertNotNull(facetResults);
     }
 }
