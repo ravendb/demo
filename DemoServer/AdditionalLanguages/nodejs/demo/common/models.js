@@ -34,11 +34,18 @@ class Employee {
     }
 }
 
+class Order {
+    constructor () {
+        this.id = null;
+    }
+}
+
 module.exports = {
     Contact,
     Company,
     Supplier,
     Category,
     Product,
-    Employee
+    Employee,
+    Order
 };
