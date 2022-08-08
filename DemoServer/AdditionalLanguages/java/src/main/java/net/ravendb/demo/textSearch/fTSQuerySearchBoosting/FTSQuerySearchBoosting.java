@@ -1,4 +1,4 @@
-package net.ravendb.demo.textSearch.fTSQuerySearchBasics;
+package net.ravendb.demo.textSearch.fTSQuerySearchBoosting;
 
 //region Usings
 import net.ravendb.client.documents.session.IDocumentSession;

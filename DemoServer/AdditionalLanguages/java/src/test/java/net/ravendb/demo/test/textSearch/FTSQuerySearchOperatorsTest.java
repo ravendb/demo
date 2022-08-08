@@ -1,8 +1,7 @@
 package net.ravendb.demo.test.textSearch;
 
 import net.ravendb.demo.common.models.Employee;
-import net.ravendb.demo.textSearch.FTSQuerySearchOperators.FTSQuerySearchOperators;
-import net.ravendb.demo.textSearch.fTSQuerySearchBasics.FTSQuerySearchBasics;
+import net.ravendb.demo.textSearch.fTSQuerySearchOperators.FTSQuerySearchOperators;
 import org.junit.Assert;
 import org.junit.Test;
 

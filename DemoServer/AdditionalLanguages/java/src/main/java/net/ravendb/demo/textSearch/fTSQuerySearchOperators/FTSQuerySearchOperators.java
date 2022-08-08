@@ -1,4 +1,4 @@
-package net.ravendb.demo.textSearch.FTSQuerySearchOperators;
+package net.ravendb.demo.textSearch.fTSQuerySearchOperators;
 //region Usings
 import net.ravendb.client.documents.queries.SearchOperator;
 import net.ravendb.client.documents.session.IDocumentSession;
