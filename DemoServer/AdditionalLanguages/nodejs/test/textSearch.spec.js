@@ -1,4 +1,8 @@
 const assert = require('assert');
+const {
+    documentStore,
+    mediaStore
+} = require('../demo/common/docStoreHolder');
 
 describe('text search', function () {
     it('single field', async function () {
@@ -43,5 +47,33 @@ describe('text search', function () {
         });
 
         assert.ok(result);
+    });
+
+    it('highlight query results basics', async function () {
+        const employees = await require('../demo/textSearch/highlightQueryResultsBasics').run({
+            fragmentLength: 50,
+            fragmentCount: 2
+        });
+
+        assert.ok(employees);
+    });
+
+    it('highlight query results customized', async function () {
+        const { run, EmployeesDetails } = require('../demo/textSearch/highlightQueryResultsCustomized');
+
+        await new EmployeesDetails().execute(documentStore);
+
+        const results = await run({});
+
+        assert.equal(results.length, 5);
+    });
+
+    it('highlight query results map reduce', async function () {
+        const { run, ArtistsAllSongs } = require('../demo/textSearch/highlightQueryResultsMapReduce');
+
+        await new ArtistsAllSongs().execute(mediaStore);
+
+        const results = await run({});
+        assert.equal(results.length, 13);
     });
 });
