@@ -20,7 +20,7 @@ public class FTSQuerySearchWildcards {
         //region Demo
         List<LastFm> songsWithMatchingTerms;
 
-        try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
+        try (IDocumentSession session = DocumentStoreHolder.mediaStore.openSession()) {
             //region Step_1
             songsWithMatchingTerms = session.query(LastFm.class)
             //endregion

@@ -40,6 +40,12 @@ class Order {
     }
 }
 
+class LastFm {
+    constructor () {
+        this.id = null;
+    }
+}
+
 module.exports = {
     Contact,
     Company,
@@ -47,5 +53,6 @@ module.exports = {
     Category,
     Product,
     Employee,
-    Order
+    Order,
+    LastFm
 };
