@@ -12,6 +12,6 @@ describe('Attachments', function () {
     it('load attachment', async () => {
         const { run } = require('../demo/attachments/loadAttachment');
 
-        await run({ attachmentName: 'image.' });
+        await run({ attachmentName: 'image.jpg' });
     });
 });

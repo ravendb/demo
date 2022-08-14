@@ -1,7 +1,6 @@
 const { documentStore } = require('../../common/docStoreHolder');
-const fs = require('fs');
-
 //region Usings
+const fs = require('fs');
 //endregion
 
 const DEFAULT_DOCUMENT_ID = 'companies/2-A';
