@@ -1,5 +1,5 @@
 //region Usings
-const { AbstractIndexCreationTask, AbstractCsharpIndexCreationTask} = require('ravendb');
+const { AbstractCsharpIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
