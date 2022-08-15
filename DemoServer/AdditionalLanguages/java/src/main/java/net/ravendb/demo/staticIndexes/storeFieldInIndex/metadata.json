@@ -207,7 +207,7 @@
                 "",
                 "* In this example:<br>",
                 "  * 'TotalItemsOrdered' is fetched from the index<br>",
-                "  * 'OrderedAt' if fetched from the document store"
+                "  * 'OrderedAt' is fetched from the document store"
             ],
             "Assets": [
                 {
@@ -216,9 +216,9 @@
                     "Url"  : "/static-indexes/project-index-results"
                 },
                 {
-                    "Title": "selectFields()",
+                    "Title": "Querying: Projections",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections#select"
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
                 }
             ]
         },

@@ -1,6 +1,6 @@
 {
     "Slug": "store-fields-in-index",
-    "SourceFileName": "StoreFieldsInIndexController.cs",
+    "SourceFileName": "index.js",
     "Title": "Store Fields in Index",
     "DescriptionLines": [
         "Querying an index results in matching documents that satisfy the query.",
@@ -13,17 +13,17 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Project Index Result Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/project-index-results"
+            "Url"  : "/nodejs/static-indexes/project-index-results"
         },
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Storing Data in the Index",
@@ -33,7 +33,7 @@
         {
             "Title": "Indexes: Storing Data",
             "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/storing-data-in-index"
+            "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/storing-data-in-index"
         }
     ],
 
@@ -42,97 +42,55 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
+                "* Create the Map index class.",
                 "",
-                "* The generic params:<br>",
-                "    * _Order_ - indicates that the source collection for the index will be the 'Orders' collection<br>",
-                "    * _OrdersQuantity_ByCompany.IndexEntry_ - is the shape of the resulting index-fields<br>(see next step)"
+                "* Since the index map function in this demo is written with JavaScript then inherit from `AbstractJavaScriptIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
                 },
                 {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-                }
-            ]
-        },
-        {
-            "Title": "The index Entry class",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
-                "",
-                "* The _content_ for each index-field is configured in the index constructor (see next step).",
-                "",
-                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-                }
-            ]
-        },
-        {
-            "Title": "The projected class",
-            "Slug": "step-3",
-            "DescriptionLines": [
-                "* `OrderProjectedDetails` will contain the details projected per document in the results.<br>",
-                "  Used in step 6.",
-                "",
-                "* Note: it is not mandatory for this class to be nested within the index class."
-            ],
-            "Assets": [
-                {
-                    "Title": "Project Index Result Demo",
+                    "Title": "JavaScript Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Url"  : "/nodejs/javascript-indexes/javascript-map-index"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
         {
             "Title": "The Index Map",
-            "Slug": "step-4",
+            "Slug": "step-2",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "* The _map_ function defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
+                "* In this example, field `totalItemsOrdered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -148,13 +106,13 @@
         },
         {
             "Title": "Store field in Index",
-            "Slug": "step-5",
+            "Slug": "step-3",
             "DescriptionLines": [
-                "* Use `Store.Add()` with _FieldStorage.Yes_ to store the specified field in the index.",
+                "* Call `store()` with _Yes_ to store the specified field in the index.",
                 "",
                 "* At query time, the value will be fetched directly from the index instead of from the document store.",
                 "",
-                "* Use StoreAllFields(FieldStorage.Yes) to store ALL the index-fields.",
+                "* Use storeAllFields(Yes) to store ALL the index-fields.",
                 "",
                 "* Note: Storing fields on the index will increase the index size on disk."
             ],
@@ -167,22 +125,37 @@
                 {
                     "Title": "Indexes: Storing Data",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/storing-data-in-index"
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/storing-data-in-index"
                 },
                 {
                     "Title": "Studio: Index Field Options",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index#index-field-options"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-index#index-field-options"
+                }
+            ]
+        },
+        {
+            "Title": "The projected class",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* `OrderProjectedDetails` will contain the details projected per document in the results.<br>",
+                "  Used in step 6."
+            ],
+            "Assets": [
+                {
+                    "Title": "Project Index Result Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/project-index-results"
                 }
             ]
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-6",
+            "Slug" : "step-5",
             "DescriptionLines": [
                 "* Query the 'Orders' collection using the defined index.",
                 "",
-                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry.class`",
+                "* The orders' documents can be _filtered_ by the index-fields defined in the index",
                 "",
                 "* The resulting documents will include only orders that where made by 'companyId'."
             ],
@@ -191,48 +164,49 @@
                 {
                     "Title": "Filtering Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/filtering-results-basics"
+                    "Url"  : "/nodejs/queries/filtering-results-basics"
                 }
             ]
         },
         {
             "Title": "Project Results",
-            "Slug" : "step-7",
+            "Slug" : "step-6",
             "DescriptionLines": [
-                "* Use `ProjectInto()` to make the server return only the fields defined in the 'OrdersQuantity_ByCompany.OrderProjectedDetails' class per document result instead of the whole document.<br>",
+                "* Use `selectFields()` to make the server return only the fields defined in the 'OrderProjectedDetails' class per document result instead of the whole document.<br>",
+                "",
+                "* Pass to `QueryData` the names of the fields requested <br>& the names of the fields as defined in the projected class",
+                "",
                 "  * If the field is _stored in the index_ - the server will fetch it from the index<br>",
                 "  * If the field is _not stored in the index_ - the server will fetch it from the document store",
                 "",
                 "* In this example:<br>",
-                "  * 'TotalItemsOrdered' is fetched from the index<br>",
-                "  * 'OrderedAt' is fetched from the document store",
-                "",
-                "* Method _Select()_ can be used instead of ProjectInfo(). See related links."
+                "  * 'totalItemsOrdered' is fetched from the index<br>",
+                "  * 'orderedAt' is fetched from the document store"
             ],
             "Assets": [
                 {
                     "Title": "Project Index Result Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Url"  : "/nodejs/static-indexes/project-index-results"
                 },
                 {
                     "Title": "Querying: Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
                 },
                 {
-                    "Title": "Select()",
+                    "Title": "Projecting objects",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#select"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/nodejs/indexes/querying/projections#example-iii---projecting-arrays-and-objects"
                 }
             ]
         },
         {
             "Title": "Execute the Query",
-            "Slug" : "step-8",
+            "Slug" : "step-7",
             "DescriptionLines": [
                 "* The _ordersQuery_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "  Execute the query by calling `all()`",
                 "",
                 "* The final query results include the projected details for orders that where made by 'companyId'.",
                 "",
@@ -242,7 +216,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/nodejs/queries/query-overview"
                 }
             ]
         }

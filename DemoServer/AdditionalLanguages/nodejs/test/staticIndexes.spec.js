@@ -40,12 +40,12 @@ describe('Static indexes', function () {
     });
 
     it('store fields in index', async function () {
-        const { run } = require('../demo/staticIndexes/storeFieldInIndex');
+        const { run } = require('../demo/staticIndexes/storeFieldsInIndex');
 
         const companyId = 'companies/1-A';
 
         const orders = await run({ companyId });
 
-        assert.ok(orders);
+        assert.equal(orders.length, 6);
     });
 });
