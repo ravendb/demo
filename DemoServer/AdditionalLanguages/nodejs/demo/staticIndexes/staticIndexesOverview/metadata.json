@@ -65,7 +65,7 @@
                 "* Create an index class that inherits from a common abstract index class.",
                 "",
                 "* Use:<br>",
-                "    * `AbstractIndexCreationTask` - for a Map index<br>",
+                "    * `AbstractCsharpIndexCreationTask` - for a Map index<br>",
                 "    * `AbstractJavaScriptIndexCreationTask` - for a Javascript index<br>",
                 "    * `AbstractJavaScriptMultiMapIndexCreationTask` - for a Multi-Map index",
                 "",
