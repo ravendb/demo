@@ -1,0 +1,198 @@
+{
+    "Slug": "multi-map-index-basic",
+    "SourceFileName": "index.js",
+    "Title": "Multi Map Index - Basic",
+    "DescriptionLines": [
+        "A **Multi Map index** allows querying multiple collections in a single query.",
+        "",
+        "Multiple Map functions are defined - one per indexed collection.",
+        "",
+        "Document properties from different source collections are indexed into a common index shape."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Querying many sources",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+        },
+        {
+            "Title": "Multi Map indexes from the client",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+        },
+        //TODO
+        //        {
+        //            "Title": "Multi Map indexes",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/multi-map-indexes"
+        //        },
+        {
+            "Title": "Multi Map indexes (Studio)",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-multi-map-index"
+        },
+        {
+            "Title": "Indexes Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
+        }
+        //TODO
+        //        {
+        //            "Title": "Polymorphic data",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-polymorphic-data"
+        //        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Multi Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Multi Map index class.<br>",
+                "  Inherit from `AbstractJavaScriptMultiMapIndexCreationTask`"
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+                //TODO
+                //        {
+                //            "Title": "Multi Map indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/multi-map-indexes"
+                //        },
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Use `map()` to define the content of the index-field per collection indexed.<br>",
+                "  Data from the different collections is indexed into a _common index-field_.",
+                "",
+                "* In this example, document properties from Companies & Suppliers collections are indexed into the common index field _'name'_.<br>",
+                "  The document properties indexed are not customized but taken as is.",
+                "",
+                "* The index will contain a mapping from any indexed 'name' term to the relevant document in either the Companies or the Suppliers collection.",
+                "",
+                "* When querying this index, the indexed term 'name' can be used to filter the query results and get matching documents from either collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                },
+                //TODO
+                //        {
+                //            "Title": "Multi Map indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/multi-map-indexes"
+                //        },
+                {
+                    "Title": "Multi Map Index - Customized Fields Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/multi-map-indexes/multi-map-index-customized-fields"
+                }
+            ]
+        },
+        {
+            "Title": "The Index Entry class",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.",
+                "",
+                "* These fields contain the indexed data from all the collections defined in the index<br> (configured in the previous step).",
+                "",
+                "* In this example, only a single index-field _name_ is defined.<br>",
+                "  Collections defined in the index can be queried and filtered by this field."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+                //TODO
+                //        {
+                //            "Title": "Multi Map indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/multi-map-indexes"
+                //        },
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Query both the Companies & the Suppliers collections using the index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria (names that start with 'namePrefix')",
+                "  and retrieve the matching Companies & Suppliers documents from the documents store.",
+                "",
+                "* _The query results list objects_ will be in the shape of the IndexEntry class (IndexEntry) since no projection was used in this example.",
+                "",
+                "* _Note_: Not using projection here is possible since the indexed data was not customized,<br>",
+                "  but taken as-is from the documents' properties."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                },
+                //TODO
+                //        {
+                //            "Title": "Multi Map indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/multi-map-indexes"
+                //        },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                },
+                {
+                    "Title": "Multi Map Index - Customized Fields Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/multi-map-indexes/multi-map-index-customized-fields"
+                }
+            ]
+        }
+    ]
+}

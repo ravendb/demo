@@ -74,6 +74,15 @@
     },
     {
         "category": {
+            "slug": "multi-map-indexes",
+            "directory": "multiMapIndexes"
+        },
+        "demos": [
+            "multiMapIndexBasic"
+        ]
+    },
+    {
+        "category": {
             "slug": "auto-indexes",
             "directory": "autoIndexes"
         },
@@ -91,7 +100,6 @@
         "demos": [
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
-
         ]
     },
     {
