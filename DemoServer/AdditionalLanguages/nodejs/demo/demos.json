@@ -73,7 +73,8 @@
             "mapIndex",
             "mapReduceIndex",
             "projectIndexResults",
-            "storeFieldsInIndex"
+            "storeFieldsInIndex",
+            "fanoutIndex"
         ]
     },
     {
