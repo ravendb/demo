@@ -1,0 +1,160 @@
+{
+    "Slug": "index-compare-exchange",
+    "SourceFileName": "index.js",
+    "Title": "Index CmpXchg Values",
+    "DescriptionLines": [
+        "**CmpXchg Values can be loaded & indexed** within the index definition.",
+        "",
+        "Any change in the indexed CmpXchg Values will trigger re-indexing."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Create Compare-Exchange Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/compare-exchange/create-compare-exchange"
+        },
+        //TODO
+        //        {
+        //            "Title": "Compare-Exchange overview",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
+        //        },
+        {
+            "Title": "Index Compare-Exchange values",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-compare-exchange-values#querying-the-index"
+        },
+        {
+            "Title": "Distributed Compare-Exchange operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#distributed-compare-exchange-operations-with-ravendb"
+        },
+        {
+            "Title": "Atomic Compare-Exchange operations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class.",
+                "* Since the index map function in this demo is written with C# LINQ then inherit from `AbstractCsharpIndexCreationTask`"
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+//        {
+//            "Title": "The index Entry class",
+//            "Slug": "step-2",
+//            "DescriptionLines": [
+//                "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
+//                "  These fields will be indexed and can be queried on.",
+//                "",
+//                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
+//            ],
+//            "Assets": [
+//                {
+//                    "Title": "Map Indexes",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+//                },
+//                {
+//                    "Title": "Static Indexes",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+//                },
+//                {
+//                    "Title": "Working with Indexes",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+//                }
+//            ]
+//        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Set _map_ with the index definition string.",
+                "",
+                "* For this example, we assume there are predefined CmpXchg items with form <br>_<Key: Product's document ID, Value: number of units in stock>_",
+                "",
+                "* Call `LoadCompareExchangeValue()` to get the CmpXchg Value associated with the passed Key parameter.",
+                "  The CmpXchg Key is the document ID.",
+                "",
+                "* The CmpXchg Values will be indexed in the _UnitsInStock_ index field,<br>",
+                "  so a mapping is available from the CmpXchg values to the documents in the Products collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Query the 'Products' collection using the defined index.",
+                "",
+                "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ that was defined in the index.",
+                "",
+                "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
+            ],
+            "Assets": [
+                //TODO
+                //                {
+                //                    "Title": "Compare-Exchange overview",
+                //                    "Type" : "link",
+                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
+                //                },
+                {
+                    "Title": "Index Compare-Exchange values",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-compare-exchange-values#querying-the-index"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
+    ]
+}

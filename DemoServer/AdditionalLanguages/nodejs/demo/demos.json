@@ -100,7 +100,8 @@
             "directory": "compareExchange"
         },
         "demos": [
-            "createCompareExchange"
+            "createCompareExchange",
+            "indexCompareExchange"
         ]
     },
     {
