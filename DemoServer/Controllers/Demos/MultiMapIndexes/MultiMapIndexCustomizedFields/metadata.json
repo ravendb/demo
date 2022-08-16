@@ -192,11 +192,6 @@
                     "Title": "Multi Map indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
-                },
-                {
-                    "Title": "Multi Map indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
                 }
             ]
         },

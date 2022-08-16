@@ -78,7 +78,8 @@
             "directory": "multiMapIndexes"
         },
         "demos": [
-            "multiMapIndexBasic"
+            "multiMapIndexBasic",
+            "multiMapIndexCustomizedFields"
         ]
     },
     {
