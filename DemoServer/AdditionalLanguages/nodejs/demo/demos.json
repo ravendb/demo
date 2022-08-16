@@ -96,6 +96,15 @@
     },
     {
         "category": {
+            "slug": "compare-exchange",
+            "directory": "compareExchange"
+        },
+        "demos": [
+            "createCompareExchange"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "advanced"
         },
