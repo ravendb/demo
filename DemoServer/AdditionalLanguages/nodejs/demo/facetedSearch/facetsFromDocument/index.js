@@ -1,12 +1,16 @@
+//region Usings
 const {
     AbstractCsharpIndexCreationTask,
     Facet,
     RangeFacet,
     FacetSetup
 } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 const { Product } = require('../../common/models');
 
+//region Demo
+//region Step_1
 class Products_ByCategoryAndPrice extends AbstractCsharpIndexCreationTask {
     constructor () {
         super();
@@ -17,16 +21,20 @@ class Products_ByCategoryAndPrice extends AbstractCsharpIndexCreationTask {
             '})';
     }
 }
+//endregion
+//endregion
 
 async function run ({ range1, range2, range3 }) {
     range1 = range1 || 25;
     range2 = range2 || 50;
     range3 = range3 || 100;
 
+    //region Demo
     const facetsResults = [];
 
     const session = documentStore.openSession();
 
+    //region Step_2
     const facetSetup = new FacetSetup();
     facetSetup.id = 'myFacetSetupDocumentID';
 
@@ -44,13 +52,19 @@ async function run ({ range1, range2, range3 }) {
     ];
 
     facetSetup.rangeFacets = [rangeFacet];
+    //endregion
 
+    //region Step_3
     await session.store(facetSetup);
     await session.saveChanges();
+    //endregion
 
+    //region Step_4
     const queryResults = await session.query(Product, Products_ByCategoryAndPrice)
         .aggregateUsing('myFacetSetupDocumentID')
         .execute();
+    //endregion
+    //endregion
 
     Object.values(queryResults).forEach(result => {
         const facetName = result.name;

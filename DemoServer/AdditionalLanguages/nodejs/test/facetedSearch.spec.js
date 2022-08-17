@@ -28,7 +28,8 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndPrice().execute(documentStore);
 
         const facetResults = await run({});
-        assert.ok(facetResults);
+
+        assert.equal(facetResults.length, 12); // TODO: This fails. Missing 8 Category items.
     });
 
     it('facet options', async () => {
