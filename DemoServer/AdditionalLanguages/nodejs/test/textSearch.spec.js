@@ -66,7 +66,7 @@ describe('text search', function () {
             fragmentCount: 2
         });
 
-        assert.ok(employees);
+        assert.equal(employees.length, 4);
     });
 
     it('highlight query results customized', async function () {
