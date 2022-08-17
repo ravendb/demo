@@ -96,6 +96,15 @@
     },
     {
         "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "advanced"
         },
