@@ -17,7 +17,7 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndPrice().execute(documentStore);
 
         const facetResults = await run({});
-        assert.ok(facetResults);
+        assert.equal(facetResults.length, 12);
     });
 
     it('from document', async () => {

@@ -105,6 +105,15 @@
     },
     {
         "category": {
+            "slug": "faceted-search",
+            "directory": "facetedSearch"
+        },
+        "demos": [
+            "facetsBasics"
+        ]
+    },
+    {
+        "category": {
             "slug": "text-search",
             "directory": "textSearch"
         },
