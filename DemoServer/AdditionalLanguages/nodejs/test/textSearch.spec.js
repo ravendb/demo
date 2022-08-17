@@ -47,7 +47,7 @@ describe('text search', function () {
             numberOrResults: 10
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 10);
     });
 
     it('highlight query results basics', async function () {
