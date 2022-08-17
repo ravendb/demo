@@ -1,6 +1,6 @@
 {
     "Slug": "fts-query-search-operators",
-    "SourceFileName": "FTSQuerySearchOperatorsController.cs",
+    "SourceFileName": "index.js",
     "Title": "FTS Query - Operators",
     "DescriptionLines": [
         "**Full Text Search query** allows searching for documents containing particular term(s) within a block of text.",
@@ -20,17 +20,18 @@
             "Title": "Full text searching - Book",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
-        },
+        } /*,
         {
             "Title": "How to search",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
         },
         {
             "Title": "Querying searching",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
         }
+    */
     ],
 
     "Walkthroughs": [
@@ -38,18 +39,13 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Define a query on the 'Employees' collection Using the Session `Query()` LINQ method syntax."
+                "* Define a query on the 'Employees' collection Using the Session `query()`."
             ],
             "Assets": [
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
-                },
-                {
-                    "Title": "LINQ Query & Method Syntax",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                    "Url"  : "/nodejs/queries/query-overview"
                 }
             ]
         },
@@ -57,54 +53,58 @@
             "Title": "Define search criteria I",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Use `Search()` to search for the specified terms on the specified document field.",
+                "* Use `search()` to search for the specified terms on the specified document field.",
                 "",
                 "* The default operator between 'term1' and 'term2' is OR.<br>",
-                "  Use `@operator: SearchOperator.And` to set the logical AND operation instead.",
+                "  Use `AND` to set the logical AND operation instead.",
 
                 "* In this Search, we search for _term1 AND term2_ in the document field _Notes_."
             ],
             "Assets": [
+                /*TODO
                 {
                     "Title": "How to search",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
                 },
                 {
                     "Title": "Querying searching",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
                 }
+                 */
             ]
         },
         {
             "Title": "Define search criteria II",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Another `Search()` method can be called for searching on another document field or terms.",
+                "* Another `search()` method can be called for searching on another document field or terms.",
                 "",
                 "* The specified logical operation is applied between this 'Search' and the previous 'Search'.",
                 "",
                 "* With this Search added, we are now searching for ( _term1_ AND _term2_ ) OR _term3_ in the document field _Notes_."
             ],
             "Assets": [
+                /*
                 {
                     "Title": "How to search",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
                 },
                 {
                     "Title": "Querying searching",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/searching"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
                 }
+                */
             ]
         },
         {
             "Title": "Execute the query",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* Execute the query by calling `ToList()`.<br>",
+                "* Execute the query by calling `all()`.<br>",
                 "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
@@ -118,17 +118,12 @@
                 {
                     "Title": "Auto Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/auto-indexes/auto-map-index1"
+                    "Url"  : "/nodejs/auto-indexes/auto-map-index1"
                 },
                 {
                     "Title": "FTS - Static Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/fts-with-static-index-single-field"
-                },
-                {
-                    "Title": "LINQ queries",
-                    "Type" : "link",
-                    "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries"
+                    "Url"  : "/nodejs/text-search/fts-with-static-index-single-field"
                 }
             ]
         }

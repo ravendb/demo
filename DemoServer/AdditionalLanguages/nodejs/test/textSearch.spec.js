@@ -36,7 +36,7 @@ describe('text search', function () {
             term3: 'Manager'
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 3);
     });
 
     it('query search wildcards', async function () {

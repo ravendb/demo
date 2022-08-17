@@ -101,6 +101,7 @@
         },
         "demos": [
             "fTSQuerySearchBasics",
+            "fTSQuerySearchOperators",
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
         ]
