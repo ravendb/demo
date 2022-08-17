@@ -1,0 +1,250 @@
+{
+    "Slug": "spatial-index",
+    "SourceFileName": "index.js",
+    "Title": "Spatial Index",
+    "DescriptionLines": [
+        "Spatial data from a document can be indexed in a **spatial index field**.",
+        "",
+        "You can customize the strategy with which this field is indexed and queried.",
+        "",
+        "Available indexing strategies:<br>",
+        "* Bounding Box<br>",
+        "* Geohash Buckets<br>",
+        "* QuadTree"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Spatial query Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/spatial/spatial-query"
+        },
+        {
+            "Title": "Spatial indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+        },
+        {
+            "Title": "Querying: spatial",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
+        },
+        //TODO
+        //        {
+        //            "Title": "How to spatial query",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
+        //        },
+        //        {
+        //            "Title": "Index Spatial Data",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+        //        },
+        {
+            "Title": "WKT geometry",
+            "Type" : "link",
+            "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class.",
+                "",
+                "* Since the index map function in this demo is written with JavaScript then inherit from `AbstractJavaScriptIndexCreationTask`"
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Map",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the index-fields within the _map_ function.",
+                "",
+                "* Call `createSpatialField()` to create the field as a spatial field. Pass:",
+                "  * the fields that contain the latitude & longitude data in the document, or",
+                "  * the field that contains the WKT shape string in the document.",
+                "",
+                "* The spatial field value will be stored in the index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                },
+                //TODO
+                //                {
+                //                    "Title": "Index Spatial Data",
+                //                    "Type" : "link",
+                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+                //                },
+                {
+                    "Title": "Store fields in index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/store-fields-in-index"
+                }
+            ]
+        },
+        {
+            "Title": "Customize spatial indexing strategy",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use `spatial()` to customize the strategy by which the spatial field will be indexed.",
+                "",
+                "* The strategy defined will also be the one used by the search engine when querying the index.<br>",
+                "  _When querying the index_ for documents matching some shape, the shape in the query is first 'passed' through the configured strategy algorithm and then compared to the existing index terms.",
+                "",
+                "* Available strategies:",
+                "  * _Bounding Box_<br>",
+                "    The bounding box of the indexed shape contained in the 'LocationCoordinates' field is calculated.",
+                "    The index terms will include the MinX, MinY, MaxX & MaxY coordinates of each bounding box calculated per document.",
+                "",
+                "  * _Geohash Buckets_<br>",
+                "    Regions on earth are divided and sub-divided into 32 recursive buckets.<br>",
+                "    A Geohash is the unique identifier of a specific region, encoded as a short alphanumeric string.",
+                "    The longer the string, the more precise the location.<br>",
+                "    Default precision level is 9 (equivalent to ~4.78 meters).<br>",
+                "    The index terms for the spatial field will contain the Geohash identifiers.",
+                "",
+                "  * _QuadTree_<br>",
+                "    Similar to Geohash, but each region is divided into a grid of 4 buckets.<br>",
+                "    Quad buckets are always squares.<br>",
+                "    Default precision level is 23 (~4.78m).",
+                "",
+                "* Customizing a strategy is _optional_.<br>RavenDB will use the Geohash strategy if no other strategy is defined.",
+                "",
+                "* In the example above the spatial field 'locationCoordinates' is indexed with the QuadTree strategy.",
+                "  The parameter passed sets the precision level."
+            ],
+            "Assets": [
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                },
+                //TODO
+                //                {
+                //                    "Title": "Index Spatial Data",
+                //                    "Type" : "link",
+                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+                //                },
+                {
+                    "Title": "Bounding box",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Minimum_bounding_rectangle"
+                },
+                {
+                    "Title": "Geohash",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Geohash"
+                },
+                {
+                    "Title": "Quadtree",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Quadtree"
+                }
+            ]
+        },
+        {
+            "Title": "Define shape for query",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Define a _WKT shape string_ for the query, E.g.:",
+                "",
+                "  * `CIRCLE(<Lng of center point> <Lat of center point> <radius>)`",
+                "",
+                "  * `POLYGON((<Lng Lat> <Lng Lat> .... <Lng Lat>))`",
+                "        * The first and last points must be the same.",
+                "        * Points order should be in counter-clockwise order.",
+                "",
+                "* The query will search for documents that have geodata with the specified relation to this shape (see next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Spatial queries",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#spatial-queries"
+                },
+                //TODO
+                //                {
+                //                    "Title": "Index Spatial Data",
+                //                    "Type" : "link",
+                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+                //                },
+                {
+                    "Title": "WKT geometry",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-7",
+            "DescriptionLines": [
+                "* Query the 'Companies' collection using the defined index.",
+                "",
+                "* Use `spatial()` to define the relation between the passed WKT shape and the spatial index field.",
+                "  Here we use the _within_ method, thus searching for all documents whose spatial data lies within the provided shape.",
+                "  Alternatively, use the _relatesToShape_ method and pass the required relationship.",
+                "",
+                "* Use `orderByDistance()` to order the resulting documents by their distance from the specified point.",
+                "",
+                "* Call `all()` to execute the query.",
+                "",
+                "* The query results will include all documents from the 'Companies' collection<br>",
+                "  whose geodata falls within the defined polygon, ordered by their distance from Seattle."
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Query overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/queries/query-overview#step-3"
+                },
+                {
+                    "Title": "Spatial indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
+                }
+                //TODO
+                //                {
+                //                    "Title": "Index Spatial Data",
+                //                    "Type" : "link",
+                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+                //                },
+            ]
+        }
+    ]
+}
