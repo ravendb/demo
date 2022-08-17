@@ -8,7 +8,9 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryPriceAndUnits().execute(documentStore);
 
         const results = await run({});
-        assert.ok(results);
+
+        assert.equal(results.CategoryName.values.length, 16);
+        assert.equal(results.PricePerUnit.values.length, 8);
     });
 
     it('basics', async () => {
