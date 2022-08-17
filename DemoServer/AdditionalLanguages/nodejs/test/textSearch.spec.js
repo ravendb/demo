@@ -12,6 +12,7 @@ describe('text search', function () {
         assert.ok(result[0]);
         assert.strictEqual(result.length, 1);
     });
+
     it('multiple fields', async function () {
         const result = await require('../demo/textSearch/fTSWithStaticIndexMultipleFields').run({
             searchTerm: 'box'
@@ -25,7 +26,7 @@ describe('text search', function () {
             term2: 'Colorado'
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 2);
     });
 
     it('query search operators', async function () {
