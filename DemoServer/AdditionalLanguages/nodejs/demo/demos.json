@@ -103,6 +103,7 @@
             "fTSQuerySearchBasics",
             "fTSQuerySearchOperators",
             "fTSQuerySearchWildcards",
+            "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields"
         ]

@@ -50,6 +50,16 @@ describe('text search', function () {
         assert.equal(result.length, 10);
     });
 
+    it('query search boosting', async function () {
+        const result = await require('../demo/textSearch/fTSQuerySearchBoosting').run({
+            boost1: 100,
+            boost2: 20,
+            boost3: 5
+        });
+
+        assert.equal(result.length, 9);
+    });
+
     it('highlight query results basics', async function () {
         const employees = await require('../demo/textSearch/highlightQueryResultsBasics').run({
             fragmentLength: 50,
