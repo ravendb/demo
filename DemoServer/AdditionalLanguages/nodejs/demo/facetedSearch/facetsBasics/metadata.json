@@ -79,18 +79,22 @@
             "Title": "Define a Facet",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* _fieldName_ - The index entry field by which the documents will be grouped.",
+                "Define a `Facet` object:",
+                "",
+                "* Set _fieldName_ - The index entry field by which the documents will be grouped.",
                 "",
                 "* In this example, the grouping is done by the content of index field 'CategoryName'.<br>",
                 "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.",
                 "",
-                "* _displayFieldName_ - An optional property.<br>",
+                "* Set _displayFieldName_ - An optional property.<br>",
                 "  A customized name that can be given to the facet field in the aggregated results.",
-                "  ",
                 "",
                 "* 2 more optional properties are available (see dedicated demos in the links):",
                 "  * _options_ - define skipping, paging & sorting options",
-                "  * _aggregations_ - define the sum, min, max & average per aggregated result"
+                "  * _aggregations_ - define the sum, min, max & average per aggregated result",
+                "",
+                "* Any number of Facets can be defined.<br>",
+                "* The Facets are added to a Facet List in step 4. This list will used in the query."
             ],
             "Assets": [
                 //TODO
@@ -120,17 +124,22 @@
             "Title": "Define a RangeFacet",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* _ranges_ - Define ranges on an index entry field by which the documents will be grouped.<br>",
+                "Define a `RangeFacet` object:",
+                "",
+                "* Set _ranges_ - Define ranges on an index entry field by which the documents will be grouped.<br>",
                 "  A separate aggregated item will be created per range defined.",
                 "",
                 "* In this example, the ranges are defined on index field 'PricePerUnit'.<br>",
                 "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.",
                 "",
-                "* _displayFieldName_ - An optional property.<br>",
+                "* Set _displayFieldName_ - An optional property.<br>",
                 "  A customized name that can be given to the facet field in the aggregated results.",
                 "",
                 "* Another optional property is available (see dedicated demo in the links):",
-                "  * _aggregations_ - define the sum, min, max & average per aggregated result."
+                "  * _aggregations_ - define the sum, min, max & average per aggregated result.",
+                "",
+                "* Any number of RangeFacets can be defined.",
+                "  The RangeFacets are added to a Facet List in step 4. This list will used in the query."
             ],
             "Assets": [
                 //TODO
@@ -152,18 +161,18 @@
             ]
         },
         {
-            "Title": "Initialize the Facet list",
+            "Title": "Define the Facet list",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* Initialize the _list of Facets_ by which to aggregate the documents matching the query criteria.",
+                "* Define the _list of Facets_ by which to aggregate the documents matching the query criteria.<br>",
+                "  Initialize it with the Facets and RangeFacets from the previous steps.",
                 "",
                 "* The available Facet types are:",
                 "  * _Facet_",
                 "  * _RangeFacet_",
                 "",
                 "* Both types inherit from `FacetBase`.<br>",
-                "  Any number of Facets and RangeFacets can be defined in this list.<br>",
-                "  See the next steps for the actual definitions."
+                "  Any number of Facets and RangeFacets can be defined in this list."
             ],
             "Assets": [
                 //TODO

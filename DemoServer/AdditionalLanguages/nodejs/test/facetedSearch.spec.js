@@ -35,6 +35,8 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndSupplier().execute(documentStore);
 
         const results = await run({});
-        assert.ok(results);
+
+        assert.equal(results.CategoryName.values.length, 2);
+        assert.equal(results.Supplier.values.length, 2);
     });
 });
