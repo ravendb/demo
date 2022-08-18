@@ -25,7 +25,7 @@ async function run ({ radius }) {
             new PointField('Address.Location.Latitude', 'Address.Location.Longitude'),
             //endregion
             //region Step_4
-            spatialCriteria => spatialCriteria.relatesToShape(wktCircle, 'Within', 'Miles', 0)
+            spatialCriteria => spatialCriteria.relatesToShape(wktCircle, 'Within', 'Miles')
             //endregion
         )
         //region Step_5
