@@ -8,7 +8,7 @@ public class LoadAttachmentTest {
     @Test
     public void test() throws Exception {
         LoadAttachment.RunParams params = new LoadAttachment.RunParams();
-        params.setAttachmentName("image.");
+        params.setAttachmentName("image.jpg");
 
         new LoadAttachment().run(params);
     }
