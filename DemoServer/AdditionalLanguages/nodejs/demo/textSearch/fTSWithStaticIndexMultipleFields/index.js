@@ -1,5 +1,5 @@
 //region Usings
-const { AbstractIndexCreationTask } = require('ravendb');
+const { AbstractCsharpIndexCreationTask } = require('ravendb');
 //endregion
 const { mediaStore } = require('../../common/docStoreHolder');
 
@@ -7,7 +7,7 @@ module.exports = { run };
 
 //region Demo
 //region Step_1
-class Song_TextData extends AbstractIndexCreationTask {
+class Song_TextData extends AbstractCsharpIndexCreationTask {
 //endregion
 
     constructor () {

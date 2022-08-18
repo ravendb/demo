@@ -54,7 +54,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.AdditionalSourcesIndex
                         //  }
                         ProfitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)
                         // Code behind:
-                        // public static decimal CalcSalePrice(decimal price)
+                        // public static decimal CalcProfitPrice(decimal price)
                         // {
                         //    return price + price / 100M * 25M;
                         //  }
