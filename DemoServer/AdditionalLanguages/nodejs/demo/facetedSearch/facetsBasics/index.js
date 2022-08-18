@@ -1,11 +1,11 @@
-const {
-    AbstractCsharpIndexCreationTask,
-    Facet,
-    RangeFacet
-} = require('ravendb');
+//region Usings
+const { AbstractCsharpIndexCreationTask, Facet, RangeFacet } = require('ravendb');
+//endregion
 const { documentStore } = require('../../common/docStoreHolder');
 const { Product } = require('../../common/models');
 
+//region Demo
+//region Step_1
 class Products_ByCategoryAndPrice extends AbstractCsharpIndexCreationTask {
     constructor () {
         super();
@@ -16,16 +16,23 @@ class Products_ByCategoryAndPrice extends AbstractCsharpIndexCreationTask {
             '})';
     }
 }
+//endregion
+//endregion
 
 async function run ({ range1, range2, range3 }) {
     range1 = range1 || 25;
     range2 = range2 || 50;
     range3 = range3 || 100;
 
+    //region Demo
+    //region Step_2
     const categoryNameFacet = new Facet();
+
     categoryNameFacet.fieldName = 'CategoryName';
     categoryNameFacet.displayFieldName = 'Product Category';
+    //endregion
 
+    //region Step_3
     const rangeFacet = new RangeFacet();
     rangeFacet.ranges = [
         'PricePerUnit < ' + range1,
@@ -34,14 +41,24 @@ async function run ({ range1, range2, range3 }) {
         'PricePerUnit >= ' + range3
     ];
     rangeFacet.displayFieldName = 'Price per Unit';
+    //endregion
 
+    //region Step_4
     const facets = [categoryNameFacet, rangeFacet];
+    //endregion
 
     const session = documentStore.openSession();
-    const query = session.query(Product, Products_ByCategoryAndPrice)
-        .aggregateBy(...facets);
 
+    //region Step_5
+    const query = session.query(Product, Products_ByCategoryAndPrice)
+    //endregion
+    //region Step_6
+        .aggregateBy(...facets);
+    //endregion
+    //region Step_7
     const queryResults = await query.execute();
+    //endregion
+    //endregion
 
     const facetsResults = [];
 

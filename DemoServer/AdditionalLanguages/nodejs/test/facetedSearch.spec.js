@@ -8,7 +8,9 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryPriceAndUnits().execute(documentStore);
 
         const results = await run({});
-        assert.ok(results);
+
+        assert.equal(results.CategoryName.values.length, 16);
+        assert.equal(results.PricePerUnit.values.length, 8);
     });
 
     it('basics', async () => {
@@ -17,7 +19,7 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndPrice().execute(documentStore);
 
         const facetResults = await run({});
-        assert.ok(facetResults);
+        assert.equal(facetResults.length, 12);
     });
 
     it('from document', async () => {
@@ -26,7 +28,8 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndPrice().execute(documentStore);
 
         const facetResults = await run({});
-        assert.ok(facetResults);
+
+        assert.equal(facetResults.length, 12);
     });
 
     it('facet options', async () => {
@@ -35,6 +38,8 @@ describe('Faceted Search', function () {
         await new Products_ByCategoryAndSupplier().execute(documentStore);
 
         const results = await run({});
-        assert.ok(results);
+
+        assert.equal(results.CategoryName.values.length, 2);
+        assert.equal(results.Supplier.values.length, 2);
     });
 });

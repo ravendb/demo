@@ -16,5 +16,6 @@ public class FacetsBasicTest {
         FacetsBasics.RunParams runParams = new FacetsBasics.RunParams();
         List<FacetsBasics.MyFacetResult> facetResults = new FacetsBasics().run(runParams);
         Assert.assertNotNull(facetResults);
+        Assert.assertEquals(facetResults.size(), 12);
     }
 }

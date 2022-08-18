@@ -19,7 +19,7 @@ public class FacetsFromDocument {
     public static class Products_ByCategoryAndPrice extends AbstractIndexCreationTask {
         public Products_ByCategoryAndPrice() {
             map = "docs.Products.Select(product => new {" +
-                  "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    Category = (this.LoadDocument(product.Category, \"Categories\")).Name," +
                   "    PricePerUnit = product.PricePerUnit" +
                   "})";
         }

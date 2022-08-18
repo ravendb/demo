@@ -16,6 +16,7 @@ public class FacetsFromDocumentTest {
             new FacetsFromDocument().run(runParams);
 
         Assert.assertNotNull(results);
+        Assert.assertEquals(results.size(), 12);
     }
 
 }
