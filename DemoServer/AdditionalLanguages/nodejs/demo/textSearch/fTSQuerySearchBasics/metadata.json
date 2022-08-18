@@ -1,6 +1,6 @@
 {
     "Slug": "fts-query-search-basics",
-    "SourceFileName": "FTSQuerySearchBasics.java",
+    "SourceFileName": "index.js",
     "Title": "FTS Query - Basics",
     "DescriptionLines": [
         "**Full Text Search query** allows querying for documents which contain the specified term(s) within the searched document field.",
@@ -24,12 +24,12 @@
         {
             "Title": "How to search",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-search"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
         },
         {
             "Title": "Querying searching",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
         }
         */
     ],
@@ -45,7 +45,7 @@
                 {
                     "Title": "Query Overview Demo",
                     "Type": "demo",
-                    "Url": "/java/queries/query-overview"
+                    "Url": "/nodejs/queries/query-overview"
                 }
             ]
         },
@@ -70,22 +70,22 @@
                 {
                     "Title": "FTS Query - Search Operations Demo",
                     "Type": "demo",
-                    "Url": "/java/text-search/fts-query-search-operators"
+                    "Url": "/nodejs/text-search/fts-query-search-operators"
                 },
                 {
                     "Title": "FTS Query - Boosting Demo",
                     "Type": "demo",
-                    "Url": "/java/text-search/fts-query-search-boosting"
-                } /*TODO,
+                    "Url": "/nodejs/text-search/fts-query-search-boosting"
+                } /*TODO
                 {
                     "Title": "How to search",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-search"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
                 },
                 {
                     "Title": "Querying searching",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
                 }*/
             ]
         },
@@ -93,7 +93,7 @@
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Execute the query by calling `toList()`.<br>",
+                "* Execute the query by calling `all()`.<br>",
                 "  An Auto-Index is created upon executing the query for the first time with 2 index fields:",
                 "    * _Notes_ - contains the original text from the indexed document field Notes.",
                 "",
@@ -109,17 +109,17 @@
                 {
                     "Title": "Auto Map Index Demo",
                     "Type": "demo",
-                    "Url": "/java/auto-indexes/auto-map-index1"
+                    "Url": "/nodejs/auto-indexes/auto-map-index1"
                 },
                 {
                     "Title": "FTS - Static Index Demo",
                     "Type": "demo",
-                    "Url": "/java/text-search/fts-with-static-index-single-field"
+                    "Url": "/nodejs/text-search/fts-with-static-index-single-field"
                 }, 
                 {
                     "Title": "FTS Query - Boosting Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/text-search/fts-query-search-boosting"
+                    "Url"  : "/nodejs/text-search/fts-query-search-boosting"
                 }
             ]
         }

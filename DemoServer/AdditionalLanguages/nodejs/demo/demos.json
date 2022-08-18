@@ -109,8 +109,15 @@
             "directory": "textSearch"
         },
         "demos": [
+            "fTSQuerySearchBasics",
+            "fTSQuerySearchOperators",
+            "fTSQuerySearchWildcards",
+            "fTSQuerySearchBoosting",
             "fTSWithStaticIndexSingleField",
-            "fTSWithStaticIndexMultipleFields"
+            "fTSWithStaticIndexMultipleFields",
+            "highlightQueryResultsBasics",
+            "highlightQueryResultsCustomized",
+            "highlightQueryResultsMapReduce"
         ]
     },
     {

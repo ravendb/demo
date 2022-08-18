@@ -12,6 +12,7 @@ describe('text search', function () {
         assert.ok(result[0]);
         assert.strictEqual(result.length, 1);
     });
+
     it('multiple fields', async function () {
         const result = await require('../demo/textSearch/fTSWithStaticIndexMultipleFields').run({
             searchTerm: 'box'
@@ -25,7 +26,7 @@ describe('text search', function () {
             term2: 'Colorado'
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 2);
     });
 
     it('query search operators', async function () {
@@ -35,7 +36,7 @@ describe('text search', function () {
             term3: 'Manager'
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 3);
     });
 
     it('query search wildcards', async function () {
@@ -46,7 +47,17 @@ describe('text search', function () {
             numberOrResults: 10
         });
 
-        assert.ok(result);
+        assert.equal(result.length, 10);
+    });
+
+    it('query search boosting', async function () {
+        const result = await require('../demo/textSearch/fTSQuerySearchBoosting').run({
+            boost1: 100,
+            boost2: 20,
+            boost3: 5
+        });
+
+        assert.equal(result.length, 9);
     });
 
     it('highlight query results basics', async function () {
@@ -55,7 +66,7 @@ describe('text search', function () {
             fragmentCount: 2
         });
 
-        assert.ok(employees);
+        assert.equal(employees.length, 4);
     });
 
     it('highlight query results customized', async function () {
