@@ -1,6 +1,6 @@
 {
     "Slug": "project-index-results",
-    "SourceFileName": "ProjectIndexResults.java",
+    "SourceFileName": "index.js",
     "Title": "Project Index Results",
     "DescriptionLines": [
         "Querying an index results in matching documents that satisfy the query.<br>",
@@ -17,12 +17,12 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/java/static-indexes/static-indexes-overview"
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Indexes Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
         },
         {
             "Title": "Strongly Typed Indexes",
@@ -32,12 +32,12 @@
         {
             "Title": "Querying: Projections",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
         },
         {
             "Title": "Querying: Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
         }
     ],
 
@@ -46,18 +46,25 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`."
+                "* Create the Map index class.",
+                "",
+                "* Since the index map function in this demo is written with JavaScript then inherit from `AbstractJavaScriptIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "JavaScript Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/javascript-indexes/javascript-map-index"
                 },
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -72,18 +79,22 @@
             ]
         },
         {
-            "Title": "The index Entry class",
+            "Title": "The index constructor",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
+                "* The _map_ function defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
                 "",
-                "* The _content_ for each index-field is configured in the index constructor (see step 4)."
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
+                "",
+                "* In this example, the 'HiredAt.Year' data is indexed in the _workingInCompanySince_ index-field."
             ],
             "Assets": [
                 {
                     "Title": "Map Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
                 },
                 {
                     "Title": "Static Indexes",
@@ -102,51 +113,18 @@
             "Slug": "step-3",
             "DescriptionLines": [
                 "* `EmployeeProjectedDetails` will contain the details projected per document in the results.<br>",
-                "  Used in step 6.",
-                "",
-                "* Note: it is not mandatory for this class to be nested within the index class."
+                "  Used in step 5."
             ],
             "Assets": [
-            ]
-        },
-        {
-            "Title": "The index constructor",
-            "Slug": "step-4",
-            "DescriptionLines": [
-                "* Assign the index definition string to the map property.",
-                "   This index definition defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
-                "",
-                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
-                "",
-                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
-                "",
-                "* In this example, the 'HiredAt.Year' data is indexed in the _WorkingInCompanySince_ index-field."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-                }
             ]
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
-                "* The 'Employees' documents can be _filtered_ by the index-fields defined in `Employees_ByWorkPeriod.IndexEntry`",
+                "* The 'Employees' documents can be _filtered_ by the index-fields defined in the index.",
                 "",
                 "* The resulting documents will include only employees that started working after 'startYear'."
             ],
@@ -155,40 +133,40 @@
                 {
                     "Title": "Filtering Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/filtering-results-basics"
+                    "Url"  : "/nodejs/queries/filtering-results-basics"
                 }
             ]
         },
         {
             "Title": "Project Results",
-            "Slug" : "step-6",
+            "Slug" : "step-5",
             "DescriptionLines": [
-                "* Use `selectFields()`  with QueryData.customFunction() to select which specific document fields will be returned from the server for each resulting document.<br>",
+                "* Use `selectFields()` to select which specific document fields will be returned from the server for each resulting document.<br>",
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
                 "",
                 "* In this example:<br>",
-                "  * _FirstName_, _Phone_ are returned from the document<br>",
-                "  * _Location_ is customized from the other raw document fields."
+                "  * _firstName_, _phone_ are returned from the document<br>",
+                "  * _location_ is customized from the other raw document fields."
             ],
             "Assets": [
                 {
                     "Title": "Querying: Projections",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/projections"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
                 },
                 {
                     "Title": "How to Project Query Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-project-query-results"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-project-query-results"
                 }
             ]
         },
         {
             "Title": "Execute the Query",
-            "Slug" : "step-7",
+            "Slug" : "step-6",
             "DescriptionLines": [
                 "* The _employeesQuery_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
+                "  Execute the query by calling `all()`",
                 "",
                 "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
                 "",
@@ -198,7 +176,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-overview"
+                    "Url"  : "/nodejs/queries/query-overview"
                 }
             ]
         }

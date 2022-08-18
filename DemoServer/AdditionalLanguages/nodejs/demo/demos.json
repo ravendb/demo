@@ -71,7 +71,10 @@
         "demos": [
             "staticIndexesOverview",
             "mapIndex",
-            "mapReduceIndex"
+            "mapReduceIndex",
+            "projectIndexResults",
+            "storeFieldsInIndex",
+            "fanoutIndex"
         ]
     },
     {
