@@ -1,0 +1,176 @@
+{
+    "Slug": "additional-sources-index",
+    "SourceFileName": "index.js",
+    "Title": "Additional Sources Index",
+    "DescriptionLines": [
+        "Using the **Additional Sources** feature allows the index's Map & Reduce methods to reference and use code from external source files.",
+        "",
+        "With that, the index definition can be expanded to perform any complex indexing work required."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Extending indexes - additional sources",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/extending-indexes"
+        },
+        {
+            "Title": "Additional sources - Studio",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-index#additional-sources"
+        },
+        {
+            "Title": "Additional sources - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractJavaScriptIndexCreationTask`",
+                "",
+                "* This example defines a Map index on the Products collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Map",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "The map function defines the index-fields content - which fields from the 'Product' document will compose each index-field.",
+                "",
+                "* Fields with content taken from Product document:",
+                "    * productName",
+                "    * originalPrice",
+                "",
+                "* Fields with content computed by an Additional Source:",
+                "    * salePrice",
+                "    * profitPrice",
+                "",
+                "    ==> Methods `calcSalePrice` & `calcProfitPrice` are methods that can be located in an external source.<br>",
+                "        (The source is added to the index definition in the next step)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/extending-indexes"
+                },
+                {
+                    "Title": "Additional sources - Studio",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-index#additional-sources"
+                },
+                {
+                    "Title": "Additional sources - Blog",
+                    "Type" : "link",
+                    "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "Set Additional Sources",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use `addSource()` to set the external functions that are used in the index.<br>",
+                "  The first param passed is just a descriptive name of your choice.<br>",
+                "  The second param is the provided Function.<br>",
+                "  See these source functions' definitions in step-4 below.",
+                "",
+                "* At indexing time the content for fields salePrice & profitPrice will be computed from the relevant methods in the added source.",
+                "",
+                "* The additional source code will always be visible in the _Additional Sources Tab_ in the Edit Index view in the Studio."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/extending-indexes"
+                },
+                {
+                    "Title": "Additional sources - Studio",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/create-map-index#additional-sources"
+                },
+                {
+                    "Title": "Additional sources - Blog",
+                    "Type" : "link",
+                    "Url"  : "https://ayende.com/blog/192001-B/using-machine-learning-with-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "The additional sources methods",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* These are the functions that are added to the index as additional sources."
+            ],
+            "Assets": [
+                {
+                    "Title": "Extending indexes - additional sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/extending-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Products' collection using the defined index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
+                "  and retrieve the matching documents from the documents store.",
+                "",
+                "* The query results will include all documents from the 'Products' collection that have a calculated SalePrice which is lower than the specified price."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
+    ]
+}
