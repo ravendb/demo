@@ -3,7 +3,7 @@
     "SourceFileName": "JavascriptMapIndexController.cs",
     "Title": "JS Map Index",
     "DescriptionLines": [
-        "**The index Map can be defined with JavaScript** for use with any RavenDB Client.",
+        "**The index Map can be defined with JavaScript** instead of C# LINQ.",
         "",
         "Any complex computation can be run within the index.",
         "",

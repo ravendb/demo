@@ -1,0 +1,135 @@
+{
+    "Slug": "javascript-map-index",
+    "SourceFileName": "index.js",
+    "Title": "JS Map Index",
+    "DescriptionLines": [
+        "**The index Map can be defined with JavaScript** instead of C# LINQ.",
+        "",
+        "Any complex computation can be run within the index.",
+        "",
+        "Besides the different syntax of the Map function, all other index capabilities and features are the same as for indexes defined with C# LINQ."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Map Index Demo",
+            "Type" : "demo",
+            "Url"  : "/nodejs/static-indexes/map-index"
+        },
+        {
+            "Title": "Indexes overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/indexes/indexes-overview"
+        },
+        //TODO
+        //        {
+        //            "Title": "JavaScript indexes",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/javascript-indexes"
+        //        },
+        {
+            "Title": "JavaScript indexes - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/182849-A/ravendb-4-1-features-javascript-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map Index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map Index class - inherit from `AbstractJavaScriptIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                }
+                //TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/javascript-indexes"
+                //        },
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define `map` with your index definition.",
+                "* The map is defined with: `map(<Collection name>, <JavaScript map method>)`.",
+                "",
+                "* The _JavaScript map method_ returns a JavaScript object literal.<br>",
+                "  The properties of this object are the fields composing the index entry.",
+                "",
+                "* Any logic written in JavaScript can be applied to the properties values, e.g.:",
+                "  * fullName - combining 2 fields ('FirstName' & 'LastName')",
+                "  * country - indexing nested field data ('Country' is nested under 'Address')",
+                "  * workingInCompanySince - indexing partial field data (only the 'Year')",
+                "  * numberOfTerritories - applying logic (using length)",
+                "",
+                "* The index built will contain a list of _indexed terms_ for each _index-field_ specified in the map function, and a mapping to the relevant document.",
+                "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'country', along with the relevant matching documents IDs.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                }
+                //TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/javascript-indexes"
+                //        },
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria", 
+                "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
+                "",
+                "* The query results will include all documents from the 'Employees' collection whose 'country' is 'USA',",
+                "  and have started working after 'startYear'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                },
+                //TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/javascript-indexes"
+                //        },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                }
+            ]
+        }
+    ]
+}
