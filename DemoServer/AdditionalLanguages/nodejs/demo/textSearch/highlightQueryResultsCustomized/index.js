@@ -1,18 +1,26 @@
 const { documentStore } = require('../../common/docStoreHolder');
-const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 const { Employee } = require('../../common/models');
+//region Usings
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
+//endregion
 
+//region Demo
+//region Step_1
 class EmployeesDetails extends AbstractJavaScriptIndexCreationTask {
+//endregion
     constructor () {
         super();
 
+        //region Step_2
         this.map('employees', employee => {
             return {
                 title: employee.Title,
                 notes: employee.Notes[0]
             };
         });
+        //endregion
 
+        //region Step_3
         this.store('title', 'Yes');
         this.index('title', 'Search');
         this.termVector('title', 'WithPositionsAndOffsets');
@@ -20,8 +28,10 @@ class EmployeesDetails extends AbstractJavaScriptIndexCreationTask {
         this.store('notes', 'Yes');
         this.index('notes', 'Search');
         this.termVector('notes', 'WithPositionsAndOffsets');
+        //endregion
     }
 }
+//endregion
 
 async function run ({ fragmentLength, fragmentCount, tag1, tag2, tag3, tag4 }) {
     fragmentLength = fragmentLength || 100;
@@ -32,10 +42,12 @@ async function run ({ fragmentLength, fragmentCount, tag1, tag2, tag3, tag4 }) {
     tag3 = tag3 || '<<<';
     tag4 = tag4 || '>>>';
 
+    //region Demo
     let titleHighlightings, notesHighlightings;
 
     const session = documentStore.openSession();
 
+    //region Step_4
     const tagsToUse1 = {
         preTags: [tag1],
         postTags: [tag2]
@@ -45,7 +57,9 @@ async function run ({ fragmentLength, fragmentCount, tag1, tag2, tag3, tag4 }) {
         preTags: [tag3],
         postTags: [tag4]
     };
+    //endregion
 
+    //region Step_5
     const employeesResults = await session.query(Employee, EmployeesDetails)
         .highlight({
             fieldName: 'title',
@@ -62,12 +76,16 @@ async function run ({ fragmentLength, fragmentCount, tag1, tag2, tag3, tag4 }) {
         .search('title', 'manager')
         .search('notes', 'sales')
         .all();
+    //endregion
 
+    //region Step_6
     if (employeesResults.length > 0) {
         const employeeId = employeesResults[0].id;
         const titleFragments = titleHighlightings.getFragments(employeeId);
         const notesFragments = notesHighlightings.getFragments(employeeId);
     }
+    //endregion
+    //endregion
 
     const highlightResults = [];
 
