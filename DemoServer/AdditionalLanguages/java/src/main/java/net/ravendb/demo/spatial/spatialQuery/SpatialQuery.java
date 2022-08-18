@@ -67,7 +67,7 @@ public class SpatialQuery {
                     //endregion
                     
                     //region Step_4
-                    spatialCriteria -> spatialCriteria.relatesToShape(wktCircle, SpatialRelation.WITHIN, SpatialUnits.MILES, 0))
+                    spatialCriteria -> spatialCriteria.relatesToShape(wktCircle, SpatialRelation.WITHIN, SpatialUnits.MILES, 0.025))
                     //endregion
                     
                 //region Step_5

@@ -146,6 +146,16 @@
     },
     {
         "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery",
+            "spatialIndex"
+        ]
+    },
+    {
+        "category": {
             "slug": "advanced",
             "directory": "advanced"
         },
