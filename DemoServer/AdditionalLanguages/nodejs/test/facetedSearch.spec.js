@@ -29,7 +29,7 @@ describe('Faceted Search', function () {
 
         const facetResults = await run({});
 
-        assert.equal(facetResults.length, 12); // TODO: This fails. Missing 8 Category items.
+        assert.equal(facetResults.length, 12);
     });
 
     it('facet options', async () => {
