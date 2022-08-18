@@ -1,10 +1,16 @@
 const { documentStore } = require('../../common/docStoreHolder');
+//region Usings
 const { AbstractJavaScriptMultiMapIndexCreationTask } = require('ravendb');
+//endregion
 
+//region Demo
+//region Step_1
 class CityCommerceDetails extends AbstractJavaScriptMultiMapIndexCreationTask {
+//endregion
     constructor () {
         super();
 
+        //region Step_2
         this.map('companies', company => {
             return {
                 cityName: company.Address.City,
@@ -31,7 +37,9 @@ class CityCommerceDetails extends AbstractJavaScriptMultiMapIndexCreationTask {
                 numberOfItemsShippedToCity: 0
             };
         });
+        //endregion
 
+        //region Step_3
         this.reduce(results => results.groupBy(result => result.cityName).aggregate(g => {
             return {
                 cityName: g.key,
@@ -40,9 +48,11 @@ class CityCommerceDetails extends AbstractJavaScriptMultiMapIndexCreationTask {
                 numberOfItemsShippedToCity: g.values.reduce((p, c) => c.numberOfItemsShippedToCity + p, 0)
             };
         }));
+        //endregion
     }
 }
 
+//region Step_4
 class IndexEntry {
     constructor () {
         this.cityName = null;
@@ -50,20 +60,26 @@ class IndexEntry {
         this.numberOfSuppliersInCity = null;
         this.numberOfItemsShippedToCity = null;
     }
+//endregion
 }
+//endregion
 
 async function run ({ minCompaniesCount, minItemsCount }) {
     minCompaniesCount = minCompaniesCount != null ? minCompaniesCount : 5;
     minItemsCount = minItemsCount != null ? minItemsCount : 2000;
 
+    //region Demo
     const session = documentStore.openSession();
 
+    //region Step_5
     const commerceDetails = await session.query(IndexEntry, CityCommerceDetails)
         .whereGreaterThan('numberOfCompaniesInCity', minCompaniesCount)
         .orElse()
         .whereGreaterThan('numberOfItemsShippedToCity', minItemsCount)
         .orderBy('cityName')
         .all();
+    //endregion
+    //endregion
 
     return commerceDetails;
 }
