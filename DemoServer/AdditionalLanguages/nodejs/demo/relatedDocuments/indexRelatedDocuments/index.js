@@ -1,21 +1,24 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
 //region Step_1
-class Products_ByCategoryName extends AbstractCsharpIndexCreationTask {
+class Products_ByCategoryName extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     //region Step_2
     constructor () {
         super();
 
-        this.map =
-            `docs.products.Select(product => new { 
-                CategoryName = (this.LoadDocument(product.Category, "Categories")).Name 
-            })`;
+        const { load } = this.mapUtils();
+
+        this.map("Products", product => {
+            return {
+                CategoryName: load(product.Category, "Categories").Name
+            }
+        });
     }
     //endregion
 }

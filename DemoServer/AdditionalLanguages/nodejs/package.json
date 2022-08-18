@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "eslint . && mocha",
+    "lint": "eslint .",
     "lintfix": "eslint --fix ."
   },
   "author": "",

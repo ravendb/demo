@@ -1,5 +1,5 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
@@ -7,15 +7,17 @@ module.exports = { run };
 
 //region Demo
 //region Step_1
-class Categories_DescriptionText extends AbstractCsharpIndexCreationTask {
+class Categories_DescriptionText extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     constructor () {
         super();
         //region Step_2
-        this.map = `docs.Categories.Select(category => new { 
-                        CategoryDescription = category.Description 
-                    })`;
+        this.map('Categories', category => {
+            return {
+                CategoryDescription: category.Description
+            }
+        });
         //endregion
 
         //region Step_3

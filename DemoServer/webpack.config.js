@@ -137,8 +137,10 @@ module.exports = (env, argv) => {
         compress: true,
         historyApiFallback: true,
 
-        onAfterSetupMiddleware: function() {
+        setupMiddlewares: function(middlewares) {
             console.log('Starting the development server... Port = ' + process.env.PORT + '\n');
+            
+            return middlewares;
         }
     }
   }

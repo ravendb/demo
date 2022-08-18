@@ -1,19 +1,23 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask, Facet, RangeFacet } = require('ravendb');
+const { Facet, RangeFacet, AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 const { Product } = require('../../common/models');
 
 //region Demo
 //region Step_1
-class Products_ByCategoryAndPrice extends AbstractCsharpIndexCreationTask {
+class Products_ByCategoryAndPrice extends AbstractJavaScriptIndexCreationTask {
     constructor () {
         super();
 
-        this.map = 'docs.Products.Select(product => new {' +
-            '    CategoryName = (this.LoadDocument(product.Category, "Categories")).Name,' +
-            '    PricePerUnit = product.PricePerUnit' +
-            '})';
+        const { load } = this.mapUtils();
+
+        this.map("Products", product => {
+            return {
+                CategoryName: load(product.Category, "Categories").Name,
+                PricePerUnit: product.PricePerUnit
+            }
+        });
     }
 }
 //endregion
