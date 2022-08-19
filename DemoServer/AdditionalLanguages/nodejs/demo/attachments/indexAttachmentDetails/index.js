@@ -2,7 +2,7 @@ const { documentStore } = require('../../common/docStoreHolder');
 const { Employee } = require('../../common/models');
 
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 
 const DEFAULT_ATTACHMENT_CONTENT_TYPE = 'image/jpeg';
@@ -10,23 +10,25 @@ const DEFAULT_ATTACHMENT_MIN_SIZE = 18000;
 
 //region Demo
 //region Step_1
-class Employees_ByAttachmentDetails extends AbstractCsharpIndexCreationTask {
+class Employees_ByAttachmentDetails extends AbstractJavaScriptIndexCreationTask {
 //endregion
     constructor () {
         super();
 
+        const { attachmentsFor } = this.mapUtils();
+
         //region Step_2
-        this.map = 'docs.Employees.Select(employee => new {' +
-            '    employee = employee,' +
-            '    attachments = this.AttachmentsFor(employee)' +
-        //endregion
-        //region Step_3
-            '}).Select(this0 => new {' +
-            '    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name)),' +
-            '    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)),' +
-            '    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)),' +
-            '    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))' +
-            '})';
+        this.map("Employees", employee => {
+            const attachments = attachmentsFor(employee);
+            //endregion
+            //region Step_3
+            return {
+                attachmentNames: attachments.map(x => x.Name),
+                attachmentContentTypes: attachments.map(x => x.ContentType),
+                attachmentHashes: attachments.map(x => x.Hash),
+                attachmentSizes: attachments.map(x => x.Size)
+            }
+        });
         //endregion
     }
 }

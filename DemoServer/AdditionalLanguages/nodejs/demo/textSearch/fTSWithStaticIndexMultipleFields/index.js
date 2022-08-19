@@ -1,5 +1,5 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { mediaStore } = require('../../common/docStoreHolder');
 
@@ -7,21 +7,18 @@ module.exports = { run };
 
 //region Demo
 //region Step_1
-class Song_TextData extends AbstractCsharpIndexCreationTask {
+class Song_TextData extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     constructor () {
         super();
 
         //region Step_2
-        this.map = `docs.LastFms.Select(song => new { 
-                        SongData = new object[] { 
-                            song.Artist, 
-                            song.Title, 
-                            song.Tags, 
-                            song.TrackId 
-                        } 
-                    })`;
+        this.map("LastFms", song => {
+            return {
+                SongData: [song.Arist, song.Title, song.Tags, song.TrackId]
+            }
+        })
         //endregion
 
         //region Step_3

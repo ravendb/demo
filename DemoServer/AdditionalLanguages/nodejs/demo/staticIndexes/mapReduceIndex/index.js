@@ -1,28 +1,32 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
 //region Step_1
-class Employees_ByCountry extends AbstractCsharpIndexCreationTask {
+class Employees_ByCountry extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     constructor () {
         super();
 
         //region Step_2
-        this.map = `docs.Employees.Select(employee => new { 
-                        Country = employee.Address.Country, 
-                        CountryCount = 1 
-                    })`;
+        this.map("Employees", employee => {
+            return {
+                Country: employee.Address.Country,
+                CountryCount: 1
+            }
+        });
         //endregion
 
         //region Step_3
-        this.reduce = `results.GroupBy(result => result.Country).Select(g => new { 
-                            Country = g.Key, 
-                            CountryCount = Enumerable.Sum(g, x => x.CountryCount) 
-                        })`;
+        this.reduce(results => results.groupBy(x => x.Country).aggregate(g => {
+            return {
+                Country: g.key,
+                CountryCount: g.values.reduce((p, c) => p + c.CountryCount, 0)
+            }
+        }));
         //endregion
     }
 }

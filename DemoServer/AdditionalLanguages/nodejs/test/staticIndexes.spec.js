@@ -2,6 +2,14 @@ const assert = require('assert');
 const { documentStore } = require('../demo/common/docStoreHolder');
 
 describe('Static indexes', function () {
+    it('map index', async function () {
+        const result = await require('../demo/staticIndexes/mapIndex').run({
+            startYear: 1993
+        });
+
+        assert.strictEqual(result.length, 1);
+    });
+
     it('map reduce index', async function () {
         const result = await require('../demo/staticIndexes/mapReduceIndex').run({
             country: 'USA'

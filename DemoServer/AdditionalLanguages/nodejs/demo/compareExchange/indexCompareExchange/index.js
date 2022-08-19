@@ -1,20 +1,24 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 const { Product } = require('../../common/models');
 
 //region Demo
 //region Step_1
-class Products_ByUnitsInStock extends AbstractCsharpIndexCreationTask {
+class Products_ByUnitsInStock extends AbstractJavaScriptIndexCreationTask {
 //endregion
     constructor () {
         super();
 
+        const { cmpxchg, id } = this.mapUtils();
+
         //region Step_2
-        this.map = 'docs.Products.Select(product => new {' +
-            '    UnitsInStock = this.LoadCompareExchangeValue(Id(product))' +
-            '})';
+        this.map("Products", product => {
+            return {
+                UnitsInStock: cmpxchg(id(product))
+            }
+        })
         //endregion
     }
 }

@@ -1,23 +1,25 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
 //region Step_1
-class Employees_ImportantDetails extends AbstractCsharpIndexCreationTask {
+class Employees_ImportantDetails extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     //region Step_2
     constructor () {
         super();
-        this.map =
-            `docs.Employees.Select(employee => new { 
-                FullName = (employee.FirstName + " ") + employee.LastName, 
-                Country = employee.Address.Country, 
-                WorkingInCompanySince = employee.HiredAt.Year, 
-                NumberOfTerritories = employee.Territories.Count 
-            })`;
+
+        this.map("Employees", employee => {
+            return {
+                FullName: employee.FirstName + " " + employee.LastName,
+                Country: employee.Address.Country,
+                WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),
+                NumberOfTerritories: employee.Territories.length
+            }
+        });
     }
     //endregion
 }
@@ -25,6 +27,7 @@ class Employees_ImportantDetails extends AbstractCsharpIndexCreationTask {
 
 async function run ({ startYear }) {
     await documentStore.executeIndex(new Employees_ImportantDetails());
+
 
     //region Demo
     const session = documentStore.openSession();

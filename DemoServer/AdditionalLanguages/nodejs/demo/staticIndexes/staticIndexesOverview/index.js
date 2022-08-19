@@ -1,11 +1,11 @@
 //region Usings
-const { AbstractCsharpIndexCreationTask } = require('ravendb');
+const { AbstractJavaScriptIndexCreationTask } = require('ravendb');
 //endregion
 const { documentStore } = require('../../common/docStoreHolder');
 
 //region Demo
 //region Step_1
-class Employees_ByLastName extends AbstractCsharpIndexCreationTask {
+class Employees_ByLastName extends AbstractJavaScriptIndexCreationTask {
 //endregion
 
     //region Step_2
