@@ -60,7 +60,7 @@
             "Title": "Load details for indexing",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* In the index Map function, call `AttachmentsFor()` to load the document's attachment details to be indexed.",
+                "* In the index Map function, call `attachmentsFor()` to load the document's attachment details to be indexed.",
                 "",
                 "* The _attachments_ array will hold the following per attachment:",
                 "  * Name",
@@ -68,7 +68,7 @@
                 "  * Hash",
                 "  * Size",
                 "",
-                "* To index an attachment content use: _LoadAttachment()_ or _LoadAttachments()_."
+                "* To index an attachment content use: _loadAttachment()_ or _loadAttachments()_."
             ],
             "Assets": [
                 {

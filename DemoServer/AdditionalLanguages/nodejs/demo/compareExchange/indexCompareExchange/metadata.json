@@ -42,8 +42,7 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class.",
-                "* Since the index map function in this demo is written with C# LINQ then inherit from `AbstractCsharpIndexCreationTask`"
+                "* Create a Map index class - inherit from `AbstractJavaScriptIndexCreationTask`"
             ],
             "Assets": [
                 {
@@ -68,42 +67,15 @@
                 }
             ]
         },
-//        {
-//            "Title": "The index Entry class",
-//            "Slug": "step-2",
-//            "DescriptionLines": [
-//                "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
-//                "  These fields will be indexed and can be queried on.",
-//                "",
-//                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
-//            ],
-//            "Assets": [
-//                {
-//                    "Title": "Map Indexes",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
-//                },
-//                {
-//                    "Title": "Static Indexes",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-//                },
-//                {
-//                    "Title": "Working with Indexes",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-//                }
-//            ]
-//        },
         {
             "Title": "The index constructor",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Set _map_ with the index definition string.",
+                "* Define the index-field within the _map_ function.",
                 "",
                 "* For this example, we assume there are predefined CmpXchg items with form <br>_<Key: Product's document ID, Value: number of units in stock>_",
                 "",
-                "* Call `LoadCompareExchangeValue()` to get the CmpXchg Value associated with the passed Key parameter.",
+                "* Call `cmpxchg()` to get the CmpXchg Value associated with the passed Key parameter.",
                 "  The CmpXchg Key is the document ID.",
                 "",
                 "* The CmpXchg Values will be indexed in the _UnitsInStock_ index field,<br>",
