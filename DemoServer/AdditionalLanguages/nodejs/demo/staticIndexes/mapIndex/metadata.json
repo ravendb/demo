@@ -50,7 +50,7 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`."
+                "* Create a Map index class - inherit from `AbstractJavaScriptIndexCreationTask`"
             ],
             "Assets": [
                 {
@@ -80,9 +80,7 @@
             "Title": "The index constructor",
             "Slug": "step-2",
             "DescriptionLines": [
-                "* Set `map` with the index definition string.<br>",
-                "  In the above example, a _LINQ_ expression was used .<br>",
-                "  Note: a _JavaScript_ index definition can be used as well.",
+                "* Initialize the index `map()` function with your index definition.",
                 "",
                 "* The index definition defines the _index-fields_ and their _content_ (which fields from the 'Employee' document will compose each index-field).",
                 "  Any computations or logic can be applied here, e.g.:",
