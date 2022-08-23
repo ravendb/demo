@@ -68,6 +68,7 @@
             "DescriptionLines": [
                 "* This example queries for documents from the _Employees_ collection that match the following criteria:",
                 "     * Employee's first name is 'Anne'",
+                "     * The queried document field ('FirstName') is _case-sensitive_ -<br> use the exact same casing as inside your document.",
                 "",
                 "* More filtering options are available - see related links.",
                 "",

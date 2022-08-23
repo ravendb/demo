@@ -52,7 +52,10 @@
                 "",
                 "* The above query is defined on the 'Employees' collection with no index specified.",
                 "",
-                "* Documents returned by this query will be filtered by their _Address.Country_ & _Title_ fields values."
+                "* Documents returned by this query will be filtered by their _Address.Country_ & _Title_ fields values.",
+                "",
+                "* Note: The document fields queried are _case-sensitive_.<br>",
+                "  Use the exact same casing as inside your document."
             ],
             "Assets": [
                 {

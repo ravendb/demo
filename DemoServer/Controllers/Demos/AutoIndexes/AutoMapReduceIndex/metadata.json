@@ -90,7 +90,10 @@
                 "  'Address.Country' will be the grouping key.",
                 "",
                 "* The computed results will be aggregated per country,<br>",
-                "  so that for each country you shall get its total number of employees."
+                "  so that for each country you shall get its total number of employees.",
+                "",
+                "* Note: The document fields queried are _case-sensitive_.<br>",
+                "  Use the exact same casing as inside your document."
             ],
             "Assets": [
                 {
