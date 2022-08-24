@@ -82,7 +82,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* Index-field _'CategoryDescription'_ will take its content from the document _'Description'_ field."
+                "* Index-field _'categoryDescription'_ will take its content from the document _'Description'_ field."
             ],
             "Assets": [
                 //TODO
@@ -149,7 +149,11 @@
                 "",
                 "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
-                "* Note that the comparison is done against the indexed field 'CategoryDescription' which was broken into terms."
+                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 {

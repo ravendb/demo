@@ -170,7 +170,11 @@
                 "",
                 "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
                 "",
-                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 {

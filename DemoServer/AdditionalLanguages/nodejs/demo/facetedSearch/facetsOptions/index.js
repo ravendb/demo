@@ -14,8 +14,8 @@ class Products_ByCategoryAndSupplier extends AbstractJavaScriptIndexCreationTask
 
         this.map("Products", product => {
             return {
-                CategoryName: load(product.Category, "Categories").Name,
-                Supplier: product.Supplier
+                categoryName: load(product.Category, "Categories").Name,
+                supplier: product.Supplier
             }
         });
     }
@@ -30,7 +30,7 @@ async function run ({ start, pageSize, includeRemainingTerms }) {
     //region Demo
     //region Step_2
     const facet1 = new Facet();
-    facet1.fieldName = 'CategoryName';
+    facet1.fieldName = 'categoryName';
 
     const facet1Options = new FacetOptions();
 
@@ -43,7 +43,7 @@ async function run ({ start, pageSize, includeRemainingTerms }) {
     //endregion
 
     const facet2 = new Facet();
-    facet2.fieldName = 'Supplier';
+    facet2.fieldName = 'supplier';
 
     const facet2Options = new FacetOptions();
 

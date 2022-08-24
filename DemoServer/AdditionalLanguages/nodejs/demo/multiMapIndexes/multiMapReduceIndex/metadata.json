@@ -183,7 +183,11 @@
                 "* The return value of the query is Not a list of documents from the indexed collections.<br>",
                 "  The _commerceDetails_ variable will contain the _matching index-entries_, in the shape of the 'IndexEntry' class emitted by the Map-Reduce index.",
                 "",
-                "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Multi Map-Reduce index results."
+                "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Multi Map-Reduce index results.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 {

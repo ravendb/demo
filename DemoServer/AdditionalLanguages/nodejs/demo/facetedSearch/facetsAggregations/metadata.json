@@ -58,7 +58,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Define an index on the collection you would like to query.<br>",
-                "  (CategoryName is loaded from a related document).",
+                "  (categoryName is loaded from a related document).",
                 "",
                 "* The index entry fields will be used to define the Facets (see steps 2 & 3)."
             ],
@@ -99,13 +99,13 @@
                 "  * options - define skipping, paging & sorting options",
                 "",
                 "* _In this example_:<br>",
-                "  The Facet groups the documents by the content of index field 'CategoryName'.<br>",
-                "  Average, Max & Min are requested for field _PricePerUnit_.<br>",
-                "  Sum & Min are requested for field _UnitsInStock_.<br>",
+                "  The Facet groups the documents by the content of index field 'categoryName'.<br>",
+                "  Average, Max & Min are requested for index field _pricePerUnit_.<br>",
+                "  Sum & Min are requested for index field _unitsInStock_.<br>",
                 "  But...<br>",
                 "  since aggregation is requested for 2 document fields,",
                 "  the resulting documents will be grouped by i.e. category 'Seafood', but you will get _2_ such items in the list,",
-                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
+                "  one with aggregated data for pricePerUnit field and one with aggregated data for unitsInStock field."
             ],
             "Assets": [
             // TODO
@@ -148,12 +148,12 @@
                 "  * displayFieldName - A customized name for the facet field the results",
                 "",
                 "* _In this example_:<br>",
-                "  The ranges are defined on index field 'PricePerUnit'.<br>",
+                "  The ranges are defined on index field 'pricePerUnit'.<br>",
                 "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
                 "  But...<br>",
-                "  since aggregation is requested for 2 document fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
+                "  since aggregation is requested for 2 fields ( _pricePerUnit_ , _unitsInStock_ )<br>",
                 "  you will get _2_ such items in the list,",
-                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
+                "  one with aggregated data for pricePerUnit and one with aggregated data for unitsInStock."
             ],
             "Assets": [
             // TODO
@@ -209,7 +209,11 @@
                 "* Define a query on the 'Products' collection using the defined index.<br>",
                 "  Pass the 'facets' object to the `aggregateBy()` method and execute the query.",
                 "",
-                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
+                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 {

@@ -14,15 +14,15 @@ class EmployeesDetails extends AbstractJavaScriptIndexCreationTask {
         //region Step_2
         this.map('employees', employee => {
             return {
-                Notes: employee.Notes[0]
+                notes: employee.Notes[0]
             };
         });
         //endregion
 
         //region Step_3
-        this.store('Notes', 'Yes');
-        this.index('Notes', 'Search');
-        this.termVector('Notes', 'WithPositionsAndOffsets');
+        this.store('notes', 'Yes');
+        this.index('notes', 'Search');
+        this.termVector('notes', 'WithPositionsAndOffsets');
         //endregion
     }
 }
@@ -39,11 +39,11 @@ async function run ({ fragmentLength, fragmentCount }) {
     //region Step_4
     const employeesResults = await session.query(Employee, EmployeesDetails)
         .highlight({
-            fieldName: 'Notes',
+            fieldName: 'notes',
             fragmentLength,
             fragmentCount
         }, h => { notesHighlightings = h; })
-        .search('Notes', 'sales')
+        .search('notes', 'sales')
         .all();
     //endregion
 

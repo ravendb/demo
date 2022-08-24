@@ -345,7 +345,11 @@
                 "",
                 "* The searched term will be marked with the customized pre & post tags.",
                 "",
-                "* Use these results to enhance your users' search experience."
+                "* Use these results to enhance your users' search experience.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 //TODO

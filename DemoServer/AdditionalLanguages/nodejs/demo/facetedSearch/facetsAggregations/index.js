@@ -19,9 +19,9 @@ class Products_ByCategoryPriceAndUnits extends AbstractJavaScriptIndexCreationTa
 
         this.map("Products", product => {
             return {
-                CategoryName: load(product.Category, "Categories").Name,
-                PricePerUnit: product.PricePerUnit,
-                UnitsInStock: product.UnitsInStock
+                categoryName: load(product.Category, "Categories").Name,
+                pricePerUnit: product.PricePerUnit,
+                unitsInStock: product.UnitsInStock
             }
         });
     }
@@ -37,13 +37,13 @@ async function run ({ range1, range2, range3 }) {
     //region Demo
     //region Step_2
     const facet = new Facet();
-    facet.fieldName = 'CategoryName';
+    facet.fieldName = 'categoryName';
 
     const pricePerUnitAggregationField = new FacetAggregationField();
-    pricePerUnitAggregationField.name = 'PricePerUnit';
+    pricePerUnitAggregationField.name = 'pricePerUnit';
 
     const unitsInStockAggregationField = new FacetAggregationField();
-    unitsInStockAggregationField.name = 'UnitsInStock';
+    unitsInStockAggregationField.name = 'unitsInStock';
 
     facet.aggregations.set('Average', [pricePerUnitAggregationField]);
     facet.aggregations.set('Sum', [unitsInStockAggregationField]);
@@ -55,10 +55,10 @@ async function run ({ range1, range2, range3 }) {
     //region Step_3
     const rangeFacet = new RangeFacet();
     rangeFacet.ranges = [
-        'PricePerUnit < ' + range1,
-        'PricePerUnit >= ' + range1 + ' and PricePerUnit < ' + range2,
-        'PricePerUnit >= ' + range2 + ' and PricePerUnit < ' + range3,
-        'PricePerUnit >= ' + range3
+        'pricePerUnit < ' + range1,
+        'pricePerUnit >= ' + range1 + ' and pricePerUnit < ' + range2,
+        'pricePerUnit >= ' + range2 + ' and pricePerUnit < ' + range3,
+        'pricePerUnit >= ' + range3
     ];
 
     rangeFacet.aggregations.set('Average', [pricePerUnitAggregationField]);
