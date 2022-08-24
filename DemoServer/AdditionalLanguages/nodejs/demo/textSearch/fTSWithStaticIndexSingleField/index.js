@@ -15,13 +15,13 @@ class Categories_DescriptionText extends AbstractJavaScriptIndexCreationTask {
         //region Step_2
         this.map('Categories', category => {
             return {
-                CategoryDescription: category.Description
+                categoryDescription: category.Description
             }
         });
         //endregion
 
         //region Step_3
-        this.index('CategoryDescription', 'Search');
+        this.index('categoryDescription', 'Search');
         //endregion
     }
 }
@@ -34,7 +34,7 @@ async function run ({ searchTerm }) {
     const session = documentStore.openSession();
     //region Step_4
     const categoriesWithSearchTerm = await session.query({ indexName: 'Categories/DescriptionText' })
-        .whereEquals('CategoryDescription', searchTerm)
+        .whereEquals('categoryDescription', searchTerm)
         .all();
     //endregion
     //endregion

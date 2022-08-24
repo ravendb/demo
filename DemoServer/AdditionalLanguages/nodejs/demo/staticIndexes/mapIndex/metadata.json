@@ -86,13 +86,13 @@
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
                 "* The following index-fields are configured above:",
-                "   * _FullName_ - combining 2 fields ('FirstName' & 'LastName')",
-                "   * _Country_ - indexing nested field data ('Country' is nested under 'Address')",
-                "   * _WorkingInCompanySince_ - indexing partial field data (only the 'Year')",
-                "   * _NumberOfTerritories_ - applying logic (using Count)",
+                "   * _fullName_ - combining 2 document fields ('FirstName' & 'LastName')",
+                "   * _country_ - indexing nested field data ('Country' is nested under 'Address')",
+                "   * _workingInCompanySince_ - indexing partial field data (only the 'Year')",
+                "   * _numberOfTerritories_ - applying logic (using Count)",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
-                "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
+                "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'country', along with the relevant matching documents IDs.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."
             ],
@@ -124,8 +124,12 @@
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria ('USA' & 'startYear')", 
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
                 "",
-                "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
-                "  and have started working after 'startYear'."
+                "* The query results will include all documents from the 'Employees' collection whose 'country' is 'USA',",
+                "  and have started working after 'startYear'.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 //TODO

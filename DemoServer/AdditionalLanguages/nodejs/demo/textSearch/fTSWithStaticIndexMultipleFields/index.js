@@ -16,13 +16,13 @@ class Song_TextData extends AbstractJavaScriptIndexCreationTask {
         //region Step_2
         this.map("LastFms", song => {
             return {
-                SongData: [song.Arist, song.Title, song.Tags, song.TrackId]
+                songData: [song.Artist, song.Title, song.Tags, song.TrackId]
             }
         })
         //endregion
 
         //region Step_3
-        this.index('SongData', 'Search');
+        this.index('songData', 'Search');
         //endregion
     }
 }
@@ -35,7 +35,7 @@ async function run ({ searchTerm }) {
     const session = mediaStore.openSession();
     //region Step_4
     const results = await session.query({ indexName: 'Song/TextData' })
-        .search('SongData', searchTerm)
+        .search('songData', searchTerm)
         .take(20)
         .all();
     //endregion

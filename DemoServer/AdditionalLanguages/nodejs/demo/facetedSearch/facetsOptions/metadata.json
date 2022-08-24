@@ -56,7 +56,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Define an index on the collection you would like to query.<br>",
-                "  (CategoryName is loaded from a related document).",
+                "  (categoryName is loaded from a related document).",
                 "",
                 "* The index entry fields will be used to define the Facets (see step 2)."
             ],
@@ -100,7 +100,7 @@
                 "  * Aggregations - define the sum, min, max & average per aggregated result",
                 "",
                 "* _In this example_:<br>",
-                "  'facet1' groups by the content of index field 'CategoryName'.<br>",
+                "  'facet1' groups by the content of index field 'categoryName'.<br>",
                 "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.<br>",
                 "  The number of items returned depends on the 'start' and 'pageSize' params.<br>",
                 "  The aggregated items will be sorted by the documents count per item in a descending order."
@@ -160,7 +160,11 @@
                 "  Pass the 'facets' object to the `aggregateBy()` method and execute the query.",
                 "",
                 "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.<br>",
-                "  The items returned are dependent on the Options settings. "
+                "  The items returned are dependent on the Options settings. ",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
             ],
             "Assets": [
                 {

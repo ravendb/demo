@@ -9,8 +9,8 @@ describe('Faceted Search', function () {
 
         const results = await run({});
 
-        assert.equal(results.CategoryName.values.length, 16);
-        assert.equal(results.PricePerUnit.values.length, 8);
+        assert.equal(results.categoryName.values.length, 16);
+        assert.equal(results.pricePerUnit.values.length, 8);
     });
 
     it('basics', async () => {
@@ -39,7 +39,7 @@ describe('Faceted Search', function () {
 
         const results = await run({});
 
-        assert.equal(results.CategoryName.values.length, 2);
-        assert.equal(results.Supplier.values.length, 2);
+        assert.equal(results.categoryName.values.length, 2);
+        assert.equal(results.supplier.values.length, 2);
     });
 });

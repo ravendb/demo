@@ -16,7 +16,7 @@ class Products_ByUnitsInStock extends AbstractJavaScriptIndexCreationTask {
         //region Step_2
         this.map("Products", product => {
             return {
-                UnitsInStock: cmpxchg(id(product))
+                unitsInStock: cmpxchg(id(product))
             }
         })
         //endregion
@@ -32,7 +32,7 @@ async function run ({ minValue }) {
 
     //region Step_3
     return session.query(Product, Products_ByUnitsInStock)
-        .whereGreaterThan('UnitsInStock', minValue)
+        .whereGreaterThan('unitsInStock', minValue)
         .all();
     //endregion
     //endregion

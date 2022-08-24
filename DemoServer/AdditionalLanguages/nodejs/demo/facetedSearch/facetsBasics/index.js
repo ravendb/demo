@@ -14,8 +14,8 @@ class Products_ByCategoryAndPrice extends AbstractJavaScriptIndexCreationTask {
 
         this.map("Products", product => {
             return {
-                CategoryName: load(product.Category, "Categories").Name,
-                PricePerUnit: product.PricePerUnit
+                categoryName: load(product.Category, "Categories").Name,
+                pricePerUnit: product.PricePerUnit
             }
         });
     }
@@ -32,17 +32,17 @@ async function run ({ range1, range2, range3 }) {
     //region Step_2
     const categoryNameFacet = new Facet();
 
-    categoryNameFacet.fieldName = 'CategoryName';
+    categoryNameFacet.fieldName = 'categoryName';
     categoryNameFacet.displayFieldName = 'Product Category';
     //endregion
 
     //region Step_3
     const rangeFacet = new RangeFacet();
     rangeFacet.ranges = [
-        'PricePerUnit < ' + range1,
-        'PricePerUnit >= ' + range1 + ' and PricePerUnit < ' + range2,
-        'PricePerUnit >= ' + range2 + ' and PricePerUnit < ' + range3,
-        'PricePerUnit >= ' + range3
+        'pricePerUnit < ' + range1,
+        'pricePerUnit >= ' + range1 + ' and pricePerUnit < ' + range2,
+        'pricePerUnit >= ' + range2 + ' and pricePerUnit < ' + range3,
+        'pricePerUnit >= ' + range3
     ];
     rangeFacet.displayFieldName = 'Price per Unit';
     //endregion
@@ -71,8 +71,8 @@ async function run ({ range1, range2, range3 }) {
 
         result.values.forEach(item => {
             facetsResults.push({
-                facetName: facetName, // i.e. PricePerUnit
-                facetRange: item.range, // i.e. PricePerUnit < 50
+                facetName: facetName, // i.e. pricePerUnit
+                facetRange: item.range, // i.e. pricePerUnit < 50
                 facetCount: item.count
             });
         });

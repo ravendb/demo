@@ -14,17 +14,17 @@ class Employees_ByCountry extends AbstractJavaScriptIndexCreationTask {
         //region Step_2
         this.map("Employees", employee => {
             return {
-                Country: employee.Address.Country,
-                CountryCount: 1
+                country: employee.Address.Country,
+                countryCount: 1
             }
         });
         //endregion
 
         //region Step_3
-        this.reduce(results => results.groupBy(x => x.Country).aggregate(g => {
+        this.reduce(results => results.groupBy(x => x.country).aggregate(g => {
             return {
-                Country: g.key,
-                CountryCount: g.values.reduce((p, c) => p + c.CountryCount, 0)
+                country: g.key,
+                countryCount: g.values.reduce((p, c) => p + c.countryCount, 0)
             }
         }));
         //endregion
@@ -39,10 +39,10 @@ async function run ({ country }) {
     const session = documentStore.openSession();
     //region Step_4
     const queryResult = await session.query({ indexName: 'Employees/ByCountry' })
-        .whereEquals('Country', country)
+        .whereEquals('country', country)
         .firstOrNull();
 
-    const numberOfEmployeesFromCountry = queryResult != null ? queryResult.CountryCount : 0;
+    const numberOfEmployeesFromCountry = queryResult != null ? queryResult.countryCount : 0;
     //endregion
     //endregion
 

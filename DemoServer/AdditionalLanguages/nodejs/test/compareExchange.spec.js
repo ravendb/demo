@@ -1,3 +1,4 @@
+const assert = require('assert');
 
 describe('Compare Exchange', function () {
     it('create compare exchange', async () => {
@@ -9,6 +10,10 @@ describe('Compare Exchange', function () {
     it('index compare exchange', async () => {
         const { run } = require('../demo/compareExchange/indexCompareExchange');
 
-        await run({});
+        const result = await run({
+            minValue: 25
+        });
+
+        assert.equal(result.length, 7);
     });
 });

@@ -14,10 +14,10 @@ class Employees_ImportantDetails extends AbstractJavaScriptIndexCreationTask {
 
         this.map("Employees", employee => {
             return {
-                FullName: employee.FirstName + " " + employee.LastName,
-                Country: employee.Address.Country,
-                WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),
-                NumberOfTerritories: employee.Territories.length
+                fullName: employee.FirstName + " " + employee.LastName,
+                country: employee.Address.Country,
+                workingInCompanySince: new Date(employee.HiredAt).getFullYear(),
+                numberOfTerritories: employee.Territories.length
             }
         });
     }
@@ -33,8 +33,8 @@ async function run ({ startYear }) {
     const session = documentStore.openSession();
     //region Step_3
     const employeesFromUSA = await session.query({ indexName: 'Employees/ImportantDetails' })
-        .whereEquals('Country', 'USA')
-        .whereGreaterThan('WorkingInCompanySince', startYear)
+        .whereEquals('country', 'USA')
+        .whereGreaterThan('workingInCompanySince', startYear)
         .all();
     //endregion
     //endregion

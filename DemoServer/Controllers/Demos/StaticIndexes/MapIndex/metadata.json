@@ -111,7 +111,7 @@
                 "* The _Map function_ defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
                 "  Any computations or logic can be applied here, e.g.:",
                 "",
-                "  * FullName - combining 2 fields ('FirstName' & 'LastName')",
+                "  * FullName - combining 2 document fields ('FirstName' & 'LastName')",
                 "  * Country - indexing nested field data ('Country' is nested under 'Address')",
                 "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
                 "  * NumberOfTerritories - applying logic (using Count)",

@@ -16,7 +16,7 @@ class Products_ByCategoryName extends AbstractJavaScriptIndexCreationTask {
 
         this.map("Products", product => {
             return {
-                CategoryName: load(product.Category, "Categories").Name
+                categoryName: load(product.Category, "Categories").Name
             }
         });
     }
@@ -32,7 +32,7 @@ async function run ({ categoryName }) {
     //region Step_3
     const productsWithCategoryName = await session
         .query({ indexName: 'Products/ByCategoryName' })
-        .whereEquals('CategoryName', categoryName)
+        .whereEquals('categoryName', categoryName)
         .all();
     //endregion
     //endregion

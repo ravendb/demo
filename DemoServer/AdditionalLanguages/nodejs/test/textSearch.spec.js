@@ -7,7 +7,7 @@ const {
 describe('text search', function () {
     it('single field', async function () {
         const result = await require('../demo/textSearch/fTSWithStaticIndexSingleField').run({
-            searchTerm: 'fruit'
+            searchTerm: 'pasta'
         });
         assert.ok(result[0]);
         assert.strictEqual(result.length, 1);
@@ -15,9 +15,10 @@ describe('text search', function () {
 
     it('multiple fields', async function () {
         const result = await require('../demo/textSearch/fTSWithStaticIndexMultipleFields').run({
-            searchTerm: 'box'
+            searchTerm: 'Floyd'
         });
-        assert.ok(result && result.length);
+        
+        assert.equal(result.length, 15);
     });
 
     it('query search basics', async function () {

@@ -163,7 +163,12 @@
                 "* _The query results list objects_ will be in the shape of the IndexEntry class (IndexEntry) since no projection was used in this example.",
                 "",
                 "* _Note_: Not using projection here is possible since the indexed data was not customized,<br>",
-                "  but taken as-is from the documents' properties."
+                "  but taken as-is from the documents' properties.",
+                "",
+                "* Note:<br>",
+                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
+                "  i.e. index fields will be PascalCase."
+
             ],
             "Assets": [
                 {
