@@ -464,6 +464,13 @@ hr {
     font-size: 11px;
     display: flex;
 
+    .text-msg {
+        color: $brand-info-light;
+        background-color: adjust-color($brand-info-dark, $lightness: -20%, $saturation: -20%); 
+        font-size: 14px;
+        height: fit-content;
+    }
+    
     .fab {
         border: none;
         color: $gray;
