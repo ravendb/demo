@@ -7,6 +7,7 @@ import { selectFirstWalkthroughUrl } from "../../../store/selectors/walkthroughU
 import { IconPlay, IconStudio, IconLearn } from "../../helpers/icons";
 
 interface NavPanelStateProps {
+    language: string;
     categorySlug: string;
     demoSlug: string;
     firstWtUrl?: string;
@@ -27,6 +28,15 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
         onRunScriptClicked();
     }
 
+    nonCsharpDemoMessage() {
+        const {language} = this.props;
+        return language !== "csharp" &&
+            <div className="text-msg padding padding-xs margin-right">
+                Note:<br/> Results viewed in the Studio are C# based,<br/>
+                i.e. index fields will be PascalCase
+            </div>;
+    }
+    
     studioButton() {
         const { studioUrl } = this.props;
         return studioUrl && <a href={studioUrl} id="openStudio" className="fab" target="_blank">
@@ -51,6 +61,7 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
     render() {
         const { hideRunButton, hideWalkthroughButton } = this.props;
         return <div className="fab-container">
+            {this.nonCsharpDemoMessage()}
             {this.studioButton()}
             {!hideWalkthroughButton && this.walkthroughButton()}
             {!hideRunButton && this.runScriptButton()}
@@ -59,11 +70,12 @@ class NavPanelComponent extends React.Component<NavPanelProps, {}> {
 }
 
 function mapStateToProps({ demos }: AppState): NavPanelStateProps {
-    const { categorySlug, demoSlug, demo, conferenceMode } = demos;
+    const { categorySlug, demoSlug, demo, conferenceMode, language } = demos;
     const nonInteractive = demo && demo.nonInteractive;
     const studioUrl = !nonInteractive && demo && demo.studioUrl;
 
     return {
+        language,
         categorySlug,
         demoSlug,
         firstWtUrl: selectFirstWalkthroughUrl(demos),
