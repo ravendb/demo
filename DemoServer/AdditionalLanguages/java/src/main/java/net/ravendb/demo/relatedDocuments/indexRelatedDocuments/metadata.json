@@ -72,6 +72,7 @@
                 "* Use `LoadDocument()` to load the related 'Category' document whose ID is specified by 'product.Category'.",
                 "",
                 "* The index-field _categoryName_ will contain the value of the 'Name' property from the related document.",
+                "  The document property is case-sensitive, use the exact casing as in the document.",
                 "",
                 "* Later on, the 'Products' collection can be queried using this index to get products that have a specific category name.",
                 "",
