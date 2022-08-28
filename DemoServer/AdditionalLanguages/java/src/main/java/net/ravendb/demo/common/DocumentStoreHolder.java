@@ -13,8 +13,8 @@ public class DocumentStoreHolder {
         // replace params below with whatever you run with...
         store = new DocumentStore("http://localhost:8080", "q1");
 
-        // Uncomment the below if you want PascalCase documents properties to be returned in the resulting query documents.
-        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
+        // Use the below so that PascalCase documents properties will be returned in the resulting query documents.
+        store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
 
         store.initialize();
 
