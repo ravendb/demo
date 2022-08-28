@@ -18,14 +18,14 @@ public class IndexRelatedDocuments {
         //region Step_2
         public Products_ByCategoryName() {
             map = "docs.products.Select(product => new { " +
-                "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name " +
+                "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name " +
                 "})";
         }
         //endregion
     }
     //endregion
 
-    public void run(RunParams runParams) {
+    public List<Product> run(RunParams runParams) {
         String categoryName = runParams.getCategoryName();
 
         //region Demo
@@ -35,11 +35,13 @@ public class IndexRelatedDocuments {
             //region Step_3
             productsWithCategoryName = session
                 .query(Product.class, Products_ByCategoryName.class)
-                .whereEquals("CategoryName", categoryName)
+                .whereEquals("categoryName", categoryName)
                 .toList();
             //endregion
         }
         //endregion
+
+        return productsWithCategoryName;
     }
 
     public static class RunParams {

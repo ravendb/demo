@@ -126,7 +126,7 @@
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
-                "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName'.",
+                "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName' param.",
                 "",
                 "* Remember - the category field in the Product document has the _ID_ of the related category document.",
                 "  Using the index allows us to query by the category _Name_ itself."
