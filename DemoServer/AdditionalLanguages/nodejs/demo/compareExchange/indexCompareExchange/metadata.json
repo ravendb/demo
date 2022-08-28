@@ -107,11 +107,7 @@
                 "",
                 "* The 'Products' documents can be filtered by the index-field _unitsInStock_ that was defined in the index.",
                 "",
-                "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
             "Assets": [
                 //TODO

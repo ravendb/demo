@@ -160,11 +160,7 @@
                 "  Pass the 'facets' object to the `aggregateBy()` method and execute the query.",
                 "",
                 "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.<br>",
-                "  The items returned are dependent on the Options settings. ",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "  The items returned are dependent on the Options settings. "
             ],
             "Assets": [
                 {

@@ -224,11 +224,7 @@
                 "* Call `all()` to execute the query.",
                 "",
                 "* The query results will include all documents from the 'Companies' collection<br>",
-                "  whose geodata falls within the defined polygon, ordered by their distance from Seattle.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "  whose geodata falls within the defined polygon, ordered by their distance from Seattle."
                 
             ],
             "Assets": [

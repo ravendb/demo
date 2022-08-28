@@ -149,11 +149,7 @@
                 "",
                 "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
-                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms."
             ],
             "Assets": [
                 {
