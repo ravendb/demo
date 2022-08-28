@@ -10,7 +10,12 @@ public class DocumentStoreHolder {
     public static DocumentStore mediaStore;
 
     static {
-        store = new DocumentStore("http://localhost:8080", "q1"); // replace this with whatever you run with...
+        // replace params below with whatever you run with...
+        store = new DocumentStore("http://localhost:8080", "q1");
+
+        // Uncomment the below if you want PascalCase documents properties to be returned in the resulting query documents.
+        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
+
         store.initialize();
 
         mediaStore = new DocumentStore("http://localhost:8080", "Media-6d9c0b0c-7142-4b24-b09d-efd85ebd70a8");
