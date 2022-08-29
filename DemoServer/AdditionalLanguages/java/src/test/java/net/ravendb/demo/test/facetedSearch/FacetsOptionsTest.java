@@ -17,5 +17,6 @@ public class FacetsOptionsTest {
         Map<String, FacetResult> results = new FacetsOptions().run(runParams);
 
         Assert.assertNotNull(results);
+        Assert.assertEquals(2, results.size());
     }
 }
