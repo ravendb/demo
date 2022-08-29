@@ -86,7 +86,7 @@
                 "",
                 "* These fields contain the indexed data from all the collections defined in the index<br> (configured in the next step).",
                 "",
-                "* In this example, only a single index-field _Name_ is defined.<br>",
+                "* In this example, only a single index-field _name_ is defined.<br>",
                 "  Collections defined in the index can be queried and filtered by this field."
                 
             ],
@@ -115,12 +115,13 @@
                 "* Use `addMap()` to define the content of the index-field per collection indexed.<br>",
                 "  Data from the different collections is indexed into the _common index-field_ in the IndexEntry class.",
                 "",
-                "* In this example, document properties from Companies & Suppliers collections are indexed into the common index field _'Name'_.<br>",
-                "  The document properties indexed are not customized but taken as is.",
+                "* In this example, document properties from Companies & Suppliers collections are indexed into the common index field _'name'_.<br>",
+                "  The document properties indexed are not customized but taken as is.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
-                "* The index will contain a mapping from any indexed 'Name' term to the relevant document in either the Companies or the Suppliers collection.",
+                "* The index will contain a mapping from any indexed 'name' term to the relevant document in either the Companies or the Suppliers collection.",
                 "",
-                "* When querying this index, the indexed term 'Name' can be used to filter the query results and get matching documents from either collection."
+                "* When querying this index, the indexed term 'name' can be used to filter the query results and get matching documents from either collection."
             ],
             "Assets": [
                 {
