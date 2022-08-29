@@ -307,10 +307,10 @@
                 "",
                 "* _Query results will be_:",
                 "  * artistsResults -<br>",
-                "    _The index-entries_ that contain the searched term in their 'AllSongTitles' field.",
+                "    _The index-entries_ that contain the searched term in their 'allSongTitles' field.",
                 "",
                 "  * highlightingsInfo -<br>",
-                "    _The fragments_ from the aggregated field 'AllSongTitles' that contain the searched term.<br>",
+                "    _The fragments_ from the aggregated field 'allSongTitles' that contain the searched term.<br>",
                 "    The term will be marked with the customized pre & post tags."
             ],
             "Assets": [

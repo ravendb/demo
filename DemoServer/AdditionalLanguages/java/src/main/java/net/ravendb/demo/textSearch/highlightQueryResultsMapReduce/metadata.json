@@ -82,8 +82,8 @@
                 "  These fields will be indexed and can be queried on.",
                 "",
                 "* In this example, each resulting _index-entry_ will have the above 2 index-fields:<br>",
-                "  * Artist - will be the Key field to group by<br>",
-                "  * AllSongTitles - will be the aggregated text field",
+                "  * artist - will be the Key field to group by<br>",
+                "  * allSongTitles - will be the aggregated text field",
                 "",
                 "* The content for each index-field is configured in the index constructor (see next step)."
             ],
@@ -119,10 +119,10 @@
                 "* The Map function is the first stage of the Map-Reduce index.<br>",
                 "  It indexes the specified fields _per document_ in the collection.",
                 "",
-                "  * _Artist_ - per document, this field will contain the artist's name.<br>",
+                "  * _artist_ - per document, this field will contain the artist's name.<br>",
                 "    This field will be the Key field, by which to group-by.",
                 "",
-                "  * _AllSongTitles_ - per document, will contain the document's Title field.<br>",
+                "  * _allSongTitles_ - per document, will contain the document's Title field.<br>",
                 "    This field will be aggregated in the following Reduce stage,<br>accumulating all the song titles of an artist.",
                 "",
                 "* The fields will be customized for Full Text Search and Highlighting in step 5."
@@ -159,12 +159,12 @@
                 "  It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
                 "",
                 "* Specify the field to group-by:<br><br>",
-                "  `GroupBy(result => result.Artist)`  ==> group by index-field 'Artist'",
+                "  `GroupBy(result => result.artist)`  ==> group by index-field 'Artist'",
                 "",
                 "* Specify the aggregation needed for that field:<br><br>",
-                "  `Artist = g.Key`<br>",
+                "  `artist = g.Key`<br>",
                 "   ==> The artist we group by<br><br>",
-                "  `AllSongTitles = String.Join(\" \", g.Select(x => x.AllSongTitles))`<br>",
+                "  `allSongTitles = String.Join(\" \", g.Select(x => x.allSongTitles))`<br>",
                 "   ==> using String.Join() to concatenate the text, as the aggregation function."
             ],
             "Assets": [
@@ -248,7 +248,7 @@
             "DescriptionLines": [
                 "* Prior to making the search query,<br> you must define a `HighlightingOptions` object with a `GroupKey`.",
                 "",
-                "* Assign the Key index-field name (the one you group-by) to GroupKey, e.g. 'Artist'.",
+                "* Assign the Key index-field name (the one you group-by) to GroupKey, e.g. 'artist'.",
                 "",
                 "* Optionally, you can also define `PreTags` and `PostTags` that will mark the searched terms within the text fragments.",
                 "  If no such tags are defined then the default tags will be used.<br>",
@@ -290,7 +290,7 @@
             "DescriptionLines": [
                 "* A query can now be made on the Map-Reduce index-entries.",
                 "",
-                "* In this example,<br> we are searching for artists containing the searched term within their 'AllSongTitles' field.<br>",
+                "* In this example,<br> we are searching for artists containing the searched term within their 'allSongTitles' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `highlight()`<br>",
@@ -305,10 +305,10 @@
                 "",
                 "* _Query results will be_:",
                 "  * artistsResults -<br>",
-                "    _The index-entries_ that contain the searched term in their 'AllSongTitles' field.",
+                "    _The index-entries_ that contain the searched term in their 'allSongTitles' field.",
                 "",
                 "  * highlightingsInfo -<br>",
-                "    _The fragments_ from the aggregated field 'AllSongTitles' that contain the searched term.<br>",
+                "    _The fragments_ from the aggregated field 'allSongTitles' that contain the searched term.<br>",
                 "    The term will be marked with the customized pre & post tags."
             ],
             "Assets": [
