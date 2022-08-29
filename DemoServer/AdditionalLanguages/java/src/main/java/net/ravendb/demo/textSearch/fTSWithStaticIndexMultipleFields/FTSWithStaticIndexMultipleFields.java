@@ -19,7 +19,7 @@ public class FTSWithStaticIndexMultipleFields {
         public Song_TextData() {
             //region Step_2
             map = "docs.LastFms.Select(song => new { " +
-                "    SongData = new object[] { " +
+                "    songData = new object[] { " +
                 "        song.Artist, " +
                 "        song.Title, " +
                 "        song.Tags, " +
@@ -29,13 +29,13 @@ public class FTSWithStaticIndexMultipleFields {
             //endregion
 
             //region Step_3
-            index("SongData", FieldIndexing.SEARCH);
+            index("songData", FieldIndexing.SEARCH);
             //endregion
         }
     }
     //endregion
 
-    public void run(RunParams runParams) {
+    public List<LastFm> run(RunParams runParams) {
         String searchTerm = runParams.getSearchTerm();
 
         //region Demo
@@ -44,12 +44,14 @@ public class FTSWithStaticIndexMultipleFields {
         try (IDocumentSession session = DocumentStoreHolder.mediaStore.openSession()) {
             //region Step_4
             results = session.query(LastFm.class, Song_TextData.class)
-                .search("SongData", searchTerm)
+                .search("songData", searchTerm)
                 .take(20)
                 .toList();
             //endregion
         }
         //endregion
+
+        return results;
     }
 
     public static class RunParams {

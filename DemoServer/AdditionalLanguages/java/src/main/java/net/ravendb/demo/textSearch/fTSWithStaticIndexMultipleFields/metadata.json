@@ -79,7 +79,7 @@
             "DescriptionLines": [
                 "* Define the Map function - Combine multiple document fields into a single index-field",
                 "",
-                "* The content of index-field _'SongData'_ will be composed of the following four 'LastFm' document fields:",
+                "* The content of index-field _'songData'_ will be composed of the following four 'LastFm' document fields:",
                 "    * Artist, Title, Tags & TrackId"
             ],
             "Assets": [
@@ -99,9 +99,9 @@
             "Title": "Configure Full-Text Search",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'SongData'.",
+                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on index field 'songData'.",
                 "",
-                "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
+                "* During the indexing process, the 'songData' field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
                 "",
                 "* In this case, the terms include data originating from the document fields that were specified in the Map function - ",
@@ -147,7 +147,7 @@
                 "* The query results (limited to 20) will be only those documents that contain the value of 'searchTerm' within either one the following fields:<br>",
                 "    * Artist, Title, Tags & TrackId",
                 "",
-                "* Note that the comparison is done against the indexed field _'SongData'_, which contains the terms that were generated from those fields."
+                "* Note that the comparison is done against index field _'songData'_, which contains the terms that were generated from those fields."
             ],
             "Assets": [
                 {
