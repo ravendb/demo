@@ -162,7 +162,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index for documents that contain the specified term.",
                 "",
-                "* In this example,<br> we are searching for documents containing the term 'sales' within their 'notes' field.<br>",
+                "* In this example,<br> we are searching for documents containing the term 'sales' within the 'notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `highlight()`<br>",

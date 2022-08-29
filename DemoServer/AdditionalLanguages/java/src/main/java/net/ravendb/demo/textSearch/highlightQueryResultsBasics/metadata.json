@@ -79,7 +79,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index fields _Notes_ is taken from the corresponding document field.",
+                "* The content for index fields _notes_ is taken from the corresponding document field.",
                 "",
                 "* The field will be customized for Full Text Search and Highlighting in the next step."
                 
@@ -160,7 +160,7 @@
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index for documents that contain the specified term.",
                 "",
-                "* In this example,<br> we are searching for documents containing the term 'sales' within their 'Notes' field.<br>",
+                "* In this example,<br> we are searching for documents containing the term 'sales' within the 'notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `highlight()`<br>",
@@ -178,7 +178,7 @@
                 "    _The documents_ that contain the searched term 'sales'.",
                 "",
                 "  * notesHighlightings -<br>",
-                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "    _The fragments_ from field 'notes' that contain the term 'sales'.<br>",
                 "    The term will be marked with the default pre & post tags.",
                 "",
                 "  * The default pre & post tags are: `<b style='background:yellow'>......</b>`<br>",
