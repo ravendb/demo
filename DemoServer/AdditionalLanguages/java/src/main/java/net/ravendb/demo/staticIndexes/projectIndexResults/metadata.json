@@ -114,14 +114,14 @@
             "Slug": "step-4",
             "DescriptionLines": [
                 "* Assign the index definition string to the map property.",
-                "   This index definition defines the index-fields content - which fields from the 'Employee' document will compose each index-field.",
+                "  This index definition defines the index-fields content - which fields from the 'Employee' document will compose each index-field.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example,<br> data from document field 'HiredAt.Year' is indexed in the _workingInCompanySince_ index-field.<br>",
-                "  The document properties are case-sensitive, use the exact casing as in the document."
+                "* In this example,<br> data from document field 'HiredAt.Year' is indexed in the _workingInCompanySince_ index-field."
             ],
             "Assets": [
                 {

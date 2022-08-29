@@ -19,8 +19,8 @@ public class ProjectIndexResultsTest {
         List<ProjectIndexResults.Employees_ByWorkPeriod.EmployeeProjectedDetails> result =
             new ProjectIndexResults().run(params);
 
-        // The properties in the documents returned are null due to bug in
+        // The properties in the documents returned are null due to bug when using selectFields() together with
         // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
-        Assert.assertNotNull(result);
+        Assert.assertEquals(3, result.size());
     }
 }

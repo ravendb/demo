@@ -75,7 +75,7 @@
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
-                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
+                "* Field _totalItemsOrdered_ will be computed and stored in the index (Step 5)."
             ],
             "Assets": [
                 {
@@ -122,13 +122,14 @@
             "DescriptionLines": [
                 "* Assign the index definition string to the map property.",
                 "",
-                "* This index definition defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "* This index definition defines the index-fields content - which fields from the 'Order' document will compose each index-field.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
                 "* The index built will contain a list of indexed terms for each index-field specified by the index definition, and a mapping to the relevant document.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
+                "* In this example, index field `totalItemsOrdered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
                 {
@@ -206,8 +207,8 @@
                 "  * If the field is _not stored in the index_ - the server will fetch it from the document store",
                 "",
                 "* In this example:<br>",
-                "  * 'TotalItemsOrdered' is fetched from the index<br>",
-                "  * 'OrderedAt' is fetched from the document store"
+                "  * 'totalItemsOrdered' is fetched from the index<br>",
+                "  * 'orderedAt' is fetched from the document store"
             ],
             "Assets": [
                 {
