@@ -1,13 +1,10 @@
 package net.ravendb.demo.compareExchange.indexCompareExchange;
 //region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
-import net.ravendb.client.documents.indexes.AbstractJavaScriptIndexCreationTask;
 import net.ravendb.client.documents.session.IDocumentSession;
 //endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
-import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.common.models.Product;
-import net.ravendb.demo.javascriptIndexes.javascriptMapIndex.JavascriptMapIndex;
 import java.util.List;
 
 public class IndexCompareExchange {
@@ -32,8 +29,8 @@ public class IndexCompareExchange {
 
         //region Step_3
         public Products_ByUnitsInStock() {
-            map = "docs.Products.Select(product => new {\n" +
-                "    UnitsInStock = this.LoadCompareExchangeValue(Id(product))\n" +
+            map = "docs.Products.Select(product => new {" +
+                "    unitsInStock = this.LoadCompareExchangeValue(Id(product))" +
                 "})";
         }
         //endregion
@@ -49,7 +46,7 @@ public class IndexCompareExchange {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             products = session.query(Products_ByUnitsInStock.IndexEntry.class, Products_ByUnitsInStock.class)
-                .whereGreaterThan("UnitsInStock" , minValue)
+                .whereGreaterThan("unitsInStock" , minValue)
                 .ofType(Product.class)
                 .toList();
             //endregion
