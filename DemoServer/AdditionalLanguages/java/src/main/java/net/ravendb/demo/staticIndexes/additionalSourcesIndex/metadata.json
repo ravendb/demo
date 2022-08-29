@@ -98,12 +98,12 @@
                 "  The Map function defines the index-fields content.",
                 "",
                 "* Fields with content taken from Product document:",
-                "    * ProductName",
-                "    * OriginalPrice",
+                "    * productName",
+                "    * originalPrice",
                 "",
                 "* Fields with content computed by an Additional Source:",
-                "    * SalePrice",
-                "    * ProfitPrice",
+                "    * salePrice",
+                "    * profitPrice",
                 "",
                 "    ==> Methods `CalcSalePrice` & `CalcProfitPrice` are located in an external source.<br>",
                 "        (The source is added in the next step)."
@@ -137,7 +137,7 @@
                 "    * _ADDITIONAL_SOURCE_ is the _string_ representation of the additional source.<br>",
                 "      See the source used for this demo in step-6 below.",
                 "",
-                "* At indexing time the content for fields SalePrice & ProfitPrice will be computed from the relevant methods in the added source.",
+                "* At indexing time the content for index fields salePrice & profitPrice will be computed from the relevant methods in the added source.",
                 "",
                 "* The additional source code will always be visible in the _Additional Sources Tab_ in the Edit Index view in the Studio."
             ],
@@ -168,7 +168,7 @@
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
                 "  and retrieve the matching documents from the documents store.",
                 "",
-                "* The query results will include all documents from the 'Products' collection that have a calculated SalePrice which is lower than the specified price."
+                "* The query results will include all documents from the 'Products' collection that have a calculated salePrice which is lower than the specified price."
             ],
             "Assets": [
                 {

@@ -126,7 +126,7 @@
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
+                "* In this example, index field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
                 {

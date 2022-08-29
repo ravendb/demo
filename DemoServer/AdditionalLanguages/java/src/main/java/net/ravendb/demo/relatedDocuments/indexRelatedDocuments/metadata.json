@@ -71,7 +71,8 @@
                 "",
                 "* Use `LoadDocument()` to load the related 'Category' document whose ID is specified by 'product.Category'.",
                 "",
-                "* The index-field _CategoryName_ will contain the value of the 'Name' property from the related document.",
+                "* The index-field _categoryName_ will contain the value of the 'Name' property from the related document.",
+                "  The document property is case-sensitive, use the exact casing as in the document.",
                 "",
                 "* Later on, the 'Products' collection can be queried using this index to get products that have a specific category name.",
                 "",
@@ -103,7 +104,7 @@
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
-                "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName'.",
+                "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName' param.",
                 "",
                 "* Remember - the category field in the Product document has the _ID_ of the related category document.",
                 "  Using the index allows us to query by the category _Name_ itself."

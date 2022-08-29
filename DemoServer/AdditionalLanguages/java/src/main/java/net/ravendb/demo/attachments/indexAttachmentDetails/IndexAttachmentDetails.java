@@ -65,10 +65,10 @@ public class IndexAttachmentDetails {
             //endregion
             //region Step_4
                 "}).Select(this0 => new {" +
-                "    AttachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name))," +
-                "    AttachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType))," +
-                "    AttachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash))," +
-                "    AttachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))" +
+                "    attachmentNames = Enumerable.ToArray(this0.attachments.Select(x => x.Name))," +
+                "    attachmentContentTypes = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType))," +
+                "    attachmentHashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash))," +
+                "    attachmentSizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))" +
                 "})";
             //endregion
         }
@@ -85,8 +85,8 @@ public class IndexAttachmentDetails {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_5
             employeesWithMatchingAttachments = session.query(Employee.class, Employees_ByAttachmentDetails.class)
-                .whereEquals("AttachmentContentTypes", attachmentContentType)
-                .whereGreaterThan("AttachmentSizes", attachmentMinSize)
+                .whereEquals("attachmentContentTypes", attachmentContentType)
+                .whereGreaterThan("attachmentSizes", attachmentMinSize)
                 .toList();
             //endregion
         }

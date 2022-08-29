@@ -15,15 +15,15 @@ public class MapReduceIndex {
         public Employees_ByCountry() {
             //region Step_2
             map = "docs.Employees.Select(employee => new { " +
-                "    Country = employee.Address.Country, " +
-                "    CountryCount = 1 " +
+                "    country = employee.Address.Country, " +
+                "    countryCount = 1 " +
                 "})";
             //endregion
 
             //region Step_3
-            reduce = "results.GroupBy(result => result.Country).Select(g => new { " +
-                "    Country = g.Key, " +
-                "    CountryCount = Enumerable.Sum(g, x => x.CountryCount) " +
+            reduce = "results.GroupBy(result => result.country).Select(g => new { " +
+                "    country = g.Key, " +
+                "    countryCount = Enumerable.Sum(g, x => x.countryCount) " +
                 "})";
             //endregion
         }
@@ -53,7 +53,7 @@ public class MapReduceIndex {
     }
     //endregion
 
-    public void run(RunParams runParams) {
+    public int run(RunParams runParams) {
         String country = runParams.getCountry();
         int numberOfEmployeesFromCountry;
 
@@ -61,13 +61,15 @@ public class MapReduceIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_5
             Employees_ByCountry.Result queryResult = session.query(Employees_ByCountry.Result.class, Employees_ByCountry.class)
-                .whereEquals("Country", country)
+                .whereEquals("country", country)
                 .firstOrDefault();
 
             numberOfEmployeesFromCountry = queryResult != null ? queryResult.getCountryCount() : 0;
             //endregion
         }
         //endregion
+
+        return numberOfEmployeesFromCountry;
     }
     
     public static class RunParams {

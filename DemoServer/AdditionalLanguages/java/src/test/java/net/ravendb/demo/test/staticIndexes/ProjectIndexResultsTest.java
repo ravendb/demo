@@ -1,8 +1,5 @@
 package net.ravendb.demo.test.staticIndexes;
 
-import net.ravendb.client.documents.DocumentStore;
-import net.ravendb.demo.autoIndexes.autoMapReduceIndex.AutoMapReduceIndex;
-import net.ravendb.demo.relatedDocuments.createRelatedDocuments.CreateRelatedDocuments;
 import net.ravendb.demo.staticIndexes.projectIndexResults.ProjectIndexResults;
 import org.junit.Assert;
 import org.junit.Test;
@@ -19,6 +16,8 @@ public class ProjectIndexResultsTest {
         List<ProjectIndexResults.Employees_ByWorkPeriod.EmployeeProjectedDetails> result =
             new ProjectIndexResults().run(params);
 
-        Assert.assertNotNull(result);
+        // The properties in the documents returned are null due to bug when using selectFields() together with
+        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
+        Assert.assertEquals(3, result.size());
     }
 }

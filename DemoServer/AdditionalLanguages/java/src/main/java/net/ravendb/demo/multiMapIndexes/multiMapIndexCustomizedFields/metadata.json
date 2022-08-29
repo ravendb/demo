@@ -89,9 +89,9 @@
                 "* These fields contain customized indexed data from all the collections defined in the index<br> (configured in the next step).",
                 "",
                 "* Here we index 3 index fields:",
-                "    * _ContactName_ will contain a name of a person from any collection indexed",
-                "    * _ContactTitle_ will contain a title of a person from any collection indexed",
-                "    * _Collection_ will contain the collection name from which the data was taken",
+                "    * _contactName_ will contain a name of a person from any collection indexed",
+                "    * _contactTitle_ will contain a title of a person from any collection indexed",
+                "    * _collection_ will contain the collection name from which the data was taken",
                 "",
                 "* Collections defined in the index can be queried and filtered by any of those fields."
 
@@ -126,7 +126,7 @@
                 "",
                 "* In this example:",
                 "  * The ProjectedEntry class inherits the 3 fields from the IndexEntry class.",
-                "  * The additional _Phone_ field is Not indexed.<br>",
+                "  * The additional _phone_ field is Not indexed.<br>",
                 "    A query will not be able to filter on it, but it will return as part of the query result set if it exists on the document."
                 
             ],
@@ -166,8 +166,9 @@
                 "  Data from the different collections is indexed into the _common index-fields_ in the IndexEntry class.",
                 "",
                 "* The data is customized as needed when configuring each index field, e.g:",
-                "  * Field _ContactName_ is the combination of 2 raw document properties in the Employees collection.<br>",
-                "  * Field _Collection_ is calculated from the document metadata.",
+                "  * Field _contactName_ is the combination of 2 raw document properties in the Employees collection.<br>",
+                "  * Field _collection_ is calculated from the document metadata.",
+                "  * The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
                 "* The index will contain a mapping from any indexed term to the relevant document in either collection indexed.",
                 "",
@@ -237,8 +238,8 @@
                 "* Variable _contacts_ will hold a list of Contacts_ByNameAndTitle.ProjectedEntry objects matching the query criteria.",
                 "",
                 "* Per document in the results:",
-                "  * _Stored fields data_ (ContactName, ContactTitle, Collection) will be fetched directly from the index.",
-                "  * _Non-stored fields_ (Phone) will be retrieved from the document in the documents store."
+                "  * _Stored fields data_ (contactName, contactTitle, collection) will be fetched directly from the index.",
+                "  * _Non-stored fields_ (phone) will be retrieved from the document in the documents store."
             ],
             "Assets": [
                 {

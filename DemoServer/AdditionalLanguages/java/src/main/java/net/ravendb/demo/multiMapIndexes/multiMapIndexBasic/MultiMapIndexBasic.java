@@ -33,11 +33,11 @@ public class MultiMapIndexBasic {
         //region Step_3
         public CompaniesAndSuppliers_ByName() {
             addMap("docs.Companies.Select(company => new {" +
-                "    Name = company.Name" +
+                "    name = company.Name" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    Name = supplier.Name" +
+                "    name = supplier.Name" +
                 "})");
         }
         //endregion
@@ -53,7 +53,7 @@ public class MultiMapIndexBasic {
         //region Step_4
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             companiesAndSuppliersNames = session.query(CompaniesAndSuppliers_ByName.IndexEntry.class, CompaniesAndSuppliers_ByName.class)
-                .whereStartsWith("Name", namePrefix)
+                .whereStartsWith("name", namePrefix)
                 .toList();
         }
         //endregion

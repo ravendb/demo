@@ -12,7 +12,11 @@ public class StoreFieldsInIndexTest {
     public void test() {
         StoreFieldsInIndex.RunParams runParams = new StoreFieldsInIndex.RunParams();
         runParams.setCompanyId("companies/1-A");
+
         List<StoreFieldsInIndex.OrdersQuantity_ByCompany.OrderProjectedDetails> orders = new StoreFieldsInIndex().run(runParams);
-        Assert.assertNotNull(orders);
+
+        // The properties in the documents returned are null due to bug when using selectFields() together with
+        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
+        Assert.assertEquals(6, orders.size());
     }
 }
