@@ -1,8 +1,5 @@
 package net.ravendb.demo.test.staticIndexes;
 
-import net.ravendb.client.documents.DocumentStore;
-import net.ravendb.demo.autoIndexes.autoMapReduceIndex.AutoMapReduceIndex;
-import net.ravendb.demo.relatedDocuments.createRelatedDocuments.CreateRelatedDocuments;
 import net.ravendb.demo.staticIndexes.projectIndexResults.ProjectIndexResults;
 import org.junit.Assert;
 import org.junit.Test;
