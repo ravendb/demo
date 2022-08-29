@@ -79,7 +79,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index fields _Title_ & _Notes_ is taken from the corresponding document fields.",
+                "* The content for index fields _title_ & _notes_ is taken from the corresponding document fields.",
                 "",
                 "* The fields will be customized for Full Text Search and Highlighting in the next step."
 
@@ -201,8 +201,8 @@
                 "",
                 "* In this example, the highlight & the search methods are called twice, per field we search on.<br>",
                 "  So we are searching for:<br>",
-                "  documents containing the term 'manager' within their 'Title' field _OR_<br>",
-                "  documents containing the term 'sales' within their 'Notes' field.<br>",
+                "  documents containing the term 'manager' within the 'title' field _OR_<br>",
+                "  documents containing the term 'sales' within the 'notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `highlight()`<br>",
@@ -221,11 +221,11 @@
                 "    _The documents_ that contain the searched terms specified in the 'search()' methods.",
                 "",
                 "  * titleHighlightings -<br>",
-                "    _The fragments_ from field 'Title' that contain the term 'manager'.<br>",
+                "    _The fragments_ from field 'title' that contain the term 'manager'.<br>",
                 "    The terms will be marked with the specified tags 'tag1' & 'tag2'.",
                 "",
                 "  * notesHighlightings -<br>",
-                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "    _The fragments_ from field 'notes' that contain the term 'sales'.<br>",
                 "    The terms will be marked with the specified tags 'tag3' & 'tag4'."
             ],
             "Assets": [
