@@ -2,7 +2,10 @@ package net.ravendb.demo.test.staticIndexes;
 
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.staticIndexes.additionalSourcesIndex.AdditionalSourcesIndex;
+import org.junit.Assert;
 import org.junit.Test;
+
+import java.util.List;
 
 public class AdditionalSourcesIndexTest {
 
@@ -11,6 +14,8 @@ public class AdditionalSourcesIndexTest {
 
         DocumentStoreHolder.store.executeIndex(new AdditionalSourcesIndex.Products_ByPrice());
 
-        new AdditionalSourcesIndex().run(new AdditionalSourcesIndex.RunParams());
+        List<AdditionalSourcesIndex.DataToShow> results = new AdditionalSourcesIndex().run(new AdditionalSourcesIndex.RunParams());
+
+        Assert.assertEquals(3, results.size());
     }
 }
