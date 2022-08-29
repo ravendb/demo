@@ -18,5 +18,6 @@ public class FacetsAggregationsTest {
         Map<String, FacetResult> results = new FacetsAggregations().run(runParams);
 
         Assert.assertNotNull(results);
+        Assert.assertEquals(2, results.size());
     }
 }
