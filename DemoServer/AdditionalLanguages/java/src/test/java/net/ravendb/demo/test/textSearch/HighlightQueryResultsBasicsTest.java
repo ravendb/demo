@@ -15,7 +15,9 @@ public class HighlightQueryResultsBasicsTest {
 
         runParams.setFragmentLength(50);
         runParams.setFragmentCount(2);
+
         List<Employee> employees = new HighlightQueryResultsBasics().run(runParams);
-        Assert.assertNotNull(employees);
+
+        Assert.assertEquals(4, employees.size());
     }
 }

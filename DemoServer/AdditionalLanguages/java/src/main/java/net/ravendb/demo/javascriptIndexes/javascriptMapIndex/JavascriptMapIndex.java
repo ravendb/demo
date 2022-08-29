@@ -56,13 +56,13 @@ public class JavascriptMapIndex {
         //region Step_3
         public Employees_ByImportantDetailsJS() {
             setMaps(Sets.newHashSet(
-                "map('Employees', function (employee) {\n" +
-                "   return {\n" +
-                "       FullName: employee.FirstName + ' ' + employee.LastName,\n" +
-                "       Country: employee.Address.Country,\n" +
-                "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear(),\n" +
-                "       NumberOfTerritories: employee.Territories.length\n" +
-                "   };\n" +
+                "map('Employees', function (employee) {" +
+                "   return {" +
+                "       fullName: employee.FirstName + ' ' + employee.LastName," +
+                "       country: employee.Address.Country," +
+                "       workingInCompanySince: new Date(employee.HiredAt).getFullYear()," +
+                "       numberOfTerritories: employee.Territories.length" +
+                "   };" +
                 "})"
             ));
         }
@@ -73,13 +73,14 @@ public class JavascriptMapIndex {
     public List<Employee> run(RunParams runParams) {
         int startYear = runParams.getStartYear();
         new Employees_ByImportantDetailsJS().execute(DocumentStoreHolder.store);
+
         //region Demo
         List<Employee> employeesFromUSA;
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             employeesFromUSA = session.query(Employees_ByImportantDetailsJS.IndexEntry.class, Employees_ByImportantDetailsJS.class)
-                .whereEquals("Country", "USA")
-                .whereGreaterThan("WorkingInCompanySince", startYear)
+                .whereEquals("country", "USA")
+                .whereGreaterThan("workingInCompanySince", startYear)
                 .selectFields(Employee.class)
                 .toList();
             //endregion

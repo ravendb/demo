@@ -130,7 +130,7 @@
             "Title": "Configure Full-Text Search",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Use method `Index()` with param _'FieldIndexing.Search'_, to allow performing a full-text search on the indexed field 'SongData'.",
+                "* Use method `Index()` with param _'FieldIndexing.Search'_, to allow performing a full-text search on index field 'SongData'.",
                 "",
                 "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
@@ -178,7 +178,7 @@
                 "* The query results (limited to 20) will be only those documents that contain the value of 'searchTerm' within either one the following document fields:<br>",
                 "    * Artist, Title, Tags & TrackId",
                 "",
-                "* Note that the comparison is done against the indexed field _'SongData'_, which contains the terms that were generated from those fields."
+                "* Note that the comparison is done against index field _'SongData'_, which contains the terms that were generated from those fields."
             ],
             "Assets": [
                 {

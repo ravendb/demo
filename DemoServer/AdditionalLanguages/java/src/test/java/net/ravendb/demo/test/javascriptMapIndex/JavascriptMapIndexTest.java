@@ -12,7 +12,11 @@ public class JavascriptMapIndexTest {
     public void test() {
         JavascriptMapIndex.RunParams runParams = new JavascriptMapIndex.RunParams();
         runParams.setStartYear(1993);
+
         List<Employee> employees = new JavascriptMapIndex().run(runParams);
-        Assert.assertNotNull(employees);
+
+        // The properties in the documents returned are null due to bug when using selectFields() together with
+        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
+        Assert.assertEquals(1, employees.size());
     }
 }

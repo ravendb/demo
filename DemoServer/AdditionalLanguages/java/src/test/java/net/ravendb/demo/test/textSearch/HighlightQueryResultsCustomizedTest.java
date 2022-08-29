@@ -11,11 +11,11 @@ public class HighlightQueryResultsCustomizedTest {
 
     @Test
     public void test() {
-
         DocumentStoreHolder.store.executeIndex(new HighlightQueryResultsCustomized.EmployeesDetails());
-        HighlightQueryResultsCustomized.RunParams runParams = new HighlightQueryResultsCustomized.RunParams();
 
+        HighlightQueryResultsCustomized.RunParams runParams = new HighlightQueryResultsCustomized.RunParams();
         List<HighlightQueryResultsCustomized.DataToShow> results = new HighlightQueryResultsCustomized().run(runParams);
+
         Assert.assertEquals(5, results.size());
     }
 }

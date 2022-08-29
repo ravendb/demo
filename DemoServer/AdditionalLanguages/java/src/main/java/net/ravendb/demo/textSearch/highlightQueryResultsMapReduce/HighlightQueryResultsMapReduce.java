@@ -47,24 +47,24 @@ public class HighlightQueryResultsMapReduce {
         public ArtistsAllSongs() {
             //region Step_3
             map = "docs.LastFms.Select(song => new {" +
-                  "    Artist = song.Artist," +
-                  "    AllSongTitles = song.Title" +
+                  "    artist = song.Artist," +
+                  "    allSongTitles = song.Title" +
                   "})";
             //endregion
             
             //region Step_4
-            reduce = "results.GroupBy(result => result.Artist).Select(g => new {" +
-                     "    Artist = g.Key," +
-                     "    AllSongTitles = String.Join(\" \", g.Select(x => x.AllSongTitles))" +
+            reduce = "results.GroupBy(result => result.artist).Select(g => new {" +
+                     "    artist = g.Key," +
+                     "    allSongTitles = String.Join(\" \", g.Select(x => x.allSongTitles))" +
                      "})";
             //endregion
 
             //region Step_5
-            store("Artist", FieldStorage.YES);
+            store("artist", FieldStorage.YES);
 
-            store("AllSongTitles", FieldStorage.YES);
-            index("AllSongTitles", FieldIndexing.SEARCH);
-            termVector("AllSongTitles", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
+            store("allSongTitles", FieldStorage.YES);
+            index("allSongTitles", FieldIndexing.SEARCH);
+            termVector("allSongTitles", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
             //endregion
         }
     }
@@ -85,15 +85,15 @@ public class HighlightQueryResultsMapReduce {
         try (IDocumentSession session = DocumentStoreHolder.mediaStore.openSession()) {
             //region Step_6
             HighlightingOptions highlightingOptions = new HighlightingOptions();
-            highlightingOptions.setGroupKey("Artist");
+            highlightingOptions.setGroupKey("artist");
             highlightingOptions.setPreTags(new String[] { preTag });
             highlightingOptions.setPostTags(new String[] { postTag });
             //endregion
             
             //region Step_7
             artistsResults = session.query(ArtistsAllSongs.IndexEntry.class, ArtistsAllSongs.class)
-                .highlight("AllSongTitles", fragmentLength, fragmentCount, highlightingOptions, highlightingsInfo)
-                .search("AllSongTitles", searchTerm)
+                .highlight("allSongTitles", fragmentLength, fragmentCount, highlightingOptions, highlightingsInfo)
+                .search("allSongTitles", searchTerm)
                 .toList();
             //endregion
             

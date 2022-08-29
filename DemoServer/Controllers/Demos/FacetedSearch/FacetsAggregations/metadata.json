@@ -168,7 +168,7 @@
                 "  The ranges are defined on index field 'PricePerUnit'.<br>",
                 "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
                 "  But...<br>",
-                "  since aggregation is requested for 2 document fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
+                "  since aggregation is requested for 2 fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
                 "  you will get _2_ such items in the list,",
                 "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
             ],

@@ -20,8 +20,8 @@ public class FacetsBasics {
     
         public Products_ByCategoryAndPrice() {
             map = "docs.Products.Select(product => new {" +
-                  "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
-                  "    PricePerUnit = product.PricePerUnit" +
+                  "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    pricePerUnit = product.PricePerUnit" +
                   "})";
         }
     }
@@ -38,17 +38,17 @@ public class FacetsBasics {
         //region Demo
         //region Step_2
         Facet categoryNameFacet = new Facet();
-        categoryNameFacet.setFieldName("CategoryName");
+        categoryNameFacet.setFieldName("categoryName");
         categoryNameFacet.setDisplayFieldName("Product Category");
         //endregion
         
         //region Step_3
         RangeFacet rangeFacet = new RangeFacet();
         rangeFacet.setRanges(Arrays.asList(
-            "PricePerUnit < " + range1,
-            "PricePerUnit >= " + range1 + " and PricePerUnit < " + range2,
-            "PricePerUnit >= " + range2 + " and PricePerUnit < " + range3,
-            "PricePerUnit >= " + range3
+            "pricePerUnit < " + range1,
+            "pricePerUnit >= " + range1 + " and pricePerUnit < " + range2,
+            "pricePerUnit >= " + range2 + " and pricePerUnit < " + range3,
+            "pricePerUnit >= " + range3
         ));
         rangeFacet.setDisplayFieldName("Price per Unit");
         //endregion
@@ -78,8 +78,8 @@ public class FacetsBasics {
 
             for (FacetValue item : result.getValue().getValues()) {
                 MyFacetResult facetResult = new MyFacetResult();
-                facetResult.setFacetName(facetName); // i.e. PricePerUnit
-                facetResult.setFacetRange(item.getRange()); // i.e. PricePerUnit < 50
+                facetResult.setFacetName(facetName); // i.e. pricePerUnit
+                facetResult.setFacetRange(item.getRange()); // i.e. pricePerUnit < 50
                 facetResult.setFacetCount(item.getCount());
 
                 facetsResults.add(facetResult);
