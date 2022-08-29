@@ -125,11 +125,7 @@
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
                 "",
                 "* The query results will include all documents from the 'Employees' collection whose 'country' is 'USA',",
-                "  and have started working after 'startYear'.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "  and have started working after 'startYear'."
             ],
             "Assets": [
                 //TODO

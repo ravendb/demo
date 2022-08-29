@@ -261,11 +261,7 @@
                 "* E.g.:",
                 "  * Under Facet: 'Product Category' there is an aggregated item for all Product documents that have 'beverages' in their category field.",
                 "",
-                "  * Under Facet: 'Price per Unit' there is an aggregated item for all Product documents that their 'pricePerUnit' is >= 100.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "  * Under Facet: 'Price per Unit' there is an aggregated item for all Product documents that their 'pricePerUnit' is >= 100."
             ],
             "Assets": [
                 {

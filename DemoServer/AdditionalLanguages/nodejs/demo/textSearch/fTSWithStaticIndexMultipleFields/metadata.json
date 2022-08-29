@@ -149,11 +149,7 @@
                 "* The query results (limited to 20) will be only those documents that contain the value of 'searchTerm' within either one the following fields:<br>",
                 "    * Artist, Title, Tags & TrackId",
                 "",
-                "* Note that the comparison is done against the indexed field _'songData'_, which contains the terms that were generated from those fields.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "* Note that the comparison is done against the indexed field _'songData'_, which contains the terms that were generated from those fields."
             ],
             "Assets": [
                 {

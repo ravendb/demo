@@ -166,11 +166,7 @@
                 "",
                 "* Retrieve the aggregated 'countryCount' value from queryResults.",
                 "",
-                "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results."
             ],
             "Assets": [
                 {

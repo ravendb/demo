@@ -108,11 +108,7 @@
                 "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName'.",
                 "",
                 "* Remember - the category field in the Product document has the _ID_ of the related category document.",
-                "  Using the index allows us to query by the category _Name_ itself.",
-                "",
-                "* Note:<br>",
-                "  The index definition that will show in the Studio after running this script is the C# based index.<br>",
-                "  i.e. index fields will be PascalCase."
+                "  Using the index allows us to query by the category _Name_ itself."
             ],
             "Assets": [
                 //TODO
