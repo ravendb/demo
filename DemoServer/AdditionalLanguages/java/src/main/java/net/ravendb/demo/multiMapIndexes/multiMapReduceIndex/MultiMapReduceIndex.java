@@ -59,32 +59,32 @@ public class MultiMapReduceIndex {
         public CityCommerceDetails() {
             //region Step_3
             addMap("docs.Companies.Select(company => new {" +
-                "    CityName = company.Address.City," +
-                "    NumberOfCompaniesInCity = 1," +
-                "    NumberOfSuppliersInCity = 0," +
-                "    NumberOfItemsShippedToCity = 0" +
+                "    cityName = company.Address.City," +
+                "    numberOfCompaniesInCity = 1," +
+                "    numberOfSuppliersInCity = 0," +
+                "    numberOfItemsShippedToCity = 0" +
                 "})");
 
             addMap("docs.Suppliers.Select(supplier => new {" +
-                "    CityName = supplier.Address.City," +
-                "    NumberOfCompaniesInCity = 0," +
-                "    NumberOfSuppliersInCity = 1," +
-                "    NumberOfItemsShippedToCity = 0" +
+                "    cityName = supplier.Address.City," +
+                "    numberOfCompaniesInCity = 0," +
+                "    numberOfSuppliersInCity = 1," +
+                "    numberOfItemsShippedToCity = 0" +
                 "})");
 
             addMap("docs.Orders.Select(order => new {" +
-                "    CityName = order.ShipTo.City," +
-                "    NumberOfCompaniesInCity = 0," +
-                "    NumberOfSuppliersInCity = 0," +
-                "    NumberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))" +
+                "    cityName = order.ShipTo.City," +
+                "    numberOfCompaniesInCity = 0," +
+                "    numberOfSuppliersInCity = 0," +
+                "    numberOfItemsShippedToCity = Enumerable.Sum(order.Lines, x => ((int) x.Quantity))" +
                 "})");
             //endregion
             //region Step_4
-            this.reduce = "results.GroupBy(result => result.CityName).Select(g => new {" +
-                "    CityName = g.Key," +
-                "    NumberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.numberOfCompaniesInCity))," +
-                "    NumberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.numberOfSuppliersInCity))," +
-                "    NumberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.numberOfItemsShippedToCity))" +
+            this.reduce = "results.GroupBy(result => result.cityName).Select(g => new {" +
+                "    cityName = g.Key," +
+                "    numberOfCompaniesInCity = Enumerable.Sum(g, x => ((int) x.numberOfCompaniesInCity))," +
+                "    numberOfSuppliersInCity = Enumerable.Sum(g, x0 => ((int) x0.numberOfSuppliersInCity))," +
+                "    numberOfItemsShippedToCity = Enumerable.Sum(g, x1 => ((int) x1.numberOfItemsShippedToCity))" +
                 "})";
             //endregion
         }
@@ -101,10 +101,10 @@ public class MultiMapReduceIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
 
             commerceDetails = session.query(CityCommerceDetails.IndexEntry.class, CityCommerceDetails.class)
-                .whereGreaterThan("NumberOfCompaniesInCity", minCompaniesCount)
+                .whereGreaterThan("numberOfCompaniesInCity", minCompaniesCount)
                 .orElse()
-                .whereGreaterThan("NumberOfItemsShippedToCity", minItemsCount)
-                .orderBy("CityName")
+                .whereGreaterThan("numberOfItemsShippedToCity", minItemsCount)
+                .orderBy("cityName")
                 .toList();
         }
         //endregion
