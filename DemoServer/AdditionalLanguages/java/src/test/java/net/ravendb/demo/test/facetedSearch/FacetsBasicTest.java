@@ -18,5 +18,6 @@ public class FacetsBasicTest {
 
         Assert.assertNotNull(facetResults);
         Assert.assertEquals(facetResults.size(), 12);
+        Assert.assertEquals("Price per Unit", facetResults.get(0).getFacetName());
     }
 }

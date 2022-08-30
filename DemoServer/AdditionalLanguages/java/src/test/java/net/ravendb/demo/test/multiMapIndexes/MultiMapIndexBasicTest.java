@@ -15,5 +15,6 @@ public class MultiMapIndexBasicTest {
         List<MultiMapIndexBasic.CompaniesAndSuppliers_ByName.IndexEntry> results = new MultiMapIndexBasic().run(new MultiMapIndexBasic.RunParams());
 
         Assert.assertEquals(5, results.size());
+        Assert.assertNotNull(results.get(0).getName());
     }
 }

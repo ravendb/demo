@@ -19,5 +19,6 @@ public class IndexAttachmentDetailsTest {
         List<Employee> employees = new IndexAttachmentDetails().run(runParams);
 
         Assert.assertEquals(2, employees.size());
+        Assert.assertNotNull(employees.get(0).getLastName());
     }
 }

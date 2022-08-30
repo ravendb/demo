@@ -17,5 +17,6 @@ public class FacetsFromDocumentTest {
 
         Assert.assertNotNull(results);
         Assert.assertEquals(results.size(), 12);
+        Assert.assertEquals("beverages", results.get(0).getFacetRange());
     }
 }

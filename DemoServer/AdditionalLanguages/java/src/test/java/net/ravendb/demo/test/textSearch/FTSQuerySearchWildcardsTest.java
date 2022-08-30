@@ -1,6 +1,5 @@
 package net.ravendb.demo.test.textSearch;
 
-import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.common.models.LastFm;
 import net.ravendb.demo.textSearch.fTSQuerySearchWildcards.FTSQuerySearchWildcards;
 import org.junit.Assert;
@@ -18,8 +17,10 @@ public class FTSQuerySearchWildcardsTest {
         runParams.setMiddle("oliv");
         runParams.setNumberOfResults(10);
 
-
         List<LastFm> fmList = new FTSQuerySearchWildcards().run(runParams);
+
         Assert.assertNotNull(fmList);
+        Assert.assertEquals(10, fmList.size());
+        Assert.assertNotNull(fmList.get(0).getArtist()); //TODO: this fails
     }
 }

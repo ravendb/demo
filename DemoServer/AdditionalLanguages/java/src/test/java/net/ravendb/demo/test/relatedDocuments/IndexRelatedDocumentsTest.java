@@ -20,5 +20,6 @@ public class IndexRelatedDocumentsTest {
         List<Product> products = new IndexRelatedDocuments().run(params);
 
         Assert.assertEquals(5, products.size());
+        Assert.assertNotNull(products.get(0).getName());
     }
 }

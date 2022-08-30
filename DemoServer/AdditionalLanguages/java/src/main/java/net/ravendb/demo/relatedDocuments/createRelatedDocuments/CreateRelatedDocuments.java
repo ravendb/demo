@@ -10,7 +10,7 @@ import net.ravendb.demo.common.models.Supplier;
 
 public class CreateRelatedDocuments {
 
-    public void run(RunParams runParams) {
+    public Product run(RunParams runParams) {
         String supplierName = runParams.getSupplierName();
         String supplierPhone = runParams.getSupplierPhone();
         String productName = runParams.getProductName();
@@ -51,6 +51,8 @@ public class CreateRelatedDocuments {
             //endregion
         }
         //endregion
+
+        return product;
     }
 
     public static class RunParams {

@@ -19,5 +19,6 @@ public class FTSWithStaticIndexSingleFieldTest {
         List<Category> categories = new FTSWithStaticIndexSingleField().run(runParams);
 
         Assert.assertEquals(1, categories.size());
+        Assert.assertNotNull(categories.get(0).getName());
     }
 }

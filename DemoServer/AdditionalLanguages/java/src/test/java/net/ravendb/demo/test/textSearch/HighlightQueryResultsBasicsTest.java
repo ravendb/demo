@@ -19,5 +19,6 @@ public class HighlightQueryResultsBasicsTest {
         List<Employee> employees = new HighlightQueryResultsBasics().run(runParams);
 
         Assert.assertEquals(4, employees.size());
+        Assert.assertNotNull(employees.get(0).getFirstName());
     }
 }
