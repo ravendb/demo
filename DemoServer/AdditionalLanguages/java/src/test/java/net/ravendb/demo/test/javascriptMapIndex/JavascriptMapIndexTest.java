@@ -15,8 +15,7 @@ public class JavascriptMapIndexTest {
 
         List<Employee> employees = new JavascriptMapIndex().run(runParams);
 
-        // The properties in the documents returned are null due to bug when using selectFields() together with
-        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         Assert.assertEquals(1, employees.size());
+        Assert.assertNotNull(employees.get(0).getFirstName()); //TODO: this fails
     }
 }

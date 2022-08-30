@@ -14,8 +14,7 @@ public class MultiMapReduceIndexTest {
 
         List<MultiMapReduceIndex.CityCommerceDetails.IndexEntry> results = new MultiMapReduceIndex().run(new MultiMapReduceIndex.RunParams());
 
-        // The properties in the documents returned are null - probably due to bug with
-        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         Assert.assertEquals(4, results.size());
+        Assert.assertNotNull(results.get(0).getCityName()); //TODO: this fails
     }
 }
