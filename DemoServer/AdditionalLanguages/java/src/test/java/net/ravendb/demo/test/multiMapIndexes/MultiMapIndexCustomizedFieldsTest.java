@@ -16,8 +16,7 @@ public class MultiMapIndexCustomizedFieldsTest {
         List<MultiMapIndexCustomizedFields.Contacts_ByNameAndTitle.ProjectedEntry> list =
             new MultiMapIndexCustomizedFields().run(new MultiMapIndexCustomizedFields.RunParams());
 
-        // The properties in the documents returned are null due to bug when using selectFields() together with
-        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         Assert.assertEquals(3, list.size());
+        Assert.assertNotNull(list.get(0).getContractName()); //TODO: this fails
     }
 }

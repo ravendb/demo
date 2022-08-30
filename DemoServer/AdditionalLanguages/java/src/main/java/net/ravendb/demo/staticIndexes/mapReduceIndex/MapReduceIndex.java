@@ -15,16 +15,16 @@ public class MapReduceIndex {
         public Employees_ByCountry() {
             //region Step_2
             map = "docs.Employees.Select(employee => new { " +
-                "    country = employee.Address.Country, " +
-                "    countryCount = 1 " +
-                "})";
+                  "    country = employee.Address.Country, " +
+                  "    countryCount = 1 " +
+                  "})";
             //endregion
 
             //region Step_3
             reduce = "results.GroupBy(result => result.country).Select(g => new { " +
-                "    country = g.Key, " +
-                "    countryCount = Enumerable.Sum(g, x => x.countryCount) " +
-                "})";
+                     "    country = g.Key, " +
+                     "    countryCount = Enumerable.Sum(g, x => x.countryCount) " +
+                     "})";
             //endregion
         }
 

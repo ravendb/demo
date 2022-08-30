@@ -15,8 +15,7 @@ public class StoreFieldsInIndexTest {
 
         List<StoreFieldsInIndex.OrdersQuantity_ByCompany.OrderProjectedDetails> orders = new StoreFieldsInIndex().run(runParams);
 
-        // The properties in the documents returned are null due to bug when using selectFields() together with
-        // store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         Assert.assertEquals(6, orders.size());
+        Assert.assertNotNull(orders.get(0).getOrderedAt()); //TODO: this fails
     }
 }
