@@ -19,5 +19,6 @@ public class FanoutIndexTest {
         List<Order> orders = new FanoutIndex().run(runParams);
 
         Assert.assertEquals(6, orders.size());
+        Assert.assertNotNull(orders.get(0).getCompany());
     }
 }

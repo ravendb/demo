@@ -17,5 +17,6 @@ public class AdditionalSourcesIndexTest {
         List<AdditionalSourcesIndex.DataToShow> results = new AdditionalSourcesIndex().run(new AdditionalSourcesIndex.RunParams());
 
         Assert.assertEquals(3, results.size());
+        Assert.assertEquals(2.5, results.get(0).getOriginalPrice(), 0);
     }
 }

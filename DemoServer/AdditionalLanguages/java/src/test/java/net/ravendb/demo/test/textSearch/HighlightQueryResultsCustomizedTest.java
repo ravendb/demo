@@ -17,5 +17,6 @@ public class HighlightQueryResultsCustomizedTest {
         List<HighlightQueryResultsCustomized.DataToShow> results = new HighlightQueryResultsCustomized().run(runParams);
 
         Assert.assertEquals(5, results.size());
+        Assert.assertEquals("employees/5-A", results.get(0).getDocumentId());
     }
 }

@@ -13,10 +13,12 @@ public class FTSQuerySearchBasicsTest {
     @Test
     public void test() {
         FTSQuerySearchBasics.RunParams runParams = new FTSQuerySearchBasics.RunParams();
-
         runParams.setTerm1("Washington");
         runParams.setTerm2("Colorado");
+
         List<Employee> employees = new FTSQuerySearchBasics().run(runParams);
+
         Assert.assertNotNull(employees);
+        Assert.assertNotNull(employees.get(0).getFirstName());
     }
 }

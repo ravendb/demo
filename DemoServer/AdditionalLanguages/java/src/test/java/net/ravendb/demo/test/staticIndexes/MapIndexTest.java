@@ -19,5 +19,6 @@ public class MapIndexTest {
         List<Employee> employees = new MapIndex().run(runParams);
 
         Assert.assertEquals(1, employees.size());
+        Assert.assertEquals("employees/8-A", employees.get(0).getId());
     }
 }

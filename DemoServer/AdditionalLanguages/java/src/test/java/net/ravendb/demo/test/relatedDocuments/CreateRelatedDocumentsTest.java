@@ -1,7 +1,10 @@
 package net.ravendb.demo.test.relatedDocuments;
 
-import net.ravendb.demo.common.models.Company;
+import net.ravendb.client.documents.session.IDocumentSession;
+import net.ravendb.demo.common.DocumentStoreHolder;
+import net.ravendb.demo.common.models.Product;
 import net.ravendb.demo.relatedDocuments.createRelatedDocuments.CreateRelatedDocuments;
+import org.junit.Assert;
 import org.junit.Test;
 
 public class CreateRelatedDocumentsTest {
@@ -13,7 +16,12 @@ public class CreateRelatedDocumentsTest {
         params.setSupplierName("s2");
         params.setSupplierPhone("123");
 
-        new CreateRelatedDocuments().run(params);
-    }
+        Product product = new CreateRelatedDocuments().run(params);
 
+        IDocumentSession session = DocumentStoreHolder.store.openSession();
+        Product loadedDocument = session.load(Product.class, product.getId());
+
+        Assert.assertNotNull(loadedDocument.getSupplier());
+        Assert.assertNotNull(loadedDocument.getCategory());
+    }
 }

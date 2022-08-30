@@ -15,6 +15,8 @@ public class HighlightQueryResultsMapReduceTest {
         HighlightQueryResultsMapReduce.RunParams runParams = new HighlightQueryResultsMapReduce.RunParams();
 
         List<HighlightQueryResultsMapReduce.DataToShow> results = new HighlightQueryResultsMapReduce().run(runParams);
+
         Assert.assertEquals(13, results.size());
+        Assert.assertEquals("Alicia Keys", results.get(0).getArtist());
     }
 }

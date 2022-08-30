@@ -15,6 +15,8 @@ public class SpatialIndexTest {
         DocumentStoreHolder.store.executeIndex(new SpatialIndex.Companies_ByLocation());
 
         List<Company> companies = new SpatialIndex().run();
+
         Assert.assertEquals(4, companies.size());
+        Assert.assertNotNull(companies.get(0).getName());
     }
 }

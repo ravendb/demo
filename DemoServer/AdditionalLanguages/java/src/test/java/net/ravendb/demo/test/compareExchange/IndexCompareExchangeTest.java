@@ -16,5 +16,6 @@ public class IndexCompareExchangeTest {
         List<Product> products = new IndexCompareExchange().run(runParams);
 
         Assert.assertEquals(7, products.size());
+        Assert.assertNotNull(products.get(0).getName());
     }
 }
