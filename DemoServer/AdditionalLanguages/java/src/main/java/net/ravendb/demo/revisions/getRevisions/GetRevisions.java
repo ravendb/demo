@@ -12,7 +12,7 @@ import net.ravendb.demo.common.models.Company;
 
 public class GetRevisions {
 
-    public void run() {
+    public List<Company> run() {
         //region Demo
         //region Step_1
         RevisionsConfiguration myRevisionsConfiguration = new RevisionsConfiguration();
@@ -48,5 +48,7 @@ public class GetRevisions {
         }
 
         //endregion
+
+        return revisions;
     }
 }

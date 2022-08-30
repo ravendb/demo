@@ -11,7 +11,7 @@ import net.ravendb.demo.common.models.Employee;
 
 public class FilteringResultsMultipleConditions {
 
-    public void run(RunParams runParams) {
+    public List<Employee> run(RunParams runParams) {
         String country = runParams.getCountry();
 
         //region Demo
@@ -36,6 +36,8 @@ public class FilteringResultsMultipleConditions {
             //endregion
         }
         //endregion
+
+        return filteredEmployees;
     }
 
     public static class RunParams {

@@ -13,7 +13,7 @@ import java.util.List;
 
 public class QueryExample {
 
-    public void run() {
+    public List<Employee> run() {
         //region Demo
         List<Employee> queryResults;
 
@@ -46,5 +46,7 @@ public class QueryExample {
             //endregion
         }
         //endregion
+
+        return queryResults;
     }
 }

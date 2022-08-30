@@ -8,7 +8,7 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
 
 public class FullCollectionQuery {
-    public void run() {
+    public List<Company> run() {
         //region Demo
         List<Company> collectionResults;
 
@@ -22,6 +22,8 @@ public class FullCollectionQuery {
             //endregion
         }
         //endregion
+
+        return collectionResults;
     }
 
 }
