@@ -9,7 +9,7 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Product;
 
 public class SortingQueryResults {
-    public void run(RunParams runParams) {
+    public List<Product> run(RunParams runParams) {
         double numberOfUnits = runParams.getNumberOfUnits();
 
         //region Demo
@@ -33,6 +33,8 @@ public class SortingQueryResults {
                 //endregion
         }
         //endregion
+
+        return sortedProducts;
     }
 
     public static class RunParams {

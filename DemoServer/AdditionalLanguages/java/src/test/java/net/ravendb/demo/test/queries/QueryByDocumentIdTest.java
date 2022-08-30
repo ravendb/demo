@@ -11,6 +11,7 @@ public class QueryByDocumentIdTest {
     public void test() {
         QueryByDocumentId.RunParams runParams = new QueryByDocumentId.RunParams();
         runParams.setEmployeeDocumentId("employees/1-A");
+
         Employee employee = new QueryByDocumentId().run(runParams);
 
         Assert.assertNotNull(employee);

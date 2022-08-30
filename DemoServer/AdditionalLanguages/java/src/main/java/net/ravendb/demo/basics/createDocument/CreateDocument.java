@@ -9,7 +9,7 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 
 public class CreateDocument {
 
-    public void run(RunParams runParams) {
+    public String run(RunParams runParams) {
         String companyName = runParams.getCompanyName();
         String companyPhone = runParams.getCompanyPhone();
         String contactName = runParams.getContactName();
@@ -43,6 +43,8 @@ public class CreateDocument {
             //endregion
         }
         //endregion
+
+        return theNewDocumentId;
     }
 
     public static class RunParams {

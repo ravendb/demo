@@ -11,7 +11,7 @@ import net.ravendb.demo.common.models.Company;
 
 public class PagingQueryResults {
 
-    public void run(RunParams runParams) {
+    public List<Company> run(RunParams runParams) {
         int resultsToSkip = runParams.getResultsToSkip();
         int resultsToTake = runParams.getResultsToTake();
 
@@ -42,6 +42,8 @@ public class PagingQueryResults {
             //endregion
         }
         //endregion
+
+        return pagedResults;
     }
 
     public static class RunParams {

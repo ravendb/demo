@@ -9,7 +9,7 @@ import net.ravendb.demo.common.models.Employee;
 
 public class AutoMapIndex1 {
 
-    public void run(RunParams runParams) {
+    public Employee run(RunParams runParams) {
         String firstName = runParams.getFirstName();
 
         //region Demo
@@ -26,6 +26,8 @@ public class AutoMapIndex1 {
             //endregion
         }
         //endregion
+
+        return employeeResult;
     }
 
     public static class RunParams {

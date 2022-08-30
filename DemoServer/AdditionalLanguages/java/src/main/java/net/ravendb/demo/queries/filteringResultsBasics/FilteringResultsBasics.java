@@ -9,7 +9,7 @@ import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 
 public class FilteringResultsBasics {
-    public void run() {
+    public List<Employee> run() {
         //region Demo
         List<Employee> filteredEmployees;
 
@@ -26,5 +26,7 @@ public class FilteringResultsBasics {
             //endregion
         }
         //endregion
+
+        return filteredEmployees;
     }
 }

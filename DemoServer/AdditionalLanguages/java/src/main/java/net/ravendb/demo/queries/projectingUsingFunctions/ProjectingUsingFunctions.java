@@ -1,3 +1,5 @@
+package net.ravendb.demo.queries.projectingUsingFunctions;
+
 //region Usings
 import net.ravendb.client.documents.session.IDocumentSession;
 import net.ravendb.client.documents.session.IRawDocumentQuery;
@@ -21,11 +23,11 @@ public class ProjectingUsingFunctions {
 
             String rawQueryString = 
                 //region Step_1
-                "declare function output(employee) {\n" +
-                "   var formatName  = function(employee) { return 'FullName: ' + employee.FirstName + ' ' + employee.LastName; };\n" +
-                "   var formatTitle = function(employee) { return 'Title: ' + employee.Title };\n" +
-                "   return { Title : formatTitle(employee), FullName : formatName(employee) };\n" +
-                "}\n"+
+                "declare function output(employee) {" +
+                "   var formatName  = function(employee) { return 'FullName: ' + employee.FirstName + ' ' + employee.LastName; };" +
+                "   var formatTitle = function(employee) { return 'Title: ' + employee.Title };" +
+                "   return { Title : formatTitle(employee), FullName : formatName(employee) };" +
+                "}"+
                 //endregion
                 //region Step_2
                 "from Employees as employee select output(employee)";
