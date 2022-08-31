@@ -17,6 +17,6 @@ public class MultiMapIndexCustomizedFieldsTest {
             new MultiMapIndexCustomizedFields().run(new MultiMapIndexCustomizedFields.RunParams());
 
         Assert.assertEquals(3, list.size());
-        Assert.assertNotNull(list.get(0).getContractName()); //TODO: this fails
+        Assert.assertNotNull(list.get(0).getContractName());
     }
 }

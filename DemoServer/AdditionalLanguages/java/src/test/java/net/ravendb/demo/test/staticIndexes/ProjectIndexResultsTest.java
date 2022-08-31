@@ -15,6 +15,6 @@ public class ProjectIndexResultsTest {
         List<ProjectIndexResults.Employees_ByWorkPeriod.EmployeeProjectedDetails> result = new ProjectIndexResults().run(params);
 
         Assert.assertEquals(3, result.size());
-        Assert.assertNotNull(result.get(0).getFirstName());  //TODO: this fails
+        Assert.assertNotNull(result.get(0).getFirstName());
     }
 }

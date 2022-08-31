@@ -21,6 +21,6 @@ public class FTSQuerySearchWildcardsTest {
 
         Assert.assertNotNull(fmList);
         Assert.assertEquals(10, fmList.size());
-        Assert.assertNotNull(fmList.get(0).getArtist()); //TODO: this fails
+        Assert.assertNotNull(fmList.get(0).getArtist());
     }
 }

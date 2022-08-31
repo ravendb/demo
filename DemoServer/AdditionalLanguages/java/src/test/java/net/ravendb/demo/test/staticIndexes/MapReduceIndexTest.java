@@ -15,6 +15,6 @@ public class MapReduceIndexTest {
 
         int numberOfEmployees = new MapReduceIndex().run(runParams);
 
-        Assert.assertEquals(5, numberOfEmployees); //TODO: this fails
+        Assert.assertEquals(5, numberOfEmployees);
     }
 }

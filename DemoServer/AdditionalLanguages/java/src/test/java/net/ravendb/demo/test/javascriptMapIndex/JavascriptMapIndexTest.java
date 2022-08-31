@@ -16,6 +16,6 @@ public class JavascriptMapIndexTest {
         List<Employee> employees = new JavascriptMapIndex().run(runParams);
 
         Assert.assertEquals(1, employees.size());
-        Assert.assertNotNull(employees.get(0).getFirstName()); //TODO: this fails
+        Assert.assertNotNull(employees.get(0).getFirstName());
     }
 }

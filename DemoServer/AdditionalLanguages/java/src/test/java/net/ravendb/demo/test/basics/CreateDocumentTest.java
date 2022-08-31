@@ -19,10 +19,16 @@ public class CreateDocumentTest {
 
         String newId = new CreateDocument().run(runParams);
 
-        IDocumentSession session = DocumentStoreHolder.store.openSession();
-        Company newDocument = session.load(Company.class, newId);
+        try {
+            IDocumentSession session = DocumentStoreHolder.store.openSession();
+            Company newDocument = session.load(Company.class, newId);
 
-        Assert.assertNotNull(newDocument);
-        Assert.assertEquals("companyPhone1", newDocument.getPhone());
+            Assert.assertNotNull(newDocument);
+            Assert.assertEquals("companyPhone1", newDocument.getPhone());
+        } finally {
+            IDocumentSession cleanupSession = DocumentStoreHolder.store.openSession();
+            cleanupSession.delete(newId);
+            cleanupSession.saveChanges();
+        }
     }
 }

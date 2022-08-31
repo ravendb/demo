@@ -19,6 +19,6 @@ public class FTSWithStaticIndexMultipleFieldsTest {
         List<LastFm> results = new FTSWithStaticIndexMultipleFields().run(runParams);
 
         Assert.assertEquals(15, results.size());
-        Assert.assertNotNull(results.get(0).getArtist());  //TODO: this fails
+        Assert.assertNotNull(results.get(0).getArtist());
     }
 }
