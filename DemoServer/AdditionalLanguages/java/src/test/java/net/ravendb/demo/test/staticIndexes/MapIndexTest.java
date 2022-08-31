@@ -3,6 +3,7 @@ package net.ravendb.demo.test.staticIndexes;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Employee;
 import net.ravendb.demo.staticIndexes.mapIndex.MapIndex;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,6 +16,7 @@ public class MapIndexTest {
         runParams.setStartYear(1993);
 
         DocumentStoreHolder.store.executeIndex(new MapIndex.Employees_ImportantDetails());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         List<Employee> employees = new MapIndex().run(runParams);
 

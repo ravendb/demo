@@ -64,7 +64,6 @@ public class TestUtils {
             }
         }
 
-
         IndexErrors[] errors = admin.send(new GetIndexErrorsOperation());
         String allIndexErrorsText = "";
         Function<IndexErrors, String> formatIndexErrors = indexErrors -> {

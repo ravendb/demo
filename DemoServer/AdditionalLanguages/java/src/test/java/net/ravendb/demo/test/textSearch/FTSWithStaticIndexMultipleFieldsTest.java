@@ -2,6 +2,7 @@ package net.ravendb.demo.test.textSearch;
 
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.LastFm;
+import net.ravendb.demo.test.util.TestUtils;
 import net.ravendb.demo.textSearch.fTSWithStaticIndexMultipleFields.FTSWithStaticIndexMultipleFields;
 import org.junit.Assert;
 import org.junit.Test;
@@ -12,6 +13,7 @@ public class FTSWithStaticIndexMultipleFieldsTest {
     @Test
     public void test() {
         DocumentStoreHolder.mediaStore.executeIndex(new FTSWithStaticIndexMultipleFields.Song_TextData());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         FTSWithStaticIndexMultipleFields.RunParams runParams = new FTSWithStaticIndexMultipleFields.RunParams();
         runParams.setSearchTerm("Floyd");

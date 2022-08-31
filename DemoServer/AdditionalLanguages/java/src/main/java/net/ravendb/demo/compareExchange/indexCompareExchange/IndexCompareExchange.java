@@ -39,7 +39,7 @@ public class IndexCompareExchange {
 
     public List<Product> run(RunParams runParams) {
         int minValue = runParams.getMinValue();
-        new Products_ByUnitsInStock().execute(DocumentStoreHolder.store);
+
         //region demo
         List<Product> products;
 

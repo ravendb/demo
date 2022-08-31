@@ -75,7 +75,6 @@ public class ProjectIndexResults {
     public List<Employees_ByWorkPeriod.EmployeeProjectedDetails> run(RunParams runParams) {
         int startYear = runParams.getStartYear();
 
-        new Employees_ByWorkPeriod().execute(DocumentStoreHolder.store);
         //region Demo
         List<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesSinceYear;
 

@@ -3,6 +3,7 @@ package net.ravendb.demo.test.spatialIndex;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Company;
 import net.ravendb.demo.spatial.spatialIndex.SpatialIndex;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -13,6 +14,7 @@ public class SpatialIndexTest {
     @Test
     public void test() {
         DocumentStoreHolder.store.executeIndex(new SpatialIndex.Companies_ByLocation());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         List<Company> companies = new SpatialIndex().run();
 
