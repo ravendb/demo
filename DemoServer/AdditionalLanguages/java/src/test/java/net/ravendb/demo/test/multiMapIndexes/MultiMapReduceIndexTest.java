@@ -2,6 +2,7 @@ package net.ravendb.demo.test.multiMapIndexes;
 
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.multiMapIndexes.multiMapReduceIndex.MultiMapReduceIndex;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,6 +12,7 @@ public class MultiMapReduceIndexTest {
     @Test
     public void test() throws Exception {
         DocumentStoreHolder.store.executeIndex(new MultiMapReduceIndex.CityCommerceDetails());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         List<MultiMapReduceIndex.CityCommerceDetails.IndexEntry> results = new MultiMapReduceIndex().run(new MultiMapReduceIndex.RunParams());
 

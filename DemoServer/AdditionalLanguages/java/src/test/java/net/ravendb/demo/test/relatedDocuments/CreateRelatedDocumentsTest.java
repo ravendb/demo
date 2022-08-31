@@ -18,10 +18,24 @@ public class CreateRelatedDocumentsTest {
 
         Product product = new CreateRelatedDocuments().run(params);
 
-        IDocumentSession session = DocumentStoreHolder.store.openSession();
-        Product loadedDocument = session.load(Product.class, product.getId());
+        try {
+            IDocumentSession session = DocumentStoreHolder.store.openSession();
+            Product loadedDocument = session.load(Product.class, product.getId());
 
-        Assert.assertNotNull(loadedDocument.getSupplier());
-        Assert.assertNotNull(loadedDocument.getCategory());
+            Assert.assertNotNull(loadedDocument.getSupplier());
+            Assert.assertNotNull(loadedDocument.getCategory());
+        } finally {
+            IDocumentSession cleanupSession = DocumentStoreHolder.store.openSession();
+
+            String categoryId = product.getCategory();
+            String supplierId = product.getSupplier();
+            String productId = product.getId();
+
+            cleanupSession.delete(categoryId);
+            cleanupSession.delete(supplierId);
+            cleanupSession.delete(productId);
+
+            cleanupSession.saveChanges();
+        }
     }
 }

@@ -2,6 +2,7 @@ package net.ravendb.demo.test.facetedSearch;
 
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.facetedSearch.facetsFromDocument.FacetsFromDocument;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 import java.util.List;
@@ -11,6 +12,7 @@ public class FacetsFromDocumentTest {
     @Test
     public void test() {
         DocumentStoreHolder.store.executeIndex(new FacetsFromDocument.Products_ByCategoryAndPrice());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         FacetsFromDocument.RunParams runParams = new FacetsFromDocument.RunParams();
         List<FacetsFromDocument.MyFacetResult> results = new FacetsFromDocument().run(runParams);

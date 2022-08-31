@@ -1,7 +1,6 @@
 package net.ravendb.demo.test.textSearch;
 
 import net.ravendb.demo.common.models.Employee;
-import net.ravendb.demo.staticIndexes.storeFieldInIndex.StoreFieldsInIndex;
 import net.ravendb.demo.textSearch.fTSQuerySearchBasics.FTSQuerySearchBasics;
 import org.junit.Assert;
 import org.junit.Test;

@@ -16,7 +16,7 @@ import java.util.List;
 public class HighlightQueryResultsBasics {
     //region Demo
     //region Step_1
-    public class EmployeesDetails extends AbstractIndexCreationTask {
+    public static class EmployeesDetails extends AbstractIndexCreationTask {
     //endregion
         public EmployeesDetails() {
             //region Step_2
@@ -41,7 +41,6 @@ public class HighlightQueryResultsBasics {
         int fragmentCount = runParams.getFragmentCount();
         Reference<Highlightings> notesHighlightings = new Reference<>();
 
-        new EmployeesDetails().execute(DocumentStoreHolder.store);
         //region Demo
         List<Employee> employeesResults;
 

@@ -72,7 +72,6 @@ public class JavascriptMapIndex {
 
     public List<Employee> run(RunParams runParams) {
         int startYear = runParams.getStartYear();
-        new Employees_ByImportantDetailsJS().execute(DocumentStoreHolder.store);
 
         //region Demo
         List<Employee> employeesFromUSA;

@@ -3,6 +3,7 @@ package net.ravendb.demo.test.staticIndexes;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Order;
 import net.ravendb.demo.staticIndexes.fanoutIndex.FanoutIndex;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -15,6 +16,7 @@ public class FanoutIndexTest {
         runParams.setNamePrefix("Chocolade");
 
         DocumentStoreHolder.store.executeIndex(new FanoutIndex.Orders_ByProductDetails());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         List<Order> orders = new FanoutIndex().run(runParams);
 

@@ -3,6 +3,7 @@ package net.ravendb.demo.test.relatedDocuments;
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Product;
 import net.ravendb.demo.relatedDocuments.indexRelatedDocuments.IndexRelatedDocuments;
+import net.ravendb.demo.test.util.TestUtils;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -16,6 +17,7 @@ public class IndexRelatedDocumentsTest {
         params.setCategoryName("Produce");
 
         DocumentStoreHolder.store.executeIndex(new IndexRelatedDocuments.Products_ByCategoryName());
+        TestUtils.waitForIndexing(DocumentStoreHolder.store);
 
         List<Product> products = new IndexRelatedDocuments().run(params);
 
