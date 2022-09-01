@@ -21,16 +21,16 @@ public class HighlightQueryResultsBasics {
         public EmployeesDetails() {
             //region Step_2
             map = "docs.Employees.Select(employee => new {" +
-                "    notes = employee.Notes[0]" +
+                "    Notes = employee.Notes[0]" +
                      // employee.Notes is a string array,
                      // indexing only the first element for this example
                 "})";
             //endregion
 
             //region Step_3
-            store("notes", FieldStorage.YES);
-            index("notes", FieldIndexing.SEARCH);
-            termVector("notes", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
+            store("Notes", FieldStorage.YES);
+            index("Notes", FieldIndexing.SEARCH);
+            termVector("Notes", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
             //endregion
         }
     }
@@ -47,8 +47,8 @@ public class HighlightQueryResultsBasics {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             employeesResults = session.query(Employee.class, index("EmployeesDetails"))
-                .highlight("notes", fragmentLength, fragmentCount, notesHighlightings)
-                .search("notes", "sales")
+                .highlight("Notes", fragmentLength, fragmentCount, notesHighlightings)
+                .search("Notes", "sales")
                 .toList();
             //endregion
 

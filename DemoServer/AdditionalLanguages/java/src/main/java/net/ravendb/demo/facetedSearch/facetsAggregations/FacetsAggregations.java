@@ -18,9 +18,9 @@ public class FacetsAggregations {
         
         public Products_ByCategoryPriceAndUnits() {
             map = "docs.Products.Select(product => new {" +
-                  "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
-                  "    pricePerUnit = product.PricePerUnit," +
-                  "    unitsInStock = product.UnitsInStock" +
+                  "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    PricePerUnit = product.PricePerUnit," +
+                  "    UnitsInStock = product.UnitsInStock" +
                   "})";
         }
     }
@@ -35,13 +35,13 @@ public class FacetsAggregations {
         //region Demo
         //region Step_2
         Facet facet = new Facet();
-        facet.setFieldName("categoryName");
+        facet.setFieldName("CategoryName");
         
         FacetAggregationField pricePerUnitAggregationField = new FacetAggregationField();
-        pricePerUnitAggregationField.setName("pricePerUnit");
+        pricePerUnitAggregationField.setName("PricePerUnit");
 
         FacetAggregationField unitsInStockAggregationField = new FacetAggregationField();
-        unitsInStockAggregationField.setName("unitsInStock");
+        unitsInStockAggregationField.setName("UnitsInStock");
 
         facet.getAggregations().put(FacetAggregation.AVERAGE, Collections.singleton(pricePerUnitAggregationField));
         facet.getAggregations().put(FacetAggregation.SUM, Collections.singleton(unitsInStockAggregationField));
@@ -57,10 +57,10 @@ public class FacetsAggregations {
         //region Step_3
         RangeFacet rangeFacet = new RangeFacet();
         rangeFacet.setRanges(Arrays.asList(
-            "pricePerUnit < " + range1,
-            "pricePerUnit >= " + range1 + " and pricePerUnit < " + range2,
-            "pricePerUnit >= " + range2 + " and pricePerUnit < " + range3,
-            "pricePerUnit >= " + range3
+            "PricePerUnit < " + range1,
+            "PricePerUnit >= " + range1 + " and PricePerUnit < " + range2,
+            "PricePerUnit >= " + range2 + " and PricePerUnit < " + range3,
+            "PricePerUnit >= " + range3
         ));
 
         rangeFacet.getAggregations().put(FacetAggregation.AVERAGE, Collections.singleton(pricePerUnitAggregationField));

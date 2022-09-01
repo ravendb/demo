@@ -58,10 +58,10 @@ public class JavascriptMapIndex {
             setMaps(Sets.newHashSet(
                 "map('Employees', function (employee) {" +
                 "   return {" +
-                "       fullName: employee.FirstName + ' ' + employee.LastName," +
-                "       country: employee.Address.Country," +
-                "       workingInCompanySince: new Date(employee.HiredAt).getFullYear()," +
-                "       numberOfTerritories: employee.Territories.length" +
+                "       FullName: employee.FirstName + ' ' + employee.LastName," +
+                "       Country: employee.Address.Country," +
+                "       WorkingInCompanySince: new Date(employee.HiredAt).getFullYear()," +
+                "       NumberOfTerritories: employee.Territories.length" +
                 "   };" +
                 "})"
             ));
@@ -78,8 +78,8 @@ public class JavascriptMapIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             employeesFromUSA = session.query(Employees_ByImportantDetailsJS.IndexEntry.class, Employees_ByImportantDetailsJS.class)
-                .whereEquals("country", "USA")
-                .whereGreaterThan("workingInCompanySince", startYear)
+                .whereEquals("Country", "USA")
+                .whereGreaterThan("WorkingInCompanySince", startYear)
                 .selectFields(Employee.class)
                 .toList();
             //endregion

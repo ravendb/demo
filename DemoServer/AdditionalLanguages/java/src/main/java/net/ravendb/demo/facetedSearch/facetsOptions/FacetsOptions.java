@@ -16,8 +16,8 @@ public class FacetsOptions {
     public static class Products_ByCategoryAndSupplier extends AbstractIndexCreationTask {
         public Products_ByCategoryAndSupplier() {
             map = "docs.Products.Select(product => new {" +
-                  "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
-                  "    supplier = product.Supplier" +
+                  "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    Supplier = product.Supplier" +
                   "})";
         }
     }
@@ -34,7 +34,7 @@ public class FacetsOptions {
         //region Demo
         //region Step_2
         Facet facet1 = new Facet();
-        facet1.setFieldName("categoryName");
+        facet1.setFieldName("CategoryName");
                 
         FacetOptions facet1Options = new FacetOptions();
         facet1Options.setStart(start);
@@ -45,7 +45,7 @@ public class FacetsOptions {
         //endregion
 
         Facet facet2 = new Facet();
-        facet2.setFieldName("supplier");
+        facet2.setFieldName("Supplier");
         
         FacetOptions facet2Options = new FacetOptions();
         facet2Options.setStart(start);

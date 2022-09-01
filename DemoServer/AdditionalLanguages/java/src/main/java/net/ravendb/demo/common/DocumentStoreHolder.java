@@ -13,12 +13,14 @@ public class DocumentStoreHolder {
         // replace params below with whatever you run with...
         store = new DocumentStore("http://localhost:8080", "q1");
 
-        // Use the below so that PascalCase documents properties will be returned in the resulting query documents.
+        // Since we target the Sample Data,
+        // must use the below to convert between the camelCase Java classes props and the PascalCase json documents.
         store.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
 
         store.initialize();
 
-        mediaStore = new DocumentStore("http://localhost:8080", "Media-6d9c0b0c-7142-4b24-b09d-efd85ebd70a8");
+        mediaStore = new DocumentStore("http://localhost:8080", "Media-c6c67f10-bfd8-4575-bac2-9d7f056f0161");
+        mediaStore.getConventions().getEntityMapper().setPropertyNamingStrategy(new JsonExtensions.DotNetNamingStrategy());
         mediaStore.initialize();
     }
 }

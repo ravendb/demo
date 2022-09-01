@@ -5,7 +5,6 @@ import net.ravendb.client.documents.session.IDocumentSession;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Map;
 //endregion
 import net.ravendb.demo.common.DocumentStoreHolder;
 import net.ravendb.demo.common.models.Product;
@@ -30,10 +29,10 @@ public class AdditionalSourcesIndex {
         public Products_ByPrice() {
             //region Step_3
             map = "docs.Products.Select(product => new {" +
-                "    productName = product.Name," +
-                "    originalPrice = product.PricePerUnit," +
-                "    salePrice = DiscountUtils.CalcSalePrice(product.PricePerUnit)," +
-                "    profitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)" +
+                "    ProductName = product.Name," +
+                "    OriginalPrice = product.PricePerUnit," +
+                "    SalePrice = DiscountUtils.CalcSalePrice(product.PricePerUnit)," +
+                "    ProfitPrice = DiscountUtils.CalcProfitPrice(product.PricePerUnit)" +
                 "})";
             //endregion
 
@@ -52,8 +51,8 @@ public class AdditionalSourcesIndex {
         //region Step_5
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             lowCostProducts = session.query(Product.class, Products_ByPrice.class)
-                .whereLessThan("salePrice", price)
-                .orderBy("salePrice")
+                .whereLessThan("SalePrice", price)
+                .orderBy("SalePrice")
                 .toList();
         }
         //endregion

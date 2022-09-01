@@ -30,7 +30,7 @@ public class IndexCompareExchange {
         //region Step_3
         public Products_ByUnitsInStock() {
             map = "docs.Products.Select(product => new {" +
-                "    unitsInStock = this.LoadCompareExchangeValue(Id(product))" +
+                "    UnitsInStock = this.LoadCompareExchangeValue(Id(product))" +
                 "})";
         }
         //endregion
@@ -46,7 +46,7 @@ public class IndexCompareExchange {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             products = session.query(Products_ByUnitsInStock.IndexEntry.class, Products_ByUnitsInStock.class)
-                .whereGreaterThan("unitsInStock" , minValue)
+                .whereGreaterThan("UnitsInStock" , minValue)
                 .ofType(Product.class)
                 .toList();
             //endregion
