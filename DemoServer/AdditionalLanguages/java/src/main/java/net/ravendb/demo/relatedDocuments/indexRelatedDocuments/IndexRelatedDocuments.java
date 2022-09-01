@@ -18,7 +18,7 @@ public class IndexRelatedDocuments {
         //region Step_2
         public Products_ByCategoryName() {
             map = "docs.products.Select(product => new { " +
-                "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name " +
+                "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name " +
                 "})";
         }
         //endregion
@@ -35,7 +35,7 @@ public class IndexRelatedDocuments {
             //region Step_3
             productsWithCategoryName = session
                 .query(Product.class, Products_ByCategoryName.class)
-                .whereEquals("categoryName", categoryName)
+                .whereEquals("CategoryName", categoryName)
                 .toList();
             //endregion
         }

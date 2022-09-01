@@ -19,8 +19,8 @@ public class FacetsFromDocument {
     public static class Products_ByCategoryAndPrice extends AbstractIndexCreationTask {
         public Products_ByCategoryAndPrice() {
             map = "docs.Products.Select(product => new {" +
-                  "    category = (this.LoadDocument(product.Category, \"Categories\")).Name," +
-                  "    pricePerUnit = product.PricePerUnit" +
+                  "    Category = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    PricePerUnit = product.PricePerUnit" +
                   "})";
         }
     }
@@ -44,15 +44,15 @@ public class FacetsFromDocument {
             facetSetup.setId("myFacetSetupDocumentID");
             
             Facet facet = new Facet();
-            facet.setFieldName("category");
+            facet.setFieldName("Category");
             facetSetup.setFacets(Arrays.asList(facet));
 
             RangeFacet rangeFacet = new RangeFacet();
             rangeFacet.setRanges(Arrays.asList(
-                "pricePerUnit < " + range1,
-                "pricePerUnit >= " + range1 + " and pricePerUnit < " + range2,
-                "pricePerUnit >= " + range2 + " and pricePerUnit < " + range3,
-                "pricePerUnit >= " + range3
+                "PricePerUnit < " + range1,
+                "PricePerUnit >= " + range1 + " and PricePerUnit < " + range2,
+                "PricePerUnit >= " + range2 + " and PricePerUnit < " + range3,
+                "PricePerUnit >= " + range3
             ));
             facetSetup.setRangeFacets(Arrays.asList(rangeFacet));
             //endregion
@@ -74,8 +74,8 @@ public class FacetsFromDocument {
             String facetName = result.getValue().getName();
             for (FacetValue item : result.getValue().getValues()) {
                 MyFacetResult facetResult = new MyFacetResult();
-                facetResult.setFacetName(facetName); // i.e. pricePerUnit
-                facetResult.setFacetRange(item.getRange()); // i.e. pricePerUnit < 50
+                facetResult.setFacetName(facetName); // i.e. PricePerUnit
+                facetResult.setFacetRange(item.getRange()); // i.e. PricePerUnit < 50
                 facetResult.setFacetCount(item.getCount());
 
                 facetsResults.add(facetResult);

@@ -64,7 +64,7 @@ public class ProjectIndexResults {
         public Employees_ByWorkPeriod() {
             map =
                 "docs.Employees.Select(employee => new {" +
-                "      workingInCompanySince = employee.HiredAt.Year" +
+                "      WorkingInCompanySince = employee.HiredAt.Year" +
                 "})";
         }
         //endregion
@@ -82,14 +82,14 @@ public class ProjectIndexResults {
             IDocumentQuery<Employees_ByWorkPeriod.EmployeeProjectedDetails> employeesQuery = session
                 //region Step_5
                 .query(Employees_ByWorkPeriod.IndexEntry.class, Employees_ByWorkPeriod.class)
-                .whereGreaterThan("workingInCompanySince", startYear)
+                .whereGreaterThan("WorkingInCompanySince", startYear)
                 //endregion
                 //region Step_6
                 .selectFields(Employees_ByWorkPeriod.EmployeeProjectedDetails.class,
                     QueryData.customFunction("employee ",
-                        "{ firstName: employee.FirstName," +
-                        "  phone: employee.HomePhone," +
-                        "  location: employee.Address.City + ' ' + employee.Address.Country }"));
+                        "{ FirstName: employee.FirstName," +
+                        "  Phone: employee.HomePhone," +
+                        "  Location: employee.Address.City + ' ' + employee.Address.Country }"));
                 //endregion
 
             //region Step_7

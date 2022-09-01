@@ -19,12 +19,12 @@ public class FTSWithStaticIndexSingleField {
         public Categories_DescriptionText() {
             //region Step_2
             map = "docs.Categories.Select(category => new { " +
-                "    categoryDescription = category.Description " +
+                "    CategoryDescription = category.Description " +
                 "})";
             //endregion
 
             //region Step_3
-            index("categoryDescription", FieldIndexing.SEARCH);
+            index("CategoryDescription", FieldIndexing.SEARCH);
             //endregion
         }
     }
@@ -39,7 +39,7 @@ public class FTSWithStaticIndexSingleField {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_4
             categoriesWithSearchTerm = session.query(Category.class, Categories_DescriptionText.class)
-                .whereEquals("categoryDescription", searchTerm)
+                .whereEquals("CategoryDescription", searchTerm)
                 .toList();
             //endregion
         }

@@ -25,21 +25,21 @@ public class HighlightQueryResultsCustomized {
         public EmployeesDetails() {
             //region Step_2
             map = "docs.Employees.Select(employee => new {" +
-                  "    title = employee.Title," +
-                  "    notes = employee.Notes[0]" +
+                  "    Title = employee.Title," +
+                  "    Notes = employee.Notes[0]" +
                        // employee.Notes is a string array,
                        // indexing only the first element for this example
                   "})";
             //endregion
 
             //region Step_3
-            store("title", FieldStorage.YES);
-            index("title", FieldIndexing.SEARCH);
-            termVector("title", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
+            store("Title", FieldStorage.YES);
+            index("Title", FieldIndexing.SEARCH);
+            termVector("Title", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
 
-            store("notes", FieldStorage.YES);
-            index("notes", FieldIndexing.SEARCH);
-            termVector("notes", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
+            store("Notes", FieldStorage.YES);
+            index("Notes", FieldIndexing.SEARCH);
+            termVector("Notes", FieldTermVector.WITH_POSITIONS_AND_OFFSETS);
             //endregion
         }
     }
@@ -73,10 +73,10 @@ public class HighlightQueryResultsCustomized {
 
             //region Step_5
             employeesResults = session.query(Employee.class, EmployeesDetails.class)
-                .highlight("title", fragmentLength, fragmentCount, tagsToUse1, titleHighlightings)
-                .highlight("notes", fragmentLength, fragmentCount, tagsToUse2, notesHighlightings)
-                .search("title", "manager")
-                .search("notes", "sales")
+                .highlight("Title", fragmentLength, fragmentCount, tagsToUse1, titleHighlightings)
+                .highlight("Notes", fragmentLength, fragmentCount, tagsToUse2, notesHighlightings)
+                .search("Title", "manager")
+                .search("Notes", "sales")
                 .toList();
             //endregion
             

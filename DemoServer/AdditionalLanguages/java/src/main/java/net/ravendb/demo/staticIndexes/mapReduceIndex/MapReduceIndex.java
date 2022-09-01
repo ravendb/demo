@@ -15,15 +15,15 @@ public class MapReduceIndex {
         public Employees_ByCountry() {
             //region Step_2
             map = "docs.Employees.Select(employee => new { " +
-                  "    country = employee.Address.Country, " +
-                  "    countryCount = 1 " +
+                  "    Country = employee.Address.Country, " +
+                  "    CountryCount = 1 " +
                   "})";
             //endregion
 
             //region Step_3
-            reduce = "results.GroupBy(result => result.country).Select(g => new { " +
-                     "    country = g.Key, " +
-                     "    countryCount = Enumerable.Sum(g, x => x.countryCount) " +
+            reduce = "results.GroupBy(result => result.Country).Select(g => new { " +
+                     "    Country = g.Key, " +
+                     "    CountryCount = Enumerable.Sum(g, x => x.CountryCount) " +
                      "})";
             //endregion
         }
@@ -61,7 +61,7 @@ public class MapReduceIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_5
             Employees_ByCountry.Result queryResult = session.query(Employees_ByCountry.Result.class, Employees_ByCountry.class)
-                .whereEquals("country", country)
+                .whereEquals("Country", country)
                 .firstOrDefault();
 
             numberOfEmployeesFromCountry = queryResult != null ? queryResult.getCountryCount() : 0;

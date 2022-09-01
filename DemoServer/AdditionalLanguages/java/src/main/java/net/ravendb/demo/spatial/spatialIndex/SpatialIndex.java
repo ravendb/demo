@@ -41,13 +41,13 @@ public class SpatialIndex {
         
             //region Step_3
             map = "docs.Companies.Select(company => new {" +
-                  "    companyName = company.Name," +
-                  "    locationCoordinates = this.CreateSpatialField(((double ? ) company.Address.Location.Latitude), ((double ? ) company.Address.Location.Longitude))" +
+                  "    CompanyName = company.Name," +
+                  "    LocationCoordinates = this.CreateSpatialField(((double ? ) company.Address.Location.Latitude), ((double ? ) company.Address.Location.Longitude))" +
                   "})";
             //endregion
             
             //region Step_4
-            spatial("locationCoordinates", factory -> factory.geography().quadPrefixTreeIndex(5));
+            spatial("LocationCoordinates", factory -> factory.geography().quadPrefixTreeIndex(5));
             //endregion
         }
     }
@@ -71,8 +71,8 @@ public class SpatialIndex {
 
             //region Step_6
             companiesNearSeattle = session.query(Company.class, Companies_ByLocation.class)
-                .spatial("locationCoordinates", spatialCriteria -> spatialCriteria.within(wktPolygon))
-                .orderByDistance("locationCoordinates", seattleLatitude, seattleLongitude)
+                .spatial("LocationCoordinates", spatialCriteria -> spatialCriteria.within(wktPolygon))
+                .orderByDistance("LocationCoordinates", seattleLatitude, seattleLongitude)
                 .toList();
             //endregion    
         }

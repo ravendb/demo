@@ -1,5 +1,4 @@
 package net.ravendb.demo.facetedSearch.facetsBasics;
-import com.fasterxml.jackson.databind.node.ArrayNode;
 //region Usings
 import net.ravendb.client.documents.indexes.AbstractIndexCreationTask;
 import net.ravendb.client.documents.queries.facets.*;
@@ -20,8 +19,8 @@ public class FacetsBasics {
     
         public Products_ByCategoryAndPrice() {
             map = "docs.Products.Select(product => new {" +
-                  "    categoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
-                  "    pricePerUnit = product.PricePerUnit" +
+                  "    CategoryName = (this.LoadDocument(product.Category, \"Categories\")).Name," +
+                  "    PricePerUnit = product.PricePerUnit" +
                   "})";
         }
     }
@@ -38,17 +37,17 @@ public class FacetsBasics {
         //region Demo
         //region Step_2
         Facet categoryNameFacet = new Facet();
-        categoryNameFacet.setFieldName("categoryName");
+        categoryNameFacet.setFieldName("CategoryName");
         categoryNameFacet.setDisplayFieldName("Product Category");
         //endregion
         
         //region Step_3
         RangeFacet rangeFacet = new RangeFacet();
         rangeFacet.setRanges(Arrays.asList(
-            "pricePerUnit < " + range1,
-            "pricePerUnit >= " + range1 + " and pricePerUnit < " + range2,
-            "pricePerUnit >= " + range2 + " and pricePerUnit < " + range3,
-            "pricePerUnit >= " + range3
+            "PricePerUnit < " + range1,
+            "PricePerUnit >= " + range1 + " and PricePerUnit < " + range2,
+            "PricePerUnit >= " + range2 + " and PricePerUnit < " + range3,
+            "PricePerUnit >= " + range3
         ));
         rangeFacet.setDisplayFieldName("Price per Unit");
         //endregion
@@ -78,8 +77,8 @@ public class FacetsBasics {
 
             for (FacetValue item : result.getValue().getValues()) {
                 MyFacetResult facetResult = new MyFacetResult();
-                facetResult.setFacetName(facetName); // i.e. pricePerUnit
-                facetResult.setFacetRange(item.getRange()); // i.e. pricePerUnit < 50
+                facetResult.setFacetName(facetName); // i.e. PricePerUnit
+                facetResult.setFacetRange(item.getRange()); // i.e. PricePerUnit < 50
                 facetResult.setFacetCount(item.getCount());
 
                 facetsResults.add(facetResult);

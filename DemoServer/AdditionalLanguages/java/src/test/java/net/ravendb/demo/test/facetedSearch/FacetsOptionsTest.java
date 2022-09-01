@@ -20,6 +20,6 @@ public class FacetsOptionsTest {
 
         Assert.assertNotNull(results);
         Assert.assertEquals(2, results.size());
-        Assert.assertEquals(64, results.get("supplier").getRemainingHits());
+        Assert.assertEquals(64, results.get("Supplier").getRemainingHits());
     }
 }

@@ -17,10 +17,10 @@ public class MapIndex {
         //region Step_2
         public Employees_ImportantDetails() {
             map = "docs.Employees.Select(employee => new { " +
-                "    fullName = (employee.FirstName + \" \") + employee.LastName, " +
-                "    country = employee.Address.Country, " +
-                "    workingInCompanySince = employee.HiredAt.Year, " +
-                "    numberOfTerritories = employee.Territories.Count " +
+                "    FullName = (employee.FirstName + \" \") + employee.LastName, " +
+                "    Country = employee.Address.Country, " +
+                "    WorkingInCompanySince = employee.HiredAt.Year, " +
+                "    NumberOfTerritories = employee.Territories.Count " +
                 "})";
         }
         //endregion
@@ -36,8 +36,8 @@ public class MapIndex {
         try (IDocumentSession session = DocumentStoreHolder.store.openSession()) {
             //region Step_3
             employeesFromUSA = session.query(Employee.class, Employees_ImportantDetails.class)
-                .whereEquals("country", "USA")
-                .whereGreaterThan("workingInCompanySince", startYear)
+                .whereEquals("Country", "USA")
+                .whereGreaterThan("WorkingInCompanySince", startYear)
                 .toList();
             //endregion
         }

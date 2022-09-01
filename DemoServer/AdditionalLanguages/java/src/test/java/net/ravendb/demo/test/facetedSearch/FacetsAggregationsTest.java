@@ -21,7 +21,7 @@ public class FacetsAggregationsTest {
 
         Assert.assertNotNull(results);
         Assert.assertEquals(2, results.size());
-        Assert.assertNotNull(results.get("categoryName"));
-        Assert.assertEquals(16, results.get("categoryName").getValues().size());
+        Assert.assertNotNull(results.get("CategoryName"));
+        Assert.assertEquals(16, results.get("CategoryName").getValues().size());
     }
 }
