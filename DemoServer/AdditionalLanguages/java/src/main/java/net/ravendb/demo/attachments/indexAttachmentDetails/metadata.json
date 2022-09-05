@@ -62,7 +62,7 @@
             "DescriptionLines": [
                 "* Define the index-fields.",
                 "",
-                "* i.e. _attachmentNames_ will be configured to hold all attachments names (in step 4)."
+                "* i.e. _AttachmentNames_ will be configured to hold all attachments names (in step 4)."
             ],
             "Assets": [
                 {
@@ -117,7 +117,7 @@
                 "* Configure the index-fields content.",
                 "",
                 "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
-                "  e.g., _attachmentNames_ is an index field that holds all the attachments' names of the document.<br>",
+                "  e.g., _AttachmentNames_ is an index field that holds all the attachments' names of the document.<br>",
                 "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
                 "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",

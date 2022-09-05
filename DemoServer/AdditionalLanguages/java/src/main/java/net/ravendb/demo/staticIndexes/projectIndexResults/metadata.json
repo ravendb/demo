@@ -121,7 +121,7 @@
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example,<br> data from document field 'HiredAt.Year' is indexed in the _workingInCompanySince_ index-field."
+                "* In this example,<br> data from document field 'HiredAt.Year' is indexed in the _WorkingInCompanySince_ index-field."
             ],
             "Assets": [
                 {
@@ -168,8 +168,8 @@
                 "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
                 "",
                 "* In this example:<br>",
-                "  * _firstName_, _phone_ are returned from the document<br>",
-                "  * _location_ is customized from the other raw document fields."
+                "  * _FirstName_, _Phone_ are returned from the document<br>",
+                "  * _Location_ is customized from the other raw document fields."
             ],
             "Assets": [
                 {

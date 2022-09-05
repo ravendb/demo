@@ -58,7 +58,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Define an index on the collection you would like to query.<br>",
-                "  (categoryName is loaded from a related document).",
+                "  (CategoryName is loaded from a related document).",
                 "",
                 "* The index entry fields will be used to define the Facets (see steps 2 & 3)."
             ],
@@ -99,13 +99,13 @@
                 "  * Options - define skipping, paging & sorting options",
                 "",
                 "* _In this example_:<br>",
-                "  The Facet groups the documents by the content of index field 'categoryName'.<br>",
-                "  Average, Max & Min are requested for field _pricePerUnit_.<br>",
-                "  Sum & Min are requested for field _unitsInStock_.<br>",
+                "  The Facet groups the documents by the content of index field 'CategoryName'.<br>",
+                "  Average, Max & Min are requested for field _PricePerUnit_.<br>",
+                "  Sum & Min are requested for field _UnitsInStock_.<br>",
                 "  But...<br>",
                 "  since aggregation is requested for 2 document fields,",
                 "  the resulting documents will be grouped by i.e. category 'Seafood', but you will get _2_ such items in the list,",
-                "  one with aggregated data for pricePerUnit field and one with aggregated data for unitsInStock field."
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
             ],
             "Assets": [
 // TODO
@@ -148,12 +148,12 @@
                 "  * DisplayFieldName - A customized name for the facet field the results",
                 "",
                 "* _In this example_:<br>",
-                "  The ranges are defined on index field 'pricePerUnit'.<br>",
-                "  E.g. all documents with pricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
+                "  The ranges are defined on index field 'PricePerUnit'.<br>",
+                "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
                 "  But...<br>",
-                "  since aggregation is requested for 2 fields ( _pricePerUnit_ , _unitsInStock_ )<br>",
+                "  since aggregation is requested for 2 fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
                 "  you will get _2_ such items in the list,",
-                "  one with aggregated data for pricePerUnit field and one with aggregated data for unitsInStock field."
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
             ],
             "Assets": [
 // TODO
