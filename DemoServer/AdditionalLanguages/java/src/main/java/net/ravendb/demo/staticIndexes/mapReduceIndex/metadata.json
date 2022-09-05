@@ -91,14 +91,14 @@
                 "* The Map function is the first stage of the Map-Reduce index.<br>",
                 "  It indexes the specified fields _per document_ in the collection.",
                 "",
-                "    * _country_ - per document, this index-field will contain the document's country data.<br>",
+                "    * _Country_ - per document, this index-field will contain the document's country data.<br>",
                 "      The document data is case-sensitive, use the exact casing as in the document.",
                 "",
-                "    * _countryCount_ - per document, the value of this field will be '1'.<br>",
+                "    * _CountryCount_ - per document, the value of this field will be '1'.<br>",
                 "                   This field will be aggregated later, in the Reduce stage, accumulating the count from all Employees documents.<br>",
                 "                   The accumulative value of this field will represent the number of employees documents that contain the country.",
 
-                "* Each resulting _index-entry_ will have the above 2 index-fields: 'country' & 'countryCount'."
+                "* Each resulting _index-entry_ will have the above 2 index-fields: 'Country' & 'CountryCount'."
             ],
             "Assets": [
                 {
@@ -126,11 +126,11 @@
                 "  It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
                 "",
                 "* _Specify the field to group-by_:<br><br>",
-                "  `GroupBy(result => result.country)`  ==> group by index-field 'country'",
+                "  `GroupBy(result => result.Country)`  ==> group by index-field 'Country'",
                 "",
                 "* _Specify the aggregation needed on that field_:<br><br>",
-                "  `country = g.Key`  ==>  The country we group by<br>",
-                "  `countryCount = Enumerable.Sum(g, x => x.countryCount)`  ==> The aggregating function"
+                "  `Country = g.Key`  ==>  The country we group by<br>",
+                "  `CountryCount = Enumerable.Sum(g, x => x.CountryCount)`  ==> The aggregating function"
             ],
             "Assets": [
                 {
@@ -182,11 +182,11 @@
             "DescriptionLines": [
                 "* Using the Map-Reduce index (`Employees_ByCountry`), query the 'Employees' collection to find the number of employees from a specific country.",
                 "",
-                "* RavenDB will search the index for a matching index-entry that has the queried country in its 'country' property.",
+                "* RavenDB will search the index for a matching index-entry that has the queried country in its 'Country' property.",
                 "",
                 "* Note: The return value of the query is Not a list of all documents that contain the queried country.",
                 "  The _queryResults_ variable will contain the matching index-entry, in the shape of the 'Result' class,",
-                "  from which you can retrieve 'countryCount' - the aggregated value.",
+                "  from which you can retrieve 'CountryCount' - the aggregated value.",
                 "",
                 "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Map-Reduce index results."
             ],

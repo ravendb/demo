@@ -81,7 +81,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* Index-field _'categoryDescription'_ will take its content from the document _'Description'_ field."
+                "* Index-field _'CategoryDescription'_ will take its content from the document _'Description'_ field."
             ],
             "Assets": [
                 {
@@ -105,7 +105,7 @@
             "Title": "Configure Full-Text Search",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'categoryDescription'.",
+                "* Use method `index()` with param _'FieldIndexing.SEARCH'_, to allow performing a full-text search on the indexed field 'CategoryDescription'.",
                 "",
                 "* During the indexing process, the field is Not indexed as a single value.<br>",
                 "  Instead, the field's text content is broken into distinct tokens (terms).",
@@ -147,7 +147,7 @@
                 "",
                 "* The query results will be only those documents that contain the value of 'searchTerm' within their 'Description' field.",
                 "",
-                "* Note that the comparison is done against the indexed field 'categoryDescription' which was broken into terms."
+                "* Note that the comparison is done against the indexed field 'CategoryDescription' which was broken into terms."
             ],
             "Assets": [
                 {

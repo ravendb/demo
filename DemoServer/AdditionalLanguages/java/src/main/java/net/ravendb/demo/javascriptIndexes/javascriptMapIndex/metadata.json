@@ -102,10 +102,10 @@
                 "  The properties of this object are the fields composing the index entry.",
                 "",
                 "* Any logic written in JavaScript can be applied to the properties values, e.g.:",
-                "  * fullName - combining 2 document fields ('FirstName' & 'LastName')",
-                "  * country - indexing nested field data ('Country' is nested under 'Address')",
-                "  * workingInCompanySince - indexing partial field data (only the 'Year')",
-                "  * numberOfTerritories - applying logic (using length)",
+                "  * FullName - combining 2 document fields ('FirstName' & 'LastName')",
+                "  * Country - indexing nested field data ('Country' is nested under 'Address')",
+                "  * WorkingInCompanySince - indexing partial field data (only the 'Year')",
+                "  * NumberOfTerritories - applying logic (using length)",
                 "",
                 "* The document properties composing the index fields are case-sensitive,<br> use the exact casing as in the document.",
                 "",
@@ -136,7 +136,7 @@
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria",
                 "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
                 "",
-                "* The query results will include all documents from the 'Employees' collection whose 'country' is 'USA',",
+                "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
                 "  and have started working after 'startYear'."
             ],
             "Assets": [

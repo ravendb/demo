@@ -75,7 +75,7 @@
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
-                "* Field _totalItemsOrdered_ will be computed and stored in the index (Step 5)."
+                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
             ],
             "Assets": [
                 {
@@ -129,7 +129,7 @@
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, index field `totalItemsOrdered` is computed and will be stored in the index, see in the next step."
+                "* In this example, index field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
                 {
@@ -207,8 +207,8 @@
                 "  * If the field is _not stored in the index_ - the server will fetch it from the document store",
                 "",
                 "* In this example:<br>",
-                "  * 'totalItemsOrdered' is fetched from the index<br>",
-                "  * 'orderedAt' is fetched from the document store"
+                "  * 'TotalItemsOrdered' is fetched from the index<br>",
+                "  * 'OrderedAt' is fetched from the document store"
             ],
             "Assets": [
                 {

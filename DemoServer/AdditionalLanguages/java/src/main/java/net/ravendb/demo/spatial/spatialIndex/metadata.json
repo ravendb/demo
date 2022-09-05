@@ -84,7 +84,7 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Field _locationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
+                "* Field _LocationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
             ],
             "Assets": [
                 {
@@ -150,7 +150,7 @@
                 "",
                 "* Available strategies:",
                 "  * _Bounding Box_<br>",
-                "    The bounding box of the indexed shape contained in the 'locationCoordinates' field is calculated.",
+                "    The bounding box of the indexed shape contained in the 'LocationCoordinates' field is calculated.",
                 "    The index terms will include the MinX, MinY, MaxX & MaxY coordinates of each bounding box calculated per document.",
                 "",
                 "  * _Geohash Buckets_<br>",
@@ -167,7 +167,7 @@
                 "",
                 "* Customizing a strategy is _optional_.<br>RavenDB will use the Geohash strategy if no other strategy is defined.",
                 "",
-                "* In the example above the spatial field 'locationCoordinates' is indexed with the QuadTree strategy.",
+                "* In the example above the spatial field 'LocationCoordinates' is indexed with the QuadTree strategy.",
                 "  The parameter passed sets the precision level."
             ],
             "Assets": [
