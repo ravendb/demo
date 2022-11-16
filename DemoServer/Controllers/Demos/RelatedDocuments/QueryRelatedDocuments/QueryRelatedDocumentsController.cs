@@ -41,7 +41,7 @@ namespace DemoServer.Controllers.Demos.RelatedDocuments.QueryRelatedDocuments
                     for (var i = 0; i < productIds.Count; i++)
                     {   
                         #region Step_3
-                        Product product = session.Load<Product>(productIds[i]);;
+                        Product product = session.Load<Product>(productIds[i]);
                         product.UnitsOnOrder += shippedOrder.Lines[i].Quantity;
                         #endregion
                     }
