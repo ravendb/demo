@@ -10,7 +10,7 @@
 
     "Assets": [
         {
-            "Title": "How to Query",
+            "Title": "Query Overview",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
         },

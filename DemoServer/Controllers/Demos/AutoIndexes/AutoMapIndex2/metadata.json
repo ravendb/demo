@@ -20,7 +20,7 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
         },
         {
-            "Title": "Quering Basics",
+            "Title": "Querying Basics",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
         },

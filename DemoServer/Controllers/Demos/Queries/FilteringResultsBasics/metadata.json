@@ -20,7 +20,7 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
         {
-            "Title": "How to Query",
+            "Title": "Query Overview",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
@@ -99,7 +99,7 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
                 {
-                    "Title": "How to Query",
+                    "Title": "Query Overview",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },

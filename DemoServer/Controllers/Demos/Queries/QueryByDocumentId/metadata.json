@@ -11,7 +11,7 @@
 
     "Assets": [
         {
-            "Title": "How to Query",
+            "Title": "Query Overview",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
@@ -68,7 +68,7 @@
             ],
             "Assets": [
                 {
-                    "Title": "How to Query",
+                    "Title": "Query Overview",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },
