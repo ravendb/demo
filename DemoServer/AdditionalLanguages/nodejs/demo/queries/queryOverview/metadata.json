@@ -33,16 +33,15 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
-        //TODO
-        //{
-        //    "Title": "How to Query",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-        //},
         {
-            "Title": "Querying - Basics",
+            "Title": "Query Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "Querying an Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         },
         {
             "Title": "The query optimizer",
@@ -87,16 +86,15 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
-                //TODO
-                //{
-                //    "Title": "How to Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-                //},
                 {
-                    "Title": "Querying - Basics",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying an Index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 },
                 {
                     "Title": "The query optimizer",

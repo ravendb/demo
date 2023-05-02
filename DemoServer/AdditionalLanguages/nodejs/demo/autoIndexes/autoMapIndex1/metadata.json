@@ -24,9 +24,9 @@
         //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql#query-optimizer"
         //},
         {
-            "Title": "Quering Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         },
         //TODO
         //{
@@ -65,9 +65,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Querying Basics",
+                    "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 },
                 //TODO
                 //{

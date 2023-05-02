@@ -23,14 +23,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
         },
         {
-            "Title": "Querying Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
-        },
-        {
-            "Title": "Basic dynamic Query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/query-index"
         },
         {
             "Title": "Indexes Types",
@@ -63,14 +58,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "Querying Basics",
+                    "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/query-index"
                 },
                 {
-                    "Title": "Basic dynamic Query",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
                 }
             ]
         },

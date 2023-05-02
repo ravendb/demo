@@ -53,7 +53,7 @@
         {
             "Title": "Querying a Specified Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index#example-iv---querying-a-specified-index"
         }
     ],
 
@@ -203,7 +203,7 @@
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index#example-iv---querying-a-specified-index"
                 }
             ]
         }

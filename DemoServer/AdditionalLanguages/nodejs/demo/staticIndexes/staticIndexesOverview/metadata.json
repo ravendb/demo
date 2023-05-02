@@ -53,7 +53,7 @@
         {
             "Title": "Querying a Specified Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         }
     ],
 
@@ -202,7 +202,7 @@
                 {
                     "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iv---querying-a-specified-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 }
             ]
         }

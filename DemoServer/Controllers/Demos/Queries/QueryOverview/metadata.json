@@ -29,9 +29,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
         {
-            "Title": "Querying - Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-index"
         },        
         {
             "Title": "The query optimizer",
@@ -86,9 +86,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },
                 {
-                    "Title": "Querying - Basics",
+                    "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-index"
                 },
                 {
                     "Title": "The query optimizer",

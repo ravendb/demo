@@ -24,9 +24,9 @@
         //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
         //},
         {
-            "Title": "Quering Basics",
+            "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index"
         },
         //TODO
         //{
@@ -67,7 +67,7 @@
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index"
                 },
                 //TODO
                 //{

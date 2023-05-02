@@ -20,12 +20,11 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
-        //TODO
-        //{
-        //   "Title": "How to Query",
-        //   "Type" : "link",
-        //   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-        //},
+        {
+           "Title": "Query Overview",
+           "Type" : "link",
+           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+        },
         {
             "Title": "RQL",
             "Type" : "link",
@@ -97,12 +96,11 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
-                //TODO
-                //{
-                //    "Title": "How to Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
-                //},
+                {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+                },
                 //TODO
                 //{
                 //    "Title": "Auto indexes",
