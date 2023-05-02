@@ -21,7 +21,7 @@
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/document-query/query-vs-document-query"
         },
         {
             "Title": "Querying in RavenDB",
