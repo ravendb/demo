@@ -18,9 +18,9 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         },
         {
-            "Title": "Querying - Query Optimizer",
+            "Title": "Query Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Quering Basics",
@@ -98,9 +98,9 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 },
                 {
-                    "Title": "Querying - Query Optimizer",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Auto-Map-Index II Demo",

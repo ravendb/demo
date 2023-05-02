@@ -18,7 +18,7 @@
         {
             "Title": "What is RQL",
             "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql"
+            "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/what-is-rql"
         },
         {
             "Title": "Projection with declared function",
@@ -74,7 +74,7 @@
                 {
                     "Title": "What is RQL",
                     "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql"
+                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/what-is-rql"
                 }
             ]
         },

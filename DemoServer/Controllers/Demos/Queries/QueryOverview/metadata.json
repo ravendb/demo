@@ -46,7 +46,7 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
