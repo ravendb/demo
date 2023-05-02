@@ -17,9 +17,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/paging"
         },
         {
-            "Title": "Querying Basics: Paging",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics#example-iii---paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         },
         {
             "Title": "Querying: Distinct Paging",

@@ -35,9 +35,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/projections"
         },
         {
-            "Title": "Querying: Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         }
     ],
 

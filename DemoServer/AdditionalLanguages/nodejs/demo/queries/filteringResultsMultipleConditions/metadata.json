@@ -20,21 +20,20 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
-        //TODO
-        //{
-        //   "Title": "How to Query",
-        //   "Type" : "link",
-        //   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-        //},
+        {
+           "Title": "Query Overview",
+           "Type" : "link",
+           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+        },
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/document-query/query-vs-document-query"
         },
         //TODO
         //{
@@ -97,12 +96,11 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
-                //TODO
-                //{
-                //    "Title": "How to Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
-                //},
+                {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+                },
                 //TODO
                 //{
                 //    "Title": "Auto indexes",

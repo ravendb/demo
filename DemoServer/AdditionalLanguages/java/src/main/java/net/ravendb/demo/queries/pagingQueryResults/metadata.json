@@ -19,7 +19,7 @@
         {
             "Title": "Querying Basics: Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics#example-iii---paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index#example-iii---paging"
         },
         {
             "Title": "Querying: Distinct Paging",

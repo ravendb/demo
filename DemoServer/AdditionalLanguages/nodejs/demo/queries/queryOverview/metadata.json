@@ -26,23 +26,22 @@
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/document-query/query-vs-document-query"
         },
         {
             "Title": "Querying in RavenDB",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
-        //TODO
-        //{
-        //    "Title": "How to Query",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-        //},
         {
-            "Title": "Querying - Basics",
+            "Title": "Query Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+        },
+        {
+            "Title": "Querying an Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         },
         {
             "Title": "The query optimizer",
@@ -52,7 +51,7 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/what-is-rql"
         }
         //TODO
         //{
@@ -87,16 +86,15 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
-                //TODO
-                //{
-                //    "Title": "How to Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-                //},
                 {
-                    "Title": "Querying - Basics",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying an Index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 },
                 {
                     "Title": "The query optimizer",

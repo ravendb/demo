@@ -20,7 +20,7 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
         },
         {
-            "Title": "How to Query",
+            "Title": "Query Overview",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
         },
@@ -32,12 +32,12 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/document-query/query-vs-document-query"
         },
         {
             "Title": "Auto indexes",
@@ -94,7 +94,7 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 },
                 {
-                    "Title": "How to Query",
+                    "Title": "Query Overview",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query"
                 },

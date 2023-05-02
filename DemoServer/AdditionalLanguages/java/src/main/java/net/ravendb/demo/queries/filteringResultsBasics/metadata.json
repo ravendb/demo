@@ -22,12 +22,12 @@
         {
             "Title": "RQL",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/what-is-rql"
         },
         {
             "Title": "Query vs DocumentQuery",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-vs-document-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/document-query/query-vs-document-query"
         },
         //TODO
         //{

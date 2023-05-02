@@ -19,7 +19,7 @@
         {
             "Title": "Querying Basics",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index"
         },
         {
             "Title": "Querying in RavenDB",
@@ -72,7 +72,7 @@
                 {
                     "Title": "Querying Basics",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index"
                 },
                 {
                     "Title": "Querying in RavenDB",

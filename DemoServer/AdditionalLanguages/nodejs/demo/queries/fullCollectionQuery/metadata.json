@@ -9,21 +9,20 @@
     ],
 
     "Assets": [
-        //TODO
-        //{
-        //    "Title": "How to Query",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-        //},
+        {
+            "Title": "Query Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+        },
         {
             "Title": "Readme - Querying documents",
             "Type" : "link",
             "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
         },
         {
-            "Title": "Querying Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
         },
         {
             "Title": "Querying in RavenDB",
@@ -60,16 +59,15 @@
                     "Type" : "demo",
                     "Url"  : "/nodejs/queries/query-overview"
                 },
-                //TODO
-                //{
-                //    "Title": "How to Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
-                //},
                 {
-                    "Title": "Querying Basics",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
+                },
+                {
+                    "Title": "Querying an Index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 },
                 {
                     "Title": "Querying in RavenDB",

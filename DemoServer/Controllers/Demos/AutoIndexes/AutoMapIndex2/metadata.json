@@ -15,19 +15,14 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         },
         {
-            "Title": "Querying - Query Optimizer",
+            "Title": "Query Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
         },
         {
-            "Title": "Quering Basics",
+            "Title": "Querying an Index",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
-        },
-        {
-            "Title": "Basic dynamic Query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/query-index"
         },
         {
             "Title": "Indexes Types",
@@ -62,14 +57,14 @@
                     "Url"  : "/auto-indexes/auto-map-index1"
                 },
                 {
-                    "Title": "Querying Basics",
+                    "Title": "Querying an Index",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/basics"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/query-index"
                 },
                 {
-                    "Title": "Basic dynamic Query",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
                 }
             ]
         },
@@ -106,9 +101,9 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 },
                 {
-                    "Title": "Querying - Query Optimizer",
+                    "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/what-is-rql#query-optimizer"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query"
                 }
             ]
         }
