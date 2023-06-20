@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
 
 WORKDIR /app
 
-RUN curl -sL https://deb.nodesource.com/setup_12.x | bash - \
+RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
     && apt-get update \
     && apt-get install -y nodejs 
 

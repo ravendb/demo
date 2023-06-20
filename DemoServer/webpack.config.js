@@ -1,7 +1,7 @@
 ﻿const path = require('path');
 const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -115,17 +115,7 @@ module.exports = (env, argv) => {
       emitOnErrors: false,
       minimizer: [
         new TerserPlugin(),
-        new OptimizeCSSAssetsPlugin({
-          assetNameRegExp: /\.css$/g,
-          cssProcessor: require('cssnano'),
-          cssProcessorOptions: {
-            safe: true,
-            discardComments: {
-              removeAll: true
-            }
-          },
-          canPrint: true
-        })
+        new CssMinimizerPlugin()
       ]
     },
     stats: {
