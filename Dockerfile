@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
 
 WORKDIR /app
 
@@ -11,7 +11,7 @@ RUN dotnet restore \
     && cd DemoServer \
     && dotnet publish -c Release -o out
 
-FROM mcr.microsoft.com/dotnet/aspnet:3.1
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
 ENV RAVENDEMO_Database__Urls__0="http://live-test.ravendb.net" RAVENDEMO_Database__Name="Demo" RAVENDEMO_ConferenceMode=false RAVENDEMO_GoogleTagManager__ContainerId=""
 EXPOSE 80
 WORKDIR /app
