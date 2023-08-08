@@ -2,13 +2,14 @@
     {
         "category": {
             "slug": "basics",
-            "directory": "Basics"
+            "directory": "basics"
         },
         "demos": [
             "theDocumentStore",
             "theSession",
             "createDocument",
-            "loadAndEditDocument"
+            "loadAndEditDocument",
+            "deleteDocument"
         ]
     }
 ]
