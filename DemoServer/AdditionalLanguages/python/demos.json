@@ -1,0 +1,11 @@
+[
+    {
+        "category": {
+            "slug": "basics",
+            "directory": "Basics"
+        },
+        "demos": [
+            "createDocument"
+        ]
+    }
+]

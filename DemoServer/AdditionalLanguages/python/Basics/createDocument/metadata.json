@@ -1,0 +1,112 @@
+{
+    "Slug": "create-document",
+    "SourceFileName": "createDocument.py",
+    "Title": "Create Document",
+    "DescriptionLines": [
+        "**Create a new Python entity and save it as a document** in the Database.",
+        "The document will be stored in the RavenDB database as a JSON object.",
+        "",
+        "The JSON structure is set according to the Python object model passed to the Session.",
+        "Learn more about data modeling in the Document Modeling chapter - see Related Links below."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+        },
+        {
+            "Title": "The Store Command",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a new Python object to be saved",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Create a Python object to be saved.",
+                "",
+                "* By default, _the Python class name_ determines the collection to which the document will belong to in the database.",
+                "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
+                "",
+                "* _The Python class members_ determine the document JSON structure in the database.<br>",
+                "  The JSON serialization for the document fields follows the conventions set on the Document Store",
+                "",
+                "* Note: Having an 'Id' field property in the class definition is Not mandatory.<br>",
+                "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",
+                "  See step 3 for more details."
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+                }
+            ]
+        },
+        {
+            "Title": "Store the new company object in the Session",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Associate the new entity with the Session `store()` command.",
+                "",
+                "* Note: The new document will be persisted to the database once _save_changes()_ is called.<br>",
+                "  See step-4.",
+                "",
+                "* However, the store() command will _immediately_ assign an ID to the new entity,<br>",
+                "  so you can refer to it in other documents that you'll save in the same batch.<br>",
+                "  See how to get this ID in the next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Store Command",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#store"
+                },
+                {
+                    "Title": "Storing Entities",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/storing-entities"
+                }
+            ]
+        },
+        {
+            "Title": "The new document ID is immediately available",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* The Session takes care of generating the document identifier automatically.<br>",
+                "  The new stored entity ID is now available and can be used.",
+                "",
+                "* _If your Python class was defined with an 'Id' property_:<br>",
+                "  => You can get the new stored entity ID as shown in the above example.",
+                "",
+                "* _If your Python class was Not defined with an 'Id' property_:<br>",
+                "  => You can get the new stored entity ID using: `session.advanced.get_document_id(newCompany)`"
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* The `save_changes()` call will check the Session state for all changes made.<br>",
+                "  In the above example, a new company document was added to the database.",
+                "",
+                "* The Session will then send those changes to the server as a single remote call that will complete transactionally.",
+                "",
+                "* Once save_changes() returns, the new document is persisted to the database."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
+                }
+            ]
+        }
+    ]
+}

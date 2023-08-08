@@ -11,7 +11,8 @@ namespace DemoParser.Regions.Tokenizers
             {DemoLanguage.CSharp, new Regex(@"#region\s*([a-zA-z0-9]*)")},
             {DemoLanguage.Java, new Regex(@"//region\s*([a-zA-z0-9]*)")},
             {DemoLanguage.NodeJs, new Regex(@"//region\s*([a-zA-z0-9]*)")},
-            {DemoLanguage.Go, new Regex(@"//region\s*([a-zA-z0-9]*)")}
+            {DemoLanguage.Go, new Regex(@"//region\s*([a-zA-z0-9]*)")},
+            {DemoLanguage.Python, new Regex(@"#region\s*([a-zA-z0-9]*)")}
         };
 
         private static readonly Dictionary<DemoLanguage, Regex> RegionEndFinders = new Dictionary<DemoLanguage, Regex>
@@ -19,7 +20,8 @@ namespace DemoParser.Regions.Tokenizers
             {DemoLanguage.CSharp, new Regex(@"#endregion")},
             {DemoLanguage.Java, new Regex(@"//endregion")},
             {DemoLanguage.NodeJs, new Regex(@"//endregion")},
-            {DemoLanguage.Go, new Regex(@"//endregion")}
+            {DemoLanguage.Go, new Regex(@"//endregion")},
+            {DemoLanguage.Python, new Regex(@"#endregion")}
         };
 
         public static Tokenizer GetFor(DemoLanguage language)
