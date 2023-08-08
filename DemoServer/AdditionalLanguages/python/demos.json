@@ -6,6 +6,7 @@
         },
         "demos": [
             "theDocumentStore",
+            "theSession",
             "createDocument"
         ]
     }
