@@ -5,15 +5,15 @@ from demo_example import Example, RunParamsBase
 class RunParams(RunParamsBase):
     def __init__(
         self,
-        company_name: str = None,
-        company_phone: str = None,
-        contact_name: str = None,
-        contact_title: str = None,
+        companyName: str = None,
+        companyPhone: str = None,
+        contactName: str = None,
+        contactTitle: str = None,
     ):
-        self.company_name = company_name
-        self.company_phone = company_phone
-        self.contact_name = contact_name
-        self.contact_title = contact_title
+        self.company_name = companyName
+        self.company_phone = companyPhone
+        self.contact_name = contactName
+        self.contact_title = contactTitle
 
 
 class CreateDocument(Example):

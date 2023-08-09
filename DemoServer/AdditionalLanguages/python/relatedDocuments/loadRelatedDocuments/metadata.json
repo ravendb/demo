@@ -1,6 +1,6 @@
 {
     "Slug": "load-related-documents",
-    "SourceFileName": "LoadRelatedDocuments.java",
+    "SourceFileName": "loadRelatedDocuments.py",
     "Title": "Load Related Documents",
     "DescriptionLines": [
         "**Related documents can be loaded** to the Session from the database when loading the document that references them.",
@@ -14,12 +14,7 @@
         {
             "Title": "Create Related Documents Demo",
             "Type" : "demo",
-            "Url"  : "/java/related-documents/create-related-documents"
-        },
-        {
-            "Title": "Documents relationships - Include",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+            "Url"  : "/python/related-documents/create-related-documents"
         },
         {
             "Title": "Working with multiple documents",
@@ -30,11 +25,6 @@
             "Title": "Document Modeling",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
-        },
-        {
-            "Title": "Sample Program",
-            "Type" : "link",
-            "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials#3filtering-and-including-related-documents"
         }
     ],
 
@@ -59,11 +49,6 @@
             ],
             "Assets": [
                 {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
-                {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
@@ -71,7 +56,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/load-and-edit-document#step-1"
+                    "Url"  : "/python/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -79,7 +64,7 @@
             "Title": "Load the related document",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Call `load()` on the related document (referenced by: product.getSupplier()) in order to access it.<br>",
+                "* Call `load()` on the related document (product.Supplier) in order to access it.<br>",
                 "",
                 "* No trip to the server is made, as the related document is retrieved directly from the Session.",
                 "",
@@ -88,11 +73,6 @@
             ],
             "Assets": [
                 {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
-                {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
@@ -100,7 +80,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/load-and-edit-document#step-1"
+                    "Url"  : "/python/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -111,14 +91,9 @@
                 "* Edit the primary 'product' document and the related 'supplier' document.",
                 "",
                 "* Both documents are tracked by the Session.<br>",
-                "  These changes will be persisted to the database upon the next saveChanges() call."
+                "  These changes will be persisted to the database upon the next save_changes() call."
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
@@ -127,7 +102,7 @@
                 {
                     "Title": "Load Document (Edit Document Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/load-and-edit-document#step-1"
+                    "Url"  : "/python/basics/load-and-edit-document#step-1"
                 }
             ]
         },
@@ -135,7 +110,7 @@
             "Title": "Save the changes",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Call `saveChanges()` to save modifications.<br>",
+                "* Call `save_changes()` to save modifications.<br>",
                 "",
                 "* Changes made to both the primary document and the related document will be saved to the database."
             ],
@@ -143,7 +118,7 @@
                 {
                     "Title": "Save changes (The Session Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/basics/the-session#step-3"
+                    "Url"  : "/python/basics/the-session#step-3"
                 }
             ]
         }

@@ -18,7 +18,8 @@
             "directory": "relatedDocuments"
         },
         "demos": [
-            "createRelatedDocuments"
+            "createRelatedDocuments",
+            "loadRelatedDocuments"
         ]
     }
 ]

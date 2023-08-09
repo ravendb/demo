@@ -10,15 +10,15 @@ class RunParams(RunParamsBase):
 
 class CreateRelatedDocuments(Example):
     def run(self, run_params: RunParams) -> Product:
-        supplier_name = run_params.supplier_name
-        supplier_phone = run_params.supplier_phone
-        product_name = run_params.product_name
+        supplierName = run_params.supplier_name
+        supplierPhone = run_params.supplier_phone
+        productName = run_params.product_name
 
         #region Demo
         #region Step_1
         supplier = Supplier()
-        supplier.Name = supplier_name
-        supplier.Phone = supplier_phone
+        supplier.Name = supplierName
+        supplier.Phone = supplierPhone
 
         category = Category()
         category.Name = "NoSQL Databases"
@@ -26,7 +26,7 @@ class CreateRelatedDocuments(Example):
         #endregion
 
         #region Step_2
-        product = Product(Name=product_name)
+        product = Product(Name = productName)
         #endregion
 
         with self.document_store_holder.store().open_session() as session:

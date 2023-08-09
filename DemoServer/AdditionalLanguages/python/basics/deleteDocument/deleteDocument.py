@@ -6,12 +6,12 @@ class RunParams(RunParamsBase):
 
 class DeleteDocument(Example):
     def run(self, run_params: RunParams) -> None:
-        document_id = run_params.document_id
+        documentID = run_params.document_id
 
         #region Demo
         with self.document_store_holder.store().open_session() as session:
             #region Step_1
-            session.delete(document_id)
+            session.delete(documentID)
             #endregion
 
             #region Step_2

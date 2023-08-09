@@ -7,7 +7,7 @@ class RunParams(RunParamsBase):
 
 class LoadAndEditDocument(Example):
     def run(self, run_params: RunParams) -> None:
-        company_name = run_params.company_name
+        companyName = run_params.company_name
 
         #region Demo
         with self.document_store_holder.store().open_session() as session:
@@ -16,7 +16,7 @@ class LoadAndEditDocument(Example):
             #endregion
 
             #region Step_2
-            company.Name = company_name
+            company.Name = companyName
             #endregion
 
             #region Step_3

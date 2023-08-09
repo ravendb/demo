@@ -2,11 +2,11 @@
 //endregion
 const { documentStore } = require('../common/docStoreHolder');
 
-async function run ({ documentId }) {
+async function run ({ documentID }) {
     //region Demo
     const session = documentStore.openSession();
     //region Step_1
-    session.delete(documentId);
+    session.delete(documentID);
     //endregion
 
     //region Step_2
