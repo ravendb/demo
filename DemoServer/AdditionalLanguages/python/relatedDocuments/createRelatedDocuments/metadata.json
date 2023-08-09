@@ -1,6 +1,6 @@
 {
     "Slug": "create-related-documents",
-    "SourceFileName": "CreateRelatedDocumentsController.cs",
+    "SourceFileName": "createRelatedDocuments.py",
     "Title": "Create Related Documents",
     "DescriptionLines": [
         "A document can reference any other document from the database by storing the referenced document ID in the document.",
@@ -20,24 +20,9 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
         },
         {
-            "Title": "Indexing Related Documents",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-related-documents"
-        },
-        {
             "Title": "Loading and including related documents in a query",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#loading-and-including-related-documents"
-        },
-        {
-            "Title": "Document Identifier Generation",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
-        },
-        {
-            "Title": "HiLo Algorithm",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
         },
         {
             "Title": "Client-side identifier generation (hilo)",
@@ -48,7 +33,7 @@
 
     "Walkthroughs": [
         {
-            "Title": "Create C# entities - Related documents",
+            "Title": "Create Python entities - Related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
                 "* Create the entities that will become the related documents.",
@@ -59,7 +44,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/python/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -74,7 +59,7 @@
             ]
         },
         {
-            "Title": "Create C# entity - Primary document",
+            "Title": "Create Python entity - Primary document",
             "Slug" : "step-2",
             "DescriptionLines": [
                 "* Create the primary document entity that will reference the other documents."
@@ -83,7 +68,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/python/basics/create-document"
                 },
                 {
                     "Title": "Document Modeling",
@@ -101,10 +86,10 @@
             "Title": "Store - Related documents",
             "Slug" : "step-3",
             "DescriptionLines": [
-                "* `Store()` the related 'supplier' & 'category' documents in the Session.",
+                "* `store()` the related 'supplier' & 'category' documents in the Session.",
                 "",
-                "* The store request will be sent to the server only later with the SaveChanges() call.<br>",
-                "  But, the moment we return from Store(), the RavenDB client ensures that we have a _valid ID_ for the stored document that is ready to be used.",
+                "* The store request will be sent to the server only later with the save_changes() call.<br>",
+                "  But, the moment we return from store(), the RavenDB client ensures that we have a _valid ID_ for the stored document that is ready to be used.",
                 "",
                 "* This ID can be used for referencing - see next step."
             ],
@@ -112,22 +97,12 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/python/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/the-session"
-                },
-                {
-                    "Title": "Document Identifier Generation",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
-                },
-                {
-                    "Title": "HiLo Algorithm",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
+                    "Url"  : "/python/basics/the-session"
                 },
                 {
                     "Title": "Client-side identifier generation (hilo)",
@@ -147,16 +122,6 @@
             ],
             "Assets": [
                 {
-                    "Title": "Document Identifier Generation",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/kb/document-identifier-generation"
-                },
-                {
-                    "Title": "HiLo Algorithm",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/document-identifiers/hilo-algorithm"
-                },
-                {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
@@ -173,7 +138,7 @@
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/python/basics/create-document"
                 }
             ]
         },
@@ -181,19 +146,19 @@
             "Title": "Save the changes",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* When calling `SaveChanges()`, all 3 documents will be created in the database:<br>",
+                "* When calling `save_changes()`, all 3 documents will be created in the database:<br>",
                 "  the 'supplier', the 'category', and the 'product' document which references them."
             ],
             "Assets": [
                 {
                     "Title": "Create Document Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/create-document"
+                    "Url"  : "/python/basics/create-document"
                 },
                 {
                     "Title": "The Session Demo",
                     "Type" : "demo",
-                    "Url"  : "/basics/the-session"
+                    "Url"  : "/python/basics/the-session"
                 }
             ]
         }
