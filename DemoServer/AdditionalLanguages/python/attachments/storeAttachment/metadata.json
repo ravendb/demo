@@ -1,0 +1,65 @@
+{
+    "Slug": "store-attachment",
+    "SourceFileName": "storeAttachment.py",
+    "Title": "Store Attachment",
+    "DescriptionLines": [
+        "**Attachments** are binary data files, such as images, videos, PDF's, etc., that can be attached to a document.",
+        "",
+        "A document can have any number of attachments, and an attachment has no size limit."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Store the attachment on the document",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Attach the attachment on to the document within the Session.<br>",
+                "  Specify the document ID, or pass the explicit document entity to the `store()` method.",
+                "",
+                "* The actual save action on the server is done when save_changes() is called later on."
+            ],
+            "Assets": [
+                {
+                    "Title": "Attachments and binary data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
+                },
+                {
+                    "Title": "Working with attachments",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* When executing `save_changes()`, the document and all of its attachments are sent to the server in a single transaction call.",
+                "  Both the document and all its attachments will be saved, or both will fail.",
+                "",
+                "* If the Revisions feature is turned on, each attachment that is added on to the document (or deleted from it) will create a new document revision."
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
+                }
+            ]
+        }
+    ]
+}
