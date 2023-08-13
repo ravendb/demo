@@ -1,0 +1,77 @@
+{
+    "Slug": "query-by-document-Id",
+    "SourceFileName": "queryByDocumentId.py",
+    "Title": "Query by Document ID",
+    "DescriptionLines": [
+        "Use a **Query by Document ID** to get a specific document from the database.",
+        "",
+        "Similar to the full collection query, no index is created.",
+        "RavenDB uses the raw collection documents as the source for this query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+        },
+        {
+            "Title": "Query on a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#query"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection using the Session `query()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Define the document ID to query by",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Use `where_equals()` to query for a specific document from the 'Employees' collection.<br>",
+                "  Specify the document ID - the results will include only this document.",
+                "",
+                "* No index will be created - the raw collection documents are used as the source for this query."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+                },
+                {
+                    "Title": "Query on a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#query"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The 'query_by_document_id' variable only stores the query definition.<br>",
+                "  Execute the query by calling `first()` to get the matching document.",
+                "",
+                "* The 'employee' variable will hold the resulting matching document entity.",
+                "",
+                "* The entity returned by the Query operation is _'loaded'_ to the session."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}

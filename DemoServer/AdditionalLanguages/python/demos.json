@@ -43,7 +43,8 @@
         "demos": [
             "queryOverview",
             "queryExample",
-            "fullCollectionQuery"
+            "fullCollectionQuery",
+            "queryByDocumentId"
         ]
     }
 ]
