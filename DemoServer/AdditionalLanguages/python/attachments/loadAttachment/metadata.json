@@ -1,0 +1,73 @@
+{
+    "Slug": "load-attachment",
+    "SourceFileName": "loadAttachment.py",
+    "Title": "Load Attachment",
+    "DescriptionLines": [
+        "You can retrieve any stored attachment from a document and **load the attachment** to memory."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Store Attachment Demo",
+            "Type" : "demo",
+            "Url"  : "/python/attachments/store-attachment"
+        },
+        {
+            "Title": "Attachments and binary data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#attachments-and-binary-data"
+        },
+        {
+            "Title": "Working with attachments",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#working-with-attachments"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Check if attachment exists",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Method `exists()` can be called to check whether the attachment exists on the document.<br>",
+                "  This is not mandatory since in such a case the _get()_ method (see next step) will return null.",
+                "",
+                "* Calling _exists()_ does Not cause the session to track the document or the attachment."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Load attachment",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Load the attachment from the document.<br>",
+                "_attachment_result_ will contain the attachment's Stream & Details.",
+                "",
+                "* Specify the document ID, or pass the explicit document entity to the `get()` method."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Get attachment's details",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Access `attachment_result.details` to get the attachment's details."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Get attachment's stream",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* The attachment's stream is available in the `data` property.",
+                "",
+                "* Copy the attachment object for any usage."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}
