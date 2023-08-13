@@ -42,7 +42,8 @@
         },
         "demos": [
             "queryOverview",
-            "queryExample"
+            "queryExample",
+            "fullCollectionQuery"
         ]
     }
 ]
