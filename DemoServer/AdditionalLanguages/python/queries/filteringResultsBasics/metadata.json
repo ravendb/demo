@@ -1,6 +1,7 @@
 {
     "Slug": "filtering-results-basics",
-    "SourceFileName": "index.js",
+    "SourceFileName": "filteringResultsBasics.py",
+    "Title": "Filtering Results - Basics",
     "DescriptionLines": [
         "**Filter the documents** by specifying some conditions on the **document fields** properties",
         "",
@@ -8,37 +9,10 @@
     ],
 
     "Assets": [
-        //TODO
-        //{
-        //    "Title": "Querying: Filtering",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/filtering"
-        //},
         {
             "Title": "Querying in RavenDB",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
-        },
-        {
-            "Title": "RQL",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/what-is-rql"
-        },
-        {
-            "Title": "Query vs DocumentQuery",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/document-query/query-vs-document-query"
-        },
-        //TODO
-        //{
-        //    "Title": "Auto indexes",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#auto-indexes"
-        //},
-        {
-            "Title": "Readme - Query methods overview",
-            "Type" : "link",
-            "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#documentquery-methods-overview"
         }
     ],
 
@@ -53,12 +27,7 @@
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/queries/query-overview"
-                },
-                {
-                    "Title": "Readme - Querying documents",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#querying-documents"
+                    "Url"  : "/python/queries/query-overview"
                 }
             ]
         },
@@ -67,7 +36,7 @@
             "Slug": "step-2",
             "DescriptionLines": [
                 "* This example queries for documents from the _Employees_ collection that match the following criteria:",
-                "     * Employee's FirstName is 'Anne'",
+                "     * Employee's first name is 'Anne'",
                 "     * The queried document field ('FirstName') is _case-sensitive_ -<br> use the exact same casing as inside your document.",
                 "",
                 "* More filtering options are available - see related links.",
@@ -75,7 +44,7 @@
                 "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing Auto-Index that can answer this query.",
                 "",
                 "* The index-fields that will be created in the Auto-Index depend on the filtering method used:<br>",
-                "  * `whereEquals()`<br>",
+                "  * `where_equals()`<br>",
                 "    The index-field created will contain terms with an exact match to the queried document-field.<br><br>",
                 "  * `search()` - 2 index-fields are created:<br>",
                 "      * One with an exact match same as the above<br>",
@@ -85,46 +54,24 @@
             ],
             "Assets": [
                 {
-                    "Title": "Readme - Query methods overview",
-                    "Type" : "link",
-                    "Url"  : "https://github.com/ravendb/ravendb-nodejs-client#documentquery-methods-overview"
-                },
-                //TODO
-                //{
-                //    "Title": "Querying: Filtering",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/filtering"
-                //},
-                {
                     "Title": "Querying in RavenDB",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
                 }
-                //TODO
-                //{
-                //    "Title": "Auto indexes",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/creating-and-deploying#auto-indexes"  
-                //}
             ]
         },
         {
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The 'filteredQuery' variable only stores the query definition.<br>",
-                "  Execute the query by calling `all()`.",
+                "* The 'filtered_query' variable only stores the query definition.<br>",
+                "  Execute the query by calling `list()`.",
                 "",
-                "* The 'filteredEmployees' variable will hold the resulting matching document entities.",
+                "* The 'filtered_employees' variable will hold the resulting matching document entities.",
                 "",
                 "* The entities returned by the query are _'loaded'_ to the session."
             ],
             "Assets": [
-                {
-                    "Title": "Execute the Query - Query Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/nodejs/queries/query-overview#step-3"
-                }
             ]
         }
     ]
