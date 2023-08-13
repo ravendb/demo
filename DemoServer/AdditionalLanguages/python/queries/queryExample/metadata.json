@@ -1,0 +1,146 @@
+{
+    "Slug": "query-example",
+    "SourceFileName": "queryExample.py",
+    "Title": "Query Example",
+    "DescriptionLines": [
+        "This demo is an example of a<br>",
+        " **Query with Combined Features**.",
+        "",
+        "The query results will be:<br>",
+        "5 (or less) Employee entities that match the filtering criteria, ordered by descending hiring dates.",
+        "",
+        "The following features are used in this example:",
+        "<p>* Filtering data<br>",
+        "* Including a related document<br>",
+        "* Getting query statistics<br>",
+        "* Sorting query results<br>",
+        "* Limiting the number of results</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Query Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/python/queries/query-overview"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection Using the Session `query()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Define a filtering condition",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "*  Query for documents from the Employees collection that match the following criteria:",
+                "     * Employee's first name is 'Steven' -or-",
+                "     * Employee's title is 'Sales Representative'",
+                "",
+                "* Only the matching documents will be returned by the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Include related documents",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `include()` to instruct the server to send the related document, whose ID is in the 'ReportsTo' field, to the client.",
+                "",
+                "* The related document will be added to the Session's internal entities Map for tracking changes."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/related-documents/create-related-documents"
+                },
+                {
+                    "Title": "Query Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Get query statistics",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* When the query returns, the 'statistics' variable that is passed to '__stats_callback' will contain information such as:<br>",
+                "  query duration, total number of results, staleness state of results, the tag of a cluster node which responded to the query, etc."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo - TBD",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/update-me-later"
+                }
+            ]
+        },
+        {
+            "Title": "Sort query results",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Results will be sorted according to field 'HiredAt', in descending order."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Limit number of results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* Use `take()` to limit the number of results that are returned from the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "Paging Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/paging-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-7",
+            "DescriptionLines": [
+                "* The _query_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `list()`, or any other method that forces immediate execution.",
+                "",
+                "* The _query_results_ variable will hold the resulting 5 matching 'Employee' entities, ordered by 'HiredAt' field value.",
+                "",
+                "* The entities returned by the query are tracked by the Session.<br>",
+                "  The included document (from the 'ReportsTo' field) is also loaded to the session for tracking."
+            ],
+            "Assets": [
+                {
+                    "Title": "Execute the Query - Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview#step-3"
+                }
+            ]
+        }
+    ]
+}

@@ -41,7 +41,8 @@
             "directory": "queries"
         },
         "demos": [
-            "queryOverview"
+            "queryOverview",
+            "queryExample"
         ]
     }
 ]

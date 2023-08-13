@@ -1,12 +1,10 @@
 from typing import List
-
 from demo_example import RunParamsBase, Example
-
-# region Usings
-from ravendb import AbstractIndexCreationTask
-
 from models import Employee
 
+#region Usings
+from ravendb import AbstractIndexCreationTask
+#endregion
 
 class RunParams(RunParamsBase):
     def __init__(self, attachment_content_type: str, attachment_min_size: int):

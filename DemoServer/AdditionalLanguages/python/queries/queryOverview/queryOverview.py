@@ -1,7 +1,6 @@
 from demo_example import Example, RunParamsBase
 from models import Employee
 
-
 class QueryOverview(Example):
     def run(self, run_params: RunParamsBase = None) -> None:
         #region Demo
