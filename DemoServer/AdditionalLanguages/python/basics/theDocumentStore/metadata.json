@@ -78,7 +78,7 @@
                 "",
                 "  * _database_ - Specify the default database name this Document Store will work against.",
                 "",
-                "  * _certificate_ - Specify the Client Certificate ( *.pfx ) which is used to authenticate the client to the RavenDB server.",
+                "  * _certificate_ - Specify the Client Certificate ( *.pem ) which is used to authenticate the client to the RavenDB server.",
                 "",
                 "  * _conventions_ - Customize various settings and operation modes."
             ],

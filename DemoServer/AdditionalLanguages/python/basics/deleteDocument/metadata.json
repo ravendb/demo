@@ -18,8 +18,8 @@
                 "",
                 "_Note_:",
                 "",
-                "* When using delete() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
-                "* A _Concurrency Exception_ can be thrown only when using the following overloads:",
+                "* When using delete() as above, with the specific ID param, the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following parameters:",
                 "",
                 "     * delete(entity)",
                 "     * delete(id, [expectedChangeVector])"

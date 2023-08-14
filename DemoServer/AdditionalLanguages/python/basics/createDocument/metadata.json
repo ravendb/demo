@@ -34,7 +34,7 @@
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
                 "* _The Python class members_ determine the document JSON structure in the database.<br>",
-                "  The JSON serialization for the document fields follows the conventions set on the Document Store",
+                "  The JSON serialization can be customized by implementing methods:<br>`from_json()` and `to_json()` in your Python class.",
                 "",
                 "* Note: Having an 'Id' field property in the class definition is Not mandatory.<br>",
                 "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",
@@ -85,7 +85,9 @@
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
                 "* _If your Python class was Not defined with an 'Id' property_:<br>",
-                "  => You can get the new stored entity ID using: `session.advanced.get_document_id(newCompany)`"
+                "  => You can get the new stored entity ID using: `session.advanced.get_document_id(new_company)`<br>",
+                "  Or directly access the Id property which is added to the object by the client:<br>",
+                "  `new_company.Id`"
             ],
             "Assets": []
         },
