@@ -62,7 +62,7 @@
             "Title": "Get attachment's stream",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* The attachment's stream is available in the `data` property.",
+                "* The attachment's stream is available in the `data` property as a 'bytes' object.",
                 "",
                 "* Copy the attachment object for any usage."
             ],

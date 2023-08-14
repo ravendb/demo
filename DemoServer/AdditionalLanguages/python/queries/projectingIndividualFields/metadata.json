@@ -55,8 +55,8 @@
                 "  * The fields in the custom class 'CompanyDetails' that will hold these values in the entities returned by the query:<br>",
                 "    ( _company_name_ , _city_, _country_ )",
                 "",
-                "* Optionally, use the following overload to project all fields from the custom class:<br>",
-                "  `.select_fields(CompanyDetails.class)` ??? todo ???",
+                "* Optionally, use the following method to project all fields from the custom class:<br>",
+                "  `.select_fields(CompanyDetails)`",
                 "",
                 "* Calling select_fields_query_data() does Not trigger any index creation."
             ],

@@ -17,6 +17,7 @@ class LoadAttachment(Example):
 
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             attachment_exists = session.advanced.attachments.exists(documentID, attachmentName)
             #endregion

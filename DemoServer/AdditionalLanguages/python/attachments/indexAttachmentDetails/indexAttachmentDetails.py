@@ -17,6 +17,7 @@ class IndexAttachmentDetails(Example):
     #region Step_1
     class Employees_ByAttachmentDetails(AbstractIndexCreationTask):
     #endregion
+    
         #region Step_2
         class IndexEntry:
             def __init__(
@@ -59,9 +60,10 @@ class IndexAttachmentDetails(Example):
         with self.document_store_holder.store().open_session() as session:
             #region Step_5
             employees_with_matching_attachments = list(
-                session.query_index_type(IndexAttachmentDetails.Employees_ByAttachmentDetails, Employee)
-                .where_equals("AttachmentContentTypes", attachmentContentType)
-                .where_greater_than("AttachmentSizes", attachmentMinSize)
+                session.query_index_type(IndexAttachmentDetails.Employees_ByAttachmentDetails,
+                                         IndexAttachmentDetails.Employees_ByAttachmentDetails.IndexEntry)
+                .where_equals("attachment_content_types", attachmentContentType)
+                .where_greater_than("attachment_sizes", attachmentMinSize)
             )
             #endregion
         #endregion

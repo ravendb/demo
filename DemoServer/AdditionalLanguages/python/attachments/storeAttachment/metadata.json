@@ -29,6 +29,8 @@
                 "* Attach the attachment on to the document within the Session.<br>",
                 "  Specify the document ID, or pass the explicit document entity to the `store()` method.",
                 "",
+                "* Pass the attachment (3'rd param) as a 'bytes' object.",
+                "",
                 "* The actual save action on the server is done when save_changes() is called later on."
             ],
             "Assets": [

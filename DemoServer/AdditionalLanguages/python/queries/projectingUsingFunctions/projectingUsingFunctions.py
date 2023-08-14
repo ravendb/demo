@@ -12,6 +12,7 @@ class ProjectingUsingFunctions(Example):
     def run(self, run_params=None):
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             raw_query_string = (
                 #region Step_1
                 "declare function output(employee) {"

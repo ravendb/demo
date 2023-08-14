@@ -5,6 +5,7 @@ class QueryOverview(Example):
     def run(self, run_params: RunParamsBase = None) -> None:
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             query_definition = session.query(object_type=Employee)
             #endregion

@@ -10,6 +10,7 @@ class QueryByDocumentId(Example):
         employeeDocumentID = run_params.employee_document_id
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             query_by_document_id = session.query(object_type=Employee)
             #endregion

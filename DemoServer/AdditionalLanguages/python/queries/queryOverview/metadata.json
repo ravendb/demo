@@ -9,7 +9,15 @@
         "**Query the database to find documents that match a particular predicate**.",
         "The server will return only the matching documents.",
         "",
-        "The returned documents are loaded and tracked by the Session (except for projections)."
+        "The returned documents are loaded and tracked by the Session (except for projections).",
+        "",
+        "From the session, query the database by using any of:",
+        "<p>* session.query<br>",
+        "* session.query_collection<br>",
+        "* session.query_index<br>",
+        "* session.query_index_type<br>",
+        "* session.advanced.document_query<br>",
+        "* session.advanced.raw_query (using RQL)</p>"
     ],
 
     "Assets": [

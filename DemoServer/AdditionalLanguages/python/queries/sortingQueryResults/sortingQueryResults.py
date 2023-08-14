@@ -15,6 +15,7 @@ class SortingQueryResults(Example):
         numberOfUnits = run_params.number_of_units
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             sorted_query = session.query(object_type=Product)
             #endregion
@@ -27,6 +28,7 @@ class SortingQueryResults(Example):
             #region Step_4
             sorted_query.order_by("Name", OrderingType.ALPHA_NUMERIC)
             #endregion
+            
             #region Step_5
             sorted_products = list(sorted_query)
             #endregion

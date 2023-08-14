@@ -6,6 +6,7 @@ class FilteringResultsBasic(Example):
     def run(self, run_params=None) -> List[Employee]:
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             filtered_query = session.query(object_type=Employee)
             #endregion

@@ -11,6 +11,7 @@ class FilteringResultsMultipleConditions(Example):
         country = run_params.country
         #region Demo
         with self.document_store_holder.store().open_session() as session:
+            
             #region Step_1
             filtered_query = session.query(object_type=Employee)
             #endregion

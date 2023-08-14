@@ -83,8 +83,11 @@
             "Title": "Get query statistics",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* When the query returns, the 'statistics' variable that is passed to '__stats_callback' will contain information such as:<br>",
-                "  query duration, total number of results, staleness state of results, the tag of a cluster node which responded to the query, etc."
+                "* When the query returns, the 'statistics' parameter that is passed to '__stats_callback' will contain information such as:<br>",
+                "  query duration, total number of results, staleness state of results, the tag of a cluster node which responded to the query, etc.",
+                "",
+                "* Any action can be done inside the '__stats_callback'.<br>",
+                "  In this example 'statistics' is assigned to the 'stats' variable."
             ],
             "Assets": [
                 {

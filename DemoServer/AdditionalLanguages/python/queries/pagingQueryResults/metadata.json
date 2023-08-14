@@ -73,7 +73,7 @@
                 "",
                 "* About Tampered results:<br>",
                 "  When querying with 'distinct()' or querying a 'Fanout index' over non-stored fields, the server might skip over some results internally.",
-                "  For proper paging in these cases, the number of results to skip should be increased by the number of 'stats.skippedResults'."
+                "  For proper paging in these cases, the number of results to skip should be increased by the number of 'stats.skipped_results'."
             ],
             "Assets": [
                 {
