@@ -67,5 +67,14 @@
             "fanoutIndex",
             "additionalSourcesIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "multi-map-indexes",
+            "directory": "multiMapIndexes"
+        },
+        "demos": [
+            "multiMapIndexBasic"
+        ]
     }
 ]

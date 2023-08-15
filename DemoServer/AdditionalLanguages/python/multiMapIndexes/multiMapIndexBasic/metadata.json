@@ -1,6 +1,6 @@
 {
     "Slug": "multi-map-index-basic",
-    "SourceFileName": "MultiMapIndexBasicController.cs",
+    "SourceFileName": "multiMapIndexBasic.py",
     "Title": "Multi Map Index - Basic",
     "DescriptionLines": [
         "A **Multi Map index** allows querying multiple collections in a single query.",
@@ -14,7 +14,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Url"  : "/python/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Querying many sources",
@@ -25,26 +25,6 @@
             "Title": "Multi Map indexes from the client",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
-        },
-        {
-            "Title": "Multi Map indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
-        },
-        {
-            "Title": "Multi Map indexes (Studio)",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-multi-map-index"
-        },
-        {
-            "Title": "Indexes Overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
-        },
-        {
-            "Title": "Polymorphic data",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/indexing-polymorphic-data"
         }
     ],
 
@@ -53,17 +33,15 @@
             "Title": "Define the Multi Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Multi Map index class - inherit from `AbstractMultiMapIndexCreationTask`.",
+                "* Create the Multi Map index class.",
                 "",
-                "* The generic param:<br>",
-                "    * _CompaniesAndSuppliers_ByName.IndexEntry_ - defines the shape of the index entry<br>",
-                "     (see next step)."
+                "* Use index class type `AbstractMultiMapIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Querying many sources",
@@ -74,11 +52,6 @@
                     "Title": "Multi Map indexes from the client",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
-                },
-                {
-                    "Title": "Multi Map indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
                 }
             ]
         },
@@ -90,7 +63,7 @@
                 "",
                 "* These fields contain the indexed data from all the collections defined in the index<br> (configured in the next step).",
                 "",
-                "* In this example, only a single index-field _Name_ is defined.<br>",
+                "* In this example, only a single index-field _name_ is defined.<br>",
                 "  Collections defined in the index can be queried and filtered by this field."
                 
             ],
@@ -104,11 +77,6 @@
                     "Title": "Multi Map indexes from the client",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
-                },
-                {
-                    "Title": "Multi Map indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
                 }
             ]
         },
@@ -116,15 +84,16 @@
             "Title": "The index constructor",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Use `AddMap()` to define the content of the index-field per collection indexed.<br>",
+                "* Use `add_map()` to define the content of the index-field per collection indexed.<br>",
                 "  Data from the different collections is indexed into the _common index-field_ in the IndexEntry class.",
                 "",
-                "* In this example, document properties from Companies & Suppliers collections are indexed into the common index field _'Name'_.<br>",
-                "  The document properties indexed are not customized but taken as is.",
+                "* In this example, document properties from Companies & Suppliers collections are indexed into the common index field _'name'_.<br>",
+                "  The document properties indexed are not customized but taken as is.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
-                "* The index will contain a mapping from any term generated for the 'Name' index-field to the relevant document in either the Companies or the Suppliers collection.",
+                "* The index will contain a mapping from any term generated for the 'name' index-field to the relevant document in either the Companies or the Suppliers collection.",
                 "",
-                "* When querying this index, the index-field 'Name' can be used to filter the query results and get matching documents from either collection."
+                "* When querying this index, the index-field 'name' can be used to filter the query results and get matching documents from either collection."
             ],
             "Assets": [
                 {
@@ -138,14 +107,9 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
                 },
                 {
-                    "Title": "Multi Map indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
-                },
-                {
                     "Title": "Multi Map Index - Customized Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/multi-map-indexes/multi-map-index-customized-fields"
+                    "Url"  : "/python/multi-map-indexes/multi-map-index-customized-fields"
                 }
             ]
         },
@@ -158,7 +122,7 @@
                 "* _RavenDB will search the index_ for the indexed terms that match the query criteria (names that start with 'namePrefix')",
                 "  and retrieve the matching Companies & Suppliers documents from the documents store.",
                 "",
-                "* _The query results list objects_ will be in the shape of the IndexEntry class (CompaniesAndSuppliers_ByName.IndexEntry) since no projection was used in this example.",
+                "* _The query results list objects_ will be in the shape of the IndexEntry class since no projection was used in this example.",
                 "",
                 "* _Note_: Not using projection here is possible since the indexed data was not customized,<br>",
                 "  but taken as-is from the documents' properties."
@@ -175,19 +139,9 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
                 },
                 {
-                    "Title": "Multi Map indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/multi-map-indexes"
-                },
-                {
-                    "Title": "Querying an index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-index"
-                },
-                {
                     "Title": "Multi Map Index - Customized Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/multi-map-indexes/multi-map-index-customized-fields"
+                    "Url"  : "/python/multi-map-indexes/multi-map-index-customized-fields"
                 }
             ]
         }
