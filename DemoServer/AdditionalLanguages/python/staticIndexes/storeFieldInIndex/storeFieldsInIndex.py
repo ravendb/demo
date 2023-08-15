@@ -57,6 +57,7 @@ class StoreFieldsInIndex(Example):
                 OrdersQuantity_ByCompany, OrdersQuantity_ByCompany.IndexEntry
             ).where_equals("Company", companyID)
             #endregion
+            
             #region Step_7
             orders_query = orders_query.select_fields(OrdersQuantity_ByCompany.OrderProjectedDetails)
             #endregion

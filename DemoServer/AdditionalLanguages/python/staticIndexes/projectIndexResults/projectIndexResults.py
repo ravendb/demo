@@ -49,6 +49,7 @@ class ProjectIndexResults(Example):
                 Employees_ByWorkPeriod, Employees_ByWorkPeriod.IndexEntry
             ).where_greater_than("working_in_company_since", startYear)
             #endregion
+            
             #region Step_6
             employees_query = employees_query.select_fields_query_data(
                 Employees_ByWorkPeriod.EmployeeProjectedDetails,
