@@ -9,6 +9,7 @@ from ravendb import AbstractIndexCreationTask
 #region Step_1
 class Employees_ByLastName(AbstractIndexCreationTask):
 #endregion
+
     #region Step_2
     def __init__(self):
         super().__init__()

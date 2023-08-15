@@ -60,7 +60,8 @@
         },
         "demos": [
             "staticIndexesOverview",
-            "mapIndex"
+            "mapIndex",
+            "mapReduceIndex"
         ]
     }
 ]
