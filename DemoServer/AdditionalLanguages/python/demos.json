@@ -59,7 +59,8 @@
             "directory": "staticIndexes"
         },
         "demos": [
-            "staticIndexesOverview"
+            "staticIndexesOverview",
+            "mapIndex"
         ]
     }
 ]

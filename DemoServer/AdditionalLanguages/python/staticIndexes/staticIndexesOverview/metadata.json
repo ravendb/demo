@@ -36,16 +36,15 @@
             "Title": "Define the index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create an index class that inherits from a common abstract index class.",
+                "* Create an index class.",
                 "",
-                "* Use:<br>",
+                "* Pass the relevant index class types as a parameter:<br>",
                 "    * `AbstractIndexCreationTask` - for a Map index<br>",
                 "    * `AbstractMultiMapIndexCreationTask` - for a Multi-Map index<br>",
                 "    * `AbstractJavaScriptIndexCreationTask` - for a Javascript index",
                 "",
                 "* Note:<br>",
-                "     The character '_' in the index name will be changed to _'/'_ when the index is deployed.",
-                ""
+                "     The character '_' in the index name will be changed to _'/'_ when the index is deployed."
             ],
             "Assets": [
                 {
