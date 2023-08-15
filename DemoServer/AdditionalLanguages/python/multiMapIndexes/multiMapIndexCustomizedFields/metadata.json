@@ -1,0 +1,205 @@
+{
+    "Slug": "multi-map-index-customized-fields",
+    "SourceFileName": "multiMapIndexCustomizedFields.py",
+    "Title": "Multi Map Index - Customized Fields",
+    "DescriptionLines": [
+        "A **Multi Map index** allows querying multiple collections in a single query.",
+        "",
+        "Multiple Map functions are defined - one per indexed collection.",
+        "",
+        "Document properties from different source collections are indexed into a common index shape.",
+        "",
+        "The data can be customized as needed when defining each index field."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/python/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Querying many sources",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+        },
+        {
+            "Title": "Multi Map indexes from the client",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Multi Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Multi Map index class.",
+                "",
+                "* Use index class type `AbstractMultiMapIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "The Index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.",
+                "",
+                "* These fields contain customized indexed data from all the collections defined in the index<br> (configured in the next step).",
+                "",
+                "* Here we index 3 index fields:",
+                "    * _contact_name_ will contain a name of a person from any collection indexed",
+                "    * _contact_title_ will contain a title of a person from any collection indexed",
+                "    * _collection_ will contain the collection name from which the data was taken",
+                "",
+                "* Collections defined in the index can be queried and filtered by any of those fields."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "The Projected Entry class",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* The _ProjectedEntry_ class will be used when querying this index (see step-6).<br>",
+                "  This class does Not define the index fields - it only defines the shape of the results returned by the query.",
+                "",
+                "* It is convenient to use this class as a common interface",
+                "  since query results contain a heterogeneous result set, as documents come from different collections.",
+                "",
+                "* In this example:",
+                "  * The ProjectedEntry class inherits the 3 fields from the IndexEntry class.",
+                "  * The additional _phone_ field is Not indexed.<br>",
+                "    A query will not be able to filter on it, but it will return as part of the query result set if it exists on the document."
+                
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use `add_map()` to define the content of the index-fields per collection indexed.<br>",
+                "  Data from the different collections is indexed into the _common index-fields_ in the IndexEntry class.",
+                "",
+                "* The data is customized as needed when configuring each index field, e.g:",
+                "  * Field _contact_name_ is the combination of 2 raw document properties in the Employees collection.<br>",
+                "  * Field _collection_ is calculated from the document metadata.",
+                "  * The document properties are case-sensitive, use the exact casing as in the document.",
+                "",
+                "* The index will contain a mapping from any indexed term to the relevant document in either collection indexed.",
+                "",
+                "* When querying this index, the indexed terms can be used to filter the query results and get matching documents from either collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "Store index fields",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Usually, when querying an index, the index provides the matching document ID, and results are taken from that document in the documents store.",
+                "",
+                "* _If the index-fields are customized_, and you want the query to return their content,<br>",
+                "  then these fields must be stored in the index.<br>",
+                "  The results will be taken directly from the index fields instead of from the document.",
+                "",
+                "* Call `store()` with param _FieldStorage.YES_ to store the data on the index."
+            ],
+            "Assets": [
+                {
+                    "Title": "storing data in the index (Book)",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
+                },
+                {
+                    "Title": "Store Fields in Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/store-fields-in-index"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Query all 3 collections indexed (Employees, Companies, Suppliers) using the index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria<br>",
+                "  (names that start with 'namePrefix' && titles that start with 'titlePrefix')",
+                "  and retrieve the matching documents from the documents store.",
+                "",
+                "* Projections allow us to control exactly what is being returned from the query.<br>",
+                "  Use `select_fields()` with the projected entry class as the common shape for the returned results.",
+                "",
+                "* Variable _contacts_ will hold a list of Contacts_ByNameAndTitle.ProjectedEntry objects matching the query criteria.",
+                "",
+                "* Per document in the results:",
+                "  * _Stored fields data_ (contact_name, contact_title, collection) will be fetched directly from the index.",
+                "  * _Non-stored fields_ (phone) will be retrieved from the document in the documents store."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        }
+    ]
+}
