@@ -75,7 +75,8 @@
         },
         "demos": [
             "multiMapIndexBasic",
-            "multiMapIndexCustomizedFields"
+            "multiMapIndexCustomizedFields",
+            "multiMapReduceIndex"
         ]
     }
 ]

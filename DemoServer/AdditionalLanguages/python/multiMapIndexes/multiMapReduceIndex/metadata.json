@@ -1,0 +1,194 @@
+{
+    "Slug": "multi-map-reduce-index",
+    "SourceFileName": "multiMapReduceIndex.py",
+    "Title": "Multi Map-Reduce Index",
+    "DescriptionLines": [
+        "A **Multi Map-Reduce index** allows aggregating data from several collections.",
+        "",
+        "<p>* Similar to the Multi Map Index:<br>",
+        "Multiple Map functions are defined - one per indexed collection.<br><br>",
+        "",
+        "* Similar to the Map-Reduce Index:<br>",
+        "Data aggregation is done during indexing phase, providing a computed value for all indexed collections.</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Multi Map Index Demo",
+            "Type" : "demo",
+            "Url"  : "/python/multi-map-indexes/multi-map-index-basic"
+        },
+        {
+            "Title": "Map-Reduce Demo",
+            "Type" : "demo",
+            "Url"  : "/python/static-indexes/map-reduce-index"
+        },
+        {
+            "Title": "MultiMapReduce Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#multimapreduce-indexes"
+        },
+        {
+            "Title": "MultiMapReduce indexes from the client",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimapreduce-indexes-from-the-client"
+        },
+        {
+            "Title": "Complex data aggregation - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/188100-A/design-exercise-complex-data-aggregation-with-ravendb"
+        },
+        {
+            "Title": "Multi Maps / Reduce indexes - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/89089/ravendb-multi-maps-reduce-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Multi Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Multi Map index class.",
+                "",
+                "* Use index class type `AbstractMultiMapIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Multi Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/multi-map-indexes/multi-map-index-basic"
+                },
+                {
+                    "Title": "Querying many sources",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#querying-many-sources-at-once-with-multimap-indexes"
+                },
+                {
+                    "Title": "Multi Map indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimap-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "The Index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.",
+                "",
+                "* These fields contain the indexed data from all the collections defined in the index.<br>",
+                "  A query made on the index will be able to search and filter by these fields.",
+                "",
+                "* The following fields will hold _aggregated values per city_:<br>",
+                "  * number_of_companies_in_city<br>",
+                "  * number_of_suppliers_in_city<br>",
+                "  * number_of_items_shipped_to_city",
+                "",
+                "* Note:<br>",
+                "  The index entry shape must be _the same for all the Map functions defined and for the Reduce_."
+            ],
+            "Assets": [
+                {
+                    "Title": "MultiMapReduce Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#multimapreduce-indexes"
+                },
+                {
+                    "Title": "MultiMapReduce indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimapreduce-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Maps",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `add_map()` per collection indexed to define the index-field data in the _Map stage_. E.g.:",
+                "",
+                "* _number_of_companies_in_city_ is set to _1_ per document that comes from the Companies collection,<br>",
+                "  representing a count of 1 company per single Company document.<br>",
+                "  In the _Reduce stage_, the field will be aggregated to hold the total count of companies in a city.<br>",
+                "",
+                "* Since the shape of the index entry created must be the same for all Map functions,<br>",
+                "  this field is set to _0_ for documents in the other collections as they do not represent a company.",
+                "",
+                "* _number_of_items_shipped_to_city_ is calculated to be the number of items shipped in a single Order document.",
+                "  It will be aggregated in the Reduce stage, accumulating the total number of items shipped to a city."
+            ],
+            "Assets": [
+                {
+                    "Title": "Multi Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/multi-map-indexes/multi-map-index-basic"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Reduce",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "The `Reduce` function is the second stage.<br>",
+                "It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
+                "",
+                "* Specify the field/key to group-by:<br><br>",
+                "  `GroupBy(result => result.city_name)` ==> group by index-field 'city_name'<br>",
+                "  Meaning: we want to get information grouped per city.",
+                "",
+                "* Specify the aggregation per city:<br><br>",
+                "  `city_name = g.Key` ==> The city key we group by<br>",
+                "  `number_of_companies_in_city = Enumerable.Sum(g, x => ...)` ==> The aggregating function<br>",
+                "  `...`"
+            ],
+            "Assets": [
+                {
+                    "Title": "Map-Reduce Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/map-reduce-index"
+                },
+                {
+                    "Title": "MultiMapReduce Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#multimapreduce-indexes"
+                },
+                {
+                    "Title": "MultiMapReduce indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimapreduce-indexes-from-the-client"
+                }
+            ]
+        },
+        {
+            "Title": "Query the aggregated values",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the index to find index-entries with the requested filtering condition on the aggregated values,",
+                "  i.e.: A city that has a total of shipped items above the specified param.",
+                "",
+                "* The return value of the query is Not a list of documents from the indexed collections.<br>",
+                "  The _commerceDetails_ variable will contain the _matching index-entries_, in the shape of the 'IndexEntry' class emitted by the Map-Reduce index.",
+                "",
+                "* See the Studio _Map-Reduce Visualizer_ for a graphical representation of the relations between the documents and the Multi Map-Reduce index results."
+            ],
+            "Assets": [
+                {
+                    "Title": "Map-Reduce Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/map-reduce-index"
+                },
+                {
+                    "Title": "MultiMapReduce Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#multimapreduce-indexes"
+                },
+                {
+                    "Title": "MultiMapReduce indexes from the client",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#multimapreduce-indexes-from-the-client"
+                }
+            ]
+        }
+    ]
+}
