@@ -157,7 +157,7 @@
                 "",
                 "* The orders' documents can be _filtered_ by the index-fields defined in the index",
                 "",
-                "* The resulting documents will include only orders that where made by 'companyId'."
+                "* The resulting documents will include only orders that where made by 'companyID'."
             ],
             "Assets": [
 
@@ -208,7 +208,7 @@
                 "* The _ordersQuery_ variable only stores the query definition.<br>",
                 "  Execute the query by calling `all()`",
                 "",
-                "* The final query results include the projected details for orders that where made by 'companyId'.",
+                "* The final query results include the projected details for orders that where made by 'companyID'.",
                 "",
                 "* The resulting objects are Not tracked by the session since they are not the full documents but only partial data."
             ],

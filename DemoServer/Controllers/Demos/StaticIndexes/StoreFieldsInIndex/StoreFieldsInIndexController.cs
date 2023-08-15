@@ -67,7 +67,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsInIndex
         [HttpPost]
         public IActionResult Run(RunParams runParams)
         {
-            string companyId = runParams.companyId?? "companies/1-A";
+            string companyID = runParams.companyID?? "companies/1-A";
 
             #region Demo
             List<OrdersQuantity_ByCompany.OrderProjectedDetails> ordersDetails;
@@ -77,7 +77,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsInIndex
                 var ordersQuery = session
                     #region Step_6
                     .Query<OrdersQuantity_ByCompany.IndexEntry, OrdersQuantity_ByCompany>()
-                    .Where(order => order.Company == companyId)
+                    .Where(order => order.Company == companyID)
                     #endregion
                     #region Step_7
                     .ProjectInto<OrdersQuantity_ByCompany.OrderProjectedDetails>();
@@ -94,7 +94,7 @@ namespace DemoServer.Controllers.Demos.StaticIndexes.StoreFieldsInIndex
         
         public class RunParams
         {
-            public string companyId { get; set; }
+            public string companyID { get; set; }
         }
     }
 }

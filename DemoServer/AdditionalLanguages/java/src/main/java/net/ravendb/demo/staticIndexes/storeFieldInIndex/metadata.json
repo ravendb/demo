@@ -13,7 +13,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type": "demo",
-            "Url": "/static-indexes/static-indexes-overview"
+            "Url": "/java/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Project Index Result Demo",
@@ -214,7 +214,7 @@
                 {
                     "Title": "Project Index Result Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Url"  : "/java/static-indexes/project-index-results"
                 },
                 {
                     "Title": "Querying: Projections",
