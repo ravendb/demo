@@ -1,6 +1,6 @@
 {
     "Slug": "fanout-index",
-    "SourceFileName": "FanoutIndex.java",
+    "SourceFileName": "fanoutIndex.py",
     "Title": "Fanout Index",
     "DescriptionLines": [
         "A **Fanout Index** creates multiple index entries per processed document.",
@@ -15,17 +15,7 @@
         {
             "Title": "Static Indexes Overview Demo",
             "Type" : "demo",
-            "Url"  : "/java/static-indexes/static-indexes-overview"
-        },
-        {
-            "Title": "Fanout indexes",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
-        },
-        {
-            "Title": "MaxIndexOutputsPerDocument",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
+            "Url"  : "/python/static-indexes/static-indexes-overview"
         }
     ],
 
@@ -34,20 +24,15 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
+                "* Create the Map index class.",
                 "",
-                "* This example defines a Map index on the Orders collection."
+                "* Use index class type `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
@@ -71,11 +56,6 @@
             ],
             "Assets": [
                 {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
                     "Title": "Static Indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
@@ -98,28 +78,13 @@
                 "* In this example, an order document has a _Lines_ array object:<br>",
                 "  To access the inner fields of the Lines array use `SelectMany` and retrieve data from each orderLine item.",
                 "",
-                "* An index entry with fields _ProductId_ & _ProductName_ will be created per item of the Lines array,<br>",
+                "* An index entry with fields _product_id_ & _product_name_ will be created per item of the Lines array,<br>",
                 "  so the number of entries created per Order document equals the array length.",
                 "",
                 "* Note: A performance hint is raised in the Studio when the number of the generated index entries per document is high.",
                 "  This number can be configured in the settings (default is 1024)."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "Fanout indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
-                },
-                {
-                    "Title": "MaxIndexOutputsPerDocument",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/configuration/performance-hints-configuration#performancehints.indexing.maxindexoutputsperdocument"
-                }
             ]
         },
         {
@@ -133,11 +98,6 @@
                 "* The query results will include all documents from the 'Orders' collection that have a Lines array field 'ProductName' which starts with 'namePrefix'."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
