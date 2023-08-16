@@ -117,7 +117,8 @@
             "directory": "textSearch"
         },
         "demos": [
-            "fTSQuerySearchBasics"
+            "ftsQuerySearchBasics",
+            "ftsQuerySearchOperators"
         ]
     }
 ]
