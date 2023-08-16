@@ -110,5 +110,14 @@
             "facetsAggregations",
             "facetsFromDocument"
         ]
+    },
+    {
+        "category": {
+            "slug": "text-search",
+            "directory": "textSearch"
+        },
+        "demos": [
+            "fTSQuerySearchBasics"
+        ]
     }
 ]
