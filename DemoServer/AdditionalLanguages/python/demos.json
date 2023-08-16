@@ -94,7 +94,8 @@
             "directory": "autoIndexes"
         },
         "demos": [
-            "autoMapIndex1"
+            "autoMapIndex1",
+            "autoMapIndex2"
         ]
     }
 ]
