@@ -98,5 +98,14 @@
             "autoMapIndex2",
             "autoMapReduceIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "faceted-search",
+            "directory": "facetedSearch"
+        },
+        "demos": [
+            "facetsBasics"
+        ]
     }
 ]
