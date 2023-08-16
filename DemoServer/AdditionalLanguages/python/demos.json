@@ -118,7 +118,8 @@
         },
         "demos": [
             "ftsQuerySearchBasics",
-            "ftsQuerySearchOperators"
+            "ftsQuerySearchOperators",
+            "ftsQuerySearchWildcards"
         ]
     }
 ]
