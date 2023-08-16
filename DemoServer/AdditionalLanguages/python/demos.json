@@ -105,7 +105,8 @@
             "directory": "facetedSearch"
         },
         "demos": [
-            "facetsBasics"
+            "facetsBasics",
+            "facetsOptions"
         ]
     }
 ]
