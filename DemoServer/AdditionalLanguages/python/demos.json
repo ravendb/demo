@@ -87,5 +87,14 @@
         "demos": [
             "javascriptMapIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "auto-indexes",
+            "directory": "autoIndexes"
+        },
+        "demos": [
+            "autoMapIndex1"
+        ]
     }
 ]

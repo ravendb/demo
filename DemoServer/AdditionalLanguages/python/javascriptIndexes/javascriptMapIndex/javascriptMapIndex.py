@@ -10,6 +10,7 @@ from ravendb.documents.indexes.index_creation import AbstractJavaScriptIndexCrea
 #region Step_1
 class Employees_ByImportantDetailsJS(AbstractJavaScriptIndexCreationTask):
 #endregion
+
     #region Step_2
     class IndexEntry:
         def __init__(
@@ -24,6 +25,7 @@ class Employees_ByImportantDetailsJS(AbstractJavaScriptIndexCreationTask):
             self.working_in_company_since = working_in_company_since
             self.number_of_territories = number_of_territories
     #endregion
+
     #region Step_3
     def __init__(self):
         super().__init__()
