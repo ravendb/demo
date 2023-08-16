@@ -107,7 +107,8 @@
         "demos": [
             "facetsBasics",
             "facetsOptions",
-            "facetsAggregations"
+            "facetsAggregations",
+            "facetsFromDocument"
         ]
     }
 ]

@@ -70,7 +70,7 @@
             "DescriptionLines": [
                 "Define a `Facet` object:",
                 "",
-                "* Set _ field_name_ - The index entry field by which the documents will be grouped.<br>",
+                "* Set _field_name_ - The index entry field by which the documents will be grouped.<br>",
                 "* In this example, the grouping is done by the content of index field 'CategoryName'.<br>",
                 "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.",
                 "",
