@@ -119,7 +119,8 @@
         "demos": [
             "ftsQuerySearchBasics",
             "ftsQuerySearchOperators",
-            "ftsQuerySearchWildcards"
+            "ftsQuerySearchWildcards",
+            "ftsQuerySearchBoosting"
         ]
     }
 ]
