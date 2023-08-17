@@ -36,16 +36,17 @@ class Employees_ByAttachmentDetails(AbstractIndexCreationTask):
         #region Step_3
         super().__init__()
         self.map = (
-            "docs.Employees.Select(employee => new{" + "    employee = employee,"
-                                                       "    attachments = this.AttachmentsFor(employee)"
+            "docs.Employees.Select(employee => new { " 
+            "    employee = employee, "
+            "    attachments = this.AttachmentsFor(employee) "
         #endregion
         #region Step_4
-                                                       "}).Select(this0 => new {"
-                                                       "    attachment_names = Enumerable.ToArray(this0.attachments.Select(x => x.Name)),"
-                                                       "    attachment_content_types = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)),"
-                                                       "    attachment_hashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)),"
-                                                       "    attachment_sizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size))"
-                                                       "})"
+            "}).Select(this0 => new { "
+            "    attachment_names = Enumerable.ToArray(this0.attachments.Select(x => x.Name)), "
+            "    attachment_content_types = Enumerable.ToArray(this0.attachments.Select(x0 => x0.ContentType)), "
+            "    attachment_hashes = Enumerable.ToArray(this0.attachments.Select(x1 => x1.Hash)), "
+            "    attachment_sizes = Enumerable.ToArray(this0.attachments.Select(x2 => x2.Size)) "
+            "})"
         )
         #endregion
 #endregion
@@ -58,10 +59,9 @@ def run(self, run_params: RunParams) -> List[Employee]:
     with self.document_store_holder.store().open_session() as session:
         #region Step_5
         employees_with_matching_attachments = list(
-            session.query_index_type(Employees_ByAttachmentDetails,
-                                     Employees_ByAttachmentDetails.IndexEntry)
-            .where_equals("attachment_content_types", attachmentContentType)
-            .where_greater_than("attachment_sizes", attachmentMinSize)
+            session.query_index_type(Employees_ByAttachmentDetails, Employee)
+                .where_equals("attachment_content_types", attachmentContentType)
+                .where_greater_than("attachment_sizes", attachmentMinSize)
         )
         #endregion
     #endregion

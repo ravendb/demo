@@ -26,6 +26,7 @@ class LoadAttachment(Example):
                 #region Step_2
                 with session.advanced.attachments.get(documentID, attachmentName) as attachment_result:
                 #endregion
+                
                     #region Step_3
                     content_type = attachment_result.details.content_type
                     hash = attachment_result.details.hash
