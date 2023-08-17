@@ -20,7 +20,7 @@ class Products_ByCategoryName(AbstractIndexCreationTask):
         super().__init__()
         self.map = (
             "docs.products.Select(product => new { "
-            '    CategoryName = (this.LoadDocument(product.Category, "Categories")).Name'
+            "    CategoryName = (this.LoadDocument(product.Category, 'Categories')).Name "
             "})"
         )
     #endregion
