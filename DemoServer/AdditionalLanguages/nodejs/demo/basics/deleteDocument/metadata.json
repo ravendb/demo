@@ -29,7 +29,7 @@
             "Title": "Mark the entity to be deleted",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Mark the entity to be deleted with the Session `delete()` command.<br>",
+                "* Mark the entity to be deleted with the Session `delete()` method.<br>",
                 "  The document is actually deleted from the database only when saveChanges() is called later on.",
                 "",
                 "_Note_:",

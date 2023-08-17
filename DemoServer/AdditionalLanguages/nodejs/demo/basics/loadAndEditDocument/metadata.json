@@ -3,8 +3,9 @@
     "SourceFileName": "index.js",
     "Title": "Load & Edit Document",
     "DescriptionLines": [
-        "**Load & Edit a document** that is already stored in the database.<br>",
-        "You will load an existing document from the Document-Store, update it and save it back."
+        "**Load & Edit a document** that is already stored in the database.",
+        "",
+        "Load an existing document from the DocumentStore, update it and save it back."
     ],
 
     "Assets": [
@@ -30,7 +31,7 @@
             "Title": "Load an existing document",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Load an existing document from the Document Store using the Session `load()` command.<br>",
+                "* Load an existing document from the Document Store using the Session `load()` method.<br>",
                 "",
                 "* The loaded document is added to the internal entities map that the Session manages.<br>",
                 "  In this example, document 'companies/5-A' is loaded.",

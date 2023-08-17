@@ -77,7 +77,7 @@
             "Title": "Create Java entity - Primary document",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Create the primary document entity that will reference the other documents"
+                "* Create the primary document entity that will reference the other documents."
             ],
             "Assets": [
                 {

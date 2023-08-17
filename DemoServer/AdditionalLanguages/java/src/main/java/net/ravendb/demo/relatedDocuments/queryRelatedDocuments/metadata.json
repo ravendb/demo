@@ -41,12 +41,12 @@
             "Title": "Make a query - Include related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Use `include()` to instruct the server to send the related 'Products' documents to the client, in addition to the resulting 'Orders' documents that are queried on.<br>",
+                "* Use `include()` to instruct the server to send the related 'Product' documents to the client, in addition to the resulting 'Order' documents that are queried on.<br>",
                 "  Both the resulting query documents and the related documents are added to the Session's internal entities map for tracking changes.",
                 "",
-                "* Variable _'shippedOrders'_ will hold a list of 'Orders' documents whose 'ShippedAt' field is Not null.",
+                "* Variable _'shippedOrders'_ will hold a list of 'Order' documents whose 'ShippedAt' field is Not null.",
                 "",
-                "* _The related 'Products' documents_, whose ID is specified in the 'Product' fields under 'Lines' within the 'Orders' documents, will be loaded to the Session.",
+                "* _The related 'Product' documents_, whose ID is specified in the 'Product' fields under 'Lines' within the 'Order' documents, will be loaded to the Session.",
                 "",
                 "* Note:<br>",
                 "  Since the query is not using an index and filtering is applied, an auto-index will be created if no matching auto-index already exists."
@@ -73,8 +73,8 @@
             "Title": "Loop on the resulting documents",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* Loop on the resulting 'Orders' documents.<br>",
-                "  For each Order document, retrieve its related 'Products' documents IDs from the 'Lines' object.",
+                "* Loop on the resulting 'Order' documents.<br>",
+                "  For each Order document, retrieve its related 'Product' documents IDs from the 'Lines' object.",
                 "",
                 "* Each related Product document can be accessed and modified - see next step"
             ],

@@ -33,7 +33,7 @@
             "Title": "Load a document - Include related documents",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Use `Include()`to instruct the server to send the related document to the client when loading the primary document.<br>",
+                "* Use `Include()` to instruct the server to send the related document to the client when loading the primary document.<br>",
                 "  The document whose ID is specified in the 'Supplier' field of document 'products/34-A' will be sent to the Session upon the Load() command in the following line.",
                 "",
                 "* Next, `Load()` the primary document ('products/34-A') from the database.<br>",

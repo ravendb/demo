@@ -1,40 +1,39 @@
 {
     "Slug": "delete-document",
-    "SourceFileName": "DeleteDocument.go",
+    "SourceFileName": "deleteDocument.py",
     "Title": "Delete Document",
     "DescriptionLines": [
         "**Delete a document** from the database."
     ],
-    
-    "Assets": [
-    ],
+
+    "Assets": [],
 
     "Walkthroughs": [
         {
             "Title": "Mark the entity to be deleted",
             "Slug" : "step-1",
             "DescriptionLines": [
-                "* Mark the entity to be deleted by calling the Session `DeleteByID()` method.<br>",
-                "  The document is actually deleted from the database only when SaveChanges() is called later on.",
-                "",             
-                "* When using DeleteByID() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
+                "* Mark the entity to be deleted with the Session `delete()` method.<br>",
+                "  The document is actually deleted from the database only when save_changes() is called later on.",
                 "",
-                "* A _Concurrency Exception_ can be thrown only with the following usage:",
+                "_Note_:",
                 "",
-                "     * Calling `Delete( entity interface{} )`",
+                "* When using delete() as above, with the specific ID param, the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following parameters:",
                 "",
-                "     * Providing the `expectedChangeVector` param to the DeleteByID() method;"
+                "     * delete(entity)",
+                "     * delete(id, [expectedChangeVector])"
             ],
-            "Assets": [
-            ]
+            "Assets": []
         },
         {
             "Title": "Save the changes",
             "Slug" : "step-2",
             "DescriptionLines": [
-                "* The document is deleted from the database upon calling `SaveChanges()`.",
+                "* The document is deleted from the database upon calling `save_changes()`.",
                 "",
                 "* The Session sends the changes to the server as a single remote call that completes transactionally."
+
             ],
             "Assets": [
                 {

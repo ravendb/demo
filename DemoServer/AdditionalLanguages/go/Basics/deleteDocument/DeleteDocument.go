@@ -27,7 +27,7 @@ func createDocumentStore() (*ravendb.DocumentStore, error) {
 }
 
 //region Demo
-func deleteDocument(documentId string) error {
+func deleteDocument(documentID string) error {
 
     session, err := globalDocumentStore.OpenSession("")
     if err != nil {
@@ -36,7 +36,7 @@ func deleteDocument(documentId string) error {
     defer session.Close()
 
     //region Step_1
-    err = session.DeleteByID(documentId, "")
+    err = session.DeleteByID(documentID, "")
     if err != nil {
         return err
     }

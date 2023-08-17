@@ -1,0 +1,119 @@
+{
+    "Slug": "the-document-store",
+    "SourceFileName": "theDocumentStore.py",
+    "Title": "The Document Store",
+    "NonInteractive":  true,
+    "DescriptionLines": [
+        "**The Document Store** is the main Client API object that establishes the communication between your client application and the RavenDB cluster.",
+        "",
+        "It is the single access point to a particular cluster, exposing methods to perform operations against the associated server instances,",
+        "holding the configuration, topology, cache and any customizations that you might have applied.",
+        "",
+        "The Document Store is thread safe.",
+        "",
+        "A single instance of a Document Store (singleton pattern) should be used per the lifetime of the application."
+    ],
+
+    "Assets": [
+        {
+            "Title": "The Document Store",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-store"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the DocumentStoreHolder class",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* The `DocumentStoreHolder` class holds a _single instance of the Document Store object_ that will be used across your client application.",
+                "",
+                "* In addition to configuring your database, your cluster topology and a client certificate,<br>",
+                "  the Document Store exposes methods to perform operations such as:",
+                "",
+                "  * Open a Session for database transactions",
+                "  * Create & deploy indexes",
+                "  * Bulk documents actions",
+                "  * Manage the server with low-level operations commands",
+                "  * Changes API - receive messages from the server",
+                "  * Perform custom actions in response to Session's events",
+                "  * Subscription tasks management",
+                "  * Export & Import database data."
+            ],
+            "Assets": [
+                {
+                    "Title": "The Document Store",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#the-document-store"
+                }
+            ]
+        },
+        {
+            "Title": "The _store variable",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* The protected variable `_store` will hold a reference to the single Document Store instance that will be created.",
+                "",
+                "* Access the Document Store instance by calling `store()` on the class (see step 6)."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Create the document store configuration",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Method _create_document_store() returns a configured `DocumentStore` object that is used to initialize the __store_ variable from the previous step."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Configure the DocumentStore Object",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* At this point, before initializing the Document Store (in step 5), the following info can be configured:",
+                "",
+                "  * _urls_ - Specify a list of URL addresses pointing to the RavenDB server nodes composing your cluster.",
+                "    Note: Do not open a DocumentStore using URL addresses that point to nodes outside your cluster.",
+                "",
+                "  * _database_ - Specify the default database name this Document Store will work against.",
+                "",
+                "  * _certificate_ - Specify the Client Certificate ( *.pem ) which is used to authenticate the client to the RavenDB server.",
+                "",
+                "  * _conventions_ - Customize various settings and operation modes."
+            ],
+            "Assets": [
+                {
+                    "Title": "Conventions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#conventions"
+                },
+                {
+                    "Title": "Certificates introduction",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/13-securing-your-ravens#introduction-to-transport-level-security-and-authentication"
+                }
+            ]
+        },
+        {
+            "Title": "Initialize the Document Store object",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* To be able to work on the DocumentStore, call `initialize()` to get the fully initialized Document Store instance.",
+                "",
+                "* The initialize() method will:",
+                "  * Verify that URLs field is set (not empty)",
+                "  * Freeze the Conventions. Conventions can't be set after calling initialize()"
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Access the store",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Access the single Document Store instance by calling `store()`."
+            ],
+            "Assets": []
+        }
+    ]
+}
