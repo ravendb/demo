@@ -122,7 +122,8 @@
             "ftsQuerySearchWildcards",
             "ftsQuerySearchBoosting",
             "ftsWithStaticIndexSingleField",
-            "ftsWithStaticIndexMultipleFields"
+            "ftsWithStaticIndexMultipleFields",
+            "highlightQueryResultsBasics"
         ]
     }
 ]
