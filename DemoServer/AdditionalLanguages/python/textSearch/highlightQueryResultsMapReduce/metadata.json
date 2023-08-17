@@ -1,6 +1,6 @@
 {
     "Slug": "highlight-query-results-map-reduce",
-    "SourceFileName": "HighlightQueryResultsMapReduceController.cs",
+    "SourceFileName": "highlightQueryResultsMapReduce.py",
     "Title": "Highlight Query Results Map-Reduce",
     "StudioLinkToMediaDatabase": true,
     "DescriptionLines": [
@@ -15,27 +15,17 @@
         {
             "Title": "Map-Reduce Index Demo",
             "Type" : "demo",
-            "Url"  : "/static-indexes/map-reduce-index"
+            "Url"  : "/python/static-indexes/map-reduce-index"
         },
         {
             "Title": "FTS - Static Index Demo",
             "Type" : "demo",
-            "Url"  : "/text-search/fts-with-static-index-single-field"
+            "Url"  : "/python/text-search/fts-with-static-index-single-field"
         },
         {
             "Title": "Highlight Query Results - Basics Demo",
             "Type" : "demo",
-            "Url"  : "/text-search/highlight-query-results-basics"
-        },
-        {
-            "Title": "Querying highlighting",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-        },
-        {
-            "Title": "How to use highlighting",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+            "Url"  : "/python/text-search/highlight-query-results-basics"
         },
         {
             "Title": "Highlighting - Blog",
@@ -49,22 +39,15 @@
             "Title": "Define the Map-Reduce index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map-Reduce index class - inherit from `AbstractIndexCreationTask`.",
+                "* Create a static Map-Reduce index class.",
                 "",
-                "* The generic params:<br>",
-                "    * _LastFm_ - indicates that the source collection for the index will be the 'LastFms' collection<br>",
-                "    * _ArtistsAllSongs.IndexEntry_ - is the shape of the resulting index entries<br> (see next step)"
+                "* Use index class type `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Map-Reduce Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-reduce-index"
-                },
-                {
-                    "Title": "Map-Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "/python/static-indexes/map-reduce-index"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations - Book",
@@ -95,12 +78,7 @@
                 {
                     "Title": "Map-Reduce Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-reduce-index"
-                },
-                {
-                    "Title": "Map-Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "/python/static-indexes/map-reduce-index"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations - Book",
@@ -118,7 +96,7 @@
             "Title": "Define the Map function",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* Similar to the simple Map index, the `Map` function defines what data is indexed per index-field.",
+                "* Similar to the simple Map-index, the `map` function defines what data is indexed per index-field.",
                 "",
                 "* The Map function is the first stage of the Map-Reduce index.<br>",
                 "  It indexes the specified fields _per document_ in the collection.",
@@ -136,12 +114,7 @@
                 {
                     "Title": "Map-Reduce Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-reduce-index"
-                },
-                {
-                    "Title": "Map-Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "/python/static-indexes/map-reduce-index"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations - Book",
@@ -159,28 +132,23 @@
             "Title": "Define the Reduce function",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The `Reduce` function is the second stage.<br>",
+                "* The `reduce` function is the second stage.<br>",
                 "  It operates on the Map results, specifying how the data should be _grouped_ and _aggregated_.",
                 "",
                 "* Specify the field to group-by:<br><br>",
-                "  `group result by result.Artist into g`  ==> group by _index-field_ 'Artist'",
+                "  `GroupBy(result => result.Artist)`  ==> group by index-field 'Artist'",
                 "",
                 "* Specify the aggregation needed for that field:<br><br>",
                 "  `Artist = g.Key`<br>",
                 "   ==> The artist we group by<br><br>",
-                "  `AllSongTitles = string.Join(' ', g.Select(x => x.AllSongTitles))`<br>",
-                "   ==> using string.Join() to concatenate the text, as the aggregation function."
+                "  `AllSongTitles = String.Join(\' \', g.Select(x => x.AllSongTitles))`<br>",
+                "   ==> using String.Join() to concatenate the text, as the aggregation function."
             ],
             "Assets": [
                 {
                     "Title": "Map-Reduce Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-reduce-index"
-                },
-                {
-                    "Title": "Map-Reduce Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-reduce-indexes"
+                    "Url"  : "/python/static-indexes/map-reduce-index"
                 },
                 {
                     "Title": "Map-Reduce and Aggregations - Book",
@@ -199,14 +167,14 @@
             "Slug" : "step-5",
             "DescriptionLines": [
                 "* In order to search and get fragments with highlighted terms,<br>the index-fields must be configured with:",
-                "  * `Store()`<br>",
-                "     Set _FieldStorage.Yes_ on both the _Key field_ and the _Aggregated field_.",
+                "  * `_store()`<br>",
+                "     Set _FieldStorage.YES_ on both the _Key field_ and the _Aggregated field_.",
                 "",
-                "  * `Index()`<br>",
-                "     Set _FieldIndexing.Search_ on the aggregated field.",
+                "  * `_index()`<br>",
+                "     Set _FieldIndexing.SEARCH_ on the aggregated field.",
                 "",
-                "  * `TermVector()`<br>",
-                "     Set _FieldTermVector.WithPositionsAndOffsets_ on the aggregated field.",
+                "  * `_term_vector()`<br>",
+                "     Set _FieldTermVector.WITH_POSITIONS_AND_OFFSETS_ on the aggregated field.",
                 "",
                 "* During the indexing process, the aggregated field's content is tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
                 "",
@@ -217,27 +185,12 @@
                 {
                     "Title": "FTS - Static Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/fts-with-static-index-single-field"
+                    "Url"  : "/python/text-search/fts-with-static-index-single-field"
                 },
                 {
                     "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-in-index"
-                },
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "Indexes - Analyzers",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/using-analyzers"
-                },
-                {
-                    "Title": "Using term vectors",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/using-term-vectors"
+                    "Url"  : "/python/static-indexes/store-fields-in-index"
                 },
                 {
                     "Title": "Term vector in Lucene",
@@ -250,11 +203,11 @@
             "Title": "Define highlight options",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* Prior to making the search query,<br> you must define a `HighlightingOptions` object with a `GroupKey`.",
+                "* Prior to making the search query,<br> you must define a `HighlightingOptions` object with a `group_key`.",
                 "",
-                "* Assign the Key index-field name (the one you group-by) to GroupKey, e.g. 'Artist'.",
+                "* Assign the Key index-field name (the one you group-by) to group_key, e.g. 'Artist'.",
                 "",
-                "* Optionally, you can also define `PreTags` and `PostTags` that will mark the searched terms within the text fragments.",
+                "* Optionally, you can also define `pre_tags` and `post_tags` that will mark the searched terms within the text fragments.",
                 "  If no such tags are defined then the default tags will be used.<br>",
                 "  See the related Highlights Demos.",
                 "",
@@ -264,22 +217,12 @@
                 {
                     "Title": "Highlight Query Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/highlight-query-results-basics"
+                    "Url"  : "/python/text-search/highlight-query-results-basics"
                 },
                 {
                     "Title": "Highlight Query Results - Customized Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/highlight-query-results-customized"
-                },
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "/python/text-search/highlight-query-results-customized"
                 },
                 {
                     "Title": "Highlighting - Blog",
@@ -297,21 +240,21 @@
                 "* In this example,<br> we are searching for artists containing the searched term within their 'AllSongTitles' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
-                "* `Highlight()`<br>",
+                "* `highlight()`<br>",
                 "   * Specify the index-field for which to get text fragments with the term highlighted.<br>",
                 "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
                 "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
-                "   * Provide an 'out Highlightings' param for the fragments' results.",
+                "   * Provide '__highlightings_callback' param for getting the fragments' results.",
                 "",
-                "* `Search()`<br>",
+                "* `search()`<br>",
                 "   * Specify the index-field and the term(s) to search for in that field.",
                 "   * These will be the terms highlighted in the fragments received.",
                 "",
                 "* _Query results will be_:",
-                "  * artistsResults -<br>",
+                "  * In variable 'artists_results' -<br>",
                 "    _The index-entries_ that contain the searched term in their 'AllSongTitles' field.",
                 "",
-                "  * highlightingsInfo -<br>",
+                "  * In variable 'highlightings_info' -<br>",
                 "    _The fragments_ from the aggregated field 'AllSongTitles' that contain the searched term.<br>",
                 "    The term will be marked with the customized pre & post tags."
             ],
@@ -319,22 +262,12 @@
                 {
                     "Title": "Query for aggregated value - Map-Reduce Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-reduce-index#step-5"
+                    "Url"  : "/python/static-indexes/map-reduce-index#step-5"
                 },
                 {
                     "Title": "Highlight Query Results - Customized Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/highlight-query-results-customized"
-                },
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "/java/text-search/highlight-query-results-customized"
                 }
             ]
         },
@@ -342,23 +275,13 @@
             "Title": "Get fragments",
             "Slug" : "step-8",
             "DescriptionLines": [
-                "* Use `GetFragments()`<br>Pass a Key field value (Artist) to get the text fragments from its matching index-entry.",
+                "* Use `get_fragments()`<br>Pass a Key field value (Artist) to get the text fragments from its matching index-entry.",
                 "",
                 "* The searched term will be marked with the customized pre & post tags.",
                 "",
                 "* Use these results to enhance your users' search experience."
             ],
             "Assets": [
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
-                }
             ]
         }
     ]
