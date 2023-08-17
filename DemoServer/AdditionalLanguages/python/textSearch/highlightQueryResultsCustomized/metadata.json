@@ -1,6 +1,6 @@
 {
     "Slug": "highlight-query-results-customized",
-    "SourceFileName": "index.js",
+    "SourceFileName": "highlightQueryResultsCustomized.py",
     "Title": "Highlight Query Results Customized",
     "DescriptionLines": [
         "When making a Full Text Search query,<br> in addition to getting the documents that contain the searched terms in the results,",
@@ -19,24 +19,13 @@
         {
             "Title": "FTS - Static Index Demo",
             "Type" : "demo",
-            "Url"  : "/nodejs/text-search/fts-with-static-index-single-field"
+            "Url"  : "/python/text-search/fts-with-static-index-single-field"
         },
         {
             "Title": "Highlight Query Results - Basics Demo",
             "Type": "demo",
-            "Url": "/nodejs/text-search/highlight-query-results-basics"
+            "Url": "/python/text-search/highlight-query-results-basics"
         },
-        //TODO
-        //        {
-        //            "Title": "Querying highlighting",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-        //        },
-        //        {
-        //            "Title": "How to use highlighting",
-        //            "Type": "link",
-        //            "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-        //        },
         {
             "Title": "Highlighting - Blog",
             "Type" : "link",
@@ -49,18 +38,15 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractJavaScriptIndexCreationTask`"
+                "* Create a static Map index class.",
+                "",
+                "* Use index class type `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type": "demo",
-                    "Url": "/nodejs/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
+                    "Url": "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes - Book",
@@ -80,17 +66,12 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index-fields _title_ & _notes_ is taken from the corresponding document fields.",
+                "* The content for index-fields _Title_ & _Notes_ is taken from the corresponding document fields.",
                 "",
                 "* The fields will be customized for Full Text Search and Highlighting in the next step."
 
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes - Book",
                     "Type" : "link",
@@ -108,14 +89,14 @@
             "Slug" : "step-3",
             "DescriptionLines": [
                 "* In order to search and get fragments with highlighted terms, the index fields on which you search must be configured with:",
-                "  * `store()`<br>",
-                "     Use _Yes_ to store the field in the index.",
+                "  * `_store()`<br>",
+                "     Set _FieldStorage.YES_ to store the field in the index.",
                 "",
-                "  * `index()`<br>",
-                "     Use _Search_ to allow Full Text Search.",
+                "  * `_index()`<br>",
+                "     Set _FieldIndexing.SEARCH_ to allow Full Text Search.",
                 "",
-                "  * `termVector()`<br>",
-                "     Use _WithPositionsAndOffsets_ to store the term's position and offset from the text.",
+                "  * `_termVector()`<br>",
+                "     Set _FieldTermVector.WITH_POSITIONS_AND_OFFSETS_ to store the term's position and offset from the text.",
                 "",
                 "* During the indexing process, the fields' content will be tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
                 "",
@@ -125,28 +106,12 @@
                 {
                     "Title": "FTS - Static Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/text-search/fts-with-static-index-single-field"
+                    "Url"  : "/python/text-search/fts-with-static-index-single-field"
                 },
                 {
                     "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/static-indexes/store-fields-in-index"
-                },
-                //TODO
-                //       {
-                //           "Title": "Querying highlighting",
-                //           "Type" : "link",
-                //           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //       },
-                {
-                    "Title": "Indexes - Analyzers",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/using-analyzers"
-                },
-                {
-                    "Title": "Using term vectors",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/using-term-vectors"
+                    "Url"  : "/python/static-indexes/store-fields-in-index"
                 },
                 {
                     "Title": "Term vector in Lucene",
@@ -161,7 +126,7 @@
             "DescriptionLines": [
                 "* Prior to making the search query,<br> you can define the tags that will mark the searched terms within the text fragments.",
                 " ",
-                "* _To define your own tags_ create a `HighlightingOptions` object with _preTags_ & _postTags_.<br>",
+                "* _To define your own tags_ create a `HighlightingOptions` object with _pre_tags_ & _post_tags_.<br>",
                 "  This object is passed to the query - see next step.",
                 "",
                 "* This is optional. If no such object is defined then the default tags will be used.<br>",
@@ -170,25 +135,14 @@
                 "* 2 objects are defined in this example, one for each field that we search on,<br>",
                 "  so that the terms from each field will be marked differently.",
                 "",
-                "* Alternatively,<br> you can define a single object with multiple strings within the PreTags & PostTags properties."
+                "* Alternatively,<br> you can define a single object with multiple strings within the pre_tags & post_tags properties."
             ],
             "Assets": [
                 {
                     "Title": "Highlight Query Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/text-search/highlight-query-results-basics"
+                    "Url"  : "/python/text-search/highlight-query-results-basics"
                 },
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        },
                 {
                     "Title": "Highlighting - Blog",
                     "Type" : "link",
@@ -204,74 +158,52 @@
                 "",
                 "* In this example, the highlight & the search methods are called twice, per field we search on.<br>",
                 "  So we are searching for:<br>",
-                "  documents containing the term 'manager' within the 'title' field _OR_<br>",
-                "  documents containing the term 'sales' within the 'notes' field.<br>",
+                "  documents containing the term 'manager' within the 'Title' field _OR_<br>",
+                "  documents containing the term 'sales' within the 'Notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
                 "* `highlight()`<br>",
-                "   * fieldName - specify the index field for which to get text fragments with the term highlighted.<br>",
+                "   * Specify the index field for which to get text fragments with the term highlighted.<br>",
                 "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
                 "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
-                "   * tagsToUse - provide the tag objects from the previous step (optional).",
-                "   * Provide 'Highlightings' param to be filled with the fragments' results.",
+                "   * Provide a '_highlight_callback' param for the fragments' results.",
+                "   * tags_to_use - provide the tag objects from the previous step (optional).",
                 "",
                 "* `search()`<br>",
                 "   * Specify the index field and the term(s) to search for in that field.",
                 "   * These will be the terms highlighted in the fragments received.",
                 "",
                 "* _Query results will be_:",
-                "  * employeesResults -<br>",
+                "  * employees_results -<br>",
                 "    _The documents_ that contain the searched terms specified in the 'search()' methods.",
                 "",
-                "  * titleHighlightings -<br>",
-                "    _The fragments_ from field 'title' that contain the term 'manager'.<br>",
+                "  * title_highlightings -<br>",
+                "    _The fragments_ from field 'Title' that contain the term 'manager'.<br>",
                 "    The terms will be marked with the specified tags 'tag1' & 'tag2'.",
                 "",
-                "  * notesHighlightings -<br>",
-                "    _The fragments_ from field 'notes' that contain the term 'sales'.<br>",
+                "  * notes_highlightings -<br>",
+                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
                 "    The terms will be marked with the specified tags 'tag3' & 'tag4'."
             ],
             "Assets": [
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/static-indexes/map-index#step-4"
+                    "Url"  : "/python/static-indexes/map-index#step-4"
                 }
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        }
             ]
         },
         {
             "Title": "Get fragments",
             "Slug" : "step-6",
             "DescriptionLines": [
-                "* Use `getFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
+                "* Use `get_fragments()`<br>Pass the document ID to get the text fragments for that employee document.",
                 "",
                 "* The searched terms will be marked with the specified tags.",
                 "",
                 "* Use these results to enhance your users' search experience."
             ],
             "Assets": [
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        }
             ]
         }
     ]

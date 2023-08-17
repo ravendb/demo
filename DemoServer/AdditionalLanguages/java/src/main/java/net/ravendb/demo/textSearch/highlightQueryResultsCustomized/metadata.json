@@ -79,7 +79,7 @@
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index fields _Title_ & _Notes_ is taken from the corresponding document fields.",
+                "* The content for index-fields _Title_ & _Notes_ is taken from the corresponding document fields.",
                 "",
                 "* The fields will be customized for Full Text Search and Highlighting in the next step."
 
