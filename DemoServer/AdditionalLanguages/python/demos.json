@@ -127,5 +127,15 @@
             "highlightQueryResultsCustomized",
             "highlightQueryResultsMapReduce"
         ]
+    },
+    {
+        "category": {
+            "slug": "compare-exchange",
+            "directory": "compareExchange"
+        },
+        "demos": [
+            "createCompareExchange",
+            "indexCompareExchange"
+        ]
     }
 ]

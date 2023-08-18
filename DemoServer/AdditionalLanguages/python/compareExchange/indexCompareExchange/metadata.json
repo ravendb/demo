@@ -1,6 +1,6 @@
 {
     "Slug": "index-compare-exchange",
-    "SourceFileName": "IndexCompareExchangeController.cs",
+    "SourceFileName": "indexCompareExchange.py",
     "Title": "Index CmpXchg Values",
     "DescriptionLines": [
         "**CmpXchg Values can be loaded & indexed** within the index definition.",
@@ -9,20 +9,11 @@
     ],
 
     "Assets": [
+        
         {
             "Title": "Create Compare-Exchange Demo",
             "Type" : "demo",
-            "Url"  : "/compare-exchange/create-compare-exchange"
-        },
-        {
-            "Title": "Compare-Exchange overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
-        },
-        {
-            "Title": "Index Compare-Exchange values",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-compare-exchange-values#querying-the-index"
+            "Url"  : "/python/compare-exchange/create-compare-exchange"
         },
         {
             "Title": "Distributed Compare-Exchange operations",
@@ -34,29 +25,24 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
         }
+        
     ],
 
     "Walkthroughs": [
+        
         {
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
+                "* Create a static Map index class.",
                 "",
-                "* The generic params:<br>",
-                "    * _Product_ - indicates that the source collection for the index will be the 'Products' collection<br>",
-                "    * _Products_byUnitsInStock.IndexEntry_ - is the shape of the index entries (see next step)"
+                "* Use index class type `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
@@ -77,14 +63,9 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Index-field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
+                "* Index-field _units_in_stock_ will be configured to hold CmpXchg Values (see next step)."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -108,15 +89,10 @@
                 "* Call `LoadCompareExchangeValue()` to get the CmpXchg Value associated with the passed Key parameter.",
                 "  The CmpXchg Key is the document ID.",
                 "",
-                "* The CmpXchg Values will be indexed in the _UnitsInStock_ index-field,<br>",
+                "* The CmpXchg Values will be indexed in the _units_in_stock_ index-field,<br>",
                 "  so a mapping is available from the CmpXchg values to the documents in the Products collection."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -131,30 +107,15 @@
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-4",
+            "Slug": "step-4",
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
-                "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ defined in _Products_byUnitsInStock.IndexEntry_",
+                "* The 'Products' documents can be filtered by the index-field _units_in_stock_ defined in _Products_byUnitsInStock.IndexEntry_",
                 "",
                 "* In this example, the resulting Product documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
             "Assets": [
-                {
-                    "Title": "Compare-Exchange overview",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
-                },
-                {
-                    "Title": "Index Compare-Exchange values",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-compare-exchange-values#querying-the-index"
-                },
-                {
-                    "Title": "Querying an index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/query-index"
-                }
             ]
         }
     ]

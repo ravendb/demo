@@ -107,7 +107,7 @@
                 "",
                 "* The 'Products' documents can be filtered by the index-field _unitsInStock_ that was defined in the index.",
                 "",
-                "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
+                "* In this example, the resulting Product documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
             "Assets": [
                 //TODO
