@@ -66,10 +66,10 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* A query can be defined just on a _collection_, or on an _index_ as well.",
+                "* A query can be defined just on a _collection_, or on an _index_.",
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
+                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes demos).",
 
                 "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",
                 "",
@@ -100,6 +100,11 @@
                     "Title": "The query optimizer",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+                },
+                {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/nodejs/auto-indexes/auto-map-index1"
                 }
                 //TODO
                 //{
