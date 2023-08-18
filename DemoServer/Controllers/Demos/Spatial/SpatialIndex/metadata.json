@@ -87,7 +87,7 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Field _LocationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
+                "* Index-field _LocationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
             ],
             "Assets": [
                 {

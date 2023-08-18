@@ -137,5 +137,15 @@
             "createCompareExchange",
             "indexCompareExchange"
         ]
+    },
+    {
+        "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery",
+            "spatialIndex"
+        ]
     }
 ]

@@ -1,0 +1,174 @@
+{
+    "Slug": "spatial-query",
+    "SourceFileName": "spatialQuery.py",
+    "Title": "Spatial Query",
+    "DescriptionLines": [
+        "Document properties may have spatial data in the form of Lng/Lat or a WKT string.",
+        "",
+        "A **spatial query** queries for documents that are in some relation to a defined geographical area.",
+        "",
+        "The query specifies:<br>",
+        "* Geographical shape<br>",
+        "* Relation to that shape",
+        "",
+        "The resulting documents will be those with spatial data that match the relation to the shape."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Spatial queries",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#spatial-queries"
+        },
+        {
+            "Title": "WKT geometry",
+            "Type" : "link",
+            "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+        },
+        {
+            "Title": "Spatial enhancements - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/187649-A/spatial-enhancement-in-ravendb"
+        },
+        {
+            "Title": "Spatial searches - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/180901/queries-in-ravendb-spatial-searches"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define geographical shape",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a _WKT shape string_ for the query, E.g.:",
+                "",
+                "  * `CIRCLE(<Lng of center point> <Lat of center point> d=<radius>)`",
+                "        * The radius units are set within the Spatial method (see step 4).",
+                "",
+                "  * `POLYGON((<Lng Lat> <Lng Lat> .... <Lng Lat>))`",
+                "        * The first and last points must be the same.",
+                "        * Points order should be in counter-clockwise order.",
+                "",
+                "* The query will search for documents that have the specified relation to this shape (see step 4)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Well-Known-Text geometry",
+                    "Type" : "link",
+                    "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
+                },
+                {
+                    "Title": "Spatial queries",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#spatial-queries"
+                }
+            ]
+        },
+        {
+            "Title": "Define a spatial query",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define a query on the collection that has the spatial data.",
+                "",
+                "* Call the `spatial()` method - see the spatial parameters in the next steps."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Set the spatial fields",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `PointField()` to set the fields in the document that contain the spatial _Lng/Lat data_.",
+                "",
+                "* Provide the path to the relevant fields in the document. E.g.:<br>",
+                "  The path to the Latitude field in the Employee document is: 'Address.Location.Latitude'.",
+                "",
+                "* Note:<br>",
+                "  These fields' names can have any name, it is Not mandatory to use 'Longitude'/'Latitude'.",
+                "",
+                "* Use `WktField()` if the document field contains a _WKT string_ instead of Lng/Lat data."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Set the spatial shape criteria",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Call `relates_to_shape()` to set:",
+                "",
+                "  * _The WKT shape_:<br>",
+                "    wktCircle is the Circle string defined earlier.",
+                "",
+                "  * _The Relation_:<br>",
+                "    The requested relation between the document's geodata and the defined shape.<br>",
+                "    Here we ask that the document's geodata will be _Within_ the defined shape.<br>",
+                "    Only documents that have the specified spatial fields falling within the shape will be returned.",
+                "",
+                "      * Other relation options are: Contains, Disjoint & Intersects.",
+                "",
+                "  * _The Units_: The units to use (Miles or Kilometers). Relevant only for Circles."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Order the results",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* The resulting documents can be ordered by their distance from a specified Geo point.",
+                "",
+                "* Use `order_by_distance()`",
+                "  * Use _PointField_ to set the document fields containing the spatial data,<br>",
+                "    or provide the spatial data with _WktField_.",
+                "  * Provide the Latitude and Longitude for the point to measure from.",
+                "",
+                "* Distance is measured in kilometers.<br>",
+                "  Method `order_by_distance_descending()` is also available."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute query",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* Call `list()` to execute the query.",
+                "",
+                "* The resulting documents are only those with geodata that fall within the defined circle,<br>",
+                "  ordered by their distance from the circle center point.",
+                "",
+                "* An _Auto-Index_ will be created when executing this query since no index was used.<br>",
+                "  E.g.: Auto/Employees/BySpatial.point(Address.Location.Latitude|Address.Location.Longitude)",
+                "",
+                "* By default, the _spatial indexing strategy_ used in the auto-index is: 'GeohashPrefixTree'.<br>",
+                "  The spatial strategy can be configured when creating a spatial index (see related demo)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview#step-3"
+                },
+                {
+                    "Title": "Auto-Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/auto-indexes/auto-map-index1"
+                },
+                {
+                    "Title": "Spatial Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/spatial/spatial-index"
+                }
+            ]
+        }
+    ]
+}

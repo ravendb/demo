@@ -1,6 +1,6 @@
 {
     "Slug": "spatial-index",
-    "SourceFileName": "SpatialIndex.java",
+    "SourceFileName": "spatialIndex.py",
     "Title": "Spatial Index",
     "DescriptionLines": [
         "Spatial data from a document can be indexed in a **spatial index field**.",
@@ -17,28 +17,12 @@
         {
             "Title": "Spatial query Demo",
             "Type" : "demo",
-            "Url"  : "/java/spatial/spatial-query"
+            "Url"  : "/python/spatial/spatial-query"
         },
         {
             "Title": "Spatial indexes",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
-        },
-        {
-            "Title": "Querying: spatial",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/spatial"
-        },
-// TODO        
-//        {
-//            "Title": "How to spatial query",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index"
-//        },
-        {
-            "Title": "Index Spatial Data",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
         },
         {
             "Title": "WKT geometry",
@@ -52,18 +36,15 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
+                "* Create a static Map index class.",
+                "",
+                "* Use index class type `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
@@ -84,14 +65,9 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Index-field _LocationCoordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
+                "* Index-field _location_coordinates_ will be configured as a spatial field holding the spatial data from the document (see next step)."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -118,24 +94,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
                     "Title": "Spatial indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
                 },
                 {
-                    "Title": "Index Spatial Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
-                },
-                {
                     "Title": "Store fields in index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/store-fields-in-index"
+                    "Url"  : "/python/static-indexes/store-fields-in-index"
                 }
             ]
         },
@@ -143,7 +109,7 @@
             "Title": "Customize spatial indexing strategy",
             "Slug" : "step-4",
             "DescriptionLines": [
-                "* Use `spatial()` to customize the strategy by which the spatial field will be indexed.",
+                "* Use `_spatial()` to customize the strategy by which the spatial field will be indexed.",
                 "",
                 "* The strategy defined will also be the one used by the search engine when querying the index.<br>",
                 "  _When querying the index_ for documents matching some shape, the shape in the query is first 'passed' through the configured strategy algorithm and then compared to the existing index terms.",
@@ -167,7 +133,7 @@
                 "",
                 "* Customizing a strategy is _optional_.<br>RavenDB will use the Geohash strategy if no other strategy is defined.",
                 "",
-                "* In the example above the spatial field 'LocationCoordinates' is indexed with the QuadTree strategy.",
+                "* In the example above the spatial field 'location_coordinates' is indexed with the QuadTree strategy.",
                 "  The parameter passed sets the precision level."
             ],
             "Assets": [
@@ -175,11 +141,6 @@
                     "Title": "Spatial indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
-                },
-                {
-                    "Title": "Index Spatial Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 },
                 {
                     "Title": "Bounding box",
@@ -219,11 +180,6 @@
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#spatial-queries"
                 },
                 {
-                    "Title": "Index Spatial Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
-                },
-                {
                     "Title": "WKT geometry",
                     "Type" : "link",
                     "Url"  : "https://en.wikipedia.org/wiki/Well-known_text_representation_of_geometry"
@@ -238,11 +194,11 @@
                 "",
                 "* Use `spatial()` to define the relation between the passed WKT shape and the spatial index field.",
                 "  Here we use the _within_ method, thus searching for all documents whose spatial data lies within the provided shape.",
-                "  Alternatively, use the _relatesToShape_ method and pass the required relationship.",
+                "  Alternatively, use the _relates_to_shape_ method and pass the required relationship.",
                 "",
-                "* Use `orderByDistance()` to order the resulting documents by their distance from the specified point.",
+                "* Use `order_by_distance()` to order the resulting documents by their distance from the specified point.",
                 "",
-                "* Call `toList()` to execute the query.",
+                "* Call `list()` to execute the query.",
                 "",
                 "* The query results will include all documents from the 'Companies' collection<br>",
                 "  whose geodata falls within the defined polygon, ordered by their distance from Seattle."
@@ -252,17 +208,12 @@
                 {
                     "Title": "Query overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-overview#step-3"
+                    "Url"  : "/python/queries/query-overview#step-3"
                 },
                 {
                     "Title": "Spatial indexes",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
-                },
-                {
-                    "Title": "Index Spatial Data",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-spatial-data"
                 }
             ]
         }
