@@ -19,11 +19,13 @@ class QueryExample(Example):
             #region Step_1
             query = session.query(object_type=Employee)
             #endregion
+            
             #region Step_2
             query = query.where_equals("FirstName", "Steven")\
                 .or_else()\
                 .where_equals("Title", "Sales Representative")
             #endregion
+            
             #region Step_3
             query = query.include("ReportsTo")
             #endregion

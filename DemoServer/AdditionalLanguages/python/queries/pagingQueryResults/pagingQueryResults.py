@@ -27,6 +27,7 @@ class PagingQueryResults(Example):
             #region Step_1
             paged_query = session.query(object_type=Company)
             #endregion
+            
             #region Step_2
             paged_query = paged_query.statistics(__stats_callback)
             #endregion

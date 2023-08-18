@@ -56,7 +56,7 @@
                 "    ( _company_name_ , _city_, _country_ )",
                 "",
                 "* Optionally, use the following method to project all fields from the custom class:<br>",
-                "  `.select_fields(CompanyDetails)`",
+                "  `select_fields(CompanyDetails)`",
                 "",
                 "* Calling select_fields_query_data() does Not trigger any index creation."
             ],

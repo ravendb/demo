@@ -70,9 +70,9 @@
                 "* A query can be defined just on a _collection_, or on an _index_.",
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes demos).",
+                "  The 'query optimizer' will create such index on the fly if needed. (see Auto-Indexes demos).",
 
-                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",
+                "* Note: The query optimizer only searches for a matching index within the existing Auto-Indexes, not the static ones.",
                 "",
                 "* In this demo, a query is defined on the 'Employees' collection using the session `query()` method syntax."
             ],

@@ -20,6 +20,7 @@ def run(self, run_params=None) -> List[CompanyDetails]:
         #region Step_1
         projected_query = session.query(object_type=Company)
         #endregion
+        
         #region Step_2
         projected_query = projected_query.select_fields_query_data(
             CompanyDetails,

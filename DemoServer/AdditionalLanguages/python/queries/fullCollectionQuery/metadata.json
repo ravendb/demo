@@ -26,8 +26,11 @@
             "Title": "Define the full collection query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Use `session.query(object_type=Company)` to define a query on collection 'Companies'.<br>",
-                "  The results will include _all_ documents from this collection.",
+                "* To define a query on collection 'Companies' you can use either:<br>",
+                "  * `session.query(object_type=Company)`<br>",
+                "  * `session.query_collection('Companies')`",
+                "",
+                "* The results will include _all_ documents from the collection.",
                 "",
                 "* No index will be created when querying on a just the collection without any filtering.",
                 "",

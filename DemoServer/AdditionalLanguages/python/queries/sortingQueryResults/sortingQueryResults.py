@@ -19,6 +19,7 @@ class SortingQueryResults(Example):
             #region Step_1
             sorted_query = session.query(object_type=Product)
             #endregion
+            
             #region Step_2
             sorted_query = sorted_query.where_greater_than("UnitsInStock", numberOfUnits)
             #endregion
