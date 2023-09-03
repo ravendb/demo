@@ -1,7 +1,10 @@
 from demo_example import Example, RunParamsBase
 
 #region Usings
-from ravendb import AbstractIndexCreationTask, QueryData
+from ravendb import (
+    AbstractIndexCreationTask,
+    QueryData
+)
 #endregion
 
 #region Demo
@@ -56,9 +59,9 @@ class ProjectIndexResults(Example):
                 QueryData.custom_function(
                     "employee ",
                     (
-                        "{ first_name: employee.FirstName,"
-                        " phone: employee.HomePhone,"
-                        " location: employee.Address.City + ' ' + employee.Address.Country }"
+                        "{ first_name: employee.FirstName, "
+                        " phone: employee.HomePhone, "
+                        " location: employee.Address.City + ' ' + employee.Address.Country } "
                     ),
                 ),
             )

@@ -26,9 +26,9 @@ class Orders_ByProductDetails(AbstractIndexCreationTask):
     def __init__(self):
         super().__init__()
         self.map = (
-            "docs.Orders.SelectMany(order => order.Lines, (order, orderLine) => new {"
-            "    product_id = orderLine.Product,"
-            "    product_name = orderLine.ProductName"
+            "docs.Orders.SelectMany(order => order.Lines, (order, orderLine) => new { "
+            "    product_id = orderLine.Product, "
+            "    product_name = orderLine.ProductName "
             "})"
         )
     #endregion

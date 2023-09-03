@@ -35,11 +35,11 @@ class Products_ByPrice(AbstractIndexCreationTask):
         #region Step_3
         super().__init__()
         self.map = (
-            "docs.Products.Select(product => new {"
-            "    product_name = product.Name,"
-            "    original_price = product.PricePerUnit,"
-            "    sale_price = DiscountUtils.CalcSalePrice(product.PricePerUnit),"
-            "    profit_price = DiscountUtils.CalcProfitPrice(product.PricePerUnit)"
+            "docs.Products.Select(product => new { "
+            "    product_name = product.Name, "
+            "    original_price = product.PricePerUnit, "
+            "    sale_price = DiscountUtils.CalcSalePrice(product.PricePerUnit), "
+            "    profit_price = DiscountUtils.CalcProfitPrice(product.PricePerUnit) "
             "})"
         )
         #endregion

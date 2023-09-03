@@ -3,7 +3,10 @@ from demo_example import Example, RunParamsBase
 
 #region usings
 from ravendb import AbstractIndexCreationTask
-from ravendb.documents.indexes.definitions import FieldStorage, FieldIndexing
+from ravendb.documents.indexes.definitions import (
+    FieldStorage, 
+    FieldIndexing
+)
 #endregion
 
 class RunParams(RunParamsBase):

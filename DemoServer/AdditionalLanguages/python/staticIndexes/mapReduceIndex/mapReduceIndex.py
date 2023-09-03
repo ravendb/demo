@@ -1,6 +1,6 @@
 from demo_example import Example, RunParamsBase
 
-# region Usings
+#region Usings
 from ravendb import AbstractIndexCreationTask
 #endregion
 

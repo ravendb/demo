@@ -19,7 +19,7 @@ class Employees_ImportantDetails(AbstractIndexCreationTask):
         super().__init__()
         self.map = (
             "docs.Employees.Select(employee => new { "
-            '    FullName = (employee.FirstName + " ") + employee.LastName, '
+            "    FullName = (employee.FirstName + ' ') + employee.LastName, "
             "    Country = employee.Address.Country, "
             "    WorkingInCompanySince = employee.HiredAt.Year, "
             "    NumberOfTerritories = employee.Territories.Count "
