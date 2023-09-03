@@ -65,12 +65,12 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* A query can be defined just on a _collection_, or on an _index_ as well.",
+                "* A query can be defined just on a _collection_, or on an _index_.",
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
+                "  The 'query optimizer' will create such index on the fly if needed. (see Auto-Indexes demos).",
                 
-                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",                
+                "* Note: The query optimizer only searches for a matching index within the existing Auto-Indexes, not the static ones.",                
                 "",
                 "* In this demo, a query is defined on the 'Employees' collection using the Session `Query()` LINQ method syntax."
             ],
@@ -104,6 +104,11 @@
                     "Title": "LINQ Query & Method Syntax",
                     "Type" : "link",
                     "Url"  : "https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/query-syntax-and-method-syntax-in-linq"
+                },
+                {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/auto-indexes/auto-map-index1"
                 }
             ]
         },

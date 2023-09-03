@@ -23,5 +23,34 @@
             "queryRelatedDocuments",
             "indexRelatedDocuments"
         ]
+    },
+    {
+        "category": {
+            "slug": "attachments",
+            "directory": "attachments"
+        },
+        "demos": [
+            "storeAttachment",
+            "loadAttachment",
+            "indexAttachmentDetails"
+        ]
+    },
+    {
+        "category": {
+            "slug": "queries",
+            "directory": "queries"
+        },
+        "demos": [
+            "queryOverview",
+            "queryExample",
+            "fullCollectionQuery",
+            "queryByDocumentId",
+            "filteringResultsBasics",
+            "filteringResultsMultipleConditions",
+            "projectingIndividualFields",
+            "projectingUsingFunctions",
+            "sortingQueryResults",
+            "pagingQueryResults"
+        ]
     }
 ]

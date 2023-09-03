@@ -3,7 +3,7 @@
     "SourceFileName": "FilteringResultsMultipleConditionsController.cs",
     "Title": "Filtering Results - Multiple Conditions",
     "DescriptionLines": [
-        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "**Filter the documents** by specifying some conditions on the **document fields** properties.",
         "",
         "Only the matching documents will be returned by the server."
     ],

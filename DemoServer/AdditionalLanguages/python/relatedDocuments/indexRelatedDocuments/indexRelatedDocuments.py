@@ -35,9 +35,8 @@ def run(self, run_params: RunParams) -> List[Product]:
     with self.document_store_holder.store().open_session() as session:
         #region Step_3
         products_with_category_name = list(
-            session.query_index_type(Products_ByCategoryName, Product).where_equals(
-                "CategoryName", categoryName
-            )
+            session.query_index_type(Products_ByCategoryName, Product)
+                .where_equals("CategoryName", categoryName)
         )
         #endregion
     #endregion

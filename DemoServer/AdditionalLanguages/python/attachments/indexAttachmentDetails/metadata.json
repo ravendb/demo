@@ -1,6 +1,6 @@
 {
     "Slug": "index-attachment-details",
-    "SourceFileName": "IndexAttachmentDetails.java",
+    "SourceFileName": "indexAttachmentDetails.py",
     "Title": "Index Attachment Details",
     "DescriptionLines": [
         "**Attachment's details and content can both be indexed**.",
@@ -12,17 +12,7 @@
         {
             "Title": "Store Attachment Demo",
             "Type" : "demo",
-            "Url"  : "/java/attachments/store-attachment"
-        },
-        {
-            "Title": "Indexing Attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing"
-        },
-        {
-            "Title": "What are attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/what-are-attachments"
+            "Url"  : "/python/attachments/store-attachment"
         },
         {
             "Title": "Attachments and binary data",
@@ -47,12 +37,12 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
+                    "Url"  : "/python/static-indexes/map-index"
                 }
             ]
         },
@@ -62,18 +52,18 @@
             "DescriptionLines": [
                 "* Define the index-fields.",
                 "",
-                "* e.g. _AttachmentNames_ will be configured to hold all attachments names (in step 4)."
+                "* e.g. _attachment_names_ will be configured to hold all attachments names (in step 4)."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
+                    "Url"  : "/python/static-indexes/map-index"
                 }
             ]
         },
@@ -93,21 +83,6 @@
                 "* To index an attachment content use: _LoadAttachment()_ or _LoadAttachments()_."
             ],
             "Assets": [
-                {
-                    "Title": "using AttachmentsFor",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#using-attachmentsfor"
-                },
-                {
-                    "Title": "using LoadAttachment",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#indexes-with--1"
-                },
-                {
-                    "Title": "using LoadAttachments",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#indexes-with--2"
-                }
             ]
         },
         {
@@ -117,18 +92,13 @@
                 "* Configure the index-fields content.",
                 "",
                 "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
-                "  e.g., _AttachmentNames_ is an index field that holds all the attachments' names of the document.",
+                "  e.g., _attachment_names_ is an index-field that holds all the attachments' names of the document.",
                 "",
                 "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",
                 "",
                 "* Re-indexing will happen on any change to the document's attachments."
             ],
             "Assets": [
-                {
-                    "Title": "Indexing Attachments",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing"
-                }
             ]
         },
         {
@@ -143,17 +113,12 @@
                 {
                     "Title": "Query for documents (Map Index Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index#step-3"
+                    "Url"  : "/python/static-indexes/map-index#step-3"
                 },
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-overview"
-                },
-                {
-                    "Title": "Query the index example",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#querying-the-index"
+                    "Url"  : "/python/queries/query-overview"
                 }
             ]
         }

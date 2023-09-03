@@ -1,0 +1,142 @@
+{
+    "Slug": "paging-query-results",
+    "SourceFileName": "pagingQueryResults.py",
+    "Title": "Paging Query Results",
+    "DescriptionLines": [
+        "By default, a query will return _all_ available matching results.",
+        "**Paging** can be used to limit the result set and avoid handling huge amounts of data at once.",
+        "",
+        "Page the results by specifying the number of results to skip and the number of results to take.",
+        "Either loop page by page on all available results, or request a specific page out of all results."        
+    ],
+
+    "Assets": [
+        {
+            "Title": "Deep paging",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Companies' collection using the Session `query()` method.",
+                "",
+                "* While this example relates to a dynamic query where an auto-index is created,<br>",
+                "  _paging_ can also be applied when querying using a static index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Get query statistics",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* When paging results, the query returns only the requested number of documents.<br>",
+                "  See step-4.",
+                "",
+                "* Using the `statistics()` method allows retrieving the number of total available matching results.",
+                "  See step-6.",
+                "",
+                "* The statistics method expects a callback function, which receives a single `QueryStatistics` parameter."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/update-me-later"
+                }
+            ]
+        },
+        {
+            "Title": "Skip results",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Use `skip()` to specify the number of results to skip from the total available result set.",
+                "",
+                "* The query above will _skip the first 'resultsToSkip' documents_.<br>",
+                "  The documents returned by the query will start from the 'resultsToSkip'+1 location in the total available result set.",
+                "",
+                "* Using 'skip()' is not mandatory. 'skip()' is relevant when:<br>",
+                "  * Fetching results starting from a specific location from the result set.",
+                "  * Paging through all available results, incrementing 'resultsToSkip' by the number of fetched results each time.<br>",
+                "",
+                "* About deep paging:<br>",
+                "  When a query is processed by the server, the paging is handled after the sorting stage.<br>",
+                "  If you need to page deeply when expecting a very large result set, consider using a conditional where clause instead, in order to reduce the amount of work required from RavenDB.",
+                "",
+                "* About Tampered results:<br>",
+                "  When querying with 'distinct()' or querying a 'Fanout index' over non-stored fields, the server might skip over some results internally.",
+                "  For proper paging in these cases, the number of results to skip should be increased by the number of 'stats.skipped_results'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/sorting-query-results"
+                },
+                {
+                    "Title": "Deep paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Take results",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Use `take()` to specify the number of results to actually take (return) from the total available result set.",
+                "",
+                "* The position from where to start 'taking' is set by the previous 'skip()' method.",
+                "",
+                "* If no results were skipped - when Not using skip() at all, or when using skip(0) - then the first 'resultsToTake' documents will be returned from the result set."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `list()`.",
+                "",
+                "* _'paged_results'_ will contain only 'resultsToTake' documents starting from the 'resultsToSkip' location from the result set.",
+                "",
+                "* The output entities returned by the query are tracked by the Session as usual.<br>"
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Get total number of results",
+            "Slug": "step-6",
+            "DescriptionLines": [
+                "* When retrieving only 'page size' results, you might still need to know the total number of results.",
+                "",
+                "* The total number of documents in the result set can be retrieved from: `stats.total_results`.<br>",
+                "  The 'stats' variable is assigned with the statistics inside the callback that is passed to the `statistics()` method in step-2."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Statistics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/queries/update-me-later"
+                },
+                {
+                    "Title": "Get query statistics",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-get-query-statistics"
+                }
+            ]
+        }        
+    ]
+}

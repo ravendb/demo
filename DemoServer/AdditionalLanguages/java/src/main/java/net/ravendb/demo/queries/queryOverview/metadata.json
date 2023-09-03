@@ -67,12 +67,12 @@
             "Title": "Define a query",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* A query can be defined just on a _collection_, or on an _index_ as well.",
+                "* A query can be defined just on a _collection_, or on an _index_.",
                 "",
                 "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see auto-indexes).",
+                "  The 'query optimizer' will create such index on the fly if needed. (see Auto-Indexes demos).",
 
-                "* Note: The query optimizer only searches for a matching index within the existing auto-indexes, not the static ones.",
+                "* Note: The query optimizer only searches for a matching index within the existing Auto-Indexes, not the static ones.",
                 "",
                 "* In this demo, a query is defined on the 'Employees' collection using the session `query()` method syntax."
             ],
@@ -108,6 +108,11 @@
                     "Title": "Sample Program",
                     "Type" : "link",
                     "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#queries"
+                },
+                {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/java/auto-indexes/auto-map-index1"
                 }
             ]
         },

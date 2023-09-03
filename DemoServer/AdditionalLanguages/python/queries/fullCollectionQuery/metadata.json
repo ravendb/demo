@@ -1,0 +1,72 @@
+{
+    "Slug": "full-collection-query",
+    "SourceFileName": "fullCollectionQuery.py",
+    "Title": "Full Collection Query",
+    "DescriptionLines": [
+        "**A Full Collection Query** returns _all_ the documents in the specified collection.<br>",
+        "",
+        "No index is created as no filtering is applied."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+        },
+        {
+            "Title": "Query on a Session",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#query"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the full collection query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* To define a query on collection 'Companies' you can use either:<br>",
+                "  * `session.query(object_type=Company)`<br>",
+                "  * `session.query_collection('Companies')`",
+                "",
+                "* The results will include _all_ documents from the collection.",
+                "",
+                "* No index will be created when querying on a just the collection without any filtering.",
+                "",
+                "* _Note_: A full collection query can be an expensive operation, as all documents need to be retrieved from the server and sent over the network."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                },
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+                },
+                {
+                    "Title": "Query on a Session",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#query"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The 'full_collection_query' variable only stores the query definition.<br>",
+                "  Execute the query by calling `list()`, or any other method that forces immediate execution.",
+                "",
+                "* The 'collection_results' variable will hold all the document entities in the 'Companies' collection.",
+                "",
+                "* The entities returned by the Query operation are _'loaded'_ to the Session."
+            ],
+            "Assets": [
+            ]
+        }
+    ]
+}
