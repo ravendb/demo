@@ -44,7 +44,9 @@
                 "  See step-4.",
                 "",
                 "* Using the `statistics()` method allows retrieving the number of total available matching results.",
-                "  See step-6."
+                "  See step-6.",
+                "",
+                "* The statistics method expects a callback function, which receives a single `QueryStatistics` parameter."
             ],
             "Assets": [
                 {
