@@ -38,7 +38,7 @@
             "DescriptionLines": [
                 "* Create an index class.",
                 "",
-                "* Pass the relevant index class types as a parameter:<br>",
+                "* Pass the relevant index class from which to inherit as a parameter:<br>",
                 "    * `AbstractIndexCreationTask` - for a Map index<br>",
                 "    * `AbstractMultiMapIndexCreationTask` - for a Multi-Map index<br>",
                 "    * `AbstractJavaScriptIndexCreationTask` - for a Javascript index",

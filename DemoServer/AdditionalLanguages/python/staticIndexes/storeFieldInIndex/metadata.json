@@ -32,9 +32,7 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class.",
-                "",
-                "* Use index class type `AbstractIndexCreationTask`."
+                "* Create the Map index class - inherit from AbstractIndexCreationTask."
             ],
             "Assets": [
                 {

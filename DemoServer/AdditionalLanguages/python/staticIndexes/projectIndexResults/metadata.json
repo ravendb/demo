@@ -31,9 +31,7 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class.",
-                "",
-                "* Use index class type `AbstractIndexCreationTask`."
+                "* Create the Map index class - inherit from AbstractIndexCreationTask."
             ],
             "Assets": [
                 {
@@ -141,7 +139,10 @@
                 "",
                 "* In this example:<br>",
                 "  * _first_name_, _phone_ are returned from the document<br>",
-                "  * _location_ is customized from the other raw document fields."
+                "  * _location_ is customized from the other raw document fields.",
+                "",
+                "* Another way to project is by providing the projection class, e.g.:",
+                "  `employees_query = employees_query.select_fields(EmployeeProjectedDetails)`"
             ],
             "Assets": [
             ]
