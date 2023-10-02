@@ -139,10 +139,7 @@
                 "",
                 "* In this example:<br>",
                 "  * _first_name_, _phone_ are returned from the document<br>",
-                "  * _location_ is customized from the other raw document fields.",
-                "",
-                "* Another way to project is by providing the projection class, e.g.:",
-                "  `employees_query = employees_query.select_fields(EmployeeProjectedDetails)`"
+                "  * _location_ is customized from the other raw document fields."
             ],
             "Assets": [
             ]
