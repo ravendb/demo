@@ -50,9 +50,7 @@
             "Title": "Define the Multi Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Multi Map index class.",
-                "",
-                "* Use index class type `AbstractMultiMapIndexCreationTask`."
+                "* Create the Multi Map index class - inherit from AbstractMultiMapIndexCreationTask"
             ],
             "Assets": [
                 {

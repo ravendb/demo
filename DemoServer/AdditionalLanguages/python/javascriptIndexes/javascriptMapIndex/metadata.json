@@ -33,9 +33,7 @@
             "Title": "Define the Map Index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map Index class.",
-                "",
-                "* Use index class type `AbstractJavaScriptIndexCreationTask`."
+                "* Create the Map Index class - inherit from AbstractJavaScriptIndexCreationTask."
             ],
             "Assets": [
                 {
