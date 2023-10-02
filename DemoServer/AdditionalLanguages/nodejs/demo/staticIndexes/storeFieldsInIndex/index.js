@@ -36,7 +36,7 @@ class OrderProjectedDetails {
 //endregion
 //endregion
 
-async function run ({ companyId }) {
+async function run ({ companyID }) {
     await new OrdersQuantity_ByCompany().execute(documentStore);
 
     //region Demo
@@ -45,7 +45,7 @@ async function run ({ companyId }) {
     const ordersQuery = session
         //region Step_5
         .query(Order, OrdersQuantity_ByCompany)
-        .whereEquals('company', companyId)
+        .whereEquals('company', companyID)
         //endregion
         //region Step_6
         .selectFields(new QueryData(['OrderedAt', 'totalItemsOrdered'], ['orderedAt', 'totalItemsOrdered']),

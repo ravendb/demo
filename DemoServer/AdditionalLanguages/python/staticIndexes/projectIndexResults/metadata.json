@@ -1,0 +1,167 @@
+{
+    "Slug": "project-index-results",
+    "SourceFileName": "projectIndexResults.py",
+    "Title": "Project Index Results",
+    "DescriptionLines": [
+        "Querying an index results in matching documents that satisfy the query.<br>",
+        "However, **index results can be projected**.<br>",
+        "<p>* You can ask the server to return only some of the documents' fields.<br>",
+        "* You can customize the projected fields.",
+        "",
+        "Retrieving partial document data from the server reduces network traffic load.",
+        "",
+        "The returned projected objects are Not tracked by the sessions as they are not full documents."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/python/static-indexes/static-indexes-overview"
+        },
+        {
+            "Title": "Strongly Typed Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-complex-indexes-using-strongly-typed-code"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from AbstractIndexCreationTask."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Entry class",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>These fields will be indexed and can be queried on.",
+                "",
+                "* The _content_ for each index-field is configured in the index constructor (see step 4)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The projected class",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* `EmployeeProjectedDetails` will contain the details projected per document in the results.<br>",
+                "  Used in step 6.",
+                "",
+                "* Note: it is not mandatory for this class to be nested within the index class."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Assign the index definition string to the map property.",
+                "  This index definition defines the index-fields content - which fields from the 'Employee' document will compose each index-field.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
+                "",
+                "* In this example,<br> data from document field 'HiredAt.Year' is indexed in the _working_in_company_since_ index-field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* The 'Employees' documents can be _filtered_ by the index-fields defined in `Employees_ByWorkPeriod.IndexEntry`",
+                "",
+                "* The resulting documents will include only employees that started working after 'startYear'."
+            ],
+            "Assets": [
+                
+                {
+                    "Title": "Filtering Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Project Results",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Use `select_fields_query_data()`  with QueryData.custom_function() to select which specific document fields will be returned from the server for each resulting document.<br>",
+                "  Only these fields will be returned in the projected class `EmployeeProjectedDetails` and Not the whole document.",
+                "",
+                "* In this example:<br>",
+                "  * _first_name_, _phone_ are returned from the document<br>",
+                "  * _location_ is customized from the other raw document fields."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the Query",
+            "Slug" : "step-7",
+            "DescriptionLines": [
+                "* The _employees_query_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `list()`, or any other method that forces immediate execution.",
+                "",
+                "* The final query results include only partial/projected details for employees that started working after 'startYear'.",
+                "",
+                "* The resulting objects are Not tracked by the session since they are not the stored documents but only partial data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-overview"
+                }
+            ]
+        }
+    ]
+}

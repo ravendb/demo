@@ -1,6 +1,6 @@
 {
     "Slug": "store-fields-in-index",
-    "SourceFileName": "StoreFieldsInIndexController.cs",
+    "SourceFileName": "storeFieldsInIndex.py",
     "Title": "Store Fields in Index",
     "DescriptionLines": [
         "Querying an index results in matching documents that satisfy the query.",
@@ -12,28 +12,18 @@
     "Assets": [
         {
             "Title": "Static Indexes Overview Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/static-indexes-overview"
+            "Type": "demo",
+            "Url": "/python/static-indexes/static-indexes-overview"
         },
         {
             "Title": "Project Index Result Demo",
-            "Type" : "demo",
-            "Url"  : "/static-indexes/project-index-results"
-        },
-        {
-            "Title": "Indexes Overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/indexes-overview"
+            "Type": "demo",
+            "Url": "/python/static-indexes/project-index-results"
         },
         {
             "Title": "Storing Data in the Index",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
-        },
-        {
-            "Title": "Indexes: Storing Data",
             "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/storing-data-in-index"
+            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
         }
     ],
 
@@ -42,32 +32,23 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Order_ - indicates that the source collection for the index will be the 'Orders' collection<br>",
-                "    * _OrdersQuantity_ByCompany.IndexEntry_ - is the shape of the resulting index-fields<br>(see next step)"
+                "* Create the Map index class - inherit from AbstractIndexCreationTask."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Type": "demo",
+                    "Url": "/python/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -79,23 +60,18 @@
                 "",
                 "* The _content_ for each index-field is configured in the index constructor (see next step).",
                 "",
-                "* Field _TotalItemsOrdered_ will be computed and stored in the index (Step 5)."
+                "* Field _total_items_ordered_ will be computed and stored in the index (Step 5)."
             ],
             "Assets": [
                 {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
-                {
                     "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
                 {
                     "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                    "Type": "link",
+                    "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
                 }
             ]
         },
@@ -111,8 +87,8 @@
             "Assets": [
                 {
                     "Title": "Project Index Result Demo",
-                    "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
+                    "Type": "demo",
+                    "Url": "/python/static-indexes/project-index-results"   
                 }
             ]
         },
@@ -120,20 +96,18 @@
             "Title": "The Index Map",
             "Slug": "step-4",
             "DescriptionLines": [
-                "* The _Map function_ defines the index-fields content - which fields from the 'Order' document will compose each index-field.",
+                "* Assign the index definition string to the map property.",
                 "",
-                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "* This index definition defines the index-fields content - which fields from the 'Order' document will compose each index-field.<br>",
+                "  The document properties are case-sensitive, use the exact casing as in the document.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified by the index definition, and a mapping to the relevant document.",
                 "",
                 "* These indexed terms can later be queried on to get their matching documents, the documents that contain them.",
                 "",
-                "* In this example, index field `TotalItemsOrdered` is computed and will be stored in the index, see in the next step."
+                "* In this example, index field `total_items_ordered` is computed and will be stored in the index, see in the next step."
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -150,11 +124,11 @@
             "Title": "Store field in Index",
             "Slug": "step-5",
             "DescriptionLines": [
-                "* Use `Store.Add()` with _FieldStorage.Yes_ to store the specified field in the index.",
+                "* Use `store()` with _FieldStorage.YES_ to store the specified field in the index.",
                 "",
                 "* At query time, the value will be fetched directly from the index instead of from the document store.",
                 "",
-                "* Use StoreAllFields(FieldStorage.Yes) to store ALL the index-fields.",
+                "* Use store_all_fields(FieldStorage.YES) to store ALL the index-fields.",
                 "",
                 "* Note: Storing fields on the index will increase the index size on disk."
             ],
@@ -163,16 +137,6 @@
                     "Title": "Storing Data in the Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#storing-data-in-the-index"
-                },
-                {
-                    "Title": "Indexes: Storing Data",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/Csharp/indexes/storing-data-in-index"
-                },
-                {
-                    "Title": "Studio: Index Field Options",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/indexes/create-map-index#index-field-options"
                 }
             ]
         },
@@ -182,7 +146,7 @@
             "DescriptionLines": [
                 "* Query the 'Orders' collection using the defined index.",
                 "",
-                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry.class`",
+                "* The orders' documents can be _filtered_ by the index-fields defined in `OrdersQuantity_ByCompany.IndexEntry`",
                 "",
                 "* The resulting documents will include only orders that where made by 'companyID'."
             ],
@@ -191,7 +155,7 @@
                 {
                     "Title": "Filtering Results - Basics Demo",
                     "Type" : "demo",
-                    "Url"  : "/queries/filtering-results-basics"
+                    "Url"  : "/python/queries/filtering-results-basics"
                 }
             ]
         },
@@ -199,31 +163,19 @@
             "Title": "Project Results",
             "Slug" : "step-7",
             "DescriptionLines": [
-                "* Use `ProjectInto()` to make the server return only the fields defined in the 'OrdersQuantity_ByCompany.OrderProjectedDetails' class per document result instead of the whole document.<br>",
+                "* Use `select_fields()` to make the server return only the fields defined in the 'OrdersQuantity_ByCompany.OrderProjectedDetails' class per document result instead of the whole document.<br>",
                 "  * If the field is _stored in the index_ - the server will fetch it from the index<br>",
                 "  * If the field is _not stored in the index_ - the server will fetch it from the document store",
                 "",
                 "* In this example:<br>",
-                "  * 'TotalItemsOrdered' is fetched from the index<br>",
-                "  * 'OrderedAt' is fetched from the document store",
-                "",
-                "* Method _Select()_ can be used instead of ProjectInfo(). See related links."
+                "  * 'total_items_ordered' is fetched from the index<br>",
+                "  * 'OrderedAt' is fetched from the document store"
             ],
             "Assets": [
                 {
                     "Title": "Project Index Result Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/project-index-results"
-                },
-                {
-                    "Title": "Querying: Projections",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/projections"
-                },
-                {
-                    "Title": "Select()",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/projections#select"
+                    "Url"  : "/python/static-indexes/project-index-results"
                 }
             ]
         },
@@ -231,8 +183,8 @@
             "Title": "Execute the Query",
             "Slug" : "step-8",
             "DescriptionLines": [
-                "* The _ordersQuery_ variable only stores the query definition.<br>",
-                "  Execute the query by calling `ToList()`, or any other method that forces immediate execution.",
+                "* The _orders_query_ variable only stores the query definition.<br>",
+                "  Execute the query by calling `list()`, or any other method that forces immediate execution.",
                 "",
                 "* The final query results include the projected details for orders that where made by 'companyID'.",
                 "",
@@ -242,7 +194,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "demo",
-                    "Url"  : "/queries/query-overview"
+                    "Url"  : "/python/queries/query-overview"
                 }
             ]
         }
