@@ -27,7 +27,8 @@ namespace DemoServer
             {DemoLanguage.Java, Path.Combine("AdditionalLanguages", "java", "src", "main", "java", "net", "ravendb", "demo")},
             {DemoLanguage.NodeJs, Path.Combine("AdditionalLanguages", "nodejs", "demo")},
             {DemoLanguage.Go, Path.Combine("AdditionalLanguages", "go")},
-            {DemoLanguage.Python, Path.Combine("AdditionalLanguages", "python")}
+            {DemoLanguage.Python, Path.Combine("AdditionalLanguages", "python")},
+            {DemoLanguage.Php, Path.Combine("AdditionalLanguages", "php")}
             // add path
         };
 
