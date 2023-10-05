@@ -7,7 +7,8 @@
         "demos": [
             "theDocumentStore",
             "theSession",
-            "createDocument"
+            "createDocument",
+            "loadAndEditDocument"
         ]
     }
 ]
