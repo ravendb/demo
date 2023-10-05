@@ -1,0 +1,47 @@
+{
+    "Slug": "delete-document",
+    "SourceFileName": "DeleteDocument.php",
+    "Title": "Delete Document",
+    "DescriptionLines": [
+        "**Delete a document** from the database."
+    ],
+
+    "Assets": [],
+
+    "Walkthroughs": [
+        {
+            "Title": "Mark the entity to be deleted",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Mark the entity to be deleted with the Session `delete()` method.<br>",
+                "  The document is actually deleted from the database only when saveChanges() is called later on.",
+                "",
+                "_Note_:",
+                "",
+                "* When using delete() as above, with the specific ID param overload, the document is deleted with no concurrency checks.",
+                "* A _Concurrency Exception_ can be thrown only when using the following overloads:",
+                "",
+                "     * delete(object $entity);",
+                "     * delete(string $id, string $expectedChangeVector);"
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* The document is deleted from the database upon calling `saveChanges()`.",
+                "",
+                "* The Session sends the changes to the server as a single remote call that completes transactionally."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "The SaveChanges Command",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#savechanges"
+                }
+            ]
+        }
+    ]
+}

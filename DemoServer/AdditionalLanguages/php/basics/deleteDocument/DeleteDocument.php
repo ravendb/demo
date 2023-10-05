@@ -1,31 +1,26 @@
 <?php
 
-namespace RavenDB\Demo\basics\loadAndEditDocument;
+namespace RavenDB\Demo\basics\deleteDocument;
 
 //region Usings
 use RavenDB\Documents\Session\DocumentSessionInterface;
 //endregion
-Use RavenDB\Demo\common\DocumentStoreHolder;
-use RavenDB\Demo\common\models\Company;
+use RavenDB\Demo\common\DocumentStoreHolder;
 
-class LoadAndEditDocument
+class DeleteDocument
 {
     public function __invoke(RunParams $runParams)
     {
-        $companyName = $runParams->getCompanyName();
+        $documentID = $runParams->getDocumentId();
 
         //region Demo
         $session = DocumentStoreHolder::getStore()->openSession();
         try {
             //region Step_1
-            $company = $session->load(Company::class, "companies/5-A");
+            $session->delete($documentID);
             //endregion
 
             //region Step_2
-            $company->setName($companyName);
-            //endregion
-
-            //region Step_3
             $session->saveChanges();
             //endregion
             

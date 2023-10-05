@@ -76,10 +76,10 @@
                 "* The Session takes care of generating the document identifier automatically.<br>",
                 "  The new stored entity ID is now available and can be used.",
                 "",
-                "* _If your PHP class was defined with an 'id' property_:<br>",
+                "* _If your PHP class was defined with an '$id' property_:<br>",
                 "  => You can get the new stored entity ID as shown in the above example.",
                 "",
-                "* _If your PHP class was Not defined with an 'id' property_:<br>",
+                "* _If your PHP class was Not defined with an '$id' property_:<br>",
                 "  => You can get the new stored entity ID using: `$session->advanced()->getDocumentId($newCompany);`<br>",
                 "  Or directly access the id property which is added to the object by the client:<br>",
                 "  `$newCompany->id`"
