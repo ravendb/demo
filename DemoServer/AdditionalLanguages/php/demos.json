@@ -5,7 +5,8 @@
             "directory": "basics"
         },
         "demos": [
-            "theDocumentStore"
+            "theDocumentStore",
+            "theSession"
         ]
     }
 ]
