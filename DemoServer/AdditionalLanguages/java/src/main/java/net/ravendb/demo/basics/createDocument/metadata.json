@@ -64,7 +64,7 @@
                 "  Collections are used to group documents together so that it is convenient to apply some operation to them.",
                 "",
                 "* _The Java class members_ determine the document JSON structure in the database.<br>",
-                "  The JSON serialization for the document fields follows the conventions set on the Document Store",
+                "  The JSON serialization for the document fields follows the conventions set on the Document Store.",
                 "",
                 "* Note: Having an 'Id' field property in the class definition is Not mandatory.<br>",
                 "  The Session will assign an ID for the entity that is stored, and this ID can be fetched later at any time.",

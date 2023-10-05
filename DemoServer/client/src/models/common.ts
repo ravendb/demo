@@ -9,7 +9,7 @@ export function languageToDisplay(language: Language) {
         case "python":
             return "Python";
         case "php":
-            return "Php";
+            return "PHP";
         case "go":
             return "Go";
         case "nodejs":
