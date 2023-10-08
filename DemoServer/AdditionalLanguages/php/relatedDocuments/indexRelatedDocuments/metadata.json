@@ -1,0 +1,121 @@
+{
+    "Slug": "index-related-documents",
+    "SourceFileName": "IndexRelatedDocuments.php",
+    "Title": "Index Related Documents",
+    "DescriptionLines": [
+        "**Data from Related Documents can be indexed** when defining an index.",
+        "",
+        "RavenDB will load the related document at indexing time and index the specified values.",
+        "",
+        "The index will be kept up-to-date upon any change on the related document."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Create Related Documents Demo",
+            "Type" : "demo",
+            "Url"  : "/php/related-documents/create-related-documents"
+        },
+        {
+            "Title": "Reference handling, Include and LoadDocument",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#reference-handling-include-and-loaddocument"
+        },
+        {
+            "Title": "Indexing referenced data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+        },
+        {
+            "Title": "Static Indexes Overview Demo",
+            "Type" : "demo",
+            "Url"  : "/php/static-indexes/static-indexes-overview"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the index class",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* This example defines a Map Index on the _Products_ collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/map-index"
+                }
+            ]
+        },      
+        {
+            "Title": "The index constructor",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Configure the index-fields content.",
+                "",
+                "* Use `LoadDocument()` to load the related 'Category' document whose ID is specified by 'product.Category'.",
+                "",
+                "* The index-field _CategoryName_ will contain the value of the 'Name' property from the related document.",
+                "  The document property is case-sensitive, use the exact casing as in the document.",
+                "",
+                "* Later on, the 'Products' collection can be queried using this index to get products that have a specific category name.",
+                "",
+                "* Take into account that:<br>",
+                "  Re-indexing will happen on any change in the related document !<br>",
+                "  Read about the cost of tracking related documents in the 'Indexing referenced data' related link."
+            ],
+            "Assets": [
+                {
+                    "Title": "Reference handling, Include and LoadDocument",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#reference-handling-include-and-loaddocument"
+                },
+                {
+                    "Title": "Indexing referenced data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Query the 'Products' collection using the defined index.",
+                "",
+                "* The query results will include all documents from the 'Products' collection that have the specified 'categoryName' param.",
+                "",
+                "* Remember - the category field in the Product document has the _ID_ of the related category document.",
+                "  Using the index allows us to query by the category _Name_ itself."
+            ],
+            "Assets": [
+                {
+                    "Title": "Indexing referenced data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#indexing-referenced-data"
+                },
+                {
+                    "Title": "Query for documents (Map Index Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/query-overview"
+                }
+            ]
+        }
+    ]
+}
