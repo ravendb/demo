@@ -1,0 +1,126 @@
+{
+    "Slug": "load-related-documents",
+    "SourceFileName": "LoadRelatedDocuments.php",
+    "Title": "Load Related Documents",
+    "DescriptionLines": [
+        "**Related documents can be loaded** to the Session from the database when loading the document that references them.",
+        "",
+        "Retrieving a document along with its related documents will occur in a single remote call to the server when using **include()**.",
+        "",
+        "Using 'include()' reduces the number of network round trips when working with complex data."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Create Related Documents Demo",
+            "Type" : "demo",
+            "Url"  : "/php/related-documents/create-related-documents"
+        },
+        {
+            "Title": "Working with multiple documents",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Load a document - Include related documents",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Use `include()` to instruct the server to send the related document to the client when loading the primary document.<br>",
+                "  The document whose ID is specified in the 'Supplier' field of document 'products/34-A' will be sent to the Session upon the load() command in the following line.",
+                "",
+                "* Next, `load()` the primary document ('products/34-A') from the database.<br>",
+                "  Both the primary and the related documents are added to the Session's internal entities map for tracking changes that will be made to these documents.",
+                "",
+                "* Variable '$product' will hold the 'products/34-A' primary document entity.",
+                "",
+                "* Note:",
+                "  * _In order to access and modify the related document_ you still need to make a separate load() call.",
+                "    This load call will Not go to the server, the document will be retrieved directly from Session (see next step).",
+                "  * Multiple include() calls can be made to fetch more than one related document.",
+                "  * include() is Not recursive, it cannot be used to include documents that are referenced by the included documents."
+            ],
+            "Assets": [
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/load-and-edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Load the related document",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Call `load()` on the related document (referenced by: $product.getSupplier()) in order to access it.<br>",
+                "",
+                "* No trip to the server is made, as the related document is retrieved directly from the Session.",
+                "",
+                "* variable '$supplier' will hold the related document entity."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/load-and-edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Edit document and related document",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Edit the primary '$product' document and the related '$supplier' document.",
+                "",
+                "* Both documents are tracked by the Session.<br>",
+                "  These changes will be persisted to the database upon the next saveChanges() call."
+            ],
+            "Assets": [
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+                },
+                {
+                    "Title": "Load Document (Edit Document Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/load-and-edit-document#step-1"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Call `saveChanges()` to save modifications.<br>",
+                "",
+                "* Changes made to both the primary document and the related document will be saved to the database."
+            ],
+            "Assets": [
+                {
+                    "Title": "Save changes (The Session Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/the-session#step-3"
+                }
+            ]
+        }
+    ]
+}
