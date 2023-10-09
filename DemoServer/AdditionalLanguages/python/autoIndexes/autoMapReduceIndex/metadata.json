@@ -1,6 +1,6 @@
 {
     "Slug": "auto-map-reduce-index",
-    "SourceFileName": "index.js",
+    "SourceFileName": "autoMapReduceIndex.py",
     "Title": "Auto Map-Reduce Index",
     "StudioLinkToIndexList": true,
     "DescriptionLines": [
@@ -13,7 +13,7 @@
         {
             "Title": "Auto-Map-Index I Demo",
             "Type" : "demo",
-            "Url"  : "/nodejs/auto-indexes/auto-map-index1"
+            "Url"  : "/python/auto-indexes/auto-map-index1"
         },
         {
             "Title": "Aggregation queries",
@@ -30,34 +30,31 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
         },
-        //TODO
-        //{
-        //    "Title": "Basic dynamic Query",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-        //},
-        {
-            "Title": "Dynamic group-by query",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-group-by-query"
-        },
         {
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         }
-        //TODO
-        //{
-        //    "Title": "Querying - Query Optimizer",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql#query-optimizer"
-        //}
     ],
 
     "Walkthroughs": [
         {
-            "Title": "Define a dynamic query",
+            "Title": "The results type",
             "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define a class that will hold the aggregated data results.",
+                "",
+                "* The class fields are used when setting the aggregation action within the query definition.<br>",
+                "  See step 4.",
+                "",
+                "* The query in this demo will return the aggregated _number_of_employees_ in each _country_."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Define a dynamic query",
+            "Slug" : "step-2",
             "DescriptionLines": [
                 "* Define a dynamic query on the 'Employees' collection.<br>",
                 "  Note - no index is specified."
@@ -66,26 +63,15 @@
                 {
                     "Title": "Auto-Map-Index I Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/auto-indexes/auto-map-index1"
-                },
-                {
-                    "Title": "Querying an Index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
+                    "Url"  : "/python/auto-indexes/auto-map-index1"
                 }
-                //TODO
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //}
             ]
         },
         {
             "Title": "Define what to Group-By",
-            "Slug" : "step-2",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "* Use `groupBy()` to define the document field(s) on which to group by.",
+                "* Use `group_by()` to define the document field(s) on which to group by.",
                 "",
                 "* In the above, grouping is done on the document field _'Address.Country'_.<br>",
                 "  'Address.Country' will be the grouping key.",
@@ -111,29 +97,17 @@
                     "Title": "Dynamic aggregation",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
-                },
-                //TODO
-                //
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //},
-                {
-                    "Title": "Dynamic group by query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-group-by-query"
                 }
             ]
         },
         {
             "Title": "Define the aggregation action",
-            "Slug" : "step-3",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Define the aggregation action - _the computation to be done per grouping key_.",
                 "",
-                "* Use `selectKey()` to define the key field on which to aggregate on.<br>",
-                "  Use `selectCount()` to define the field that will hold the aggregated count value.",
+                "* Use `select_key()` to define the key field on which to aggregate on.<br>",
+                "  Use `select_count()` to define the field that will hold the aggregated count value.",
                 "",
                 "* _Each entry in the result set will contain the following info_:",
                 "    * The country name",
@@ -143,13 +117,13 @@
                 "  Here we are counting the number of documents that exist per unique country.",
                 "",
                 "* Note: the supported aggregation actions with a dynamic query are:<br>",
-                "  `selectCount()` & `selectSum()`."
+                "  `select_count()` & `select_sum()`."
             ],
             "Assets": [
                 {
                     "Title": "Aggregation queries",
                     "Type" : "link",
-                    "Url"  : "hhttps://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
                 },
                 {
                     "Title": "MapReduce and Aggregations",
@@ -161,27 +135,16 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
                 },
-                //TODO
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //},
-                {
-                    "Title": "Dynamic group by query",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-group-by-query"
-                },
                 {
                     "Title": "Projecting Fields Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/queries/projecting-individual-fields"
+                    "Url"  : "/python/queries/projecting-individual-fields"
                 }
             ]
         },
         {
             "Title": "Define results order",
-            "Slug" : "step-4",
+            "Slug" : "step-5",
             "DescriptionLines": [
                 "* Optionally, the query result set can be sorted according to any one of the result fields defined with the above 'select' methods."
             ],
@@ -189,13 +152,22 @@
                 {
                     "Title": "Sorting Query Results Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/queries/sorting-query-results"
+                    "Url"  : "/python/queries/sorting-query-results"
                 }
             ]
         },
         {
+            "Title": "Set the results type",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Use `of_type()` to set the shape of the query results."
+            ],
+            "Assets": [
+            ]
+        },
+        {
             "Title": "Execute the dynamic query",
-            "Slug" : "step-5",
+            "Slug" : "step-7",
             "DescriptionLines": [
                 "* Upon query execution, the _query-optimizer_ will analyze the query to see if an Auto-Map-Reduce Index that can answer this query already exists.",
                 "",
@@ -204,7 +176,7 @@
                 "",
                 "* With the above query, the following Auto-Map-Reduce Index will be created: _Auto/Employees/ByCountReducedByAddress.Country_.",
                 "",
-                "* The _numberOfEmployeesPerCountry_ variable will hold the query results set.<br>",
+                "* The _number_of_employees_per_country_ variable will hold the query results set.<br>",
                 "  Each entry in the result set will contain a unique country and the total number of employees in it.",
                 "",
                 "* Note: the results are Not tracked by the session, as they are Not document entities, but just data projected from the server."
@@ -215,25 +187,7 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 }
-                //TODO
-                //{
-                //    "Title": "Querying - Query Optimizer",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
-                //}
             ]
-        },
-        {
-            "Title": "Sample results",
-            "Slug": "step-6",
-            "DescriptionLines": [
-                "* This is an example for the query results.",
-                "",
-                "* The results shape contains the key field and the aggregated field only,<br>",
-                "  (and not the whole 'Employee' document shape)."
-            ],
-            "Assets": [
-            ]
-        }
+        }        
     ]
 }

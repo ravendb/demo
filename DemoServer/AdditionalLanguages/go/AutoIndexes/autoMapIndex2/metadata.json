@@ -49,7 +49,7 @@
             "DescriptionLines": [
                 "* Upon query execution, the _query-optimizer_ analyzes the query to see if an _auto-index_ that can answer the query already exists,",
                 "",
-                "* If there is No auto-index defined on the'Employees' collection,<br>",
+                "* If there is No auto-index defined on the 'Employees' collection,<br>",
                 "  => a new auto-index will be created.",
                 "",
                 "* If there is an existing auto-index that:",

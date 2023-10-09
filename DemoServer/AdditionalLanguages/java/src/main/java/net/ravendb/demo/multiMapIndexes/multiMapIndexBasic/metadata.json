@@ -119,9 +119,9 @@
                 "  The document properties indexed are not customized but taken as is.<br>",
                 "  The document properties are case-sensitive, use the exact casing as in the document.",
                 "",
-                "* The index will contain a mapping from any indexed 'Name' term to the relevant document in either the Companies or the Suppliers collection.",
+                "* The index will contain a mapping from any term generated for the 'Name' index-field to the relevant document in either the Companies or the Suppliers collection.",
                 "",
-                "* When querying this index, the indexed term 'Name' can be used to filter the query results and get matching documents from either collection."
+                "* When querying this index, the index-field 'Name' can be used to filter the query results and get matching documents from either collection."
             ],
             "Assets": [
                 {
