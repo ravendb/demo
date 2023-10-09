@@ -22,7 +22,6 @@ class CompaniesAndSuppliers_ByName(AbstractMultiMapIndexCreationTask):
         super().__init__()
         self._add_map("docs.Companies.Select(company => new { name = company.Name })")
         self._add_map("docs.Suppliers.Select(supplier => new { name = supplier.Name })")
-        self._index("name", FieldIndexing.EXACT)
     #endregion
 #endregion
 
