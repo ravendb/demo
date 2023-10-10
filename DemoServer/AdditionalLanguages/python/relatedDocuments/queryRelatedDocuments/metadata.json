@@ -44,7 +44,7 @@
                 "* _The related 'Product' documents_, whose ID is specified in the 'Product' fields under 'Lines' within the 'Order' documents, will be loaded to the Session.",
                 "",
                 "* Note:<br>",
-                "  Since the query is not using an index and filtering is applied, an auto-index will be created if no matching auto-index already exists."
+                "  Since the query is not using a static-index and filtering is applied, an auto-index will be created if no matching auto-index already exists."
             ],
             "Assets": [
                 {

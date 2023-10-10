@@ -1,0 +1,27 @@
+[
+    {
+        "category": {
+            "slug": "basics",
+            "directory": "basics"
+        },
+        "demos": [
+            "theDocumentStore",
+            "theSession",
+            "createDocument",
+            "loadAndEditDocument",
+            "deleteDocument"
+        ]
+    },
+    {
+        "category": {
+            "slug": "related-documents",
+            "directory": "relatedDocuments"
+        },
+        "demos": [
+            "createRelatedDocuments",
+            "loadRelatedDocuments",
+            "queryRelatedDocuments",
+            "indexRelatedDocuments"
+        ]
+    }
+]

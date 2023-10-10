@@ -1,0 +1,166 @@
+{
+    "Slug": "create-related-documents",
+    "SourceFileName": "CreateRelatedDocuments.php",
+    "Title": "Create Related Documents",
+    "DescriptionLines": [
+        "A document can reference any other document from the database by storing the referenced document ID in the document.",
+        "",
+        "Referenced documents are called: **Related Documents**."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Working with multiple documents",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+        },
+        {
+            "Title": "Document Modeling",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+        },
+        {
+            "Title": "Loading and including related documents in a query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#loading-and-including-related-documents"
+        },
+        {
+            "Title": "Client-side identifier generation (hilo)",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create PHP entities - Related documents",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Create the entities that will become the related documents.",
+                "",
+                "* '$supplier' & '$category' will be stored and then referenced to from another 'primary' document."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/create-document"
+                },
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Create PHP entity - Primary document",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Create the primary document entity that will reference the other documents."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/create-document"
+                },
+                {
+                    "Title": "Document Modeling",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
+                },
+                {
+                    "Title": "Working with multiple documents",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#working-with-multiple-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Store - Related documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* `store()` the related '$supplier' & '$category' documents in the Session.",
+                "",
+                "* The store request will be sent to the server only later with the saveChanges() call.<br>",
+                "  But, the moment we return from store(), the RavenDB client ensures that we have a _valid ID_ for the stored document that is ready to be used.",
+                "",
+                "* This ID can be used for referencing - see next step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/create-document"
+                },
+                {
+                    "Title": "The Session Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/the-session"
+                },
+                {
+                    "Title": "Client-side identifier generation (hilo)",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
+                }
+            ]
+        },
+        {
+            "Title": "Reference the related documents",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Create a reference between the primary document and the related documents.<br>",
+                "  A reference to another document is a string property that contains the ID of the related document.",
+                "",
+                "* _$supplier->getId() & _$category->getId()_ will return the related documents IDs that were generated by the RavenDB client in the previous step."
+            ],
+            "Assets": [
+                {
+                    "Title": "Client-side identifier generation (hilo)",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#client-side-identifier-generation-hilo"
+                }
+            ]
+        },
+        {
+            "Title": "Store - Primary document",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "Store the primary document itself in the session."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/create-document"
+                }
+            ]
+        },
+        {
+            "Title": "Save the changes",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* When calling `saveChanges()`, all 3 documents will be created in the database:<br>",
+                "  the '$supplier', the '$category', and the '$product' document which references them."
+            ],
+            "Assets": [
+                {
+                    "Title": "Create Document Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/create-document"
+                },
+                {
+                    "Title": "The Session Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/basics/the-session"
+                }
+            ]
+        }
+    ]
+}

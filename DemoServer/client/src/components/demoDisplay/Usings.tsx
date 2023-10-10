@@ -32,6 +32,8 @@ export class Usings extends React.Component<UsingsProps, UsingsState> {
             case "python":
             case "go":
                 return "imports";
+            case "php":
+                return "use"
             default:
                 return "usings";
         }
