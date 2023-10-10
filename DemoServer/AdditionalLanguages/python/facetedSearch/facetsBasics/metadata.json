@@ -179,6 +179,7 @@
             "Slug": "step-6",
             "DescriptionLines": [
                 "* Call `aggregate_by_facets()` for the server to aggregate the resulting products documents according to the passed facets object.",
+                "  This returns a query object of type 'AggregationQueryBase'",
                 "",
                 "* After the first call to aggregate_by_facets, you may call _and_aggregate_by_, passing more facets definitions.",
                 "",
@@ -209,7 +210,8 @@
                 "* The _query_ variable only holds the query definition.<br>",
                 "  (Use query.toString() to view the generated RQL)<br>",
                 "",
-                "* Execute the query by calling `execute()`.",
+                "* Execute the query by calling `execute()`.<br>",
+                "  Calling query.execute() is valid only for queries of type 'AggregationQueryBase'.",
                 "",
                 "* The _query_results_ variable will hold the resulting aggregated items _per Facet_ defined.",
                 "",
