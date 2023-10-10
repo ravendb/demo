@@ -37,9 +37,7 @@
             "Title": "Define a static index",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class.",
-                "",
-                "* Use index class type `AbstractIndexCreationTask`."
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
