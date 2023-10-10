@@ -1,0 +1,189 @@
+{
+    "Slug": "facets-aggregations",
+    "SourceFileName": "facetsAggregations.py",
+    "Title": "Facets - Aggregations",
+    "DescriptionLines": [
+        "**Aggregation data** is available per group of documents in the faceted search result.",
+        "",
+        "The following can be requested for document field(s) in the group:",
+        "",
+        "<p>* Average<br>",
+        "* Sum<br>",
+        "* Max<br>",
+        "* Min</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Facets - Basic Demo",
+            "Type" : "demo",
+            "Url"  : "/python/faceted-search/facets-basics"
+        },
+        {
+            "Title": "Facets with Map index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+        },
+        {
+            "Title": "Facets with Map-Reduce",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+        },
+        {
+            "Title": "Facets - dynamic aggregation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+        },
+        {
+            "Title": "Facets - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/180897/queries-in-ravendb-facets-of-information#"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define an index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define an index on the collection you would like to query.<br>",
+                "  (CategoryName is loaded from a related document).",
+                "",
+                "* The index entry fields will be used to define the Facets (see steps 2 & 3)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/static-indexes/map-index"
+                },
+                {
+                    "Title": "Index Related Documents Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/related-documents/index-related-documents"
+                }
+            ]
+        },
+        {
+            "Title": "Define a Facet",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "Define the following per `Facet` object that will be added to the facet list:",
+                "",
+                "* _field_name_ - The index entry field by which the documents will be grouped.",
+                "",
+                "* _aggregations_ - An optional property.<br>",
+                "  Provide AVERAGE, SUM, MAX & MIN data for the specified document field(s) per group.",
+                "",
+                "      * Define a `FacetAggregationField` object and set its _Name_.",
+                "      * Call `aggregations.update()` to set the specified aggregation action on the field. ",
+                "",
+                "* 2 more optional properties are available (see dedicated demos in the links):",
+                "  * display_field_name - A customized name for the facet field the results",
+                "  * options - define skipping, paging & sorting options",
+                "",
+                "* _In this example_:<br>",
+                "  The Facet groups the documents by the content of index field 'CategoryName'.<br>",
+                "  Average, Max & Min are requested for field _PricePerUnit_.<br>",
+                "  Sum & Min are requested for field _UnitsInStock_.<br>",
+                "  But...<br>",
+                "  since aggregation is requested for 2 document fields,",
+                "  the resulting documents will be grouped by i.e. category 'Seafood', but you will get _2_ such items in the list,",
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Facets - Basic Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/faceted-search/facets-basics"
+                },
+                {
+                    "Title": "Facets - Options Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/faceted-search/facets-options"
+                }
+            ]
+        },
+        {
+            "Title": "Define a RangeFacet",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "Define the following per `RangeFacet` object that will be added to the facet list:",
+                "",
+                "* _ranges_ - Define ranges on an index entry field by which the documents will be grouped.<br>",
+                "  A separated aggregated item will be created per range defined.",
+                "",
+                "* _aggregations_ - An optional property.<br>",
+                "  Provide AVERAGE, SUM, MAX & MIN data for the specified document field(s) per group.",
+                "      * Call `aggregations.update()` to set the specified aggregation action on the field.",
+                "",
+                "* Another optional property is available (see dedicated demo in the links):",
+                "  * display_field_name - A customized name for the facet field the results",
+                "",
+                "* _In this example_:<br>",
+                "  The ranges are defined on index field 'PricePerUnit'.<br>",
+                "  E.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
+                "  But...<br>",
+                "  since aggregation is requested for 2 fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
+                "  you will get _2_ such items in the list,",
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
+            ],
+            "Assets": [
+                {
+                    "Title": "Facets - Basic Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/faceted-search/facets-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Facet list",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* Define the _list of Facets_ by which to aggregate the documents matching the query criteria.",
+                "  Initialize it with the Facets from the previous steps.",
+                "",
+                "* The available Facet types are:",
+                "  * _Facet_",
+                "  * _RangeFacet_",
+                "",
+                "* Both types inherit from `FacetBase`.<br>",
+                "  Any number of Facets and RangeFacets can be defined in this list."
+            ],
+            "Assets": [
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the defined index.<br>",
+                "  Pass the 'facets' object to the `aggregate_by_facets()` method and execute the query.",
+                "",
+                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Example Demo",
+                    "Type" : "demo",
+                    "Url"  : "/python/queries/query-example"
+                },
+                {
+                    "Title": "Facets with Map index",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#facets"
+                },
+                {
+                    "Title": "Facets with Map-Reduce",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#querying-mapreduce-indexes"
+                }
+            ]
+        }
+    ]
+}
