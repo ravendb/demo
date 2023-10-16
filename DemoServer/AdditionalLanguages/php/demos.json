@@ -23,5 +23,16 @@
             "queryRelatedDocuments",
             "indexRelatedDocuments"
         ]
+    },
+    {
+        "category": {
+            "slug": "attachments",
+            "directory": "attachments"
+        },
+        "demos": [
+            "storeAttachment",
+            "loadAttachment",
+            "indexAttachmentDetails"
+        ]
     }
 ]

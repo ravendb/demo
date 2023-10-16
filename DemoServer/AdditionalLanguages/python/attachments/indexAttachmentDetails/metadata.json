@@ -86,12 +86,12 @@
             ]
         },
         {
-            "Title": "Configure index fields",
+            "Title": "Configure index-fields",
             "Slug" : "step-4",
             "DescriptionLines": [
                 "* Configure the index-fields content.",
                 "",
-                "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index fields.<br>",
+                "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index-fields.<br>",
                 "  e.g., _attachment_names_ is an index-field that holds all the attachments' names of the document.",
                 "",
                 "* Later on, the 'Employees' collection can be queried using this index to get employees that have specific attachments names, types, etc.",

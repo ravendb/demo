@@ -1,6 +1,6 @@
 {
     "Slug": "index-attachment-details",
-    "SourceFileName": "IndexAttachmentDetails.java",
+    "SourceFileName": "IndexAttachmentDetails.php",
     "Title": "Index Attachment Details",
     "DescriptionLines": [
         "**Attachment's details and content can both be indexed**.",
@@ -12,17 +12,7 @@
         {
             "Title": "Store Attachment Demo",
             "Type" : "demo",
-            "Url"  : "/java/attachments/store-attachment"
-        },
-        {
-            "Title": "Indexing Attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing"
-        },
-        {
-            "Title": "What are attachments",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/what-are-attachments"
+            "Url"  : "/php/attachments/store-attachment"
         },
         {
             "Title": "Attachments and binary data",
@@ -47,39 +37,18 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
-                }
-            ]
-        },
-        {
-            "Title": "The index fields",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* Define the index-fields.",
-                "",
-                "* e.g. _AttachmentNames_ will be configured to hold all attachments names (in step 4)."
-            ],
-            "Assets": [
-                {
-                    "Title": "Static Indexes Overview Demo",
-                    "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Index Demo",
-                    "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
+                    "Url"  : "/php/static-indexes/map-index"
                 }
             ]
         },
         {
             "Title": "Load details for indexing",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "* Set `map` with the index definition string.",
                 "* First, call `AttachmentsFor()` to load the document's attachment details to be indexed.",
@@ -92,29 +61,13 @@
                 "",
                 "* To index an attachment content use: _LoadAttachment()_ or _LoadAttachments()_."
             ],
-            "Assets": [
-                {
-                    "Title": "using AttachmentsFor",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#using-attachmentsfor"
-                },
-                {
-                    "Title": "using LoadAttachment",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#indexes-with--1"
-                },
-                {
-                    "Title": "using LoadAttachments",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#indexes-with--2"
-                }
-            ]
+            "Assets": []
         },
         {
             "Title": "Configure index-fields",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
-                "* Configure the index-fields content.",
+                "* Configure the index-fields content. See the index-fields class in step-5.",
                 "",
                 "* The attachments' names, types, hashes & sizes are now available and can be used to configure the index-fields.<br>",
                 "  e.g., _AttachmentNames_ is an index-field that holds all the attachments' names of the document.",
@@ -123,17 +76,11 @@
                 "",
                 "* Re-indexing will happen on any change to the document's attachments."
             ],
-            "Assets": [
-                {
-                    "Title": "Indexing Attachments",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing"
-                }
-            ]
+            "Assets": []
         },
         {
             "Title": "Query for documents",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index.",
                 "",
@@ -143,17 +90,34 @@
                 {
                     "Title": "Query for documents (Map Index Demo)",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index#step-3"
+                    "Url"  : "/php/static-indexes/map-index#step-3"
                 },
                 {
                     "Title": "Query Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-overview"
+                    "Url"  : "/php/queries/query-overview"
+                }
+            ]
+        },
+
+        {
+            "Title": "The index-fields",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Define the index-fields.",
+                "",
+                "* e.g. _AttachmentNames_ are configured to hold all attachments names (in step 3)."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
-                    "Title": "Query the index example",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/document-extensions/attachments/indexing#querying-the-index"
+                    "Title": "Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/map-index"
                 }
             ]
         }
