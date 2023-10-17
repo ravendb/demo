@@ -59,7 +59,8 @@
             "filteringResultsMultipleConditions",
             "projectingIndividualFields",
             "projectingUsingFunctions",
-            "sortingQueryResults"
+            "sortingQueryResults",
+            "pagingQueryResults"
         ]
     }
 ]
