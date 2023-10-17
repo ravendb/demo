@@ -1,0 +1,77 @@
+{
+    "Slug": "filtering-results-basics",
+    "SourceFileName": "FilteringResultsBasics.php",
+    "Title": "Filtering Results - Basics",
+    "DescriptionLines": [
+        "**Filter the documents** by specifying some conditions on the **document fields** properties",
+        "",
+        "Only the matching documents will be returned by the server."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Querying in RavenDB",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Employees' collection Using the Session `query()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Define a filtering condition",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* This example queries for documents from the _Employees_ collection that match the following criteria:",
+                "     * Employee's first name is 'Anne'",
+                "     * The queried document field ('FirstName') is _case-sensitive_ -<br> use the exact same casing as inside your document.",
+                "",
+                "* More filtering options are available - see related links.",
+                "",
+                "* Since no index is specified within the query, RavenDB will create a matching Auto-Index if there is no existing Auto-Index that can answer this query.",
+                "",
+                "* The index-fields that will be created in the Auto-Index depend on the filtering method used:<br>",
+                "  * `whereEquals()`<br>",
+                "    The index-field created will contain terms with an exact match to the queried document-field.<br><br>",
+                "  * `search()` - 2 index-fields are created:<br>",
+                "      * One with an exact match same as the above<br>",
+                "      * One with tokenized terms.<br>The document-field content is tokenized by RavenDB's default analyzer.",
+                "",
+                "* If your text needs to be tokenized with a different analyzer, then you need to use a static index instead of a dynamic query."
+            ],
+            "Assets": [
+                {
+                    "Title": "Querying in RavenDB",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#querying-in-ravendb"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The '$filteredQuery' variable only stores the query definition.<br>",
+                "  Execute the query by calling `toList()`.",
+                "",
+                "* The '$filteredEmployees' variable will hold the resulting matching document entities.",
+                "",
+                "* The entities returned by the query are _'loaded'_ to the session."
+            ],
+            "Assets": []
+        }
+    ]
+}

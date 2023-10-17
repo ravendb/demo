@@ -54,7 +54,8 @@
             "queryOverview",
             "queryExample",
             "fullCollectionQuery",
-            "queryByDocumentId"
+            "queryByDocumentId",
+            "filteringResultsBasics"
         ]
     }
 ]
