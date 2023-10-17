@@ -1,0 +1,85 @@
+{
+    "Slug": "enable-revisions",
+    "SourceFileName": "EnableRevisions.php",
+    "Title": "Enable Revisions",
+    "DescriptionLines": [
+        "**Document Revisions** are snapshots of a document that are taken over time per document change.",
+        "",
+        "Once created, revisions are immutable and are useful when you need to track the changes made to the document.",
+        "",
+        "Document revisions are not enabled by default.<br>",
+        "This demo shows how to enable the feature."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Document Revisions",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create the revisions configuration object",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* The `RevisionsConfiguration` object specifies the default revisions configuration for all the collections in the database,",
+                "  and specific revisions configuration per collection."
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
+                }
+            ]
+        },
+        {
+            "Title": "Define default revisions values for all collections",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Create a `RevisionsCollectionConfiguration` object to hold the default configuration values for _all_ collections.",
+                "  Values can be overridden per collection, as shown in the next step.<br>",
+                "* Set any of the following:",
+                "",
+                "    * _setDisabled()_ - Enable or disable the revisions feature.",
+                "    * _setPurgeOnDelete()_ - Configure deletion of the revisions upon the parent document deletion.",
+                "    * _setMinimumRevisionsToKeep()_ - Configure number of revisions to keep.<br>",
+                "       In this example, only the latest 5 revision will be kept.",
+                "    * _setMinimumRevisionAgeToKeep()_ - Configure the revisions retention time.<br>",
+                "       In this example, revision will not be kept after 14 days.",
+                "",
+                "* Call `setDefaultConfig()` to set these default values on the revisions configuration object."
+                
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Define specific revisions values per collection",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Create a `RevisionsCollectionConfiguration` object to define different revisions configuration values per specific collection.<br>",
+                "",
+                "* Pass an array of collections and their specific configuration to `setCollections()` to _override_ the default values that were set in the previous step."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Set the revisions configuration in the Document Store",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Create a `ConfigureRevisionsOperation` and `send()` it to the Document Store.",
+                "",
+                "* Per collection, if 'Disabled' was set to false, then the revision feature will be enabled and a revision will be created for every document change."
+            ],
+            "Assets": [
+                {
+                    "Title": "Document Revisions",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
+                }
+            ]
+        }
+    ]
+}

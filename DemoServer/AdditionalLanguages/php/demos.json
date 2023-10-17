@@ -23,5 +23,26 @@
             "queryRelatedDocuments",
             "indexRelatedDocuments"
         ]
+    },
+    {
+        "category": {
+            "slug": "attachments",
+            "directory": "attachments"
+        },
+        "demos": [
+            "storeAttachment",
+            "loadAttachment",
+            "indexAttachmentDetails"
+        ]
+    },
+    {
+        "category": {
+            "slug": "revisions",
+            "directory": "revisions"
+        },
+        "demos": [
+            "enableRevisions",
+            "getRevisions"
+        ]
     }
 ]
