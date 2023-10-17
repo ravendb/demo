@@ -1,6 +1,6 @@
 {
     "Slug": "query-overview",
-    "SourceFileName": "queryOverview.py",
+    "SourceFileName": "QueryOverview.php",
     "Title": "Query Overview",
     "NonInteractive":  true,
     "DescriptionLines": [
@@ -12,12 +12,9 @@
         "The returned documents are loaded and tracked by the Session (except for projections).",
         "",
         "From the session, query the database by using any of:",
-        "<p>* session.query<br>",
-        "* session.query_collection<br>",
-        "* session.query_index<br>",
-        "* session.query_index_type<br>",
-        "* session.advanced.document_query<br>",
-        "* session.advanced.raw_query (using RQL)</p>"
+        "<p>* $session->query()<br>",
+        "* $session->advanced()->documentQuery()<br>",
+        "* $session->advanced()->rawQuery() (using RQL)</p>"
     ],
 
     "Assets": [
@@ -30,11 +27,6 @@
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
-        },
-        {
-            "Title": "Auto-Map-Index I Demo",
-            "Type" : "demo",
-            "Url"  : "/python/auto-indexes/auto-map-index1"
         }
     ],
 
@@ -66,7 +58,7 @@
                 {
                     "Title": "Auto-Map-Index I Demo",
                     "Type" : "demo",
-                    "Url"  : "/python/auto-indexes/auto-map-index1"
+                    "Url"  : "/php/auto-indexes/auto-map-index1"
                 }
             ]
         },
@@ -78,42 +70,35 @@
                 "",
                 "* For example, some available actions that can be used are:<br>(see specific demos per action for details)",
                 "",
-                "    * _where_equals()_ - Filter by documents fields properties",
+                "    * _whereEquals()_ - Filter by documents fields properties",
                 "    * _search()_ - Filter by text",
                 "    * _include()_ - Include related documents",
                 "    * _statistics()_ - Get query stats",
-                "    * _order_by()_ - Sort the results",
-                "    * _select_fields()_ - Customize the resulting entities fields (Projections)",
+                "    * _orderBy()_ - Sort the results",
+                "    * _selectFields()_ - Customize the resulting entities fields (Projections)",
                 "    * _skip()_ & _take()_ - Paging the results",
                 "",
                 "* _Note_:<br>",
                 "  Computations cannot be defined in a query.<br>",
                 "  Use a 'static index' for computations."
             ],
-            "Assets": [
-                {
-                    "Title": "Static Indexes Overview",
-                    "Type" : "demo",
-                    "Url"  : "/python/static-indexes/static-indexes-overview"
-                }
-            ]
+            "Assets": []
         },
         {
             "Title": "Execute the query",
             "Slug": "step-3",
             "DescriptionLines": [
-                "* The 'query_definition' variable only stores the query definition.<br>",
-                "  Execute the query by calling `list()`, or any other method that forces immediate execution.",
+                "* The '$queryDefinition' variable only stores the query definition.<br>",
+                "  Execute the query by calling `toList()`, or any other method that forces immediate execution.",
                 "",
-                "* The 'query_results' variable will hold all the document entities that matched the query definition.",
+                "* The '$queryResults' variable will hold all the document entities that matched the query definition.",
                 "",
                 "* The entities returned by the query are _'loaded'_ and tracked by the Session.<br>",
                 "  (The only exception are projections. Projected entities are Not tracked by the Session.)",
                 "",
                 "* Note: Queries are timed out after a defined (configurable) time period."
             ],
-            "Assets": [
-            ]
+            "Assets": []
         }
     ]
 }

@@ -44,5 +44,15 @@
             "enableRevisions",
             "getRevisions"
         ]
+    },
+    {
+        "category": {
+            "slug": "queries",
+            "directory": "queries"
+        },
+        "demos": [
+            "queryOverview",
+            "queryExample"
+        ]
     }
 ]
