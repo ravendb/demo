@@ -1,17 +1,20 @@
 <?php
 
-namespace RavenDB\Demo\queries\filteringResultsBasics;
+namespace RavenDB\Demo\queries\filteringResultsMultipleConditions;
 
 //region Usings
 //endregion
 
 use RavenDB\Demo\common\DocumentStoreHolder;
 use RavenDB\Demo\common\models\Employee;
+use RavenDB\Type\Collection;
 
-class FilteringResultsBasics
+class FilteringResultsMultipleConditions
 {
-    public function __invoke(): array
+    public function __invoke(RunParams $runParams): array
     {
+        $country = $runParams->getCountry();
+
         //region Demo
         $filteredEmployees = [];
 
@@ -22,7 +25,13 @@ class FilteringResultsBasics
             $filteredQuery = $session->query(Employee::class)
             //endregion
                 //region Step_2
-                ->whereEquals("FirstName", "Anne");
+                ->whereIn("FirstName", [ "Anne", "John" ])
+                ->orElse()
+                ->openSubclause()
+                ->whereEquals("Address.Country", $country)
+                ->whereGreaterThan("Territories.Count", 2)
+                ->whereStartsWith("Title", "Sales")
+                ->closeSubclause();
                 //endregion
 
             //region Step_3
