@@ -57,7 +57,8 @@
             "queryByDocumentId",
             "filteringResultsBasics",
             "filteringResultsMultipleConditions",
-            "projectingIndividualFields"
+            "projectingIndividualFields",
+            "projectingUsingFunctions"
         ]
     }
 ]
