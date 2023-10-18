@@ -69,8 +69,8 @@
             "DescriptionLines": [
                 "* A query can be defined just on a _collection_, or on an _index_.",
                 "",
-                "* _If no index is specified_, then the 'query optimizer' determines what index should be used to answer this query.",
-                "  The 'query optimizer' will create such index on the fly if needed. (see Auto-Indexes demos).",
+                "* _If no index is specified_, then the 'query optimizer' determines what auto-index should be used to answer this query.",
+                "  The 'query optimizer' will create such index on the fly if needed,<br>(see Auto-Indexes demos).",
 
                 "* Note: The query optimizer only searches for a matching index within the existing Auto-Indexes, not the static ones.",
                 "",
@@ -122,7 +122,7 @@
             "DescriptionLines": [
                 "* Define the query criteria by which the server will filter the documents returned",
                 "",
-                "* For example, some available actions that can be used are: (see specific demos per action for details)",
+                "* For example, some available actions that can be used are:<br>(see specific demos per action for details)",
                 "",
                 "    * _whereEquals()_ - Filter by documents fields properties",
                 "    * _search()_ - Filter by text",

@@ -1,0 +1,82 @@
+{
+    "Slug": "projecting-using-functions",
+    "SourceFileName": "ProjectingUsingFunctions.php",
+    "Title": "Projecting Using Functions",
+    "DescriptionLines": [
+        "The projected query fields can be further processed by using **JavaScript functions.**",
+        "",
+        "These functions are executed on the server side.<br>",
+        "Be aware their execution time does Not time out the query."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Query Overview Demo",
+            "Type": "demo",
+            "Url": "/php/queries/query-overview"
+        },
+        {
+            "Title": "Projecting With Object Literals",
+            "Type": "link",
+            "Url": "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#projecting-with-object-literals"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the projecting function",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Within a raw-query-string, define a _JavaScript function_ that processes the 'Employee' document and returns a new 'projected' object in the shape of the 'EmplyeeDetails' class.",
+                "",
+                "* The above _output_ function returns a projected object literal that is computed from the following functions:",
+                "  * formatName -  process the 'FirstName' & 'LastName' document fields.<br>",
+                "  * formatTitle - process the document 'Title' field."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Define the RQL query",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Within the raw-query-string, define the `RQL query` that will be executed on the server.",
+                "",
+                "* Use `select` and call the JavaScript function defined from the previous step.",
+                "",
+                "* In the above RQL, a query is defined on the 'Employees' collection.",
+                "  Note the _select_ usage so that returned results are structured according to the defined _output_ method."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Set the query",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Pass the raw-query-string to the Session `rawQuery()` method."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type": "demo",
+                    "Url": "/php/queries/query-overview"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* The '$projectedQueryWithFunctions' variable only stores the query definition.<br>",
+                "  Execute the query by calling `toList()`.",
+                "",
+                "* The _$projectedResults_ variable will hold the resulting matching entities.",
+                "",
+                "* The output projected entities returned by the query are Not tracked by the Session,<br>",
+                "  as they are not full documents.",
+                "",
+                "* Any change made to these entities will Not be sent to the server upon calling saveChanges()."
+            ],
+            "Assets": []
+        }
+    ]
+}

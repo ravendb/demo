@@ -1,0 +1,145 @@
+{
+    "Slug": "sorting-query-results",
+    "SourceFileName": "SortingQueryResults.php",
+    "Title": "Sorting Query Results",
+    "DescriptionLines": [
+        "**Query results can be sorted.**<br>",
+        "The sorting method is specified when issuing the query.<br>",
+        "Sorting is applied after the query filtering stage.<br>",
+        "Multiple sorting actions can be chained.",
+        "",
+        "You can order the query results by:<br>",
+        "<p>* A field value<br>",
+        "* The resulting documents' score<br>",
+        "* Aggregation values (in aggregation queries)<br>",
+        "* Geographical distance (in spatial queries)<br>",
+        "* Random ordering</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "Sorting query results",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a query",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Define a query on the 'Products' collection using the Session `query()` method.",
+                "",
+                "* While this example relates to a dynamic query where an auto-index is created,<br>",
+                "  _sorting_ can also be applied when querying using a static index."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/query-overview"
+                },
+                {
+                    "Title": "Sample Program",
+                    "Type" : "link",
+                    "Url"  : "https://github.com/ravendb/ravendb-jvm-tutorials/blob/hospital/README.md#1-retrieve-all-documents-from-a-collection"
+                }
+            ]
+        },
+        {
+            "Title": "Filter query results",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Filter the documents returned by applying some condition.",
+                "",
+                "* Regardless of the 'where' condition location in the query definition, _Filtering_ will always be applied in the server prior to the sorting phase.",
+                "",
+                "* When sorting without filtering, RavenDB will sort all of the resulting documents.<br>", 
+                "  _Applying filtering is recommended_, as it reduces the number of results RavenDB needs to sort when querying over a large set of data."
+            ],
+            "Assets": [
+                {
+                    "Title": "Filtering Results - Basic Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/filtering-results-basics"
+                }
+            ]
+        },
+        {
+            "Title": "Primary sort by field value",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* Specify the field to sort by.<br>",
+                "",
+                "* Options:<br>",
+                "  `orderBy()` - Order documents by ascending field values.<br>",
+                "  `orderByDescending()` - Order field values in descending order.",
+                "",
+                "* When sorting by field value - The order is computed according to the inferred field type.<br>",
+                "  Ordering type can be forced by explicitly passing an _OrderingType_ param to the 'orderBy' methods.",
+                "  See example in the next step.",
+                "",
+                "* In the above example, the primary sorting of the documents returned by the query will be according to field _'UnitsInStock'_.",
+                "",
+                "* See related links for details about ordering by:<br>",
+                "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Secondary sort by field value",
+            "Slug": "step-4",
+            "DescriptionLines": [
+                "* _Multiple sorting actions_ can be chained.",
+                "  You can sort by one field and then perform a secondary sort on another field.",
+                "  Any combination of secondary sorting is possible as the index fields are indexed independently of one another.",
+                "",
+                "* There is no limit on the number of sorting actions that can be chained.<br>",
+                "  In the example, a secondary sort is done on the _Name_ field.",
+                "",
+                "* Options:<br>",
+                "  `orderBy()` - Order by ascending values.<br>",
+                "  `orderByDescending()` - Order values in descending order.",
+                "",
+                "* The order is computed according to the inferred field type, with strings defaulting to lexicographic order.",
+                "  In the above example, passing _OrderingType::alphaNumeric()_ will cause the digit characters in the string to be treated as numbers and not as text.<br>",
+                "",
+                "* You can override the ordering type with any of the following:<br>",
+                "    * OrderingType::string() (lexicographic ordering)<br>",
+                "    * OrderingType::long()<br>",
+                "    * OrderingType::double()<br>" ,
+                "    * OrderingType::alphaNumeric()",
+                "",
+                "* See related links for details about ordering by:<br>",
+                "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting query results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Execute the query",
+            "Slug": "step-5",
+            "DescriptionLines": [
+                "* Execute the query by calling `toList()`.",
+                "",
+                "* _'$sortedProducts'_ will contain a list of Product entities sorted by the number of units in stock in descending order,",
+                "  with a secondary sort on the product name.",
+                "",
+                "* The output entities returned by the query are tracked by the Session as usual.<br>"
+            ],
+            "Assets": []
+        }
+    ]
+}
