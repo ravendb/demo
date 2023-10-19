@@ -72,7 +72,8 @@
             "staticIndexesOverview",
             "mapIndex",
             "mapReduceIndex",
-            "projectIndexResults"
+            "projectIndexResults",
+            "storeFieldInIndex"
         ]
     }
 ]
