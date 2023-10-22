@@ -1,0 +1,114 @@
+{
+    "Slug": "map-index",
+    "SourceFileName": "MapIndex.php",
+    "Title": "Map Index",
+    "DescriptionLines": [
+        "A **Map index** allows you to query the database for documents that satisfy a certain condition.",
+        "",
+        "The Map index is a simple index containing a single Map function (LINQ based or JavaScript) defined on one specific collection.",
+        "",
+        "The Map function indicates what should be indexed from the document, and how it should be indexed, as the function allows to compute the indexed value."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Static Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+        },
+        {
+            "Title": "Working with Indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define the Map index class",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index constructor",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Set `map` with the index definition string.<br>",
+                "  In the above example, a _LINQ_ expression was used .<br>",
+                "  Note: a _JavaScript_ index definition can be used as well.",
+                "",
+                "* The index definition defines the _index-fields_ and their _content_ (which fields from the 'Employee' document will compose each index-field).",
+                "  Any computations or logic can be applied here, e.g.:",
+                "",
+                "* The following index-fields are configured above:",
+                "   * _FullName_ - combining 2 document fields ('FirstName' & 'LastName')",
+                "   * _Country_ - indexing nested field data ('Country' is nested under 'Address')",
+                "   * _WorkingInCompanySince_ - indexing partial field data (only the 'Year')",
+                "   * _NumberOfTerritories_ - applying logic (using Count)",
+                "",
+                "* The document properties composing the index fields are case-sensitive,<br> use the exact casing as in the document.",
+                "",
+                "* The index built will contain a list of indexed terms for each index-field specified in the Map function, and a mapping to the relevant document.",
+                "  i.e. 'USA' & 'UK' are terms that will be indexed under index-field 'Country', along with the relevant matching documents IDs.",
+                "",
+                "* These indexed terms can later be queried on to get their matching documents, the documents that contain them."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Query for documents",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index.",
+                "",
+                "* _RavenDB will search the index_ for the indexed terms that match the query criteria ('USA' & '$startYear')", 
+                "  and retrieve the matching documents (according to the document ID listed in the index) from the documents store.",
+                "",
+                "* The query results will include all documents from the 'Employees' collection whose 'Country' is 'USA',",
+                "  and have started working after '$startYear'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        }
+    ]
+}

@@ -62,5 +62,20 @@
             "sortingQueryResults",
             "pagingQueryResults"
         ]
+    },
+    {
+        "category": {
+            "slug": "static-indexes",
+            "directory": "staticIndexes"
+        },
+        "demos": [
+            "staticIndexesOverview",
+            "mapIndex",
+            "mapReduceIndex",
+            "projectIndexResults",
+            "storeFieldInIndex",
+            "fanoutIndex",
+            "additionalSourcesIndex"
+        ]
     }
 ]
