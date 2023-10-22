@@ -118,5 +118,14 @@
             "spatialQuery",
             "spatialIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "advanced"
+        },
+        "demos": [
+            "createDatabase"
+        ]
     }
 ]
