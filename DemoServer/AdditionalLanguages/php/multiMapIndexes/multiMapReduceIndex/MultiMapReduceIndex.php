@@ -11,8 +11,8 @@ use RavenDB\Demo\common\DocumentStoreHolder;
 //region demo
 //region Step_1
 class CityCommerceDetails extends AbstractMultiMapIndexCreationTask
-{
 //endregion
+{
     public function __construct()
     {
         parent::__construct();

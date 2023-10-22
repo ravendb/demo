@@ -12,8 +12,8 @@ use RavenDB\Demo\common\DocumentStoreHolder;
 //region Demo
 //region Step_1
 class Contacts_ByNameAndTitle extends AbstractMultiMapIndexCreationTask
-{
 //endregion
+{
     public function __construct()
     {
         parent::__construct();

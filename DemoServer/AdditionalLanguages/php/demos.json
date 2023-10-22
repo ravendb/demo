@@ -88,5 +88,14 @@
             "multiMapIndexCustomizedFields",
             "multiMapReduceIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "javascript-indexes",
+            "directory": "javascriptIndexes"
+        },
+        "demos": [
+            "javascriptMapIndex"
+        ]
     }
 ]

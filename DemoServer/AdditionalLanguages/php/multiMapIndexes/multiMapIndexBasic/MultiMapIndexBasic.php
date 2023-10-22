@@ -11,9 +11,8 @@ use RavenDB\Demo\common\DocumentStoreHolder;
 //region Demo
 //region Step_1
 class CompaniesAndSuppliers_ByName extends AbstractMultiMapIndexCreationTask
-{
 //endregion
-
+{
     //region Step_2
     public function __construct()
     {
