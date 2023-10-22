@@ -1,0 +1,191 @@
+{
+    "Slug": "auto-map-reduce-index",
+    "SourceFileName": "AutoMapReduceIndex.php",
+    "Title": "Auto Map-Reduce Index",
+    "StudioLinkToIndexList": true,
+    "DescriptionLines": [
+        "An **Auto Map-Reduce index** is created if no index is specified when issuing a query that performs data aggregation computations.",
+        "",
+        "The Auto Map-Reduce Index will be created only if an Auto Map-Reduce Index that can answer this dynamic query does not exist yet."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Auto-Map-Index I Demo",
+            "Type" : "demo",
+            "Url"  : "/php/auto-indexes/auto-map-index1"
+        },
+        {
+            "Title": "Aggregation queries",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
+        },
+        {
+            "Title": "MapReduce and Aggregations",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
+        },
+        {
+            "Title": "Dynamic aggregation",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+        },
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "The results type",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define a class that will hold the aggregated data results.",
+                "",
+                "* The class fields are used when setting the aggregation action within the query definition.<br>",
+                "  See step-4.",
+                "",
+                "* The query in this demo will return the aggregated _NumberOfEmployees_ in each _Country_."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Define a dynamic query",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Define a dynamic query on the 'Employees' collection.<br>",
+                "  Note - no index is specified."
+            ],
+            "Assets": [
+                {
+                    "Title": "Auto-Map-Index I Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/auto-indexes/auto-map-index1"
+                }
+            ]
+        },
+        {
+            "Title": "Define what to Group-By",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use `groupBy()` to define the document field(s) on which to group by.",
+                "",
+                "* In the above, grouping is done on the document field _'Address.Country'_.<br>",
+                "  'Address.Country' will be the grouping key.",
+                "",
+                "* The computed results will be aggregated per country,<br>",
+                "  so that for each country you shall get its total number of employees.",
+                "",
+                "* Note: The document fields queried are _case-sensitive_.<br>",
+                "  Use the exact same casing as inside your document."
+            ],
+            "Assets": [
+                {
+                    "Title": "Aggregation queries",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
+                },
+                {
+                    "Title": "MapReduce and Aggregations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
+                },
+                {
+                    "Title": "Dynamic aggregation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the aggregation action",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Define the aggregation action - _the computation to be done per grouping key_.",
+                "",
+                "* Use `selectKey()` to define the key field on which to aggregate on.<br>",
+                "  Use `selectCount()` to define the field that will hold the aggregated count value.",
+                "",
+                "* _Each entry in the result set will contain the following info_:",
+                "    * The country name",
+                "    * The total number of employees in this country",
+                "",
+                "* Each 'Employee' document represents 1 employee.<br>",
+                "  Here we are counting the number of documents that exist per unique country.",
+                "",
+                "* Note: the supported aggregation actions with a dynamic query are:<br>",
+                "  `count()` & `sum()`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Aggregation queries",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#aggregation-queries"
+                },
+                {
+                    "Title": "MapReduce and Aggregations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#mapreduce-and-aggregations-in-ravendb"
+                },
+                {
+                    "Title": "Dynamic aggregation",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
+                },
+                {
+                    "Title": "Projecting Fields Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/projecting-individual-fields"
+                }
+            ]
+        },
+        {
+            "Title": "Define results order",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Optionally, the query result set can be sorted according to any one of the result fields defined with the above 'select' methods."
+            ],
+            "Assets": [
+                {
+                    "Title": "Sorting Query Results Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/queries/sorting-query-results"
+                }
+            ]
+        },
+        {
+            "Title": "Set the results type",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Use `ofType()` to set the shape of the query results."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Execute the dynamic query",
+            "Slug" : "step-7",
+            "DescriptionLines": [
+                "* Upon query execution, the _query-optimizer_ will analyze the query to see if an Auto-Map-Reduce Index that can answer this query already exists.",
+                "",
+                "* If such Auto-Map-Reduce Index (Not static one...) is found, it will be used to fetch the results.<br>",
+                "  Else, the query-optimizer will create a new Auto-Map-Reduce Index that can answer this query.",
+                "",
+                "* With the above query, the following Auto-Map-Reduce Index will be created: _Auto/Employees/ByCountReducedByAddress.Country_.",
+                "",
+                "* The _numberOfEmployeesPerCountry_ variable will hold the query results set.<br>",
+                "  Each entry in the result set will contain a unique country and the total number of employees in it.",
+                "",
+                "* Note: the results are Not tracked by the session, as they are Not document entities, but just data projected from the server."
+            ],
+            "Assets": [
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+                }
+            ]
+        }        
+    ]
+}

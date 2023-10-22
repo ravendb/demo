@@ -1,0 +1,77 @@
+{
+    "Slug": "auto-map-index1",
+    "SourceFileName": "AutoMapIndex1.php",
+    "Title": "Auto Map Index I",
+    "StudioLinkToIndexList": true,
+    "DescriptionLines": [
+        "All queries in RavenDB use an index. ",
+        "",
+        "An **Auto Index** is created when a filtering query does Not specify which index to use, and when there isn't any existing auto-index that can answer the query.",
+        "",
+        "Queries that do Not specify an index are called<br> **dynamic queries**."
+    ],
+    
+    "Assets": [
+        {
+            "Title": "The query optimizer",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+        },
+        {
+            "Title": "Creating and managing indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#creating-and-managing-indexes"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a dynamic query",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Define a query without specifying a specific index.<br>",
+                "  The above query is defined on the 'Employees' collection with no index specified.",
+                "",
+                "* Note: the query includes a filtering action (i.e. `whereEquals()`, `search()`, etc.) on a document field.",
+                "  The queried document field ('FirstName') is _case-sensitive_ - use the exact same casing as inside your document.",
+                "",
+                "* When an index is Not specified and a filtering action is Not applied,<br>",
+                 " an auto-index is Not created, and query results are based just on the collection data.",
+                "",
+                "* => When an index is Not specified and a filtering action is applied,<br>",
+                "  RavenDB will generate an _auto-index_ for you - if needed (see next step)."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Execute the dynamic query",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Upon query execution, the _query-optimizer_ analyzes the query to see if an _auto-index_ that can answer the query already exists,",
+                "  i.e. an auto-index on the collection queried on with index-fields that match those queried on.",
+                "",
+                "* If such auto-index (Not static one...) is found, it will be used to fetch the results.<br>",
+                "  Else, the query-optimizer will create a new auto-index with matching fields.",
+                "",
+                "* With the above query, the following auto index will be created: _Auto/Employees/ByFirstName_,<br>",
+                "  indexing the field 'FirstName'.",
+                "",
+                "* Note: If there exists an auto-index that is defined on the collection queried but is indexing a different field than the one queried on,",
+                "  then the query-optimizer will create a new auto-index that indexes both the fields from the existing index fields and the new fields queried on.<br>",
+                "  Learn more in _Auto-Map-Index-II Demo_."
+            ],
+            "Assets": [
+                {
+                    "Title": "The query optimizer",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+                },
+                {
+                    "Title": "Auto-Map-Index II Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/auto-indexes/auto-map-index2"
+                }
+            ]
+        }
+    ]
+}
