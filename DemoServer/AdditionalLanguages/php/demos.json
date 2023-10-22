@@ -108,5 +108,15 @@
             "autoMapIndex2",
             "autoMapReduceIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery",
+            "spatialIndex"
+        ]
     }
 ]
