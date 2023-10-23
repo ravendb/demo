@@ -77,5 +77,55 @@
             "fanoutIndex",
             "additionalSourcesIndex"
         ]
+    },
+    {
+        "category": {
+            "slug": "multi-map-indexes",
+            "directory": "multiMapIndexes"
+        },
+        "demos": [
+            "multiMapIndexBasic",
+            "multiMapIndexCustomizedFields",
+            "multiMapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "javascript-indexes",
+            "directory": "javascriptIndexes"
+        },
+        "demos": [
+            "javascriptMapIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "auto-indexes",
+            "directory": "autoIndexes"
+        },
+        "demos": [
+            "autoMapIndex1",
+            "autoMapIndex2",
+            "autoMapReduceIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery",
+            "spatialIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "advanced"
+        },
+        "demos": [
+            "createDatabase"
+        ]
     }
 ]

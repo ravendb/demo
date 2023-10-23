@@ -1,0 +1,43 @@
+{
+    "Slug": "create-database",
+    "SourceFileName": "CreateDatabase.php",
+    "Title": "Create Database",
+    "DescriptionLines": [
+        "**Create a Database** in RavenDB Server.<br>",
+        "The database will hold your JSON documents.",
+        "",
+        "If you have more than one server instance in your RavenDB cluster,",
+        "then you can set the database replication factor."
+    ],
+
+    "Assets": [
+        {
+            "Title": "RavenDB cluster overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#an-overview-of-a-ravendb-cluster"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Create a database operation",
+            "Slug" : "step-1",
+            "DescriptionLines": [
+                "* Provide an instance of a `DatabaseRecord` object containing the database name (required) and other settings (optional) to the `CreateDatabaseOperation`.",
+                "",
+                "* The database replication factor can be specified when initializing the CreateDatabaseOperation, otherwise the default is 1."
+            ],
+            "Assets": []
+        },
+        {
+            "Title": "Create the database in RavenDB server",
+            "Slug" : "step-2",
+            "DescriptionLines": [
+                "* Send the _$createDatabaseOperation_ to the Document Store object for database creation.",
+                "",
+                "* Note: an exception is thrown if the database already exists."
+            ],
+            "Assets": []
+        }
+    ]
+}
