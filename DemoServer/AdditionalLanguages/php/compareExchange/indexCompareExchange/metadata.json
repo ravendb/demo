@@ -1,6 +1,6 @@
 {
     "Slug": "index-compare-exchange",
-    "SourceFileName": "IndexCompareExchange.java",
+    "SourceFileName": "IndexCompareExchange.php",
     "Title": "Index CmpXchg Values",
     "DescriptionLines": [
         "**CmpXchg Values can be loaded & indexed** within the index definition.",
@@ -13,17 +13,7 @@
         {
             "Title": "Create Compare-Exchange Demo",
             "Type" : "demo",
-            "Url"  : "/java/compare-exchange/create-compare-exchange"
-        },
-        {
-            "Title": "Compare-Exchange overview",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
-        },
-        {
-            "Title": "Index Compare-Exchange values",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
+            "Url"  : "/php/compare-exchange/create-compare-exchange"
         },
         {
             "Title": "Distributed Compare-Exchange operations",
@@ -50,39 +40,7 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-                }
-            ]
-        },
-        {
-            "Title": "The index Entry class",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
-                "  These fields will be indexed and can be queried on.",
-                "",
-                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes",
@@ -98,7 +56,7 @@
         },
         {
             "Title": "The index constructor",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "* Define the index-field within the Map function.",
                 "",
@@ -112,10 +70,27 @@
             ],
             "Assets": [
                 {
-                    "Title": "Map Indexes",
+                    "Title": "Static Indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
                 },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "The index Entry class",
+            "Slug": "step-3",
+            "DescriptionLines": [
+                "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
+                "  These fields will be indexed and can be queried on.",
+                "",
+                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see step-2)."
+            ],
+            "Assets": [
                 {
                     "Title": "Static Indexes",
                     "Type" : "link",
@@ -134,28 +109,11 @@
             "DescriptionLines": [
                 "* Query the 'Products' collection using the defined index.",
                 "",
-                "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ defined in _Products_byUnitsInStock.IndexEntry.class_",
+                "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ defined in _IndexEntry_ class.",
                 "",
                 "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
-            "Assets": [
-                {
-                    "Title": "Compare-Exchange overview",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
-                },
-                {
-                    "Title": "Index Compare-Exchange values",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-compare-exchange-values#querying-the-index"
-                },
-                {
-                    "Title": "Querying an index",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index#example-iv---querying-a-specified-index"
-                }
-  
-            ]
+            "Assets": []
         }
     ]
 }

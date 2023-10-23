@@ -111,6 +111,16 @@
     },
     {
         "category": {
+            "slug": "compare-exchange",
+            "directory": "compareExchange"
+        },
+        "demos": [
+            "createCompareExchange",
+            "indexCompareExchange"
+        ]
+    },
+    {
+        "category": {
             "slug": "spatial",
             "directory": "spatial"
         },

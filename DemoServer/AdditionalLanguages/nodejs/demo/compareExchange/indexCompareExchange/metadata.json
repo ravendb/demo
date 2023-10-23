@@ -78,7 +78,7 @@
                 "* Call `cmpxchg()` to get the CmpXchg Value associated with the passed Key parameter.",
                 "  The CmpXchg Key is the document ID.",
                 "",
-                "* The CmpXchg Values will be indexed in the _unitsInStock_ index field,<br>",
+                "* The CmpXchg Values will be indexed in the _unitsInStock_ index-field,<br>",
                 "  so a mapping is available from the CmpXchg values to the documents in the Products collection."
             ],
             "Assets": [
