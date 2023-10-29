@@ -1,6 +1,6 @@
 {
     "Slug": "facets-aggregations",
-    "SourceFileName": "index.js",
+    "SourceFileName": "FacetsAggregations.php",
     "Title": "Facets - Aggregations",
     "DescriptionLines": [
         "**Aggregation data** is available per group of documents in the faceted search result.",
@@ -17,7 +17,7 @@
         {
             "Title": "Facets - Basic Demo",
             "Type" : "demo",
-            "Url"  : "/nodejs/faceted-search/facets-basics"
+            "Url"  : "/php/faceted-search/facets-basics"
         },
         {
             "Title": "Facets with Map index",
@@ -34,17 +34,6 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
         },
-// TODO
-//        {
-//            "Title": "Faceted search",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/faceted-search"
-//        },
-//        {
-//            "Title": "Faceted search - How to",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-a-faceted-search"
-//        },
         {
             "Title": "Facets - Blog",
             "Type" : "link",
@@ -58,7 +47,7 @@
             "Slug": "step-1",
             "DescriptionLines": [
                 "* Define an index on the collection you would like to query.<br>",
-                "  (categoryName is loaded from a related document).",
+                "  (CategoryName is loaded from a related document).",
                 "",
                 "* The index-fields will be used to define the Facets (see steps 2 & 3)."
             ],
@@ -66,17 +55,17 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/static-indexes/static-indexes-overview"
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/static-indexes/map-index"
+                    "Url"  : "/php/static-indexes/map-index"
                 },
                 {
                     "Title": "Index Related Documents Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/related-documents/index-related-documents"
+                    "Url"  : "/php/related-documents/index-related-documents"
                 }
             ]
         },
@@ -86,48 +75,37 @@
             "DescriptionLines": [
                 "Define the following per `Facet` object that will be added to the facet list:",
                 "",
-                "* _fieldName_ - The index-field by which the documents will be grouped.",
+                "* _FieldName_ - The index-field by which the documents will be grouped.",
                 "",
-                "* _aggregations_ - An optional property.<br>",
-                "  Provide AVERAGE, SUM, MAX & MIN data for the specified document-field(s) per group.",
+                "* _Aggregations_ - An optional property.<br>",
+                "  Provide AVERAGE, SUM, MAX & MIN data for the specified document field(s) per group.",
                 "",
-                "      * Define a `FacetAggregationField` object and set its _name_.",
-                "      * Call `aggregations.set()` to set the specified aggregation action on the field. ",
+                "      * Define a `FacetAggregationField` object and set its _Name_.",
+                "      * Call `getAggregations().set()` to set the specified aggregation action on the field. ",
                 "",
                 "* 2 more optional properties are available (see dedicated demos in the links):",
-                "  * displayFieldName - A customized name for the facet field the results",
-                "  * options - define skipping, paging & sorting options",
+                "  * DisplayFieldName - A customized name for the facet field the results",
+                "  * Options - define skipping, paging & sorting options",
                 "",
                 "* _In this example_:<br>",
-                "  The Facet groups the documents by the content of index-field 'categoryName'.<br>",
-                "  Average, Max & Min are requested for index-field _pricePerUnit_.<br>",
-                "  Sum & Min are requested for index-field _unitsInStock_.<br>",
+                "  The Facet groups the documents by the content of index-field 'CategoryName'.<br>",
+                "  Average, Max & Min are requested for field _PricePerUnit_.<br>",
+                "  Sum & Min are requested for field _UnitsInStock_.<br>",
                 "  But...<br>",
                 "  since aggregation is requested for 2 document-fields,",
                 "  the resulting documents will be grouped by i.e. category 'Seafood', but you will get _2_ such items in the list,",
-                "  one with aggregated data for pricePerUnit field and one with aggregated data for unitsInStock field."
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
             ],
             "Assets": [
-            // TODO
-            //                {
-            //                    "Title": "Faceted search",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/faceted-search"
-            //                },
-            //                {
-            //                    "Title": "Faceted search - How to",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-a-faceted-search"
-            //                },
                 {
                     "Title": "Facets - Basic Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/faceted-search/facets-basics"
+                    "Url"  : "/php/faceted-search/facets-basics"
                 },
                 {
                     "Title": "Facets - Options Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/faceted-search/facets-options"
+                    "Url"  : "/php/faceted-search/facets-options"
                 }
             ]
         },
@@ -137,40 +115,29 @@
             "DescriptionLines": [
                 "Define the following per `RangeFacet` object that will be added to the facet list:",
                 "",
-                "* _ranges_ - Define ranges on an index-field by which the documents will be grouped.<br>",
+                "* _Ranges_ - Define ranges on an index-field by which the documents will be grouped.<br>",
                 "  A separated aggregated item will be created per range defined.",
                 "",
-                "* _aggregations_ - An optional property.<br>",
+                "* _Aggregations_ - An optional property.<br>",
                 "  Provide AVERAGE, SUM, MAX & MIN data for the specified document-field(s) per group.",
-                "      * Call `aggregations.set()` to set the specified aggregation action on the field.",
+                "      * Call `$aggregations->offsetSet()` to set the specified aggregation action on the field.",
                 "",
                 "* Another optional property is available (see dedicated demo in the links):",
-                "  * displayFieldName - A customized name for the facet field the results",
+                "  * DisplayFieldName - A customized name for the facet field the results",
                 "",
                 "* _In this example_:<br>",
-                "  The ranges are defined on index-field 'pricePerUnit'.<br>",
+                "  The ranges are defined on index-field 'PricePerUnit'.<br>",
                 "  e.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.<br>",
                 "  But...<br>",
-                "  since aggregation is requested for 2 fields ( _pricePerUnit_ , _unitsInStock_ )<br>",
+                "  since aggregation is requested for 2 fields ( _PricePerUnit_ , _UnitsInStock_ )<br>",
                 "  you will get _2_ such items in the list,",
-                "  one with aggregated data for pricePerUnit and one with aggregated data for unitsInStock."
+                "  one with aggregated data for PricePerUnit field and one with aggregated data for UnitsInStock field."
             ],
             "Assets": [
-            // TODO
-            //                {
-            //                    "Title": "Faceted search",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/faceted-search"
-            //                },
-            //                {
-            //                    "Title": "Faceted search - How to",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-a-faceted-search"
-            //                },
                 {
                     "Title": "Facets - Basic Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/faceted-search/facets-basics"
+                    "Url"  : "/php/faceted-search/facets-basics"
                 }
             ]
         },
@@ -188,34 +155,22 @@
                 "* Both types inherit from `FacetBase`.<br>",
                 "  Any number of Facets and RangeFacets can be defined in this list."
             ],
-            "Assets": [
-            // TODO
-            //                {
-            //                    "Title": "Faceted search",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/faceted-search"
-            //                },
-            //                {
-            //                    "Title": "Faceted search - How to",
-            //                    "Type" : "link",
-            //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-a-faceted-search"
-            //                }
-            ]
+            "Assets": []
         },
         {
             "Title": "Execute the query",
             "Slug": "step-5",
             "DescriptionLines": [
                 "* Define a query on the 'Products' collection using the defined index.<br>",
-                "  Pass the 'facets' object to the `aggregateBy()` method and execute the query.",
+                "  Pass the '$facets' object to the `aggregateBy()` method and execute the query.",
                 "",
-                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
+                "* The _$queryResults_ variable will hold the resulting aggregated items _per Facet_ defined."
             ],
             "Assets": [
                 {
                     "Title": "Query Example Demo",
                     "Type" : "demo",
-                    "Url"  : "/nodejs/queries/query-example"
+                    "Url"  : "/php/queries/query-example"
                 },
                 {
                     "Title": "Facets with Map index",
