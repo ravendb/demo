@@ -134,7 +134,8 @@
             "fTSWithStaticIndexSingleField",
             "fTSWithStaticIndexMultipleFields",
             "highlightQueryResultsBasics",
-            "highlightQueryResultsCustomized"
+            "highlightQueryResultsCustomized",
+            "highlightQueryResultsMapReduce"
         ]
     },
     {
