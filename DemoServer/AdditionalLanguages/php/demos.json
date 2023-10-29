@@ -128,7 +128,8 @@
         },
         "demos": [
             "fTSQuerySearchBasics",
-            "fTSQuerySearchOperators"
+            "fTSQuerySearchOperators",
+            "fTSQuerySearchWildcards"
         ]
     },
     {
