@@ -1,6 +1,6 @@
 {
     "Slug": "highlight-query-results-basics",
-    "SourceFileName": "HighlightQueryResultsBasicsController.cs",
+    "SourceFileName": "HighlightQueryResultsBasics.php",
     "Title": "Highlight Query Results Basics",
     "DescriptionLines": [
         "When making a Full Text Search query,<br> in addition to getting the documents that contain the searched terms in the results,",
@@ -12,29 +12,19 @@
         "<p>* Fragments length<br>",
         "* Fragments count<br>",
         "* Tags marking the terms within the fragments<br>",
-        "&nbsp;&nbsp;&nbsp;(see the Customized Demo )</p>"
+        " (see the Customized Demo )</p>"
     ],
 
     "Assets": [
         {
             "Title": "FTS - Static Index Demo",
             "Type" : "demo",
-            "Url"  : "/text-search/fts-with-static-index-single-field"
+            "Url"  : "/php/text-search/fts-with-static-index-single-field"
         },
         {
             "Title": "Highlight Query Results - Customized Demo",
             "Type" : "demo",
-            "Url"  : "/text-search/highlight-query-results-customized"
-        },
-        {
-            "Title": "Querying highlighting",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-        },
-        {
-            "Title": "How to use highlighting",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+            "Url"  : "/php/text-search/highlight-query-results-customized"
         },
         {
             "Title": "Highlighting - Blog",
@@ -46,51 +36,15 @@
     "Walkthroughs": [
         {
             "Title": "Define a static index",
-            "Slug": "step-1",
+            "Slug" : "step-1",
             "DescriptionLines": [
-                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`.",
-                "",
-                "* The generic params:<br>",
-                "    * _Employee_ - indicates that the source collection for the index will be the 'Employees' collection<br>",
-                "    * _EmployeesDetails.IndexEntry_ - is the shape of the resulting index entries<br> (see next step)"
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
             ],
             "Assets": [
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/static-indexes-overview"
-                },
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
-                {
-                    "Title": "Static Indexes - Book",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
-                },
-                {
-                    "Title": "Working with Indexes - Book",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
-                }
-            ]
-        },
-        {
-            "Title": "The Index Entry class",
-            "Slug": "step-2",
-            "DescriptionLines": [
-                "* The IndexEntry class defines the _index-fields per entry_ in the index.<br>",
-                "  These fields will be indexed and can be queried on.",
-                "",
-                "* The content for each index-field is configured in the index Map function (see next step)."
-            ],
-            "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Static Indexes - Book",
@@ -106,21 +60,16 @@
         },
         {
             "Title": "Define the Map function",
-            "Slug": "step-3",
+            "Slug": "step-2",
             "DescriptionLines": [
                 "* Define the Map function.",
                 "",
-                "* The content for index-field _Notes_ is taken from the corresponding document-field.",
+                "* The content for index-field _Notes_ is taken from the corresponding document field.",
                 "",
                 "* The field will be customized for Full Text Search and Highlighting in the next step."
                 
             ],
             "Assets": [
-                {
-                    "Title": "Map Indexes",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/map-indexes"
-                },
                 {
                     "Title": "Static Indexes - Book",
                     "Type" : "link",
@@ -135,17 +84,17 @@
         },
         {
             "Title": "Configure field for Highlighting",
-            "Slug" : "step-4",
+            "Slug" : "step-3",
             "DescriptionLines": [
                 "* In order to search and get fragments with highlighted terms, the index-field on which you search must be configured with:",
-                "  * `Store()`<br>",
-                "     Set _FieldStorage.Yes_ to store the field in the index.",
+                "  * `store()`<br>",
+                "     Set _FieldStorage::yes()_ to store the field in the index.",
                 "",
-                "  * `Index()`<br>",
-                "     Set _FieldIndexing.Search_ to allow Full Text Search.",
+                "  * `index()`<br>",
+                "     Set _FieldIndexing::search()_ to allow Full Text Search.",
                 "",
-                "  * `TermVector()`<br>",
-                "     Set _FieldTermVector.WithPositionsAndOffsets_ to store the term's position and offsets.",
+                "  * `termVector()`<br>",
+                "     Set _FieldTermVector::withPositionsAndOffsets()_ to store the term's position and offsets.",
                 "",
                 "* During the indexing process, the field's content is tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
                 "",
@@ -156,27 +105,12 @@
                 {
                     "Title": "FTS - Static Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/fts-with-static-index-single-field"
+                    "Url"  : "/php/text-search/fts-with-static-index-single-field"
                 },
                 {
                     "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/store-fields-in-index"
-                },
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "Indexes - Analyzers",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/using-analyzers"
-                },
-                {
-                    "Title": "Using term vectors",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/using-term-vectors"
+                    "Url"  : "/php/static-indexes/store-fields-in-index"
                 },
                 {
                     "Title": "Term vector in Lucene",
@@ -187,29 +121,29 @@
         },
         {
             "Title": "Make a search query",
-            "Slug" : "step-5",
+            "Slug" : "step-4",
             "DescriptionLines": [
                 "* Query the 'Employees' collection using the defined index for documents that contain the specified term.",
                 "",
-                "* In this example,<br> we are searching for documents containing the term 'sales' within their 'Notes' field.<br>",
+                "* In this example,<br> we are searching for documents containing the term '$sales' within the 'Notes' field.<br>",
                 "  In addition, we request the highlighted fragments.",
                 "",
-                "* `Highlight()`<br>",
+                "* `highlight()`<br>",
                 "   * Specify the index-field for which to get text fragments with the term highlighted.<br>",
                 "   * fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
                 "   * fragmentCount - used to limit the number of matching fragments returned per document.<br>",
-                "   * Provide an 'out Highlightings' param for the fragments' results.",
+                "   * Provide a 'Highlightings' param for the fragments' results.",
                 "",
-                "* `Search()`<br>",
+                "* `search()`<br>",
                 "   * Specify the index-field and the term(s) to search for in that field.",
                 "   * These will be the terms highlighted in the fragments received.",
                 "",
                 "* _Query results will be_:",
-                "  * employeesResults -<br>",
+                "  * $employeesResults -<br>",
                 "    _The documents_ that contain the searched term 'sales'.",
                 "",
-                "  * notesHighlightings -<br>",
-                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "  * $notesHighlightings -<br>",
+                "    _The fragments_ from field 'Notes' that contain the term '$sales'.<br>",
                 "    The term will be marked with the default pre & post tags.",
                 "",
                 "  * The default pre & post tags are: `<b style='background:yellow'>......</b>`<br>",
@@ -220,47 +154,26 @@
                 {
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/static-indexes/map-index#step-4"
+                    "Url"  : "/php/static-indexes/map-index#step-4"
                 },
                 {
                     "Title": "Highlight Query Results - Customized Demo",
                     "Type" : "demo",
-                    "Url"  : "/text-search/highlight-query-results-customized"
-                },
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "/php/text-search/highlight-query-results-customized"
                 }
             ]
         },
         {
             "Title": "Get fragments",
-            "Slug" : "step-6",
+            "Slug" : "step-5",
             "DescriptionLines": [
-                "* Use `GetFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
+                "* Use `getFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
                 "",
                 "* The searched term will be marked with the default pre & post tags.",
                 "",
                 "* Use these results to enhance your users' search experience."
             ],
-            "Assets": [
-                {
-                    "Title": "Querying highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
-                },
-                {
-                    "Title": "How to use highlighting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
-                }
-            ]
+            "Assets": []
         }
     ]
 }
