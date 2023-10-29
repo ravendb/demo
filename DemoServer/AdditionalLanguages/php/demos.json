@@ -130,7 +130,8 @@
             "fTSQuerySearchBasics",
             "fTSQuerySearchOperators",
             "fTSQuerySearchWildcards",
-            "fTSQuerySearchBoosting"
+            "fTSQuerySearchBoosting",
+            "fTSWithStaticIndexSingleField"
         ]
     },
     {
