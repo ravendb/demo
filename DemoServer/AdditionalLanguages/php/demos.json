@@ -123,6 +123,16 @@
     },
     {
         "category": {
+            "slug": "text-search",
+            "directory": "textSearch"
+        },
+        "demos": [
+            "fTSQuerySearchBasics",
+            "fTSQuerySearchOperators"
+        ]
+    },
+    {
+        "category": {
             "slug": "compare-exchange",
             "directory": "compareExchange"
         },
