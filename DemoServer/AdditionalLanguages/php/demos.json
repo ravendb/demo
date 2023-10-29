@@ -111,6 +111,18 @@
     },
     {
         "category": {
+            "slug": "faceted-search",
+            "directory": "facetedSearch"
+        },
+        "demos": [
+            "facetsBasics",
+            "facetsOptions",
+            "facetsAggregations",
+            "facetsFromDocument"
+        ]
+    },
+    {
+        "category": {
             "slug": "compare-exchange",
             "directory": "compareExchange"
         },
