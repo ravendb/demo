@@ -1,0 +1,207 @@
+{
+    "Slug": "highlight-query-results-customized",
+    "SourceFileName": "HighlightQueryResultsCustomized.php",
+    "Title": "Highlight Query Results Customized",
+    "DescriptionLines": [
+        "When making a Full Text Search query,<br> in addition to getting the documents that contain the searched terms in the results,",
+        "you can **request to get a list of text fragments highlighting those terms**.",
+        "",
+        "The highlighted terms show exactly why the resulting documents have matched.",
+        "",
+        "The following can be customized:",
+        "<p>* Fragments length & count<br>",
+        "",
+        "* Tags marking the terms within the fragments,<br>",
+        "&nbsp;&nbsp;&nbsp;useful when searching on multiple fields.</p>"
+    ],
+
+    "Assets": [
+        {
+            "Title": "FTS - Static Index Demo",
+            "Type" : "demo",
+            "Url"  : "/php/text-search/fts-with-static-index-single-field"
+        },
+        {
+            "Title": "Highlight Query Results - Basics Demo",
+            "Type": "demo",
+            "Url": "/php/text-search/highlight-query-results-basics"
+        },
+        {
+            "Title": "Highlighting - Blog",
+            "Type" : "link",
+            "Url"  : "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type": "demo",
+                    "Url": "/php/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Static Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the Map function.",
+                "",
+                "* The content for index-fields _Title_ & _Notes_ is taken from the corresponding document fields.",
+                "",
+                "* The fields will be customized for Full Text Search and Highlighting in the next step."
+
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes - Book",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },
+        {
+            "Title": "Configure fields for Highlighting",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* In order to search and get fragments with highlighted terms, the index fields on which you search must be configured with:",
+                "  * `store()`<br>",
+                "     Set _FieldStorage::yes()_ to store the field in the index.",
+                "",
+                "  * `index()`<br>",
+                "     Set _FieldIndexing::search()_ to allow Full Text Search.",
+                "",
+                "  * `termVector()`<br>",
+                "     Set _FieldTermVector::withPositionsAndOffsets()_ to store the term's position and offset from the text.",
+                "",
+                "* During the indexing process, the fields' content will be tokenized, broken into distinct terms according to the configured analyzer (RavenStandardAnalyzer is used by default).",
+                "",
+                "* A query can now be made on these terms to get their matching documents - including a list of text fragments containing the highlighted searched terms. See the following steps."
+            ],
+            "Assets": [
+                {
+                    "Title": "FTS - Static Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/text-search/fts-with-static-index-single-field"
+                },
+                {
+                    "Title": "Store Fields in Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/store-fields-in-index"
+                },
+                {
+                    "Title": "Term vector in Lucene",
+                    "Type" : "link",
+                    "Url"  : "http://makble.com/what-is-term-vector-in-lucene"
+                }
+            ]
+        },
+        {
+            "Title": "Define highlight tags",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Prior to making the search query,<br> you can define the tags that will mark the searched terms within the text fragments.",
+                " ",
+                "* _To define your own tags_ create a `HighlightingOptions` object with _setPreTags_ & _setPostTags_.<br>",
+                "  This object is passed to the query - see next step.",
+                "",
+                "* This is optional. If no such object is defined then the default tags will be used.<br>",
+                "  See the example in the related Basic Demo.",
+                "",
+                "* 2 objects are defined in this example, one for each field that we search on,<br>",
+                "  so that the terms from each field will be marked differently.",
+                "",
+                "* Alternatively,<br> you can define a single object with multiple strings within the PreTags & PostTags properties."
+            ],
+            "Assets": [
+                {
+                    "Title": "Highlight Query Results - Basics Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/text-search/highlight-query-results-basics"
+                },
+                {
+                    "Title": "Highlighting - Blog",
+                    "Type" : "link",
+                    "Url"  : "https://ayende.com/blog/182946-C/ravendb-4-1-features-highlighting"
+                }
+            ]
+        },
+        {
+            "Title": "Make a search query",
+            "Slug" : "step-5",
+            "DescriptionLines": [
+                "* Query the 'Employees' collection using the defined index for documents that contain the specified terms.",
+                "",
+                "* In this example, the highlight & the search methods are called twice, per field we search on.<br>",
+                "  So we are searching for:<br>",
+                "  documents containing the term 'manager' within the 'Title' field _OR_<br>",
+                "  documents containing the term 'sales' within the 'Notes' field.<br>",
+                "  In addition, we request the highlighted fragments.",
+                "",
+                "* `highlight()`<br>",
+                "   * Specify the index-field for which to get text fragments with the term highlighted.<br>",
+                "   * $fragmentLength - the maximum length for a fragment (length must be >= 18).<br>",
+                "   * $fragmentCount - used to limit the number of matching fragments returned per document.<br>",
+                "   * $tagsToUse - provide the tag objects from the previous step (optional).",
+                "   * Provide 'Highlightings' param for the fragments' results.",
+                "",
+                "* `search()`<br>",
+                "   * Specify the index-field and the term(s) to search for in that field.",
+                "   * These will be the terms highlighted in the fragments received.",
+                "",
+                "* _Query results will be_:",
+                "  * $employeesResults -<br>",
+                "    _The documents_ that contain the searched terms specified in the 'search()' methods.",
+                "",
+                "  * $titleHighlightings -<br>",
+                "    _The fragments_ from field 'Title' that contain the term 'manager'.<br>",
+                "    The terms will be marked with the specified tags '$tag1' & '$tag2'.",
+                "",
+                "  * $notesHighlightings -<br>",
+                "    _The fragments_ from field 'Notes' that contain the term 'sales'.<br>",
+                "    The terms will be marked with the specified tags '$tag3' & '$tag4'."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/map-index#step-4"
+                }
+            ]
+        },
+        {
+            "Title": "Get fragments",
+            "Slug" : "step-6",
+            "DescriptionLines": [
+                "* Use `getFragments()`<br>Pass the document ID to get the text fragments for that employee document.",
+                "",
+                "* The searched terms will be marked with the specified tags.",
+                "",
+                "* Use these results to enhance your users' search experience."
+            ],
+            "Assets": []
+        }
+    ]
+}

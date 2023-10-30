@@ -1,0 +1,145 @@
+{
+    "Slug": "fts-with-static-index-multiple-fields",
+    "SourceFileName": "FTSWithStaticIndexMultipleFields.php",
+    "Title": "Full Text Search with Static Index - Multiple Fields",
+    "StudioLinkToMediaDatabase": true,
+    "DescriptionLines": [
+        "Combining several document fields in a single index-field enables performing **Full-Text-Search over Multiple Document Fields** using a single index-field.",
+        "",
+        "This allows for greater freedom in querying, as the client is Not limited to querying on a specific document field."
+    ],
+
+    "Assets": [
+        {
+            "Title": "Full Text Search - Single Field Demo",
+            "Type" : "demo",
+            "Url"  : "/php/text-search/fts-with-static-index-single-field"
+        },
+        {
+            "Title": "Full text searching",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
+        },
+        {
+            "Title": "Full text indexes",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#full-text-indexes"
+        },
+        {
+            "Title": "How the index actually works",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#how-the-index-actually-works"
+        }
+    ],
+
+    "Walkthroughs": [
+        {
+            "Title": "Define a static index",
+            "Slug": "step-1",
+            "DescriptionLines": [
+                "* Create a static Map index class - inherit from `AbstractIndexCreationTask`."
+            ],
+            "Assets": [
+                {
+                    "Title": "Static Indexes Overview Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
+                },
+                {
+                    "Title": "Static Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#static-indexes-and-other-advanced-options"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                }
+            ]
+        },        
+        {
+            "Title": "Define the Map function",
+            "Slug": "step-2",
+            "DescriptionLines": [
+                "* Define the Map function - Combine multiple document fields into a single index-field",
+                "",
+                "* The content of index-field _'SongData'_ will be composed of the following four 'LastFm' document fields:",
+                "    * Artist, Title, Tags & TrackId"
+            ],
+            "Assets": [
+                {
+                    "Title": "Full text search fields",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#full-text-search-fields"
+                }
+            ]
+        },
+        {
+            "Title": "Configure Full-Text Search",
+            "Slug" : "step-3",
+            "DescriptionLines": [
+                "* Use method `index()` with param _FieldIndexing::search()_ to allow performing a full-text search on index field 'SongData'.",
+                "",
+                "* During the indexing process, the 'SongData' field is Not indexed as a single value.<br>",
+                "  Instead, the field's text content is broken into distinct tokens (terms).",
+                "",
+                "* In this case, the terms include data originating from the document fields that were specified in the Map function - ",
+                "  Artist, Title, Tags, TrackId.",
+                "",
+                "* Indexing the content as individual terms, and Not as one text item,",
+                "  allows you to search for documents that contain a specific term in _either_ of these fields."
+            ],
+            "Assets": [
+                {
+                    "Title": "Configure Full-Text Search (FTS - Single Field Demo)",
+                    "Type" : "demo",
+                    "Url"  : "/php/text-search/fts-with-static-index-single-field#step-4"
+                },
+                {
+                    "Title": "Full text searching",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
+                },
+                {
+                    "Title": "Full text indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#full-text-indexes"
+                },
+                {
+                    "Title": "How the index actually works",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#how-the-index-actually-works"
+                }
+            ]
+        },
+        {
+            "Title": "Search for documents with a specific term",
+            "Slug" : "step-4",
+            "DescriptionLines": [
+                "* Now you can search for documents from collection 'LastFms' that contain a specific term.",
+                "",
+                "* The query results (limited to 20) will be only those documents that contain the value of '$searchTerm' within either one the following fields:<br>",
+                "    * Artist, Title, Tags & TrackId",
+                "",
+                "* Note that the comparison is done against index field _'SongData'_, which contains the terms that were generated from those fields."
+            ],
+            "Assets": [
+                {
+                    "Title": "Query for documents - Map Index Demo",
+                    "Type" : "demo",
+                    "Url"  : "/php/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Working with Indexes",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/12-working-with-indexes#working-with-indexes"
+                },
+                {
+                    "Title": "Full text search fields",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#full-text-search-fields"
+                }
+            ]
+        }
+    ]
+}

@@ -1,6 +1,6 @@
 {
     "Slug": "facets-basics",
-    "SourceFileName": "FacetsBasics.java",
+    "SourceFileName": "FacetsBasics.php",
     "Title": "Facets - Basics",
     "DescriptionLines": [
         "A RavenDB query returns a list of documents.<br>",
@@ -27,17 +27,6 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
         },
-// TODO
-//        {
-//            "Title": "Faceted search",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
-//        },
-//        {
-//            "Title": "Faceted search - How to",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
-//        },
         {
             "Title": "Facets - Blog",
             "Type" : "link",
@@ -61,17 +50,17 @@
                 {
                     "Title": "Static Indexes Overview Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/static-indexes-overview"
+                    "Url"  : "/php/static-indexes/static-indexes-overview"
                 },
                 {
                     "Title": "Map Index Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/static-indexes/map-index"
+                    "Url"  : "/php/static-indexes/map-index"
                 },
                 {
                     "Title": "Index Related Documents Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/related-documents/index-related-documents"
+                    "Url"  : "/php/related-documents/index-related-documents"
                 }
             ]
         },
@@ -96,26 +85,15 @@
                 "  The Facets are added to a Facet List in step 4. This list will used in the query."
             ],
             "Assets": [
-// TODO
-//                {
-//                    "Title": "Faceted search",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
-//                },
-//                {
-//                    "Title": "Faceted search - How to",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
-//                },
                 {
                     "Title": "Facets - Options Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/faceted-search/facets-options"
+                    "Url"  : "/php/faceted-search/facets-options"
                 },
                 {
                     "Title": "Facets - Aggregations Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/faceted-search/facets-aggregations"
+                    "Url"  : "/php/faceted-search/facets-aggregations"
                 }
             ]
         },
@@ -129,7 +107,7 @@
                 "  A separate aggregated item will be created per range defined.",
 
                 "* In this example, the ranges are defined on index-field 'PricePerUnit'.<br>",
-                "  e.g. all documents with PricePerUnit that is less than 'range1' will be grouped into a single item in the aggregated results.",
+                "  e.g. all documents with PricePerUnit that is less than '$range1' will be grouped into a single item in the aggregated results.",
                 "",
                 "* Set _DisplayFieldName_ - An optional property.<br>",
                 "  A customized name that can be given to the facet field in the aggregated results.",
@@ -141,21 +119,10 @@
                 "  The RangeFacets are added to a Facet List in step 4. This list will used in the query."
             ],
             "Assets": [
-// TODO
-//                {
-//                    "Title": "Faceted search",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
-//                },
-//                {
-//                    "Title": "Faceted search - How to",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
-//                },
                 {
                     "Title": "Facets - Aggregations Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/faceted-search/facets-aggregations"
+                    "Url"  : "/php/faceted-search/facets-aggregations"
                 }
             ]
         },
@@ -173,19 +140,7 @@
                 "* Both types inherit from `FacetBase`.<br>",
                 "  Any number of Facets and RangeFacets can be added to this list."
             ],
-            "Assets": [
-// TODO
-//                {
-//                    "Title": "Faceted search",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/faceted-search"
-//                },
-//                {
-//                    "Title": "Faceted search - How to",
-//                    "Type" : "link",
-//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-perform-a-faceted-search"
-//                }
-            ]
+            "Assets": []
         },
         {
             "Title": "Define the query",
@@ -204,7 +159,7 @@
                 {
                     "Title": "Query Example Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-example"
+                    "Url"  : "/php/queries/query-example"
                 },
                 {
                     "Title": "Facets with Map index",
@@ -222,7 +177,7 @@
             "Title": "Aggregate by Facets",
             "Slug": "step-6",
             "DescriptionLines": [
-                "* Call `aggregateBy()` for the server to aggregate the resulting products documents according to the passed facets object.",
+                "* Call `aggregateBy()` for the server to aggregate the resulting products documents according to the passed $facets object.",
                 "",
                 "* After the first call to _aggregateBy_, you may call _andAggregateBy_, passing more facets definitions.",
                 "",
@@ -232,7 +187,7 @@
                 {
                     "Title": "Query Example Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-example"
+                    "Url"  : "/php/queries/query-example"
                 },
                 {
                     "Title": "Facets with Map index",
@@ -250,14 +205,13 @@
             "Title": "Execute the query",
             "Slug": "step-7",
             "DescriptionLines": [
-                "* The resulting _query_ variable only holds the query definition.<br>",
-                "  (Use query.toString() to view the generated RQL)<br>",
+                "* The resulting _$query_ variable only holds the query definition.",
                 "",
                 "* Execute the query by calling `execute()`.",
                 "",
-                "* The _queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.",
+                "* The _$queryResults_ variable will hold the resulting aggregated items _per Facet_ defined.",
                 "",
-                "* E.g.:",
+                "* e.g.:",
                 "  * Under Facet: 'Product Category' there is an aggregated item for all Product documents that have 'beverages' in their category field.",
                 "",
                 "  * Under Facet: 'Price per Unit' there is an aggregated item for all Product documents that their 'PricePerUnit' is >= 100."
@@ -266,7 +220,7 @@
                 {
                     "Title": "Query Example Demo",
                     "Type" : "demo",
-                    "Url"  : "/java/queries/query-example"
+                    "Url"  : "/php/queries/query-example"
                 },
                 {
                     "Title": "Facets with Map index",

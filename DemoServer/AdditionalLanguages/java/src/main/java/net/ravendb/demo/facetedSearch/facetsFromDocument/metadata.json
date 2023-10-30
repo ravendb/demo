@@ -53,7 +53,7 @@
             "DescriptionLines": [
                 "* Define an index on the collection you would like to query.",
                 "",
-                "* The index entry fields will be used to define the Facets (see step 2)."
+                "* The index-fields will be used to define the Facets (see step 2)."
             ],
             "Assets": [
                 {

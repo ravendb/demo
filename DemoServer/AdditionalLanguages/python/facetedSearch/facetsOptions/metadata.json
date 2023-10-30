@@ -47,7 +47,7 @@
                 "* Define an index on the collection you would like to query.<br>",
                 "  (CategoryName is loaded from a related document).",
                 "",
-                "* The index entry fields will be used to define the Facets (see step-2)."
+                "* The index-fields will be used to define the Facets (see step-2)."
             ],
             "Assets": [
                 {
@@ -73,7 +73,7 @@
             "DescriptionLines": [
                 "Define the following per `Facet` object that will be added to the facet list:",
                 "",
-                "* _field_name_ - The index entry field by which the documents will be grouped.",
+                "* _field_name_ - The index-field by which the documents will be grouped.",
                 "",
                 "* _options_ - Define `FacetOptions` for the result list:<br>",
                 "  Options are relevant only for the _Facet_ type (and not for RangeFacet).",
@@ -89,8 +89,8 @@
                 "  * aggregations - define the sum, min, max & average per aggregated result",
                 "",
                 "* _In this example_:<br>",
-                "  'facet1' groups by the content of index field 'CategoryName'.<br>",
-                "  E.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.<br>",
+                "  'facet1' groups by the content of index-field 'CategoryName'.<br>",
+                "  e.g. all documents containing category 'Seafood' will be grouped into a single item in the aggregated results.<br>",
                 "  The number of items returned depends on the 'start' and 'pageSize' params.<br>",
                 "  The aggregated items will be sorted by the documents count per item in a descending order."
             ],
