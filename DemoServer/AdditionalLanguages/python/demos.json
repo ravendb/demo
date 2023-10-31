@@ -110,5 +110,22 @@
             "facetsAggregations",
             "facetsFromDocument"
         ]
+    },
+    {
+        "category": {
+            "slug": "text-search",
+            "directory": "textSearch"
+        },
+        "demos": [
+            "ftsQuerySearchBasics",
+            "ftsQuerySearchOperators",
+            "ftsQuerySearchWildcards",
+            "ftsQuerySearchBoosting",
+            "ftsWithStaticIndexSingleField",
+            "ftsWithStaticIndexMultipleFields",
+            "highlightQueryResultsBasics",
+            "highlightQueryResultsCustomized",
+            "highlightQueryResultsMapReduce"
+        ]
     }
 ]

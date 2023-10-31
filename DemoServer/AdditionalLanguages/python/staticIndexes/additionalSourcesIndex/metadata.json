@@ -21,7 +21,7 @@
             "Title": "Define the Map index class",
             "Slug": "step-1",
             "DescriptionLines": [
-                "* Create the Map index class - inherit from AbstractIndexCreationTask.",
+                "* Create the Map index class - inherit from `AbstractIndexCreationTask`.",
                 "",
                 "* This example defines a Map index on the Products collection."
             ],
