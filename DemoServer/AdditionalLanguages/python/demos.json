@@ -127,5 +127,34 @@
             "highlightQueryResultsCustomized",
             "highlightQueryResultsMapReduce"
         ]
+    },
+    {
+        "category": {
+            "slug": "compare-exchange",
+            "directory": "compareExchange"
+        },
+        "demos": [
+            "createCompareExchange",
+            "indexCompareExchange"
+        ]
+    },
+    {
+        "category": {
+            "slug": "spatial",
+            "directory": "spatial"
+        },
+        "demos": [
+            "spatialQuery",
+            "spatialIndex"
+        ]
+    },
+    {
+        "category": {
+            "slug": "advanced",
+            "directory": "advanced"
+        },
+        "demos": [
+            "createDatabase"
+        ]
     }
 ]

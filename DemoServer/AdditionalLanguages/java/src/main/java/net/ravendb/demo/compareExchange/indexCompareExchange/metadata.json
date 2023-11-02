@@ -76,7 +76,7 @@
                 "* The `IndexEntry` class defines the index-fields per entry in the index.<br>",
                 "  These fields will be indexed and can be queried on.",
                 "",
-                "* Field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
+                "* Index-field _UnitsInStock_ will be configured to hold CmpXchg Values (see next step)."
             ],
             "Assets": [
                 {
@@ -136,7 +136,7 @@
                 "",
                 "* The 'Products' documents can be filtered by the index-field _UnitsInStock_ defined in _Products_byUnitsInStock.IndexEntry.class_",
                 "",
-                "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
+                "* In this example, the resulting Product documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
             "Assets": [
                 {
