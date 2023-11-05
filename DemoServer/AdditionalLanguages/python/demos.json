@@ -117,12 +117,12 @@
             "directory": "textSearch"
         },
         "demos": [
-            "ftsQuerySearchBasics",
-            "ftsQuerySearchOperators",
-            "ftsQuerySearchWildcards",
-            "ftsQuerySearchBoosting",
-            "ftsWithStaticIndexSingleField",
-            "ftsWithStaticIndexMultipleFields",
+            "fTSQuerySearchBasics",
+            "fTSQuerySearchOperators",
+            "fTSQuerySearchWildcards",
+            "fTSQuerySearchBoosting",
+            "fTSWithStaticIndexSingleField",
+            "fTSWithStaticIndexMultipleFields",
             "highlightQueryResultsBasics",
             "highlightQueryResultsCustomized",
             "highlightQueryResultsMapReduce"
