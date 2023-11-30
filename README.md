@@ -1,7 +1,7 @@
 ## Setup
 In the `DemoServer` folder:
 ```
-npm install
+npm install --legacy-peer-deps
 npm run webpack
 ```
 
