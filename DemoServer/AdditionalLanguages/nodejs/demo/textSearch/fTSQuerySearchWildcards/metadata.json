@@ -29,18 +29,17 @@
             "Title": "Full text searching - Book",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
+        },
+        {
+            "Title": "Full-Text Search",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/full-text-search"
+        },
+        {
+            "Title": "Full-Text Search with Index",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
         }
-        //TODO
-        //        {
-        //            "Title": "How to search",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
-        //        },
-        //        {
-        //            "Title": "Querying using wildcards",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching#using-wildcards"
-        //        }
     ],
 
     "Walkthroughs": [
@@ -82,19 +81,17 @@
                     "Title": "FTS Query - Search Operations Demo",
                     "Type" : "demo",
                     "Url"  : "/nodejs/text-search/fts-query-search-operators"
-                }
-                /*,TODO
-                {
-                    "Title": "How to search",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
                 },
                 {
-                    "Title": "Querying searching",
+                    "Title": "Full-Text Search",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/full-text-search"
+                },
+                {
+                    "Title": "Full-Text Search with Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
                 }
-                */
             ]
         },
         {
@@ -119,19 +116,17 @@
                     "Title": "FTS Query - Search Operations Demo",
                     "Type" : "demo",
                     "Url"  : "/nodejs/text-search/fts-query-search-operators"
-                }
-                /* TODO,
-                {
-                    "Title": "How to search",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-search"
                 },
                 {
-                    "Title": "Querying searching",
+                    "Title": "Full-Text Search",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/full-text-search"
+                },
+                {
+                    "Title": "Full-Text Search with Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/searching"
                 }
-                */
             ]
         },
         {

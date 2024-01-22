@@ -26,17 +26,16 @@
             "Type": "demo",
             "Url": "/nodejs/text-search/highlight-query-results-basics"
         },
-        //TODO
-        //        {
-        //            "Title": "Querying highlighting",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-        //        },
-        //        {
-        //            "Title": "How to use highlighting",
-        //            "Type": "link",
-        //            "Url": "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-        //        },
+        {
+            "Title": "Highlight search results",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/highlight-query-results"
+        },
+        {
+            "Title": "Highlight index search results",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
+        },
         {
             "Title": "Highlighting - Blog",
             "Type" : "link",
@@ -173,17 +172,16 @@
                     "Type" : "demo",
                     "Url"  : "/nodejs/text-search/highlight-query-results-basics"
                 },
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        },
+                {
+                    "Title": "Highlight search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/highlight-query-results"
+                },
+                {
+                    "Title": "Highlight index search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
+                },
                 {
                     "Title": "Highlighting - Blog",
                     "Type" : "link",
@@ -231,18 +229,17 @@
                     "Title": "Query for documents - Map Index Demo",
                     "Type" : "demo",
                     "Url"  : "/nodejs/static-indexes/map-index#step-4"
+                },
+                {
+                    "Title": "Highlight search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/highlight-query-results"
+                },
+                {
+                    "Title": "Highlight index search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
                 }
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        }
             ]
         },
         {
@@ -256,17 +253,16 @@
                 "* Use these results to enhance your users' search experience."
             ],
             "Assets": [
-                //TODO
-                //        {
-                //            "Title": "Querying highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
-                //        },
-                //        {
-                //            "Title": "How to use highlighting",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-use-highlighting"
-                //        }
+                {
+                    "Title": "Highlight search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/highlight-query-results"
+                },
+                {
+                    "Title": "Highlight index search results",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/highlighting"
+                }
             ]
         }
     ]

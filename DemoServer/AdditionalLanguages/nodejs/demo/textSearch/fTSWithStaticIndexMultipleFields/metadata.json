@@ -34,13 +34,12 @@
             "Title": "Analyzers",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/using-analyzers"
+        },
+        {
+            "Title": "Full-Text Search",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/text-search/full-text-search"
         }
-        //TODO
-        //{
-        //    "Title": "Querying - Searching",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching#static-indexes"
-        //}
     ],
 
     "Walkthroughs": [

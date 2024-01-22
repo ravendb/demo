@@ -17,12 +17,6 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
         },
-        //TODO
-        //{
-        //    "Title": "Querying - Query Optimizer",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
-        //},
         {
             "Title": "Querying Basics",
             "Type" : "link",
@@ -32,7 +26,7 @@
         //{
         //    "Title": "Basic dynamic Query",
         //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+        //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
         //},
         {
             "Title": "Indexes Types",
@@ -68,12 +62,12 @@
                     "Title": "Querying Basics",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/query-index"
-                },
+                }
                 //TODO
                 //{
                 //    "Title": "Basic dynamic Query",
                 //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
+                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query"
                 //}
             ]
         },
@@ -100,12 +94,6 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
                 },
-                //TODO
-                //{
-                //    "Title": "Querying - Query Optimizer",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
-                //},
                 {
                     "Title": "Auto-Map-Index II Demo",
                     "Type" : "demo",

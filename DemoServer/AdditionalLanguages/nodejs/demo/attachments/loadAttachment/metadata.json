@@ -31,18 +31,18 @@
             "Title": "Loading attachments",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/attachments/loading"
-        } 
+        }, 
         //TODO
         //{
         //    "Title": "Attachments Operations",
         //    "Type" : "link",
         //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/attachments/get-attachment"
         //},
-        //{
-        //    "Title": "Check if attachment exists",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/how-to/check-if-attachment-exists"
-        //}
+        {
+            "Title": "Check if attachment exists",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/how-to/check-if-attachment-exists"
+        }
     ],
 
     "Walkthroughs": [
@@ -56,12 +56,11 @@
                 "* Calling _exists()_ does Not cause the session to track the document or the attachment."
             ],
             "Assets": [
-                // TODO
-                // {
-                //     "Title": "Check if attachment exists",
-                //     "Type" : "link",
-                //     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/how-to/check-if-attachment-exists"
-                // }
+                 {
+                     "Title": "Check if attachment exists",
+                     "Type" : "link",
+                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/how-to/check-if-attachment-exists"
+                 }
             ]
         },
         {

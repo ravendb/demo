@@ -35,11 +35,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
         },
-        {
-            "Title": "Creating a document store",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
-        },
+        // TODO
+        //   {
+        //       "Title": "Creating a document store",
+        //       "Type" : "link",
+        //       "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
+        //   },
         {
             "Title": "Setting up RavenDB",
             "Type" : "link",
@@ -93,11 +94,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
                 },
-                {
-                    "Title": "Creating a document store",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
-                },
+                // TODO
+                //   {
+                //      "Title": "Creating a document store",
+                //      "Type" : "link",
+                //      "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
+                //   },
                 {
                     "Title": "Setting up RavenDB",
                     "Type" : "link",
@@ -121,11 +123,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/what-is-a-document-store"
                 },
-                {
-                    "Title": "Creating a document store",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
-                },
+                // TODO
+                //   {
+                //     "Title": "Creating a document store",
+                //     "Type" : "link",
+                //     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/creating-document-store"
+                //   },
                 {
                     "Title": "Setting up RavenDB",
                     "Type" : "link",

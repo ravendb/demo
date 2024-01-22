@@ -30,12 +30,6 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
         },
-        //TODO
-        //{
-        //    "Title": "Basic dynamic Query",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-        //},
         {
             "Title": "Dynamic group-by query",
             "Type" : "link",
@@ -45,13 +39,12 @@
             "Title": "The query optimizer",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+        },
+        {
+            "Title": "Query Overview",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
         }
-        //TODO
-        //{
-        //    "Title": "Querying - Query Optimizer",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/what-is-rql#query-optimizer"
-        //}
     ],
 
     "Walkthroughs": [
@@ -69,16 +62,15 @@
                     "Url"  : "/nodejs/auto-indexes/auto-map-index1"
                 },
                 {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
+                },
+                {
                     "Title": "Querying an Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/query-index"
                 }
-                //TODO
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //}
             ]
         },
         {
@@ -112,17 +104,15 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
                 },
-                //TODO
-                //
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //},
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-perform-group-by-query"
+                },
+                {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
                 }
             ]
         },
@@ -161,12 +151,6 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/11-mapreduce-and-aggregations-in-ravendb#dynamic-aggregation-with-mapreduce-indexes"
                 },
-                //TODO
-                //{
-                //    "Title": "Basic dynamic Query",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query#example-i---basic-dynamic-query"
-                //},
                 {
                     "Title": "Dynamic group by query",
                     "Type" : "link",
@@ -176,6 +160,11 @@
                     "Title": "Projecting Fields Demo",
                     "Type" : "demo",
                     "Url"  : "/nodejs/queries/projecting-individual-fields"
+                },
+                {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
                 }
             ]
         },
@@ -214,13 +203,12 @@
                     "Title": "The query optimizer",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#the-query-optimizer"
+                },
+                {
+                    "Title": "Query Overview",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
                 }
-                //TODO
-                //{
-                //    "Title": "Querying - Query Optimizer",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/what-is-rql#query-optimizer"
-                //}
             ]
         },
         {
