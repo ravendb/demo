@@ -266,9 +266,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/highlighting"
                 },
                 {
-                    "Title": "How to use highlighting",
+                    "Title": "Highlight Search Results",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/text-search/highlight-query-results"
                 }
             ]
         },
