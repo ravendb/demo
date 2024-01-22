@@ -35,7 +35,7 @@
         {
             "Title": "Querying boosting",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/boosting"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/text-search/boost-search-results"
         },
         {
             "Title": "Indexes boosting",
@@ -78,7 +78,7 @@
                 {
                     "Title": "Querying boosting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/indexes/querying/boosting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/text-search/boost-search-results"
                 },
                 {
                     "Title": "Indexes boosting",

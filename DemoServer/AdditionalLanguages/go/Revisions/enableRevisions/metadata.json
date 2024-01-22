@@ -13,9 +13,9 @@
 
     "Assets": [
         {
-            "Title": "Revisions",
+            "Title": "Revisions overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/revisions/overview"
         },
         {
             "Title": "Document Revisions",
@@ -23,9 +23,9 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
         },
         {
-            "Title": "What are revisions",
+            "Title": "Manage revisions from Studio",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/revisions/what-are-revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/settings/document-revisions"
         }
     ],
 
@@ -47,14 +47,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "What are revisions",
+                    "Title": "Manage revisions from Studio",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/settings/document-revisions"
                 },
                 {
-                    "Title": "Revisions",
+                    "Title": "Revisions overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/revisions/overview"
                 }
             ]
         },
@@ -68,14 +68,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "What are revisions",
+                    "Title": "Manage revisions from Studio",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/revisions/what-are-revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/studio/database/settings/document-revisions"
                 },
                 {
-                    "Title": "Revisions",
+                    "Title": "Revisions overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/revisions/overview"
                 }
             ]
         },
@@ -90,9 +90,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Revisions",
+                    "Title": "Revisions overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/revisions/overview"
                 },
                 {
                     "Title": "Document Revisions",

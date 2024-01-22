@@ -29,12 +29,7 @@
         {
             "Title": "Fanout indexes Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/fanout-indexes#paging"
-        },
-        {
-            "Title": "Migration from 3.x - Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-nested-data#paging"
         },
         {
             "Title": "Deep paging",
@@ -139,7 +134,7 @@
                 {
                     "Title": "Fanout indexes Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/fanout-indexes#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/indexing-nested-data#paging"
                 }
             ]
         },

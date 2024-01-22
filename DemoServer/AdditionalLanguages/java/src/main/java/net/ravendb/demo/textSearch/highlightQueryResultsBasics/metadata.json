@@ -146,11 +146,6 @@
                     "Title": "Using term vectors",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/using-term-vectors"
-                },
-                {
-                    "Title": "Term vector in Lucene",
-                    "Type" : "link",
-                    "Url"  : "http://makble.com/what-is-term-vector-in-lucene"
                 }
             ]
         },
