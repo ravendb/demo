@@ -111,9 +111,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Revisions",
+                    "Title": "Revisions overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/document-extensions/revisions/overview"
                 },
                 {
                     "Title": "Document Revisions",
