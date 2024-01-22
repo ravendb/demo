@@ -29,12 +29,7 @@
         {
             "Title": "Fanout indexes Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes#paging"
-        },
-        {
-            "Title": "Migration from 3.x - Paging",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-nested-data#paging"
         },
         {
             "Title": "Deep paging",
@@ -144,7 +139,7 @@
                 {
                     "Title": "Fanout indexes Paging",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes#paging"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-nested-data#paging"
                 },
                 {
                     "Title": "Sample Program",

@@ -35,7 +35,7 @@
         {
             "Title": "How to use highlighting",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/text-search/highlight-query-results"
         },
         {
             "Title": "Highlighting - Blog",
@@ -234,11 +234,6 @@
                     "Title": "Using term vectors",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/using-term-vectors"
-                },
-                {
-                    "Title": "Term vector in Lucene",
-                    "Type" : "link",
-                    "Url"  : "http://makble.com/what-is-term-vector-in-lucene"
                 }
             ]
         },
@@ -275,7 +270,7 @@
                 {
                     "Title": "How to use highlighting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/text-search/highlight-query-results"
                 },
                 {
                     "Title": "Highlighting - Blog",
@@ -330,7 +325,7 @@
                 {
                     "Title": "How to use highlighting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-highlighting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/text-search/highlight-query-results"
                 }
             ]
         },

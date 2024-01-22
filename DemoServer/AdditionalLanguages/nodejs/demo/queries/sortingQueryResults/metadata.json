@@ -17,12 +17,11 @@
     ],
 
     "Assets": [
-        //TODO
-        //{
-        //    "Title": "Querying: Sorting",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/sorting"
-        //},
+        {
+            "Title": "Querying: Sorting",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/sort-query-results"
+        },
         {
             "Title": "Sorting query results",
             "Type" : "link",
@@ -39,12 +38,11 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-customize-query#randomordering"
         },
-        //TODO
-        //{
-        //    "Title": "Order by Distance",
-        //    "Type" : "link",
-        //   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-        //},
+        {
+           "Title": "Order by Distance",
+           "Type" : "link",
+           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
+        },
         {
             "Title": "Readme - orderBy()",
             "Type" : "link",
@@ -126,12 +124,11 @@
                 "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
             ],
             "Assets": [
-                //TODO
-                //{
-                //    "Title": "Querying: Sorting",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/sorting"
-                //},
+                {
+                    "Title": "Querying: Sorting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/sort-query-results"
+                },
                 {
                     "Title": "Sorting query results",
                     "Type" : "link",
@@ -147,13 +144,12 @@
                     "Title": "Random Ordering",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-customize-query#randomordering"
+                },
+                {
+                   "Title": "Order by Distance",
+                   "Type" : "link",
+                   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
                 }
-                //TODO
-                //{
-                //   "Title": "Order by Distance",
-                //   "Type" : "link",
-                //   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-                //}
             ]
         },
         {
@@ -184,12 +180,11 @@
                 "  _Score_, _Aggregated values_, _Spatial distance_, or _Random ordering_."
             ],
             "Assets": [
-                //TODO
-                //{
-                //    "Title": "Querying: Sorting",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/sorting"
-                //},
+                {
+                    "Title": "Querying: Sorting",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/sort-query-results"
+                },
                 {
                     "Title": "Sorting query results",
                     "Type" : "link",
@@ -205,13 +200,12 @@
                     "Title": "Random Ordering",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-customize-query#randomordering"
+                },
+                {
+                   "Title": "Order by Distance",
+                   "Type" : "link",
+                   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
                 }
-                //TODO
-                //{
-                //   "Title": "Order by Distance",
-                //   "Type" : "link",
-                //   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-                //}
             ]
         },
         {

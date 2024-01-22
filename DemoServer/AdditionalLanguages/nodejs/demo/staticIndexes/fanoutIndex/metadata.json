@@ -17,12 +17,11 @@
             "Type" : "demo",
             "Url"  : "/nodejs/static-indexes/static-indexes-overview"
         },
-        //TODO
-        //        {
-        //            "Title": "Fanout indexes",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes"
-        //        },
+        {
+            "Title": "Indexing Nested data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-nested-data"
+        },
         {
             "Title": "MaxIndexOutputsPerDocument",
             "Type" : "link",
@@ -88,12 +87,11 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/map-indexes"
                 },
-                //TODO
-                //        {
-                //            "Title": "Fanout indexes",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes"
-                //        },
+                {
+                    "Title": "Indexing Nested data",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-nested-data"
+                },
                 {
                     "Title": "MaxIndexOutputsPerDocument",
                     "Type" : "link",

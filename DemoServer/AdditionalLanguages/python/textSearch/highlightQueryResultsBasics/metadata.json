@@ -111,11 +111,6 @@
                     "Title": "Store Fields in Index Demo",
                     "Type" : "demo",
                     "Url"  : "/python/static-indexes/store-fields-in-index"
-                },
-                {
-                    "Title": "Term vector in Lucene",
-                    "Type" : "link",
-                    "Url"  : "http://makble.com/what-is-term-vector-in-lucene"
                 }
             ]
         },

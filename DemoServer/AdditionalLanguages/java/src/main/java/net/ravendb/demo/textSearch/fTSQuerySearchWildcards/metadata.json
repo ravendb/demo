@@ -34,12 +34,13 @@
             "Title": "How to search",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-use-search"
-        },
-        {
-            "Title": "Querying using wildcards",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching#using-wildcards"
         }
+        // TODO
+        //        {
+        //            "Title": "Querying using wildcards",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching#using-wildcards"
+        //        }
     ],
 
     "Walkthroughs": [

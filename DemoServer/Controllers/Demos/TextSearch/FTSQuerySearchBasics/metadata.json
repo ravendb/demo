@@ -20,9 +20,9 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/9-querying-in-ravendb#full-text-searching"
         },
         {
-            "Title": "How to search",
+            "Title": "Full-Text search",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/text-search/full-text-search"
         },
         {
             "Title": "Querying searching",
@@ -80,9 +80,9 @@
                     "Url"  : "/text-search/fts-query-search-boosting"
                 },
                 {
-                    "Title": "How to search",
+                    "Title": "Full-Text search",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-use-search"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/text-search/full-text-search"
                 },
                 {
                     "Title": "Querying searching",

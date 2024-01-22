@@ -41,11 +41,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
         },
-        {
-            "Title": "Working with Document Identifier",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
-        },
+        // TODO
+        //        {
+        //            "Title": "Working with Document Identifier",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
+        //        },
         {
             "Title": "How to Get Document ID",
             "Type" : "link",
@@ -76,11 +77,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/3-document-modeling#document-modeling"
                 },
-                {
-                    "Title": "Document fields naming convention",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/configuration/conventions#changing-fieldsproperties-naming-convention"
-                },
+                // TODO
+                //     {
+                //         "Title": "Document fields naming convention",
+                //         "Type" : "link",
+                //         "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/configuration/conventions#changing-fieldsproperties-naming-convention"
+                //     },
                 {
                     "Title": "What is a Collection",
                     "Type" : "link",
@@ -138,11 +140,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
                 },
-                {
-                    "Title": "Working with Document Identifier",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
-                },
+                // TODO
+                //        {
+                //            "Title": "Working with Document Identifier",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/working-with-document-identifiers"
+                //        },
                 {
                     "Title": "How to Get Document ID when Class is defined w/o ID property",
                     "Type" : "link",

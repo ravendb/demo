@@ -20,7 +20,7 @@
         {
             "Title": "Querying: Sorting",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/sort-query-results"
         },
         {
             "Title": "Sorting query results",
@@ -40,7 +40,7 @@
         {
             "Title": "Order by Distance",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
         }
     ],
 
@@ -115,7 +115,7 @@
                 {
                     "Title": "Querying: Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/sort-query-results"
                 },
                 {
                     "Title": "Sorting query results",
@@ -135,7 +135,7 @@
                 {
                     "Title": "Order by Distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
                 }
             ]
         },
@@ -170,7 +170,7 @@
                 {
                     "Title": "Querying: Sorting",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/sorting"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/sort-query-results"
                 },
                 {
                     "Title": "Sorting query results",
@@ -190,7 +190,7 @@
                 {
                     "Title": "Order by Distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
                 }
             ]
         },

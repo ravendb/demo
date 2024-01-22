@@ -38,9 +38,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-customize-query#randomordering"
         },
         {
-            "Title": "Order by Distance",
+            "Title": "Order by distance",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-make-a-spatial-query"
         },
         {
             "Title": "Sample Program",
@@ -139,10 +139,10 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-customize-query#randomordering"
                 },
                 {
-                    "Title": "Order by Distance",
+                    "Title": "Order by distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-                }
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-make-a-spatial-query"
+                },
             ]
         },
         {
@@ -194,10 +194,10 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-customize-query#randomordering"
                 },
                 {
-                    "Title": "Order by Distance",
+                    "Title": "Order by distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-                }
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-make-a-spatial-query"
+                },
             ]
         },
         {

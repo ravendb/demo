@@ -26,16 +26,15 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/studio/database/queries/spatial-queries-map-view"
         },
         {
-            "Title": "Querying: spatial",
+            "Title": "Query a Spatial Index",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
         },
-        //TODO
-        //        {
-        //            "Title": "How to spatial query",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
-        //        },
+        {
+            "Title": "Make a Spatial Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query"
+        },
         {
             "Title": "WKT geometry",
             "Type" : "link",
@@ -102,16 +101,15 @@
                     "Url"  : "/nodejs/queries/query-overview"
                 },
                 {
-                    "Title": "Querying: spatial",
+                    "Title": "Query a Spatial Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
+                },
+                {
+                    "Title": "Make a Spatial Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query"
                 }
-                //TODO
-                //        {
-                //            "Title": "How to spatial query",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
-                //        },
             ]
         },
         {
@@ -130,16 +128,15 @@
             ],
             "Assets": [
                 {
-                    "Title": "Querying: spatial",
+                    "Title": "Query a Spatial Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
+                },
+                {
+                    "Title": "Make a Spatial Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query"
                 }
-                //TODO
-                //        {
-                //            "Title": "How to spatial query",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
-                //        },
             ]
         },
         {
@@ -162,16 +159,15 @@
             ],
             "Assets": [
                 {
-                    "Title": "Querying: spatial",
+                    "Title": "Query a Spatial Index",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
+                },
+                {
+                    "Title": "Make a Spatial Query",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query"
                 }
-                //TODO
-                //        {
-                //            "Title": "How to spatial query",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
-                //        },
             ]
         },
         {
@@ -189,12 +185,11 @@
                 "  Method `orderByDistanceDescending()` is also available."
             ],
             "Assets": [
-                //TODO
-                //                {
-                //                    "Title": "Order by distance",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
-                //                }
+                {
+                   "Title": "Order by Distance",
+                   "Type" : "link",
+                   "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
+                }
             ]
         },
         {

@@ -26,16 +26,10 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/distinct#paging"
         },
-        //TODO
-        //{
-        //    "Title": "Fanout indexes Paging",
-        //    "Type" : "link",
-        //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes#paging"
-        //},
         {
-            "Title": "Migration from 3.x - Paging",
+            "Title": "Fanout indexes Paging",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/migration/client-api/session/querying/basics#paging"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-nested-data#paging"
         },
         {
             "Title": "Deep paging",
@@ -147,12 +141,11 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/distinct#paging"
                 },
-                //TODO
-                //{
-                //    "Title": "Fanout indexes Paging",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/fanout-indexes#paging"
-                //},
+                {
+                    "Title": "Fanout indexes Paging",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-nested-data#paging"
+                },
                 {
                     "Title": "Readme - skip()",
                     "Type" : "link",

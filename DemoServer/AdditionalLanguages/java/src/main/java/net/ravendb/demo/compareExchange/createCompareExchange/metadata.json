@@ -38,11 +38,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/put-compare-exchange-value"
         },
-        {
-            "Title": "Get Compare-Exchange",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/get-compare-exchange-values"
-        },
+        // TODO
+        //     {
+        //         "Title": "Get Compare-Exchange",
+        //         "Type": "link",
+        //         "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/get-compare-exchange-value"
+        //     },
         {
             "Title": "Compare-Exchange operations - Blog",
             "Type" : "link",
@@ -134,11 +135,12 @@
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/overview"
                 },
-                {
-                    "Title": "Get Compare-Exchange",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/get-compare-exchange-values"
-                },
+                // TODO
+                //     {
+                //         "Title": "Get Compare-Exchange",
+                //         "Type": "link",
+                //         "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/get-compare-exchange-value"
+                //     },
                 {
                     "Title": "What are Operations",
                     "Type": "link",

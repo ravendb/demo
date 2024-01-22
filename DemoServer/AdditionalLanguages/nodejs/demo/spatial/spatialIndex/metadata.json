@@ -25,21 +25,20 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/10-static-indexes-and-other-advanced-options#spatial-indexes"
         },
         {
-            "Title": "Querying: spatial",
+            "Title": "Query a Spatial Index",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/querying/spatial"
         },
-        //TODO
-        //        {
-        //            "Title": "How to spatial query",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query-a-spatial-index"
-        //        },
-        //        {
-        //            "Title": "Index Spatial Data",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
-        //        },
+        {
+            "Title": "Make a Spatial Query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-make-a-spatial-query"
+        },
+        {
+            "Title": "Index Spatial Data",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-spatial-data"
+        },
         {
             "Title": "WKT geometry",
             "Type" : "link",

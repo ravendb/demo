@@ -15,19 +15,14 @@
 
     "Assets": [
         {
-            "Title": "Revisions",
+            "Title": "Revisions overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/server/extensions/revisions"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/revisions/overview"
         },
         {
             "Title": "Document Revisions",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
-        },
-        {
-            "Title": "What are revisions",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/revisions/what-are-revisions"
         },
         {
             "Title": "Readme - Revisions",
@@ -97,19 +92,14 @@
             ],
             "Assets": [
                 {
-                    "Title": "Revisions",
+                    "Title": "Revisions overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/server/extensions/revisions"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/document-extensions/revisions/overview"
                 },
                 {
                     "Title": "Document Revisions",
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/4-deep-dive-into-the-ravendb-client-api#document-revisions"
-                },
-                {
-                    "Title": "What are revisions",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/revisions/what-are-revisions"
                 }
             ]
         }

@@ -31,9 +31,9 @@
             "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
         },
         {
-            "Title": "How to spatial query",
+            "Title": "Make a spatial query",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-make-a-spatial-query"
         },
         {
             "Title": "WKT geometry",
@@ -106,9 +106,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
                 },
                 {
-                    "Title": "How to spatial query",
+                    "Title": "Make a spatial query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-make-a-spatial-query"
                 }
             ]
         },
@@ -133,9 +133,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
                 },
                 {
-                    "Title": "How to spatial query",
+                    "Title": "Make a spatial query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-make-a-spatial-query"
                 }
             ]
         },
@@ -164,9 +164,9 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/indexes/querying/spatial"
                 },
                 {
-                    "Title": "How to spatial query",
+                    "Title": "Make a spatial query",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-make-a-spatial-query"
                 }
             ]
         },
@@ -188,7 +188,7 @@
                 {
                     "Title": "Order by distance",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-query-a-spatial-index#orderbydistance"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/Csharp/client-api/session/querying/how-to-make-a-spatial-query#spatial-sorting"
                 }
             ]
         },
