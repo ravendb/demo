@@ -17,7 +17,7 @@
         {
             "Title": "Query Overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
         },
         {
             "Title": "Querying an Index",
@@ -59,7 +59,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
                 },
                 {
                     "Title": "Querying an Index",
@@ -103,7 +103,7 @@
                 {
                     "Title": "Query Overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/iclient-api/session/querying/how-to-query"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/session/querying/how-to-query"
                 }
             ]
         }
