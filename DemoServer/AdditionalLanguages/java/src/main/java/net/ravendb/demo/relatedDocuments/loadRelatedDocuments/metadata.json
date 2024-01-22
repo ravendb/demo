@@ -16,11 +16,12 @@
             "Type" : "demo",
             "Url"  : "/java/related-documents/create-related-documents"
         },
-        {
-            "Title": "Documents relationships - Include",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-        },
+        // TODO
+        //        {
+        //            "Title": "Documents relationships - Include",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+        //        },
         {
             "Title": "Working with multiple documents",
             "Type" : "link",
@@ -58,11 +59,12 @@
                 "  * include() is Not recursive, it cannot be used to include documents that are referenced by the included documents."
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                // TODO
+                //        {
+                //            "Title": "Documents relationships - Include",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+                //        },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
@@ -87,11 +89,12 @@
 
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                // TODO
+                //        {
+                //            "Title": "Documents relationships - Include",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+                //        },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",
@@ -114,11 +117,12 @@
                 "  These changes will be persisted to the database upon the next saveChanges() call."
             ],
             "Assets": [
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                // TODO
+                //        {
+                //            "Title": "Documents relationships - Include",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+                //        },
                 {
                     "Title": "Working with multiple documents",
                     "Type" : "link",

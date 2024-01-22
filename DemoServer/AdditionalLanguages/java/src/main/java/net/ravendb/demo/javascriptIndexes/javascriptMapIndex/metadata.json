@@ -26,11 +26,12 @@
             "Type": "link",
             "Url": "https://ravendb.net/docs/article-page/latest/java/studio/database/indexes/indexes-overview"
         },
-        {
-            "Title": "JavaScript indexes",
-            "Type": "link",
-            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
-        },
+        // TODO
+        //        {
+        //            "Title": "JavaScript indexes",
+        //            "Type": "link",
+        //            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
+        //        },
         {
             "Title": "JavaScript indexes - Blog",
             "Type": "link",
@@ -55,12 +56,13 @@
                     "Title": "Map Indexes",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "JavaScript indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
                 }
+                // TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type": "link",
+                //            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
+                //        },
             ]
         },
         {
@@ -119,12 +121,13 @@
                     "Title": "Map Indexes",
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
-                },
-                {
-                    "Title": "JavaScript indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
                 }
+                // TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type": "link",
+                //            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
+                //        },
             ]
         },
         {
@@ -145,11 +148,12 @@
                     "Type": "link",
                     "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/map-indexes"
                 },
-                {
-                    "Title": "JavaScript indexes",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
-                },
+                // TODO
+                //        {
+                //            "Title": "JavaScript indexes",
+                //            "Type": "link",
+                //            "Url": "https://ravendb.net/docs/article-page/latest/java/indexes/javascript-indexes"
+                //        },
                 {
                     "Title": "Querying an index",
                     "Type": "link",

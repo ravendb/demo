@@ -29,12 +29,11 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/spatial"
         },
-// TODO        
-//        {
-//            "Title": "How to spatial query",
-//            "Type" : "link",
-//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-query-a-spatial-index"
-//        },
+        {
+            "Title": "Make a spatial query",
+            "Type" : "link",
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/session/querying/how-to-make-a-spatial-query"
+        },
         {
             "Title": "Index Spatial Data",
             "Type" : "link",

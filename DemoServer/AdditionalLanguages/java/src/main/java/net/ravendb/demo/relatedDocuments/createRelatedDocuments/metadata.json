@@ -34,11 +34,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
         },
-        {
-            "Title": "HiLo Algorithm",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
-        },
+        // TODO
+        //        {
+        //            "Title": "HiLo Algorithm",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
+        //        },
         {
             "Title": "Client-side identifier generation (hilo)",
             "Type" : "link",
@@ -124,11 +125,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
                 },
-                {
-                    "Title": "HiLo Algorithm",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
-                },
+                // TODO
+                //        {
+                //            "Title": "HiLo Algorithm",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
+                //        },
                 {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",
@@ -151,11 +153,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/server/kb/document-identifier-generation"
                 },
-                {
-                    "Title": "HiLo Algorithm",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
-                },
+                // TODO
+                //        {
+                //            "Title": "HiLo Algorithm",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/document-identifiers/hilo-algorithm"
+                //        },
                 {
                     "Title": "Client-side identifier generation (hilo)",
                     "Type" : "link",

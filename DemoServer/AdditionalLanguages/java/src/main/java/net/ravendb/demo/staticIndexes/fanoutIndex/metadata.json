@@ -20,7 +20,7 @@
         {
             "Title": "Fanout indexes",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
+            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-nested-data"
         },
         {
             "Title": "MaxIndexOutputsPerDocument",
@@ -113,7 +113,7 @@
                 {
                     "Title": "Fanout indexes",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/fanout-indexes"
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/indexing-nested-data"
                 },
                 {
                     "Title": "MaxIndexOutputsPerDocument",

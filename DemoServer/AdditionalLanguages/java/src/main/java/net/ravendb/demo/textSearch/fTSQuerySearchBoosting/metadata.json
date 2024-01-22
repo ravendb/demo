@@ -31,12 +31,12 @@
             "Title": "Querying searching",
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
-        }*/,
-        {
-            "Title": "Querying boosting",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/boosting"
-        },
+        }*/,        
+//        {
+//            "Title": "Querying boosting",
+//            "Type" : "link",
+//            "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/boosting"
+//        },
         {
             "Title": "Indexes boosting",
             "Type" : "link",
@@ -70,11 +70,11 @@
                 "  The higher the value, the higher the matching document will be listed in the results."
             ],
             "Assets": [
-                {
-                    "Title": "Querying boosting",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/boosting"
-                },
+//                {
+//                    "Title": "Querying boosting",
+//                    "Type" : "link",
+//                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/boosting"
+//                },
                 {
                     "Title": "Indexes boosting",
                     "Type" : "link",

@@ -30,11 +30,12 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/what-is-a-document-store"
         },
-        {
-            "Title": "Creating a document store",
-            "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
-        },
+        // TODO
+        //        {
+        //            "Title": "Creating a document store",
+        //            "Type" : "link",
+        //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
+        //        },
         {
             "Title": "Setting up RavenDB",
             "Type" : "link",
@@ -77,11 +78,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/what-is-a-document-store"
                 },
-                {
-                    "Title": "Creating a document store",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
-                },
+                // TODO
+                //        {
+                //            "Title": "Creating a document store",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
+                //        },
                 {
                     "Title": "Sample program",
                     "Type" : "link",
@@ -165,11 +167,12 @@
                 "  * Freeze the Conventions. Conventions can't be set after calling initialize()"
             ],
             "Assets": [
-                {
-                    "Title": "Creating a document store",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
-                }
+                // TODO
+                //        {
+                //            "Title": "Creating a document store",
+                //            "Type" : "link",
+                //            "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/creating-document-store"
+                //        },
             ]
         },
         {
@@ -189,11 +192,12 @@
                     "Type" : "link",
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/what-are-indexes"
                 },
-                {
-                    "Title": "Bulk Insert Operation",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
-                },
+                // TODO
+                //     {
+                //         "Title": "Bulk Insert Operation",
+                //         "Type" : "link",
+                //         "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/bulk-insert/how-to-work-with-bulk-insert-operation"
+                //     },
                 {
                     "Title": "What are Operations",
                     "Type" : "link",

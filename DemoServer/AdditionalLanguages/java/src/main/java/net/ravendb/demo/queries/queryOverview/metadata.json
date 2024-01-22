@@ -143,16 +143,17 @@
                     "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/filtering"
                 },
                 //TODO
-                //{
-                //    "Title": "Querying - Searching",
-                //    "Type" : "link",
-                //    "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
-                //},
-                {
-                    "Title": "Documents relationships - Include",
-                    "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
-                },
+                //  {
+                //      "Title": "Querying - Searching",
+                //      "Type" : "link",
+                //      "Url"  : "https://ravendb.net/docs/article-page/latest/java/indexes/querying/searching"
+                //  },
+                // TODO
+                //      {
+                //          "Title": "Documents relationships - Include",
+                //          "Type" : "link",
+                //          "Url"  : "https://ravendb.net/docs/article-page/latest/java/client-api/how-to/handle-document-relationships#includes"
+                //      },
                 {
                     "Title": "Query statistics",
                     "Type" : "link",
