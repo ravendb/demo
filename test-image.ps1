@@ -12,7 +12,7 @@ if ($alreadyRunning) {
     throw "Demo server image is already running."
 }
 
-Start-Process -FilePath 'cmd.exe' -ArgumentList '/c docker run --rm -p 8081:80 ravendb/demo'
+Start-Process -FilePath 'cmd.exe' -ArgumentList '/c docker run -e ASPNETCORE_URLS=http://*:8080 --rm -p 8080:8080 ravendb/demo'
 Start-Sleep -Seconds 4
 
-Start-Process http://localhost:8081
+Start-Process http://localhost:8080
