@@ -1,11 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="RavenDB.Client" Version="5.3.1" />
+    <PackageReference Include="RavenDB.Client" />
+    <PackageReference Include="System.Formats.Asn1" />
+    <PackageReference Include="System.Net.Http" />
+    <PackageReference Include="System.Text.RegularExpressions" />
+    <PackageReference Include="Newtonsoft.Json" VersionOverride="13.0.3" />
   </ItemGroup>
-
 </Project>

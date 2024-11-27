@@ -46,7 +46,7 @@ namespace DemoServer.Controllers.Demos.Queries.PagingQueryResults
                      #endregion
                      
                      #region Step_6
-                     int totalResults = stats.TotalResults;
+                     long totalResults = stats.TotalResults;
                      #endregion
             }
             #endregion 

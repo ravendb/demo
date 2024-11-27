@@ -23,7 +23,7 @@ export class ApiClient {
         let req = Axios({...config,
             headers,
             url
-        }).then((response: AxiosResponse<T>) => {
+        }).then((response: any) => {
             const userId = response.headers[userIdHeaderLowerCase] || response.headers[userIdHeader];
             
             if (!!userId) {

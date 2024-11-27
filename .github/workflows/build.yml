@@ -1,0 +1,26 @@
+name: Build
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+    branches:
+      - master
+
+  workflow_dispatch:
+
+jobs:
+  run-powershell-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Check out the code
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Run PowerShell script
+    - name: Build image
+      shell: pwsh
+      run: |
+        docker build -t ravendb/demo .
