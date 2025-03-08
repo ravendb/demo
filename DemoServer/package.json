@@ -5,7 +5,7 @@
     "lint": "tslint client/src/**/*.ts client/src/**/*.tsx"
   },
   "dependencies": {
-    "axios": "^0.28.0",
+    "axios": "^1.8.2",
     "bootstrap-sass": "^3.4.3",
     "bootstrap.native": "2.0.24",
     "bootstrap.native-loader": "1.0.7",
