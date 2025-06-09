@@ -1,6 +1,6 @@
 import * as React from "react";
 import { connect } from "react-redux";
-import MetaTags from "react-meta-tags";
+import { Helmet } from "react-helmet-async";
 import { AppState } from "../../store/state";
 import { DemoHtmlMetadata, selectHtmlMetadata } from "../../store/selectors/metadata";
 
@@ -14,16 +14,13 @@ class MetadataComponent extends React.Component<StateProps, {}> {
         const { metadata } = this.props;
         const { title, description, image, url } = metadata;
 
-        const descriptionTags = description && <>
-            <meta name="description" content={description} />
-            <meta property="og:description" content={description} />
-            <meta property="twitter:description" content={description} />
-        </>;
-
-        return <MetaTags>
+        return <Helmet>
             <title>{title}</title>
-            {descriptionTags}
 
+            {description && <meta name="description" content={description} />}
+            {description && <meta property="og:description" content={description} />}
+            {description && <meta property="twitter:description" content={description} />}
+                
             <meta property="og:site_name" content="RavenDB Demo" />
             <meta property="og:type" content="website" />
             <meta property="og:title" content={title} />
@@ -37,7 +34,7 @@ class MetadataComponent extends React.Component<StateProps, {}> {
             <meta property="twitter:title" content={title} />
             <meta property="twitter:image" content={image} />
             <meta property="twitter:url" content={url} />
-        </MetaTags>;
+        </Helmet>;
     }
 }
 
