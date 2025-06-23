@@ -10,10 +10,6 @@ function readFromStorage<T>(key: string) {
     return JSON.parse(item) as T;
 }
 
-function removeFromStorage(key: string) {
-    localStorage.removeItem(key);
-}
-
 class Keys {
     static readonly userId = "userId";
     static readonly userProgress = "userProgress";

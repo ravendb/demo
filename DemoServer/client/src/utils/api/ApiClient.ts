@@ -1,6 +1,5 @@
 import Axios, * as axios from "axios";
 import { DemoStorage } from "../localStorage/DemoStorage";
-import { AxiosResponse } from "axios";
 
 const userIdHeader = "DemoUser-ID";
 const userIdHeaderLowerCase = userIdHeader.toLowerCase();
