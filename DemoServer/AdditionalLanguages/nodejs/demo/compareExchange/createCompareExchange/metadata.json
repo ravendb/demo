@@ -28,22 +28,21 @@
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
         },
-        //TODO
-        //        {
-        //            "Title": "Compare-Exchange overview",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-        //        },
-        //        {
-        //            "Title": "Put Compare-Exchange",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/put-compare-exchange-value"
-        //        },
-        //        {
-        //            "Title": "Get Compare-Exchange",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/5.3/nodejs/client-api/operations/compare-exchange/get-compare-exchange-values"
-        //        },
+        {
+            "Title": "Compare-Exchange overview",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+        },
+        {
+            "Title": "Create Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
+        },
+        {
+            "Title": "Get Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/get-cmpxchg-item"
+        },
         {
             "Title": "Compare-Exchange operations - Blog",
             "Type" : "link",
@@ -80,22 +79,21 @@
                 "  This is a cluster-level operation and will only be applied after a majority of the cluster nodes confirm its acceptance."
             ],
             "Assets": [
-                //TODO
-                //       {
-                //           "Title": "Compare-Exchange overview",
-                //           "Type" : "link",
-                //           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-                //       },
-                //       {
-                //           "Title": "Put Compare-Exchange",
-                //           "Type" : "link",
-                //           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/put-compare-exchange-value"
-                //       },
-                //       {
-                //           "Title": "What are Operations",
-                //           "Type" : "link",
-                //           "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/what-are-operations"
-                //       }
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+                },
+                {
+                    "Title": "Create Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/what-are-operations"
+                }
             ]
         },
         {
@@ -108,17 +106,16 @@
                 "  which is a unique sequential number assigned to the value per any change."
             ],
             "Assets": [
-                //TODO
-                //        {
-                //            "Title": "Compare-Exchange overview",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-                //        },
-                //        {
-                //            "Title": "Put Compare-Exchange",
-                //            "Type" : "link",
-                //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/put-compare-exchange-value"
-                //        }
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+                },
+                {
+                    "Title": "Create Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
+                }
             ]
         },
         {
@@ -132,22 +129,21 @@
                 "* Variable _getCmpXchgResult_ will contain the matching CmpXchg item.<br>"
             ],
             "Assets": [
-                //TODO
-                //                {
-                //                    "Title": "Compare-Exchange overview",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-                //                },
-                //                {
-                //                    "Title": "Get Compare-Exchange",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/5.3/nodejs/client-api/operations/compare-exchange/get-compare-exchange-values"
-                //                },
-                //                {
-                //                    "Title": "What are Operations",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/what-are-operations"
-                //                }
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+                },
+                {
+                    "Title": "Get Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/get-cmpxchg-item"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/what-are-operations"
+                }
             ]
         },
         {
@@ -160,12 +156,11 @@
                 "* metadata - Metadata dictionary for this key"
             ],
             "Assets": [
-                //TODO
-                //                {
-                //                    "Title": "Compare-Exchange overview",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-                //                }
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+                }
             ]
         }
     ]

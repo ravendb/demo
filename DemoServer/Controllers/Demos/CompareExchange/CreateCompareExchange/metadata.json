@@ -31,17 +31,17 @@
         {
             "Title": "Compare-Exchange overview",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
         },
         {
-            "Title": "Put Compare-Exchange",
+            "Title": "Create Compare-Exchange",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
         },
         {
             "Title": "Get Compare-Exchange",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/5.3/csharp/client-api/operations/compare-exchange/get-compare-exchange-values"
+            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/get-cmpxchg-item"
         },
         {
             "Title": "Compare-Exchange operations - Blog",
@@ -82,12 +82,12 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
                 },
                 {
-                    "Title": "Put Compare-Exchange",
+                    "Title": "Create Compare-Exchange",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
                 },
                 {
                     "Title": "What are Operations",
@@ -109,12 +109,12 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
                 },
                 {
-                    "Title": "Put Compare-Exchange",
+                    "Title": "Create Compare-Exchange",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/put-compare-exchange-value"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/create-cmpxchg-items"
                 }
             ]
         },
@@ -132,12 +132,12 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
                 },
                 {
                     "Title": "Get Compare-Exchange",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/5.3/csharp/client-api/operations/compare-exchange/get-compare-exchange-values"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/get-cmpxchg-item"
                 },
                 {
                     "Title": "What are Operations",
@@ -159,7 +159,7 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/csharp/client-api/operations/compare-exchange/overview"
+                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
                 }
             ]
         }
