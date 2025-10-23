@@ -18,12 +18,12 @@
         {
             "Title": "Compare-Exchange overview",
             "Type" : "link",
-            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+            "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
         },
         {
             "Title": "Index Compare-Exchange values",
             "Type" : "link",
-            "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/indexing-cmpxchg-values"
+            "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
         },
         {
             "Title": "Distributed Compare-Exchange operations",
@@ -127,17 +127,17 @@
                 {
                     "Title": "Compare-Exchange overview",
                     "Type" : "link",
-                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/overview"
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
                 },
                 {
                     "Title": "Index Compare-Exchange values",
                     "Type" : "link",
-                    "Url"  : "https://docs.ravendb.net/7.1/compare-exchange/indexing-cmpxchg-values"
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
                 },
                 {
                     "Title": "Querying an index",
                     "Type" : "link",
-                    "Url"  : "https://docs.ravendb.net/7.1/indexes/querying/query-index"
+                    "Url"  : "https://docs.ravendb.net/indexes/querying/query-index"
                 }
             ]
         }
