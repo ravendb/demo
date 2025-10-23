@@ -14,16 +14,15 @@
             "Type" : "demo",
             "Url"  : "/nodejs/compare-exchange/create-compare-exchange"
         },
-        //TODO
-        //        {
-        //            "Title": "Compare-Exchange overview",
-        //            "Type" : "link",
-        //            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-        //        },
+        {
+            "Title": "Compare-Exchange overview",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+        },
         {
             "Title": "Index Compare-Exchange values",
             "Type" : "link",
-            "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-compare-exchange-values#querying-the-index"
+            "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
         },
         {
             "Title": "Distributed Compare-Exchange operations",
@@ -110,16 +109,15 @@
                 "* In this example, the resulting Product documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
             "Assets": [
-                //TODO
-                //                {
-                //                    "Title": "Compare-Exchange overview",
-                //                    "Type" : "link",
-                //                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/client-api/operations/compare-exchange/overview"
-                //                },
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+                },
                 {
                     "Title": "Index Compare-Exchange values",
                     "Type" : "link",
-                    "Url"  : "https://ravendb.net/docs/article-page/latest/nodejs/indexes/indexing-compare-exchange-values#querying-the-index"
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
                 },
                 {
                     "Title": "Querying an index",

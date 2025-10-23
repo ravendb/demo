@@ -29,6 +29,21 @@
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/6-ravendb-clusters#distributed-atomic-compare-exchange-operations"
         },
         {
+            "Title": "Compare-Exchange overview",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+        },
+        {
+            "Title": "Create Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/create-cmpxchg-items"
+        },
+        {
+            "Title": "Get Compare-Exchange",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/get-cmpxchg-item"
+        },
+        {
             "Title": "Compare-Exchange operations - Blog",
             "Type" : "link",
             "Url"  : "https://ayende.com/blog/182948-C/distributed-compare-exchange-operations-with-ravendb"
@@ -65,9 +80,9 @@
             ],
             "Assets": [
                 {
-                    "Title": "Put Compare-Exchange",
-                    "Type": "link",
-                    "Url": "https://ravendb.net/docs/article-page/latest/java/client-api/operations/compare-exchange/put-compare-exchange-value"
+                    "Title": "Create Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/create-cmpxchg-items"
                 },
                 {
                     "Title": "What are Operations",
@@ -86,6 +101,16 @@
                 "  which is a unique sequential number assigned to the value per any change."
             ],
             "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+                },
+                {
+                    "Title": "Create Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/create-cmpxchg-items"
+                }
             ]
         },
         {
@@ -99,6 +124,21 @@
                 "* Variable _get_cmp_xchg_result_ will contain the matching CmpXchg item.<br>"
             ],
             "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+                },
+                {
+                    "Title": "Get Compare-Exchange",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/get-cmpxchg-item"
+                },
+                {
+                    "Title": "What are Operations",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/client-api/operations/what-are-operations/"
+                }
             ]
         },
         {
@@ -111,6 +151,11 @@
                 "* metadata - Metadata dictionary for this key"
             ],
             "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+                }
             ]
         }
     ]

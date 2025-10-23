@@ -16,6 +16,16 @@
             "Url"  : "/php/compare-exchange/create-compare-exchange"
         },
         {
+            "Title": "Compare-Exchange overview",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+        },
+        {
+            "Title": "Index Compare-Exchange values",
+            "Type" : "link",
+            "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
+        },
+        {
             "Title": "Distributed Compare-Exchange operations",
             "Type" : "link",
             "Url"  : "https://ravendb.net/learn/inside-ravendb-book/reader/4.0/2-zero-to-ravendb#distributed-compare-exchange-operations-with-ravendb"
@@ -113,7 +123,23 @@
                 "",
                 "* In this example, the resulting documents are only those for which a matching CmpXchg Key has a Value above minValue."
             ],
-            "Assets": []
+            "Assets": [
+                {
+                    "Title": "Compare-Exchange overview",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/overview"
+                },
+                {
+                    "Title": "Index Compare-Exchange values",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/compare-exchange/indexing-cmpxchg-values"
+                },
+                {
+                    "Title": "Querying an index",
+                    "Type" : "link",
+                    "Url"  : "https://docs.ravendb.net/indexes/querying/query-index"
+                }
+            ]
         }
     ]
 }
