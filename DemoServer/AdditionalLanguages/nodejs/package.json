@@ -11,7 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "ravendb": "^5.4.1"
+    "ravendb": "^7.2.0"
   },
   "devDependencies": {
     "eslint": "^8.22.0",
