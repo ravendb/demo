@@ -5,7 +5,7 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "axios": "^1.13.5",
+    "axios": "^1.15.2",
     "bootstrap-sass": "^3.4.3",
     "bootstrap.native": "2.0.24",
     "bootstrap.native-loader": "1.0.7",
