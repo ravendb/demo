@@ -4,7 +4,8 @@ WORKDIR /app
 
 RUN curl -sL https://deb.nodesource.com/setup_22.x | bash - \
     && apt-get update \
-    && apt-get install -y nodejs 
+    && apt-get upgrade -y \
+    && apt-get install -y nodejs
 
 COPY . ./
 RUN dotnet restore \ 
