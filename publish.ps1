@@ -5,7 +5,7 @@ if ($LASTEXITCODE -ne 0) {
     throw "Build failed"
 }
 
-docker login -u ravendb
+#docker login -u ravendb
 if ($LASTEXITCODE -ne 0) {
     throw "Login to docker hub failed."
 }
