@@ -1,4 +1,7 @@
 {
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "webpack": "webpack",
     "dev-webpack": "webpack serve",
