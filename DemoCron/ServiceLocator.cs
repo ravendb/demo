@@ -30,11 +30,7 @@ namespace DemoCron
                 .Build();
 
 
-            var loggerFactory = new LoggerFactory()
-                .AddNLog();
-
-            serviceCollection.AddSingleton(loggerFactory);
-            serviceCollection.AddLogging();
+            serviceCollection.AddLogging(b => b.AddNLog());
             serviceCollection.AddOptions();
 
             var settings = new Settings();
